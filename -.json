@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1761737723,
+            "lastTimeChecked": 1761738372,
             "possibleDuplicates": [
-              "19a2fc04ecbbb9f9",
-              "19a2faf6dd7ec63d"
+              "19a2fcad87671a06",
+              "19a2fc04ecbbb9f9"
             ]
           }
         }
@@ -13017,7 +13017,7 @@
       ]
     },
     {
-      "updatedAt": "2025-10-29T11:41:06.000Z",
+      "updatedAt": "2025-10-29T11:48:45.000Z",
       "createdAt": "2025-10-28T18:56:12.128Z",
       "id": "jEqM8vqR6Bt2H2ZB",
       "name": "Backup Diário para o GITHUB",
@@ -13120,7 +13120,7 @@
           "name": "Update file",
           "type": "n8n-nodes-base.github",
           "position": [
-            1360,
+            1568,
             64
           ],
           "webhookId": "27218087-8df7-474d-a39f-70cfa9c34ec8",
@@ -13155,7 +13155,7 @@
           "name": "Upload file",
           "type": "n8n-nodes-base.github",
           "position": [
-            1360,
+            1568,
             224
           ],
           "webhookId": "ce4b561b-acb9-4cd8-b76f-4928dada9674",
@@ -13183,7 +13183,7 @@
           "name": "Check if file exists",
           "type": "n8n-nodes-base.if",
           "position": [
-            1200,
+            1408,
             144
           ],
           "typeVersion": 1
@@ -13200,7 +13200,7 @@
           "name": "Json file",
           "type": "n8n-nodes-base.convertToFile",
           "position": [
-            720,
+            800,
             144
           ],
           "typeVersion": 1.1
@@ -13214,7 +13214,7 @@
           "name": "To base64",
           "type": "n8n-nodes-base.extractFromFile",
           "position": [
-            880,
+            1008,
             144
           ],
           "typeVersion": 1
@@ -13259,7 +13259,7 @@
           "name": "Commit date & file name",
           "type": "n8n-nodes-base.set",
           "position": [
-            1040,
+            1232,
             144
           ],
           "typeVersion": 3.4
@@ -13268,7 +13268,7 @@
           "parameters": {
             "content": "### Retrieve and process workflows from n8n",
             "height": 380,
-            "width": 460,
+            "width": 844,
             "color": 3
           },
           "id": "d6c53e73-d000-46c1-adec-de4352764713",
@@ -13284,14 +13284,14 @@
           "parameters": {
             "content": "### Commit + edit/create files if needed",
             "height": 380,
-            "width": 460,
+            "width": 620,
             "color": 4
           },
           "id": "32640e19-6197-4ba1-bf81-08285c389155",
           "name": "Sticky Note3",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            800,
+            1184,
             0
           ],
           "typeVersion": 1
@@ -13333,11 +13333,24 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.3,
           "position": [
-            400,
+            352,
             144
           ],
           "id": "8bb1dead-f92b-471c-a23e-96c0352146cc",
           "name": "Retrieve workflows"
+        },
+        {
+          "parameters": {
+            "jsCode": "const workflow = {...$json};\n\nfunction sanitize(obj) {\n  for (const key in obj) {\n    if (typeof obj[key] === 'string') {\n      if (obj[key].match(/[A-Za-z0-9]{20,}/)) {\n        obj[key] = '[REDACTED]';\n      }\n    } else if (typeof obj[key] === 'object') {\n      sanitize(obj[key]);\n    }\n  }\n}\n\nsanitize(workflow);\nreturn [{ json: workflow }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            560,
+            144
+          ],
+          "id": "9f539f12-d98c-4de5-9494-7975648a681d",
+          "name": "elimina apikeys do backup"
         }
       ],
       "connections": {
@@ -13429,6 +13442,17 @@
           "main": [
             [
               {
+                "node": "elimina apikeys do backup",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "elimina apikeys do backup": {
+          "main": [
+            [
+              {
                 "node": "Json file",
                 "type": "main",
                 "index": 0
@@ -13449,7 +13473,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "304314ee-bb6a-4320-b94a-0aeab71b004c",
+      "versionId": "ca928b68-5275-44f4-9598-df06fcfe5e29",
       "triggerCount": 1,
       "shared": [
         {

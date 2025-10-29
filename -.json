@@ -13017,7 +13017,7 @@
       ]
     },
     {
-      "updatedAt": "2025-10-29T11:48:45.000Z",
+      "updatedAt": "2025-10-29T11:57:34.000Z",
       "createdAt": "2025-10-28T18:56:12.128Z",
       "id": "jEqM8vqR6Bt2H2ZB",
       "name": "Backup Diário para o GITHUB",
@@ -13147,9 +13147,9 @@
               "cachedResultName": "n8n",
               "cachedResultUrl": "https://github.com/lisborob/n8n"
             },
-            "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json",
-            "fileContent": "={{ $('To base64').item.json.data }}",
-            "commitMessage": "=backup-{{ $node['Commit date & file name'].json.commitDate }}"
+            "filePath": "={{ $binary.data.fileName}} }}",
+            "binaryData": true,
+            "commitMessage": "=backup {{ $json.name}} }}"
           },
           "id": "4f1cf870-7335-4fe2-9c94-eab0f70f54a3",
           "name": "Upload file",
@@ -13298,32 +13298,6 @@
         },
         {
           "parameters": {
-            "resource": "audit",
-            "operation": "generate",
-            "additionalOptions": {
-              "categories": [
-                "credentials"
-              ]
-            },
-            "requestOptions": {}
-          },
-          "type": "n8n-nodes-base.n8n",
-          "typeVersion": 1,
-          "position": [
-            0,
-            0
-          ],
-          "id": "6527569a-24ba-429e-ae5d-a21465285866",
-          "name": "Generate a security audit",
-          "credentials": {
-            "n8nApi": {
-              "id": "1SZZcmIWeUPknLq2",
-              "name": "n8n account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "url": "https://n8n.ooniverse.ai/api/v1/workflows",
             "sendHeaders": true,
             "specifyHeaders": "json",
@@ -13341,7 +13315,7 @@
         },
         {
           "parameters": {
-            "jsCode": "const workflow = {...$json};\n\nfunction sanitize(obj) {\n  for (const key in obj) {\n    if (typeof obj[key] === 'string') {\n      if (obj[key].match(/[A-Za-z0-9]{20,}/)) {\n        obj[key] = '[REDACTED]';\n      }\n    } else if (typeof obj[key] === 'object') {\n      sanitize(obj[key]);\n    }\n  }\n}\n\nsanitize(workflow);\nreturn [{ json: workflow }];"
+            "jsCode": "const workflow = {...$json};\n\n// Sanitize secrets\nfunction sanitize(obj) {\n  for (const key in obj) {\n    if (typeof obj[key] === 'string') {\n      if (obj[key].match(/[A-Za-z0-9]{20,}/)) {\n        obj[key] = '[REDACTED]';\n      }\n    } else if (typeof obj[key] === 'object' && obj[key] !== null) {\n      sanitize(obj[key]);\n    }\n  }\n}\n\nsanitize(workflow);\n\n// Define filename (no subpastas)\nconst safeName = (workflow.name || 'workflow').replace(/[^a-zA-Z0-9-_]/g, '_');\nconst fileName = `${safeName}_${workflow.id}.json`;\n\nreturn [{\n  json: workflow,\n  binary: {\n    data: {\n      fileName,\n      mimeType: 'application/json',\n      data: Buffer.from(JSON.stringify(workflow, null, 2)).toString('base64')\n    }\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -13473,7 +13447,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "ca928b68-5275-44f4-9598-df06fcfe5e29",
+      "versionId": "728435ca-91c2-4997-ba58-eecca2be0970",
       "triggerCount": 1,
       "shared": [
         {

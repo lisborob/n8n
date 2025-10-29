@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1761738372,
+            "lastTimeChecked": 1761770166,
             "possibleDuplicates": [
-              "19a2fcad87671a06",
-              "19a2fc04ecbbb9f9"
+              "19a31af5fed61c07",
+              "19a31ab8b0c8ede6"
             ]
           }
         }
@@ -2556,7 +2556,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            9
+            18
           ]
         }
       },
@@ -2578,7 +2578,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-28T13:22:38.000Z",
+      "updatedAt": "2025-10-29T16:15:06.000Z",
       "createdAt": "2025-10-28T13:02:57.886Z",
       "id": "Qfma1Z4YMAZXmVi3",
       "name": "Copy Thiago teste2",
@@ -2975,7 +2975,8 @@
               ],
               "attemptToConvertTypes": false,
               "convertFieldsToString": false
-            }
+            },
+            "options": {}
           },
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
@@ -3010,7 +3011,8 @@
             2480
           ],
           "id": "7e2403b2-dcbf-4fce-9cb8-e076d84e0dc9",
-          "name": "When clicking ‘Execute workflow’"
+          "name": "When clicking ‘Execute workflow’",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3200,7 +3202,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.2,
           "position": [
-            -1424,
+            -1376,
             2848
           ],
           "id": "1fdfe745-201f-4253-9563-27557e305929",
@@ -3222,7 +3224,7 @@
           "type": "n8n-nodes-base.html",
           "typeVersion": 1.2,
           "position": [
-            -1024,
+            -1120,
             2848
           ],
           "id": "5758b084-e3b8-4f9c-960b-caaf54efc862",
@@ -3344,7 +3346,8 @@
               ],
               "attemptToConvertTypes": false,
               "convertFieldsToString": false
-            }
+            },
+            "options": {}
           },
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
@@ -3367,8 +3370,8 @@
           "type": "n8n-nodes-base.telegramTrigger",
           "typeVersion": 1.2,
           "position": [
-            -2256,
-            2832
+            -2368,
+            3152
           ],
           "id": "61452437-b03a-419b-9b18-a347cd36a264",
           "name": "Telegram Trigger1",
@@ -3515,12 +3518,11 @@
               "conditions": [
                 {
                   "id": "daec7a00-9ffd-4e5c-994c-c6fcddd2d23d",
-                  "leftValue": "=",
-                  "rightValue": "",
+                  "leftValue": "={{ $json.message.text }}}",
+                  "rightValue": "http",
                   "operator": {
                     "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
+                    "operation": "contains"
                   }
                 }
               ],
@@ -3531,11 +3533,112 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            -2048,
-            2832
+            -2176,
+            3152
           ],
           "id": "59e7f038-aa2a-4d8d-9d17-ae327d7a712d",
           "name": "If2"
+        },
+        {
+          "parameters": {
+            "url": "=https://app.scrapingbee.com/api/v1/",
+            "sendQuery": true,
+            "queryParameters": {
+              "parameters": [
+                {
+                  "name": "Api_key",
+                  "value": "[REDACTED]"
+                },
+                {
+                  "name": "url",
+                  "value": "={{ $json.message.link_preview_options.url }}"
+                },
+                {
+                  "name": "extract_rules",
+                  "value": "={\n  \"preco_do_produto\": {\n    \"selector\": \"body\",\n    \"type\": \"text\",\n    \"output\": \"json\",\n    \"ai_prompt\": \"Extraia o preço de venda atual, incluindo a moeda (ex: R$ ou $), do principal produto na página. Limpe o texto para que contenha apenas o preço formatado.\"\n  },\n  \"nome_do_produto\": {\n    \"selector\": \"title\",\n    \"type\": \"text\",\n    \"output\": \"json\"\n  }\n}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.2,
+          "position": [
+            -2096,
+            2992
+          ],
+          "id": "cbcd9f0a-3ec2-4278-8a90-b1519ce7fe70",
+          "name": "Baixar_Pagina_Produto."
+        },
+        {
+          "parameters": {
+            "jsCode": "// O link do produto está no campo 'text' da mensagem do Telegram\nconst productUrl = $json.message.text;\n\n// A biblioteca 'axios' é a forma mais robusta de fazer requisições HTTP no nó Code\nconst axios = require('axios');\n\ntry {\n  // Faz a requisição HTTP\n  const response = await axios.get(productUrl, {\n    // Simula um navegador para evitar bloqueios\n    headers: {\n      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'\n    },\n    // Garante que a resposta seja tratada como texto\n    responseType: 'text'\n  });\n\n  // O HTML está em response.data\n  const htmlContent = response.data;\n\n  // Retorna o HTML em um novo campo chamado 'html_content'\n  return [{\n    json: {\n      html_content: htmlContent\n    }\n  }];\n\n} catch (error) {\n  // Trata erros de requisição (ex: página não encontrada, bloqueio)\n  return [{\n    json: {\n      html_content: \"ERRO_HTTP\",\n      error_message: error.message\n    }\n  }];\n}\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2112,
+            2816
+          ],
+          "id": "31a2ec5d-ef0e-4fa9-9f1e-63c54ef453d0",
+          "name": "Code in JavaScript2",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "url": "={{ $json.message.link_preview_options.url }}",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-scrapingbee.ScrapingBee",
+          "typeVersion": 1,
+          "position": [
+            -1920,
+            3104
+          ],
+          "id": "af4328a8-d384-44a4-983d-adb610bbf3a2",
+          "name": "Scrape using HTML API",
+          "alwaysOutputData": false,
+          "credentials": {
+            "ScrapingBeeApi": {
+              "id": "KWH95xLMW7pPmUSh",
+              "name": "Thiago - ScrapingBee account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": "llama-3.1-8b-instant",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            -1712,
+            3296
+          ],
+          "id": "c3a3b691-8653-43dd-b2e6-003b126c61e8",
+          "name": "Groq Chat Model1",
+          "credentials": {
+            "groqApi": {
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Você é um assistente de extração de dados. Sua única tarefa é analisar o link fornecido e retornar um objeto JSON estrito com o preço e o nome do produto. NÃO adicione texto explicativo ou markdown.\nAnalise o HTML abaixo e extraia o preço e o nome. Retorne o resultado no JSON Schema fornecido.  {{ $('Telegram Trigger1').item.json.message.link_preview_options.url }}",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -1712,
+            3104
+          ],
+          "id": "5197aeb9-e903-4ea4-9f43-8bdcfb2381dc",
+          "name": "AI Agent1"
         }
       ],
       "connections": {
@@ -3693,7 +3796,7 @@
           "main": [
             [
               {
-                "node": "HTTP Request2",
+                "node": "Get row(s)1",
                 "type": "main",
                 "index": 0
               }
@@ -3865,11 +3968,43 @@
           "main": [
             [
               {
-                "node": "Get row(s)1",
+                "node": "Scrape using HTML API",
                 "type": "main",
                 "index": 0
               }
             ]
+          ]
+        },
+        "Baixar_Pagina_Produto.": {
+          "main": [
+            []
+          ]
+        },
+        "Scrape using HTML API": {
+          "main": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            []
           ]
         }
       },
@@ -3891,7 +4026,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "4445a1ba-8535-4193-9056-d1be89ac6579",
+      "versionId": "464c0171-1578-4cd9-a6f0-b7b1c39c1d0f",
       "triggerCount": 1,
       "shared": [
         {
@@ -11288,6 +11423,880 @@
       "tags": []
     },
     {
+      "updatedAt": "2025-10-29T16:42:15.000Z",
+      "createdAt": "2025-10-29T16:01:03.205Z",
+      "id": "YAjdPcAv083KbwXa",
+      "name": "Email Contact@midiacode.tech Auto",
+      "active": true,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.textPlain }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "OoO",
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. Or with automatic reply. Or resposta automática"
+                },
+                {
+                  "category": "return from client",
+                  "description": "Anything that comes from sender with a personal message, not written by algoritm, code, server or automation"
+                },
+                {
+                  "category": "Delete from undelivered email returned",
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            144,
+            288
+          ],
+          "id": "974824fb-7550-4ced-9648-594faab70073",
+          "name": "Text Classifier"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            368,
+            1024
+          ],
+          "id": "46d25c4f-b35a-470f-b9b0-0f6a3467b26d",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "veHITAbJHo5fcUku",
+              "name": "Google Gemini(PaLM) Api account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## reference\n**https://www.youtube.com/watch?v=_2bfCG9922E"
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -448,
+            -336
+          ],
+          "typeVersion": 1,
+          "id": "9c1c4329-63e8-484d-b8bd-8765d5b91e6e",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=check emails from the server message: {{ $('Email Trigger (IMAP)').item.json.textPlain }}\n\nUse the Hubspot MCP Client Tool to find the existing contact and delete this contact from Hubspot.\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and nothing should be done.\n\nif the company or contact has a deal, update the deal eliminating the connection of that contact to the deal.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            832,
+            656
+          ],
+          "id": "975df922-77f3-4cab-896b-87eb2b41557a",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            896,
+            880
+          ],
+          "id": "fda96e44-6e7d-4e9e-a2b8-1e7f58cb5489",
+          "name": "Simple Memory"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1072,
+            944
+          ],
+          "id": "97ff6b9e-224b-43a3-b587-961db9ad6c08",
+          "name": "Hubspot MCP Client"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO do contact@midiacode.tech:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1184,
+            656
+          ],
+          "id": "a73e3139-c620-4b89-9143-56d926731cf2",
+          "name": "Enviar texto",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailReadImap",
+          "typeVersion": 2.1,
+          "position": [
+            -256,
+            368
+          ],
+          "id": "3b41cbd9-9383-4dfa-9678-362540f03de7",
+          "name": "Email Trigger (IMAP)",
+          "credentials": {
+            "imap": {
+              "id": "T2iCcPAs4ylH9UZY",
+              "name": "IMAP-contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@midiacode.tech",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "subject": "email from prospect from contact@midiacode.tech",
+            "html": "=from:  {{ $json.from }}\nmensagem: {{ $json.textPlain }}",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            720,
+            320
+          ],
+          "id": "ed422c15-7d22-4b0c-8959-3dc2268ee4a1",
+          "name": "Send email",
+          "webhookId": "f5445493-0ed6-45ed-bc8d-1da37a7d13d6",
+          "credentials": {
+            "smtp": {
+              "id": "0akA4vSRMV9Mz1p8",
+              "name": "SMTP from contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Email Trigger (IMAP)').item.json.textPlain }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            1056,
+            -64
+          ],
+          "id": "57e0827f-d745-46c4-9cbf-d11114835d7f",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            1120,
+            160
+          ],
+          "id": "dce113de-3ad5-48cc-9c2d-c8b0cddff49d",
+          "name": "Simple Memory1"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1296,
+            224
+          ],
+          "id": "49b41c27-db8a-4bfa-b5e3-2b6f801b4327",
+          "name": "Hubspot MCP Client1"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1408,
+            -64
+          ],
+          "id": "674c0e46-1421-460b-84f5-6f3131c3899e",
+          "name": "Enviar texto1",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Text Classifier": {
+          "main": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Send email",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto": {
+          "main": [
+            []
+          ]
+        },
+        "Email Trigger (IMAP)": {
+          "main": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory1": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client1": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": {
+        "node:Gmail Trigger": {
+          "Gmail Trigger": {
+            "lastTimeChecked": 1761753370,
+            "possibleDuplicates": [
+              "19a30af1452a415c",
+              "19a30aaf69bd2cf1"
+            ]
+          }
+        },
+        "node:Email Trigger (IMAP)": {
+          "lastMessageUid": 2142
+        }
+      },
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {
+        "Email Trigger (IMAP)": [
+          {
+            "json": {
+              "textHtml": "[REDACTED]",
+              "textPlain": "corpo da mensagem\r\n\r\n\r\n-- \r\n*Robson Lisboa*\r\nMobile +351 91 2508389\r\nWhatsapp +55 11 948506075\r\nmidiacode.com\r\n\r\nPS: use QR Codes de Ãºltima geraÃ§Ã£o que sÃ³ o Midiacode tem. Acesse nosso\r\nsite!\r\n",
+              "metadata": {
+                "return-path": "<robson.lisboa@midiacode.com>",
+                "delivered-to": "contact@midiacode.tech",
+                "received": "from mail-ej1-x631.google.com (mail-ej1-x631.google.com [IPv6:2a00:1450:4864:20::631])\tby de-fra-smtpin13.hostinger.io (mx.hostinger.com) with ESMTPS id 4cxXH14hV8z46bb\tfor <contact@midiacode.tech>; Wed, 29 Oct 2025 16:08:45 +0000 (UTC)",
+                "arc-message-signature": "[REDACTED]",
+                "arc-seal": "[REDACTED]",
+                "arc-authentication-results": "i=1;\tde-fra-smtpin13.hostinger.io;\tdkim=pass header.d=midiacode-com.20230601.gappssmtp.com header.s=20230601 header.b=1kHTPEwY;\tspf=pass (de-fra-smtpin13.hostinger.io: domain of robson.lisboa@midiacode.com designates 2a00:1450:4864:20::631 as permitted sender) smtp.mailfrom=robson.lisboa@midiacode.com;\tdmarc=none",
+                "dkim-signature": "[REDACTED]",
+                "x-google-dkim-signature": "[REDACTED]",
+                "x-gm-message-state": "[REDACTED]",
+                "x-gm-gg": "[REDACTED]",
+                "x-google-smtp-source": "[REDACTED]",
+                "x-received": "[REDACTED]",
+                "mime-version": "1.0",
+                "x-gm-features": "[REDACTED]",
+                "message-id": "[REDACTED]",
+                "content-type": "[REDACTED]",
+                "x-cm-analysis": "[REDACTED]",
+                "x-cm-envelope": "[REDACTED]"
+              },
+              "attributes": {
+                "uid": 2140
+              },
+              "from": "Robson Lisboa <robson.lisboa@midiacode.com>",
+              "date": "Wed, 29 Oct 2025 16:08:06 +0000",
+              "subject": "teste 2",
+              "to": "contact@midiacode.tech"
+            }
+          }
+        ]
+      },
+      "versionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
+      "triggerCount": 1,
+      "shared": [
+        {
+          "updatedAt": "2025-10-29T16:01:03.207Z",
+          "createdAt": "2025-10-29T16:01:03.207Z",
+          "role": "workflow:owner",
+          "workflowId": "YAjdPcAv083KbwXa",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-10-29T19:02:52.000Z",
+      "createdAt": "2025-10-29T18:55:03.911Z",
+      "id": "eERxTyKIAtCFhBHX",
+      "name": "Email contact@ooniverse.ai Auto",
+      "active": true,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.textPlain }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "OoO",
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. Or with automatic reply. Or resposta automática"
+                },
+                {
+                  "category": "return from client",
+                  "description": "Anything that comes from sender with a personal message, not written by algoritm, code, server or automation"
+                },
+                {
+                  "category": "Delete from undelivered email returned",
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            144,
+            288
+          ],
+          "id": "7c824ba3-8d99-47e5-8ffa-60aa499e6f69",
+          "name": "Text Classifier"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            368,
+            1024
+          ],
+          "id": "edd4f472-84b1-45f7-9c88-657aa57ed8d0",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "veHITAbJHo5fcUku",
+              "name": "Google Gemini(PaLM) Api account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## reference\n**https://www.youtube.com/watch?v=_2bfCG9922E"
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -448,
+            -336
+          ],
+          "typeVersion": 1,
+          "id": "8a82ac31-e43f-42b5-9589-5f821508bfe0",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=check emails from the server message: {{ $('Email Trigger (IMAP)').item.json.textPlain }}\n\nUse the Hubspot MCP Client Tool to find the existing contact and delete this contact from Hubspot.\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and nothing should be done.\n\nif the company or contact has a deal, update the deal eliminating the connection of that contact to the deal.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            832,
+            656
+          ],
+          "id": "150e3251-328c-4a84-becb-b7427b49b385",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            896,
+            880
+          ],
+          "id": "77429a86-1094-4c87-b58f-c961e15a811c",
+          "name": "Simple Memory"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1072,
+            944
+          ],
+          "id": "649ee59d-4902-4817-ba53-5f792e602535",
+          "name": "Hubspot MCP Client"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO do contact@midiacode.tech:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1184,
+            656
+          ],
+          "id": "72816485-921b-47f1-8cde-135e5ae3b22d",
+          "name": "Enviar texto",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailReadImap",
+          "typeVersion": 2.1,
+          "position": [
+            -256,
+            368
+          ],
+          "id": "42857f60-c6e0-4323-9484-0124040977aa",
+          "name": "Email Trigger (IMAP)",
+          "credentials": {
+            "imap": {
+              "id": "0wZQLLIT13m4wRKX",
+              "name": "IMAP_contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@ooniverse.ai",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "subject": "email from prospect from contact@ooniverse.ai",
+            "html": "=from:  {{ $json.from }}\nmensagem: {{ $json.textPlain }}",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            720,
+            320
+          ],
+          "id": "fc030e94-563c-49a1-a68d-30416c6bf657",
+          "name": "Send email",
+          "webhookId": "8e6d1d5a-55e4-4bea-b011-04dae0b6a766",
+          "credentials": {
+            "smtp": {
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Email Trigger (IMAP)').item.json.textPlain }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            1056,
+            -64
+          ],
+          "id": "de8c6bca-04f1-4728-a038-9dfc6520eff8",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            1120,
+            160
+          ],
+          "id": "c84995e1-5c7a-4b24-8173-f6c8e74ec84e",
+          "name": "Simple Memory1"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1296,
+            224
+          ],
+          "id": "28cfdeeb-efef-4c41-bab6-0e402b30c6be",
+          "name": "Hubspot MCP Client1"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1408,
+            -64
+          ],
+          "id": "98c15453-0ba2-4833-93c3-e1190ae3512d",
+          "name": "Enviar texto1",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Text Classifier": {
+          "main": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Send email",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto": {
+          "main": [
+            []
+          ]
+        },
+        "Email Trigger (IMAP)": {
+          "main": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory1": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client1": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": {
+        "node:Gmail Trigger": {
+          "Gmail Trigger": {
+            "lastTimeChecked": 1761753370,
+            "possibleDuplicates": [
+              "19a30af1452a415c",
+              "19a30aaf69bd2cf1"
+            ]
+          }
+        },
+        "node:Email Trigger (IMAP)": {
+          "lastMessageUid": 2142
+        }
+      },
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "9194409e-e03c-4365-9b9d-9168fe559e63",
+      "triggerCount": 1,
+      "shared": [
+        {
+          "updatedAt": "2025-10-29T18:55:03.914Z",
+          "createdAt": "2025-10-29T18:55:03.914Z",
+          "role": "workflow:owner",
+          "workflowId": "eERxTyKIAtCFhBHX",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
       "updatedAt": "2025-08-31T18:42:19.000Z",
       "createdAt": "2025-08-25T07:36:01.458Z",
       "id": "ee7TG88466b3g1v7",
@@ -13017,7 +14026,7 @@
       ]
     },
     {
-      "updatedAt": "2025-10-29T11:57:34.000Z",
+      "updatedAt": "2025-10-29T20:40:11.000Z",
       "createdAt": "2025-10-28T18:56:12.128Z",
       "id": "jEqM8vqR6Bt2H2ZB",
       "name": "Backup Diário para o GITHUB",
@@ -13112,15 +14121,15 @@
               "cachedResultName": "n8n",
               "cachedResultUrl": "https://github.com/lisborob/n8n"
             },
-            "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json",
-            "fileContent": "={{ $('To base64').item.json.data }}",
-            "commitMessage": "=backup-{{ $('Commit date & file name').item.json.commitDate }}"
+            "filePath": "={{$binary.data.fileName}}",
+            "binaryData": true,
+            "commitMessage": "=backup-{{$json.name}}"
           },
           "id": "0fdeb825-3594-4982-bcf0-99e5bdf818a2",
           "name": "Update file",
           "type": "n8n-nodes-base.github",
           "position": [
-            1568,
+            1152,
             64
           ],
           "webhookId": "27218087-8df7-474d-a39f-70cfa9c34ec8",
@@ -13147,15 +14156,15 @@
               "cachedResultName": "n8n",
               "cachedResultUrl": "https://github.com/lisborob/n8n"
             },
-            "filePath": "={{ $binary.data.fileName}} }}",
-            "binaryData": true,
-            "commitMessage": "=backup {{ $json.name}} }}"
+            "filePath": "=={{$binary.data.fileName}}",
+            "fileContent": "data",
+            "commitMessage": "=backup {{ $json.name}}"
           },
           "id": "4f1cf870-7335-4fe2-9c94-eab0f70f54a3",
           "name": "Upload file",
           "type": "n8n-nodes-base.github",
           "position": [
-            1568,
+            1152,
             224
           ],
           "webhookId": "ce4b561b-acb9-4cd8-b76f-4928dada9674",
@@ -13183,38 +14192,7 @@
           "name": "Check if file exists",
           "type": "n8n-nodes-base.if",
           "position": [
-            1408,
-            144
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "toJson",
-            "mode": "each",
-            "options": {
-              "format": true
-            }
-          },
-          "id": "6bf2d9a0-e8bb-42eb-9a1a-e26e11c3b2bd",
-          "name": "Json file",
-          "type": "n8n-nodes-base.convertToFile",
-          "position": [
-            800,
-            144
-          ],
-          "typeVersion": 1.1
-        },
-        {
-          "parameters": {
-            "operation": "binaryToPropery",
-            "options": {}
-          },
-          "id": "06a30192-b497-4144-8fd2-d2209f8fc124",
-          "name": "To base64",
-          "type": "n8n-nodes-base.extractFromFile",
-          "position": [
-            1008,
+            864,
             144
           ],
           "typeVersion": 1
@@ -13237,38 +14215,9 @@
         },
         {
           "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "fe4a36ef-9f04-40e3-99bd-cc517a49b440",
-                  "name": "commitDate",
-                  "type": "string",
-                  "value": "={{ $now.format('dd-MM-yyyy/H:mm') }}"
-                },
-                {
-                  "id": "b0fe1bcc-e79c-4a6b-b8b4-44222c8bf4e8",
-                  "name": "fileName",
-                  "type": "string",
-                  "value": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "049680e7-209f-46d8-8a91-b1ffcc1ee0b0",
-          "name": "Commit date & file name",
-          "type": "n8n-nodes-base.set",
-          "position": [
-            1232,
-            144
-          ],
-          "typeVersion": 3.4
-        },
-        {
-          "parameters": {
             "content": "### Retrieve and process workflows from n8n",
             "height": 380,
-            "width": 844,
+            "width": 428,
             "color": 3
           },
           "id": "d6c53e73-d000-46c1-adec-de4352764713",
@@ -13291,7 +14240,7 @@
           "name": "Sticky Note3",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            1184,
+            768,
             0
           ],
           "typeVersion": 1
@@ -13315,7 +14264,7 @@
         },
         {
           "parameters": {
-            "jsCode": "const workflow = {...$json};\n\n// Sanitize secrets\nfunction sanitize(obj) {\n  for (const key in obj) {\n    if (typeof obj[key] === 'string') {\n      if (obj[key].match(/[A-Za-z0-9]{20,}/)) {\n        obj[key] = '[REDACTED]';\n      }\n    } else if (typeof obj[key] === 'object' && obj[key] !== null) {\n      sanitize(obj[key]);\n    }\n  }\n}\n\nsanitize(workflow);\n\n// Define filename (no subpastas)\nconst safeName = (workflow.name || 'workflow').replace(/[^a-zA-Z0-9-_]/g, '_');\nconst fileName = `${safeName}_${workflow.id}.json`;\n\nreturn [{\n  json: workflow,\n  binary: {\n    data: {\n      fileName,\n      mimeType: 'application/json',\n      data: Buffer.from(JSON.stringify(workflow, null, 2)).toString('base64')\n    }\n  }\n}];"
+            "jsCode": "const workflow = { ...$json };\n\n// Sanitize secrets\nfunction sanitize(obj) {\n  for (const key in obj) {\n    if (typeof obj[key] === 'string') {\n      if (obj[key].match(/[A-Za-z0-9]{20,}/)) {\n        obj[key] = '[REDACTED]';\n      }\n    } else if (typeof obj[key] === 'object' && obj[key] !== null) {\n      sanitize(obj[key]);\n    }\n  }\n}\n\nsanitize(workflow);\n\n// Gerar nome seguro do arquivo\nconst rawName = workflow.name || workflow.meta?.name || 'workflow';\nconst safeName = rawName.replace(/[^a-zA-Z0-9-_]/g, '_');\nconst fileName = `${safeName}_${workflow.id || 'unknown'}.json`;\n\n// Criar buffer e retornar como binário\nconst buffer = Buffer.from(JSON.stringify(workflow, null, 2));\n\nreturn [{\n  binary: {\n    data: {\n      data: buffer.toString('base64'),\n      mimeType: 'application/json',\n      fileName\n    }\n  },\n  json: {\n    name: workflow.name || 'workflow',\n    id: workflow.id || 'unknown'\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -13333,28 +14282,6 @@
             [
               {
                 "node": "Retrieve workflows",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Json file": {
-          "main": [
-            [
-              {
-                "node": "To base64",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "To base64": {
-          "main": [
-            [
-              {
-                "node": "Commit date & file name",
                 "type": "main",
                 "index": 0
               }
@@ -13401,17 +14328,6 @@
             ]
           ]
         },
-        "Commit date & file name": {
-          "main": [
-            [
-              {
-                "node": "Check if file exists",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Retrieve workflows": {
           "main": [
             [
@@ -13427,7 +14343,7 @@
           "main": [
             [
               {
-                "node": "Json file",
+                "node": "Check if file exists",
                 "type": "main",
                 "index": 0
               }
@@ -13447,7 +14363,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "728435ca-91c2-4997-ba58-eecca2be0970",
+      "versionId": "9c1bfbff-2eb1-48c2-b76b-1afff0b067af",
       "triggerCount": 1,
       "shared": [
         {
@@ -15278,7 +16194,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-09-12T13:21:53.000Z",
+      "updatedAt": "2025-10-29T12:14:22.000Z",
       "createdAt": "2025-09-10T16:02:13.270Z",
       "id": "spuY7tBkUOR1wUCN",
       "name": "City Report",
@@ -15440,7 +16356,7 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 3.2,
           "position": [
-            208,
+            192,
             0
           ],
           "id": "7f2ee9c5-822d-49bf-814b-4cf723a5704c",
@@ -15674,7 +16590,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "25c4b418-94a7-4163-a79e-3a742d9650cc",
+      "versionId": "c4034551-c458-464e-847e-b01d5aee8536",
       "triggerCount": 1,
       "shared": [
         {

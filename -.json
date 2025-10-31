@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1761773450,
+            "lastTimeChecked": 1761868348,
             "possibleDuplicates": [
-              "19a31e187e5155c5",
-              "19a31ba3ae2a10fe"
+              "19a3789844875b34",
+              "19a372bf846ea94e"
             ]
           }
         }
@@ -2578,7 +2578,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-29T16:15:06.000Z",
+      "updatedAt": "2025-10-30T20:04:05.000Z",
       "createdAt": "2025-10-28T13:02:57.886Z",
       "id": "Qfma1Z4YMAZXmVi3",
       "name": "Copy Thiago teste2",
@@ -2996,11 +2996,12 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.2,
           "position": [
-            -1472,
-            2480
+            -1104,
+            2432
           ],
           "id": "33bebdc7-c33e-4ad7-9287-d221def821f5",
-          "name": "HTTP Request2"
+          "name": "HTTP Request2",
+          "disabled": true
         },
         {
           "parameters": {},
@@ -3011,8 +3012,7 @@
             2480
           ],
           "id": "7e2403b2-dcbf-4fce-9cb8-e076d84e0dc9",
-          "name": "When clicking ‘Execute workflow’",
-          "disabled": true
+          "name": "When clicking ‘Execute workflow’"
         },
         {
           "parameters": {
@@ -3206,7 +3206,8 @@
             2848
           ],
           "id": "1fdfe745-201f-4253-9563-27557e305929",
-          "name": "HTTP Request1"
+          "name": "HTTP Request1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3224,7 +3225,7 @@
           "type": "n8n-nodes-base.html",
           "typeVersion": 1.2,
           "position": [
-            -1120,
+            -1168,
             2848
           ],
           "id": "5758b084-e3b8-4f9c-960b-caaf54efc862",
@@ -3238,7 +3239,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -800,
+            -1024,
             2848
           ],
           "id": "e6121a5a-3eb2-4e60-90c7-b4c4068fa563",
@@ -3271,11 +3272,12 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            -528,
-            2848
+            -688,
+            2864
           ],
           "id": "d2edb68c-f24c-44c4-96da-1762fac69ae4",
-          "name": "If1"
+          "name": "If1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3356,7 +3358,8 @@
             2768
           ],
           "id": "4bd3e875-9e70-4b77-93e1-2302dd3fc1cb",
-          "name": "Update row(s)1"
+          "name": "Update row(s)1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3381,7 +3384,8 @@
               "id": "lxV6aVR2Uu6tbEMu",
               "name": "Telegram account - Thiago"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -3410,7 +3414,8 @@
             2848
           ],
           "id": "11eb17ce-6f20-4438-a2f4-0d26d124adbb",
-          "name": "Link e CSS1"
+          "name": "Link e CSS1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3442,27 +3447,31 @@
                 }
               ]
             },
-            "options": {}
+            "options": {
+              "ignoreConversionErrors": true
+            }
           },
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -272,
+            -416,
             2768
           ],
           "id": "aaed69e0-3821-4659-bc8e-1c14f2a735b4",
-          "name": "Preço1"
+          "name": "Preço1",
+          "disabled": true
         },
         {
           "parameters": {},
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            -272,
-            2928
+            -432,
+            2960
           ],
           "id": "dabec629-da2c-4865-9e06-a9bea3c3bcac",
-          "name": "Não Atualizar1"
+          "name": "Não Atualizar1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3473,7 +3482,7 @@
           "type": "n8n-nodes-base.telegram",
           "typeVersion": 1.2,
           "position": [
-            -128,
+            -176,
             2768
           ],
           "id": "27921cf1-f9e7-48cc-9119-66bd35585c2d",
@@ -3484,7 +3493,8 @@
               "id": "lxV6aVR2Uu6tbEMu",
               "name": "Telegram account - Thiago"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -3504,7 +3514,8 @@
             2848
           ],
           "id": "745979c2-9b9c-41cf-8b2c-6af5435ce5e1",
-          "name": "Get row(s)1"
+          "name": "Get row(s)1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3537,51 +3548,7 @@
             3152
           ],
           "id": "59e7f038-aa2a-4d8d-9d17-ae327d7a712d",
-          "name": "If2"
-        },
-        {
-          "parameters": {
-            "url": "=https://app.scrapingbee.com/api/v1/",
-            "sendQuery": true,
-            "queryParameters": {
-              "parameters": [
-                {
-                  "name": "Api_key",
-                  "value": "[REDACTED]"
-                },
-                {
-                  "name": "url",
-                  "value": "={{ $json.message.link_preview_options.url }}"
-                },
-                {
-                  "name": "extract_rules",
-                  "value": "={\n  \"preco_do_produto\": {\n    \"selector\": \"body\",\n    \"type\": \"text\",\n    \"output\": \"json\",\n    \"ai_prompt\": \"Extraia o preço de venda atual, incluindo a moeda (ex: R$ ou $), do principal produto na página. Limpe o texto para que contenha apenas o preço formatado.\"\n  },\n  \"nome_do_produto\": {\n    \"selector\": \"title\",\n    \"type\": \"text\",\n    \"output\": \"json\"\n  }\n}"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.2,
-          "position": [
-            -2096,
-            2992
-          ],
-          "id": "cbcd9f0a-3ec2-4278-8a90-b1519ce7fe70",
-          "name": "Baixar_Pagina_Produto."
-        },
-        {
-          "parameters": {
-            "jsCode": "// O link do produto está no campo 'text' da mensagem do Telegram\nconst productUrl = $json.message.text;\n\n// A biblioteca 'axios' é a forma mais robusta de fazer requisições HTTP no nó Code\nconst axios = require('axios');\n\ntry {\n  // Faz a requisição HTTP\n  const response = await axios.get(productUrl, {\n    // Simula um navegador para evitar bloqueios\n    headers: {\n      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'\n    },\n    // Garante que a resposta seja tratada como texto\n    responseType: 'text'\n  });\n\n  // O HTML está em response.data\n  const htmlContent = response.data;\n\n  // Retorna o HTML em um novo campo chamado 'html_content'\n  return [{\n    json: {\n      html_content: htmlContent\n    }\n  }];\n\n} catch (error) {\n  // Trata erros de requisição (ex: página não encontrada, bloqueio)\n  return [{\n    json: {\n      html_content: \"ERRO_HTTP\",\n      error_message: error.message\n    }\n  }];\n}\n"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -2112,
-            2816
-          ],
-          "id": "31a2ec5d-ef0e-4fa9-9f1e-63c54ef453d0",
-          "name": "Code in JavaScript2",
+          "name": "If2",
           "disabled": true
         },
         {
@@ -3603,32 +3570,13 @@
               "id": "KWH95xLMW7pPmUSh",
               "name": "Thiago - ScrapingBee account"
             }
-          }
-        },
-        {
-          "parameters": {
-            "model": "llama-3.1-8b-instant",
-            "options": {}
           },
-          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
-          "typeVersion": 1,
-          "position": [
-            -1712,
-            3296
-          ],
-          "id": "c3a3b691-8653-43dd-b2e6-003b126c61e8",
-          "name": "Groq Chat Model1",
-          "credentials": {
-            "groqApi": {
-              "id": "w9FbSKYgIiJIWO2u",
-              "name": "Groq account - Thiago"
-            }
-          }
+          "disabled": true
         },
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você é um assistente de extração de dados. Sua única tarefa é analisar o link fornecido e retornar um objeto JSON estrito com o preço e o nome do produto. NÃO adicione texto explicativo ou markdown.\nAnalise o HTML abaixo e extraia o preço e o nome. Retorne o resultado no JSON Schema fornecido.  {{ $('Telegram Trigger1').item.json.message.link_preview_options.url }}",
+            "text": "=Você é um assistente de extração de dados. Sua única tarefa é analisar o link fornecido e retornar um objeto JSON estrito com o preço e o nome do produto. NÃO adicione texto explicativo ou markdown.\nAnalise o HTML abaixo e extraia o preço e o nome. Retorne o resultado no JSON Schema fornecido. {{ $json.data }}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -3638,7 +3586,381 @@
             3104
           ],
           "id": "5197aeb9-e903-4ea4-9f43-8bdcfb2381dc",
-          "name": "AI Agent1"
+          "name": "AI Agent1",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "updates": [
+              "message"
+            ],
+            "additionalFields": {
+              "download": true
+            }
+          },
+          "type": "n8n-nodes-base.telegramTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            -2480,
+            4288
+          ],
+          "id": "24217b0a-a042-4e7a-8c7b-d8041ffb2f2e",
+          "name": "Telegram Trigger2",
+          "webhookId": "542e8fac-141b-4136-9e4a-a34f5418b6d7",
+          "credentials": {
+            "telegramApi": {
+              "id": "lxV6aVR2Uu6tbEMu",
+              "name": "Telegram account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "pdf",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.extractFromFile",
+          "typeVersion": 1,
+          "position": [
+            -2224,
+            4288
+          ],
+          "id": "2b0f3bd8-f9ab-4262-bddc-ae7d86fd7b4e",
+          "name": "Extract from File"
+        },
+        {
+          "parameters": {
+            "text": "={{ $json.text }}",
+            "attributes": {
+              "attributes": [
+                {
+                  "name": "Prestador ",
+                  "description": "Extrair o campo prestador de serviço"
+                },
+                {
+                  "name": "CNPJ Prestador",
+                  "description": "Extrair o campo CNPJ prestador"
+                },
+                {
+                  "name": "Tomador",
+                  "description": "Extrair o campo tomador de serviço"
+                },
+                {
+                  "name": "CNPJ tomador",
+                  "description": "Extrair o campo CNPJ tomador de serviço"
+                },
+                {
+                  "name": "Valor",
+                  "description": "Extrair valor do servico"
+                },
+                {
+                  "name": "Impostos",
+                  "description": "Extrair Impostos do arquivo (INSS, IR, ISS, PIS, COFINS, CSLL)"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "[REDACTED]",
+          "typeVersion": 1.2,
+          "position": [
+            -2016,
+            4288
+          ],
+          "id": "54d792da-b270-4022-b63c-0c511521ab99",
+          "name": "Information Extractor"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            -2208,
+            4512
+          ],
+          "id": "4075c00b-c831-4f6d-b116-6401350ded83",
+          "name": "Groq Chat Model2",
+          "credentials": {
+            "groqApi": {
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": {
+              "__rl": true,
+              "mode": "list",
+              "value": "gpt-4.1-mini"
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+          "typeVersion": 1.2,
+          "position": [
+            -2016,
+            4496
+          ],
+          "id": "0490a546-dae7-4ed9-a633-0d749a3ddc22",
+          "name": "OpenAI Chat Model",
+          "credentials": {
+            "openAiApi": {
+              "id": "TCKM3qn6Jvi6Qa4j",
+              "name": "OpenAi account"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "Xn6iEjeqCZEOixV3",
+              "mode": "list",
+              "cachedResultName": "Thiago teste 3",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/Xn6iEjeqCZEOixV3"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Prestador": "={{ $json.output['Prestador '] }}",
+                "CNPJ_Prestador": "={{ $json.output['CNPJ Prestador'] }}",
+                "Tomador": "={{ $json.output.Tomador }}",
+                "CNPJ_Tomador": "={{ $json.output['CNPJ tomador'] }}",
+                "Valor": "={{ $json.output.Valor }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "Prestador",
+                  "displayName": "Prestador",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "CNPJ_Prestador",
+                  "displayName": "CNPJ_Prestador",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Tomador",
+                  "displayName": "Tomador",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "CNPJ_Tomador",
+                  "displayName": "CNPJ_Tomador",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Valor",
+                  "displayName": "Valor",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1664,
+            4288
+          ],
+          "id": "d290e945-ff9f-4e94-98ed-a2e5dd79aec2",
+          "name": "Insert row1"
+        },
+        {
+          "parameters": {
+            "model": {
+              "__rl": true,
+              "mode": "list",
+              "value": "gpt-4.1-mini"
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+          "typeVersion": 1.2,
+          "position": [
+            -1680,
+            3312
+          ],
+          "id": "e9bffd06-6511-4ea4-bd53-9781918574ec",
+          "name": "OpenAI Chat Model1",
+          "credentials": {
+            "openAiApi": {
+              "id": "TCKM3qn6Jvi6Qa4j",
+              "name": "OpenAi account"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "eb7f9782-a6da-472a-a2bd-4620ff8beb8a",
+                  "name": "Produto",
+                  "value": "={{ JSON.parse($json.output).name }}",
+                  "type": "string"
+                },
+                {
+                  "id": "f47a9b05-5bc6-4541-bc04-3f56700c2364",
+                  "name": "Preco",
+                  "value": "={{ parseFloat(JSON.parse($json.output).price.replace(\"€\", \"\").replace(\".\", \"\").replace(\",\", \".\").trim()) }}\n",
+                  "type": "number"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -1360,
+            3104
+          ],
+          "id": "543728bf-109a-45db-bb0a-c495bb85b255",
+          "name": "Edit Fields",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "chatId": "1755791123",
+            "text": "={{ '🚨 NOVO PRODUTO MONITORADO 🚨\\n\\n' +    'Produto: ' +$json.Produto  + '\\n' +    'Novo Preço: €' + $json.Preco + '\\n' }}",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.telegram",
+          "typeVersion": 1.2,
+          "position": [
+            -1120,
+            3104
+          ],
+          "id": "341bd777-0dbb-4fb9-b65b-d67e8ea29ff1",
+          "name": "Enviar alerta!2",
+          "webhookId": "c6d7b820-7b42-41af-aa19-a72d843e8019",
+          "credentials": {
+            "telegramApi": {
+              "id": "lxV6aVR2Uu6tbEMu",
+              "name": "Telegram account - Thiago"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "UUCsqOEE3YxpXYoQ",
+              "mode": "list",
+              "cachedResultName": "Thiago teste 2",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/UUCsqOEE3YxpXYoQ"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Ultimo_Preco": 0,
+                "Preco_atual": "={{ $('Edit Fields').item.json.Preco }}",
+                "Item": "={{ $('Edit Fields').item.json.Produto }}",
+                "link": "={{ $('Telegram Trigger1').item.json.message.entities[0].url }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "Item",
+                  "displayName": "Item",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "link",
+                  "displayName": "link",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Selector_Css",
+                  "displayName": "Selector_Css",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Ultimo_Preco",
+                  "displayName": "Ultimo_Preco",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Preco_atual",
+                  "displayName": "Preco_atual",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -976,
+            3088
+          ],
+          "id": "20460d48-5205-49c6-b92c-8a6d728bb809",
+          "name": "Insert row2",
+          "disabled": true
         }
       ],
       "connections": {
@@ -3794,13 +4116,7 @@
         },
         "When clicking ‘Execute workflow’": {
           "main": [
-            [
-              {
-                "node": "Get row(s)1",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Telegram Trigger": {
@@ -3972,12 +4288,14 @@
                 "type": "main",
                 "index": 0
               }
+            ],
+            [
+              {
+                "node": "Get row(s)1",
+                "type": "main",
+                "index": 0
+              }
             ]
-          ]
-        },
-        "Baixar_Pagina_Produto.": {
-          "main": [
-            []
           ]
         },
         "Scrape using HTML API": {
@@ -3991,7 +4309,67 @@
             ]
           ]
         },
-        "Groq Chat Model1": {
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Telegram Trigger2": {
+          "main": [
+            [
+              {
+                "node": "Extract from File",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Extract from File": {
+          "main": [
+            [
+              {
+                "node": "Information Extractor",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model2": {
+          "ai_languageModel": [
+            []
+          ]
+        },
+        "OpenAI Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Information Extractor",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Information Extractor": {
+          "main": [
+            [
+              {
+                "node": "Insert row1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "OpenAI Chat Model1": {
           "ai_languageModel": [
             [
               {
@@ -4002,9 +4380,26 @@
             ]
           ]
         },
-        "AI Agent1": {
+        "Edit Fields": {
           "main": [
-            []
+            [
+              {
+                "node": "Enviar alerta!2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar alerta!2": {
+          "main": [
+            [
+              {
+                "node": "Insert row2",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         }
       },
@@ -4026,7 +4421,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "464c0171-1578-4cd9-a6f0-b7b1c39c1d0f",
+      "versionId": "a690542f-1ced-4d24-8245-67235a5f8686",
       "triggerCount": 1,
       "shared": [
         {
@@ -10981,13 +11376,15 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-10-29T10:59:53Z"
+          "lastTimeChecked": "2025-10-29T14:00:55Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-10-29T10:59:54Z"
+          "lastTimeChecked": "2025-10-29T14:00:42Z"
         },
         "node:Schedule Trigger": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            303
+          ]
         }
       },
       "meta": {
@@ -11821,7 +12218,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2142
+          "lastMessageUid": 2144
         }
       },
       "meta": {
@@ -14377,7 +14774,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-29T21:26:19.000Z",
+      "updatedAt": "2025-10-30T16:38:56.000Z",
       "createdAt": "2025-08-31T21:06:37.232Z",
       "id": "lJZChaIwrGR3Ar1J",
       "name": "Buscador de Leads",
@@ -14391,8 +14788,8 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -912,
-            -16
+            2656,
+            32
           ],
           "typeVersion": 1,
           "id": "547f24ec-8b99-4f3e-a21c-7c8650086131",
@@ -14610,11 +15007,17 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            544,
-            208
+            4112,
+            256
           ],
           "id": "bd512737-16e3-496f-bcc0-82da27467a01",
-          "name": "Salva leads Pág. 1"
+          "name": "Salva leads Pág. 1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         },
         {
           "parameters": {
@@ -14644,8 +15047,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            64,
-            464
+            3632,
+            512
           ],
           "id": "34fb89cb-6213-47d6-baed-342ee785251d",
           "name": "Só com whatsapp1"
@@ -14678,8 +15081,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            -400,
-            480
+            3168,
+            528
           ],
           "id": "bf55befa-fd51-4a43-9a26-df026b1f99c3",
           "name": "Só ativas1"
@@ -14705,8 +15108,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.2,
           "position": [
-            -176,
-            464
+            3392,
+            512
           ],
           "id": "0d3ab448-2fc1-4fdf-8a43-34815d5554e1",
           "name": "Existe whatsapp?1"
@@ -14739,8 +15142,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            272,
-            224
+            3840,
+            272
           ],
           "id": "dca78257-2c47-4c14-8d86-b33eebd6079e",
           "name": "Só com whatsapp"
@@ -14773,8 +15176,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            -160,
-            240
+            3408,
+            288
           ],
           "id": "79812bfb-5d6a-45cf-bb90-9878e68b86b6",
           "name": "Só ativas"
@@ -14800,22 +15203,11 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.2,
           "position": [
-            64,
-            224
+            3632,
+            272
           ],
           "id": "434d79c8-3e21-40a0-9c19-c6323869dd70",
           "name": "Existe whatsapp?"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.manualTrigger",
-          "typeVersion": 1,
-          "position": [
-            -1440,
-            240
-          ],
-          "id": "e6fd1a73-cdd1-45b0-b2a1-a38ea33deccf",
-          "name": "Executar"
         },
         {
           "parameters": {
@@ -14828,8 +15220,8 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            1168,
-            432
+            4736,
+            480
           ],
           "id": "b9e7c8f6-cea7-48d1-a247-87295bd97944",
           "name": "Busca ID próx. pág.",
@@ -14844,8 +15236,8 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            944,
-            432
+            4512,
+            480
           ],
           "id": "43e67dd8-3247-4182-8c0c-07e18b9eff2a",
           "name": "Salva ID próx. pág.",
@@ -14859,8 +15251,8 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            512,
-            448
+            4080,
+            496
           ],
           "id": "1b23e77f-0688-48b4-9c80-c0179bab88d4",
           "name": "Apaga ID"
@@ -14874,8 +15266,8 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            768,
-            208
+            4336,
+            256
           ],
           "id": "7db344a9-3a51-43fc-8115-c0352bb2096e",
           "name": "Salva ID pag. 1"
@@ -14891,8 +15283,8 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            976,
-            208
+            4544,
+            256
           ],
           "id": "0b140c89-47ba-4d1e-a3d5-959d77c1d685",
           "name": "Busca ID pág. 1",
@@ -14914,8 +15306,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 1,
           "position": [
-            720,
-            448
+            4288,
+            496
           ]
         },
         {
@@ -14923,8 +15315,8 @@
           "type": "n8n-nodes-base.merge",
           "typeVersion": 3.2,
           "position": [
-            -1232,
-            480
+            2336,
+            528
           ],
           "id": "56e5e09e-cf5f-422c-968b-63d41effbf9b",
           "name": "Merge"
@@ -15140,11 +15532,17 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            320,
-            448
+            3888,
+            496
           ],
           "id": "b7eaa7a6-1926-49da-8adb-3ea6827f8e5d",
-          "name": "Salva leads mais Págs. "
+          "name": "Salva leads mais Págs. ",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         },
         {
           "parameters": {
@@ -15177,8 +15575,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.1,
           "position": [
-            -576,
-            480
+            2992,
+            528
           ]
         },
         {
@@ -15189,8 +15587,8 @@
           "type": "n8n-nodes-base.splitOut",
           "typeVersion": 1,
           "position": [
-            -800,
-            480
+            2768,
+            528
           ],
           "id": "07893106-23e8-495f-ab2d-c017c40582f1",
           "name": "Cria lista mais págs."
@@ -15218,8 +15616,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.1,
           "position": [
-            -1024,
-            480
+            2544,
+            528
           ],
           "executeOnce": true
         },
@@ -15254,8 +15652,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.1,
           "position": [
-            -368,
-            240
+            3200,
+            288
           ]
         },
         {
@@ -15275,8 +15673,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -576,
-            240
+            2992,
+            288
           ],
           "id": "0da9d73d-9420-46c2-a0aa-4dbd82c2e800",
           "name": "Captura ID pág, 1"
@@ -15289,8 +15687,8 @@
           "type": "n8n-nodes-base.splitOut",
           "typeVersion": 1,
           "position": [
-            -784,
-            240
+            2784,
+            288
           ],
           "id": "b0d4d5e6-10e5-4da2-8914-e049e904339d",
           "name": "Cria lista pág. 1"
@@ -15311,8 +15709,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 1,
           "position": [
-            1168,
-            208
+            4736,
+            256
           ]
         },
         {
@@ -15346,8 +15744,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.1,
           "position": [
-            -1024,
-            240
+            2544,
+            288
           ]
         },
         {
@@ -15409,8 +15807,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1216,
-            240
+            2352,
+            288
           ],
           "id": "a24a40db-549b-4618-8af0-03bb397b7bb8",
           "name": "Variáveis"
@@ -15423,8 +15821,8 @@
           "name": "Create URL",
           "type": "n8n-nodes-base.code",
           "position": [
-            64,
-            1376
+            3632,
+            1424
           ],
           "typeVersion": 2
         },
@@ -15518,8 +15916,8 @@
           "name": "Extract Info",
           "type": "n8n-nodes-base.set",
           "position": [
-            512,
-            1376
+            4080,
+            1424
           ],
           "typeVersion": 3.4
         },
@@ -15552,8 +15950,8 @@
           "name": "Only Keep Verified Emails ",
           "type": "n8n-nodes-base.filter",
           "position": [
-            720,
-            1376
+            4288,
+            1424
           ],
           "typeVersion": 2.2
         },
@@ -15563,8 +15961,8 @@
           "name": "Limit",
           "type": "n8n-nodes-base.limit",
           "position": [
-            1648,
-            1456
+            5216,
+            1504
           ],
           "typeVersion": 1
         },
@@ -15578,8 +15976,8 @@
           "name": "Download File1",
           "type": "n8n-nodes-base.telegram",
           "position": [
-            -1008,
-            1200
+            2560,
+            1248
           ],
           "webhookId": "00c7755c-cd84-4aa4-89fe-c56f1f0cb50d",
           "typeVersion": 1.2
@@ -15594,8 +15992,8 @@
           "name": "Transcribe1",
           "type": "@n8n/n8n-nodes-langchain.openAi",
           "position": [
-            -800,
-            1200
+            2768,
+            1248
           ],
           "typeVersion": 1.6
         },
@@ -15617,8 +16015,8 @@
           "name": "Text1",
           "type": "n8n-nodes-base.set",
           "position": [
-            -896,
-            1456
+            2672,
+            1504
           ],
           "typeVersion": 3.4
         },
@@ -15683,8 +16081,8 @@
           "name": "Voice or Text1",
           "type": "n8n-nodes-base.switch",
           "position": [
-            -1232,
-            1296
+            2336,
+            1344
           ],
           "typeVersion": 3.2
         },
@@ -15702,8 +16100,8 @@
           "name": "OpenAI Chat Model1",
           "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
           "position": [
-            -576,
-            1520
+            2992,
+            1568
           ],
           "typeVersion": 1.2
         },
@@ -15713,8 +16111,8 @@
           "name": "Simple Memory",
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
           "position": [
-            -448,
-            1520
+            3120,
+            1568
           ],
           "typeVersion": 1.3
         },
@@ -15726,8 +16124,8 @@
           "name": "Structured Output Parser",
           "type": "[REDACTED]",
           "position": [
-            -336,
-            1520
+            3232,
+            1568
           ],
           "typeVersion": 1.2
         },
@@ -15756,8 +16154,8 @@
           "name": "Select already scraped mails",
           "type": "n8n-nodes-base.postgres",
           "position": [
-            272,
-            1104
+            3840,
+            1152
           ],
           "typeVersion": 2.6
         },
@@ -15774,8 +16172,8 @@
           "name": "Keep only the new leads",
           "type": "n8n-nodes-base.compareDatasets",
           "position": [
-            960,
-            1344
+            4528,
+            1392
           ],
           "typeVersion": 2.3
         },
@@ -15785,8 +16183,8 @@
           "name": "Already scraped",
           "type": "n8n-nodes-base.noOp",
           "position": [
-            1312,
-            1248
+            4880,
+            1296
           ],
           "typeVersion": 1
         },
@@ -15840,8 +16238,8 @@
           "name": "Create rows with new leads",
           "type": "n8n-nodes-base.supabase",
           "position": [
-            1248,
-            1456
+            4816,
+            1504
           ],
           "typeVersion": 1
         },
@@ -15863,8 +16261,8 @@
           "name": "Set Telegram message",
           "type": "n8n-nodes-base.set",
           "position": [
-            1456,
-            1456
+            5024,
+            1504
           ],
           "typeVersion": 3.4
         },
@@ -15880,8 +16278,8 @@
           "name": "Confirmation message",
           "type": "n8n-nodes-base.telegram",
           "position": [
-            1872,
-            1456
+            5440,
+            1504
           ],
           "webhookId": "20bb0a77-76bc-4d9a-bdb4-f5e53a80d299",
           "typeVersion": 1.2
@@ -15897,8 +16295,8 @@
           "name": "User message",
           "type": "n8n-nodes-base.telegramTrigger",
           "position": [
-            -1456,
-            1296
+            2112,
+            1344
           ],
           "webhookId": "75096a78-a466-4f4e-bc0d-f68e9e952231",
           "typeVersion": 1.1
@@ -15913,8 +16311,8 @@
           "name": "Sticky Note1",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -592,
-            1056
+            2976,
+            1104
           ],
           "typeVersion": 1
         },
@@ -15929,8 +16327,8 @@
           "name": "Sticky Note2",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1456,
-            1696
+            2112,
+            1744
           ],
           "typeVersion": 1
         },
@@ -15945,8 +16343,8 @@
           "name": "Sticky Note3",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            32,
-            1296
+            3600,
+            1344
           ],
           "typeVersion": 1
         },
@@ -15959,8 +16357,8 @@
           "name": "Sticky Note4",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            1200,
-            1632
+            4768,
+            1680
           ],
           "typeVersion": 1
         },
@@ -15974,8 +16372,8 @@
           "name": "Generate query payload",
           "type": "n8n-nodes-base.set",
           "position": [
-            -128,
-            1408
+            3440,
+            1456
           ],
           "typeVersion": 3.4
         },
@@ -15992,8 +16390,8 @@
           "name": "Scraper agent",
           "type": "@n8n/n8n-nodes-langchain.agent",
           "position": [
-            -528,
-            1296
+            3040,
+            1344
           ],
           "typeVersion": 1.9
         },
@@ -16006,8 +16404,8 @@
           "name": "Run an Actor",
           "type": "@apify/n8n-nodes-preview-apify.apify",
           "position": [
-            288,
-            1376
+            3856,
+            1424
           ],
           "typeVersion": 1,
           "credentials": {}
@@ -16023,8 +16421,8 @@
           "name": "Sticky Note5",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            112,
-            1648
+            3680,
+            1696
           ],
           "typeVersion": 1
         },
@@ -16039,8 +16437,8 @@
           "name": "Sticky Note6",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            432,
-            2048
+            4000,
+            2096
           ],
           "typeVersion": 1
         },
@@ -16055,8 +16453,8 @@
           "name": "Sticky Note7",
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1472,
-            1056
+            2096,
+            1104
           ],
           "typeVersion": 1
         }
@@ -16122,17 +16520,6 @@
             [
               {
                 "node": "Só com whatsapp",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Executar": {
-          "main": [
-            [
-              {
-                "node": "Variáveis",
                 "type": "main",
                 "index": 0
               }
@@ -16588,7 +16975,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "87358854-5912-474d-a059-7c1603d53655",
+      "versionId": "f3f6dfa6-ee0c-4c0c-bcf3-7710aacfbfbf",
       "triggerCount": 0,
       "shared": [
         {
@@ -16596,6 +16983,456 @@
           "createdAt": "2025-08-31T21:06:37.236Z",
           "role": "workflow:owner",
           "workflowId": "lJZChaIwrGR3Ar1J",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-10-30T17:44:10.000Z",
+      "createdAt": "2025-10-30T16:38:03.490Z",
+      "id": "nlkRufWPliMF15l7",
+      "name": "Convite para Leads Destilados",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "triggerAtHour": 23
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            -784,
+            -192
+          ],
+          "id": "208fc4d8-9ca1-4d6a-b42a-badb5cd04824",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "pegue na planilha anexada 80 emails somente das linhas que não possuem o status de \"enviado\" na coluna \"status\", copie-os e cole-os em BCC (blinded copy) - cópia oculta e dispare a mensagem conforme email montado no node de send email (tools). Na planilha, marque na coluna \"status\" o termo \"enviado\" para estes 80 emails que já foram usados para envio.\ncomo output, crie uma mensagem com a lista de todos os emails que  foram usados na mensagem enviada: \" hoje o convite foi enviado para os seguintes emails: (liste os emails)\" \nse não enviar nenhum email, coloque no relatorio de output que nenhum email foi enviado e o porque de não enviar.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -144,
+            -112
+          ],
+          "id": "105c4f4c-e36f-4ab2-87ff-06efd17773cb",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "modelName": "models/gemini-2.0-flash-lite",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            -288,
+            96
+          ],
+          "id": "757b7ad3-f722-43d4-90e9-cefcf9dc04d2",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "veHITAbJHo5fcUku",
+              "name": "Google Gemini(PaLM) Api account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $json.ID }}",
+            "contextWindowLength": 100
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            -144,
+            96
+          ],
+          "id": "8c6d87b2-a71e-43ad-8d6a-5d8d6c65b018",
+          "name": "Simple Memory"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            -784,
+            -16
+          ],
+          "id": "e1b7c252-72a1-4be0-acff-dd99a4dee3e2",
+          "name": "When clicking ‘Execute workflow’",
+          "alwaysOutputData": false
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1243513752,
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTool",
+          "typeVersion": 4.7,
+          "position": [
+            0,
+            96
+          ],
+          "id": "80e002b5-40ec-40be-b0af-eb573745a976",
+          "name": "Get row(s) in sheet in Google Sheets",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "appendOrUpdate",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1243513752,
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', ``, 'string') }}",
+                "prioridade": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('prioridade', ``, 'string') }}",
+                "status": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('status', ``, 'string') }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "First Name",
+                  "displayName": "First Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Last Name",
+                  "displayName": "Last Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Title",
+                  "displayName": "Title",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Company Name",
+                  "displayName": "Company Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Company Name for Emails",
+                  "displayName": "Company Name for Emails",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "prioridade",
+                  "displayName": "prioridade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTool",
+          "typeVersion": 4.7,
+          "position": [
+            240,
+            48
+          ],
+          "id": "aebc06b9-4c8a-40b5-8464-c09acc3f4feb",
+          "name": "Append or update row in sheet in Google Sheets",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@ooniverse.ai",
+            "toEmail": "=robson.lisboa@midiacode.com",
+            "subject": "Convite especial Fórum de Segurança Alimentar em Bebidas Alcoólicas",
+            "html": "=Olá, \nEspero que esteja bem.\nGostaria de lhe fazer o convite super especial para o Fórum Segurança Alimentar em Bebidas Alcoólicas, como comercializar e consumir com segurança.\nVocê vai entender melhor como os desafios atuais de fraudes abrem portas para inovações que colocam o setor inteiro em um novo patamar, mais seguro, mais tecnológico e com mais conexão com o consumidor final.\nÉ um evento 100% online e 100% gratuito.\nAcontece no dia 13 de novembro, das 15 às 17 horas. \nInscreva-se e nós lhe mandaremos o link da transmissão.\nInscreva-se através deste link: https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\nCom os melhores cumprimentos, \nRobson Lisboa",
+            "options": {
+              "bccEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('BCC_Email', ``, 'string') }}"
+            }
+          },
+          "type": "n8n-nodes-base.emailSendTool",
+          "typeVersion": 2.1,
+          "position": [
+            176,
+            240
+          ],
+          "id": "93d85f0c-b3ce-4df8-87f9-21823d6470d5",
+          "name": "Send email in Send Email",
+          "webhookId": "894550d3-b56b-438c-9d59-c310146dd3ff",
+          "credentials": {
+            "smtp": {
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=relatório \n{{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            208,
+            -112
+          ],
+          "id": "c852fd26-aad5-4b2f-8cfb-8ca593242cae",
+          "name": "Enviar texto",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "754861f2-0725-49e9-8390-ba1bfe7fb859",
+                  "name": "ID",
+                  "value": "={{ $now }}",
+                  "type": "string"
+                },
+                {
+                  "id": "d7a46427-1809-47d6-8196-68503f7e534a",
+                  "name": "",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -464,
+            -96
+          ],
+          "id": "81f76e1d-2ef4-4472-9680-5482e1277354",
+          "name": "Edit Fields"
+        }
+      ],
+      "connections": {
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet in Google Sheets": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append or update row in sheet in Google Sheets": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send email in Send Email": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "5c5b8d01-22da-4e56-8a23-7f7bc80604ea",
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2025-10-30T16:38:03.495Z",
+          "createdAt": "2025-10-30T16:38:03.495Z",
+          "role": "workflow:owner",
+          "workflowId": "nlkRufWPliMF15l7",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],

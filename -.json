@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1761868348,
+            "lastTimeChecked": 1761950996,
             "possibleDuplicates": [
-              "19a3789844875b34",
-              "19a372bf846ea94e"
+              "19a3c7699311f885",
+              "19a3c3429376fc62"
             ]
           }
         }
@@ -12218,7 +12218,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2144
+          "lastMessageUid": 2146
         }
       },
       "meta": {
@@ -12275,7 +12275,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-29T19:02:52.000Z",
+      "updatedAt": "2025-10-31T19:32:11.000Z",
       "createdAt": "2025-10-29T18:55:03.911Z",
       "id": "eERxTyKIAtCFhBHX",
       "name": "Email contact@ooniverse.ai Auto",
@@ -12289,7 +12289,7 @@
               "categories": [
                 {
                   "category": "OoO",
-                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. Or with automatic reply. Or resposta automática"
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. Or with \"automatic reply\" Or with \"resposta automática\" in subject"
                 },
                 {
                   "category": "return from client",
@@ -12472,7 +12472,7 @@
         {
           "parameters": {
             "sessionIdType": "customKey",
-            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "sessionKey": "={{ $execution.id }}",
             "contextWindowLength": 30
           },
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
@@ -12680,7 +12680,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "9194409e-e03c-4365-9b9d-9168fe559e63",
+      "versionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
       "triggerCount": 1,
       "shared": [
         {
@@ -16989,93 +16989,96 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-30T17:44:10.000Z",
+      "updatedAt": "2025-10-31T17:15:55.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
-      "name": "Convite para Leads Destilados",
-      "active": false,
+      "name": "Disparo de Email convite para Forum Segurança Alimentar",
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
           "parameters": {
-            "rule": {
-              "interval": [
+            "triggerTimes": {
+              "item": [
                 {
-                  "triggerAtHour": 23
+                  "mode": "everyHour"
                 }
               ]
             }
           },
-          "type": "n8n-nodes-base.scheduleTrigger",
-          "typeVersion": 1.2,
-          "position": [
-            -784,
-            -192
-          ],
-          "id": "208fc4d8-9ca1-4d6a-b42a-badb5cd04824",
-          "name": "Schedule Trigger"
-        },
-        {
-          "parameters": {
-            "promptType": "define",
-            "text": "pegue na planilha anexada 80 emails somente das linhas que não possuem o status de \"enviado\" na coluna \"status\", copie-os e cole-os em BCC (blinded copy) - cópia oculta e dispare a mensagem conforme email montado no node de send email (tools). Na planilha, marque na coluna \"status\" o termo \"enviado\" para estes 80 emails que já foram usados para envio.\ncomo output, crie uma mensagem com a lista de todos os emails que  foram usados na mensagem enviada: \" hoje o convite foi enviado para os seguintes emails: (liste os emails)\" \nse não enviar nenhum email, coloque no relatorio de output que nenhum email foi enviado e o porque de não enviar.",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3,
-          "position": [
-            -144,
-            -112
-          ],
-          "id": "105c4f4c-e36f-4ab2-87ff-06efd17773cb",
-          "name": "AI Agent"
-        },
-        {
-          "parameters": {
-            "modelName": "models/gemini-2.0-flash-lite",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "name": "Cron",
+          "type": "n8n-nodes-base.cron",
           "typeVersion": 1,
           "position": [
-            -288,
-            96
+            -800,
+            592
           ],
-          "id": "757b7ad3-f722-43d4-90e9-cefcf9dc04d2",
-          "name": "Google Gemini Chat Model",
+          "id": "28495cbd-c069-4b90-95e7-46a2a9eb0723"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "number": [
+                {
+                  "value1": "={{ new Date().getHours() }}",
+                  "operation": "largerEqual",
+                  "value2": 12
+                },
+                {
+                  "value1": "={{ new Date().getHours() }}",
+                  "operation": "smallerEqual",
+                  "value2": 21
+                }
+              ]
+            }
+          },
+          "name": "IF Horário Comercial",
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 1,
+          "position": [
+            -608,
+            592
+          ],
+          "id": "420f19dc-0af9-4a6d-965a-1f1ec24eff6d"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@ooniverse.ai",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "bccEmail": "={{ $json.bccList }}",
+            "subject": "Convite especial Fórum de Segurança Alimentar em Bebidas Alcoólicas",
+            "text": "Olá, \nEspero que esteja bem.\nGostaria de lhe fazer o convite super especial para o Fórum Segurança Alimentar em Bebidas Alcoólicas, como comercializar e consumir com segurança.\nVocê vai entender melhor como os desafios atuais de fraudes abrem portas para inovações que colocam o setor inteiro em um novo patamar, mais seguro, mais tecnológico e com mais conexão com o consumidor final.\nÉ um evento 100% online e 100% gratuito.\nAcontece no dia 13 de novembro, das 15 às 17 horas. \nInscreva-se e nós lhe mandaremos o link da transmissão.\nInscreva-se através deste link: https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\nCom os melhores cumprimentos, \nRobson Lisboa",
+            "options": {
+              "replyTo": "robson.lisboa@midiacode.com"
+            }
+          },
+          "name": "Enviar Email SMTP",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            144,
+            480
+          ],
+          "id": "541856c0-f442-4151-89da-004f0699d4b0",
           "credentials": {
-            "googlePalmApi": {
-              "id": "veHITAbJHo5fcUku",
-              "name": "Google Gemini(PaLM) Api account"
+            "smtp": {
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
             }
           }
         },
         {
           "parameters": {
-            "sessionIdType": "customKey",
-            "sessionKey": "={{ $json.ID }}",
-            "contextWindowLength": 100
+            "functionCode": "const rows = items[0].json.rowNumbers || [];\n\nreturn rows.map(row => ({\n  json: {\n    row_number: Number(row),\n    status: \"enviado\"\n  }\n}));"
           },
-          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-          "typeVersion": 1.3,
-          "position": [
-            -144,
-            96
-          ],
-          "id": "8c6d87b2-a71e-43ad-8d6a-5d8d6c65b018",
-          "name": "Simple Memory"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.manualTrigger",
+          "name": "Preparar Atualização1",
+          "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            -784,
-            -16
+            368,
+            592
           ],
-          "id": "e1b7c252-72a1-4be0-acff-dd99a4dee3e2",
-          "name": "When clicking ‘Execute workflow’",
-          "alwaysOutputData": false
+          "id": "a6094f0c-1499-4be3-b8b1-12ea622e5461"
         },
         {
           "parameters": {
@@ -17090,19 +17093,19 @@
               "__rl": true,
               "value": 1243513752,
               "mode": "list",
-              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultName": "leads",
               "cachedResultUrl": "[REDACTED]"
             },
             "options": {}
           },
-          "type": "n8n-nodes-base.googleSheetsTool",
-          "typeVersion": 4.7,
+          "id": "dc515cda-b093-4568-bc1e-fd2cebe2f1ae",
+          "name": "Get row(s) in sheet1",
+          "type": "n8n-nodes-base.googleSheets",
           "position": [
-            0,
-            96
+            -384,
+            592
           ],
-          "id": "80e002b5-40ec-40be-b0af-eb573745a976",
-          "name": "Get row(s) in sheet in Google Sheets",
+          "typeVersion": 4.6,
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "NgVtVrC0ohwSKTXA",
@@ -17112,7 +17115,7 @@
         },
         {
           "parameters": {
-            "operation": "appendOrUpdate",
+            "operation": "update",
             "documentId": {
               "__rl": true,
               "value": "[REDACTED]",
@@ -17124,17 +17127,18 @@
               "__rl": true,
               "value": 1243513752,
               "mode": "list",
-              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultName": "leads",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
               "mappingMode": "defineBelow",
               "value": {
-                "Email": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email', ``, 'string') }}",
-                "prioridade": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('prioridade', ``, 'string') }}",
-                "status": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('status', ``, 'string') }}"
+                "row_number": "={{ $json.row_number }}",
+                "status": "enviado"
               },
-              "matchingColumns": [],
+              "matchingColumns": [
+                "row_number"
+              ],
               "schema": [
                 {
                   "id": "First Name",
@@ -17143,8 +17147,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "Last Name",
@@ -17153,8 +17156,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "Title",
@@ -17163,8 +17165,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "Company Name",
@@ -17173,8 +17174,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "Company Name for Emails",
@@ -17183,8 +17183,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "Email",
@@ -17203,8 +17202,7 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
+                  "canBeUsedToMatch": true
                 },
                 {
                   "id": "status",
@@ -17213,7 +17211,17 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
                   "canBeUsedToMatch": true,
+                  "readOnly": true,
                   "removed": false
                 }
               ],
@@ -17222,14 +17230,14 @@
             },
             "options": {}
           },
-          "type": "n8n-nodes-base.googleSheetsTool",
+          "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            240,
-            48
+            592,
+            592
           ],
-          "id": "aebc06b9-4c8a-40b5-8464-c09acc3f4feb",
-          "name": "Append or update row in sheet in Google Sheets",
+          "id": "6f3c07f2-7f8a-401f-aa31-888af24161ba",
+          "name": "Update row in sheet",
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "NgVtVrC0ohwSKTXA",
@@ -17239,177 +17247,119 @@
         },
         {
           "parameters": {
-            "fromEmail": "contact@ooniverse.ai",
-            "toEmail": "=robson.lisboa@midiacode.com",
-            "subject": "Convite especial Fórum de Segurança Alimentar em Bebidas Alcoólicas",
-            "html": "=Olá, \nEspero que esteja bem.\nGostaria de lhe fazer o convite super especial para o Fórum Segurança Alimentar em Bebidas Alcoólicas, como comercializar e consumir com segurança.\nVocê vai entender melhor como os desafios atuais de fraudes abrem portas para inovações que colocam o setor inteiro em um novo patamar, mais seguro, mais tecnológico e com mais conexão com o consumidor final.\nÉ um evento 100% online e 100% gratuito.\nAcontece no dia 13 de novembro, das 15 às 17 horas. \nInscreva-se e nós lhe mandaremos o link da transmissão.\nInscreva-se através deste link: https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\nCom os melhores cumprimentos, \nRobson Lisboa",
-            "options": {
-              "bccEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('BCC_Email', ``, 'string') }}"
-            }
+            "functionCode": "const selecionados = items\n  .filter(item => item.json.status !== 'enviado' && item.json[\"Email\"])\n  .slice(0, 80);\n\nconst emails = selecionados.map(item => item.json[\"Email\"]);\nconst linhas = selecionados.map(item => item.json.row_number);\n\nreturn [\n  {\n    json: {\n      bccList: emails.join(','),\n      rowNumbers: linhas\n    }\n  }\n];"
           },
-          "type": "n8n-nodes-base.emailSendTool",
-          "typeVersion": 2.1,
+          "name": "Filtrar 80",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
           "position": [
-            176,
-            240
+            -112,
+            592
           ],
-          "id": "93d85f0c-b3ce-4df8-87f9-21823d6470d5",
-          "name": "Send email in Send Email",
-          "webhookId": "894550d3-b56b-438c-9d59-c310146dd3ff",
-          "credentials": {
-            "smtp": {
-              "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP from contact@ooniverse.ai"
-            }
-          }
+          "id": "48e1533b-596b-4147-b5f2-462339aa6eff"
         },
         {
           "parameters": {
             "resource": "messages-api",
             "instanceName": "Valentina",
             "remoteJid": "351912508389@s.whatsapp.net",
-            "messageText": "=relatório \n{{ $json.output }}",
+            "messageText": "=relatório ... Enviado emails de convite para ...  {{ $('Filtrar 80').item.json.bccList }}",
             "options_message": {}
           },
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            208,
-            -112
+            800,
+            592
           ],
-          "id": "c852fd26-aad5-4b2f-8cfb-8ca593242cae",
+          "id": "efff7cac-14c4-40ac-9085-3f48febc0310",
           "name": "Enviar texto",
+          "executeOnce": true,
           "credentials": {
             "evolutionApi": {
               "id": "4gvC5iGuSb0S7dgW",
               "name": "Evolution account"
             }
           }
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "754861f2-0725-49e9-8390-ba1bfe7fb859",
-                  "name": "ID",
-                  "value": "={{ $now }}",
-                  "type": "string"
-                },
-                {
-                  "id": "d7a46427-1809-47d6-8196-68503f7e534a",
-                  "name": "",
-                  "value": "",
-                  "type": "string"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -464,
-            -96
-          ],
-          "id": "81f76e1d-2ef4-4472-9680-5482e1277354",
-          "name": "Edit Fields"
         }
       ],
       "connections": {
-        "Schedule Trigger": {
+        "Cron": {
           "main": [
             [
               {
-                "node": "Edit Fields",
+                "node": "IF Horário Comercial",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Google Gemini Chat Model": {
-          "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Simple Memory": {
-          "ai_memory": [
-            [
-              {
-                "node": "AI Agent",
-                "type": "ai_memory",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "When clicking ‘Execute workflow’": {
+        "IF Horário Comercial": {
           "main": [
             [
               {
-                "node": "Edit Fields",
+                "node": "Get row(s) in sheet1",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Get row(s) in sheet in Google Sheets": {
-          "ai_tool": [
+        "Enviar Email SMTP": {
+          "main": [
             [
               {
-                "node": "AI Agent",
-                "type": "ai_tool",
+                "node": "Preparar Atualização1",
+                "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Append or update row in sheet in Google Sheets": {
-          "ai_tool": [
+        "Preparar Atualização1": {
+          "main": [
             [
               {
-                "node": "AI Agent",
-                "type": "ai_tool",
+                "node": "Update row in sheet",
+                "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Send email in Send Email": {
-          "ai_tool": [
+        "Get row(s) in sheet1": {
+          "main": [
             [
               {
-                "node": "AI Agent",
-                "type": "ai_tool",
+                "node": "Filtrar 80",
+                "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "AI Agent": {
+        "Filtrar 80": {
+          "main": [
+            [
+              {
+                "node": "Enviar Email SMTP",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Preparar Atualização1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet": {
           "main": [
             [
               {
                 "node": "Enviar texto",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Edit Fields": {
-          "main": [
-            [
-              {
-                "node": "AI Agent",
                 "type": "main",
                 "index": 0
               }
@@ -17425,8 +17375,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "5c5b8d01-22da-4e56-8a23-7f7bc80604ea",
-      "triggerCount": 0,
+      "versionId": "81559f07-0847-4731-a29e-9f89a4bdb72f",
+      "triggerCount": 1,
       "shared": [
         {
           "updatedAt": "2025-10-30T16:38:03.495Z",

@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1762378087,
+            "lastTimeChecked": 1762471022,
             "possibleDuplicates": [
-              "19a55ebda9065543",
-              "19a55d78b9b71d19"
+              "19a5b7596681b38e",
+              "19a5b028304b4ea1"
             ]
           }
         }
@@ -2578,7 +2578,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-30T20:04:05.000Z",
+      "updatedAt": "2025-11-06T18:39:46.000Z",
       "createdAt": "2025-10-28T13:02:57.886Z",
       "id": "Qfma1Z4YMAZXmVi3",
       "name": "Copy Thiago teste2",
@@ -3612,7 +3612,8 @@
               "id": "lxV6aVR2Uu6tbEMu",
               "name": "Telegram account - Thiago"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -3626,7 +3627,8 @@
             4288
           ],
           "id": "2b0f3bd8-f9ab-4262-bddc-ae7d86fd7b4e",
-          "name": "Extract from File"
+          "name": "Extract from File",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3668,7 +3670,8 @@
             4288
           ],
           "id": "54d792da-b270-4022-b63c-0c511521ab99",
-          "name": "Information Extractor"
+          "name": "Information Extractor",
+          "disabled": true
         },
         {
           "parameters": {
@@ -3711,8 +3714,7 @@
               "id": "TCKM3qn6Jvi6Qa4j",
               "name": "OpenAi account"
             }
-          },
-          "disabled": true
+          }
         },
         {
           "parameters": {
@@ -3797,7 +3799,8 @@
             4288
           ],
           "id": "d290e945-ff9f-4e94-98ed-a2e5dd79aec2",
-          "name": "Insert row1"
+          "name": "Insert row1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -4421,7 +4424,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a690542f-1ced-4d24-8245-67235a5f8686",
+      "versionId": "457a2e0f-c9ea-4f6f-8fc6-4e315094a633",
       "triggerCount": 1,
       "shared": [
         {
@@ -12218,7 +12221,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2148
+          "lastMessageUid": 2151
         }
       },
       "meta": {

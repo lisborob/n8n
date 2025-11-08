@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1762471022,
+            "lastTimeChecked": 1762551441,
             "possibleDuplicates": [
-              "19a5b7596681b38e",
-              "19a5b028304b4ea1"
+              "19a6040ad12603ee",
+              "19a6035dc702c350"
             ]
           }
         }
@@ -11379,14 +11379,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-04T14:00:55Z"
+          "lastTimeChecked": "2025-11-06T14:00:55Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-04T14:00:42Z"
+          "lastTimeChecked": "2025-11-06T14:00:42Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            309
+            311
           ]
         }
       },
@@ -16992,7 +16992,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-10-31T17:15:55.000Z",
+      "updatedAt": "2025-11-07T22:14:26.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
@@ -17049,8 +17049,8 @@
             "fromEmail": "contact@ooniverse.ai",
             "toEmail": "robson.lisboa@midiacode.com",
             "bccEmail": "={{ $json.bccList }}",
-            "subject": "Convite especial Fórum de Segurança Alimentar em Bebidas Alcoólicas",
-            "text": "Olá, \nEspero que esteja bem.\nGostaria de lhe fazer o convite super especial para o Fórum Segurança Alimentar em Bebidas Alcoólicas, como comercializar e consumir com segurança.\nVocê vai entender melhor como os desafios atuais de fraudes abrem portas para inovações que colocam o setor inteiro em um novo patamar, mais seguro, mais tecnológico e com mais conexão com o consumidor final.\nÉ um evento 100% online e 100% gratuito.\nAcontece no dia 13 de novembro, das 15 às 17 horas. \nInscreva-se e nós lhe mandaremos o link da transmissão.\nInscreva-se através deste link: https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\nCom os melhores cumprimentos, \nRobson Lisboa",
+            "subject": "Fraudes em bebidas: o que o setor precisa fazer agora",
+            "text": "Olá,\n\nVocê sabia que o número de fraudes e falsificações em bebidas alcoólicas tem crescido e já afeta diretamente a confiança do consumidor e a reputação das marcas?\n\nNo dia 13 de novembro, das 15h às 17h, especialistas e líderes do setor estarão reunidos no \"Fórum Segurança Alimentar em Bebidas Alcoólicas\" para discutir como comercializar e consumir com segurança, com tecnologia e responsabilidade.\n\nO tempo está se esgotando, inscreva-se hoje!\n\nO evento é 100% online e gratuito, e você vai sair com insights práticos sobre:\n- O que fazer agora para prevenir problemas no futuro\n- Como identificar e prevenir fraudes em destilados e outras bebidas;\n- Boas práticas para garantir rastreabilidade e transparência;\n- Tendências de inovação que vão transformar o setor.\n\nAs vagas são limitadas e a inscrição é rápida — garanta a sua agora:\n\n👉 Inscreva-se gratuitamente aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nEsperamos você no evento que está movimentando o mercado de bebidas seguras no Brasil.\n\nCom apreço,  \nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas",
             "options": {
               "replyTo": "robson.lisboa@midiacode.com"
             }
@@ -17072,7 +17072,7 @@
         },
         {
           "parameters": {
-            "functionCode": "const rows = items[0].json.rowNumbers || [];\n\nreturn rows.map(row => ({\n  json: {\n    row_number: Number(row),\n    status: \"enviado\"\n  }\n}));"
+            "functionCode": "const rows = items[0].json.rowNumbers || [];\n\nreturn rows.map(row => ({\n  json: {\n    row_number: Number(row),\n    status: \"enviado2\"\n  }\n}));"
           },
           "name": "Preparar Atualização1",
           "type": "n8n-nodes-base.function",
@@ -17137,7 +17137,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "row_number": "={{ $json.row_number }}",
-                "status": "enviado"
+                "status": "enviado2"
               },
               "matchingColumns": [
                 "row_number"
@@ -17250,23 +17250,10 @@
         },
         {
           "parameters": {
-            "functionCode": "const selecionados = items\n  .filter(item => item.json.status !== 'enviado' && item.json[\"Email\"])\n  .slice(0, 80);\n\nconst emails = selecionados.map(item => item.json[\"Email\"]);\nconst linhas = selecionados.map(item => item.json.row_number);\n\nreturn [\n  {\n    json: {\n      bccList: emails.join(','),\n      rowNumbers: linhas\n    }\n  }\n];"
-          },
-          "name": "Filtrar 80",
-          "type": "n8n-nodes-base.function",
-          "typeVersion": 1,
-          "position": [
-            -112,
-            592
-          ],
-          "id": "48e1533b-596b-4147-b5f2-462339aa6eff"
-        },
-        {
-          "parameters": {
             "resource": "messages-api",
             "instanceName": "Valentina",
             "remoteJid": "351912508389@s.whatsapp.net",
-            "messageText": "=relatório ... Enviado emails de convite para ...  {{ $('Filtrar 80').item.json.bccList }}",
+            "messageText": "=relatório ... Enviado emails de convite para ...  {{ $('Filtrar 100').item.json.bccList }}",
             "options_message": {}
           },
           "type": "n8n-nodes-evolution-api.evolutionApi",
@@ -17284,6 +17271,275 @@
               "name": "Evolution account"
             }
           }
+        },
+        {
+          "parameters": {
+            "functionCode": "const selecionados = items\n  .filter(item => {\n    const status = item.json.status || '';\n    const email = item.json[\"Email\"];\n    return !status.includes('enviado2') && !status.includes('INSCRITO') && email;\n  })\n  .slice(0, 100);\n\nconst emails = selecionados.map(item => item.json[\"Email\"]);\nconst linhas = selecionados.map(item => item.json.row_number);\n\nreturn [\n  {\n    json: {\n      bccList: emails.join(','),\n      rowNumbers: linhas\n    }\n  }\n];"
+          },
+          "name": "Filtrar 100",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            -112,
+            592
+          ],
+          "id": "48e1533b-596b-4147-b5f2-462339aa6eff"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1243513752,
+              "mode": "list",
+              "cachedResultName": "leads",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "Email",
+                  "lookupValue": "={{ $json['emails de inscritos'] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "e73a4f56-c277-46a6-bef8-01132e32d7c3",
+          "name": "Get row(s) in sheet",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -64,
+            976
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 81618148,
+              "mode": "list",
+              "cachedResultName": "Inscritos",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "id": "fa22c38e-a3a2-41ff-9bed-0dbf129b70e1",
+          "name": "Get row(s) in sheet2",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -320,
+            976
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=INSCRITOS ATUALIZADOS ... Enviado emails de convite para ...  {{ $json.Email }}\n",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            448,
+            976
+          ],
+          "id": "94a94d6e-7921-471b-9ab0-ac8ade5e4ba5",
+          "name": "Enviar texto1",
+          "executeOnce": true,
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1243513752,
+              "mode": "list",
+              "cachedResultName": "leads",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Email": "={{ $json.Email }}",
+                "status": "INSCRITO"
+              },
+              "matchingColumns": [
+                "Email"
+              ],
+              "schema": [
+                {
+                  "id": "First Name",
+                  "displayName": "First Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Last Name",
+                  "displayName": "Last Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Title",
+                  "displayName": "Title",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Company Name",
+                  "displayName": "Company Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Company Name for Emails",
+                  "displayName": "Company Name for Emails",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "prioridade",
+                  "displayName": "prioridade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            144,
+            976
+          ],
+          "id": "1669c3bd-d5d9-43b9-99d2-56d251279041",
+          "name": "Update row in sheet1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            -528,
+            976
+          ],
+          "id": "7dcc7ffd-2702-4d1b-aa8d-b5a6df10a832",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "content": "## ADICIONA INSCRITO NO STATUS DA LISTA MASTER\n",
+            "height": 256,
+            "width": 1504
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -656,
+            896
+          ],
+          "typeVersion": 1,
+          "id": "8d0dd7b7-f21e-42b6-8674-8ff765a71b09",
+          "name": "Sticky Note"
         }
       ],
       "connections": {
@@ -17335,23 +17591,7 @@
           "main": [
             [
               {
-                "node": "Filtrar 80",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filtrar 80": {
-          "main": [
-            [
-              {
-                "node": "Enviar Email SMTP",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Preparar Atualização1",
+                "node": "Filtrar 100",
                 "type": "main",
                 "index": 0
               }
@@ -17368,6 +17608,66 @@
               }
             ]
           ]
+        },
+        "Filtrar 100": {
+          "main": [
+            [
+              {
+                "node": "Enviar Email SMTP",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Preparar Atualização1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet2": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet1": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -17378,7 +17678,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "81559f07-0847-4731-a29e-9f89a4bdb72f",
+      "versionId": "3050f8af-5594-427b-86f4-a72a8b70ae1b",
       "triggerCount": 1,
       "shared": [
         {

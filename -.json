@@ -1269,10 +1269,10 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1762635609,
+            "lastTimeChecked": 1762722009,
             "possibleDuplicates": [
-              "19a65452e6e9da64",
-              "19a652a424bcb077"
+              "19a6a6ba1ca71cc5",
+              "19a6a34a14d3e24c"
             ]
           }
         }
@@ -11379,14 +11379,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-06T14:00:55Z"
+          "lastTimeChecked": "2025-11-08T14:00:55Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-06T14:00:42Z"
+          "lastTimeChecked": "2025-11-08T14:00:42Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            311
+            313
           ]
         }
       },

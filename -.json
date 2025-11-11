@@ -472,41 +472,13 @@
       ]
     },
     {
-      "updatedAt": "2025-09-11T20:06:58.000Z",
+      "updatedAt": "2025-11-10T16:14:26.000Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
-      "name": "Email Auto",
+      "name": "Email Auto - robson.lisboa@midiacode.com incoming",
       "active": true,
       "isArchived": false,
       "nodes": [
-        {
-          "parameters": {
-            "pollTimes": {
-              "item": [
-                {
-                  "mode": "everyMinute"
-                }
-              ]
-            },
-            "simple": false,
-            "filters": {},
-            "options": {}
-          },
-          "type": "n8n-nodes-base.gmailTrigger",
-          "typeVersion": 1.3,
-          "position": [
-            -80,
-            368
-          ],
-          "id": "5b47c9fc-5b2f-48d9-8108-09e892c390cb",
-          "name": "Gmail Trigger",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
-            }
-          }
-        },
         {
           "parameters": {
             "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
@@ -587,7 +559,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_12"
             ]
@@ -604,14 +576,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_2"
             ]
@@ -628,14 +600,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "CATEGORY_PROMOTIONS"
             ]
@@ -652,14 +624,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "CATEGORY_SOCIAL"
             ]
@@ -676,14 +648,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "markAsUnread",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}"
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
@@ -697,7 +669,7 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
@@ -726,7 +698,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_1123594355848171287"
             ]
@@ -743,7 +715,7 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
@@ -763,7 +735,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -780,14 +752,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_4642884863203511762"
             ]
@@ -804,14 +776,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -826,7 +798,7 @@
         {
           "parameters": {
             "sessionIdType": "customKey",
-            "sessionKey": "={{ $('Gmail Trigger').item.json.id }}",
+            "sessionKey": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "contextWindowLength": 30
           },
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
@@ -895,7 +867,7 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
@@ -913,7 +885,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_6"
             ]
@@ -930,14 +902,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
             "labelIds": [
               "Label_13"
             ]
@@ -954,14 +926,14 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{ $('Gmail Trigger').item.json.id }}"
+            "messageId": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
@@ -975,7 +947,7 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         },
@@ -993,20 +965,37 @@
           "id": "4fadce01-5710-449b-8a4c-b083d99b02f7",
           "name": "Wait",
           "webhookId": "e55d910e-04ff-4bf2-9c5a-8408638b2d2f"
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "simple": false,
+            "filters": {},
+            "options": {}
+          },
+          "type": "n8n-nodes-base.gmailTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -80,
+            368
+          ],
+          "id": "5b47c9fc-5b2f-48d9-8108-09e892c390cb",
+          "name": "Gmail Trigger - robson.lisboa@midiacode.com",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
         }
       ],
       "connections": {
-        "Gmail Trigger": {
-          "main": [
-            [
-              {
-                "node": "Text Classifier",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Google Gemini Chat Model": {
           "ai_languageModel": [
             [
@@ -1261,6 +1250,17 @@
               }
             ]
           ]
+        },
+        "Gmail Trigger - robson.lisboa@midiacode.com": {
+          "main": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -1269,10 +1269,19 @@
       "staticData": {
         "node:Gmail Trigger": {
           "Gmail Trigger": {
-            "lastTimeChecked": 1762722009,
+            "lastTimeChecked": 1762791045,
             "possibleDuplicates": [
-              "19a6a6ba1ca71cc5",
-              "19a6a34a14d3e24c"
+              "19a6e88f51ccb3ae",
+              "19a6e830dec045f1"
+            ]
+          }
+        },
+        "node:Gmail Trigger - robson.lisboa@midiacode.com": {
+          "Gmail Trigger - robson.lisboa@midiacode.com": {
+            "lastTimeChecked": 1762813685,
+            "possibleDuplicates": [
+              "19a6fe233d5a93cd",
+              "19a6f9e7a5a0959f"
             ]
           }
         }
@@ -1289,7 +1298,7 @@
           }
         ]
       },
-      "versionId": "912b7d29-2fc4-46cd-8ade-5e9cc51172ce",
+      "versionId": "43f13fac-ef6c-4fcf-b660-f91c5d4abbb2",
       "triggerCount": 1,
       "shared": [
         {
@@ -1297,6 +1306,2805 @@
           "createdAt": "2025-09-09T16:26:47.641Z",
           "role": "workflow:owner",
           "workflowId": "AFySOWDVVQcGxps6",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-11-10T23:43:54.000Z",
+      "createdAt": "2025-11-10T16:14:51.087Z",
+      "id": "AMxqvub2sDhDLKka",
+      "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "Clientes",
+                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                },
+                {
+                  "category": "Contabilidade",
+                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                },
+                {
+                  "category": "Promo",
+                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                },
+                {
+                  "category": "social",
+                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                },
+                {
+                  "category": "Alerts",
+                  "description": "anything from google alerts"
+                },
+                {
+                  "category": "OoO",
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                },
+                {
+                  "category": "Keep it in inbox",
+                  "description": "Anything that does not match the other categories"
+                },
+                {
+                  "category": "Tech",
+                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                },
+                {
+                  "category": "Viagem",
+                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                },
+                {
+                  "category": "Delete from Accept/Reject meeting",
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                },
+                {
+                  "category": "comercial",
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            32,
+            288
+          ],
+          "id": "9e18b1ec-23fa-458d-ae1d-91abedd44621",
+          "name": "Text Classifier"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_12"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1472,
+            -752
+          ],
+          "id": "8bd998ff-4fb7-453b-94dc-333b73d19303",
+          "name": "Clientes label",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_2"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1472,
+            -576
+          ],
+          "id": "2cf7a454-1661-4dde-bea3-a1b842bf2fb8",
+          "name": "Contabilidade label",
+          "webhookId": "67b5b4ed-2b00-4aae-a3ff-8114904b8c01",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_PROMOTIONS"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1472,
+            -384
+          ],
+          "id": "30fafcd8-317a-4da9-8b11-d96122afbc0b",
+          "name": "Promo label",
+          "webhookId": "b126ac1e-3d0b-48e3-984e-f9f6cba6e3e3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_SOCIAL"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1472,
+            -176
+          ],
+          "id": "fc81d284-1b27-4f29-8e53-660427b820bc",
+          "name": "Social label",
+          "webhookId": "b453f4c5-0c3a-4e96-b3db-64426a87b343",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "markAsUnread",
+            "messageId": "={{$json[\"id\"]}}\n"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2304,
+            -384
+          ],
+          "id": "f0f3932c-3c60-4904-885b-d036818e4839",
+          "name": "Mark a message as unread",
+          "webhookId": "923b58ba-cf85-4a32-9bf4-aa243d51e62c",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{ $json.id }}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2848,
+            -384
+          ],
+          "id": "d78523a9-d1ae-45d2-8fe6-50369d387307",
+          "name": "Delete a message",
+          "webhookId": "861b2288-7683-46a3-a68e-87131d62538a",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_1123594355848171287"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1472,
+            0
+          ],
+          "id": "36c3ba97-5dc5-463e-8785-1575737b9ae2",
+          "name": "Alerts",
+          "webhookId": "1f66965d-ce2a-427d-83e0-116c6d957543",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## reference\n**https://www.youtube.com/watch?v=_2bfCG9922E"
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -2096,
+            -464
+          ],
+          "typeVersion": 1,
+          "id": "caf71688-0b58-4673-8c9b-6c351bd42a6f",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2512,
+            0
+          ],
+          "id": "87d54092-95fd-4d53-8320-2bb0b43819a5",
+          "name": "Remove message from INBOX",
+          "webhookId": "9058d4c0-7e58-4aa1-84cd-e8cd3e8e7625",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4642884863203511762"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1488,
+            192
+          ],
+          "id": "abe736fd-cee6-4c0b-a34e-128bb51756a4",
+          "name": "OoO Label",
+          "webhookId": "37cf46e5-f5fa-4a16-b1cc-4b0a03358718",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            1648,
+            192
+          ],
+          "id": "9f762605-5d25-4133-bc9d-d651e16b4e90",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            1712,
+            416
+          ],
+          "id": "f0dc5b6a-1e4f-40a1-bd1a-d15b85d4d316",
+          "name": "Simple Memory"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1856,
+            400
+          ],
+          "id": "96559f8a-42a7-4136-b70e-711c4c27c571",
+          "name": "Hubspot MCP Client"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1936,
+            192
+          ],
+          "id": "50f878bb-734e-4b69-8801-f4e878e841b6",
+          "name": "Enviar texto",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{ $json.id }}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2496,
+            -384
+          ],
+          "id": "49b58363-acc5-46bf-bf00-cf4bc4891391",
+          "name": "Remove message from INBOX 1",
+          "webhookId": "6e574987-2807-44b8-8091-95bcc3630cbc",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_6"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1488,
+            736
+          ],
+          "id": "b9d4ca7a-ef7f-4ce4-9cfc-7082a631686a",
+          "name": "Tech Label",
+          "webhookId": "acedfb48-b5eb-4955-a9da-8cda2dbe4e77",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_13"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1488,
+            928
+          ],
+          "id": "6ee87f46-900c-4826-87a4-cdc591e92ea6",
+          "name": "Viagem Label",
+          "webhookId": "c5f9f393-40f2-4bf5-9122-31e714d5e1a3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{$json[\"id\"]}}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1632,
+            1136
+          ],
+          "id": "757218d6-c8a3-4abf-81a1-9a50d5aadca8",
+          "name": "Delete Accept or reject",
+          "webhookId": "17a894b0-78bd-43c0-9922-fa2db4406056",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "amount": 3,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1488,
+            1136
+          ],
+          "id": "1200aa62-4ab8-4a1d-924d-735994384dd0",
+          "name": "Wait",
+          "webhookId": "97c1e78d-3290-48c1-a243-6a7aec6c6247"
+        },
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "field": "minutes",
+                  "minutesInterval": 3
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            -3232,
+            3136
+          ],
+          "id": "28cb5b5b-edc6-43d3-a73a-ac311db7ac13",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "operation": "getAll",
+            "limit": 1,
+            "simple": false,
+            "filters": {
+              "labelIds": [
+                "INBOX"
+              ],
+              "readStatus": "unread"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            -2912,
+            3136
+          ],
+          "id": "92b3ebc2-913e-4019-a3fd-b3a071d84027",
+          "name": "Get many messages",
+          "webhookId": "b6004c99-6f7a-4c04-86b9-dd309f7d5a4c",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1488,
+            1312
+          ],
+          "id": "2956c3a2-1aab-41eb-a341-c689af46dc89",
+          "name": "Comercial",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1488,
+            560
+          ],
+          "id": "1af4b745-9658-460d-bd6b-5c097c3cc617",
+          "name": "Comercial1",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": {
+              "__rl": true,
+              "mode": "list",
+              "value": "claude-sonnet-4-20250514",
+              "cachedResultName": "Claude 4 Sonnet"
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+          "typeVersion": 1.3,
+          "position": [
+            176,
+            1040
+          ],
+          "id": "4a296c36-c487-4125-bae2-f90bbaafa65f",
+          "name": "Anthropic Chat Model",
+          "credentials": {
+            "anthropicApi": {
+              "id": "tiZs2tcGd4CAkgAw",
+              "name": "Anthropic account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "Clientes",
+                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                },
+                {
+                  "category": "Contabilidade",
+                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                },
+                {
+                  "category": "Promo",
+                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                },
+                {
+                  "category": "social",
+                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                },
+                {
+                  "category": "Alerts",
+                  "description": "anything from google alerts"
+                },
+                {
+                  "category": "OoO",
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                },
+                {
+                  "category": "Keep it in inbox",
+                  "description": "Anything that does not match the other categories"
+                },
+                {
+                  "category": "Tech",
+                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                },
+                {
+                  "category": "Viagem",
+                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                },
+                {
+                  "category": "Delete from Accept/Reject meeting",
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                },
+                {
+                  "category": "comercial",
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            64,
+            2752
+          ],
+          "id": "da1c75e4-6d46-48d8-bc8a-7dde1e4e3a6d",
+          "name": "Text Classifier1"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_12"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1504,
+            1712
+          ],
+          "id": "1971cc84-d5e7-4660-b1fe-ab215a2ee590",
+          "name": "Clientes label1",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_2"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1504,
+            1888
+          ],
+          "id": "f19ae46b-3d3b-4a2e-8f63-c0103a8758b3",
+          "name": "Contabilidade label1",
+          "webhookId": "67b5b4ed-2b00-4aae-a3ff-8114904b8c01",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_PROMOTIONS"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1504,
+            2080
+          ],
+          "id": "6bfed2c5-a70a-4a26-8b9f-60869f23c46b",
+          "name": "Promo label1",
+          "webhookId": "b126ac1e-3d0b-48e3-984e-f9f6cba6e3e3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_SOCIAL"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1504,
+            2288
+          ],
+          "id": "bcc3862b-114a-40a5-ba02-ba90586ec676",
+          "name": "Social label1",
+          "webhookId": "b453f4c5-0c3a-4e96-b3db-64426a87b343",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "markAsUnread",
+            "messageId": "={{$json[\"id\"]}}\n"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2336,
+            2080
+          ],
+          "id": "f461a728-ae9d-460d-a335-8358fd83097c",
+          "name": "Mark a message as unread1",
+          "webhookId": "923b58ba-cf85-4a32-9bf4-aa243d51e62c",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{ $json.id }}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2880,
+            2080
+          ],
+          "id": "a39f9374-2ced-4eb6-b8fd-8ad40ddb667c",
+          "name": "Delete a message1",
+          "webhookId": "861b2288-7683-46a3-a68e-87131d62538a",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_1123594355848171287"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1504,
+            2464
+          ],
+          "id": "54bf863e-12de-4dd3-b60e-2517da52f65c",
+          "name": "Alerts1",
+          "webhookId": "1f66965d-ce2a-427d-83e0-116c6d957543",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2544,
+            2464
+          ],
+          "id": "066dfdd5-ec40-46f7-8aa7-df784988131a",
+          "name": "Remove message from INBOX1",
+          "webhookId": "9058d4c0-7e58-4aa1-84cd-e8cd3e8e7625",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4642884863203511762"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1520,
+            2656
+          ],
+          "id": "081cdae5-83e3-4026-b0ba-28735170aa0e",
+          "name": "OoO Label1",
+          "webhookId": "37cf46e5-f5fa-4a16-b1cc-4b0a03358718",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            1680,
+            2656
+          ],
+          "id": "6f460af3-3acb-4596-a322-b4ab15f77cee",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            1744,
+            2880
+          ],
+          "id": "7e57c71f-daa5-4cce-9f15-5f22bd4c129b",
+          "name": "Simple Memory1"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1888,
+            2864
+          ],
+          "id": "a9e0c67e-63d5-4e7d-a854-d7b928bc14fc",
+          "name": "Hubspot MCP Client1"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1968,
+            2656
+          ],
+          "id": "5d8a325c-78f9-4f9d-9380-de963fdee1e6",
+          "name": "Enviar texto1",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{ $json.id }}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2528,
+            2080
+          ],
+          "id": "b2ac9b2d-76bf-4e2a-908b-31e4ade8acb6",
+          "name": "Remove message from INBOX ",
+          "webhookId": "6e574987-2807-44b8-8091-95bcc3630cbc",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_6"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1520,
+            3200
+          ],
+          "id": "dca734a3-b24b-49d5-9fd8-2cf23a4f42f1",
+          "name": "Tech Label1",
+          "webhookId": "acedfb48-b5eb-4955-a9da-8cda2dbe4e77",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_13"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1520,
+            3392
+          ],
+          "id": "148e3ddd-8cf7-472e-957d-78d471daa72d",
+          "name": "Viagem Label1",
+          "webhookId": "c5f9f393-40f2-4bf5-9122-31e714d5e1a3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{$json[\"id\"]}}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1664,
+            3600
+          ],
+          "id": "0b39e822-bb64-4c9f-90a5-2467553e3274",
+          "name": "Delete Accept or reject1",
+          "webhookId": "17a894b0-78bd-43c0-9922-fa2db4406056",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "amount": 3,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1520,
+            3600
+          ],
+          "id": "d1c7aa1e-76e2-4ede-854e-abcd2181044a",
+          "name": "Wait1",
+          "webhookId": "97c1e78d-3290-48c1-a243-6a7aec6c6247"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1520,
+            3776
+          ],
+          "id": "770430fb-d81d-4609-b6d1-b983e8f64cd5",
+          "name": "Comercial2",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1520,
+            3024
+          ],
+          "id": "88cf808f-07e8-4708-a742-ea1bb6096dee",
+          "name": "Comercial3",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            224,
+            3504
+          ],
+          "id": "1841d5c9-3392-40e3-ad6e-933839b5d3d5",
+          "name": "Google Gemini Chat Model1",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "veHITAbJHo5fcUku",
+              "name": "Google Gemini(PaLM) Api account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "Clientes",
+                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                },
+                {
+                  "category": "Contabilidade",
+                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                },
+                {
+                  "category": "Promo",
+                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                },
+                {
+                  "category": "social",
+                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                },
+                {
+                  "category": "Alerts",
+                  "description": "anything from google alerts"
+                },
+                {
+                  "category": "OoO",
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                },
+                {
+                  "category": "Keep it in inbox",
+                  "description": "Anything that does not match the other categories"
+                },
+                {
+                  "category": "Tech",
+                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                },
+                {
+                  "category": "Viagem",
+                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                },
+                {
+                  "category": "Delete from Accept/Reject meeting",
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                },
+                {
+                  "category": "comercial",
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            80,
+            5456
+          ],
+          "id": "0bf949f5-a7b7-4657-a3e1-17c0e55a1885",
+          "name": "Text Classifier2"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_12"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1536,
+            4416
+          ],
+          "id": "4c96f35d-b3d9-4492-8f11-7d9db67cb01f",
+          "name": "Clientes label2",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_2"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1536,
+            4592
+          ],
+          "id": "3a295a3b-970f-40bd-beea-d9609fd7e5b6",
+          "name": "Contabilidade label2",
+          "webhookId": "67b5b4ed-2b00-4aae-a3ff-8114904b8c01",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_PROMOTIONS"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1536,
+            4784
+          ],
+          "id": "6a328f49-f274-450c-bf37-77205c9b27f0",
+          "name": "Promo label2",
+          "webhookId": "b126ac1e-3d0b-48e3-984e-f9f6cba6e3e3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "CATEGORY_SOCIAL"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1536,
+            4992
+          ],
+          "id": "bf8fadde-7ee7-4202-8ac5-134d2d627d06",
+          "name": "Social label2",
+          "webhookId": "b453f4c5-0c3a-4e96-b3db-64426a87b343",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "markAsUnread",
+            "messageId": "={{$json[\"id\"]}}\n"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2368,
+            4784
+          ],
+          "id": "99c25ba9-25f6-4518-be96-c5941d597e52",
+          "name": "Mark a message as unread2",
+          "webhookId": "923b58ba-cf85-4a32-9bf4-aa243d51e62c",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{ $json.id }}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2912,
+            4784
+          ],
+          "id": "f7340400-ccff-427a-bd89-1a15d3dcaa83",
+          "name": "Delete a message2",
+          "webhookId": "861b2288-7683-46a3-a68e-87131d62538a",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_1123594355848171287"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1536,
+            5168
+          ],
+          "id": "bc68d23e-f238-493d-b55c-0df2456b3f21",
+          "name": "Alerts2",
+          "webhookId": "1f66965d-ce2a-427d-83e0-116c6d957543",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2576,
+            5168
+          ],
+          "id": "5708f6e6-a3e3-4adf-8ca5-823570ccd71f",
+          "name": "Remove message from INBOX2",
+          "webhookId": "9058d4c0-7e58-4aa1-84cd-e8cd3e8e7625",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4642884863203511762"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1552,
+            5360
+          ],
+          "id": "f86c8506-8647-4533-9cf2-8f6214135a11",
+          "name": "OoO Label2",
+          "webhookId": "37cf46e5-f5fa-4a16-b1cc-4b0a03358718",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            1712,
+            5360
+          ],
+          "id": "ac9f5e67-31ce-42f4-96e3-df0671e9ab1c",
+          "name": "AI Agent2"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.id }}",
+            "contextWindowLength": 30
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            1776,
+            5584
+          ],
+          "id": "bae48549-514f-4395-9088-381436e7c13a",
+          "name": "Simple Memory2"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/hubspot-mcp",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.1,
+          "position": [
+            1920,
+            5568
+          ],
+          "id": "838c7d09-57ae-4614-836e-23c18e979b92",
+          "name": "Hubspot MCP Client2"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de OoO:  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            2000,
+            5360
+          ],
+          "id": "7c8e8a0e-3f85-4e19-afde-665f96394f56",
+          "name": "Enviar texto2",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{ $json.id }}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2560,
+            4784
+          ],
+          "id": "0ab5a063-95a1-4485-a7da-2a25eb0dd6e0",
+          "name": "Remove message from INBOX 2",
+          "webhookId": "6e574987-2807-44b8-8091-95bcc3630cbc",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_6"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1552,
+            5904
+          ],
+          "id": "82f48933-0882-4779-806d-5aad6c797dff",
+          "name": "Tech Label2",
+          "webhookId": "acedfb48-b5eb-4955-a9da-8cda2dbe4e77",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_13"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1552,
+            6096
+          ],
+          "id": "9dd1fda3-9a01-4200-a450-4792fe96335d",
+          "name": "Viagem Label2",
+          "webhookId": "c5f9f393-40f2-4bf5-9122-31e714d5e1a3",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{$json[\"id\"]}}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1696,
+            6304
+          ],
+          "id": "cb3be15e-ad31-479a-9554-fb62192c11eb",
+          "name": "Delete Accept or reject2",
+          "webhookId": "17a894b0-78bd-43c0-9922-fa2db4406056",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "amount": 3,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1552,
+            6304
+          ],
+          "id": "c4329d16-11e3-4547-aa3c-1d1753719f32",
+          "name": "Wait2",
+          "webhookId": "97c1e78d-3290-48c1-a243-6a7aec6c6247"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1552,
+            6480
+          ],
+          "id": "d263e7a5-4f2d-497d-925c-99894a165176",
+          "name": "Comercial4",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{$json[\"id\"]}}",
+            "labelIds": [
+              "Label_4"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1552,
+            5728
+          ],
+          "id": "393f0a03-0647-47f6-8b60-cabd73af712c",
+          "name": "Comercial5",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": "qwen/qwen3-32b",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            256,
+            6224
+          ],
+          "id": "9c241f64-45e7-44ba-a0e4-8e4fc7e8a7e8",
+          "name": "Groq Chat Model",
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "propertyName": "modelIndex",
+            "key": "modelIndex",
+            "options": {}
+          },
+          "id": "fab67b0d-83a3-4d37-a8d8-5e148747aa7f",
+          "name": "Get modelIndex",
+          "type": "n8n-nodes-base.redis",
+          "typeVersion": 1,
+          "position": [
+            -2640,
+            3136
+          ],
+          "credentials": {
+            "redis": {
+              "id": "jYkzJzvQcfqLDvI0",
+              "name": "Redis account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "set",
+            "key": "modelIndex",
+            "value": "={{ $json.modelIndex }}",
+            "keyType": "string"
+          },
+          "id": "688a1cad-87a8-4a14-ac89-8a95bfb7d8e4",
+          "name": "Salvar modelIndex",
+          "type": "n8n-nodes-base.redis",
+          "typeVersion": 1,
+          "position": [
+            5440,
+            2672
+          ],
+          "credentials": {
+            "redis": {
+              "id": "jYkzJzvQcfqLDvI0",
+              "name": "Redis account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "let current = 0;\n\nif (typeof $json.modelIndex === 'string') {\n  current = parseInt($json.modelIndex.trim());\n} else if (typeof $json.modelIndex === 'number') {\n  current = $json.modelIndex;\n}\n\nconst next = (current + 1) % 3;\nreturn [{ json: { modelIndex: next } }];"
+          },
+          "id": "ee7b3d8a-e525-40d5-a52d-34aa9df20d7d",
+          "name": "Atualizar modelIndex4",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            5216,
+            2672
+          ]
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            5680,
+            2672
+          ],
+          "id": "df0dd085-0e64-4b94-b3da-b4568cd6caeb",
+          "name": "No Operation, do nothing1"
+        },
+        {
+          "parameters": {
+            "value1": "={{ $json.modelIndex }}",
+            "rules": {
+              "rules": [
+                {
+                  "operation": "equal"
+                },
+                {
+                  "operation": "equal",
+                  "value2": 1,
+                  "output": 1
+                },
+                {
+                  "operation": "equal",
+                  "value2": 2,
+                  "output": 2
+                }
+              ]
+            }
+          },
+          "id": "c87a2c95-526c-4b12-85f8-9f6bca8aa0e0",
+          "name": "switch",
+          "type": "n8n-nodes-base.switch",
+          "typeVersion": 1,
+          "position": [
+            -2112,
+            3104
+          ]
+        },
+        {
+          "parameters": {
+            "jsCode": "let raw = $json.modelIndex;\nlet modelIndex = 0;\n\nif (typeof raw === 'string') {\n  raw = raw.trim();\n  modelIndex = Number.isNaN(parseInt(raw)) ? 0 : parseInt(raw);\n} else if (typeof raw === 'number') {\n  modelIndex = raw;\n}\n\nreturn [{ json: { modelIndex } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2432,
+            3136
+          ],
+          "id": "7a583dbe-9845-4686-905b-088998107026",
+          "name": "Preparar modelIndex"
+        }
+      ],
+      "connections": {
+        "Text Classifier": {
+          "main": [
+            [
+              {
+                "node": "Clientes label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Contabilidade label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Promo label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Social label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Alerts",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "OoO Label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Tech Label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Viagem Label",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Promo label": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Social label": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Mark a message as unread": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX 1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Clientes label": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Contabilidade label": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Alerts": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "OoO Label": {
+          "main": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX 1": {
+          "main": [
+            [
+              {
+                "node": "Delete a message",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Tech Label": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Viagem Label": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Delete Accept or reject",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Get many messages",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get many messages": {
+          "main": [
+            [
+              {
+                "node": "Get modelIndex",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Anthropic Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Delete Accept or reject": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Text Classifier1": {
+          "main": [
+            [
+              {
+                "node": "Clientes label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Contabilidade label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Promo label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Social label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Alerts1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "OoO Label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial3",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Tech Label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Viagem Label1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Wait1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Clientes label1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Contabilidade label1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Promo label1": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Social label1": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Mark a message as unread1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX ",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Alerts1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX1": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "OoO Label1": {
+          "main": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory1": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client1": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX ": {
+          "main": [
+            [
+              {
+                "node": "Delete a message1",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Tech Label1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Viagem Label1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Delete Accept or reject1": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait1": {
+          "main": [
+            [
+              {
+                "node": "Delete Accept or reject1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial3": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "Text Classifier1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Text Classifier2": {
+          "main": [
+            [
+              {
+                "node": "Clientes label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Contabilidade label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Promo label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Social label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Alerts2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "OoO Label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial5",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Tech Label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Viagem Label2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Wait2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Comercial4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Clientes label2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Contabilidade label2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Promo label2": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Social label2": {
+          "main": [
+            [
+              {
+                "node": "Mark a message as unread2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Mark a message as unread2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX 2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Alerts2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX2": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "OoO Label2": {
+          "main": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent2": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Simple Memory2": {
+          "ai_memory": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Hubspot MCP Client2": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX 2": {
+          "main": [
+            [
+              {
+                "node": "Delete a message2",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Tech Label2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Viagem Label2": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Delete Accept or reject2": {
+          "main": [
+            [
+              {
+                "node": "Atualizar modelIndex4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait2": {
+          "main": [
+            [
+              {
+                "node": "Delete Accept or reject2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial4": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Comercial5": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "Text Classifier2",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get modelIndex": {
+          "main": [
+            [
+              {
+                "node": "Preparar modelIndex",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Atualizar modelIndex4": {
+          "main": [
+            [
+              {
+                "node": "Salvar modelIndex",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Salvar modelIndex": {
+          "main": [
+            [
+              {
+                "node": "No Operation, do nothing1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "switch": {
+          "main": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Text Classifier1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Text Classifier2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Preparar modelIndex": {
+          "main": [
+            [
+              {
+                "node": "switch",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": {
+        "node:Gmail Trigger": {
+          "Gmail Trigger": {
+            "lastTimeChecked": 1762791045,
+            "possibleDuplicates": [
+              "19a6e88f51ccb3ae",
+              "19a6e830dec045f1"
+            ]
+          }
+        },
+        "node:Gmail Trigger - robson.lisboa@midiacode.com": {
+          "Gmail Trigger - robson.lisboa@midiacode.com": {
+            "lastTimeChecked": 1762791199
+          }
+        },
+        "node:Schedule Trigger": {
+          "recurrenceRules": []
+        }
+      },
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "95b1f878-6eeb-4dc1-b399-768ebf5436cd",
+      "triggerCount": 1,
+      "shared": [
+        {
+          "updatedAt": "2025-11-10T16:14:51.097Z",
+          "createdAt": "2025-11-10T16:14:51.097Z",
+          "role": "workflow:owner",
+          "workflowId": "AMxqvub2sDhDLKka",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
@@ -12221,7 +15029,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2151
+          "lastMessageUid": 2155
         }
       },
       "meta": {
@@ -16992,7 +19800,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-07T22:14:26.000Z",
+      "updatedAt": "2025-11-10T16:10:20.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
@@ -17059,7 +19867,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            144,
+            352,
             480
           ],
           "id": "541856c0-f442-4151-89da-004f0699d4b0",
@@ -17078,7 +19886,7 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            368,
+            576,
             592
           ],
           "id": "a6094f0c-1499-4be3-b8b1-12ea622e5461"
@@ -17105,7 +19913,7 @@
           "name": "Get row(s) in sheet1",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -384,
+            -176,
             592
           ],
           "typeVersion": 4.6,
@@ -17236,7 +20044,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            592,
+            800,
             592
           ],
           "id": "6f3c07f2-7f8a-401f-aa31-888af24161ba",
@@ -17259,7 +20067,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            800,
+            1008,
             592
           ],
           "id": "efff7cac-14c4-40ac-9085-3f48febc0310",
@@ -17280,7 +20088,7 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            -112,
+            96,
             592
           ],
           "id": "48e1533b-596b-4147-b5f2-462339aa6eff"
@@ -17315,8 +20123,8 @@
           "name": "Get row(s) in sheet",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -64,
-            976
+            -48,
+            1216
           ],
           "typeVersion": 4.6,
           "credentials": {
@@ -17348,8 +20156,8 @@
           "name": "Get row(s) in sheet2",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -320,
-            976
+            -304,
+            1216
           ],
           "typeVersion": 4.6,
           "credentials": {
@@ -17370,8 +20178,8 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            448,
-            976
+            464,
+            1216
           ],
           "id": "94a94d6e-7921-471b-9ab0-ac8ade5e4ba5",
           "name": "Enviar texto1",
@@ -17503,8 +20311,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            144,
-            976
+            160,
+            1216
           ],
           "id": "1669c3bd-d5d9-43b9-99d2-56d251279041",
           "name": "Update row in sheet1",
@@ -17520,8 +20328,8 @@
           "type": "n8n-nodes-base.manualTrigger",
           "typeVersion": 1,
           "position": [
-            -528,
-            976
+            -512,
+            1216
           ],
           "id": "7dcc7ffd-2702-4d1b-aa8d-b5a6df10a832",
           "name": "When clicking ‘Execute workflow’"
@@ -17534,12 +20342,335 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -656,
-            896
+            -640,
+            1136
           ],
           "typeVersion": 1,
           "id": "8d0dd7b7-f21e-42b6-8674-8ff765a71b09",
           "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@ooniverse.ai",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "bccEmail": "={{ $json.bccList }}",
+            "subject": "Fraudes em bebidas: o que o setor precisa fazer agora",
+            "text": "Olá,\n\nNós do Midiacode estamos promovendo, em parceria com o GS1, a Seritec e a Autent.ai, um evento que, se não interessa diretamente, pode trazer insights importantes para a sua empresa.\n\nO número de fraudes e falsificações em bebidas alcoólicas tem crescido e já afeta diretamente a confiança do consumidor e a reputação das marcas.\n\nNo dia 13 de novembro, das 15h às 17h, especialistas e líderes do setor estarão reunidos no \"Fórum Segurança Alimentar em Bebidas Alcoólicas\" para discutir como comercializar e consumir com segurança, com tecnologia e responsabilidade. A parte de rastreabilidade, neste caso, de produtos alimentícios, será tratada neste evento e essa questão pode trazer muitos ingishts para o seu mercado também.\n\nO tempo está se esgotando, inscreva-se hoje!\n\nO evento é 100% online e gratuito, e você vai sair com conhecimentos práticos sobre:\n- O que fazer agora para prevenir problemas no futuro\n- Como identificar e prevenir fraudes em destilados e outras bebidas;\n- Boas práticas para garantir rastreabilidade e transparência;\n- Tendências de inovação que vão transformar o setor.\n\nAs vagas são limitadas e a inscrição é rápida — garanta a sua agora:\n\n👉 Inscreva-se gratuitamente aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nEsperamos você no evento que está movimentando o mercado de alimentação, principalmente o de bebidas no Brasil.\n\nCom apreço,  \nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas",
+            "options": {
+              "replyTo": "robson.lisboa@midiacode.com"
+            }
+          },
+          "name": "Enviar Email SMTP1",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            352,
+            800
+          ],
+          "id": "ca799127-9d39-4e1b-9b6d-667c8df7c978",
+          "credentials": {
+            "smtp": {
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "functionCode": "const rows = items[0].json.rowNumbers || [];\n\nreturn rows.map(row => ({\n  json: {\n    row_number: Number(row),\n    status: \"enviado2\"\n  }\n}));"
+          },
+          "name": "Preparar Atualização",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            576,
+            912
+          ],
+          "id": "53b80b4d-b5eb-4faf-8b6d-b721c06dc76e"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 699739272,
+              "mode": "list",
+              "cachedResultName": "clientes em P2.4/2.3 correlatos ao evento",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "row_number": "={{ $json.row_number }}",
+                "Status": "enviado2"
+              },
+              "matchingColumns": [
+                "row_number"
+              ],
+              "schema": [
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            800,
+            912
+          ],
+          "id": "3540979b-a19d-4eff-b006-4edc678db7bd",
+          "name": "Update row in sheet2",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=relatório ... Enviado emails CLIENTES HUBSPOT ...  {{ $('Filtrar ').item.json.bccList }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1008,
+            912
+          ],
+          "id": "b0533b45-84ef-4aca-b302-1b2e121283ae",
+          "name": "Enviar texto2",
+          "executeOnce": true,
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "functionCode": "const selecionados = items\n  .filter(item => {\n    const status = item.json[\"Status\"] || '';  // Corrigir o campo Status com S maiúsculo\n    const email = item.json[\"Email\"];\n    return !status.includes('enviado2') && !status.includes('INSCRITO') && email;\n  })\n  .slice(0, 100);\n\nconst emails = selecionados.map(item => item.json[\"Email\"]);\nconst linhas = selecionados.map(item => item.json.row_number);\n\nreturn [\n  {\n    json: {\n      bccList: emails.join(','),\n      rowNumbers: linhas\n    }\n  }\n];\n"
+          },
+          "name": "Filtrar ",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            96,
+            912
+          ],
+          "id": "f80e8ebb-529a-46e0-88b1-a0277ca9fec3"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 699739272,
+              "mode": "list",
+              "cachedResultName": "clientes em P2.4/2.3 correlatos ao evento",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "id": "979ae44b-e29f-4063-8724-47aeaafb8e94",
+          "name": "Get row(s) in sheet3",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -144,
+            912
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "amount": 10,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            -336,
+            912
+          ],
+          "id": "946b7d25-b7c1-4cd0-95e4-eadb41868a9a",
+          "name": "Wait",
+          "webhookId": "fb3ef085-d521-4f0f-a10f-d4d67f930edf"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 699739272,
+              "mode": "list",
+              "cachedResultName": "clientes em P2.4/2.3 correlatos ao evento",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "Email",
+                  "lookupValue": "={{ $json['emails de inscritos'] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "98fb6d35-1eee-48fa-849f-da537622dd77",
+          "name": "Get row(s) in sheet4",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -48,
+            1456
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "apollo-contacts-export-2-so-emails-classificada",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 699739272,
+              "mode": "list",
+              "cachedResultName": "clientes em P2.4/2.3 correlatos ao evento",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Email": "={{ $json.Email }}",
+                "Status": "INSCRITO"
+              },
+              "matchingColumns": [
+                "Email"
+              ],
+              "schema": [
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            160,
+            1456
+          ],
+          "id": "ea9bf355-52ac-41b6-8d5b-b3cbdeac577c",
+          "name": "Update row in sheet3",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         }
       ],
       "connections": {
@@ -17559,6 +20690,11 @@
             [
               {
                 "node": "Get row(s) in sheet1",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -17643,6 +20779,11 @@
                 "node": "Get row(s) in sheet",
                 "type": "main",
                 "index": 0
+              },
+              {
+                "node": "Get row(s) in sheet4",
+                "type": "main",
+                "index": 0
               }
             ]
           ]
@@ -17668,6 +20809,99 @@
               }
             ]
           ]
+        },
+        "Enviar Email SMTP1": {
+          "main": [
+            [
+              {
+                "node": "Preparar Atualização",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Preparar Atualização": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet2": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtrar ": {
+          "main": [
+            [
+              {
+                "node": "Enviar Email SMTP1",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Preparar Atualização",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet3": {
+          "main": [
+            [
+              {
+                "node": "Filtrar ",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet4": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet3": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -17678,7 +20912,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "3050f8af-5594-427b-86f4-a72a8b70ae1b",
+      "versionId": "284bfbd8-879b-4136-a359-dd1a2e750791",
       "triggerCount": 1,
       "shared": [
         {

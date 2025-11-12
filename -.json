@@ -472,10 +472,10 @@
       ]
     },
     {
-      "updatedAt": "2025-11-10T16:14:26.000Z",
+      "updatedAt": "2025-11-11T19:00:42.000Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
-      "name": "Email Auto - robson.lisboa@midiacode.com incoming",
+      "name": "Email AUTO robson.lisboa@midiacode.com incoming",
       "active": true,
       "isArchived": false,
       "nodes": [
@@ -690,7 +690,7 @@
           "credentials": {
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account"
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           },
           "disabled": true
@@ -743,8 +743,8 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1728,
-            544
+            2960,
+            464
           ],
           "id": "07e43ead-39c6-4b7c-9d98-7cf42e2690ff",
           "name": "Remove message from INBOX",
@@ -779,21 +779,6 @@
               "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
-        },
-        {
-          "parameters": {
-            "promptType": "define",
-            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 2.2,
-          "position": [
-            864,
-            736
-          ],
-          "id": "7c5b1c85-7dc0-46be-8a85-df8c20e338df",
-          "name": "AI Agent"
         },
         {
           "parameters": {
@@ -993,6 +978,491 @@
               "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Get into each link existing in the email text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }} . In each link, extract names, emails, and phone numbers, if existing. Search on Apollo (http request tool) for those contacs email, phone number and all other available information.\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIf there's no deals related to the company or to the names, create a new deal on Hubspot and send an initial message to the contact, introducing Midiacode and Ooniverse. CC robson.lisboa@midiacode.com. Send the message after creating the new deal.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data, and create the new deal.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.\nif you get any error message, send to the output in order I can fix it.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            976,
+            464
+          ],
+          "id": "7c2a0d53-1a16-47c3-86c6-9888289cecdc",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "endpointUrl": "https://n8n.ooniverse.ai/mcp/gmailAuto/sse",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+          "typeVersion": 1.2,
+          "position": [
+            1488,
+            1008
+          ],
+          "id": "24166fb2-894c-4137-adc5-8d2e4f453a72",
+          "name": "MCP gmail robson.lisboa@midiacode.com Client"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Extract names, emails, and phone numbers from the following text: {{ $('Gmail Trigger - robson.lisboa@midiacode.com').item.json.text }}\n\nUse the Hubspot MCP Client Tool to find the existing contacts, companies or deals, update them with the new information, if not present, or create the relevant new contact or company property or registry.\n\nIMPORTANT: Format your final response using the `format_final_json_response` tool. Do not return raw JSON manually. Your response will be rejected if not properly formatted.\n\nIf hubspot MCP returns \"Bad request\", it means that the email or data does not exist and must be created a new user with such email or data.\n\nif the company or contact has a deal, update the deal associating the new contacts (or company) to the deal.\n\nIf there's a new phone number but it's not clear that it pertences to the senders, update the company registry with the new number.\n\ncreate an outupt in text format with all tasks executed by the Ai Agent.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            864,
+            736
+          ],
+          "id": "7c5b1c85-7dc0-46be-8a85-df8c20e338df",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "formTitle": "Contact us",
+            "formDescription": "get back to you",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "What's your Full Name?",
+                  "placeholder": "e.g. John Wich",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What is your email address?",
+                  "fieldType": "email",
+                  "placeholder": "e.g. johnwich@mail.com",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What's your phone number?",
+                  "fieldType": "number",
+                  "placeholder": "e.g. 1234567890",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What's your Linkedin Profile URL"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "c895d11d-3a2c-452a-8cd2-37dd35bb3288",
+          "name": "On form submission",
+          "type": "n8n-nodes-base.formTrigger",
+          "position": [
+            -1760,
+            1232
+          ],
+          "webhookId": "f92b6ca4-81cc-405c-adec-5111e6983cad",
+          "typeVersion": 2.2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "method": "POST",
+            "url": "https://api.apollo.io/api/v1/people/match",
+            "authentication": "[REDACTED]",
+            "genericAuthType": "httpHeaderAuth",
+            "sendQuery": true,
+            "queryParameters": {
+              "parameters": [
+                {
+                  "name": "name",
+                  "value": "={{ $json['What\\'s your Full Name?'] }}"
+                },
+                {
+                  "name": "email",
+                  "value": "={{ $json['What is your email address?'] }}"
+                },
+                {
+                  "name": "reveal_phone_number",
+                  "value": "={{ $json['What\\'s your phone number?'] }}"
+                },
+                {
+                  "name": "linkedin_url",
+                  "value": "={{ $json['What\\'s your Linkedin Profile URL'] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "1f8d2cbd-7892-48a6-ac69-68d377262b93",
+          "name": "HTTP Request",
+          "type": "n8n-nodes-base.httpRequest",
+          "position": [
+            -1552,
+            1232
+          ],
+          "typeVersion": 4.2,
+          "credentials": {
+            "httpHeaderAuth": {
+              "id": "tLRkKMAeJ1wa3Hjg",
+              "name": "Header Auth account Apollo API"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "sendTo": "={{ $('HTTP Request').item.json.person.email }}",
+            "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+            "emailType": "text",
+            "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+            "options": {}
+          },
+          "id": "9aa096a2-963a-4b42-b813-49c1d5b2f159",
+          "name": "Send a message in Gmail",
+          "type": "n8n-nodes-base.gmailTool",
+          "position": [
+            -624,
+            1456
+          ],
+          "webhookId": "6e94385c-502e-47a0-94fc-e6e05975a2ba",
+          "typeVersion": 2.1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "498d5434-6f7e-4b2c-9553-449e4b990085",
+          "name": "Groq Chat Model",
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "position": [
+            -752,
+            1456
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {},
+          "id": "b646b2f6-8edb-4021-99a0-4f10afd1fd60",
+          "name": "Structured Output Parser",
+          "type": "[REDACTED]",
+          "position": [
+            -512,
+            1456
+          ],
+          "typeVersion": 1.3,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": "[REDACTED]",
+              "cachedResultUrl": "[REDACTED]",
+              "cachedResultName": "N8N Leads"
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": "gid=0",
+              "cachedResultUrl": "[REDACTED]",
+              "cachedResultName": "Sheet1"
+            },
+            "columns": {
+              "value": {
+                "Name": "={{ $('On form submission').item.json[\"What's your Full Name?\"] }}",
+                "Email": "={{ $('On form submission').item.json[\"What is your email address?\"] }}",
+                "Phone": "={{ $('On form submission').item.json[\"What's your phone number?\"] }}",
+                "Job Title ": "={{ $('HTTP Request').item.json.person.title }}",
+                "Linkedin URL": "={{ $('On form submission').item.json[\"What's your Linkedin Profile URL\"] }}",
+                "Organization": "={{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}"
+              },
+              "schema": [
+                {
+                  "id": "Name",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Name",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Phone",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Phone",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Email",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Job Title ",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Job Title ",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Organization",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Organization",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Linkedin URL",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Linkedin URL",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Lead Potential",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Lead Potential",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                }
+              ],
+              "mappingMode": "defineBelow",
+              "matchingColumns": [],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "id": "193bb430-6e2f-4619-b707-d6d29fa0f83b",
+          "name": "Append row in sheet",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -304,
+            1216
+          ],
+          "typeVersion": 4.6,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "version": 2,
+                "leftValue": "",
+                "caseSensitive": true,
+                "typeValidation": "strict"
+              },
+              "combinator": "or",
+              "conditions": [
+                {
+                  "id": "eb511082-5f34-4027-993b-a787340fc4ea",
+                  "operator": {
+                    "type": "number",
+                    "operation": "gte"
+                  },
+                  "leftValue": "={{Number($json.output)}}",
+                  "rightValue": 6
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "1835e9c3-5a97-4eb6-8f13-84fbbe7479ab",
+          "name": "If",
+          "type": "n8n-nodes-base.if",
+          "position": [
+            -960,
+            1232
+          ],
+          "typeVersion": 2.2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "03e5235e-fabe-47fd-805d-468d259523e0",
+          "name": "Groq Chat Model1",
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "position": [
+            -1248,
+            1456
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "path": "17cfab42-90df-4af6-88ff-6ed925f861cc",
+            "options": {}
+          },
+          "id": "b170a353-2512-4cfb-9d3c-161dce478e48",
+          "name": "Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "position": [
+            -1760,
+            1424
+          ],
+          "webhookId": "17cfab42-90df-4af6-88ff-6ed925f861cc",
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "event": "rowAdded",
+            "options": {}
+          },
+          "id": "ff6254c5-cf27-4dd5-afd8-d995c508735a",
+          "name": "Google Sheets Trigger",
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "position": [
+            -1792,
+            1008
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=You are a professional B2B sales assistant.\n\nCompose a short, professional, and polite outreach email to schedule a call with the following lead.\n\nTone: concise and respectful. The goal is to open a conversation and set up a meeting.\n\nUse this format:\n---\nSend a message in Gmail:\nTo: {{ $('HTTP Request').item.json.person.email }}\nSubject: Exploring Collaboration in AI Solutions\n\nHi {{ $('HTTP Request').item.json.person.name }},\n\nI hope this message finds you well.\n\nI’m reaching out from ABC Pvt Ltd—we specialize in tailored IT solutions, including AI and machine learning services. Given your role at {{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}, I’d love to briefly connect and explore potential synergies.\n\nWould you be available for a quick call sometime this week?\n\nBest regards,  \nABC XYZ  \nABC Pvt Ltd\n---\n\nHere is the lead detail:\nName: {{ $('HTTP Request').item.json.person.name }}\nEmail: {{ $('HTTP Request').item.json.person.email }}\nJob Title: {{ $('HTTP Request').item.json.person.title }}\nOrganization: {{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}\n\nInstructions:\nTools - Send a message in Gmail Tools for send mails",
+            "hasOutputParser": true,
+            "options": {}
+          },
+          "id": "c8d381c3-a5c4-4567-9ffb-c47a1d59a4f9",
+          "name": "AI Agent2",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "position": [
+            -704,
+            1216
+          ],
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=You are an expert lead qualifier.\n\nScore the lead from 1 to 10 based on these two criteria:\n\n— INDUSTRY MATCH (5 points max) —\n- 5 points: Industry is AI, Artificial Intelligence, Machine Learning, Data Science\n- 3-4 points: Industry is closely related (e.g., analytics, automation, enterprise AI tools)\n- 0-2 points: Unrelated industry\n\n— JOB TITLE MATCH (5 points max) —\n- 5 points: Decision-makers or influencers in AI (e.g., Head of AI, AI Director, CTO, AI Product Manager)\n- 3-4 points: Mid-level AI professionals (e.g., ML Engineer, Data Scientist)\n- 0-2 points: Not related to AI or junior roles\n\nReturn **only a single digit between 1 and 10** — no explanation, no labels, no extra text. and the data type must be a number\n\nLead details:\nName: {{ $json.person.name }}\nJob Title: {{ $json.person.title }}\nOrganization: {{ $json.person.employment_history[0].organization_name }}\n",
+            "options": {}
+          },
+          "id": "5124d407-28e5-4792-a934-8113026d2d78",
+          "name": "AI Agent3",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "position": [
+            -1328,
+            1232
+          ],
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "url": "POST https://api.apollo.io/api/v1/mixed_people/search",
+            "authentication": "[REDACTED]",
+            "genericAuthType": "httpHeaderAuth",
+            "sendQuery": true,
+            "queryParameters": {
+              "parameters": [
+                {
+                  "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Name', ``, 'string') }}",
+                  "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters0_Value', ``, 'string') }}"
+                },
+                {
+                  "name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Name', ``, 'string') }}",
+                  "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('parameters1_Value', ``, 'string') }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequestTool",
+          "typeVersion": 4.3,
+          "position": [
+            1744,
+            992
+          ],
+          "id": "2d57a979-4e62-4a51-8ec2-19092b324796",
+          "name": "Get from Apollo",
+          "credentials": {
+            "httpHeaderAuth": {
+              "id": "tLRkKMAeJ1wa3Hjg",
+              "name": "Header Auth account Apollo API"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de Alerts Agent :  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1312,
+            464
+          ],
+          "id": "a33e6da9-afc0-48c4-a5c4-727eb848eee1",
+          "name": "Enviar texto1",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## Nota\n**esse flow peguei do N8N para a AUTO [de alertas para leads]. Caso o alertas não gere novos leads, implementar os agentes separadamente como aqui abaixo",
+            "width": 320
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1376,
+            1008
+          ],
+          "typeVersion": 1,
+          "id": "d691eff1-a104-4520-ac9b-c155fc482183",
+          "name": "Sticky Note1",
+          "disabled": true
         }
       ],
       "connections": {
@@ -1001,6 +1471,11 @@
             [
               {
                 "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent1",
                 "type": "ai_languageModel",
                 "index": 0
               },
@@ -1145,7 +1620,7 @@
           "main": [
             [
               {
-                "node": "Remove message from INBOX",
+                "node": "AI Agent1",
                 "type": "main",
                 "index": 0
               }
@@ -1163,20 +1638,14 @@
             ]
           ]
         },
-        "AI Agent": {
-          "main": [
-            [
-              {
-                "node": "Enviar texto",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Simple Memory": {
           "ai_memory": [
             [
+              {
+                "node": "AI Agent1",
+                "type": "ai_memory",
+                "index": 0
+              },
               {
                 "node": "AI Agent",
                 "type": "ai_memory",
@@ -1188,6 +1657,11 @@
         "Hubspot MCP Client": {
           "ai_tool": [
             [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              },
               {
                 "node": "AI Agent",
                 "type": "ai_tool",
@@ -1261,6 +1735,182 @@
               }
             ]
           ]
+        },
+        "MCP gmail robson.lisboa@midiacode.com Client": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Webhook": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "HTTP Request": {
+          "main": [
+            [
+              {
+                "node": "AI Agent3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent3",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "On form submission": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Sheets Trigger": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send a message in Gmail": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Structured Output Parser": {
+          "ai_outputParser": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_outputParser",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent2": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent3": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get from Apollo": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto1": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -1278,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1762813685,
+            "lastTimeChecked": 1762897041,
             "possibleDuplicates": [
-              "19a6fe233d5a93cd",
-              "19a6f9e7a5a0959f"
+              "19a74da1ce0c2ef4",
+              "19a74d0994ed367b"
             ]
           }
         }
@@ -1290,15 +1940,360 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {
-        "AI Agent": [
+        "AI Agent1": [
           {
             "json": {
               "output": "I have extracted the following information from the text:\n*   **Name:** Joao Silva\n*   **Email:** joao.silva@midiacode.com\n*   **Mobile Phone Number:** +5511972531094\n*   **Phone Number:** +5511123456789\n\nI attempted to find an existing contact with the email \"joao.silva@midiacode.com\" in HubSpot, but no contact was found.\n\nTherefore, a new contact named Joao Silva with the email \"joao.silva@midiacode.com\", mobile phone number \"+5511972531094\", and phone number \"+5511123456789\" has been created in HubSpot."
             }
           }
+        ],
+        "HTTP Request": [
+          {
+            "json": {
+              "person": {
+                "id": "[REDACTED]",
+                "city": "Indore",
+                "name": "Sujal Tamrakar",
+                "email": "sujal.tamrakar@vkaps.com",
+                "state": "Madhya Pradesh",
+                "title": "Generative AI Developer ",
+                "country": "India",
+                "headline": "AI Intern",
+                "functions": [
+                  "engineering"
+                ],
+                "last_name": "Tamrakar",
+                "photo_url": "[REDACTED]",
+                "seniority": "entry",
+                "first_name": "Sujal",
+                "github_url": null,
+                "departments": [
+                  "master_engineering_technical",
+                  "master_information_technology"
+                ],
+                "show_intent": false,
+                "twitter_url": null,
+                "email_status": null,
+                "facebook_url": null,
+                "linkedin_url": "http://www.linkedin.com/in/sujaltamrakar",
+                "organization": {
+                  "id": "[REDACTED]",
+                  "city": "Indore",
+                  "name": "VKAPS IT Solutions Pvt. Ltd. | A leading AI & Business Automation Company",
+                  "phone": "+91 73142 39176",
+                  "state": "Madhya Pradesh",
+                  "country": "India",
+                  "blog_url": null,
+                  "industry": "information technology & services",
+                  "keywords": [
+                    "artificial intelligence",
+                    "machine learning",
+                    "dev ops",
+                    "business process automation",
+                    "zapier",
+                    "mvp development",
+                    "app prototyping",
+                    "strategy consulting",
+                    "product architecture",
+                    "custom software development",
+                    "saas development",
+                    "mvp consultancy",
+                    "api integr",
+                    "minimum viable product (mvp)",
+                    "ui/ux design",
+                    "ecommerce solutions",
+                    "mobile app development",
+                    "annual maintenance contract",
+                    "cloud services",
+                    "ai and machine learning",
+                    "blockchain integration",
+                    "technology consulting",
+                    "scalable solutions",
+                    "secure applications",
+                    "web development",
+                    "digital transformation",
+                    "api integration",
+                    "devops practices",
+                    "agile methodology",
+                    "scrum project management",
+                    "client relationship management",
+                    "healthtech solutions",
+                    "fintech software",
+                    "real estate applications",
+                    "fmcg solutions",
+                    "cybersecurity services",
+                    "software optimization",
+                    "technical consulting",
+                    "business analytics",
+                    "product design",
+                    "data analytics",
+                    "software testing",
+                    "continuous integration",
+                    "continuous deployment",
+                    "javascript frameworks",
+                    "mern stack development",
+                    "php development",
+                    "laravel framework",
+                    "react development",
+                    "node.js applications",
+                    "python development",
+                    "aws cloud solutions",
+                    "search engine optimization (seo)",
+                    "digital marketing strategies",
+                    "performance monitoring",
+                    "project management tools",
+                    "stakeholder engagement",
+                    "information technology & services",
+                    "strategic consulting",
+                    "b2b",
+                    "management consulting",
+                    "e-commerce",
+                    "consumer internet",
+                    "consumers",
+                    "internet",
+                    "software development",
+                    "cloud computing",
+                    "enterprise software",
+                    "enterprises",
+                    "computer software"
+                  ],
+                  "logo_url": "[REDACTED]",
+                  "languages": [
+                    "English"
+                  ],
+                  "industries": [
+                    "information technology & services",
+                    "computer software"
+                  ],
+                  "postal_code": "452003",
+                  "raw_address": "8/1-A Roshan Singh Bhandari Marg, Opp. of Landmark Abhay Prashal's street, Indore, Madhya Pradesh 452001, IN",
+                  "twitter_url": "https://twitter.com/vkapsl",
+                  "website_url": "http://www.vkaps.com",
+                  "facebook_url": "https://facebook.com/vkaps-it-solutions-pvt-ltd-2348207792079570",
+                  "founded_year": 2010,
+                  "linkedin_uid": "1912704",
+                  "linkedin_url": "http://www.linkedin.com/company/vkaps-it-solutions",
+                  "alexa_ranking": null,
+                  "angellist_url": null,
+                  "primary_phone": {
+                    "number": "+91 73142 39176",
+                    "source": "Account",
+                    "sanitized_number": "+917314239176"
+                  },
+                  "total_funding": null,
+                  "crunchbase_url": null,
+                  "funding_events": [],
+                  "primary_domain": "vkaps.com",
+                  "street_address": "8-A Roshni Singh Bhandari Marg",
+                  "industry_tag_id": "[REDACTED]",
+                  "sanitized_phone": "+917314239176",
+                  "snippets_loaded": true,
+                  "org_chart_sector": "OrgChart::SectorHierarchy::Rules::IT",
+                  "suborganizations": [],
+                  "technology_names": [
+                    "Adobe Media Optimizer",
+                    "Bootstrap Framework",
+                    "Cedexis Radar",
+                    "Google Analytics",
+                    "Google Font API",
+                    "Google Tag Manager",
+                    "Mobile Friendly",
+                    "Nginx",
+                    "Vimeo",
+                    "WordPress.org",
+                    "reCAPTCHA"
+                  ],
+                  "industry_tag_hash": {
+                    "computer software": "[REDACTED]",
+                    "information technology & services": "[REDACTED]"
+                  },
+                  "org_chart_removed": null,
+                  "short_description": "VKAPS IT Solutions Pvt. Ltd. is a web and mobile app development company established in 2010, with over 12 years of experience in the industry. The company specializes in AI-driven solutions and business process automation, focusing on delivering Minimum Viable Products (MVPs) and SaaS solutions for startups and enterprises. VKAPS has successfully completed over 2,000 projects for more than 700 customers across 30 countries.\n\nThe company offers a range of services, including full-cycle web and mobile development, AI and business automation tools, SaaS product development, and custom blockchain solutions. VKAPS emphasizes long-term client relationships and provides comprehensive support from pre-sale consulting to post-delivery maintenance. Their team of over 50 engineers combines technical expertise with industry knowledge to deliver scalable and secure solutions. Led by founder Sudesh Agrawal, VKAPS is committed to fostering trust and reducing long-term costs for their clients.",
+                  "current_technologies": [
+                    {
+                      "uid": "adobe_media_optimizer",
+                      "name": "Adobe Media Optimizer",
+                      "category": "Search Marketing"
+                    },
+                    {
+                      "uid": "bootstrap_framework",
+                      "name": "Bootstrap Framework",
+                      "category": "CSS and JavaScript Libraries"
+                    },
+                    {
+                      "uid": "cedexis_radar",
+                      "name": "Cedexis Radar",
+                      "category": "Web Performance Monitoring"
+                    },
+                    {
+                      "uid": "google_analytics",
+                      "name": "Google Analytics",
+                      "category": "Analytics and Tracking"
+                    },
+                    {
+                      "uid": "google_font_api",
+                      "name": "Google Font API",
+                      "category": "Fonts"
+                    },
+                    {
+                      "uid": "google_tag_manager",
+                      "name": "Google Tag Manager",
+                      "category": "Tag Management"
+                    },
+                    {
+                      "uid": "mobile_friendly",
+                      "name": "Mobile Friendly",
+                      "category": "Other"
+                    },
+                    {
+                      "uid": "nginx",
+                      "name": "Nginx",
+                      "category": "Load Balancers"
+                    },
+                    {
+                      "uid": "vimeo",
+                      "name": "Vimeo",
+                      "category": "Online Video Platforms"
+                    },
+                    {
+                      "uid": "wordpress_org",
+                      "name": "WordPress.org",
+                      "category": "CMS"
+                    },
+                    {
+                      "uid": "recaptcha",
+                      "name": "reCAPTCHA",
+                      "category": "Captcha"
+                    }
+                  ],
+                  "latest_funding_stage": null,
+                  "num_suborganizations": 0,
+                  "secondary_industries": [
+                    "computer software"
+                  ],
+                  "retail_location_count": 0,
+                  "total_funding_printed": null,
+                  "publicly_traded_symbol": null,
+                  "estimated_num_employees": 96,
+                  "owned_by_organization_id": null,
+                  "publicly_traded_exchange": null,
+                  "latest_funding_round_date": null,
+                  "org_chart_root_people_ids": [],
+                  "org_chart_show_department_filter": null,
+                  "organization_headcount_six_month_growth": null,
+                  "organization_headcount_twelve_month_growth": null,
+                  "organization_headcount_twenty_four_month_growth": null
+                },
+                "subdepartments": [
+                  "artificial_intelligence_machine_learning",
+                  "software_development",
+                  "application_development"
+                ],
+                "intent_strength": null,
+                "organization_id": "[REDACTED]",
+                "employment_history": [
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Generative AI Developer ",
+                    "degree": null,
+                    "emails": null,
+                    "current": true,
+                    "end_date": null,
+                    "created_at": null,
+                    "start_date": "2024-07-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "VKAPS IT Solutions Pvt. Ltd. | A leading AI & Business Automation Company"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Data Science Trainee",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2024-07-01",
+                    "created_at": null,
+                    "start_date": "2024-05-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Dr Reddy's Foundation"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Trainee",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2022-12-01",
+                    "created_at": null,
+                    "start_date": "2022-09-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Zensar Technologies"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "PERCEPTRON NETWORK FOR  IDENTIFICATION OF ODD NUMBERS",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2022-09-01",
+                    "created_at": null,
+                    "start_date": "2022-08-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Indian Institute of Technology, Indore"
+                  }
+                ],
+                "email_domain_catchall": false,
+                "revealed_for_current_team": true,
+                "extrapolated_email_confidence": null
+              }
+            }
+          }
+        ],
+        "On form submission": [
+          {
+            "json": {
+              "formMode": "test",
+              "submittedAt": "2025-07-09T05:46:32.341-04:00",
+              "What's your Full Name?": "Sujal Tamrakar",
+              "What's your phone number?": 7067599678,
+              "What is your email address?": "sujal.tamrakar@vkaps.com",
+              "What's your Linkedin Profile URL": "www.google.com"
+            }
+          }
         ]
       },
-      "versionId": "43f13fac-ef6c-4fcf-b660-f91c5d4abbb2",
+      "versionId": "7d144ada-92ae-4e58-b26b-26f3e1e538ba",
       "triggerCount": 1,
       "shared": [
         {
@@ -1312,11 +2307,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-10T23:43:54.000Z",
+      "updatedAt": "2025-11-11T16:05:37.000Z",
       "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -1375,7 +2370,7 @@
           "type": "@n8n/n8n-nodes-langchain.textClassifier",
           "typeVersion": 1.1,
           "position": [
-            32,
+            240,
             288
           ],
           "id": "9e18b1ec-23fa-458d-ae1d-91abedd44621",
@@ -1384,7 +2379,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_12"
             ]
@@ -1392,7 +2387,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1472,
+            1680,
             -752
           ],
           "id": "8bd998ff-4fb7-453b-94dc-333b73d19303",
@@ -1408,7 +2403,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_2"
             ]
@@ -1416,7 +2411,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1472,
+            1680,
             -576
           ],
           "id": "2cf7a454-1661-4dde-bea3-a1b842bf2fb8",
@@ -1432,7 +2427,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_PROMOTIONS"
             ]
@@ -1440,7 +2435,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1472,
+            1680,
             -384
           ],
           "id": "30fafcd8-317a-4da9-8b11-d96122afbc0b",
@@ -1456,7 +2451,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_SOCIAL"
             ]
@@ -1464,7 +2459,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1472,
+            1680,
             -176
           ],
           "id": "fc81d284-1b27-4f29-8e53-660427b820bc",
@@ -1480,12 +2475,12 @@
         {
           "parameters": {
             "operation": "markAsUnread",
-            "messageId": "={{$json[\"id\"]}}\n"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2304,
+            2512,
             -384
           ],
           "id": "f0f3932c-3c60-4904-885b-d036818e4839",
@@ -1501,12 +2496,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{ $json.id }}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2848,
+            3056,
             -384
           ],
           "id": "d78523a9-d1ae-45d2-8fe6-50369d387307",
@@ -1523,7 +2518,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_1123594355848171287"
             ]
@@ -1531,7 +2526,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1472,
+            1680,
             0
           ],
           "id": "36c3ba97-5dc5-463e-8785-1575737b9ae2",
@@ -1560,7 +2555,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -1568,7 +2563,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2512,
+            2720,
             0
           ],
           "id": "87d54092-95fd-4d53-8320-2bb0b43819a5",
@@ -1584,7 +2579,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4642884863203511762"
             ]
@@ -1592,7 +2587,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1488,
+            1696,
             192
           ],
           "id": "abe736fd-cee6-4c0b-a34e-128bb51756a4",
@@ -1614,7 +2609,7 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 2.2,
           "position": [
-            1648,
+            1856,
             192
           ],
           "id": "9f762605-5d25-4133-bc9d-d651e16b4e90",
@@ -1629,7 +2624,7 @@
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
           "typeVersion": 1.3,
           "position": [
-            1712,
+            1920,
             416
           ],
           "id": "f0dc5b6a-1e4f-40a1-bd1a-d15b85d4d316",
@@ -1643,7 +2638,7 @@
           "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
           "typeVersion": 1.1,
           "position": [
-            1856,
+            2064,
             400
           ],
           "id": "96559f8a-42a7-4136-b70e-711c4c27c571",
@@ -1660,7 +2655,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            1936,
+            2144,
             192
           ],
           "id": "50f878bb-734e-4b69-8801-f4e878e841b6",
@@ -1675,7 +2670,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{ $json.id }}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -1683,7 +2678,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2496,
+            2704,
             -384
           ],
           "id": "49b58363-acc5-46bf-bf00-cf4bc4891391",
@@ -1699,7 +2694,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_6"
             ]
@@ -1707,7 +2702,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1488,
+            1696,
             736
           ],
           "id": "b9d4ca7a-ef7f-4ce4-9cfc-7082a631686a",
@@ -1723,7 +2718,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_13"
             ]
@@ -1731,7 +2726,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1488,
+            1696,
             928
           ],
           "id": "6ee87f46-900c-4826-87a4-cdc591e92ea6",
@@ -1747,12 +2742,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{$json[\"id\"]}}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1632,
+            1840,
             1136
           ],
           "id": "757218d6-c8a3-4abf-81a1-9a50d5aadca8",
@@ -1773,7 +2768,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1488,
+            1696,
             1136
           ],
           "id": "1200aa62-4ab8-4a1d-924d-735994384dd0",
@@ -1794,7 +2789,7 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -3232,
+            -3152,
             3136
           ],
           "id": "28cb5b5b-edc6-43d3-a73a-ac311db7ac13",
@@ -1816,7 +2811,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            -2912,
+            -2848,
             3136
           ],
           "id": "92b3ebc2-913e-4019-a3fd-b3a071d84027",
@@ -1832,7 +2827,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4"
             ]
@@ -1840,7 +2835,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1488,
+            1696,
             1312
           ],
           "id": "2956c3a2-1aab-41eb-a341-c689af46dc89",
@@ -1856,7 +2851,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4"
             ]
@@ -1864,7 +2859,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1488,
+            1696,
             560
           ],
           "id": "1af4b745-9658-460d-bd6b-5c097c3cc617",
@@ -1890,7 +2885,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
           "typeVersion": 1.3,
           "position": [
-            176,
+            384,
             1040
           ],
           "id": "4a296c36-c487-4125-bae2-f90bbaafa65f",
@@ -1958,7 +2953,7 @@
           "type": "@n8n/n8n-nodes-langchain.textClassifier",
           "typeVersion": 1.1,
           "position": [
-            64,
+            272,
             2752
           ],
           "id": "da1c75e4-6d46-48d8-bc8a-7dde1e4e3a6d",
@@ -1967,7 +2962,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_12"
             ]
@@ -1975,7 +2970,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1504,
+            1712,
             1712
           ],
           "id": "1971cc84-d5e7-4660-b1fe-ab215a2ee590",
@@ -1991,7 +2986,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_2"
             ]
@@ -1999,7 +2994,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1504,
+            1712,
             1888
           ],
           "id": "f19ae46b-3d3b-4a2e-8f63-c0103a8758b3",
@@ -2015,7 +3010,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_PROMOTIONS"
             ]
@@ -2023,7 +3018,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1504,
+            1712,
             2080
           ],
           "id": "6bfed2c5-a70a-4a26-8b9f-60869f23c46b",
@@ -2039,7 +3034,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_SOCIAL"
             ]
@@ -2047,7 +3042,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1504,
+            1712,
             2288
           ],
           "id": "bcc3862b-114a-40a5-ba02-ba90586ec676",
@@ -2063,12 +3058,12 @@
         {
           "parameters": {
             "operation": "markAsUnread",
-            "messageId": "={{$json[\"id\"]}}\n"
+            "messageId": "={{ $('Get many messages').item.json.id }}\n"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2336,
+            2544,
             2080
           ],
           "id": "f461a728-ae9d-460d-a335-8358fd83097c",
@@ -2084,12 +3079,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{ $json.id }}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2880,
+            3088,
             2080
           ],
           "id": "a39f9374-2ced-4eb6-b8fd-8ad40ddb667c",
@@ -2106,7 +3101,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_1123594355848171287"
             ]
@@ -2114,7 +3109,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1504,
+            1712,
             2464
           ],
           "id": "54bf863e-12de-4dd3-b60e-2517da52f65c",
@@ -2130,7 +3125,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -2138,7 +3133,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2544,
+            2752,
             2464
           ],
           "id": "066dfdd5-ec40-46f7-8aa7-df784988131a",
@@ -2154,7 +3149,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4642884863203511762"
             ]
@@ -2162,7 +3157,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1520,
+            1728,
             2656
           ],
           "id": "081cdae5-83e3-4026-b0ba-28735170aa0e",
@@ -2184,7 +3179,7 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 2.2,
           "position": [
-            1680,
+            1888,
             2656
           ],
           "id": "6f460af3-3acb-4596-a322-b4ab15f77cee",
@@ -2199,7 +3194,7 @@
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
           "typeVersion": 1.3,
           "position": [
-            1744,
+            1952,
             2880
           ],
           "id": "7e57c71f-daa5-4cce-9f15-5f22bd4c129b",
@@ -2213,7 +3208,7 @@
           "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
           "typeVersion": 1.1,
           "position": [
-            1888,
+            2096,
             2864
           ],
           "id": "a9e0c67e-63d5-4e7d-a854-d7b928bc14fc",
@@ -2230,7 +3225,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            1968,
+            2176,
             2656
           ],
           "id": "5d8a325c-78f9-4f9d-9380-de963fdee1e6",
@@ -2245,7 +3240,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{ $json.id }}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -2253,7 +3248,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2528,
+            2736,
             2080
           ],
           "id": "b2ac9b2d-76bf-4e2a-908b-31e4ade8acb6",
@@ -2269,7 +3264,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_6"
             ]
@@ -2277,7 +3272,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1520,
+            1728,
             3200
           ],
           "id": "dca734a3-b24b-49d5-9fd8-2cf23a4f42f1",
@@ -2293,7 +3288,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_13"
             ]
@@ -2301,7 +3296,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1520,
+            1728,
             3392
           ],
           "id": "148e3ddd-8cf7-472e-957d-78d471daa72d",
@@ -2317,12 +3312,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{$json[\"id\"]}}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1664,
+            1872,
             3600
           ],
           "id": "0b39e822-bb64-4c9f-90a5-2467553e3274",
@@ -2343,7 +3338,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1520,
+            1728,
             3600
           ],
           "id": "d1c7aa1e-76e2-4ede-854e-abcd2181044a",
@@ -2353,7 +3348,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4"
             ]
@@ -2361,7 +3356,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1520,
+            1728,
             3776
           ],
           "id": "770430fb-d81d-4609-b6d1-b983e8f64cd5",
@@ -2385,7 +3380,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1520,
+            1728,
             3024
           ],
           "id": "88cf808f-07e8-4708-a742-ea1bb6096dee",
@@ -2405,7 +3400,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            224,
+            432,
             3504
           ],
           "id": "1841d5c9-3392-40e3-ad6e-933839b5d3d5",
@@ -2473,7 +3468,7 @@
           "type": "@n8n/n8n-nodes-langchain.textClassifier",
           "typeVersion": 1.1,
           "position": [
-            80,
+            288,
             5456
           ],
           "id": "0bf949f5-a7b7-4657-a3e1-17c0e55a1885",
@@ -2482,7 +3477,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_12"
             ]
@@ -2490,7 +3485,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1536,
+            1744,
             4416
           ],
           "id": "4c96f35d-b3d9-4492-8f11-7d9db67cb01f",
@@ -2506,7 +3501,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_2"
             ]
@@ -2514,7 +3509,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1536,
+            1744,
             4592
           ],
           "id": "3a295a3b-970f-40bd-beea-d9609fd7e5b6",
@@ -2530,7 +3525,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_PROMOTIONS"
             ]
@@ -2538,7 +3533,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1536,
+            1744,
             4784
           ],
           "id": "6a328f49-f274-450c-bf37-77205c9b27f0",
@@ -2554,7 +3549,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "CATEGORY_SOCIAL"
             ]
@@ -2562,7 +3557,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1536,
+            1744,
             4992
           ],
           "id": "bf8fadde-7ee7-4202-8ac5-134d2d627d06",
@@ -2578,12 +3573,12 @@
         {
           "parameters": {
             "operation": "markAsUnread",
-            "messageId": "={{$json[\"id\"]}}\n"
+            "messageId": "={{ $('Get many messages').item.json.id }}\n"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2368,
+            2576,
             4784
           ],
           "id": "99c25ba9-25f6-4518-be96-c5941d597e52",
@@ -2599,12 +3594,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{ $json.id }}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2912,
+            3120,
             4784
           ],
           "id": "f7340400-ccff-427a-bd89-1a15d3dcaa83",
@@ -2621,7 +3616,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_1123594355848171287"
             ]
@@ -2629,7 +3624,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1536,
+            1744,
             5168
           ],
           "id": "bc68d23e-f238-493d-b55c-0df2456b3f21",
@@ -2645,7 +3640,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -2653,7 +3648,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2576,
+            2784,
             5168
           ],
           "id": "5708f6e6-a3e3-4adf-8ca5-823570ccd71f",
@@ -2669,7 +3664,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4642884863203511762"
             ]
@@ -2677,7 +3672,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1552,
+            1760,
             5360
           ],
           "id": "f86c8506-8647-4533-9cf2-8f6214135a11",
@@ -2699,7 +3694,7 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 2.2,
           "position": [
-            1712,
+            1920,
             5360
           ],
           "id": "ac9f5e67-31ce-42f4-96e3-df0671e9ab1c",
@@ -2714,7 +3709,7 @@
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
           "typeVersion": 1.3,
           "position": [
-            1776,
+            1984,
             5584
           ],
           "id": "bae48549-514f-4395-9088-381436e7c13a",
@@ -2728,7 +3723,7 @@
           "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
           "typeVersion": 1.1,
           "position": [
-            1920,
+            2128,
             5568
           ],
           "id": "838c7d09-57ae-4614-836e-23c18e979b92",
@@ -2745,7 +3740,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            2000,
+            2208,
             5360
           ],
           "id": "7c8e8a0e-3f85-4e19-afde-665f96394f56",
@@ -2760,7 +3755,7 @@
         {
           "parameters": {
             "operation": "removeLabels",
-            "messageId": "={{ $json.id }}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "INBOX"
             ]
@@ -2768,7 +3763,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            2560,
+            2768,
             4784
           ],
           "id": "0ab5a063-95a1-4485-a7da-2a25eb0dd6e0",
@@ -2784,7 +3779,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_6"
             ]
@@ -2792,7 +3787,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1552,
+            1760,
             5904
           ],
           "id": "82f48933-0882-4779-806d-5aad6c797dff",
@@ -2808,7 +3803,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_13"
             ]
@@ -2816,7 +3811,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1552,
+            1760,
             6096
           ],
           "id": "9dd1fda3-9a01-4200-a450-4792fe96335d",
@@ -2832,12 +3827,12 @@
         {
           "parameters": {
             "operation": "delete",
-            "messageId": "={{$json[\"id\"]}}"
+            "messageId": "={{ $('Get many messages').item.json.id }}"
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1696,
+            1904,
             6304
           ],
           "id": "cb3be15e-ad31-479a-9554-fb62192c11eb",
@@ -2858,7 +3853,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1552,
+            1760,
             6304
           ],
           "id": "c4329d16-11e3-4547-aa3c-1d1753719f32",
@@ -2868,7 +3863,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4"
             ]
@@ -2876,7 +3871,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1552,
+            1760,
             6480
           ],
           "id": "d263e7a5-4f2d-497d-925c-99894a165176",
@@ -2892,7 +3887,7 @@
         {
           "parameters": {
             "operation": "addLabels",
-            "messageId": "={{$json[\"id\"]}}",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
             "labelIds": [
               "Label_4"
             ]
@@ -2900,7 +3895,7 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            1552,
+            1760,
             5728
           ],
           "id": "393f0a03-0647-47f6-8b60-cabd73af712c",
@@ -2921,7 +3916,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            256,
+            464,
             6224
           ],
           "id": "9c241f64-45e7-44ba-a0e4-8e4fc7e8a7e8",
@@ -2945,7 +3940,7 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            -2640,
+            -2560,
             3136
           ],
           "credentials": {
@@ -2967,7 +3962,7 @@
           "type": "n8n-nodes-base.redis",
           "typeVersion": 1,
           "position": [
-            5440,
+            5648,
             2672
           ],
           "credentials": {
@@ -2979,14 +3974,14 @@
         },
         {
           "parameters": {
-            "jsCode": "let current = 0;\n\nif (typeof $json.modelIndex === 'string') {\n  current = parseInt($json.modelIndex.trim());\n} else if (typeof $json.modelIndex === 'number') {\n  current = $json.modelIndex;\n}\n\nconst next = (current + 1) % 3;\nreturn [{ json: { modelIndex: next } }];"
+            "jsCode": "let raw = $('Preparar modelIndex1').first().json.modelIndex;\nlet current = parseInt(raw);\n\nif (isNaN(current)) {\n  console.log(\"Valor inválido recebido:\", raw);\n  return [{ json: { modelIndex: raw } }]; // mantém o valor original\n}\n\nconst next = (current + 1) % 3;\n\nconsole.log(\"Valor atual:\", current);\nconsole.log(\"Próximo valor:\", next);\n\nreturn [{ json: { modelIndex: next } }];"
           },
           "id": "ee7b3d8a-e525-40d5-a52d-34aa9df20d7d",
           "name": "Atualizar modelIndex4",
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            5216,
+            5424,
             2672
           ]
         },
@@ -2995,7 +3990,7 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            5680,
+            5888,
             2672
           ],
           "id": "df0dd085-0e64-4b94-b3da-b4568cd6caeb",
@@ -3027,9 +4022,55 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 1,
           "position": [
-            -2112,
+            -2032,
             3104
           ]
+        },
+        {
+          "parameters": {
+            "operation": "set",
+            "key": "modelIndex",
+            "value": "={{ $json.modelIndex }}",
+            "keyType": "string"
+          },
+          "id": "b2221c62-a7eb-4423-bb8d-50378da7718a",
+          "name": "Salvar modelIndex1",
+          "type": "n8n-nodes-base.redis",
+          "typeVersion": 1,
+          "position": [
+            -1056,
+            3264
+          ],
+          "credentials": {
+            "redis": {
+              "id": "jYkzJzvQcfqLDvI0",
+              "name": "Redis account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "let raw = $json.modelIndex;\nlet current = 0;\n\nif (typeof raw === 'string') {\n  raw = raw.trim();\n  current = Number.isNaN(parseInt(raw)) ? 0 : parseInt(raw);\n} else if (typeof raw === 'number') {\n  current = raw;\n}\n\nconst next = (current + 1) % 3;\n\n// log para depuração\nconsole.log(\"Valor atual:\", current);\nconsole.log(\"Próximo valor:\", next);\n\nreturn [{ json: { modelIndex: next } }];"
+          },
+          "id": "f1133612-1357-48e3-8748-db4e52021381",
+          "name": "Atualizar modelIndex",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1280,
+            3264
+          ]
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            -816,
+            3264
+          ],
+          "id": "6207a6d4-49a4-4669-b522-3ebf3e922e35",
+          "name": "No Operation, do nothing"
         },
         {
           "parameters": {
@@ -3038,11 +4079,11 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -2432,
+            -2288,
             3136
           ],
-          "id": "7a583dbe-9845-4686-905b-088998107026",
-          "name": "Preparar modelIndex"
+          "id": "9fcb848b-e812-4c1c-ba89-5606c2092dea",
+          "name": "Preparar modelIndex1"
         }
       ],
       "connections": {
@@ -4005,7 +5046,7 @@
           "main": [
             [
               {
-                "node": "Preparar modelIndex",
+                "node": "Preparar modelIndex1",
                 "type": "main",
                 "index": 0
               }
@@ -4059,7 +5100,29 @@
             ]
           ]
         },
-        "Preparar modelIndex": {
+        "Salvar modelIndex1": {
+          "main": [
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Atualizar modelIndex": {
+          "main": [
+            [
+              {
+                "node": "Salvar modelIndex1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Preparar modelIndex1": {
           "main": [
             [
               {
@@ -4097,7 +5160,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "95b1f878-6eeb-4dc1-b399-768ebf5436cd",
+      "versionId": "020a0370-9ffc-47ce-a084-1f7eba00577a",
       "triggerCount": 1,
       "shared": [
         {
@@ -14187,14 +15250,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-08T14:00:55Z"
+          "lastTimeChecked": "2025-11-11T19:18:09Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-08T14:00:42Z"
+          "lastTimeChecked": "2025-11-11T19:18:10Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            313
+            315
           ]
         }
       },
@@ -19800,7 +20863,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-10T16:10:20.000Z",
+      "updatedAt": "2025-11-11T19:14:58.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
@@ -20912,7 +21975,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "284bfbd8-879b-4136-a359-dd1a2e750791",
+      "versionId": "ca6530ac-1c38-47ba-b155-786798f38eda",
       "triggerCount": 1,
       "shared": [
         {
@@ -23286,6 +24349,919 @@
           "createdAt": "2025-08-19T06:16:51.126Z",
           "role": "workflow:owner",
           "workflowId": "tbLIj6U8nVj6qeyh",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-11-11T19:27:17.000Z",
+      "createdAt": "2025-11-11T18:18:01.722Z",
+      "id": "wPKx4SDtwC5gLko6",
+      "name": "De Alertas para Leads",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "filters": {}
+          },
+          "type": "n8n-nodes-base.gmailTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            0,
+            0
+          ],
+          "id": "f485fedd-3341-4379-9f1c-2d46e70e9269",
+          "name": "Gmail Trigger",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "formTitle": "Contact us",
+            "formDescription": "get back to you",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "What's your Full Name?",
+                  "placeholder": "e.g. John Wich",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What is your email address?",
+                  "fieldType": "email",
+                  "placeholder": "e.g. johnwich@mail.com",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What's your phone number?",
+                  "fieldType": "number",
+                  "placeholder": "e.g. 1234567890",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "What's your Linkedin Profile URL"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "ef01c3ba-3be6-4b16-8443-aec061b62d9e",
+          "name": "On form submission",
+          "type": "n8n-nodes-base.formTrigger",
+          "position": [
+            528,
+            64
+          ],
+          "webhookId": "f92b6ca4-81cc-405c-adec-5111e6983cad",
+          "typeVersion": 2.2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "method": "POST",
+            "url": "https://api.apollo.io/api/v1/people/match",
+            "authentication": "[REDACTED]",
+            "genericAuthType": "httpHeaderAuth",
+            "sendQuery": true,
+            "queryParameters": {
+              "parameters": [
+                {
+                  "name": "name",
+                  "value": "={{ $json['What\\'s your Full Name?'] }}"
+                },
+                {
+                  "name": "email",
+                  "value": "={{ $json['What is your email address?'] }}"
+                },
+                {
+                  "name": "reveal_phone_number",
+                  "value": "={{ $json['What\\'s your phone number?'] }}"
+                },
+                {
+                  "name": "linkedin_url",
+                  "value": "={{ $json['What\\'s your Linkedin Profile URL'] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "5abf6761-3a1c-4881-81ff-3ff9aebe772c",
+          "name": "HTTP Request",
+          "type": "n8n-nodes-base.httpRequest",
+          "position": [
+            736,
+            64
+          ],
+          "typeVersion": 4.2,
+          "credentials": {
+            "httpHeaderAuth": {
+              "id": "tLRkKMAeJ1wa3Hjg",
+              "name": "Header Auth account Apollo API"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "sendTo": "={{ $('HTTP Request').item.json.person.email }}",
+            "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+            "emailType": "text",
+            "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
+            "options": {}
+          },
+          "id": "0e028c28-260d-4978-8f0c-06f1092cdd05",
+          "name": "Send a message in Gmail",
+          "type": "n8n-nodes-base.gmailTool",
+          "position": [
+            1664,
+            288
+          ],
+          "webhookId": "6e94385c-502e-47a0-94fc-e6e05975a2ba",
+          "typeVersion": 2.1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "461bdf52-ca2d-4e99-acd1-7aa58ba596d9",
+          "name": "Groq Chat Model",
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "position": [
+            1536,
+            288
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {},
+          "id": "d1c92fe9-c122-4421-85fe-356a55a16234",
+          "name": "Structured Output Parser",
+          "type": "[REDACTED]",
+          "position": [
+            1776,
+            288
+          ],
+          "typeVersion": 1.3,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": "[REDACTED]",
+              "cachedResultUrl": "[REDACTED]",
+              "cachedResultName": "N8N Leads"
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": "gid=0",
+              "cachedResultUrl": "[REDACTED]",
+              "cachedResultName": "Sheet1"
+            },
+            "columns": {
+              "value": {
+                "Name": "={{ $('On form submission').item.json[\"What's your Full Name?\"] }}",
+                "Email": "={{ $('On form submission').item.json[\"What is your email address?\"] }}",
+                "Phone": "={{ $('On form submission').item.json[\"What's your phone number?\"] }}",
+                "Job Title ": "={{ $('HTTP Request').item.json.person.title }}",
+                "Linkedin URL": "={{ $('On form submission').item.json[\"What's your Linkedin Profile URL\"] }}",
+                "Organization": "={{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}"
+              },
+              "schema": [
+                {
+                  "id": "Name",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Name",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Phone",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Phone",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Email",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Job Title ",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Job Title ",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Organization",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Organization",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Linkedin URL",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Linkedin URL",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Lead Potential",
+                  "type": "string",
+                  "display": true,
+                  "required": false,
+                  "displayName": "Lead Potential",
+                  "defaultMatch": false,
+                  "canBeUsedToMatch": true
+                }
+              ],
+              "mappingMode": "defineBelow",
+              "matchingColumns": [],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "id": "86a2e6c1-9ca7-451a-95b1-eaa107945d5e",
+          "name": "Append row in sheet",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            1984,
+            48
+          ],
+          "typeVersion": 4.6,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "version": 2,
+                "leftValue": "",
+                "caseSensitive": true,
+                "typeValidation": "strict"
+              },
+              "combinator": "or",
+              "conditions": [
+                {
+                  "id": "eb511082-5f34-4027-993b-a787340fc4ea",
+                  "operator": {
+                    "type": "number",
+                    "operation": "gte"
+                  },
+                  "leftValue": "={{Number($json.output)}}",
+                  "rightValue": 6
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "459c481c-5fa6-4961-b3b1-ad1aaed80649",
+          "name": "If",
+          "type": "n8n-nodes-base.if",
+          "position": [
+            1328,
+            64
+          ],
+          "typeVersion": 2.2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "id": "2ca21d67-bdab-4c6a-a758-bd6702945f00",
+          "name": "Groq Chat Model1",
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "position": [
+            1040,
+            288
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "path": "17cfab42-90df-4af6-88ff-6ed925f861cc",
+            "options": {}
+          },
+          "id": "a4512b75-e921-4905-a8d6-52355aa4611e",
+          "name": "Webhook",
+          "type": "n8n-nodes-base.webhook",
+          "position": [
+            528,
+            256
+          ],
+          "webhookId": "17cfab42-90df-4af6-88ff-6ed925f861cc",
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "event": "rowAdded",
+            "options": {}
+          },
+          "id": "2236a608-9265-440a-b559-ec854173d538",
+          "name": "Google Sheets Trigger",
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "position": [
+            496,
+            -176
+          ],
+          "typeVersion": 1,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=You are a professional B2B sales assistant.\n\nCompose a short, professional, and polite outreach email to schedule a call with the following lead.\n\nTone: concise and respectful. The goal is to open a conversation and set up a meeting.\n\nUse this format:\n---\nSend a message in Gmail:\nTo: {{ $('HTTP Request').item.json.person.email }}\nSubject: Exploring Collaboration in AI Solutions\n\nHi {{ $('HTTP Request').item.json.person.name }},\n\nI hope this message finds you well.\n\nI’m reaching out from ABC Pvt Ltd—we specialize in tailored IT solutions, including AI and machine learning services. Given your role at {{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}, I’d love to briefly connect and explore potential synergies.\n\nWould you be available for a quick call sometime this week?\n\nBest regards,  \nABC XYZ  \nABC Pvt Ltd\n---\n\nHere is the lead detail:\nName: {{ $('HTTP Request').item.json.person.name }}\nEmail: {{ $('HTTP Request').item.json.person.email }}\nJob Title: {{ $('HTTP Request').item.json.person.title }}\nOrganization: {{ $('HTTP Request').item.json.person.employment_history[0].organization_name }}\n\nInstructions:\nTools - Send a message in Gmail Tools for send mails",
+            "hasOutputParser": true,
+            "options": {}
+          },
+          "id": "01515282-4e97-4ef0-a4fa-1fee5c90314a",
+          "name": "AI Agent2",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "position": [
+            1584,
+            48
+          ],
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=You are an expert lead qualifier.\n\nScore the lead from 1 to 10 based on these two criteria:\n\n— INDUSTRY MATCH (5 points max) —\n- 5 points: Industry is AI, Artificial Intelligence, Machine Learning, Data Science\n- 3-4 points: Industry is closely related (e.g., analytics, automation, enterprise AI tools)\n- 0-2 points: Unrelated industry\n\n— JOB TITLE MATCH (5 points max) —\n- 5 points: Decision-makers or influencers in AI (e.g., Head of AI, AI Director, CTO, AI Product Manager)\n- 3-4 points: Mid-level AI professionals (e.g., ML Engineer, Data Scientist)\n- 0-2 points: Not related to AI or junior roles\n\nReturn **only a single digit between 1 and 10** — no explanation, no labels, no extra text. and the data type must be a number\n\nLead details:\nName: {{ $json.person.name }}\nJob Title: {{ $json.person.title }}\nOrganization: {{ $json.person.employment_history[0].organization_name }}\n",
+            "options": {}
+          },
+          "id": "c9ca0162-ccff-4e2e-9425-a07c8dd038c9",
+          "name": "AI Agent3",
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "position": [
+            960,
+            64
+          ],
+          "typeVersion": 2,
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "content": "## Nota\n**esse flow peguei do N8N para a AUTO [de alertas para leads]. Caso o alertas não gere novos leads, implementar os agentes separadamente como aqui abaixo",
+            "width": 320
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            912,
+            -176
+          ],
+          "typeVersion": 1,
+          "id": "0d86fd98-c6f6-43e0-9fb2-d95a06ce8fe0",
+          "name": "Sticky Note1",
+          "disabled": true
+        }
+      ],
+      "connections": {
+        "On form submission": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "HTTP Request": {
+          "main": [
+            [
+              {
+                "node": "AI Agent3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send a message in Gmail": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Structured Output Parser": {
+          "ai_outputParser": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "ai_outputParser",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "AI Agent2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent3",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Webhook": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Sheets Trigger": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent2": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent3": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Gmail Trigger": {
+          "main": [
+            []
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {
+        "On form submission": [
+          {
+            "json": {
+              "formMode": "test",
+              "submittedAt": "2025-07-09T05:46:32.341-04:00",
+              "What's your Full Name?": "Sujal Tamrakar",
+              "What's your phone number?": 7067599678,
+              "What is your email address?": "sujal.tamrakar@vkaps.com",
+              "What's your Linkedin Profile URL": "www.google.com"
+            }
+          }
+        ],
+        "HTTP Request": [
+          {
+            "json": {
+              "person": {
+                "id": "[REDACTED]",
+                "city": "Indore",
+                "name": "Sujal Tamrakar",
+                "email": "sujal.tamrakar@vkaps.com",
+                "state": "Madhya Pradesh",
+                "title": "Generative AI Developer ",
+                "country": "India",
+                "headline": "AI Intern",
+                "functions": [
+                  "engineering"
+                ],
+                "last_name": "Tamrakar",
+                "photo_url": "[REDACTED]",
+                "seniority": "entry",
+                "first_name": "Sujal",
+                "github_url": null,
+                "departments": [
+                  "master_engineering_technical",
+                  "master_information_technology"
+                ],
+                "show_intent": false,
+                "twitter_url": null,
+                "email_status": null,
+                "facebook_url": null,
+                "linkedin_url": "http://www.linkedin.com/in/sujaltamrakar",
+                "organization": {
+                  "id": "[REDACTED]",
+                  "city": "Indore",
+                  "name": "VKAPS IT Solutions Pvt. Ltd. | A leading AI & Business Automation Company",
+                  "phone": "+91 73142 39176",
+                  "state": "Madhya Pradesh",
+                  "country": "India",
+                  "blog_url": null,
+                  "industry": "information technology & services",
+                  "keywords": [
+                    "artificial intelligence",
+                    "machine learning",
+                    "dev ops",
+                    "business process automation",
+                    "zapier",
+                    "mvp development",
+                    "app prototyping",
+                    "strategy consulting",
+                    "product architecture",
+                    "custom software development",
+                    "saas development",
+                    "mvp consultancy",
+                    "api integr",
+                    "minimum viable product (mvp)",
+                    "ui/ux design",
+                    "ecommerce solutions",
+                    "mobile app development",
+                    "annual maintenance contract",
+                    "cloud services",
+                    "ai and machine learning",
+                    "blockchain integration",
+                    "technology consulting",
+                    "scalable solutions",
+                    "secure applications",
+                    "web development",
+                    "digital transformation",
+                    "api integration",
+                    "devops practices",
+                    "agile methodology",
+                    "scrum project management",
+                    "client relationship management",
+                    "healthtech solutions",
+                    "fintech software",
+                    "real estate applications",
+                    "fmcg solutions",
+                    "cybersecurity services",
+                    "software optimization",
+                    "technical consulting",
+                    "business analytics",
+                    "product design",
+                    "data analytics",
+                    "software testing",
+                    "continuous integration",
+                    "continuous deployment",
+                    "javascript frameworks",
+                    "mern stack development",
+                    "php development",
+                    "laravel framework",
+                    "react development",
+                    "node.js applications",
+                    "python development",
+                    "aws cloud solutions",
+                    "search engine optimization (seo)",
+                    "digital marketing strategies",
+                    "performance monitoring",
+                    "project management tools",
+                    "stakeholder engagement",
+                    "information technology & services",
+                    "strategic consulting",
+                    "b2b",
+                    "management consulting",
+                    "e-commerce",
+                    "consumer internet",
+                    "consumers",
+                    "internet",
+                    "software development",
+                    "cloud computing",
+                    "enterprise software",
+                    "enterprises",
+                    "computer software"
+                  ],
+                  "logo_url": "[REDACTED]",
+                  "languages": [
+                    "English"
+                  ],
+                  "industries": [
+                    "information technology & services",
+                    "computer software"
+                  ],
+                  "postal_code": "452003",
+                  "raw_address": "8/1-A Roshan Singh Bhandari Marg, Opp. of Landmark Abhay Prashal's street, Indore, Madhya Pradesh 452001, IN",
+                  "twitter_url": "https://twitter.com/vkapsl",
+                  "website_url": "http://www.vkaps.com",
+                  "facebook_url": "https://facebook.com/vkaps-it-solutions-pvt-ltd-2348207792079570",
+                  "founded_year": 2010,
+                  "linkedin_uid": "1912704",
+                  "linkedin_url": "http://www.linkedin.com/company/vkaps-it-solutions",
+                  "alexa_ranking": null,
+                  "angellist_url": null,
+                  "primary_phone": {
+                    "number": "+91 73142 39176",
+                    "source": "Account",
+                    "sanitized_number": "+917314239176"
+                  },
+                  "total_funding": null,
+                  "crunchbase_url": null,
+                  "funding_events": [],
+                  "primary_domain": "vkaps.com",
+                  "street_address": "8-A Roshni Singh Bhandari Marg",
+                  "industry_tag_id": "[REDACTED]",
+                  "sanitized_phone": "+917314239176",
+                  "snippets_loaded": true,
+                  "org_chart_sector": "OrgChart::SectorHierarchy::Rules::IT",
+                  "suborganizations": [],
+                  "technology_names": [
+                    "Adobe Media Optimizer",
+                    "Bootstrap Framework",
+                    "Cedexis Radar",
+                    "Google Analytics",
+                    "Google Font API",
+                    "Google Tag Manager",
+                    "Mobile Friendly",
+                    "Nginx",
+                    "Vimeo",
+                    "WordPress.org",
+                    "reCAPTCHA"
+                  ],
+                  "industry_tag_hash": {
+                    "computer software": "[REDACTED]",
+                    "information technology & services": "[REDACTED]"
+                  },
+                  "org_chart_removed": null,
+                  "short_description": "VKAPS IT Solutions Pvt. Ltd. is a web and mobile app development company established in 2010, with over 12 years of experience in the industry. The company specializes in AI-driven solutions and business process automation, focusing on delivering Minimum Viable Products (MVPs) and SaaS solutions for startups and enterprises. VKAPS has successfully completed over 2,000 projects for more than 700 customers across 30 countries.\n\nThe company offers a range of services, including full-cycle web and mobile development, AI and business automation tools, SaaS product development, and custom blockchain solutions. VKAPS emphasizes long-term client relationships and provides comprehensive support from pre-sale consulting to post-delivery maintenance. Their team of over 50 engineers combines technical expertise with industry knowledge to deliver scalable and secure solutions. Led by founder Sudesh Agrawal, VKAPS is committed to fostering trust and reducing long-term costs for their clients.",
+                  "current_technologies": [
+                    {
+                      "uid": "adobe_media_optimizer",
+                      "name": "Adobe Media Optimizer",
+                      "category": "Search Marketing"
+                    },
+                    {
+                      "uid": "bootstrap_framework",
+                      "name": "Bootstrap Framework",
+                      "category": "CSS and JavaScript Libraries"
+                    },
+                    {
+                      "uid": "cedexis_radar",
+                      "name": "Cedexis Radar",
+                      "category": "Web Performance Monitoring"
+                    },
+                    {
+                      "uid": "google_analytics",
+                      "name": "Google Analytics",
+                      "category": "Analytics and Tracking"
+                    },
+                    {
+                      "uid": "google_font_api",
+                      "name": "Google Font API",
+                      "category": "Fonts"
+                    },
+                    {
+                      "uid": "google_tag_manager",
+                      "name": "Google Tag Manager",
+                      "category": "Tag Management"
+                    },
+                    {
+                      "uid": "mobile_friendly",
+                      "name": "Mobile Friendly",
+                      "category": "Other"
+                    },
+                    {
+                      "uid": "nginx",
+                      "name": "Nginx",
+                      "category": "Load Balancers"
+                    },
+                    {
+                      "uid": "vimeo",
+                      "name": "Vimeo",
+                      "category": "Online Video Platforms"
+                    },
+                    {
+                      "uid": "wordpress_org",
+                      "name": "WordPress.org",
+                      "category": "CMS"
+                    },
+                    {
+                      "uid": "recaptcha",
+                      "name": "reCAPTCHA",
+                      "category": "Captcha"
+                    }
+                  ],
+                  "latest_funding_stage": null,
+                  "num_suborganizations": 0,
+                  "secondary_industries": [
+                    "computer software"
+                  ],
+                  "retail_location_count": 0,
+                  "total_funding_printed": null,
+                  "publicly_traded_symbol": null,
+                  "estimated_num_employees": 96,
+                  "owned_by_organization_id": null,
+                  "publicly_traded_exchange": null,
+                  "latest_funding_round_date": null,
+                  "org_chart_root_people_ids": [],
+                  "org_chart_show_department_filter": null,
+                  "organization_headcount_six_month_growth": null,
+                  "organization_headcount_twelve_month_growth": null,
+                  "organization_headcount_twenty_four_month_growth": null
+                },
+                "subdepartments": [
+                  "artificial_intelligence_machine_learning",
+                  "software_development",
+                  "application_development"
+                ],
+                "intent_strength": null,
+                "organization_id": "[REDACTED]",
+                "employment_history": [
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Generative AI Developer ",
+                    "degree": null,
+                    "emails": null,
+                    "current": true,
+                    "end_date": null,
+                    "created_at": null,
+                    "start_date": "2024-07-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "VKAPS IT Solutions Pvt. Ltd. | A leading AI & Business Automation Company"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Data Science Trainee",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2024-07-01",
+                    "created_at": null,
+                    "start_date": "2024-05-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Dr Reddy's Foundation"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "Trainee",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2022-12-01",
+                    "created_at": null,
+                    "start_date": "2022-09-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Zensar Technologies"
+                  },
+                  {
+                    "id": "[REDACTED]",
+                    "_id": "[REDACTED]",
+                    "key": "[REDACTED]",
+                    "kind": null,
+                    "major": null,
+                    "title": "PERCEPTRON NETWORK FOR  IDENTIFICATION OF ODD NUMBERS",
+                    "degree": null,
+                    "emails": null,
+                    "current": false,
+                    "end_date": "2022-09-01",
+                    "created_at": null,
+                    "start_date": "2022-08-01",
+                    "updated_at": null,
+                    "description": null,
+                    "grade_level": null,
+                    "raw_address": null,
+                    "organization_id": "[REDACTED]",
+                    "organization_name": "Indian Institute of Technology, Indore"
+                  }
+                ],
+                "email_domain_catchall": false,
+                "revealed_for_current_team": true,
+                "extrapolated_email_confidence": null
+              }
+            }
+          }
+        ]
+      },
+      "versionId": "5ca8e677-5d28-4837-a235-030328fe40c0",
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2025-11-11T18:18:01.727Z",
+          "createdAt": "2025-11-11T18:18:01.727Z",
+          "role": "workflow:owner",
+          "workflowId": "wPKx4SDtwC5gLko6",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],

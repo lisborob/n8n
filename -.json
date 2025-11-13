@@ -1928,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1762897041,
+            "lastTimeChecked": 1762990444,
             "possibleDuplicates": [
-              "19a74da1ce0c2ef4",
-              "19a74d0994ed367b"
+              "19a7a6b57d95eff4",
+              "19a79eb052d17287"
             ]
           }
         }
@@ -20863,7 +20863,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-11T19:14:58.000Z",
+      "updatedAt": "2025-11-12T20:56:26.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
@@ -20920,8 +20920,8 @@
             "fromEmail": "contact@ooniverse.ai",
             "toEmail": "robson.lisboa@midiacode.com",
             "bccEmail": "={{ $json.bccList }}",
-            "subject": "Fraudes em bebidas: o que o setor precisa fazer agora",
-            "text": "Olá,\n\nVocê sabia que o número de fraudes e falsificações em bebidas alcoólicas tem crescido e já afeta diretamente a confiança do consumidor e a reputação das marcas?\n\nNo dia 13 de novembro, das 15h às 17h, especialistas e líderes do setor estarão reunidos no \"Fórum Segurança Alimentar em Bebidas Alcoólicas\" para discutir como comercializar e consumir com segurança, com tecnologia e responsabilidade.\n\nO tempo está se esgotando, inscreva-se hoje!\n\nO evento é 100% online e gratuito, e você vai sair com insights práticos sobre:\n- O que fazer agora para prevenir problemas no futuro\n- Como identificar e prevenir fraudes em destilados e outras bebidas;\n- Boas práticas para garantir rastreabilidade e transparência;\n- Tendências de inovação que vão transformar o setor.\n\nAs vagas são limitadas e a inscrição é rápida — garanta a sua agora:\n\n👉 Inscreva-se gratuitamente aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nEsperamos você no evento que está movimentando o mercado de bebidas seguras no Brasil.\n\nCom apreço,  \nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas",
+            "subject": "Mais ingressos liberados! É amanhã! Última chance para garantir sua vaga no Fórum de Segurança em Bebidas",
+            "text": "Olá, mais ingressos liberados!\n\n🚨 É amanhã! \n\nO evento mais aguardado do setor de bebidas alcoólicas está prestes a começar — e ainda dá tempo de garantir sua vaga.\n\nO Fórum Segurança Alimentar em Bebidas Alcoólicas acontece amanhã, 13 de novembro, das 15h às 17h, 100% online e gratuito. Reuniremos especialistas, líderes e inovadores para discutir como proteger marcas, consumidores e o futuro do setor.\n\nSe você atua com bebidas alcoólicas, este evento é obrigatório. Você vai sair com insights práticos sobre:\n✅ Como identificar e prevenir fraudes em bebidas\n✅ Boas práticas de rastreabilidade e transparência\n✅ Tendências tecnológicas que estão moldando o mercado\n✅ Ações imediatas para proteger sua reputação e seus produtos\n\n⏳ As vagas estão quase esgotadas. Não deixe para depois — inscreva-se agora e esteja entre os profissionais que estão liderando a transformação do setor.\n\n👉 Reserve sua vaga gratuita aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nNos vemos amanhã no evento que está movimentando o mercado de bebidas seguras no Brasil.\n\nCom entusiasmo,\nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas\n",
             "options": {
               "replyTo": "robson.lisboa@midiacode.com"
             }
@@ -21975,7 +21975,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "ca6530ac-1c38-47ba-b155-786798f38eda",
+      "versionId": "d7b4f6ad-bd7e-4978-9688-3611f45739cb",
       "triggerCount": 1,
       "shared": [
         {

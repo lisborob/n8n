@@ -1928,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1762990444,
+            "lastTimeChecked": 1763072886,
             "possibleDuplicates": [
-              "19a7a6b57d95eff4",
-              "19a79eb052d17287"
+              "19a7f554688167e3",
+              "19a7f47cc1271241"
             ]
           }
         }
@@ -15250,14 +15250,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-11T19:18:09Z"
+          "lastTimeChecked": "2025-11-12T14:00:01Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-11T19:18:10Z"
+          "lastTimeChecked": "2025-11-12T14:00:25Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            315
+            317
           ]
         }
       },
@@ -16092,7 +16092,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2155
+          "lastMessageUid": 2157
         }
       },
       "meta": {
@@ -20863,11 +20863,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-12T20:56:26.000Z",
+      "updatedAt": "2025-11-13T18:32:34.000Z",
       "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
-      "active": true,
+      "active": false,
       "isArchived": false,
       "nodes": [
         {
@@ -20920,8 +20920,8 @@
             "fromEmail": "contact@ooniverse.ai",
             "toEmail": "robson.lisboa@midiacode.com",
             "bccEmail": "={{ $json.bccList }}",
-            "subject": "Mais ingressos liberados! É amanhã! Última chance para garantir sua vaga no Fórum de Segurança em Bebidas",
-            "text": "Olá, mais ingressos liberados!\n\n🚨 É amanhã! \n\nO evento mais aguardado do setor de bebidas alcoólicas está prestes a começar — e ainda dá tempo de garantir sua vaga.\n\nO Fórum Segurança Alimentar em Bebidas Alcoólicas acontece amanhã, 13 de novembro, das 15h às 17h, 100% online e gratuito. Reuniremos especialistas, líderes e inovadores para discutir como proteger marcas, consumidores e o futuro do setor.\n\nSe você atua com bebidas alcoólicas, este evento é obrigatório. Você vai sair com insights práticos sobre:\n✅ Como identificar e prevenir fraudes em bebidas\n✅ Boas práticas de rastreabilidade e transparência\n✅ Tendências tecnológicas que estão moldando o mercado\n✅ Ações imediatas para proteger sua reputação e seus produtos\n\n⏳ As vagas estão quase esgotadas. Não deixe para depois — inscreva-se agora e esteja entre os profissionais que estão liderando a transformação do setor.\n\n👉 Reserve sua vaga gratuita aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nNos vemos amanhã no evento que está movimentando o mercado de bebidas seguras no Brasil.\n\nCom entusiasmo,\nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas\n",
+            "subject": "Mais ingressos liberados! É hoje, não perca! Última chance para garantir sua vaga no Fórum de Segurança em Bebidas",
+            "text": "Olá, mais ingressos liberados!\n\n🚨 É hoje! Não perca o evento mais aguardado do setor de bebidas alcoólicas que está prestes a começar — e ainda dá tempo de garantir sua vaga.\n\nO Fórum Segurança Alimentar em Bebidas Alcoólicas acontece hoje, 13 de novembro, das 15h às 17h, 100% online e gratuito. Reuniremos especialistas, líderes e inovadores para discutir como proteger marcas, consumidores e o futuro do setor.\n\nSe você atua com bebidas alcoólicas, este evento é obrigatório. Você vai sair com insights práticos sobre:\n✅ Como identificar e prevenir fraudes em bebidas\n✅ Boas práticas de rastreabilidade e transparência\n✅ Tendências tecnológicas que estão moldando o mercado\n✅ Ações imediatas para proteger sua reputação e seus produtos\n\n⏳ As vagas estão quase esgotadas. Não deixe para depois — inscreva-se agora e esteja entre os profissionais que estão liderando a transformação do setor.\n\n👉 Reserve sua vaga gratuita aqui... https://lets.events/e/forum-seguranca-alimentar-em-bebidas-alcoolicas/\n\nNos vemos hoje no evento que está movimentando o mercado de bebidas seguras no Brasil.\n\nCom entusiasmo,\nRobson Lisboa\nFórum Segurança Alimentar em Bebidas Alcoólicas\n",
             "options": {
               "replyTo": "robson.lisboa@midiacode.com"
             }
@@ -21755,11 +21755,6 @@
                 "node": "Get row(s) in sheet1",
                 "type": "main",
                 "index": 0
-              },
-              {
-                "node": "Wait",
-                "type": "main",
-                "index": 0
               }
             ]
           ]
@@ -21975,7 +21970,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "d7b4f6ad-bd7e-4978-9688-3611f45739cb",
+      "versionId": "8cee0cb7-f64d-4359-bd4b-a8081e03bde3",
       "triggerCount": 1,
       "shared": [
         {

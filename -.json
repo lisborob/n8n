@@ -1928,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1763072886,
+            "lastTimeChecked": 1763163657,
             "possibleDuplicates": [
-              "19a7f554688167e3",
-              "19a7f47cc1271241"
+              "19a84be56d2a4c0d",
+              "19a849c6aa58b749"
             ]
           }
         }
@@ -2307,7 +2307,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-11T16:05:37.000Z",
+      "updatedAt": "2025-11-14T15:53:19.000Z",
       "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
@@ -2361,7 +2361,7 @@
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
                 }
               ]
             },
@@ -2944,7 +2944,7 @@
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
                 }
               ]
             },
@@ -3459,7 +3459,7 @@
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings or any other information, confirmation of meeting arrangements from google calendar or cal.com"
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
                 }
               ]
             },
@@ -5160,7 +5160,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "020a0370-9ffc-47ce-a084-1f7eba00577a",
+      "versionId": "7d9edf70-e30c-49e7-849c-b8bdb310ea9a",
       "triggerCount": 1,
       "shared": [
         {

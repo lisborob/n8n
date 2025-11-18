@@ -1928,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1763325359,
+            "lastTimeChecked": 1763422889,
             "possibleDuplicates": [
-              "19a8e61bd95b5197",
-              "19a8e0eb4a06b850"
+              "19a9431eebf20597",
+              "19a9369a7da1dd3d"
             ]
           }
         }
@@ -5168,6 +5168,374 @@
           "createdAt": "2025-11-10T16:14:51.097Z",
           "role": "workflow:owner",
           "workflowId": "AMxqvub2sDhDLKka",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-11-17T20:18:10.000Z",
+      "createdAt": "2025-11-17T18:54:22.149Z",
+      "id": "E3vxX3V7dWUkw4Hf",
+      "name": "Newsletter Upload to Google Drive",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "formTitle": "Newsletter Kutsaca",
+            "formDescription": "Preencha as informações que vão entrar para a próxima news.",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "Qual o título da notícia?",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Qual o texto da notícia?",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Faça upload de uma ou mais imagens para essa notícia (opcional)",
+                  "fieldType": "file"
+                },
+                {
+                  "fieldLabel": "Vídeo da notícia (opcional)",
+                  "placeholder": "Coloque o link do vídeo aqui."
+                }
+              ]
+            },
+            "options": {
+              "appendAttribution": false,
+              "buttonLabel": "Enviar",
+              "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #e5a552;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+            }
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.3,
+          "position": [
+            -448,
+            -16
+          ],
+          "id": "543664af-b1b5-46d2-87c8-c9de2ca3813d",
+          "name": "inserção de conteúdo da news",
+          "webhookId": "c2701f81-301a-41f0-a630-7242e1ca75da"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "I2FBbRnf2Orqr6A2",
+              "mode": "list",
+              "cachedResultName": "Newsletter Content Table",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "titulo": "={{ $('inserção de conteúdo da news').item.json['Qual o título da notícia?'] }}",
+                "text": "={{ $('inserção de conteúdo da news').item.json['Qual o texto da notícia?'] }}",
+                "video": "={{ $('inserção de conteúdo da news').item.json['Vídeo da notícia (opcional)'] }}",
+                "imagens": "={{ $json.webContentLink }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "numero_da_noticia",
+                  "displayName": "numero_da_noticia",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "readOnly": false,
+                  "removed": true
+                },
+                {
+                  "id": "titulo",
+                  "displayName": "titulo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "text",
+                  "displayName": "text",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "imagens",
+                  "displayName": "imagens",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "video",
+                  "displayName": "video",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            352,
+            -16
+          ],
+          "id": "804068ce-d54b-4289-8eb5-701ec22f0591",
+          "name": "Insert row"
+        },
+        {
+          "parameters": {
+            "inputDataFieldName": "=Fa_a_upload_de_uma_ou_mais_imagens_para_essa_not_cia__opcional_",
+            "driveId": {
+              "__rl": true,
+              "value": "My Drive",
+              "mode": "list",
+              "cachedResultName": "My Drive",
+              "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+            },
+            "folderId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "n8n corporativo arquivos de clientes",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleDrive",
+          "typeVersion": 3,
+          "position": [
+            -144,
+            -16
+          ],
+          "id": "a700285c-19d9-4637-bd71-33b2d6e5a630",
+          "name": "Upload file",
+          "credentials": {
+            "googleDriveOAuth2Api": {
+              "id": "CXrTfmECCGCiT5hQ",
+              "name": "Google Drive account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "inserção de conteúdo da news": {
+          "main": [
+            [
+              {
+                "node": "Upload file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload file": {
+          "main": [
+            [
+              {
+                "node": "Insert row",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {
+        "Upload file": [
+          {
+            "json": {
+              "kind": "drive#file",
+              "id": "1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1",
+              "name": "muller 2.png",
+              "mimeType": "image/png",
+              "starred": false,
+              "trashed": false,
+              "explicitlyTrashed": false,
+              "parents": [
+                "[REDACTED]"
+              ],
+              "spaces": [
+                "drive"
+              ],
+              "version": "2",
+              "webContentLink": "https://drive.google.com/uc?id=1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1&export=download",
+              "webViewLink": "https://drive.google.com/file/d/1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1/view?usp=drivesdk",
+              "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/image/png",
+              "hasThumbnail": true,
+              "thumbnailLink": "[REDACTED]",
+              "thumbnailVersion": "1",
+              "viewedByMe": false,
+              "createdTime": "2025-11-17T20:11:06.755Z",
+              "modifiedTime": "2025-11-17T20:11:08.136Z",
+              "modifiedByMeTime": "2025-11-17T20:11:08.136Z",
+              "modifiedByMe": true,
+              "owners": [
+                {
+                  "kind": "drive#user",
+                  "displayName": "Robson Lisboa",
+                  "photoLink": "[REDACTED]",
+                  "me": true,
+                  "permissionId": "[REDACTED]",
+                  "emailAddress": "robson.lisboa@midiacode.com"
+                }
+              ],
+              "lastModifyingUser": {
+                "kind": "drive#user",
+                "displayName": "Robson Lisboa",
+                "photoLink": "[REDACTED]",
+                "me": true,
+                "permissionId": "[REDACTED]",
+                "emailAddress": "robson.lisboa@midiacode.com"
+              },
+              "shared": true,
+              "ownedByMe": true,
+              "downloadRestrictions": {
+                "itemDownloadRestriction": {
+                  "restrictedForReaders": false,
+                  "restrictedForWriters": false
+                },
+                "effectiveDownloadRestrictionWithContext": {
+                  "restrictedForReaders": false,
+                  "restrictedForWriters": false
+                }
+              },
+              "capabilities": {
+                "canAcceptOwnership": false,
+                "canAddChildren": false,
+                "canAddMyDriveParent": false,
+                "canChangeCopyRequiresWriterPermission": true,
+                "canChangeItemDownloadRestriction": true,
+                "canChangeSecurityUpdateEnabled": false,
+                "canChangeViewersCanCopyContent": true,
+                "canComment": true,
+                "canCopy": true,
+                "canDelete": true,
+                "canDisableInheritedPermissions": false,
+                "canDownload": true,
+                "canEdit": true,
+                "canEnableInheritedPermissions": true,
+                "canListChildren": false,
+                "canModifyContent": true,
+                "canModifyContentRestriction": true,
+                "canModifyEditorContentRestriction": true,
+                "canModifyOwnerContentRestriction": true,
+                "canModifyLabels": false,
+                "canMoveChildrenWithinDrive": false,
+                "canMoveItemIntoTeamDrive": true,
+                "canMoveItemOutOfDrive": true,
+                "canMoveItemWithinDrive": true,
+                "canReadLabels": false,
+                "canReadRevisions": true,
+                "canRemoveChildren": false,
+                "canRemoveContentRestriction": false,
+                "canRemoveMyDriveParent": true,
+                "canRename": true,
+                "canShare": true,
+                "canTrash": true,
+                "canUntrash": true
+              },
+              "viewersCanCopyContent": true,
+              "copyRequiresWriterPermission": false,
+              "writersCanShare": true,
+              "permissions": [
+                {
+                  "kind": "drive#permission",
+                  "id": "[REDACTED]",
+                  "type": "group",
+                  "emailAddress": "lideres@midiacode.com",
+                  "role": "writer",
+                  "displayName": "Lideres Midiacode",
+                  "deleted": false
+                },
+                {
+                  "kind": "drive#permission",
+                  "id": "[REDACTED]",
+                  "type": "user",
+                  "emailAddress": "robson.lisboa@midiacode.com",
+                  "role": "owner",
+                  "displayName": "robson.lisboa",
+                  "deleted": false,
+                  "pendingOwner": false
+                },
+                {
+                  "kind": "drive#permission",
+                  "id": "[REDACTED]",
+                  "type": "user",
+                  "emailAddress": "lgavinho@midiacode.com",
+                  "role": "writer",
+                  "displayName": "lgavinho",
+                  "deleted": false,
+                  "pendingOwner": false
+                }
+              ],
+              "permissionIds": [
+                "[REDACTED]",
+                "[REDACTED]",
+                "[REDACTED]"
+              ],
+              "originalFilename": "muller 2.png",
+              "fullFileExtension": "png",
+              "fileExtension": "png",
+              "md5Checksum": "[REDACTED]",
+              "sha1Checksum": "[REDACTED]",
+              "sha256Checksum": "[REDACTED]",
+              "size": "937765",
+              "quotaBytesUsed": "937765",
+              "headRevisionId": "[REDACTED]",
+              "imageMediaMetadata": {
+                "width": 705,
+                "height": 798,
+                "rotation": 0
+              },
+              "isAppAuthorized": true,
+              "linkShareMetadata": {
+                "securityUpdateEligible": false,
+                "securityUpdateEnabled": true
+              },
+              "inheritedPermissionsDisabled": false
+            }
+          }
+        ]
+      },
+      "versionId": "372ac55d-501e-4837-bb65-0830a884ae6f",
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2025-11-17T18:54:22.151Z",
+          "createdAt": "2025-11-17T18:54:22.151Z",
+          "role": "workflow:owner",
+          "workflowId": "E3vxX3V7dWUkw4Hf",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
@@ -15250,14 +15618,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-14T14:00:01Z"
+          "lastTimeChecked": "2025-11-16T14:00:01Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-14T14:00:25Z"
+          "lastTimeChecked": "2025-11-16T14:00:25Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            319
+            321
           ]
         }
       },
@@ -16092,7 +16460,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2159
+          "lastMessageUid": 2161
         }
       },
       "meta": {
@@ -21978,6 +22346,284 @@
           "createdAt": "2025-10-30T16:38:03.495Z",
           "role": "workflow:owner",
           "workflowId": "nlkRufWPliMF15l7",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-11-17T17:15:07.000Z",
+      "createdAt": "2025-11-17T17:00:46.093Z",
+      "id": "nlsS6SI0LwMS43nm",
+      "name": "Fundos Europeus - Thiago",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "field": "weeks",
+                  "triggerAtDay": [
+                    1
+                  ],
+                  "triggerAtHour": 6
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            0,
+            0
+          ],
+          "id": "c4800531-790a-4836-b9e9-088742d00a7f",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            }
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            208,
+            0
+          ],
+          "id": "32794f3f-4809-4be3-81b6-1a551fc06b77",
+          "name": "Get row(s) in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "fd2a05fc-2c86-4bf5-b8a5-6004361f4b0f",
+                  "leftValue": "",
+                  "rightValue": "Privada",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                },
+                {
+                  "id": "0efca3ac-528e-49ff-b472-f69cf66a5a43",
+                  "leftValue": "",
+                  "rightValue": "NUUTS II",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                },
+                {
+                  "id": "fc7b73ec-206b-449e-ad04-7c5efbbe8aaf",
+                  "leftValue": "",
+                  "rightValue": "Crescimento ",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                },
+                {
+                  "id": "2f95e8a6-a7e6-49d2-baa9-ae66ec9d04cc",
+                  "leftValue": "",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.2,
+          "position": [
+            416,
+            0
+          ],
+          "id": "95c7d011-3c26-4798-8c25-45019c2200d3",
+          "name": "Filter"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            624,
+            0
+          ],
+          "id": "a8cda5af-6f13-46c1-8871-bd98ed92d5f7",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            992,
+            0
+          ],
+          "id": "a817a055-0b8c-44c2-9452-a9b4282e948c",
+          "name": "Send email",
+          "webhookId": "0439489a-1655-42ef-9f04-8d099a52b425",
+          "credentials": {
+            "smtp": {
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "appendOrUpdate",
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            }
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            1152,
+            0
+          ],
+          "id": "2871aa40-322d-4b9a-b3d9-8adc6877a0bb",
+          "name": "Append or update row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.2,
+          "position": [
+            768,
+            0
+          ],
+          "id": "1478f60e-8ec4-44ca-946a-92408cf1f17e",
+          "name": "Filter1"
+        }
+      ],
+      "connections": {
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Filter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter": {
+          "main": [
+            []
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Filter1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send email": {
+          "main": [
+            [
+              {
+                "node": "Append or update row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter1": {
+          "main": [
+            [
+              {
+                "node": "Send email",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "06f94df2-d6c0-44d1-82de-77193b09cb04",
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2025-11-17T17:00:46.103Z",
+          "createdAt": "2025-11-17T17:00:46.103Z",
+          "role": "workflow:owner",
+          "workflowId": "nlsS6SI0LwMS43nm",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],

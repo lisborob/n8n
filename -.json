@@ -1928,10 +1928,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1763422889,
+            "lastTimeChecked": 1763510070,
             "possibleDuplicates": [
-              "19a9431eebf20597",
-              "19a9369a7da1dd3d"
+              "19a99642e1743263",
+              "19a992c8da9deb4c"
             ]
           }
         }
@@ -2307,7 +2307,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-14T15:53:19.000Z",
+      "updatedAt": "2025-11-18T17:44:56.000Z",
       "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
@@ -2321,47 +2321,47 @@
               "categories": [
                 {
                   "category": "Clientes",
-                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                  "description": "={{ $('Edit Fields').item.json.Clientes }}"
                 },
                 {
                   "category": "Contabilidade",
-                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                  "description": "={{ $('Edit Fields').item.json.Contabilidade }}"
                 },
                 {
                   "category": "Promo",
-                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                  "description": "={{ $('Edit Fields').item.json.Promo }}"
                 },
                 {
                   "category": "social",
-                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                  "description": "={{ $('Edit Fields').item.json.Social }}"
                 },
                 {
                   "category": "Alerts",
-                  "description": "anything from google alerts"
+                  "description": "={{ $('Edit Fields').item.json.Alerts }}"
                 },
                 {
                   "category": "OoO",
-                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                  "description": "={{ $('Edit Fields').item.json.OoO }}"
                 },
                 {
                   "category": "Keep it in inbox",
-                  "description": "Anything that does not match the other categories"
+                  "description": "={{ $('Edit Fields').item.json['Keep in Inbox'] }}"
                 },
                 {
                   "category": "Tech",
-                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                  "description": "={{ $('Edit Fields').item.json.Tech }}"
                 },
                 {
                   "category": "Viagem",
-                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                  "description": "={{ $('Edit Fields').item.json.Viagem }}"
                 },
                 {
                   "category": "Delete from Accept/Reject meeting",
-                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                  "description": "={{ $('Edit Fields').item.json['Delete from Accept Meetings'] }}"
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
+                  "description": "={{ $('Edit Fields').item.json.Comercial }}"
                 }
               ]
             },
@@ -2789,7 +2789,7 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -3152,
+            -3280,
             3136
           ],
           "id": "28cb5b5b-edc6-43d3-a73a-ac311db7ac13",
@@ -2904,47 +2904,47 @@
               "categories": [
                 {
                   "category": "Clientes",
-                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                  "description": "={{ $('Edit Fields').item.json.Clientes }}"
                 },
                 {
                   "category": "Contabilidade",
-                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                  "description": "={{ $('Edit Fields').item.json.Contabilidade }}"
                 },
                 {
                   "category": "Promo",
-                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                  "description": "={{ $('Edit Fields').item.json.Promo }}"
                 },
                 {
                   "category": "social",
-                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                  "description": "={{ $('Edit Fields').item.json.Social }}"
                 },
                 {
                   "category": "Alerts",
-                  "description": "anything from google alerts"
+                  "description": "={{ $('Edit Fields').item.json.Alerts }}"
                 },
                 {
                   "category": "OoO",
-                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                  "description": "={{ $('Edit Fields').item.json.OoO }}"
                 },
                 {
                   "category": "Keep it in inbox",
-                  "description": "Anything that does not match the other categories"
+                  "description": "={{ $('Edit Fields').item.json['Keep in Inbox'] }}"
                 },
                 {
                   "category": "Tech",
-                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                  "description": "={{ $('Edit Fields').item.json.Tech }}"
                 },
                 {
                   "category": "Viagem",
-                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                  "description": "={{ $('Edit Fields').item.json.Viagem }}"
                 },
                 {
                   "category": "Delete from Accept/Reject meeting",
-                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                  "description": "={{ $('Edit Fields').item.json['Delete from Accept Meetings'] }}"
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
+                  "description": "={{ $('Edit Fields').item.json.Comercial }}"
                 }
               ]
             },
@@ -3419,47 +3419,47 @@
               "categories": [
                 {
                   "category": "Clientes",
-                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  "
+                  "description": "={{ $('Edit Fields').item.json.Clientes }}"
                 },
                 {
                   "category": "Contabilidade",
-                  "description": "any email from stripe with \"o repasse\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting"
+                  "description": "={{ $('Edit Fields').item.json.Contabilidade }}"
                 },
                 {
                   "category": "Promo",
-                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                  "description": "={{ $('Edit Fields').item.json.Promo }}"
                 },
                 {
                   "category": "social",
-                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                  "description": "={{ $('Edit Fields').item.json.Social }}"
                 },
                 {
                   "category": "Alerts",
-                  "description": "anything from google alerts"
+                  "description": "={{ $('Edit Fields').item.json.Alerts }}"
                 },
                 {
                   "category": "OoO",
-                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
+                  "description": "={{ $('Edit Fields').item.json.OoO }}"
                 },
                 {
                   "category": "Keep it in inbox",
-                  "description": "Anything that does not match the other categories"
+                  "description": "={{ $('Edit Fields').item.json['Keep in Inbox'] }}"
                 },
                 {
                   "category": "Tech",
-                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
+                  "description": "={{ $('Edit Fields').item.json.Tech }}"
                 },
                 {
                   "category": "Viagem",
-                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                  "description": "={{ $('Edit Fields').item.json.Viagem }}"
                 },
                 {
                   "category": "Delete from Accept/Reject meeting",
-                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
+                  "description": "={{ $('Edit Fields').item.json['Delete from Accept Meetings'] }}"
                 },
                 {
                   "category": "comercial",
-                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the google alerts emails."
+                  "description": "={{ $('Edit Fields').item.json.Comercial }}"
                 }
               ]
             },
@@ -4084,6 +4084,89 @@
           ],
           "id": "9fcb848b-e812-4c1c-ba89-5606c2092dea",
           "name": "Preparar modelIndex1"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "bb7e1781-a0d6-42a9-af67-32bcd857e3c1",
+                  "name": "Comercial",
+                  "value": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the 'google alerts' emails.",
+                  "type": "string"
+                },
+                {
+                  "id": "1a53ae9e-63c4-4087-8efe-d4c9fe538cdf",
+                  "name": "Clientes",
+                  "value": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  any email from current customers with subjects related to the actual services we are offering.",
+                  "type": "string"
+                },
+                {
+                  "id": "33bfd156-00a1-4680-8c3c-4072791d3a72",
+                  "name": "Contabilidade",
+                  "value": "any email from stripe with \"o repasse de\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting. ",
+                  "type": "string"
+                },
+                {
+                  "id": "52318bca-58a7-4dda-8caf-ba28d54a186d",
+                  "name": "Promo",
+                  "value": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce",
+                  "type": "string"
+                },
+                {
+                  "id": "aa584ceb-a5eb-4824-a89c-b336f4142278",
+                  "name": "Social",
+                  "value": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc",
+                  "type": "string"
+                },
+                {
+                  "id": "b4baf5ab-1df3-4edd-8985-0e0300156d7b",
+                  "name": "Alerts",
+                  "value": "anything from google alerts",
+                  "type": "string"
+                },
+                {
+                  "id": "eb5b6d83-ac55-4d16-9f37-32cc28eba3c4",
+                  "name": "OoO",
+                  "value": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. ",
+                  "type": "string"
+                },
+                {
+                  "id": "923703db-1780-4080-a3b3-5e02cfd90dbc",
+                  "name": "Keep in Inbox",
+                  "value": "Anything that does not match the other categories. also emails from theresanaiforthat.com, ",
+                  "type": "string"
+                },
+                {
+                  "id": "317218e3-59e5-4d06-9d58-fd17561bc875",
+                  "name": "Tech",
+                  "value": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going",
+                  "type": "string"
+                },
+                {
+                  "id": "59856361-964f-47a1-bb90-c495d40dafb8",
+                  "name": "Viagem",
+                  "value": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar.",
+                  "type": "string"
+                },
+                {
+                  "id": "957832e4-4da4-4065-9130-466b03f85404",
+                  "name": "Delete from Accept Meetings",
+                  "value": "Anything that are just confirmations of meetings or reject of meeting requests",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -3072,
+            3136
+          ],
+          "id": "02ed889c-fecd-47cc-8b58-b0823e43ce75",
+          "name": "Edit Fields"
         }
       ],
       "connections": {
@@ -4342,7 +4425,7 @@
           "main": [
             [
               {
-                "node": "Get many messages",
+                "node": "Edit Fields",
                 "type": "main",
                 "index": 0
               }
@@ -5132,6 +5215,17 @@
               }
             ]
           ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "Get many messages",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -5160,7 +5254,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "7d9edf70-e30c-49e7-849c-b8bdb310ea9a",
+      "versionId": "8b8a7f80-3235-486c-b4d3-876b4f84617e",
       "triggerCount": 1,
       "shared": [
         {
@@ -5174,7 +5268,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-17T20:18:10.000Z",
+      "updatedAt": "2025-11-18T11:30:56.000Z",
       "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
       "name": "Newsletter Upload to Google Drive",
@@ -5214,8 +5308,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.3,
           "position": [
-            -448,
-            -16
+            -800,
+            96
           ],
           "id": "543664af-b1b5-46d2-87c8-c9de2ca3813d",
           "name": "inserção de conteúdo da news",
@@ -5299,8 +5393,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            352,
-            -16
+            -176,
+            96
           ],
           "id": "804068ce-d54b-4289-8eb5-701ec22f0591",
           "name": "Insert row"
@@ -5327,8 +5421,8 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -144,
-            -16
+            -496,
+            96
           ],
           "id": "a700285c-19d9-4637-bd71-33b2d6e5a630",
           "name": "Upload file",
@@ -5528,7 +5622,7 @@
           }
         ]
       },
-      "versionId": "372ac55d-501e-4837-bb65-0830a884ae6f",
+      "versionId": "d50b4a0a-8b15-4cb5-9cff-2328d0f6efe0",
       "triggerCount": 0,
       "shared": [
         {
@@ -22352,7 +22446,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-17T17:15:07.000Z",
+      "updatedAt": "2025-11-18T16:49:20.000Z",
       "createdAt": "2025-11-17T17:00:46.093Z",
       "id": "nlsS6SI0LwMS43nm",
       "name": "Fundos Europeus - Thiago",
@@ -22376,7 +22470,7 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            0,
+            64,
             0
           ],
           "id": "c4800531-790a-4836-b9e9-088742d00a7f",
@@ -22384,45 +22478,17 @@
         },
         {
           "parameters": {
-            "documentId": {
-              "__rl": true,
-              "mode": "list",
-              "value": ""
-            },
-            "sheetName": {
-              "__rl": true,
-              "mode": "list",
-              "value": ""
-            }
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            208,
-            0
-          ],
-          "id": "32794f3f-4809-4be3-81b6-1a551fc06b77",
-          "name": "Get row(s) in sheet",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "conditions": {
               "options": {
                 "caseSensitive": true,
                 "leftValue": "",
-                "typeValidation": "loose",
+                "typeValidation": "strict",
                 "version": 2
               },
               "conditions": [
                 {
                   "id": "fd2a05fc-2c86-4bf5-b8a5-6004361f4b0f",
-                  "leftValue": "",
+                  "leftValue": "={{ $json.col_2 }}",
                   "rightValue": "Privada",
                   "operator": {
                     "type": "string",
@@ -22431,7 +22497,7 @@
                 },
                 {
                   "id": "0efca3ac-528e-49ff-b472-f69cf66a5a43",
-                  "leftValue": "",
+                  "leftValue": "={{ $json['239 Avisos programados de setembro de 2025 a agosto de 2026'] }}",
                   "rightValue": "NUUTS II",
                   "operator": {
                     "type": "string",
@@ -22440,7 +22506,7 @@
                 },
                 {
                   "id": "fc7b73ec-206b-449e-ad04-7c5efbbe8aaf",
-                  "leftValue": "",
+                  "leftValue": "={{ $json.col_6 }}",
                   "rightValue": "Crescimento ",
                   "operator": {
                     "type": "string",
@@ -22457,14 +22523,14 @@
                   }
                 }
               ],
-              "combinator": "or"
+              "combinator": "and"
             },
             "options": {}
           },
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.2,
           "position": [
-            416,
+            368,
             0
           ],
           "id": "95c7d011-3c26-4798-8c25-45019c2200d3",
@@ -22477,7 +22543,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            624,
+            560,
             0
           ],
           "id": "a8cda5af-6f13-46c1-8871-bd98ed92d5f7",
@@ -22490,7 +22556,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            992,
+            880,
             0
           ],
           "id": "a817a055-0b8c-44c2-9452-a9b4282e948c",
@@ -22520,7 +22586,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1152,
+            1072,
             0
           ],
           "id": "2871aa40-322d-4b9a-b3d9-8adc6877a0bb",
@@ -22539,11 +22605,44 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.2,
           "position": [
-            768,
+            720,
             0
           ],
           "id": "1478f60e-8ec4-44ca-946a-92408cf1f17e",
           "name": "Filter1"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "PlanoAnualAvisos_092025",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1170543258,
+              "mode": "list",
+              "cachedResultName": "Global",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            224,
+            0
+          ],
+          "id": "32794f3f-4809-4be3-81b6-1a551fc06b77",
+          "name": "Get row(s) in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
         }
       ],
       "connections": {
@@ -22558,20 +22657,15 @@
             ]
           ]
         },
-        "Get row(s) in sheet": {
+        "Filter": {
           "main": [
             [
               {
-                "node": "Filter",
+                "node": "Code in JavaScript",
                 "type": "main",
                 "index": 0
               }
             ]
-          ]
-        },
-        "Filter": {
-          "main": [
-            []
           ]
         },
         "Code in JavaScript": {
@@ -22606,6 +22700,22 @@
               }
             ]
           ]
+        },
+        "Append or update row in sheet": {
+          "main": [
+            []
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Filter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -22616,7 +22726,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "06f94df2-d6c0-44d1-82de-77193b09cb04",
+      "versionId": "30bfa6a9-2dcb-411e-9256-f5225f784190",
       "triggerCount": 0,
       "shared": [
         {

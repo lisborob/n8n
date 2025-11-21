@@ -472,7 +472,7 @@
       ]
     },
     {
-      "updatedAt": "2025-11-19T16:25:45.000Z",
+      "updatedAt": "2025-11-20T19:22:24.000Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -486,47 +486,51 @@
               "categories": [
                 {
                   "category": "Clientes",
-                  "description": "={{ $json.Clientes }}"
+                  "description": "any from stripe with \"subscription update\" and \"Payment\"or \"pagamaneto\"on subject,  any email from current customers with subjects related to the actual services we are offering."
                 },
                 {
                   "category": "Contabilidade",
-                  "description": "={{ $json.Contabilidade }}"
+                  "description": "any email from stripe with \"o repasse de\"; also emails with subject with \"documentos em formato digital\" text in subject; messages with just receipts of payment or linked to accounting. "
                 },
                 {
                   "category": "Promo",
-                  "description": "={{ $json.Promo }}"
+                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
                 },
                 {
                   "category": "social",
-                  "description": "={{ $json.Social }}"
+                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
                 },
                 {
                   "category": "Alerts",
-                  "description": "={{ $json.Alerts }}"
+                  "description": "anything that comes from google alerts OR from googlealerts-noreply@google.com"
                 },
                 {
                   "category": "OoO",
-                  "description": "={{ $json.OoO }}"
+                  "description": "anything that has a clear message that the sender is out of office due to vacancy, férias, in an external event. The message must come with other contacts (email or telephone numbers) from other team members. "
                 },
                 {
                   "category": "Keep it in inbox",
-                  "description": "={{ $json['Keep in Inbox'] }}"
+                  "description": "Anything that does not match the other categories. also emails from theresanaiforthat.com, "
                 },
                 {
                   "category": "Tech",
-                  "description": "={{ $json.Tech }}"
+                  "description": "Anything that is related to our technology stack, as messages from github, gitlab, sentry, apple store, google playstore, hostinger and other hosters, servers or online services to keep technology up and going"
                 },
                 {
                   "category": "Viagem",
-                  "description": "={{ $json.Viagem }}"
+                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
                 },
                 {
                   "category": "Delete from Accept/Reject meeting",
-                  "description": "={{ $json['Delete from Accept Meetings'] }}"
+                  "description": "Anything that are just confirmations of meetings or reject of meeting requests"
                 },
                 {
                   "category": "Comercial",
-                  "description": "={{ $json.Comercial }}"
+                  "description": "anything that comes from meeting confirmations from prospects or clients, or answers from sent proposals, or new clients requesting meetings , confirmation of meeting arrangements from google calendar or cal.com. Do not place in this category the 'google alerts' emails."
+                },
+                {
+                  "category": "Update News",
+                  "description": "anything that comes from newsletters or from superhuman@mail.joinsuperhuman.ai"
                 }
               ]
             },
@@ -535,22 +539,22 @@
           "type": "@n8n/n8n-nodes-langchain.textClassifier",
           "typeVersion": 1.1,
           "position": [
-            -16,
-            240
+            -32,
+            224
           ],
           "id": "a83d2712-f445-496a-bf41-ee7e0dc85be6",
           "name": "Text Classifier"
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.5-pro",
+            "modelName": "models/gemini-2.0-flash-lite",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            192,
-            1072
+            112,
+            1056
           ],
           "id": "4e3791bd-a3a8-4f27-a3ea-0b1054467541",
           "name": "Google Gemini Chat Model",
@@ -1545,8 +1549,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -240,
-            384
+            -256,
+            480
           ],
           "id": "aa6275f6-cf30-40f9-8ce6-296c89ad99b2",
           "name": "Edit Fields"
@@ -1572,8 +1576,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -656,
-            384
+            -672,
+            480
           ],
           "id": "dcd2a831-0c0a-439f-9cfb-0225a5b07d80",
           "name": "Busca criterios",
@@ -1592,8 +1596,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -448,
-            384
+            -464,
+            480
           ],
           "id": "9c2143a0-033c-44ad-9da4-83e5df089275",
           "name": "Trazer todos os itens para um soh"
@@ -1609,11 +1613,35 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.1,
           "position": [
-            720,
-            1952
+            704,
+            1856
           ],
           "id": "cb16b801-62b9-4beb-b55c-54e7bb987671",
           "name": "Comercial",
+          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{ $('Get many messages').item.json.id }}",
+            "labelIds": [
+              "Label_2489250583841036311"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            704,
+            2048
+          ],
+          "id": "82d90aec-f9f7-4def-b9ae-db21180c0b6d",
+          "name": "Update News",
           "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
           "credentials": {
             "gmailOAuth2": {
@@ -1720,6 +1748,13 @@
             [
               {
                 "node": "Comercial",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Update News",
                 "type": "main",
                 "index": 0
               }
@@ -1894,7 +1929,7 @@
           "main": [
             [
               {
-                "node": "Busca criterios",
+                "node": "Text Classifier",
                 "type": "main",
                 "index": 0
               }
@@ -2101,16 +2136,21 @@
         },
         "Edit Fields": {
           "main": [
+            []
+          ]
+        },
+        "Comercial": {
+          "main": [
             [
               {
-                "node": "Text Classifier",
+                "node": "Remove message from INBOX",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Comercial": {
+        "Update News": {
           "main": [
             [
               {
@@ -2137,10 +2177,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1763589163,
+            "lastTimeChecked": 1763681511,
             "possibleDuplicates": [
-              "19a9e1c1fce3eab5",
-              "19a9dfaf2c5ab999"
+              "19aa39f4497de5f9",
+              "19aa396e8c740389",
+              "19aa396e4e7749f2"
             ]
           }
         },
@@ -2508,7 +2549,7 @@
           }
         ]
       },
-      "versionId": "357d93ab-4b7f-4331-b1d6-da544d8393c1",
+      "versionId": "62d42aea-c306-4cbf-9cc1-f8d65b9b609d",
       "triggerCount": 1,
       "shared": [
         {
@@ -2522,11 +2563,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-19T14:55:53.000Z",
+      "updatedAt": "2025-11-20T19:20:40.000Z",
       "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
-      "active": true,
+      "active": false,
       "isArchived": false,
       "nodes": [
         {
@@ -2559,10 +2600,6 @@
                   "description": "={{ $('Edit Fields').item.json.OoO }}"
                 },
                 {
-                  "category": "Keep it in inbox",
-                  "description": "={{ $('Edit Fields').item.json['Keep in Inbox'] }}"
-                },
-                {
                   "category": "Tech",
                   "description": "={{ $('Edit Fields').item.json.Tech }}"
                 },
@@ -2581,6 +2618,10 @@
                 {
                   "category": "Update News",
                   "description": "={{ $('Edit Fields').item.json['Update News'] }}"
+                },
+                {
+                  "category": "Keep in Inbox",
+                  "description": "={{ $('Edit Fields').item.json['Keep in Inbox'] }}"
                 }
               ]
             },
@@ -3071,55 +3112,6 @@
         },
         {
           "parameters": {
-            "operation": "addLabels",
-            "messageId": "={{ $('Get many messages').item.json.id }}",
-            "labelIds": [
-              "Label_4"
-            ]
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            2112,
-            560
-          ],
-          "id": "1af4b745-9658-460d-bd6b-5c097c3cc617",
-          "name": "Comercial1",
-          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account - robson.lisboa@midiacode.com"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "model": {
-              "__rl": true,
-              "mode": "list",
-              "value": "claude-sonnet-4-20250514",
-              "cachedResultName": "Claude 4 Sonnet"
-            },
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
-          "typeVersion": 1.3,
-          "position": [
-            800,
-            1040
-          ],
-          "id": "4a296c36-c487-4125-bae2-f90bbaafa65f",
-          "name": "Anthropic Chat Model",
-          "credentials": {
-            "anthropicApi": {
-              "id": "tiZs2tcGd4CAkgAw",
-              "name": "Anthropic account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
             "categories": {
               "categories": [
@@ -3586,30 +3578,6 @@
           ],
           "id": "770430fb-d81d-4609-b6d1-b983e8f64cd5",
           "name": "Comercial2",
-          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account - robson.lisboa@midiacode.com"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "operation": "addLabels",
-            "messageId": "={{ $('Get many messages').item.json.id }}",
-            "labelIds": [
-              "Label_4"
-            ]
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            2144,
-            3024
-          ],
-          "id": "88cf808f-07e8-4708-a742-ea1bb6096dee",
-          "name": "Comercial3",
           "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
           "credentials": {
             "gmailOAuth2": {
@@ -4115,30 +4083,6 @@
         },
         {
           "parameters": {
-            "operation": "addLabels",
-            "messageId": "={{ $('Get many messages').item.json.id }}",
-            "labelIds": [
-              "Label_4"
-            ]
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            2176,
-            5728
-          ],
-          "id": "393f0a03-0647-47f6-8b60-cabd73af712c",
-          "name": "Comercial5",
-          "webhookId": "9029549d-a1cb-4fba-80dd-18af1e6fd9d4",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "PGFxwBVu0LSu9lXR",
-              "name": "Gmail account - robson.lisboa@midiacode.com"
-            }
-          }
-        },
-        {
-          "parameters": {
             "model": "qwen/qwen3-32b",
             "options": {}
           },
@@ -4536,6 +4480,26 @@
               "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
+        },
+        {
+          "parameters": {
+            "model": "meta-llama/llama-4-maverick",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+          "typeVersion": 1,
+          "position": [
+            688,
+            1072
+          ],
+          "id": "0c0b9405-c6fc-4ba1-8e87-5e6b0871f3bf",
+          "name": "OpenRouter Chat Model",
+          "credentials": {
+            "openRouterApi": {
+              "id": "9ZCVuzotZKrHSe9C",
+              "name": "OpenRouter account"
+            }
+          }
         }
       ],
       "connections": {
@@ -4585,13 +4549,6 @@
             ],
             [
               {
-                "node": "Comercial1",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
                 "node": "Tech Label",
                 "type": "main",
                 "index": 0
@@ -4621,6 +4578,13 @@
             [
               {
                 "node": "Update News",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Atualizar modelIndex4",
                 "type": "main",
                 "index": 0
               }
@@ -4837,33 +4801,6 @@
             ]
           ]
         },
-        "Comercial1": {
-          "main": [
-            [
-              {
-                "node": "Remove message from INBOX",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Anthropic Chat Model": {
-          "ai_languageModel": [
-            [
-              {
-                "node": "Text Classifier",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Remove message from INBOX": {
           "main": [
             [
@@ -4932,7 +4869,7 @@
             ],
             [
               {
-                "node": "Comercial3",
+                "node": "Atualizar modelIndex4",
                 "type": "main",
                 "index": 0
               }
@@ -5184,17 +5121,6 @@
             ]
           ]
         },
-        "Comercial3": {
-          "main": [
-            [
-              {
-                "node": "Remove message from INBOX1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Google Gemini Chat Model1": {
           "ai_languageModel": [
             [
@@ -5257,7 +5183,7 @@
             ],
             [
               {
-                "node": "Comercial5",
+                "node": "Atualizar modelIndex4",
                 "type": "main",
                 "index": 0
               }
@@ -5509,17 +5435,6 @@
             ]
           ]
         },
-        "Comercial5": {
-          "main": [
-            [
-              {
-                "node": "Remove message from INBOX2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Groq Chat Model": {
           "ai_languageModel": [
             [
@@ -5692,6 +5607,22 @@
               }
             ]
           ]
+        },
+        "OpenRouter Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -5726,7 +5657,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "162f5e84-75bb-48b6-9c7b-e00d1d1ba0f5",
+      "versionId": "a3403ed6-e597-4b4e-928a-632d75021023",
       "triggerCount": 1,
       "shared": [
         {
@@ -13893,7 +13824,7 @@
       ]
     },
     {
-      "updatedAt": "2025-11-19T18:02:12.000Z",
+      "updatedAt": "2025-11-20T14:59:45.000Z",
       "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
@@ -13924,7 +13855,7 @@
             "promptType": "define",
             "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
             "options": {
-              "systemMessage": "=Seu nome é Valentina.\nnunca diga que você é um modelo de linguagem, mas que você é uma assistente virtual treinada para ajudar no que for possível.\ndata atual: {{ $now.setZone('Europe/Lisbon').toISO() }}\nCaso o cliente queira ou quando for interessante, sugira o agendamento de uma reunião através do link https://meetings.hubspot.com/contact-ooniverse\nSempre consulte e use o conteúdo do Supabase Vector Store3 antes de responder.\nUse o nome do cliente para chamá-lo pelo primeiro nome (não use nome completo): {{ $('Webhook').item.json.body.data.pushName }}, pelo menos na primeira interação.\nVocê é uma copywriter de mensagens para nossos clientes. \nIMPORTANTE: Crie mensagens bem originais, bem curtas, no máximo um parágrafo, de acordo com a interação com o cliente. \n\nSempre mande mensagens diferentes para os clientes, mantendo o mesmo sentido, mas escritas de forma diferente. Nunca mande várias mensagens iguais, nem para o mesmo cliente e nem entre clientes diferentes.\nNo começo das mensagens com os clientes, peça para que eles salvem o seu número em seus smartphones tipo: \"Antes de mais nada, já peço que você salve meu contato aí para ficar mais fácil de identificar no seu Whatsapp.\"\nSe a pessoa falar de algum assunto que  se pareça um assédio com termos do tipo: mande fotos pelada, olá linda, olá princesa, quero uma foto sua, meu amor, ou coisas do tipo, reitere que você é uma assistente virtual e que só pode tirar dúvidas relacionadas aos super apps da ooniverse.ai e ao CMS, transmídias e QR codes da midiacode.com.\nNunca seja repetitiva. Se já falou uma frase, procure não a repetir nas mensagens seguintes. \nSeja simples, em geral, mensagens curtas são melhores."
+              "systemMessage": "=Seu nome é Valentina.\nnunca diga que você é um modelo de linguagem, mas que você é uma assistente virtual treinada para ajudar no que for possível.\ndata atual: {{ $now.setZone('Europe/Lisbon').toISO() }}\nCaso o cliente queira ou quando for interessante, sugira o agendamento de uma reunião através do link https://meetings.hubspot.com/contact-ooniverse\nSempre consulte e use o conteúdo do Supabase Vector Store3 antes de responder.\nUse o nome do cliente para chamá-lo pelo primeiro nome (não use nome completo): {{ $('Webhook').item.json.body.data.pushName }}, pelo menos na primeira interação.\nVocê é uma copywriter de mensagens para nossos clientes. \nIMPORTANTE: Crie mensagens bem originais, bem curtas, no máximo um parágrafo, de acordo com a interação com o cliente. \n\nSempre mande mensagens diferentes para os clientes, mantendo o mesmo sentido, mas escritas de forma diferente. Nunca mande várias mensagens iguais, nem para o mesmo cliente e nem entre clientes diferentes.\nNo começo das mensagens com os clientes, peça para que eles salvem o seu número em seus smartphones tipo: \"Antes de mais nada, já peço que você salve meu contato aí para ficar mais fácil de identificar no seu Whatsapp.\"\nSe a pessoa falar de algum assunto que  se pareça um assédio com termos do tipo: mande fotos pelada, olá linda, olá princesa, quero uma foto sua, meu amor, ou coisas do tipo, reitere que você é uma assistente virtual e que só pode tirar dúvidas relacionadas aos super apps da ooniverse.ai e ao CMS, transmídias e QR codes da midiacode.com.\nNunca seja repetitiva. Se já falou uma frase, procure não a repetir nas mensagens seguintes. \nSeja simples, em geral, mensagens curtas são melhores.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
             }
           },
           "id": "27ee2927-0834-4fff-95eb-4db3897e00f4",
@@ -15110,7 +15041,7 @@
             "promptType": "define",
             "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
             "options": {
-              "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYour are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)"
+              "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYour are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
             }
           },
           "id": "54576886-27ee-40e8-ba19-b2673d45a27d",
@@ -15484,8 +15415,8 @@
           "type": "@n8n/n8n-nodes-langchain.guardrails",
           "typeVersion": 1,
           "position": [
-            512,
-            928
+            496,
+            960
           ],
           "id": "f7904326-dc2d-4d90-be8a-912bfb18a45b",
           "name": "Guardrails"
@@ -15512,7 +15443,7 @@
           "type": "@n8n/n8n-nodes-langchain.chat",
           "typeVersion": 1,
           "position": [
-            1312,
+            1376,
             896
           ],
           "id": "ed9f2bf8-74e2-4dd3-bcd2-d678fb068960",
@@ -15524,7 +15455,7 @@
             "promptType": "define",
             "text": "={{ $('When chat message received').item.json.chatInput }}",
             "options": {
-              "systemMessage": "=Voce é a Valentina, nossa agente de atendimento.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos.\nFoco nos conteúdos sobre o midiacode.com e sobre o ooniverse.ai. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor."
+              "systemMessage": "=Voce é a Valentina, nossa agente de atendimento.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos.\nFoco nos conteúdos sobre o midiacode.com e sobre o ooniverse.ai. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
             }
           },
           "id": "6dc505ac-0e05-4016-99e0-6c588a0f6df3",
@@ -15546,25 +15477,24 @@
               "showWelcomeScreen": false,
               "subtitle": "Vamos conversar! Estamos aqui para ajudar...",
               "title": "Olá! 👋",
-              "responseMode": "responseNodes"
+              "responseMode": "lastNode"
             }
           },
           "type": "@n8n/n8n-nodes-langchain.chatTrigger",
           "typeVersion": 1.4,
           "position": [
-            48,
-            912
+            64,
+            896
           ],
           "id": "5290914c-c148-42d7-92a6-21ed5ab03e4c",
           "name": "When chat message received",
           "webhookId": "b671e142-6ada-43be-832c-12e38688a46e",
           "alwaysOutputData": false,
           "executeOnce": false,
-          "retryOnFail": false,
-          "maxTries": 2,
+          "retryOnFail": true,
+          "maxTries": 4,
           "waitBetweenTries": 100,
-          "notesInFlow": false,
-          "onError": "continueErrorOutput"
+          "notesInFlow": false
         },
         {
           "parameters": {
@@ -16238,13 +16168,7 @@
         },
         "Guardrails": {
           "main": [
-            [
-              {
-                "node": "Agente do Chat",
-                "type": "main",
-                "index": 0
-              }
-            ],
+            [],
             [
               {
                 "node": "Respond to Chat",
@@ -16256,31 +16180,19 @@
         },
         "Agente do Chat": {
           "main": [
-            [
-              {
-                "node": "Respond to Chat1",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "When chat message received": {
           "main": [
             [
               {
-                "node": "Guardrails",
+                "node": "Agente do Chat",
                 "type": "main",
                 "index": 0
               }
             ],
-            [
-              {
-                "node": "Respond to Chat2",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Respond to Chat": {
@@ -16300,10 +16212,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-19T18:02:12Z"
+          "lastTimeChecked": "2025-11-20T14:59:45Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-19T18:02:17Z"
+          "lastTimeChecked": "2025-11-20T14:59:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -16402,7 +16314,7 @@
           }
         ]
       },
-      "versionId": "b3f6038b-34f9-484a-9889-5eb6bb80b9b2",
+      "versionId": "db87d4bc-783e-477e-8c72-4f0b8e87a91c",
       "triggerCount": 5,
       "shared": [
         {

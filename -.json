@@ -472,7 +472,7 @@
       ]
     },
     {
-      "updatedAt": "2025-11-21T14:46:11.000Z",
+      "updatedAt": "2025-11-25T18:28:00.000Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -1665,6 +1665,45 @@
           "typeVersion": 1,
           "id": "40c439d3-10ad-459b-bbaa-3124f9a4e0d7",
           "name": "Sticky Note2"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Avalie o email e todos os seus componentes e anexos. Avalie se possui faturas, notas fiscais, invoices ou outros documentos de pagamento, extratos ou outros similares para que sejam enviados para o departamento financeiro. \nreencaminhe o email para adm@midiacode.tech e escreva um relatório como output da operação realizada.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 2.2,
+          "position": [
+            992,
+            -96
+          ],
+          "id": "f997d622-34f2-493f-b07e-01fe4ec3221c",
+          "name": "seleciona faturas e notas para o ADM",
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem de execução de redirect para adm@midiacode.tech :  {{ $json.output }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1312,
+            -32
+          ],
+          "id": "a515506b-7a13-463f-a08c-8250c432ed22",
+          "name": "Relatorio de envio para adm",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
         }
       ],
       "connections": {
@@ -1683,6 +1722,11 @@
               },
               {
                 "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "seleciona faturas e notas para o ADM",
                 "type": "ai_languageModel",
                 "index": 0
               }
@@ -1825,7 +1869,7 @@
           "main": [
             [
               {
-                "node": "Remove message from INBOX",
+                "node": "seleciona faturas e notas para o ADM",
                 "type": "main",
                 "index": 0
               }
@@ -1864,6 +1908,11 @@
               },
               {
                 "node": "AI Agent",
+                "type": "ai_memory",
+                "index": 0
+              },
+              {
+                "node": "seleciona faturas e notas para o ADM",
                 "type": "ai_memory",
                 "index": 0
               }
@@ -1957,6 +2006,11 @@
             [
               {
                 "node": "AI Agent1",
+                "type": "ai_tool",
+                "index": 0
+              },
+              {
+                "node": "seleciona faturas e notas para o ADM",
                 "type": "ai_tool",
                 "index": 0
               }
@@ -2176,6 +2230,28 @@
               }
             ]
           ]
+        },
+        "seleciona faturas e notas para o ADM": {
+          "main": [
+            [
+              {
+                "node": "Relatorio de envio para adm",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Relatorio de envio para adm": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -2193,10 +2269,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1763940229,
+            "lastTimeChecked": 1764112982,
             "possibleDuplicates": [
-              "19ab307e4cbdde0d",
-              "19ab27bcf654d784"
+              "19abd58d1952e53d",
+              "19abd38c7c6b9afe"
             ]
           }
         },
@@ -2564,7 +2640,7 @@
           }
         ]
       },
-      "versionId": "b3cf79ea-618e-4484-93a4-b4d48a51fba3",
+      "versionId": "2367ff9b-2362-4872-8c09-c8459b563f24",
       "triggerCount": 1,
       "shared": [
         {
@@ -5534,7 +5610,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-21T20:55:23.000Z",
+      "updatedAt": "2025-11-25T22:46:13.000Z",
       "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
       "name": "Newsletter Seleção de Notícias",
@@ -5665,7 +5741,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -672,
+            -912,
             80
           ],
           "id": "804068ce-d54b-4289-8eb5-701ec22f0591",
@@ -5693,7 +5769,7 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -992,
+            -1104,
             80
           ],
           "id": "a700285c-19d9-4637-bd71-33b2d6e5a630",
@@ -5729,44 +5805,21 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1136,
-            416
+            -432,
+            96
           ],
           "id": "b1286fd9-71aa-4519-b7e5-a855dcc35f36",
           "name": "Get row(s)"
         },
         {
           "parameters": {
-            "fromEmail": "newsletter@empresa.com",
-            "toEmail": "gestor@empresa.com",
-            "subject": "Seleção de notícias para próxima edição da newsletter",
-            "text": "Clique no link para selecionar as notícias: https://newsletter-selecao.com/form?token={{$json.token}}",
-            "options": {}
-          },
-          "id": "eb03e072-77f0-45a8-bc9a-a6f6f5b1dc54",
-          "name": "Send Email",
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 1,
-          "position": [
-            32,
-            416
-          ],
-          "credentials": {
-            "smtp": {
-              "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP from contact@ooniverse.ai"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "jsCode": "// Function node: Build HTML\nconst items = $items(\"Get row(s)\", 0, 0);\n\n// Função para trocar 'download' por 'view' nos links de imagem\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Seleção de Notícias</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 20px; }\n    .instructions { background: #f9f9f9; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item h3 { margin: 0 0 10px; }\n    .links a { margin-right: 15px; }\n  </style>\n</head>\n<body>\n  <h1>Seleção de Notícias para Newsletter</h1>\n  <div class=\"instructions\">\n    <p><strong>Instruções:</strong></p>\n    <ul>\n      <li>Para cada notícia que quer publicar, insira um número de prioridade.</li>\n      <li>Notícias com campo em branco <strong>não serão usadas</strong> na próxima edição, mas poderão ser usadas em edições futuras.</li>\n      <li>Se quiser apagar uma notícia para não mais ser usada, coloque um <strong>X</strong> na prioridade.</li>\n      <li>Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).</li>\n      <li>Em cada bloco temos o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade.</li>\n    </ul>\n  </div>\n  <form id=\"newsletterForm\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div class=\"news-item\">\n      <p><strong>ID:</strong> ${item.json.id}</p>\n      <h3>${item.json.titulo}</h3>\n      <p>${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <br>\n      <label>Prioridade: <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"></label>\n    </div>\n  `;\n}\n\nhtml += `\n    <button type=\"submit\">Salvar Seleção</button>\n  </form>\n\n  <script>\n    document.getElementById(\"newsletterForm\").addEventListener(\"submit\", async (e) => {\n      e.preventDefault();\n      const formData = new FormData(e.target);\n      const selections = [];\n\n      for (const [key, value] of formData.entries()) {\n        if (value) {\n          const id = key.replace(\"priority_\", \"\");\n          selections.push({ id, priority: value });\n        }\n      }\n\n      await fetch(\"https://seu-n8n.com/webhook/save-selection\", {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify(selections)\n      });\n\n      alert(\"Seleção salva com sucesso!\");\n    });\n  </script>\n</body>\n</html>\n`;\n\nreturn [{ json: { html } }];"
+            "jsCode": "// Function node: Build HTML\nconst items = $items(\"Get row(s)\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Seleção de Notícias</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 20px; }\n    .instructions { background: #f9f9f9; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item h3 { margin: 0 0 10px; }\n    .links a { margin-right: 15px; }\n  </style>\n</head>\n<body>\n  <h1>Seleção de Notícias para Newsletter</h1>\n  <div class=\"instructions\">\n    <p><strong>Instruções:</strong></p>\n    <ul>\n      <li>Para cada notícia que quer publicar, insira um número de prioridade.</li>\n      <li>Notícias com campo em branco <strong>não serão usadas</strong> na próxima edição.</li>\n      <li>Se quiser apagar uma notícia, coloque um <strong>X</strong> na prioridade.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n  <form id=\"newsletterForm\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div class=\"news-item\">\n      <p><strong>ID:</strong> ${item.json.id}</p>\n      <h3>${item.json.titulo}</h3>\n      <p>${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <br>\n      <label>Prioridade: <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"></label>\n    </div>\n  `;\n}\n\nhtml += `\n    <button type=\"submit\">Salvar Seleção</button>\n  </form>\n</body>\n</html>\n`;\n\nreturn [{ json: { html } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -928,
-            416
+            -272,
+            96
           ],
           "id": "27d20faa-bcd1-4f88-b0c1-fa6b9fe8cff4",
           "name": "monta o html a partir do get rows"
@@ -5785,8 +5838,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -1392,
-            416
+            -624,
+            96
           ],
           "id": "5d773041-4753-4be8-975a-fd9a4f0fee4a",
           "name": "Gatilho mensal todo dia 1, 10am"
@@ -5803,8 +5856,8 @@
           "type": "n8n-nodes-base.wordpress",
           "typeVersion": 1,
           "position": [
-            -704,
-            416
+            -80,
+            96
           ],
           "id": "b1dc3ff9-8d87-482d-85b9-c45f03630471",
           "name": "Update a page",
@@ -5814,6 +5867,872 @@
               "name": "Wordpress Application midiacode.com"
             }
           }
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "3105b3cf-ab70-41d5-8abf-daf8d31d7195",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1536,
+            384
+          ],
+          "id": "5e14f918-58a7-43da-b405-0bccc2263cae",
+          "name": "Webhook",
+          "webhookId": "3105b3cf-ab70-41d5-8abf-daf8d31d7195"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Limpar e ordenar seleções\n\n// 1. Recebe o array enviado pelo formulário\nconst selections = $json.body || [];\n\n// 2. Filtra descartados (quando prioridade = \"X\" ou vazio)\nconst filtered = selections.filter(s => {\n  if (!s.priority) return false;\n  return s.priority.toUpperCase() !== \"X\";\n});\n\n// 3. Ordena por prioridade numérica\nconst ordered = filtered.sort((a, b) => parseInt(a.priority) - parseInt(b.priority));\n\n// 4. Retorna apenas IDs e prioridades limpos\nreturn ordered.map(item => ({\n  json: {\n    id: item.id,\n    priority: parseInt(item.priority)\n  }\n}));"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1312,
+            384
+          ],
+          "id": "5f890180-3a68-4ef5-886f-7b1cad1a9b8a",
+          "name": "Limpa o webhook só com prioridades"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Montar lista de notícias selecionadas\n\n// 1. IDs ordenados vindos do node \"Limpa o webhook só com prioridades\"\nconst selections = $items(\"Limpa o webhook só com prioridades\", 0, 0).map(i => i.json);\n\n// 2. Todas as notícias vindas do node \"Get row(s)1\"\nconst allNews = $items(\"Get row(s)1\", 0, 0).map(i => i.json);\n\n// 3. Monta lista final na ordem da prioridade\nconst result = [];\n\nfor (const sel of selections) {\n  const news = allNews.find(n => n.id == sel.id);\n  if (news) {\n    result.push({\n      json: {\n        id: sel.id,\n        priority: sel.priority,\n        titulo: news.titulo,\n        text: news.text,\n        imagem: news.imagens || null,\n        video: news.video || null\n      }\n    });\n  }\n}\n\nreturn result;"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -896,
+            384
+          ],
+          "id": "3c675bde-fc4a-4d8c-ac2f-6694ce7bffb2",
+          "name": "Filtra do getRows só o priorizado"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "I2FBbRnf2Orqr6A2",
+              "mode": "list",
+              "cachedResultName": "Newsletter Content Table",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "usado",
+                  "condition": "neq",
+                  "keyValue": "Sim"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1104,
+            384
+          ],
+          "id": "dd5299a1-9985-4b70-8838-6e179d836e07",
+          "name": "Get row(s)1"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\n// Pega os itens vindos do node \"Normalizar links do GDrive - view\"\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\n\n// Pega o ID do registro criado no Data Table\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Newsletter</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n          <tr>\n            <td align=\"center\" style=\"padding-bottom:20px;\">\n              <h1 style=\"color:#333;\">📰 Newsletter</h1>\n            </td>\n          </tr>\n`;\n\nfor (const item of items) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// Orientações com botão APROVADA e ID do registro\nhtml += `\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações:</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/f1e26652-7944-486b-bf71-db642b7a1217?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"#\" style=\"color:#3498db;\">Cancelar inscrição</a>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -336,
+            384
+          ],
+          "id": "5c7f8331-cf4d-4d77-9c51-aad93c779154",
+          "name": "Cria HTML da Newsletter"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@midiacode.tech",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "ccEmail": "glauci@midiacode.com",
+            "subject": "Seleção de notícias para próxima edição da newsletter",
+            "text": "Olá gestor da newsletter,\nAqui está as informações para você avaliar as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, você terá acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que quer publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página você verá o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15813\n\nAtenciosamente,\nValentina",
+            "options": {}
+          },
+          "id": "eb03e072-77f0-45a8-bc9a-a6f6f5b1dc54",
+          "name": "Email para seleçao de News",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            96,
+            96
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "0akA4vSRMV9Mz1p8",
+              "name": "SMTP from contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@midiacode.tech",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "ccEmail": "glauci@midiacode.com",
+            "subject": "={{ $json.output }} - {{  $('Cria HTML da Newsletter').item.json.recordId }}",
+            "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
+            "options": {}
+          },
+          "id": "8071dc80-e7e0-4d87-8f8f-91a26de3ecc9",
+          "name": "Email para aprovar a News",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            512,
+            304
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "0akA4vSRMV9Mz1p8",
+              "name": "SMTP from contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Normaliza links de imagem do Google Drive\n\nfunction normalizeDriveLink(link) {\n  if (!link) return null;\n\n  // Caso seja link no formato \"file/d/ID/view\"\n  const matchFile = link.match(/\\/file\\/d\\/([^/]+)\\//);\n  if (matchFile) {\n    return `https://drive.google.com/uc?id=${matchFile[1]}&export=view`;\n  }\n\n  // Caso seja link no formato \"uc?id=ID&export=download\"\n  const matchUc = link.match(/uc\\?id=([^&]+)/);\n  if (matchUc) {\n    return `https://drive.google.com/uc?id=${matchUc[1]}&export=view`;\n  }\n\n  // Se não bater nenhum padrão, retorna original\n  return link;\n}\n\nconst items = $items(\"Filtra do getRows só o priorizado\", 0, 0).map(i => i.json);\n\nconst result = items.map(item => {\n  return {\n    json: {\n      id: item.id,\n      priority: item.priority,\n      titulo: item.titulo,\n      text: item.text,\n      imagem: normalizeDriveLink(item.imagem),\n      video: item.video\n    }\n  };\n});\n\nreturn result;"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -704,
+            384
+          ],
+          "id": "1d065d5a-e03d-48c8-b10b-30ff6b40d3e2",
+          "name": "Normalizar links do GDrive - view"
+        },
+        {
+          "parameters": {
+            "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente",
+            "height": 256,
+            "width": 880
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1584,
+            0
+          ],
+          "typeVersion": 1,
+          "id": "9b5d1163-0402-43e6-a222-c81e150388e5",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "content": "## Seleção das News para a próxima edição\nmensalmente envia para o gestor da Newsletter todos os artigos disponíveis para publicação. ",
+            "height": 256,
+            "width": 992,
+            "color": 6
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -688,
+            0
+          ],
+          "typeVersion": 1,
+          "id": "bf5d05a9-170f-4c2b-9bd5-443362c915e1",
+          "name": "Sticky Note1"
+        },
+        {
+          "parameters": {
+            "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
+            "height": 416,
+            "width": 2400,
+            "color": 3
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1584,
+            272
+          ],
+          "typeVersion": 1,
+          "id": "286328f6-2635-47b4-b475-35b3ceb3219d",
+          "name": "Sticky Note2"
+        },
+        {
+          "parameters": {
+            "path": "f1e26652-7944-486b-bf71-db642b7a1217",
+            "options": {
+              "responseData": "Newsletter aprovada! Pode fechar essa aba!"
+            }
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1536,
+            832
+          ],
+          "id": "5306fb00-2af8-4c8f-90b3-a53bce95cf50",
+          "name": "Aprovada",
+          "webhookId": "f1e26652-7944-486b-bf71-db642b7a1217"
+        },
+        {
+          "parameters": {
+            "functionCode": "const newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
+          },
+          "name": "Preparar Atualização1",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            128,
+            832
+          ],
+          "id": "a2eb9d08-fe6e-48cf-b986-61a5501c07f2"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "Sheet1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "piloto",
+                  "lookupValue": "=1"
+                },
+                {
+                  "lookupColumn": "piloto",
+                  "lookupValue": "1"
+                }
+              ]
+            },
+            "combineFilters": "OR",
+            "options": {}
+          },
+          "id": "1862118d-7ca3-4240-87e8-c7d5fcb1a639",
+          "name": "Get row(s) in sheet1",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            -752,
+            832
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "Sheet1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "row_number": "={{ $json.row_number }}",
+                "news enviada": "={{ $json[\"news enviada\"] }}"
+              },
+              "matchingColumns": [
+                "row_number"
+              ],
+              "schema": [
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Record Count",
+                  "displayName": "Record Count",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "piloto",
+                  "displayName": "piloto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            320,
+            832
+          ],
+          "id": "b5c4c48a-86ba-4be9-b933-2515e02b387e",
+          "name": "Update row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            496,
+            832
+          ],
+          "id": "3176bc7c-f6e7-40a5-873c-384faeb02240",
+          "name": "Enviar texto",
+          "executeOnce": true,
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "functionCode": "// Node: Limitar a 100 registros e juntar em uma única string\n\n// Pega todos os registros vindos do node anterior (ex.: \"Filtra os emails...\")\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Extrai os emails e junta em uma única string separada por vírgula\nconst emails = limitados.map(r => r.email).join(\",\");\n\n// Retorna um único item com todos os emails juntos\nreturn [{ json: { emails } }];"
+          },
+          "name": "Filtrar 100",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            -352,
+            832
+          ],
+          "id": "d70997dd-ac0e-46dd-84d7-836fe9ca1d81"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "html": "=",
+                "status": "=em edição"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "html",
+                  "displayName": "html",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -528,
+            384
+          ],
+          "id": "edcd3213-2aa6-42b8-b300-b2ebe5416f4d",
+          "name": "cria registro na DT da news"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{  $('Cria HTML da Newsletter').item.json.recordId }}"
+                }
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
+                "subject": "={{ $json.output }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "html",
+                  "displayName": "html",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": true
+                },
+                {
+                  "id": "subject",
+                  "displayName": "subject",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            304,
+            416
+          ],
+          "id": "864a0da0-c786-45ad-a602-70f6380fdb2a",
+          "name": "Carrega o HTML"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "matchType": "=anyCondition",
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ Number($json.query.id) }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1312,
+            832
+          ],
+          "id": "3ed9a8c9-6bbd-4b97-8dc5-01a73fe07bf8",
+          "name": "pega o html certo da DT"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Filtra os emails que ainda não receberam a newsletter atual\n// e remover os que contêm 'anonimo'\n\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\nconst filtrados = rows.filter(row => {\n  const enviado = parseInt(row[\"news enviada\"], 10) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number   // garante que o update saiba qual linha alterar\n  }\n}));"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -560,
+            832
+          ],
+          "id": "90a0ac27-f134-47fc-853f-5e4026d262a5",
+          "name": "Filtra os emails que ainda não receberam a news"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@midiacode.tech",
+            "toEmail": "oi@midiacode.com",
+            "ccEmail": "robson.lisboa@midiacode.com",
+            "bccEmail": "={{ $json.emails }}",
+            "subject": "={{  $('pega o html certo da DT').item.json.subject }}",
+            "html": "={{  $('Retira do html final a seção do aprovador').item.json.html }}",
+            "options": {}
+          },
+          "id": "5d00679f-4205-4dd2-b8e3-fa665e2a44ae",
+          "name": "Distribuição da news",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            -128,
+            832
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "0akA4vSRMV9Mz1p8",
+              "name": "SMTP from contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=voce é um especialista em criar emails que as pessoas querem abrir.\nleia o html que será o corpo do email que será enviado em {{ $json.html }}\ncom base neste html, crie um subject (assunto) com no máximo 10 palavras, para o email \nignore a última parte do email que possui orientações para o aprovador da newsletter e o botão de aprovação. concentre-se somente no resumo dos artigos da newsletter e encontre o título perfeito.\ncomo output, não quero explicações e nem diálogo com a IA, quero somente o texto de um subject (apenas uma opção), simples, conciso e engajador",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -128,
+            384
+          ],
+          "id": "552f8e01-be9d-4268-8f34-31dbe1aa9912",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "modelName": "models/gemini-2.5-pro",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            -160,
+            544
+          ],
+          "id": "4172d18d-dd02-494b-bcee-56f3087267b1",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "veHITAbJHo5fcUku",
+              "name": "Google Gemini(PaLM) Api account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
+            "height": 304,
+            "width": 2400,
+            "color": 4
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1584,
+            704
+          ],
+          "typeVersion": 1,
+          "id": "a57e891e-3ac6-4f49-8397-b55874aa56bc",
+          "name": "Sticky Note3"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\n// Pega o HTML vindo do node anterior\nconst html = $json.html || \"\";\n\n// Remove o bloco <tr> que contém \"Orientações:\" até o fechamento </tr>\nconst cleanedHtml = html.replace(\n  /<tr>\\s*<td[^>]*>\\s*<h3>Orientações:[\\s\\S]*?<\\/tr>/i,\n  \"\"\n);\n\n// Retorna o HTML limpo\nreturn [{ json: { html: cleanedHtml } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -928,
+            832
+          ],
+          "id": "aeb42fad-e8fc-4a34-ae71-00bbcf6bce7b",
+          "name": "Retira do html final a seção do aprovador"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "matchType": "=anyCondition",
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ Number($json.query.id) }}"
+                }
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "status": "Aprovada"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "html",
+                  "displayName": "html",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "subject",
+                  "displayName": "subject",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1120,
+            832
+          ],
+          "id": "1bec8fa7-ca22-4aa7-bdb2-bf1c70c22b23",
+          "name": "atualiza a DT com Aprovada"
+        },
+        {
+          "parameters": {
+            "postProcessAction": "nothing",
+            "format": "resolved",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailReadImap",
+          "typeVersion": 2.1,
+          "position": [
+            -1120,
+            1136
+          ],
+          "id": "f7878bd3-70db-49c5-be2f-0e6c69c0f94e",
+          "name": "Email Trigger (IMAP)",
+          "credentials": {
+            "imap": {
+              "id": "T2iCcPAs4ylH9UZY",
+              "name": "IMAP-contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "df32ebc3-cee0-4a00-b4a6-61453242e2ac",
+                  "leftValue": "={{ $json.from.value[0].address }}",
+                  "rightValue": "Robson Lisboa <robson.lisboa@midiacode.com>",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals",
+                    "name": "filter.operator.equals"
+                  }
+                },
+                {
+                  "id": "63989e77-2a5f-4986-bff5-0e9c6eaca3e3",
+                  "leftValue": "={{ $json.from.value[0].address }}",
+                  "rightValue": "glauci@midiacode.com",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals",
+                    "name": "filter.operator.equals"
+                  }
+                },
+                {
+                  "id": "af20b5ab-b5c8-4b37-bf04-73b1f2fa3344",
+                  "leftValue": "",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals",
+                    "name": "filter.operator.equals"
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            -912,
+            1136
+          ],
+          "id": "aac7c33a-feeb-419b-858f-2becda77612b",
+          "name": "If"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            -704,
+            1232
+          ],
+          "id": "a9f4f88d-9abb-44ef-989e-d2024f71dc17",
+          "name": "No Operation, do nothing"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=voce é especialista em escrever emails do tipo newsletter.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas e o texto original na parte de baixo. Tudo está nesse html:  {{ $json.html }}\nconsidere todas as orientações para corrigir o texto e formato da newsletter e altere seu conteúdo, entregando no output um html que será reenviado para o mesmo revisor, com o contéudo da newsletter remontado e já pronto para o envio final.\nmantenha no final da mensagem a seção de 'Orientações' com o botão de 'APROVADA' da mesma forma que o email original. \ncaso a nova versão enviada seja aprovada, o revisor irá apertar nesse botão para o envio definitivo.   \nno seu output não precisa conversar, explicar nada, somente retorne o html que será usado para envio do email para o revisor de volta. \nNão sugira nada novo para o revisor. Apenas corrija o html para um novo html já alterado e revisado, com tão somente as alterações requeridas pelo revisor, no email enviado.\nNo seu output, devolva apenas o HTML puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -704,
+            1088
+          ],
+          "id": "1d67db01-77f2-4e7b-a108-59e5b3b0950e",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contact@midiacode.tech",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "ccEmail": "glauci@midiacode.com",
+            "subject": "={{ $('Email Trigger (IMAP)').item.json.subject }}",
+            "html": "={{ $('AI Agent').item.json.output }}",
+            "options": {}
+          },
+          "id": "1b296535-7a7c-4825-8f65-13ac5bfa28f8",
+          "name": "Email para aprovar após revisão",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            -176,
+            1136
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "0akA4vSRMV9Mz1p8",
+              "name": "SMTP from contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## Corrige a newsletter\nseguindo orientações do revisor e reenvia para ele aprovar",
+            "height": 352,
+            "width": 2400
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1584,
+            1024
+          ],
+          "typeVersion": 1,
+          "id": "5dff31a1-6ad2-4562-9e84-62407da17491",
+          "name": "Sticky Note4"
         }
       ],
       "connections": {
@@ -5874,7 +6793,277 @@
         },
         "Update a page": {
           "main": [
+            [
+              {
+                "node": "Email para seleçao de News",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Webhook": {
+          "main": [
+            [
+              {
+                "node": "Limpa o webhook só com prioridades",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Limpa o webhook só com prioridades": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s)1": {
+          "main": [
+            [
+              {
+                "node": "Filtra do getRows só o priorizado",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtra do getRows só o priorizado": {
+          "main": [
+            [
+              {
+                "node": "Normalizar links do GDrive - view",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Cria HTML da Newsletter": {
+          "main": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Normalizar links do GDrive - view": {
+          "main": [
+            [
+              {
+                "node": "cria registro na DT da news",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Preparar Atualização1": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet1": {
+          "main": [
+            [
+              {
+                "node": "Filtra os emails que ainda não receberam a news",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtrar 100": {
+          "main": [
+            [
+              {
+                "node": "Distribuição da news",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Aprovada": {
+          "main": [
+            [
+              {
+                "node": "pega o html certo da DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "cria registro na DT da news": {
+          "main": [
+            [
+              {
+                "node": "Cria HTML da Newsletter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Carrega o HTML": {
+          "main": [
             []
+          ]
+        },
+        "pega o html certo da DT": {
+          "main": [
+            [
+              {
+                "node": "atualiza a DT com Aprovada",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtra os emails que ainda não receberam a news": {
+          "main": [
+            [
+              {
+                "node": "Filtrar 100",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Email para aprovar a News",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Carrega o HTML",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Retira do html final a seção do aprovador": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Distribuição da news": {
+          "main": [
+            [
+              {
+                "node": "Preparar Atualização1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "atualiza a DT com Aprovada": {
+          "main": [
+            [
+              {
+                "node": "Retira do html final a seção do aprovador",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Email Trigger (IMAP)": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Email para aprovar após revisão",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         }
       },
@@ -5890,6 +7079,9 @@
         },
         "node:Gatilho mensal todo dia 1, 10am": {
           "recurrenceRules": []
+        },
+        "node:Email Trigger (IMAP)": {
+          "lastMessageUid": 2168
         }
       },
       "meta": {
@@ -6052,8 +7244,8 @@
           }
         ]
       },
-      "versionId": "5a11fe6d-74bb-48a1-846c-be2548599540",
-      "triggerCount": 2,
+      "versionId": "7f365650-e8e7-48e9-ba0c-05900f7c4469",
+      "triggerCount": 5,
       "shared": [
         {
           "updatedAt": "2025-11-17T18:54:22.151Z",
@@ -16239,14 +17431,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-22T14:00:42Z"
+          "lastTimeChecked": "2025-11-24T16:55:10Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-22T14:00:31Z"
+          "lastTimeChecked": "2025-11-24T16:55:11Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            327
+            329
           ]
         }
       },
@@ -17081,7 +18273,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2161
+          "lastMessageUid": 2167
         }
       },
       "meta": {
@@ -22973,7 +24165,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-21T16:45:22.000Z",
+      "updatedAt": "2025-11-24T12:56:04.000Z",
       "createdAt": "2025-11-17T17:00:46.093Z",
       "id": "nlsS6SI0LwMS43nm",
       "name": "Fundos Europeus - Thiago",
@@ -22997,8 +24189,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -352,
-            80
+            -544,
+            176
           ],
           "id": "c4800531-790a-4836-b9e9-088742d00a7f",
           "name": "Schedule Trigger"
@@ -23010,7 +24202,7 @@
                 {
                   "id": "213f3037-61ad-4420-91d4-1eafc4950caf",
                   "name": "Perfil Empresa",
-                  "value": "Visão Geral: Empresa de software (Microempresa, CAE 62010), focada em tecnologia figital e Mobile Marketing. Soluções Chave: Plataformas SaaS (Midiacode e Ooniverse.ai) para Super Apps, QR Codes de 3ª Geração e CMS avançado, promovendo comunicação unificada, gestão de conteúdo e analytics em tempo real. Projetos Alvo de Fundos: Expansão da plataforma SaaS (escalabilidade, novas funcionalidades de IA e Automação, melhoria de segurança, internacionalização), desenvolvimento de novos modelos de receita (Marketplace) ou aplicação das soluções em setores regulamentados (e.g., Bula Digital Farmacêutica, rastreabilidade na Alimentícia). Investimentos Típicos: I&D em IA/ML, Aquisição de Serviços de Consultoria de Inovação, Contratação de HTR/Pessoal Qualificado, Investimento em Cloud (AWS/Google Cloud) e Despesas de Internacionalização.",
+                  "value": "Visão Geral: Empresa sediada em LISBOA de software (Microempresa, CAE 62010), focada em tecnologia figital e Mobile Marketing. Soluções Chave: Plataformas SaaS (Midiacode e Ooniverse.ai) para Super Apps, QR Codes de 3ª Geração e CMS avançado, promovendo comunicação unificada, gestão de conteúdo e analytics em tempo real. Projetos Alvo de Fundos: Expansão da plataforma SaaS (escalabilidade, novas funcionalidades de IA e Automação, melhoria de segurança, internacionalização), desenvolvimento de novos modelos de receita (Marketplace) ou aplicação das soluções em setores regulamentados (e.g., Bula Digital Farmacêutica, rastreabilidade na Alimentícia). Investimentos Típicos: I&D em IA/ML, Aquisição de Serviços de Consultoria de Inovação, Contratação de HTR/Pessoal Qualificado, Investimento em Cloud (AWS/Google Cloud) e Despesas de Internacionalização.",
                   "type": "string"
                 }
               ]
@@ -23020,7 +24212,7 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            96,
+            -64,
             -240
           ],
           "id": "dbc54575-3ec5-4747-813d-621079ed5432",
@@ -23033,8 +24225,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            16,
-            48
+            -480,
+            -48
           ],
           "id": "811e78f8-73a5-4178-977f-1d6419ec52b8",
           "name": "Google Gemini Chat Model",
@@ -23053,8 +24245,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            192,
-            -32
+            48,
+            -64
           ],
           "id": "aca5afbd-6276-4587-9ad4-ca61c660d358",
           "name": "Groq Chat Model",
@@ -23073,8 +24265,8 @@
           "type": "[REDACTED]",
           "typeVersion": 1.3,
           "position": [
-            384,
-            -112
+            240,
+            -80
           ],
           "id": "c5c424ce-da59-4dc8-84a1-76bd68c6169b",
           "name": "Structured Output Parser"
@@ -23084,7 +24276,7 @@
           "type": "n8n-nodes-base.manualTrigger",
           "typeVersion": 1,
           "position": [
-            -368,
+            -512,
             -240
           ],
           "id": "a1596655-36df-4cf6-85d7-474d48025e5d",
@@ -23111,7 +24303,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -208,
+            -368,
             -240
           ],
           "id": "32794f3f-4809-4be3-81b6-1a551fc06b77",
@@ -23168,7 +24360,7 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.2,
           "position": [
-            -48,
+            -224,
             -240
           ],
           "id": "95c7d011-3c26-4798-8c25-45019c2200d3",
@@ -23184,7 +24376,7 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            224,
+            64,
             -240
           ],
           "id": "bd9e3bef-7ce8-4204-b5c1-3bda8d9dd66e",
@@ -23202,19 +24394,19 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": 59722547,
+              "value": 942096100,
               "mode": "list",
-              "cachedResultName": "Selecionados",
+              "cachedResultName": "Escolhidos",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
               "mappingMode": "defineBelow",
               "value": {
+                "Pontuação IA": "={{ $json.output.pontuacao }}",
+                "Justificativa IA": "={{ $json.output.justificativa }}",
                 "Aviso": "={{ $('Privada e Concurso').item.json.col_4 }}",
                 "Programa": "={{ $('Privada e Concurso').item.json.col_5 }}",
-                "Data Limite": "={{ $('Privada e Concurso').item.json.col_9 }}",
-                "Pontuação IA": "={{ $json.output.pontuacao }}",
-                "Justificativa IA": "={{ $json.output.justificativa }}"
+                "Data Limite": "={{ $('Privada e Concurso').item.json.col_9 }}"
               },
               "matchingColumns": [
                 "Aviso"
@@ -23275,7 +24467,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            480,
+            336,
             -240
           ],
           "id": "c9854175-8d8a-46f9-b33a-3cfc8544adcd",
@@ -23314,8 +24506,8 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.2,
           "position": [
-            624,
-            -240
+            -208,
+            176
           ],
           "id": "5fd66657-ae80-41af-87ee-6cc38f900b57",
           "name": "Pontuação > 95"
@@ -23343,8 +24535,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            784,
-            -240
+            -64,
+            176
           ],
           "id": "2890d748-4885-4e56-b0b8-6118e2b7ef72",
           "name": "Edit Fields"
@@ -23357,8 +24549,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            912,
-            -80
+            48,
+            304
           ],
           "id": "310aca80-d9b9-4c7c-9285-127d63aa3f88",
           "name": "Groq Chat Model1",
@@ -23367,8 +24559,7 @@
               "id": "w9FbSKYgIiJIWO2u",
               "name": "Groq account - Thiago"
             }
-          },
-          "disabled": true
+          }
         },
         {
           "parameters": {
@@ -23379,8 +24570,8 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            944,
-            -240
+            64,
+            176
           ],
           "id": "afbcb4f3-52ae-4d6e-9b3b-acfc1d816715",
           "name": "Pré - projeto"
@@ -23401,8 +24592,8 @@
           "type": "n8n-nodes-base.googleDocs",
           "typeVersion": 2,
           "position": [
-            1632,
-            -288
+            656,
+            160
           ],
           "id": "a2e5d4ac-4664-45df-ad64-6f13f9cef5cd",
           "name": "Update a document",
@@ -23421,8 +24612,8 @@
           "type": "n8n-nodes-base.googleDocs",
           "typeVersion": 2,
           "position": [
-            1456,
-            -288
+            512,
+            160
           ],
           "id": "530db593-a290-491f-b0e2-1e9a2be37a7a",
           "name": "Create a document",
@@ -23441,8 +24632,8 @@
           "type": "n8n-nodes-base.splitInBatches",
           "typeVersion": 3,
           "position": [
-            1296,
-            -240
+            336,
+            176
           ],
           "id": "df09db6f-1157-4046-884f-e2498dea013c",
           "name": "Loop Over Items"
@@ -23453,16 +24644,111 @@
           "name": "Replace Me",
           "typeVersion": 1,
           "position": [
-            1520,
-            0
+            448,
+            304
           ],
           "id": "80ad99dd-02a9-4acf-93ca-fa0148b9c979"
+        },
+        {
+          "parameters": {
+            "sessionIdType": "customKey",
+            "sessionKey": "={{ $('Selecionados').item.json['Pontuação IA'] }}"
+          },
+          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+          "typeVersion": 1.3,
+          "position": [
+            144,
+            368
+          ],
+          "id": "5fbee04f-b9ff-40d3-bf5e-60ac40a76d55",
+          "name": "Simple Memory"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            480,
+            -240
+          ],
+          "id": "852af92a-5b33-44eb-be65-1391ae1ed55e",
+          "name": "No Operation, do nothing"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "PlanoAnualAvisos_092025",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 942096100,
+              "mode": "list",
+              "cachedResultName": "Escolhidos",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -368,
+            176
+          ],
+          "id": "0685de6c-42ef-408d-b91f-85a388a8b5dc",
+          "name": "Get row(s) in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## Filtrar os fundos",
+            "height": 384,
+            "width": 1200,
+            "color": 4
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -528,
+            -288
+          ],
+          "typeVersion": 1,
+          "id": "b6bb2506-b5c1-4563-b52c-09741fb066bc",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "content": "## Criar Projetos",
+            "height": 400,
+            "width": 1440
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -576,
+            96
+          ],
+          "typeVersion": 1,
+          "id": "cb1af709-93ee-489c-acf7-2363e9538d0b",
+          "name": "Sticky Note1"
         }
       ],
       "connections": {
         "Schedule Trigger": {
           "main": [
-            []
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         },
         "Perfil_Empresa": {
@@ -23551,7 +24837,7 @@
           "main": [
             [
               {
-                "node": "Pontuação > 95",
+                "node": "No Operation, do nothing",
                 "type": "main",
                 "index": 0
               }
@@ -23641,6 +24927,28 @@
               }
             ]
           ]
+        },
+        "Simple Memory": {
+          "ai_memory": [
+            [
+              {
+                "node": "Pré - projeto",
+                "type": "ai_memory",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Pontuação > 95",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -23651,7 +24959,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "73b36d2f-3409-4ff3-b4be-688556586eb8",
+      "versionId": "dbeaaccf-6fb3-4c01-943f-8003a654262e",
       "triggerCount": 0,
       "shared": [
         {

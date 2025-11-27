@@ -472,7 +472,7 @@
       ]
     },
     {
-      "updatedAt": "2025-11-25T18:28:00.000Z",
+      "updatedAt": "2025-11-26T09:45:45.000Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -1669,7 +1669,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Avalie o email e todos os seus componentes e anexos. Avalie se possui faturas, notas fiscais, invoices ou outros documentos de pagamento, extratos ou outros similares para que sejam enviados para o departamento financeiro. \nreencaminhe o email para adm@midiacode.tech e escreva um relatório como output da operação realizada.",
+            "text": "=Avalie o email e todos os seus componentes e anexos. Avalie se possui faturas, notas fiscais, invoices ou outros documentos de pagamento, extratos ou outros similares para que sejam enviados para o departamento financeiro. \nreencaminhe o email para adm@midiacode.tech.\nescreva um relatório, como output, da operação realizada, explicando de quem era o email recebido e qual era o documento contabil que havia no documento.",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -2269,10 +2269,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1764112982,
+            "lastTimeChecked": 1764195662,
             "possibleDuplicates": [
-              "19abd58d1952e53d",
-              "19abd38c7c6b9afe"
+              "19ac24197bbccbe6"
             ]
           }
         },
@@ -2640,7 +2639,7 @@
           }
         ]
       },
-      "versionId": "2367ff9b-2362-4872-8c09-c8459b563f24",
+      "versionId": "bb8bd483-2d4a-4d61-b7f5-22b2e4ab213e",
       "triggerCount": 1,
       "shared": [
         {
@@ -5610,59 +5609,13 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-25T22:46:13.000Z",
+      "updatedAt": "2025-11-26T22:06:45.000Z",
       "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
       "name": "Newsletter Seleção de Notícias",
       "active": true,
       "isArchived": false,
       "nodes": [
-        {
-          "parameters": {
-            "formTitle": "Newsletter Kutsaca",
-            "formDescription": "Preencha as informações que vão entrar para a próxima news.",
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Qual o título da notícia?",
-                  "requiredField": true
-                },
-                {
-                  "fieldLabel": "Qual o texto da notícia?",
-                  "requiredField": true
-                },
-                {
-                  "fieldLabel": "Faça upload de uma ou mais imagens para essa notícia (opcional)",
-                  "fieldType": "file",
-                  "multipleFiles": false
-                },
-                {
-                  "fieldLabel": "Vídeo da notícia (opcional)",
-                  "placeholder": "Coloque o link do vídeo aqui."
-                }
-              ]
-            },
-            "options": {
-              "appendAttribution": false,
-              "buttonLabel": "Enviar",
-              "respondWithOptions": {
-                "values": {
-                  "formSubmittedText": "Seu registro de newsletter foi feito com sucesso."
-                }
-              },
-              "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #e5a552;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
-            }
-          },
-          "type": "n8n-nodes-base.formTrigger",
-          "typeVersion": 2.3,
-          "position": [
-            -1296,
-            80
-          ],
-          "id": "543664af-b1b5-46d2-87c8-c9de2ca3813d",
-          "name": "inserção de conteúdo da news",
-          "webhookId": "c2701f81-301a-41f0-a630-7242e1ca75da"
-        },
         {
           "parameters": {
             "dataTableId": {
@@ -5675,23 +5628,14 @@
             "columns": {
               "mappingMode": "defineBelow",
               "value": {
-                "titulo": "={{ $('inserção de conteúdo da news').item.json['Qual o título da notícia?'] }}",
-                "text": "={{ $('inserção de conteúdo da news').item.json['Qual o texto da notícia?'] }}",
-                "video": "={{ $('inserção de conteúdo da news').item.json['Vídeo da notícia (opcional)'] }}",
-                "imagens": "={{ $json.webContentLink }}"
+                "titulo": "={{ $('inserção de conteúdo da news Glauci').item.json['Qual o título da notícia? '] }}",
+                "text": "={{ $json.output }}",
+                "video": "={{ $('inserção de conteúdo da news Glauci').item.json['Vídeo da notícia (opcional)'] }}",
+                "imagens": "={{ $('Upload file').item.json.webContentLink }}",
+                "Usuario": "Glauci Lopes"
               },
               "matchingColumns": [],
               "schema": [
-                {
-                  "id": "numero_da_noticia",
-                  "displayName": "numero_da_noticia",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "number",
-                  "readOnly": false,
-                  "removed": true
-                },
                 {
                   "id": "titulo",
                   "displayName": "titulo",
@@ -5731,6 +5675,26 @@
                   "type": "string",
                   "readOnly": false,
                   "removed": false
+                },
+                {
+                  "id": "usado",
+                  "displayName": "usado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": true
+                },
+                {
+                  "id": "Usuario",
+                  "displayName": "Usuario",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
                 }
               ],
               "attemptToConvertTypes": false,
@@ -5741,15 +5705,15 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -912,
-            80
+            -752,
+            48
           ],
           "id": "804068ce-d54b-4289-8eb5-701ec22f0591",
           "name": "Insert row"
         },
         {
           "parameters": {
-            "inputDataFieldName": "=Fa_a_upload_de_uma_ou_mais_imagens_para_essa_not_cia__opcional_",
+            "inputDataFieldName": "=Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
             "driveId": {
               "__rl": true,
               "value": "My Drive",
@@ -5769,8 +5733,8 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1104,
-            80
+            -1184,
+            48
           ],
           "id": "a700285c-19d9-4637-bd71-33b2d6e5a630",
           "name": "Upload file",
@@ -5805,7 +5769,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -432,
+            -176,
             96
           ],
           "id": "b1286fd9-71aa-4519-b7e5-a855dcc35f36",
@@ -5818,7 +5782,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -272,
+            240,
             96
           ],
           "id": "27d20faa-bcd1-4f88-b0c1-fa6b9fe8cff4",
@@ -5838,7 +5802,7 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -624,
+            -368,
             96
           ],
           "id": "5d773041-4753-4be8-975a-fd9a4f0fee4a",
@@ -5856,7 +5820,7 @@
           "type": "n8n-nodes-base.wordpress",
           "typeVersion": 1,
           "position": [
-            -80,
+            432,
             96
           ],
           "id": "b1dc3ff9-8d87-482d-85b9-c45f03630471",
@@ -5877,8 +5841,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1536,
-            384
+            -1488,
+            416
           ],
           "id": "5e14f918-58a7-43da-b405-0bccc2263cae",
           "name": "Webhook",
@@ -5886,29 +5850,17 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Limpar e ordenar seleções\n\n// 1. Recebe o array enviado pelo formulário\nconst selections = $json.body || [];\n\n// 2. Filtra descartados (quando prioridade = \"X\" ou vazio)\nconst filtered = selections.filter(s => {\n  if (!s.priority) return false;\n  return s.priority.toUpperCase() !== \"X\";\n});\n\n// 3. Ordena por prioridade numérica\nconst ordered = filtered.sort((a, b) => parseInt(a.priority) - parseInt(b.priority));\n\n// 4. Retorna apenas IDs e prioridades limpos\nreturn ordered.map(item => ({\n  json: {\n    id: item.id,\n    priority: parseInt(item.priority)\n  }\n}));"
+            "jsCode": "// Node: Montar lista de notícias selecionadas\n\n// 1. IDs ordenados vindos do node \"Limpa o webhook só com prioridades\"\nconst selections = $items(\"Separa válidos e descartados\", 0, 0).map(i => i.json);\n\n// 2. Todas as notícias vindas do node \"Get row(s)1\"\nconst allNews = $items(\"Get row(s)1\", 0, 0).map(i => i.json);\n\n// 3. Monta lista final na ordem da prioridade\nconst result = [];\n\nfor (const sel of selections) {\n  const news = allNews.find(n => n.id == sel.id);\n  if (news) {\n    result.push({\n      json: {\n        id: sel.id,\n        priority: sel.priority,\n        titulo: news.titulo,\n        text: news.text,\n        imagem: news.imagens || null,\n        video: news.video || null\n      }\n    });\n  }\n}\n\nreturn result;"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -1312,
-            384
-          ],
-          "id": "5f890180-3a68-4ef5-886f-7b1cad1a9b8a",
-          "name": "Limpa o webhook só com prioridades"
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Montar lista de notícias selecionadas\n\n// 1. IDs ordenados vindos do node \"Limpa o webhook só com prioridades\"\nconst selections = $items(\"Limpa o webhook só com prioridades\", 0, 0).map(i => i.json);\n\n// 2. Todas as notícias vindas do node \"Get row(s)1\"\nconst allNews = $items(\"Get row(s)1\", 0, 0).map(i => i.json);\n\n// 3. Monta lista final na ordem da prioridade\nconst result = [];\n\nfor (const sel of selections) {\n  const news = allNews.find(n => n.id == sel.id);\n  if (news) {\n    result.push({\n      json: {\n        id: sel.id,\n        priority: sel.priority,\n        titulo: news.titulo,\n        text: news.text,\n        imagem: news.imagens || null,\n        video: news.video || null\n      }\n    });\n  }\n}\n\nreturn result;"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -896,
-            384
+            -816,
+            416
           ],
           "id": "3c675bde-fc4a-4d8c-ac2f-6694ce7bffb2",
-          "name": "Filtra do getRows só o priorizado"
+          "name": "Filtra do getRows só o priorizado",
+          "executeOnce": false
         },
         {
           "parameters": {
@@ -5933,8 +5885,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1104,
-            384
+            -1072,
+            416
           ],
           "id": "dd5299a1-9985-4b70-8838-6e179d836e07",
           "name": "Get row(s)1"
@@ -5946,11 +5898,12 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -336,
-            384
+            -240,
+            416
           ],
           "id": "5c7f8331-cf4d-4d77-9c51-aad93c779154",
-          "name": "Cria HTML da Newsletter"
+          "name": "Cria HTML da Newsletter",
+          "executeOnce": false
         },
         {
           "parameters": {
@@ -5958,7 +5911,7 @@
             "toEmail": "robson.lisboa@midiacode.com",
             "ccEmail": "glauci@midiacode.com",
             "subject": "Seleção de notícias para próxima edição da newsletter",
-            "text": "Olá gestor da newsletter,\nAqui está as informações para você avaliar as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, você terá acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que quer publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página você verá o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15813\n\nAtenciosamente,\nValentina",
+            "text": "Olá gestor da newsletter,\nAqui estão as informações para você avaliar as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, você terá acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que quer publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página você verá o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15813\n\nAtenciosamente,\nValentina",
             "options": {}
           },
           "id": "eb03e072-77f0-45a8-bc9a-a6f6f5b1dc54",
@@ -5966,7 +5919,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            96,
+            608,
             96
           ],
           "credentials": {
@@ -5981,7 +5934,7 @@
             "fromEmail": "contact@midiacode.tech",
             "toEmail": "robson.lisboa@midiacode.com",
             "ccEmail": "glauci@midiacode.com",
-            "subject": "={{ $json.output }} - {{  $('Cria HTML da Newsletter').item.json.recordId }}",
+            "subject": "={{ $json.output }}",
             "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
             "options": {}
           },
@@ -5990,8 +5943,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            512,
-            304
+            608,
+            336
           ],
           "credentials": {
             "smtp": {
@@ -6007,22 +5960,23 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -704,
-            384
+            -624,
+            416
           ],
           "id": "1d065d5a-e03d-48c8-b10b-30ff6b40d3e2",
-          "name": "Normalizar links do GDrive - view"
+          "name": "Normalizar links do GDrive - view",
+          "executeOnce": false
         },
         {
           "parameters": {
-            "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente",
-            "height": 256,
-            "width": 880
+            "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente\npara adicionar novos colaboradores, duplique todos os nós e revise todas as variáveis, adicionando o nome do novo publicador no Insert Row",
+            "height": 368,
+            "width": 1104
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -1584,
-            0
+            -112
           ],
           "typeVersion": 1,
           "id": "9b5d1163-0402-43e6-a222-c81e150388e5",
@@ -6031,14 +5985,14 @@
         {
           "parameters": {
             "content": "## Seleção das News para a próxima edição\nmensalmente envia para o gestor da Newsletter todos os artigos disponíveis para publicação. ",
-            "height": 256,
-            "width": 992,
+            "height": 368,
+            "width": 1264,
             "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -688,
-            0
+            -448,
+            -112
           ],
           "typeVersion": 1,
           "id": "bf5d05a9-170f-4c2b-9bd5-443362c915e1",
@@ -6285,7 +6239,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "html": "=",
-                "status": "=em edição"
+                "status": "=INICIADA"
               },
               "matchingColumns": [],
               "schema": [
@@ -6318,11 +6272,12 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -528,
-            384
+            -448,
+            416
           ],
           "id": "edcd3213-2aa6-42b8-b300-b2ebe5416f4d",
-          "name": "cria registro na DT da news"
+          "name": "cria registro na DT da news",
+          "executeOnce": true
         },
         {
           "parameters": {
@@ -6388,8 +6343,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            304,
-            416
+            400,
+            448
           ],
           "id": "864a0da0-c786-45ad-a602-70f6380fdb2a",
           "name": "Carrega o HTML"
@@ -6469,8 +6424,8 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -128,
-            384
+            -32,
+            416
           ],
           "id": "552f8e01-be9d-4268-8f34-31dbe1aa9912",
           "name": "AI Agent1"
@@ -6483,8 +6438,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            -160,
-            544
+            -112,
+            1520
           ],
           "id": "4172d18d-dd02-494b-bcee-56f3087267b1",
           "name": "Google Gemini Chat Model",
@@ -6538,7 +6493,7 @@
             "filters": {
               "conditions": [
                 {
-                  "keyValue": "={{ Number($json.query.id) }}"
+                  "keyValue": "={{ $json.id }}"
                 }
               ]
             },
@@ -6603,8 +6558,8 @@
           "type": "n8n-nodes-base.emailReadImap",
           "typeVersion": 2.1,
           "position": [
-            -1120,
-            1136
+            -1296,
+            1248
           ],
           "id": "f7878bd3-70db-49c5-be2f-0e6c69c0f94e",
           "name": "Email Trigger (IMAP)",
@@ -6663,8 +6618,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            -912,
-            1136
+            -1088,
+            1248
           ],
           "id": "aac7c33a-feeb-419b-858f-2becda77612b",
           "name": "If"
@@ -6675,33 +6630,18 @@
           "typeVersion": 1,
           "position": [
             -704,
-            1232
+            1552
           ],
           "id": "a9f4f88d-9abb-44ef-989e-d2024f71dc17",
           "name": "No Operation, do nothing"
         },
         {
           "parameters": {
-            "promptType": "define",
-            "text": "=voce é especialista em escrever emails do tipo newsletter.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas e o texto original na parte de baixo. Tudo está nesse html:  {{ $json.html }}\nconsidere todas as orientações para corrigir o texto e formato da newsletter e altere seu conteúdo, entregando no output um html que será reenviado para o mesmo revisor, com o contéudo da newsletter remontado e já pronto para o envio final.\nmantenha no final da mensagem a seção de 'Orientações' com o botão de 'APROVADA' da mesma forma que o email original. \ncaso a nova versão enviada seja aprovada, o revisor irá apertar nesse botão para o envio definitivo.   \nno seu output não precisa conversar, explicar nada, somente retorne o html que será usado para envio do email para o revisor de volta. \nNão sugira nada novo para o revisor. Apenas corrija o html para um novo html já alterado e revisado, com tão somente as alterações requeridas pelo revisor, no email enviado.\nNo seu output, devolva apenas o HTML puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3,
-          "position": [
-            -704,
-            1088
-          ],
-          "id": "1d67db01-77f2-4e7b-a108-59e5b3b0950e",
-          "name": "AI Agent"
-        },
-        {
-          "parameters": {
             "fromEmail": "contact@midiacode.tech",
             "toEmail": "robson.lisboa@midiacode.com",
             "ccEmail": "glauci@midiacode.com",
-            "subject": "={{ $('Email Trigger (IMAP)').item.json.subject }}",
-            "html": "={{ $('AI Agent').item.json.output }}",
+            "subject": "={{ $json.subject }}",
+            "html": "={{ $json.html }}",
             "options": {}
           },
           "id": "1b296535-7a7c-4825-8f65-13ac5bfa28f8",
@@ -6709,8 +6649,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            -176,
-            1136
+            304,
+            1232
           ],
           "credentials": {
             "smtp": {
@@ -6722,36 +6662,312 @@
         {
           "parameters": {
             "content": "## Corrige a newsletter\nseguindo orientações do revisor e reenvia para ele aprovar",
-            "height": 352,
+            "height": 784,
             "width": 2400
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -1584,
-            1024
+            1040
           ],
           "typeVersion": 1,
           "id": "5dff31a1-6ad2-4562-9e84-62407da17491",
           "name": "Sticky Note4"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Ajustar ID do botão APROVADA (regex seguro)\n\n// Pega o HTML vindo do AI Agent ou da Data Table Insert\nlet html = $json.output || $json.html || \"\";\n\n// Pega o ID recém-criado na Data Table\nconst newsId = $json.id;\n\n// Se não houver ID, apenas retorna sem erro\nif (!newsId) {\n  return [{ json: { html, warning: \"ID da newsletter não encontrado\" } }];\n}\n\n// 1. Atualiza o número do botão APROVADA\nhtml = html.replace(/(id=)\\d+/, `$1${newsId}`);\n\n// 2. Atualiza também o número dentro do <strong> (texto do ID da newsletter)\nhtml = html.replace(/(<strong>)\\d+(<\\/strong>)/, `$1${newsId}$2`);\n\n// Retorna o HTML ajustado junto com o ID\nreturn [{ json: { html, id: newsId } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -144,
+            1232
+          ],
+          "id": "31ed7c01-6285-42cc-8970-9c4833a51c44",
+          "name": "Ajustar ID do botão APROVADA"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "html": "={{ $('Ajuste do HTML AI Agent').item.json.output }}",
+                "status": "em revisão",
+                "subject": "={{ $json.output }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "html",
+                  "displayName": "html",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "subject",
+                  "displayName": "subject",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -320,
+            1232
+          ],
+          "id": "11a0dc6e-8097-4401-a9b8-16e17e300bf0",
+          "name": "insere novo html na DT1"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "gbNejGV416c39TCE",
+              "mode": "list",
+              "cachedResultName": "HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json.id }}"
+                }
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "status": "revisada e alterada",
+                "html": "={{ $json.html }}",
+                "subject": "={{ $('Ajuste do SUBJECT AI Agent').item.json.output }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "html",
+                  "displayName": "html",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "subject",
+                  "displayName": "subject",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            64,
+            1232
+          ],
+          "id": "fa1fe2b8-845b-4a12-ad0e-1bcca717d375",
+          "name": "atualiza novo html na DT"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=voce é especialista em escrever emails do tipo newsletter.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no corpo do email (html) e no subject. Neste caso, você vai alterar somente o corpo do email. Não altere o subject. O que voce vai poder alterar está nesse html:  {{ $json.html }}\nconsidere todas as orientações para corrigir o texto e formato da newsletter e altere seu conteúdo, entregando no output um html que será reenviado para o mesmo revisor, com o contéudo da newsletter remontado e já pronto para o envio final.\nmantenha no final da mensagem a seção de 'Orientações' com o botão de 'APROVADA' da mesma forma que o email original. \nno seu output não precisa conversar, explicar nada, somente retorne o html que será usado para envio do email para o revisor de volta. \nNão sugira nada novo para o revisor. Apenas corrija o html para um novo html já alterado e revisado, com tão somente as alterações requeridas pelo revisor, no email enviado.\nNo seu output, devolva apenas o HTML puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente\nPreserve todos os atributos src das imagens exatamente como estão no HTML original.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -880,
+            1232
+          ],
+          "id": "1d67db01-77f2-4e7b-a108-59e5b3b0950e",
+          "name": "Ajuste do HTML AI Agent"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT: {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -608,
+            1232
+          ],
+          "id": "ecfd89bf-c2cc-4140-b6bb-c30d9da38b7b",
+          "name": "Ajuste do SUBJECT AI Agent"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=voce é especialista em escrever textos para newsletter.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:   {{ $('inserção de conteúdo da news Glauci').item.json['Qual o texto da notícia?'] }}\nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -1024,
+            48
+          ],
+          "id": "a2f344eb-9ade-4e7d-ae9a-e71537b84af7",
+          "name": "Melhora o texto da notícia"
+        },
+        {
+          "parameters": {
+            "formTitle": "Newsletter Midiacode",
+            "formDescription": "Preencha as informações que vão entrar para a próxima news.",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "Qual o título da notícia? ",
+                  "placeholder": "Digite aqui. Este texto não será revisado por IA."
+                },
+                {
+                  "fieldLabel": "Qual o texto da notícia? ",
+                  "placeholder": "Digite aqui. Este texto será revisado e melhorado por IA.",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Faça upload de uma imagem para essa notícia (opcional)",
+                  "fieldType": "file",
+                  "multipleFiles": false,
+                  "acceptFileTypes": ".jpg, .png"
+                },
+                {
+                  "fieldLabel": "Vídeo da notícia (opcional)",
+                  "placeholder": "Coloque o link do vídeo aqui."
+                }
+              ]
+            },
+            "options": {
+              "appendAttribution": false,
+              "buttonLabel": "Enviar",
+              "respondWithOptions": {
+                "values": {
+                  "formSubmittedText": "Seu registro de newsletter foi feito com sucesso."
+                }
+              },
+              "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #e5a552;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+            }
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.3,
+          "position": [
+            -1376,
+            48
+          ],
+          "id": "543664af-b1b5-46d2-87c8-c9de2ca3813d",
+          "name": "inserção de conteúdo da news Glauci",
+          "webhookId": "c2701f81-301a-41f0-a630-7242e1ca75da"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Recebe o array enviado pelo formulário\nconst selections = $json.body || [];\n\n// Filtra apenas os itens que têm prioridade definida\nconst comPrioridade = selections.filter(item => {\n  return item.priority && item.priority.toUpperCase() !== \"X\";\n});\n\n// Ordena por prioridade numérica\nconst ordenados = comPrioridade.sort((a, b) => {\n  return parseInt(a.priority) - parseInt(b.priority);\n});\n\n// Retorna cada item como uma execução separada\nreturn ordenados.map(item => ({ json: item }));"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1280,
+            416
+          ],
+          "id": "1dc4fce0-5799-4e4e-a8ec-0731bfe0bda6",
+          "name": "Separa válidos e descartados"
+        },
+        {
+          "parameters": {
+            "model": "llama-3.3-70b-versatile",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            -320,
+            1520
+          ],
+          "id": "8b9ed816-1dd8-4b90-8090-292b3edc9519",
+          "name": "Groq Chat Model",
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\n// Pega os itens vindos do node \"Normalizar links do GDrive - view\"\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\n\n// Pega o ID do registro criado no Data Table\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Newsletter</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n          <tr>\n            <td align=\"center\" style=\"padding-bottom:20px;\">\n              <h1 style=\"color:#333;\">📰 Newsletter</h1>\n            </td>\n          </tr>\n`;\n\nfor (const item of items) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// Orientações com botão APROVADA e ID do registro\nhtml += `\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações:</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/f1e26652-7944-486b-bf71-db642b7a1217?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"#\" style=\"color:#3498db;\">Cancelar inscrição</a>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -240,
+            272
+          ],
+          "id": "28c8490f-7889-4cc1-bb41-0b56d8693c76",
+          "name": "Cria HTML da Newsletter1",
+          "executeOnce": false
         }
       ],
       "connections": {
-        "inserção de conteúdo da news": {
-          "main": [
-            [
-              {
-                "node": "Upload file",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Upload file": {
           "main": [
             [
               {
-                "node": "Insert row",
+                "node": "Melhora o texto da notícia",
                 "type": "main",
                 "index": 0
               }
@@ -6806,18 +7022,7 @@
           "main": [
             [
               {
-                "node": "Limpa o webhook só com prioridades",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Limpa o webhook só com prioridades": {
-          "main": [
-            [
-              {
-                "node": "Get row(s)1",
+                "node": "Separa válidos e descartados",
                 "type": "main",
                 "index": 0
               }
@@ -6986,7 +7191,17 @@
                 "index": 0
               },
               {
-                "node": "AI Agent",
+                "node": "Ajuste do HTML AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "Ajuste do SUBJECT AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "Melhora o texto da notícia",
                 "type": "ai_languageModel",
                 "index": 0
               }
@@ -7041,7 +7256,7 @@
           "main": [
             [
               {
-                "node": "AI Agent",
+                "node": "Ajuste do HTML AI Agent",
                 "type": "main",
                 "index": 0
               }
@@ -7055,7 +7270,29 @@
             ]
           ]
         },
-        "AI Agent": {
+        "Ajustar ID do botão APROVADA": {
+          "main": [
+            [
+              {
+                "node": "atualiza novo html na DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "insere novo html na DT1": {
+          "main": [
+            [
+              {
+                "node": "Ajustar ID do botão APROVADA",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "atualiza novo html na DT": {
           "main": [
             [
               {
@@ -7064,6 +7301,66 @@
                 "index": 0
               }
             ]
+          ]
+        },
+        "Ajuste do HTML AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Ajuste do SUBJECT AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Ajuste do SUBJECT AI Agent": {
+          "main": [
+            [
+              {
+                "node": "insere novo html na DT1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Melhora o texto da notícia": {
+          "main": [
+            [
+              {
+                "node": "Insert row",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "inserção de conteúdo da news Glauci": {
+          "main": [
+            [
+              {
+                "node": "Upload file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Separa válidos e descartados": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            []
           ]
         }
       },
@@ -7081,170 +7378,14 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2168
+          "lastMessageUid": 2177
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "pinData": {
-        "Upload file": [
-          {
-            "json": {
-              "kind": "drive#file",
-              "id": "1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1",
-              "name": "muller 2.png",
-              "mimeType": "image/png",
-              "starred": false,
-              "trashed": false,
-              "explicitlyTrashed": false,
-              "parents": [
-                "[REDACTED]"
-              ],
-              "spaces": [
-                "drive"
-              ],
-              "version": "2",
-              "webContentLink": "https://drive.google.com/uc?id=1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1&export=download",
-              "webViewLink": "https://drive.google.com/file/d/1-wt9UHJbvyGrnS_SKIXMSB64hjO4P-s1/view?usp=drivesdk",
-              "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/image/png",
-              "hasThumbnail": true,
-              "thumbnailLink": "[REDACTED]",
-              "thumbnailVersion": "1",
-              "viewedByMe": false,
-              "createdTime": "2025-11-17T20:11:06.755Z",
-              "modifiedTime": "2025-11-17T20:11:08.136Z",
-              "modifiedByMeTime": "2025-11-17T20:11:08.136Z",
-              "modifiedByMe": true,
-              "owners": [
-                {
-                  "kind": "drive#user",
-                  "displayName": "Robson Lisboa",
-                  "photoLink": "[REDACTED]",
-                  "me": true,
-                  "permissionId": "[REDACTED]",
-                  "emailAddress": "robson.lisboa@midiacode.com"
-                }
-              ],
-              "lastModifyingUser": {
-                "kind": "drive#user",
-                "displayName": "Robson Lisboa",
-                "photoLink": "[REDACTED]",
-                "me": true,
-                "permissionId": "[REDACTED]",
-                "emailAddress": "robson.lisboa@midiacode.com"
-              },
-              "shared": true,
-              "ownedByMe": true,
-              "downloadRestrictions": {
-                "itemDownloadRestriction": {
-                  "restrictedForReaders": false,
-                  "restrictedForWriters": false
-                },
-                "effectiveDownloadRestrictionWithContext": {
-                  "restrictedForReaders": false,
-                  "restrictedForWriters": false
-                }
-              },
-              "capabilities": {
-                "canAcceptOwnership": false,
-                "canAddChildren": false,
-                "canAddMyDriveParent": false,
-                "canChangeCopyRequiresWriterPermission": true,
-                "canChangeItemDownloadRestriction": true,
-                "canChangeSecurityUpdateEnabled": false,
-                "canChangeViewersCanCopyContent": true,
-                "canComment": true,
-                "canCopy": true,
-                "canDelete": true,
-                "canDisableInheritedPermissions": false,
-                "canDownload": true,
-                "canEdit": true,
-                "canEnableInheritedPermissions": true,
-                "canListChildren": false,
-                "canModifyContent": true,
-                "canModifyContentRestriction": true,
-                "canModifyEditorContentRestriction": true,
-                "canModifyOwnerContentRestriction": true,
-                "canModifyLabels": false,
-                "canMoveChildrenWithinDrive": false,
-                "canMoveItemIntoTeamDrive": true,
-                "canMoveItemOutOfDrive": true,
-                "canMoveItemWithinDrive": true,
-                "canReadLabels": false,
-                "canReadRevisions": true,
-                "canRemoveChildren": false,
-                "canRemoveContentRestriction": false,
-                "canRemoveMyDriveParent": true,
-                "canRename": true,
-                "canShare": true,
-                "canTrash": true,
-                "canUntrash": true
-              },
-              "viewersCanCopyContent": true,
-              "copyRequiresWriterPermission": false,
-              "writersCanShare": true,
-              "permissions": [
-                {
-                  "kind": "drive#permission",
-                  "id": "[REDACTED]",
-                  "type": "group",
-                  "emailAddress": "lideres@midiacode.com",
-                  "role": "writer",
-                  "displayName": "Lideres Midiacode",
-                  "deleted": false
-                },
-                {
-                  "kind": "drive#permission",
-                  "id": "[REDACTED]",
-                  "type": "user",
-                  "emailAddress": "robson.lisboa@midiacode.com",
-                  "role": "owner",
-                  "displayName": "robson.lisboa",
-                  "deleted": false,
-                  "pendingOwner": false
-                },
-                {
-                  "kind": "drive#permission",
-                  "id": "[REDACTED]",
-                  "type": "user",
-                  "emailAddress": "lgavinho@midiacode.com",
-                  "role": "writer",
-                  "displayName": "lgavinho",
-                  "deleted": false,
-                  "pendingOwner": false
-                }
-              ],
-              "permissionIds": [
-                "[REDACTED]",
-                "[REDACTED]",
-                "[REDACTED]"
-              ],
-              "originalFilename": "muller 2.png",
-              "fullFileExtension": "png",
-              "fileExtension": "png",
-              "md5Checksum": "[REDACTED]",
-              "sha1Checksum": "[REDACTED]",
-              "sha256Checksum": "[REDACTED]",
-              "size": "937765",
-              "quotaBytesUsed": "937765",
-              "headRevisionId": "[REDACTED]",
-              "imageMediaMetadata": {
-                "width": 705,
-                "height": 798,
-                "rotation": 0
-              },
-              "isAppAuthorized": true,
-              "linkShareMetadata": {
-                "securityUpdateEligible": false,
-                "securityUpdateEnabled": true
-              },
-              "inheritedPermissionsDisabled": false
-            }
-          }
-        ]
-      },
-      "versionId": "7f365650-e8e7-48e9-ba0c-05900f7c4469",
+      "pinData": {},
+      "versionId": "fc6c11d9-d57a-4608-a456-c85cb2487a3a",
       "triggerCount": 5,
       "shared": [
         {
@@ -17431,14 +17572,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-24T16:55:10Z"
+          "lastTimeChecked": "2025-11-26T14:00:50Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-24T16:55:11Z"
+          "lastTimeChecked": "2025-11-26T14:00:35Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            329
+            331
           ]
         }
       },
@@ -18273,7 +18414,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2167
+          "lastMessageUid": 2191
         }
       },
       "meta": {
@@ -24165,7 +24306,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-24T12:56:04.000Z",
+      "updatedAt": "2025-11-26T16:24:42.000Z",
       "createdAt": "2025-11-17T17:00:46.093Z",
       "id": "nlsS6SI0LwMS43nm",
       "name": "Fundos Europeus - Thiago",
@@ -24650,25 +24791,11 @@
           "id": "80ad99dd-02a9-4acf-93ca-fa0148b9c979"
         },
         {
-          "parameters": {
-            "sessionIdType": "customKey",
-            "sessionKey": "={{ $('Selecionados').item.json['Pontuação IA'] }}"
-          },
-          "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-          "typeVersion": 1.3,
-          "position": [
-            144,
-            368
-          ],
-          "id": "5fbee04f-b9ff-40d3-bf5e-60ac40a76d55",
-          "name": "Simple Memory"
-        },
-        {
           "parameters": {},
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            480,
+            496,
             -240
           ],
           "id": "852af92a-5b33-44eb-be65-1391ae1ed55e",
@@ -24928,17 +25055,6 @@
             ]
           ]
         },
-        "Simple Memory": {
-          "ai_memory": [
-            [
-              {
-                "node": "Pré - projeto",
-                "type": "ai_memory",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Get row(s) in sheet": {
           "main": [
             [
@@ -24959,7 +25075,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "dbeaaccf-6fb3-4c01-943f-8003a654262e",
+      "versionId": "f88b1b7c-e3e9-469d-8bcd-fa9eb34936ec",
       "triggerCount": 0,
       "shared": [
         {

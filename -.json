@@ -2269,9 +2269,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1764195662,
+            "lastTimeChecked": 1764286828,
             "possibleDuplicates": [
-              "19ac24197bbccbe6"
+              "19ac7b0913ff9684"
             ]
           }
         },
@@ -5609,7 +5609,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-26T22:06:45.000Z",
+      "updatedAt": "2025-11-27T12:24:08.000Z",
       "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
       "name": "Newsletter Seleção de Notícias",
@@ -5705,7 +5705,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -752,
+            -688,
             48
           ],
           "id": "804068ce-d54b-4289-8eb5-701ec22f0591",
@@ -5733,7 +5733,7 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1184,
+            -1120,
             48
           ],
           "id": "a700285c-19d9-4637-bd71-33b2d6e5a630",
@@ -6438,7 +6438,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            -112,
+            96,
             1520
           ],
           "id": "4172d18d-dd02-494b-bcee-56f3087267b1",
@@ -6860,7 +6860,7 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -1024,
+            -960,
             48
           ],
           "id": "a2f344eb-9ade-4e7d-ae9a-e71537b84af7",
@@ -6907,7 +6907,7 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.3,
           "position": [
-            -1376,
+            -1504,
             48
           ],
           "id": "543664af-b1b5-46d2-87c8-c9de2ca3813d",
@@ -6960,6 +6960,228 @@
           "id": "28c8490f-7889-4cc1-bb41-0b56d8693c76",
           "name": "Cria HTML da Newsletter1",
           "executeOnce": false
+        },
+        {
+          "parameters": {
+            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter",
+            "height": 1120,
+            "width": 688,
+            "color": 6
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -2336,
+            -112
+          ],
+          "typeVersion": 1,
+          "id": "513196a2-c05f-4f57-bb30-fbf4746fdd94",
+          "name": "Sticky Note5"
+        },
+        {
+          "parameters": {
+            "formTitle": "Setup da newsletter",
+            "formDescription": "Este formulãrio irá ajudar a automação a criar todo o ciclo de criação, registro e disparo da newsletter. Vamos começar?",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "Nome da empresa/instituição",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Nome do gestor da newsletter",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Email do gestor da newsletter",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Perfil da empresa/instituição",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Perfil do público alvo",
+                  "requiredField": true
+                },
+                {
+                  "fieldLabel": "Como deve ser a mensagem? Tom, estilo...",
+                  "requiredField": true
+                }
+              ]
+            },
+            "options": {
+              "appendAttribution": false,
+              "buttonLabel": "Próximo"
+            }
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.3,
+          "position": [
+            -2240,
+            32
+          ],
+          "id": "cef9acde-430c-4b24-be58-af0b1fae5407",
+          "name": "On form submission",
+          "webhookId": "b368af55-0ea9-46a2-984d-73f6007f2e66"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "mG1SfZs50SD1ekeX",
+              "mode": "list",
+              "cachedResultName": "Newsletter Setup",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/mG1SfZs50SD1ekeX"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Empresa_Instituicao": "={{ $json['Nome da empresa/instituição'] }}",
+                "Gestor": "={{ $json['Nome do gestor da newsletter'] }}",
+                "EmailGestor": "={{ $json['Email do gestor da newsletter'] }}",
+                "Perfil_Empresa": "={{ $json['Perfil da empresa/instituição'] }}",
+                "Perfil_Publico_Alvo": "={{ $json['Perfil do público alvo'] }}",
+                "Perfil_Mensagem": "={{ $json['Como deve ser a mensagem? Tom, estilo...'] }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "Empresa_Instituicao",
+                  "displayName": "Empresa_Instituicao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Gestor",
+                  "displayName": "Gestor",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "EmailGestor",
+                  "displayName": "EmailGestor",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Perfil_Empresa",
+                  "displayName": "Perfil_Empresa",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Perfil_Publico_Alvo",
+                  "displayName": "Perfil_Publico_Alvo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Perfil_Mensagem",
+                  "displayName": "Perfil_Mensagem",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -2048,
+            32
+          ],
+          "id": "542a99ab-4494-458c-81a0-f702ccd61a9e",
+          "name": "insere setup no DT"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "38017e39-74ef-481e-a38d-944bd6835834",
+                  "name": "ID do Setup DT",
+                  "value": "1",
+                  "type": "string"
+                },
+                {
+                  "id": "32c65794-2b77-420a-89af-c18aa29e7d28",
+                  "name": "IA usada",
+                  "value": "",
+                  "type": "string"
+                },
+                {
+                  "id": "64951844-0888-454c-b475-6246f563d987",
+                  "name": "API Key da IA usada",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -1904,
+            336
+          ],
+          "id": "a1fb2bda-50a4-41be-b92e-b79e70738156",
+          "name": "ID da Empresa"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "mG1SfZs50SD1ekeX",
+              "mode": "list",
+              "cachedResultName": "Newsletter Setup",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/mG1SfZs50SD1ekeX"
+            },
+            "matchType": "allConditions",
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json['ID do Setup DT'] }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1312,
+            48
+          ],
+          "id": "1d00840f-1941-440d-8090-933d7c8fd751",
+          "name": "Pega o perfil da empresa"
         }
       ],
       "connections": {
@@ -7340,7 +7562,7 @@
           "main": [
             [
               {
-                "node": "Upload file",
+                "node": "Pega o perfil da empresa",
                 "type": "main",
                 "index": 0
               }
@@ -7361,6 +7583,39 @@
         "Groq Chat Model": {
           "ai_languageModel": [
             []
+          ]
+        },
+        "On form submission": {
+          "main": [
+            [
+              {
+                "node": "insere setup no DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "ID da Empresa": {
+          "main": [
+            [
+              {
+                "node": "Pega o perfil da empresa",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Pega o perfil da empresa": {
+          "main": [
+            [
+              {
+                "node": "Upload file",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         }
       },
@@ -7385,8 +7640,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "fc6c11d9-d57a-4608-a456-c85cb2487a3a",
-      "triggerCount": 5,
+      "versionId": "383f0777-c22f-4ed0-a6a9-e251afdcd4cc",
+      "triggerCount": 6,
       "shared": [
         {
           "updatedAt": "2025-11-17T18:54:22.151Z",
@@ -17572,10 +17827,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-26T14:00:50Z"
+          "lastTimeChecked": "2025-11-27T11:58:26Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-26T14:00:35Z"
+          "lastTimeChecked": "2025-11-27T11:58:27Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -18465,6 +18720,214 @@
           "createdAt": "2025-10-29T16:01:03.207Z",
           "role": "workflow:owner",
           "workflowId": "YAjdPcAv083KbwXa",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "updatedAt": "2025-11-27T10:30:37.000Z",
+      "createdAt": "2025-11-27T09:02:39.296Z",
+      "id": "dJ8o6YEhOEP3OrJJ",
+      "name": "Thiago - Vencimento contratos",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "daysInterval": 5,
+                  "triggerAtHour": 6
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.2,
+          "position": [
+            -400,
+            -16
+          ],
+          "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc",
+              "mode": "list",
+              "cachedResultName": "Cópia de Vencimento Contrato Clientes",
+              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit?usp=drivesdk"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1501135991,
+              "mode": "list",
+              "cachedResultName": "Página3",
+              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit#gid=1501135991"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -240,
+            -16
+          ],
+          "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
+          "name": "Get row(s) in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "91dc34e8-1540-4c0a-95a7-86e65d841f82",
+                  "leftValue": "={{ $('Get row(s) in sheet').item.json.Data }}",
+                  "rightValue": "=recorrente",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notContains"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.2,
+          "position": [
+            -64,
+            -16
+          ],
+          "id": "9b41a6e1-f261-43f8-9588-87c73c885300",
+          "name": "Filter"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dateTime",
+          "typeVersion": 2,
+          "position": [
+            112,
+            -16
+          ],
+          "id": "ac7236af-6203-4230-9fb8-1198df7413b1",
+          "name": "Date & Time"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "2ca37558-1f44-4be4-9eea-2943fb86294a",
+                  "leftValue": "={{ $('Filter').item.json.Data }}",
+                  "rightValue": "={{ $json.currentDate }}",
+                  "operator": {
+                    "type": "string",
+                    "operation": "regex"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            256,
+            -16
+          ],
+          "id": "4744fc95-8c22-4440-bc6f-677c229ea95b",
+          "name": "If"
+        }
+      ],
+      "connections": {
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Filter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Date & Time": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter": {
+          "main": [
+            [
+              {
+                "node": "Date & Time",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "ee442320-44e2-4dfa-ba7e-a963e85dd871",
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2025-11-27T09:02:39.302Z",
+          "createdAt": "2025-11-27T09:02:39.302Z",
+          "role": "workflow:owner",
+          "workflowId": "dJ8o6YEhOEP3OrJJ",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],

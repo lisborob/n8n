@@ -2269,10 +2269,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1764529600,
+            "lastTimeChecked": 1764627870,
             "possibleDuplicates": [
-              "19ad628fa2adfac9",
-              "19ad628f7071ab7b"
+              "19adc0475b6b1513",
+              "19adbfaf5a1f8031"
             ]
           }
         },
@@ -5610,10 +5610,10 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-27T12:24:08.000Z",
+      "updatedAt": "2025-12-01T10:47:51.000Z",
       "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
-      "name": "Newsletter Seleção de Notícias",
+      "name": "Newsletter Auto",
       "active": true,
       "isArchived": false,
       "nodes": [
@@ -6855,7 +6855,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=voce é especialista em escrever textos para newsletter.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:   {{ $('inserção de conteúdo da news Glauci').item.json['Qual o texto da notícia?'] }}\nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.",
+            "text": "=voce é especialista em escrever textos para newsletter.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:  {{ $('inserção de conteúdo da news Glauci').item.json['Qual o texto da notícia? '] }} \nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.\nUse as informações a respeito do perfil da empresa ({{ $('Pega o perfil da empresa').item.json.Perfil_Empresa }}) e perfil do público alvo ({{ $('Pega o perfil da empresa').item.json.Perfil_Publico_Alvo }}) para re-escrever o artigo: {{ $('inserção de conteúdo da news Glauci').item.json['Qual o texto da notícia? '] }}, com clareza e assertividade, seguindo o perfil de mensagem que a empresa quer ({{ $('Pega o perfil da empresa').item.json.Perfil_Mensagem }}).\nMantenha o texto curto e direto, para compor uma newsletter, usando para isso as melhores práticas de escrita para newsletter.",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -7150,7 +7150,7 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1904,
+            -1840,
             336
           ],
           "id": "a1fb2bda-50a4-41be-b92e-b79e70738156",
@@ -7563,7 +7563,7 @@
           "main": [
             [
               {
-                "node": "Pega o perfil da empresa",
+                "node": "ID da Empresa",
                 "type": "main",
                 "index": 0
               }
@@ -7641,7 +7641,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "383f0777-c22f-4ed0-a6a9-e251afdcd4cc",
+      "versionId": "41f46071-0b39-4968-a0f5-7cdcc9b20439",
       "triggerCount": 6,
       "shared": [
         {
@@ -17828,14 +17828,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-28T14:00:09Z"
+          "lastTimeChecked": "2025-11-30T14:00:09Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-28T14:00:55Z"
+          "lastTimeChecked": "2025-11-30T14:00:55Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            333
+            335
           ]
         }
       },
@@ -18670,7 +18670,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2191
+          "lastMessageUid": 2194
         }
       },
       "meta": {

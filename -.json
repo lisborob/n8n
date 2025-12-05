@@ -2612,10 +2612,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1764793402,
+            "lastTimeChecked": 1764891879,
             "possibleDuplicates": [
-              "19ae5e27a216a428",
-              "19ae5d1c97c1dcee"
+              "19aebc3171abf4b1"
             ]
           }
         },
@@ -26122,14 +26121,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-03T09:48:35Z"
+          "lastTimeChecked": "2025-12-04T14:00:51Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-03T09:48:35Z"
+          "lastTimeChecked": "2025-12-04T14:00:49Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            337
+            339
           ]
         }
       },
@@ -40315,7 +40314,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-03T20:00:39.000Z",
+      "updatedAt": "2025-12-04T23:47:29.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40482,7 +40481,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// Function node: Build HTML\nconst items = $items(\"Get row(s)\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Seleção de Notícias</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 20px; }\n    .instructions { background: #f9f9f9; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item h3 { margin: 0 0 10px; }\n    .links a { margin-right: 15px; }\n    .extra-fields { border: 1px solid #ccc; padding: 15px; margin-top: 30px; background: #f4f4f4; }\n    .extra-fields label { display: block; margin-bottom: 10px; }\n    textarea { width: 100%; min-height: 80px; }\n    button { background: #27ae60; color: #fff; padding: 12px 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }\n    button:hover { background: #219150; }\n  </style>\n</head>\n<body>\n  <h1>Seleção de Notícias para Newsletter</h1>\n  <div class=\"instructions\">\n    <p><strong>Instruções:</strong></p>\n    <ul>\n      <li>Para cada notícia que queira publicar, insira um número de prioridade.</li>\n      <li>Notícias com campo em branco <strong>não serão usadas</strong> na próxima edição.</li>\n      <li>Se quiser apagar uma notícia, coloque um <strong>X</strong> na prioridade.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n  <form id=\"newsletterForm\" action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div class=\"news-item\">\n      <p><strong>ID:</strong> ${item.json.id}</p>\n      <h3>${item.json.titulo}</h3>\n      <p>${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <br>\n      <label>Prioridade: <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"></label>\n    </div>\n  `;\n}\n\n// Campos extras: Saudação e Finalização\nhtml += `\n    <div class=\"extra-fields\">\n      <h2>Textos adicionais</h2>\n      <label for=\"saudacao\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"></textarea>\n\n      <label for=\"finalizacao\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"></textarea>\n    </div>\n\n    <button type=\"submit\">Salvar Seleção</button>\n  </form>\n</body>\n</html>\n`;\n\nreturn [{ json: { html } }];"
+            "jsCode": "const items = $items(\"Get row(s)\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<div style=\"font-family:Arial,sans-serif;background:#f4f4f4;padding:30px;border-radius:8px;max-width:1200px;margin:auto;box-shadow:0 8px 20px rgba(0,0,0,0.1);\">\n  <h2 style=\"color:#e74c3c;text-align:center;margin-bottom:20px;\">Seleção de Notícias para Newsletter</h2>\n\n  <div style=\"background:#fff;border:1px solid #ccc;padding:15px;border-radius:6px;margin-bottom:20px;\">\n    <p><strong>Instruções:</strong></p>\n    <ul style=\"padding-left:20px;margin:0;\">\n      <li>Insira um número de prioridade para cada notícia que deseja publicar.</li>\n      <li>Campos em branco não serão usados na próxima edição.</li>\n      <li>Para excluir uma notícia, insira um <strong>X</strong>.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n\n  <form action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div style=\"border:1px solid #ccc;padding:15px;border-radius:6px;background:#fff;margin-bottom:20px;\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <p style=\"margin:0;font-weight:bold;color:#333;\">ID: ${item.json.id}</p>\n        <a href=\"https://n8n.ooniverse.ai/webhook/edit-news?id=${item.json.id}\"\n           style=\"text-decoration:none;font-size:18px;line-height:1;color:#333;\">\n           ✏️\n        </a>\n      </div>\n      <h3 style=\"margin:10px 0;color:#333;\">${item.json.titulo}</h3>\n      <p style=\"margin:6px 0;color:#555;\">${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <label style=\"display:block;margin-top:10px;font-weight:bold;color:#333;\">Prioridade:</label>\n      <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"\n             style=\"width:100%;padding:10px;margin-top:4px;border:1px solid #ccc;border-radius:4px;font-size:14px;\">\n    </div>\n  `;\n}\n\nhtml += `\n    <div style=\"border:1px solid #ccc;padding:15px;background:#f4f4f4;border-radius:6px;margin-bottom:20px;\">\n      <h3 style=\"margin-top:0;color:#333;\">Textos adicionais</h3>\n      <label for=\"saudacao\" style=\"font-weight:bold;color:#333;\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n\n      <label for=\"finalizacao\" style=\"font-weight:bold;color:#333;margin-top:10px;\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n    </div>\n\n    <button type=\"submit\"\n            style=\"background:#e74c3c;color:#fff;padding:14px;border:none;border-radius:6px;\n                   font-weight:bold;font-size:16px;cursor:pointer;width:100%;\">\n      Salvar Seleção\n    </button>\n  </form>\n</div>\n`;\n\nreturn [{ json: { html } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -40547,8 +40546,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1552,
-            416
+            -1536,
+            544
           ],
           "id": "2f513165-c008-4b55-853a-0118fcde5780",
           "name": "Webhook",
@@ -40561,8 +40560,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -464,
-            432
+            -272,
+            368
           ],
           "id": "7aa74096-8b65-4da8-a0fa-b7d08682847e",
           "name": "Filtra do getRows só o priorizado",
@@ -40595,8 +40594,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -704,
-            432
+            -512,
+            368
           ],
           "id": "466429ed-b2fa-48a2-8df8-4d9c575e9643",
           "name": "Get row(s)1"
@@ -40608,8 +40607,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            160,
-            432
+            352,
+            368
           ],
           "id": "d005491e-fb39-4c00-a3b5-f55296ccf5dd",
           "name": "Cria HTML da Newsletter",
@@ -40653,8 +40652,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            912,
-            320
+            1056,
+            336
           ],
           "credentials": {
             "smtp": {
@@ -40670,8 +40669,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -272,
-            432
+            -80,
+            368
           ],
           "id": "6969e79c-d56f-4393-a059-ea3a254dcc44",
           "name": "Normalizar links do GDrive - view",
@@ -40760,29 +40759,24 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
               "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": "gid=0",
+              "value": 718850216,
               "mode": "list",
-              "cachedResultName": "Sheet1",
+              "cachedResultName": "Emails",
               "cachedResultUrl": "[REDACTED]"
             },
             "filtersUI": {
               "values": [
                 {
-                  "lookupColumn": "piloto",
-                  "lookupValue": "=1"
-                },
-                {
-                  "lookupColumn": "piloto",
-                  "lookupValue": "1"
+                  "lookupColumn": "Status",
+                  "lookupValue": "on"
                 }
               ]
             },
-            "combineFilters": "OR",
             "options": {}
           },
           "id": "dba4b553-d2ee-4868-800e-f5f716d5889c",
@@ -40901,30 +40895,6 @@
         },
         {
           "parameters": {
-            "resource": "messages-api",
-            "instanceName": "Valentina",
-            "remoteJid": "351912508389@s.whatsapp.net",
-            "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
-            "options_message": {}
-          },
-          "type": "n8n-nodes-evolution-api.evolutionApi",
-          "typeVersion": 1,
-          "position": [
-            576,
-            1024
-          ],
-          "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
-          "name": "Enviar texto",
-          "executeOnce": true,
-          "credentials": {
-            "evolutionApi": {
-              "id": "4gvC5iGuSb0S7dgW",
-              "name": "Evolution account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "functionCode": "// Node: Limitar a 100 registros e juntar em uma única string\n\n// Pega todos os registros vindos do node anterior (ex.: \"Filtra os emails...\")\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Extrai os emails e junta em uma única string separada por vírgula\nconst emails = limitados.map(r => r.email).join(\",\");\n\n// Retorna um único item com todos os emails juntos\nreturn [{ json: { emails } }];"
           },
           "name": "Filtrar 100",
@@ -40991,8 +40961,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -64,
-            432
+            128,
+            368
           ],
           "id": "eafd1a11-c986-4385-a5c9-ff8efd75cdbe",
           "name": "cria registro na DT da news",
@@ -41062,7 +41032,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            800,
+            1008,
             496
           ],
           "id": "420c89c2-a4cf-4e68-8f81-6a5d83e42acd",
@@ -41073,10 +41043,10 @@
             "operation": "get",
             "dataTableId": {
               "__rl": true,
-              "value": "gbNejGV416c39TCE",
+              "value": "ASgwpF2PeV4ATAYu",
               "mode": "list",
-              "cachedResultName": "HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
             },
             "matchType": "=anyCondition",
             "filters": {
@@ -41142,7 +41112,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            304,
+            512,
             1984
           ],
           "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
@@ -41188,10 +41158,10 @@
             "operation": "update",
             "dataTableId": {
               "__rl": true,
-              "value": "gbNejGV416c39TCE",
+              "value": "ASgwpF2PeV4ATAYu",
               "mode": "list",
-              "cachedResultName": "HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
             },
             "matchType": "=anyCondition",
             "filters": {
@@ -41287,7 +41257,7 @@
                 {
                   "id": "df32ebc3-cee0-4a00-b4a6-61453242e2ac",
                   "leftValue": "={{ $json.from.value[0].address }}",
-                  "rightValue": "Robson Lisboa <robson.lisboa@midiacode.com>",
+                  "rightValue": "susanacravo@kutsaca.com",
                   "operator": {
                     "type": "string",
                     "operation": "equals",
@@ -41306,8 +41276,8 @@
                 },
                 {
                   "id": "af20b5ab-b5c8-4b37-bf04-73b1f2fa3344",
-                  "leftValue": "",
-                  "rightValue": "",
+                  "leftValue": "={{ $json.from.value[0].address }}",
+                  "rightValue": "robson.lisboa@midiacode.com",
                   "operator": {
                     "type": "string",
                     "operation": "equals",
@@ -41380,7 +41350,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Ajustar ID do botão APROVADA (regex seguro)\n\n// Pega o HTML vindo do AI Agent ou da Data Table Insert\nlet html = $json.output || $json.html || \"\";\n\n// Pega o ID recém-criado na Data Table\nconst newsId = $json.id;\n\n// Se não houver ID, apenas retorna sem erro\nif (!newsId) {\n  return [{ json: { html, warning: \"ID da newsletter não encontrado\" } }];\n}\n\n// 1. Atualiza o número do botão APROVADA\nhtml = html.replace(/(id=)\\d+/, `$1${newsId}`);\n\n// 2. Atualiza também o número dentro do <strong> (texto do ID da newsletter)\nhtml = html.replace(/(<strong>)\\d+(<\\/strong>)/, `$1${newsId}$2`);\n\n// Retorna o HTML ajustado junto com o ID\nreturn [{ json: { html, id: newsId } }];"
+            "jsCode": "// Node: Ajustar ID do botão APROVADA (regex seguro)\n\n// Pega o HTML vindo do AI Agent ou da Data Table Insert\nlet html = $json.html || $json.output || \"\";\n\n// Pega o ID recém-criado na Data Table\nconst newsId = $json.id;\n\n// Se não houver ID, apenas retorna sem erro\nif (!newsId) {\n  return [{ json: { html, warning: \"ID da newsletter não encontrado\" } }];\n}\n\n// 1. Atualiza o número do botão APROVADA\nhtml = html.replace(/(id=)\\d+/, `$1${newsId}`);\n\n// 2. Atualiza também o número dentro do <strong> (texto do ID da newsletter)\nhtml = html.replace(/(<strong>)\\d+(<\\/strong>)/, `$1${newsId}$2`);\n\n// Retorna o HTML ajustado junto com o ID\nreturn [{ json: { html, id: newsId } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -41395,10 +41365,10 @@
           "parameters": {
             "dataTableId": {
               "__rl": true,
-              "value": "gbNejGV416c39TCE",
+              "value": "ASgwpF2PeV4ATAYu",
               "mode": "list",
-              "cachedResultName": "HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
             },
             "columns": {
               "mappingMode": "defineBelow",
@@ -41459,10 +41429,10 @@
             "operation": "update",
             "dataTableId": {
               "__rl": true,
-              "value": "gbNejGV416c39TCE",
+              "value": "ASgwpF2PeV4ATAYu",
               "mode": "list",
-              "cachedResultName": "HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
             },
             "filters": {
               "conditions": [
@@ -41543,7 +41513,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT: {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
+            "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT(assunto): {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -41592,7 +41562,7 @@
         },
         {
           "parameters": {
-            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1) Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2) Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n3) \n",
+            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR TUDO\n\n",
             "height": 1120,
             "width": 992,
             "color": 6
@@ -41883,8 +41853,8 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            -1344,
-            416
+            -672,
+            368
           ],
           "id": "49ea8b38-5494-4b73-8988-acd4dfbddc3c",
           "name": "Respond to Webhook"
@@ -41998,8 +41968,8 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            368,
-            432
+            560,
+            368
           ],
           "id": "243245bc-cea6-44e9-aeaf-63c02b1aef59",
           "name": "AI Agent para criar subject"
@@ -42011,11 +41981,12 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -1136,
+            -1152,
             576
           ],
           "id": "a1ebde62-be96-4e28-8eaa-652221cc7886",
-          "name": "Coleta priorizados"
+          "name": "Coleta priorizados",
+          "alwaysOutputData": true
         },
         {
           "parameters": {
@@ -42042,29 +42013,14 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -2352,
-            1264
-          ]
-        },
-        {
-          "parameters": {
-            "respondWith": "text",
-            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Descadastro confirmado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    .ok { color:#27ae60; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"ok\">✅ Email removido da lista</p>\n    <p class=\"msg\">Você não receberá mais nossas newsletters neste endereço.</p>\n  </div>\n</body>\n</html>",
-            "options": {}
-          },
-          "id": "a40bedfd-e8b6-4c19-aba1-7de44cf40e19",
-          "name": "Respond Unsubscribe",
-          "type": "n8n-nodes-base.respondToWebhook",
-          "typeVersion": 1.4,
-          "position": [
-            -1968,
-            1264
+            -2784,
+            1440
           ]
         },
         {
           "parameters": {
             "content": "## Unsubscribe Kutsaca\ngerencia os emails que querem sair da lista",
-            "height": 416,
+            "height": 672,
             "width": 1328,
             "color": 3
           },
@@ -42096,7 +42052,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "Status": "UNSUBSCRIBED",
-                "Email": "={{ $json.email }}"
+                "Email": "={{ $json.Email }}"
               },
               "matchingColumns": [
                 "Email"
@@ -42141,8 +42097,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -2176,
-            1264
+            -2224,
+            1248
           ],
           "id": "b5238c58-7ee3-4a2b-b4c1-3e1ede0e2ebc",
           "name": "Atualiza a lista com UNSUBSCRIBED",
@@ -42156,7 +42112,7 @@
         {
           "parameters": {
             "respondWith": "text",
-            "responseBody": "\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .container { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    h2 { color:#e74c3c; margin-bottom:16px; }\n    p { color:#555; margin-bottom:16px; }\n    input[type=\"email\"] { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:4px; }\n    button { background:#e74c3c; color:#fff; border:none; padding:12px 20px; border-radius:6px; cursor:pointer; font-weight:bold; width:100%; }\n    button:hover { background:#c0392b; }\n    .note { font-size:12px; color:#888; margin-top:12px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seuemail@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>\n  </div>\n</body>\n</html>\n",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
@@ -42178,8 +42134,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -2528,
-            1264
+            -2960,
+            1440
           ],
           "id": "8859e15f-42d5-4ca8-8574-fdba5745e095",
           "name": "Webook de resposta",
@@ -42187,46 +42143,468 @@
         },
         {
           "parameters": {
-            "content": "## ajusste\nao filtrar os 100, ajustara para não trazer os que tem status UNSUBSCRIBED",
-            "width": 752
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            576,
+            1024
+          ],
+          "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
+          "name": "ENVIAR REPORT VIA WHATS",
+          "executeOnce": true,
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 718850216,
+              "mode": "list",
+              "cachedResultName": "Emails",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "Email",
+                  "lookupValue": "={{ $json.email }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2624,
+            1440
+          ],
+          "id": "ab137cb2-3fca-49d5-abac-200e6758ae79",
+          "name": "Get row(s) in sheet",
+          "alwaysOutputData": true,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "48c75f92-5e5e-4464-a987-1c090a482672",
+                  "leftValue": "={{ $json.row_number }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "number",
+                    "operation": "exists",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            -2464,
+            1440
+          ],
+          "id": "fd8485b8-fc40-4f16-8784-f8538ca8ffb0",
+          "name": "If1"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Descadastro confirmado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    .ok { color:#27ae60; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"ok\">✅ Email removido da lista</p>\n    <p class=\"msg\">Você não receberá mais nossas newsletters neste endereço.</p>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "id": "a40bedfd-e8b6-4c19-aba1-7de44cf40e19",
+          "name": "Respond Unsubscribe - Email UNSUBSCRIBED",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            -2032,
+            1248
+          ]
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Email não encontrado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:380px; }\n    .error { color:#e74c3c; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; margin-bottom:20px; }\n    .btn { display:inline-block; margin:8px; padding:10px 18px; border-radius:6px; font-weight:bold; text-decoration:none; cursor:pointer; }\n    .retry { background:#3498db; color:#fff; }\n    .retry:hover { background:#2980b9; }\n    .close { background:#aaa; color:#fff; }\n    .close:hover { background:#888; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"error\">❌ Email não encontrado</p>\n    <p class=\"msg\">O endereço informado não está na nossa lista de inscritos.</p>\n    <a href=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca\" class=\"btn retry\">🔄 Inserir email novamente</a>\n    <button class=\"btn close\" onclick=\"window.close()\">✖ Fechar janela</button>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "id": "be0d6974-1dfb-44b8-a407-7951b5767262",
+          "name": "Respond - Email DOES NOT EXIST",
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            -2032,
+            1472
+          ]
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json.id }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            1472,
+            -224
+          ],
+          "id": "0417ab49-b61b-4e31-a2f4-c294d9d4ea03",
+          "name": "Pega noticia a ser editada"
+        },
+        {
+          "parameters": {
+            "path": "edit-news",
+            "responseMode": "responseNode",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            1056,
+            -224
+          ],
+          "id": "56a86907-aec1-4b48-bcfd-56e18d7c303d",
+          "name": "Edita news",
+          "webhookId": "592f7b30-5ab4-47b4-a406-19a86ae53211"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Editar Notícia - ID {{ $json.id }}</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 600px; /* aumentei a largura para dar mais espaço */\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0 0 10px 0;\n      text-align: center;\n    }\n\n    label {\n      font-weight: bold;\n      color: #333;\n      margin-bottom: 4px;\n    }\n\n    input[type=\"text\"],\n    textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    textarea {\n      resize: vertical;\n      min-height: 250px; /* aumentei bastante a altura */\n    }\n\n    .buttons {\n      display: flex;\n      justify-content: space-between;\n      gap: 10px;\n      margin-top: 10px;\n    }\n\n    button,\n    .cancel-btn {\n      flex: 1;\n      padding: 12px;\n      border: none;\n      border-radius: 6px;\n      font-weight: bold;\n      font-size: 14px;\n      cursor: pointer;\n      text-align: center;\n      text-decoration: none;\n    }\n\n    button {\n      background: #e74c3c;\n      color: #fff;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .cancel-btn {\n      background: #aaa;\n      color: #fff;\n    }\n\n    .cancel-btn:hover {\n      background: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Editar Notícia ID {{ $json.id }}</h2>\n    <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n      <input type=\"hidden\" name=\"id\" value=\"{{ $json.id }}\">\n\n      <label for=\"titulo\">Título:</label>\n      <input type=\"text\" id=\"titulo\" name=\"titulo\" value=\"{{ $json.titulo }}\">\n\n      <label for=\"text\">Texto:</label>\n      <textarea id=\"text\" name=\"text\">{{ $json.text }}</textarea>\n\n      <label for=\"imagens\">Imagem (URL):</label>\n      <input type=\"text\" id=\"imagens\" name=\"imagens\" value=\"{{ $json.imagens }}\">\n\n      <label for=\"video\">Vídeo (URL):</label>\n      <input type=\"text\" id=\"video\" name=\"video\" value=\"{{ $json.video }}\">\n\n      <div class=\"buttons\">\n        <button type=\"submit\">Salvar alterações</button>\n        <a href=\"https://midiacode.com/?page_id=15842\" class=\"cancel-btn\">Cancelar</a>\n      </div>\n    </form>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            1680,
+            -224
+          ],
+          "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
+          "name": "Responde com formulario editavel"
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "save-news",
+            "responseMode": "responseNode",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            1056,
+            -16
+          ],
+          "id": "50e22102-6fe9-4ee8-9a08-0ce1aa591b31",
+          "name": "Webhook1",
+          "webhookId": "1642db81-be02-4db7-91a8-1a2815f48f54"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json.body.id }}"
+                }
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "titulo": "={{ $json.body.titulo }}",
+                "text": "={{ $json.body.text }}",
+                "imagens": "={{ $json.body.imagens  }}",
+                "video": "={{ $json.body.video  }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "titulo",
+                  "displayName": "titulo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "text",
+                  "displayName": "text",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "imagens",
+                  "displayName": "imagens",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "video",
+                  "displayName": "video",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "usado",
+                  "displayName": "usado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": true
+                },
+                {
+                  "id": "Usuario",
+                  "displayName": "Usuario",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            1264,
+            -16
+          ],
+          "id": "347e2bc9-8200-4568-a008-5ba9d575b85f",
+          "name": "Update row(s)"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p><a href=\"https://midiacode.com/?page_id=15842\" \n        style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n        Voltar à seleção de notícias\n     </a></p>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            2000,
+            -16
+          ],
+          "id": "4b0aeb3f-2d15-448d-bc0f-1d9f49cea1c6",
+          "name": "Respond to Webhook2"
+        },
+        {
+          "parameters": {
+            "resource": "page",
+            "operation": "update",
+            "pageId": "15842",
+            "updateFields": {
+              "content": "={{ $json.html }}"
+            }
+          },
+          "type": "n8n-nodes-base.wordpress",
+          "typeVersion": 1,
+          "position": [
+            1808,
+            -16
+          ],
+          "id": "a3709b3a-1ca9-4164-bb9e-0ff213a0d458",
+          "name": "Update a page1",
+          "credentials": {
+            "wordpressApi": {
+              "id": "dG8OkUCw2bn6FgxK",
+              "name": "Wordpress Application midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "usado",
+                  "condition": "isEmpty"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            1440,
+            -16
+          ],
+          "id": "80b70a55-9a19-4a1b-ac0f-ebd085c1695d",
+          "name": "Get row(s)2"
+        },
+        {
+          "parameters": {
+            "content": "## Edição de noticia\nedita uma noticia e volta para a seleção",
+            "height": 528,
+            "width": 1264,
+            "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -640,
-            1184
+            992,
+            -368
           ],
           "typeVersion": 1,
-          "id": "18a553c7-2879-4862-9668-087b61a403a6",
+          "id": "736ccd25-468f-46f8-934f-a8571b62c9bd",
           "name": "Sticky Note7"
         },
         {
           "parameters": {
-            "content": "## ajusste\nCRIAR UM BOTÃO DE EDITAR A MATERIA PARA QUE SEJA POSSIVEL EDITAR DIRETAMENTE NO TEXTO E AO SALVAR, ATUALIZE NO DATA TABLE",
-            "height": 272,
-            "width": 752
+            "jsCode": "// Node: Ajusta ID para número\n// Pega o id da query string do webhook\nconst idStr = $json.query?.id;\n\n// Converte para número\nconst idNum = idStr ? Number(idStr) : null;\n\n// Se não for número válido, retorna erro\nif (!idNum) {\n  return [{ json: { error: \"ID inválido ou não informado\", id: null } }];\n}\n\n// Retorna o id já como número\nreturn [{ json: { id: idNum } }];"
           },
-          "type": "n8n-nodes-base.stickyNote",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
           "position": [
-            448,
-            -432
+            1264,
+            -224
           ],
-          "typeVersion": 1,
-          "id": "b96e053a-f938-4508-af50-ef0d22e215fa",
-          "name": "Sticky Note8"
+          "id": "2005bed2-beba-43b4-b292-1d474773b49f",
+          "name": "Ajusta ID para número"
         },
         {
           "parameters": {
-            "content": "## Ajuste \nacrescentar mensagem caso o email não seja encontrado",
-            "width": 400
+            "jsCode": "const items = $items(\"Get row(s)2\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<div style=\"font-family:Arial,sans-serif;background:#f4f4f4;padding:30px;border-radius:8px;max-width:1200px;margin:auto;box-shadow:0 8px 20px rgba(0,0,0,0.1);\">\n  <h2 style=\"color:#e74c3c;text-align:center;margin-bottom:20px;\">Seleção de Notícias para Newsletter</h2>\n\n  <div style=\"background:#fff;border:1px solid #ccc;padding:15px;border-radius:6px;margin-bottom:20px;\">\n    <p><strong>Instruções:</strong></p>\n    <ul style=\"padding-left:20px;margin:0;\">\n      <li>Insira um número de prioridade para cada notícia que deseja publicar.</li>\n      <li>Campos em branco não serão usados na próxima edição.</li>\n      <li>Para excluir uma notícia, insira um <strong>X</strong>.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n\n  <form action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div style=\"border:1px solid #ccc;padding:15px;border-radius:6px;background:#fff;margin-bottom:20px;\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <p style=\"margin:0;font-weight:bold;color:#333;\">ID: ${item.json.id}</p>\n        <a href=\"https://n8n.ooniverse.ai/webhook/edit-news?id=${item.json.id}\"\n           style=\"text-decoration:none;font-size:18px;line-height:1;color:#333;\">\n           ✏️\n        </a>\n      </div>\n      <h3 style=\"margin:10px 0;color:#333;\">${item.json.titulo}</h3>\n      <p style=\"margin:6px 0;color:#555;\">${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <label style=\"display:block;margin-top:10px;font-weight:bold;color:#333;\">Prioridade:</label>\n      <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"\n             style=\"width:100%;padding:10px;margin-top:4px;border:1px solid #ccc;border-radius:4px;font-size:14px;\">\n    </div>\n  `;\n}\n\nhtml += `\n    <div style=\"border:1px solid #ccc;padding:15px;background:#f4f4f4;border-radius:6px;margin-bottom:20px;\">\n      <h3 style=\"margin-top:0;color:#333;\">Textos adicionais</h3>\n      <label for=\"saudacao\" style=\"font-weight:bold;color:#333;\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n\n      <label for=\"finalizacao\" style=\"font-weight:bold;color:#333;margin-top:10px;\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n    </div>\n\n    <button type=\"submit\"\n            style=\"background:#e74c3c;color:#fff;padding:14px;border:none;border-radius:6px;\n                   font-weight:bold;font-size:16px;cursor:pointer;width:100%;\">\n      Salvar Seleção\n    </button>\n  </form>\n</div>\n`;\n\nreturn [{ json: { html } }];"
           },
-          "type": "n8n-nodes-base.stickyNote",
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
           "position": [
-            -2656,
-            1472
+            1616,
+            -16
           ],
-          "typeVersion": 1,
-          "id": "03e7d323-d224-4299-b890-8cfeea7bcd0c",
-          "name": "Sticky Note9"
+          "id": "0f461f6c-cbac-465b-9b7f-bc911688b2e3",
+          "name": "monta o html a partir do get rows2"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "9c185fec-379b-4f95-8f9b-c4b070c7f0a9",
+                  "leftValue": "={{ $json.id }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "exists",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            -928,
+            576
+          ],
+          "id": "addfd9a0-952b-4d83-a95e-653462246864",
+          "name": "existe priorização?"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Nenhuma priorização</title>\n  <style>\n    body {\n      font-family: 'Segoe UI', Roboto, Arial, sans-serif;\n      background: #f4f6f8;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n      margin: 0;\n    }\n    .container {\n      text-align: center;\n      background: #fff;\n      padding: 40px 60px;\n      border-radius: 12px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n    }\n    .warning {\n      font-size: 24px;\n      font-weight: bold;\n      color: #e74c3c;\n      margin-bottom: 20px;\n    }\n    .message {\n      font-size: 18px;\n      color: #333;\n      margin-bottom: 20px;\n    }\n    .actions a {\n      display: inline-block;\n      margin: 10px;\n      padding: 12px 20px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-weight: bold;\n      font-size: 16px;\n    }\n    .back {\n      background: #3498db;\n      color: #fff;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <p class=\"warning\">⚠️ Nenhuma notícia foi priorizada!</p>\n    <p class=\"message\">Volte para a tela de priorização.</p>\n    <div class=\"actions\">\n      <a href=\"https://midiacode.com/?page_id=15842\" class=\"back\">🔙 Voltar</a>\n    </div>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            -560,
+            544
+          ],
+          "id": "d1d981a7-8e9b-493a-8fa9-06e73f4c76c8",
+          "name": "Respond to Webhook3"
         }
       ],
       "connections": {
@@ -42289,7 +42667,12 @@
           "main": [
             [
               {
-                "node": "Respond to Webhook",
+                "node": "Separa descartados",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Coleta priorizados",
                 "type": "main",
                 "index": 0
               }
@@ -42366,7 +42749,7 @@
           "main": [
             [
               {
-                "node": "Enviar texto",
+                "node": "ENVIAR REPORT VIA WHATS",
                 "type": "main",
                 "index": 0
               }
@@ -42651,12 +43034,7 @@
           "main": [
             [
               {
-                "node": "Separa descartados",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Coleta priorizados",
+                "node": "Get row(s)1",
                 "type": "main",
                 "index": 0
               }
@@ -42688,7 +43066,7 @@
           "main": [
             [
               {
-                "node": "Get row(s)1",
+                "node": "existe priorização?",
                 "type": "main",
                 "index": 0
               }
@@ -42710,7 +43088,7 @@
           "main": [
             [
               {
-                "node": "Atualiza a lista com UNSUBSCRIBED",
+                "node": "Get row(s) in sheet",
                 "type": "main",
                 "index": 0
               }
@@ -42721,7 +43099,7 @@
           "main": [
             [
               {
-                "node": "Respond Unsubscribe",
+                "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
                 "type": "main",
                 "index": 0
               }
@@ -42738,6 +43116,141 @@
             [
               {
                 "node": "Extract Email",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "If1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If1": {
+          "main": [
+            [
+              {
+                "node": "Atualiza a lista com UNSUBSCRIBED",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond - Email DOES NOT EXIST",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edita news": {
+          "main": [
+            [
+              {
+                "node": "Ajusta ID para número",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Pega noticia a ser editada": {
+          "main": [
+            [
+              {
+                "node": "Responde com formulario editavel",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Webhook1": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row(s)": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s)2": {
+          "main": [
+            [
+              {
+                "node": "monta o html a partir do get rows2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update a page1": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Ajusta ID para número": {
+          "main": [
+            [
+              {
+                "node": "Pega noticia a ser editada",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "monta o html a partir do get rows2": {
+          "main": [
+            [
+              {
+                "node": "Update a page1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "existe priorização?": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Respond to Webhook3",
                 "type": "main",
                 "index": 0
               }
@@ -42766,9 +43279,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "56f74dd1-e8d5-4b45-b427-33f7fd46a0d0",
-      "activeVersionId": "56f74dd1-e8d5-4b45-b427-33f7fd46a0d0",
-      "triggerCount": 8,
+      "versionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
+      "activeVersionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
+      "triggerCount": 10,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -42779,9 +43292,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-03T20:00:39.412Z",
-        "createdAt": "2025-12-03T20:00:39.412Z",
-        "versionId": "56f74dd1-e8d5-4b45-b427-33f7fd46a0d0",
+        "updatedAt": "2025-12-04T23:47:29.641Z",
+        "createdAt": "2025-12-04T23:47:29.641Z",
+        "versionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -42944,7 +43457,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// Function node: Build HTML\nconst items = $items(\"Get row(s)\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Seleção de Notícias</title>\n  <style>\n    body { font-family: Arial, sans-serif; margin: 20px; }\n    .instructions { background: #f9f9f9; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }\n    .news-item h3 { margin: 0 0 10px; }\n    .links a { margin-right: 15px; }\n    .extra-fields { border: 1px solid #ccc; padding: 15px; margin-top: 30px; background: #f4f4f4; }\n    .extra-fields label { display: block; margin-bottom: 10px; }\n    textarea { width: 100%; min-height: 80px; }\n    button { background: #27ae60; color: #fff; padding: 12px 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }\n    button:hover { background: #219150; }\n  </style>\n</head>\n<body>\n  <h1>Seleção de Notícias para Newsletter</h1>\n  <div class=\"instructions\">\n    <p><strong>Instruções:</strong></p>\n    <ul>\n      <li>Para cada notícia que queira publicar, insira um número de prioridade.</li>\n      <li>Notícias com campo em branco <strong>não serão usadas</strong> na próxima edição.</li>\n      <li>Se quiser apagar uma notícia, coloque um <strong>X</strong> na prioridade.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n  <form id=\"newsletterForm\" action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div class=\"news-item\">\n      <p><strong>ID:</strong> ${item.json.id}</p>\n      <h3>${item.json.titulo}</h3>\n      <p>${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <br>\n      <label>Prioridade: <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"></label>\n    </div>\n  `;\n}\n\n// Campos extras: Saudação e Finalização\nhtml += `\n    <div class=\"extra-fields\">\n      <h2>Textos adicionais</h2>\n      <label for=\"saudacao\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"></textarea>\n\n      <label for=\"finalizacao\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"></textarea>\n    </div>\n\n    <button type=\"submit\">Salvar Seleção</button>\n  </form>\n</body>\n</html>\n`;\n\nreturn [{ json: { html } }];"
+              "jsCode": "const items = $items(\"Get row(s)\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<div style=\"font-family:Arial,sans-serif;background:#f4f4f4;padding:30px;border-radius:8px;max-width:1200px;margin:auto;box-shadow:0 8px 20px rgba(0,0,0,0.1);\">\n  <h2 style=\"color:#e74c3c;text-align:center;margin-bottom:20px;\">Seleção de Notícias para Newsletter</h2>\n\n  <div style=\"background:#fff;border:1px solid #ccc;padding:15px;border-radius:6px;margin-bottom:20px;\">\n    <p><strong>Instruções:</strong></p>\n    <ul style=\"padding-left:20px;margin:0;\">\n      <li>Insira um número de prioridade para cada notícia que deseja publicar.</li>\n      <li>Campos em branco não serão usados na próxima edição.</li>\n      <li>Para excluir uma notícia, insira um <strong>X</strong>.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n\n  <form action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div style=\"border:1px solid #ccc;padding:15px;border-radius:6px;background:#fff;margin-bottom:20px;\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <p style=\"margin:0;font-weight:bold;color:#333;\">ID: ${item.json.id}</p>\n        <a href=\"https://n8n.ooniverse.ai/webhook/edit-news?id=${item.json.id}\"\n           style=\"text-decoration:none;font-size:18px;line-height:1;color:#333;\">\n           ✏️\n        </a>\n      </div>\n      <h3 style=\"margin:10px 0;color:#333;\">${item.json.titulo}</h3>\n      <p style=\"margin:6px 0;color:#555;\">${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <label style=\"display:block;margin-top:10px;font-weight:bold;color:#333;\">Prioridade:</label>\n      <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"\n             style=\"width:100%;padding:10px;margin-top:4px;border:1px solid #ccc;border-radius:4px;font-size:14px;\">\n    </div>\n  `;\n}\n\nhtml += `\n    <div style=\"border:1px solid #ccc;padding:15px;background:#f4f4f4;border-radius:6px;margin-bottom:20px;\">\n      <h3 style=\"margin-top:0;color:#333;\">Textos adicionais</h3>\n      <label for=\"saudacao\" style=\"font-weight:bold;color:#333;\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n\n      <label for=\"finalizacao\" style=\"font-weight:bold;color:#333;margin-top:10px;\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n    </div>\n\n    <button type=\"submit\"\n            style=\"background:#e74c3c;color:#fff;padding:14px;border:none;border-radius:6px;\n                   font-weight:bold;font-size:16px;cursor:pointer;width:100%;\">\n      Salvar Seleção\n    </button>\n  </form>\n</div>\n`;\n\nreturn [{ json: { html } }];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -43009,8 +43522,8 @@
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-              -1552,
-              416
+              -1536,
+              544
             ],
             "id": "2f513165-c008-4b55-853a-0118fcde5780",
             "name": "Webhook",
@@ -43023,8 +43536,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -464,
-              432
+              -272,
+              368
             ],
             "id": "7aa74096-8b65-4da8-a0fa-b7d08682847e",
             "name": "Filtra do getRows só o priorizado",
@@ -43057,8 +43570,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -704,
-              432
+              -512,
+              368
             ],
             "id": "466429ed-b2fa-48a2-8df8-4d9c575e9643",
             "name": "Get row(s)1"
@@ -43070,8 +43583,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              160,
-              432
+              352,
+              368
             ],
             "id": "d005491e-fb39-4c00-a3b5-f55296ccf5dd",
             "name": "Cria HTML da Newsletter",
@@ -43115,8 +43628,8 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              912,
-              320
+              1056,
+              336
             ],
             "credentials": {
               "smtp": {
@@ -43132,8 +43645,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -272,
-              432
+              -80,
+              368
             ],
             "id": "6969e79c-d56f-4393-a059-ea3a254dcc44",
             "name": "Normalizar links do GDrive - view",
@@ -43222,29 +43735,24 @@
                 "__rl": true,
                 "value": "[REDACTED]",
                 "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
                 "cachedResultUrl": "[REDACTED]"
               },
               "sheetName": {
                 "__rl": true,
-                "value": "gid=0",
+                "value": 718850216,
                 "mode": "list",
-                "cachedResultName": "Sheet1",
+                "cachedResultName": "Emails",
                 "cachedResultUrl": "[REDACTED]"
               },
               "filtersUI": {
                 "values": [
                   {
-                    "lookupColumn": "piloto",
-                    "lookupValue": "=1"
-                  },
-                  {
-                    "lookupColumn": "piloto",
-                    "lookupValue": "1"
+                    "lookupColumn": "Status",
+                    "lookupValue": "on"
                   }
                 ]
               },
-              "combineFilters": "OR",
               "options": {}
             },
             "id": "dba4b553-d2ee-4868-800e-f5f716d5889c",
@@ -43363,30 +43871,6 @@
           },
           {
             "parameters": {
-              "resource": "messages-api",
-              "instanceName": "Valentina",
-              "remoteJid": "351912508389@s.whatsapp.net",
-              "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
-              "options_message": {}
-            },
-            "type": "n8n-nodes-evolution-api.evolutionApi",
-            "typeVersion": 1,
-            "position": [
-              576,
-              1024
-            ],
-            "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
-            "name": "Enviar texto",
-            "executeOnce": true,
-            "credentials": {
-              "evolutionApi": {
-                "id": "4gvC5iGuSb0S7dgW",
-                "name": "Evolution account"
-              }
-            }
-          },
-          {
-            "parameters": {
               "functionCode": "// Node: Limitar a 100 registros e juntar em uma única string\n\n// Pega todos os registros vindos do node anterior (ex.: \"Filtra os emails...\")\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Extrai os emails e junta em uma única string separada por vírgula\nconst emails = limitados.map(r => r.email).join(\",\");\n\n// Retorna um único item com todos os emails juntos\nreturn [{ json: { emails } }];"
             },
             "name": "Filtrar 100",
@@ -43453,8 +43937,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -64,
-              432
+              128,
+              368
             ],
             "id": "eafd1a11-c986-4385-a5c9-ff8efd75cdbe",
             "name": "cria registro na DT da news",
@@ -43524,7 +44008,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              800,
+              1008,
               496
             ],
             "id": "420c89c2-a4cf-4e68-8f81-6a5d83e42acd",
@@ -43535,10 +44019,10 @@
               "operation": "get",
               "dataTableId": {
                 "__rl": true,
-                "value": "gbNejGV416c39TCE",
+                "value": "ASgwpF2PeV4ATAYu",
                 "mode": "list",
-                "cachedResultName": "HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
               },
               "matchType": "=anyCondition",
               "filters": {
@@ -43604,7 +44088,7 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1,
             "position": [
-              304,
+              512,
               1984
             ],
             "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
@@ -43650,10 +44134,10 @@
               "operation": "update",
               "dataTableId": {
                 "__rl": true,
-                "value": "gbNejGV416c39TCE",
+                "value": "ASgwpF2PeV4ATAYu",
                 "mode": "list",
-                "cachedResultName": "HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
               },
               "matchType": "=anyCondition",
               "filters": {
@@ -43749,7 +44233,7 @@
                   {
                     "id": "df32ebc3-cee0-4a00-b4a6-61453242e2ac",
                     "leftValue": "={{ $json.from.value[0].address }}",
-                    "rightValue": "Robson Lisboa <robson.lisboa@midiacode.com>",
+                    "rightValue": "susanacravo@kutsaca.com",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -43768,8 +44252,8 @@
                   },
                   {
                     "id": "af20b5ab-b5c8-4b37-bf04-73b1f2fa3344",
-                    "leftValue": "",
-                    "rightValue": "",
+                    "leftValue": "={{ $json.from.value[0].address }}",
+                    "rightValue": "robson.lisboa@midiacode.com",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -43842,7 +44326,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// Node: Ajustar ID do botão APROVADA (regex seguro)\n\n// Pega o HTML vindo do AI Agent ou da Data Table Insert\nlet html = $json.output || $json.html || \"\";\n\n// Pega o ID recém-criado na Data Table\nconst newsId = $json.id;\n\n// Se não houver ID, apenas retorna sem erro\nif (!newsId) {\n  return [{ json: { html, warning: \"ID da newsletter não encontrado\" } }];\n}\n\n// 1. Atualiza o número do botão APROVADA\nhtml = html.replace(/(id=)\\d+/, `$1${newsId}`);\n\n// 2. Atualiza também o número dentro do <strong> (texto do ID da newsletter)\nhtml = html.replace(/(<strong>)\\d+(<\\/strong>)/, `$1${newsId}$2`);\n\n// Retorna o HTML ajustado junto com o ID\nreturn [{ json: { html, id: newsId } }];"
+              "jsCode": "// Node: Ajustar ID do botão APROVADA (regex seguro)\n\n// Pega o HTML vindo do AI Agent ou da Data Table Insert\nlet html = $json.html || $json.output || \"\";\n\n// Pega o ID recém-criado na Data Table\nconst newsId = $json.id;\n\n// Se não houver ID, apenas retorna sem erro\nif (!newsId) {\n  return [{ json: { html, warning: \"ID da newsletter não encontrado\" } }];\n}\n\n// 1. Atualiza o número do botão APROVADA\nhtml = html.replace(/(id=)\\d+/, `$1${newsId}`);\n\n// 2. Atualiza também o número dentro do <strong> (texto do ID da newsletter)\nhtml = html.replace(/(<strong>)\\d+(<\\/strong>)/, `$1${newsId}$2`);\n\n// Retorna o HTML ajustado junto com o ID\nreturn [{ json: { html, id: newsId } }];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -43857,10 +44341,10 @@
             "parameters": {
               "dataTableId": {
                 "__rl": true,
-                "value": "gbNejGV416c39TCE",
+                "value": "ASgwpF2PeV4ATAYu",
                 "mode": "list",
-                "cachedResultName": "HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
               },
               "columns": {
                 "mappingMode": "defineBelow",
@@ -43921,10 +44405,10 @@
               "operation": "update",
               "dataTableId": {
                 "__rl": true,
-                "value": "gbNejGV416c39TCE",
+                "value": "ASgwpF2PeV4ATAYu",
                 "mode": "list",
-                "cachedResultName": "HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
               },
               "filters": {
                 "conditions": [
@@ -44005,7 +44489,7 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT: {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
+              "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT(assunto): {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -44054,7 +44538,7 @@
           },
           {
             "parameters": {
-              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1) Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2) Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n3) \n",
+              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR TUDO\n\n",
               "height": 1120,
               "width": 992,
               "color": 6
@@ -44345,8 +44829,8 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              -1344,
-              416
+              -672,
+              368
             ],
             "id": "49ea8b38-5494-4b73-8988-acd4dfbddc3c",
             "name": "Respond to Webhook"
@@ -44460,8 +44944,8 @@
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3,
             "position": [
-              368,
-              432
+              560,
+              368
             ],
             "id": "243245bc-cea6-44e9-aeaf-63c02b1aef59",
             "name": "AI Agent para criar subject"
@@ -44473,11 +44957,12 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -1136,
+              -1152,
               576
             ],
             "id": "a1ebde62-be96-4e28-8eaa-652221cc7886",
-            "name": "Coleta priorizados"
+            "name": "Coleta priorizados",
+            "alwaysOutputData": true
           },
           {
             "parameters": {
@@ -44504,29 +44989,14 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -2352,
-              1264
-            ]
-          },
-          {
-            "parameters": {
-              "respondWith": "text",
-              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Descadastro confirmado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    .ok { color:#27ae60; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"ok\">✅ Email removido da lista</p>\n    <p class=\"msg\">Você não receberá mais nossas newsletters neste endereço.</p>\n  </div>\n</body>\n</html>",
-              "options": {}
-            },
-            "id": "a40bedfd-e8b6-4c19-aba1-7de44cf40e19",
-            "name": "Respond Unsubscribe",
-            "type": "n8n-nodes-base.respondToWebhook",
-            "typeVersion": 1.4,
-            "position": [
-              -1968,
-              1264
+              -2784,
+              1440
             ]
           },
           {
             "parameters": {
               "content": "## Unsubscribe Kutsaca\ngerencia os emails que querem sair da lista",
-              "height": 416,
+              "height": 672,
               "width": 1328,
               "color": 3
             },
@@ -44558,7 +45028,7 @@
                 "mappingMode": "defineBelow",
                 "value": {
                   "Status": "UNSUBSCRIBED",
-                  "Email": "={{ $json.email }}"
+                  "Email": "={{ $json.Email }}"
                 },
                 "matchingColumns": [
                   "Email"
@@ -44603,8 +45073,8 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              -2176,
-              1264
+              -2224,
+              1248
             ],
             "id": "b5238c58-7ee3-4a2b-b4c1-3e1ede0e2ebc",
             "name": "Atualiza a lista com UNSUBSCRIBED",
@@ -44618,7 +45088,7 @@
           {
             "parameters": {
               "respondWith": "text",
-              "responseBody": "\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .container { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    h2 { color:#e74c3c; margin-bottom:16px; }\n    p { color:#555; margin-bottom:16px; }\n    input[type=\"email\"] { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:4px; }\n    button { background:#e74c3c; color:#fff; border:none; padding:12px 20px; border-radius:6px; cursor:pointer; font-weight:bold; width:100%; }\n    button:hover { background:#c0392b; }\n    .note { font-size:12px; color:#888; margin-top:12px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seuemail@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>\n  </div>\n</body>\n</html>\n",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
@@ -44640,8 +45110,8 @@
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-              -2528,
-              1264
+              -2960,
+              1440
             ],
             "id": "8859e15f-42d5-4ca8-8574-fdba5745e095",
             "name": "Webook de resposta",
@@ -44649,46 +45119,468 @@
           },
           {
             "parameters": {
-              "content": "## ajusste\nao filtrar os 100, ajustara para não trazer os que tem status UNSUBSCRIBED",
-              "width": 752
+              "resource": "messages-api",
+              "instanceName": "Valentina",
+              "remoteJid": "351912508389@s.whatsapp.net",
+              "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
+              "options_message": {}
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              576,
+              1024
+            ],
+            "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
+            "name": "ENVIAR REPORT VIA WHATS",
+            "executeOnce": true,
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 718850216,
+                "mode": "list",
+                "cachedResultName": "Emails",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "Email",
+                    "lookupValue": "={{ $json.email }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2624,
+              1440
+            ],
+            "id": "ab137cb2-3fca-49d5-abac-200e6758ae79",
+            "name": "Get row(s) in sheet",
+            "alwaysOutputData": true,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "48c75f92-5e5e-4464-a987-1c090a482672",
+                    "leftValue": "={{ $json.row_number }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "number",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -2464,
+              1440
+            ],
+            "id": "fd8485b8-fc40-4f16-8784-f8538ca8ffb0",
+            "name": "If1"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Descadastro confirmado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:360px; }\n    .ok { color:#27ae60; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"ok\">✅ Email removido da lista</p>\n    <p class=\"msg\">Você não receberá mais nossas newsletters neste endereço.</p>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "id": "a40bedfd-e8b6-4c19-aba1-7de44cf40e19",
+            "name": "Respond Unsubscribe - Email UNSUBSCRIBED",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              -2032,
+              1248
+            ]
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Email não encontrado</title>\n  <style>\n    body { font-family: Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }\n    .card { background:#fff; padding:30px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; width:380px; }\n    .error { color:#e74c3c; font-size:22px; font-weight:bold; margin-bottom:12px; }\n    .msg { color:#555; margin-bottom:20px; }\n    .btn { display:inline-block; margin:8px; padding:10px 18px; border-radius:6px; font-weight:bold; text-decoration:none; cursor:pointer; }\n    .retry { background:#3498db; color:#fff; }\n    .retry:hover { background:#2980b9; }\n    .close { background:#aaa; color:#fff; }\n    .close:hover { background:#888; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <p class=\"error\">❌ Email não encontrado</p>\n    <p class=\"msg\">O endereço informado não está na nossa lista de inscritos.</p>\n    <a href=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca\" class=\"btn retry\">🔄 Inserir email novamente</a>\n    <button class=\"btn close\" onclick=\"window.close()\">✖ Fechar janela</button>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "id": "be0d6974-1dfb-44b8-a407-7951b5767262",
+            "name": "Respond - Email DOES NOT EXIST",
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              -2032,
+              1472
+            ]
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyValue": "={{ $json.id }}"
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              1472,
+              -224
+            ],
+            "id": "0417ab49-b61b-4e31-a2f4-c294d9d4ea03",
+            "name": "Pega noticia a ser editada"
+          },
+          {
+            "parameters": {
+              "path": "edit-news",
+              "responseMode": "responseNode",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              1056,
+              -224
+            ],
+            "id": "56a86907-aec1-4b48-bcfd-56e18d7c303d",
+            "name": "Edita news",
+            "webhookId": "592f7b30-5ab4-47b4-a406-19a86ae53211"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Editar Notícia - ID {{ $json.id }}</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 600px; /* aumentei a largura para dar mais espaço */\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0 0 10px 0;\n      text-align: center;\n    }\n\n    label {\n      font-weight: bold;\n      color: #333;\n      margin-bottom: 4px;\n    }\n\n    input[type=\"text\"],\n    textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    textarea {\n      resize: vertical;\n      min-height: 250px; /* aumentei bastante a altura */\n    }\n\n    .buttons {\n      display: flex;\n      justify-content: space-between;\n      gap: 10px;\n      margin-top: 10px;\n    }\n\n    button,\n    .cancel-btn {\n      flex: 1;\n      padding: 12px;\n      border: none;\n      border-radius: 6px;\n      font-weight: bold;\n      font-size: 14px;\n      cursor: pointer;\n      text-align: center;\n      text-decoration: none;\n    }\n\n    button {\n      background: #e74c3c;\n      color: #fff;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .cancel-btn {\n      background: #aaa;\n      color: #fff;\n    }\n\n    .cancel-btn:hover {\n      background: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Editar Notícia ID {{ $json.id }}</h2>\n    <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n      <input type=\"hidden\" name=\"id\" value=\"{{ $json.id }}\">\n\n      <label for=\"titulo\">Título:</label>\n      <input type=\"text\" id=\"titulo\" name=\"titulo\" value=\"{{ $json.titulo }}\">\n\n      <label for=\"text\">Texto:</label>\n      <textarea id=\"text\" name=\"text\">{{ $json.text }}</textarea>\n\n      <label for=\"imagens\">Imagem (URL):</label>\n      <input type=\"text\" id=\"imagens\" name=\"imagens\" value=\"{{ $json.imagens }}\">\n\n      <label for=\"video\">Vídeo (URL):</label>\n      <input type=\"text\" id=\"video\" name=\"video\" value=\"{{ $json.video }}\">\n\n      <div class=\"buttons\">\n        <button type=\"submit\">Salvar alterações</button>\n        <a href=\"https://midiacode.com/?page_id=15842\" class=\"cancel-btn\">Cancelar</a>\n      </div>\n    </form>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              1680,
+              -224
+            ],
+            "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
+            "name": "Responde com formulario editavel"
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "save-news",
+              "responseMode": "responseNode",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              1056,
+              -16
+            ],
+            "id": "50e22102-6fe9-4ee8-9a08-0ce1aa591b31",
+            "name": "Webhook1",
+            "webhookId": "1642db81-be02-4db7-91a8-1a2815f48f54"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyValue": "={{ $json.body.id }}"
+                  }
+                ]
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "titulo": "={{ $json.body.titulo }}",
+                  "text": "={{ $json.body.text }}",
+                  "imagens": "={{ $json.body.imagens  }}",
+                  "video": "={{ $json.body.video  }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "titulo",
+                    "displayName": "titulo",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "text",
+                    "displayName": "text",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "imagens",
+                    "displayName": "imagens",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "video",
+                    "displayName": "video",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "usado",
+                    "displayName": "usado",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": true
+                  },
+                  {
+                    "id": "Usuario",
+                    "displayName": "Usuario",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              1264,
+              -16
+            ],
+            "id": "347e2bc9-8200-4568-a008-5ba9d575b85f",
+            "name": "Update row(s)"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p><a href=\"https://midiacode.com/?page_id=15842\" \n        style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n        Voltar à seleção de notícias\n     </a></p>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              2000,
+              -16
+            ],
+            "id": "4b0aeb3f-2d15-448d-bc0f-1d9f49cea1c6",
+            "name": "Respond to Webhook2"
+          },
+          {
+            "parameters": {
+              "resource": "page",
+              "operation": "update",
+              "pageId": "15842",
+              "updateFields": {
+                "content": "={{ $json.html }}"
+              }
+            },
+            "type": "n8n-nodes-base.wordpress",
+            "typeVersion": 1,
+            "position": [
+              1808,
+              -16
+            ],
+            "id": "a3709b3a-1ca9-4164-bb9e-0ff213a0d458",
+            "name": "Update a page1",
+            "credentials": {
+              "wordpressApi": {
+                "id": "dG8OkUCw2bn6FgxK",
+                "name": "Wordpress Application midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyName": "usado",
+                    "condition": "isEmpty"
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              1440,
+              -16
+            ],
+            "id": "80b70a55-9a19-4a1b-ac0f-ebd085c1695d",
+            "name": "Get row(s)2"
+          },
+          {
+            "parameters": {
+              "content": "## Edição de noticia\nedita uma noticia e volta para a seleção",
+              "height": 528,
+              "width": 1264,
+              "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -640,
-              1184
+              992,
+              -368
             ],
             "typeVersion": 1,
-            "id": "18a553c7-2879-4862-9668-087b61a403a6",
+            "id": "736ccd25-468f-46f8-934f-a8571b62c9bd",
             "name": "Sticky Note7"
           },
           {
             "parameters": {
-              "content": "## ajusste\nCRIAR UM BOTÃO DE EDITAR A MATERIA PARA QUE SEJA POSSIVEL EDITAR DIRETAMENTE NO TEXTO E AO SALVAR, ATUALIZE NO DATA TABLE",
-              "height": 272,
-              "width": 752
+              "jsCode": "// Node: Ajusta ID para número\n// Pega o id da query string do webhook\nconst idStr = $json.query?.id;\n\n// Converte para número\nconst idNum = idStr ? Number(idStr) : null;\n\n// Se não for número válido, retorna erro\nif (!idNum) {\n  return [{ json: { error: \"ID inválido ou não informado\", id: null } }];\n}\n\n// Retorna o id já como número\nreturn [{ json: { id: idNum } }];"
             },
-            "type": "n8n-nodes-base.stickyNote",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
             "position": [
-              448,
-              -432
+              1264,
+              -224
             ],
-            "typeVersion": 1,
-            "id": "b96e053a-f938-4508-af50-ef0d22e215fa",
-            "name": "Sticky Note8"
+            "id": "2005bed2-beba-43b4-b292-1d474773b49f",
+            "name": "Ajusta ID para número"
           },
           {
             "parameters": {
-              "content": "## Ajuste \nacrescentar mensagem caso o email não seja encontrado",
-              "width": 400
+              "jsCode": "const items = $items(\"Get row(s)2\", 0, 0);\n\nfunction fixImageLink(link) {\n  if (!link) return null;\n  return link.replace(\"download\", \"view\");\n}\n\nlet html = `\n<div style=\"font-family:Arial,sans-serif;background:#f4f4f4;padding:30px;border-radius:8px;max-width:1200px;margin:auto;box-shadow:0 8px 20px rgba(0,0,0,0.1);\">\n  <h2 style=\"color:#e74c3c;text-align:center;margin-bottom:20px;\">Seleção de Notícias para Newsletter</h2>\n\n  <div style=\"background:#fff;border:1px solid #ccc;padding:15px;border-radius:6px;margin-bottom:20px;\">\n    <p><strong>Instruções:</strong></p>\n    <ul style=\"padding-left:20px;margin:0;\">\n      <li>Insira um número de prioridade para cada notícia que deseja publicar.</li>\n      <li>Campos em branco não serão usados na próxima edição.</li>\n      <li>Para excluir uma notícia, insira um <strong>X</strong>.</li>\n      <li>Use números para definir a ordem (1 = primeira, 2 = segunda, etc.).</li>\n    </ul>\n  </div>\n\n  <form action=\"https://n8n.ooniverse.ai/webhook/d3dd1153-368e-46fb-9951-65a568a15ad7\" method=\"POST\">\n`;\n\nfor (const item of items) {\n  const imgLink = fixImageLink(item.json.imagens || \"\");\n  const videoLink = item.json.video || null;\n\n  html += `\n    <div style=\"border:1px solid #ccc;padding:15px;border-radius:6px;background:#fff;margin-bottom:20px;\">\n      <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <p style=\"margin:0;font-weight:bold;color:#333;\">ID: ${item.json.id}</p>\n        <a href=\"https://n8n.ooniverse.ai/webhook/edit-news?id=${item.json.id}\"\n           style=\"text-decoration:none;font-size:18px;line-height:1;color:#333;\">\n           ✏️\n        </a>\n      </div>\n      <h3 style=\"margin:10px 0;color:#333;\">${item.json.titulo}</h3>\n      <p style=\"margin:6px 0;color:#555;\">${item.json.text}</p>\n      <p><strong>Imagem:</strong> ${\n        imgLink ? `<a href=\"${imgLink}\" target=\"_blank\" rel=\"noopener\">${imgLink}</a>` : \"<em>SEM IMAGEM</em>\"\n      }</p>\n      <p><strong>Vídeo:</strong> ${\n        videoLink ? `<a href=\"${videoLink}\" target=\"_blank\" rel=\"noopener\">${videoLink}</a>` : \"<em>SEM VIDEO</em>\"\n      }</p>\n      <label style=\"display:block;margin-top:10px;font-weight:bold;color:#333;\">Prioridade:</label>\n      <input type=\"text\" name=\"priority_${item.json.id}\" placeholder=\"Número ou X\"\n             style=\"width:100%;padding:10px;margin-top:4px;border:1px solid #ccc;border-radius:4px;font-size:14px;\">\n    </div>\n  `;\n}\n\nhtml += `\n    <div style=\"border:1px solid #ccc;padding:15px;background:#f4f4f4;border-radius:6px;margin-bottom:20px;\">\n      <h3 style=\"margin-top:0;color:#333;\">Textos adicionais</h3>\n      <label for=\"saudacao\" style=\"font-weight:bold;color:#333;\">Saudação ao leitor:</label>\n      <textarea id=\"saudacao\" name=\"saudacao\" placeholder=\"Escreva uma breve saudação...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n\n      <label for=\"finalizacao\" style=\"font-weight:bold;color:#333;margin-top:10px;\">Finalização:</label>\n      <textarea id=\"finalizacao\" name=\"finalizacao\" placeholder=\"Escreva uma palavra final...\"\n                style=\"width:100%;min-height:100px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;\"></textarea>\n    </div>\n\n    <button type=\"submit\"\n            style=\"background:#e74c3c;color:#fff;padding:14px;border:none;border-radius:6px;\n                   font-weight:bold;font-size:16px;cursor:pointer;width:100%;\">\n      Salvar Seleção\n    </button>\n  </form>\n</div>\n`;\n\nreturn [{ json: { html } }];"
             },
-            "type": "n8n-nodes-base.stickyNote",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
             "position": [
-              -2656,
-              1472
+              1616,
+              -16
             ],
-            "typeVersion": 1,
-            "id": "03e7d323-d224-4299-b890-8cfeea7bcd0c",
-            "name": "Sticky Note9"
+            "id": "0f461f6c-cbac-465b-9b7f-bc911688b2e3",
+            "name": "monta o html a partir do get rows2"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c185fec-379b-4f95-8f9b-c4b070c7f0a9",
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -928,
+              576
+            ],
+            "id": "addfd9a0-952b-4d83-a95e-653462246864",
+            "name": "existe priorização?"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Nenhuma priorização</title>\n  <style>\n    body {\n      font-family: 'Segoe UI', Roboto, Arial, sans-serif;\n      background: #f4f6f8;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n      margin: 0;\n    }\n    .container {\n      text-align: center;\n      background: #fff;\n      padding: 40px 60px;\n      border-radius: 12px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n    }\n    .warning {\n      font-size: 24px;\n      font-weight: bold;\n      color: #e74c3c;\n      margin-bottom: 20px;\n    }\n    .message {\n      font-size: 18px;\n      color: #333;\n      margin-bottom: 20px;\n    }\n    .actions a {\n      display: inline-block;\n      margin: 10px;\n      padding: 12px 20px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-weight: bold;\n      font-size: 16px;\n    }\n    .back {\n      background: #3498db;\n      color: #fff;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <p class=\"warning\">⚠️ Nenhuma notícia foi priorizada!</p>\n    <p class=\"message\">Volte para a tela de priorização.</p>\n    <div class=\"actions\">\n      <a href=\"https://midiacode.com/?page_id=15842\" class=\"back\">🔙 Voltar</a>\n    </div>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              -560,
+              544
+            ],
+            "id": "d1d981a7-8e9b-493a-8fa9-06e73f4c76c8",
+            "name": "Respond to Webhook3"
           }
         ],
         "connections": {
@@ -44751,7 +45643,12 @@
             "main": [
               [
                 {
-                  "node": "Respond to Webhook",
+                  "node": "Separa descartados",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Coleta priorizados",
                   "type": "main",
                   "index": 0
                 }
@@ -44828,7 +45725,7 @@
             "main": [
               [
                 {
-                  "node": "Enviar texto",
+                  "node": "ENVIAR REPORT VIA WHATS",
                   "type": "main",
                   "index": 0
                 }
@@ -45113,12 +46010,7 @@
             "main": [
               [
                 {
-                  "node": "Separa descartados",
-                  "type": "main",
-                  "index": 0
-                },
-                {
-                  "node": "Coleta priorizados",
+                  "node": "Get row(s)1",
                   "type": "main",
                   "index": 0
                 }
@@ -45150,7 +46042,7 @@
             "main": [
               [
                 {
-                  "node": "Get row(s)1",
+                  "node": "existe priorização?",
                   "type": "main",
                   "index": 0
                 }
@@ -45172,7 +46064,7 @@
             "main": [
               [
                 {
-                  "node": "Atualiza a lista com UNSUBSCRIBED",
+                  "node": "Get row(s) in sheet",
                   "type": "main",
                   "index": 0
                 }
@@ -45183,7 +46075,7 @@
             "main": [
               [
                 {
-                  "node": "Respond Unsubscribe",
+                  "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
                   "type": "main",
                   "index": 0
                 }
@@ -45200,6 +46092,141 @@
               [
                 {
                   "node": "Extract Email",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "If1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If1": {
+            "main": [
+              [
+                {
+                  "node": "Atualiza a lista com UNSUBSCRIBED",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond - Email DOES NOT EXIST",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edita news": {
+            "main": [
+              [
+                {
+                  "node": "Ajusta ID para número",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Pega noticia a ser editada": {
+            "main": [
+              [
+                {
+                  "node": "Responde com formulario editavel",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Webhook1": {
+            "main": [
+              [
+                {
+                  "node": "Update row(s)",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update row(s)": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s)2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s)2": {
+            "main": [
+              [
+                {
+                  "node": "monta o html a partir do get rows2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update a page1": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Ajusta ID para número": {
+            "main": [
+              [
+                {
+                  "node": "Pega noticia a ser editada",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "monta o html a partir do get rows2": {
+            "main": [
+              [
+                {
+                  "node": "Update a page1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "existe priorização?": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Respond to Webhook3",
                   "type": "main",
                   "index": 0
                 }

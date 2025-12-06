@@ -1,91 +1,6 @@
 {
   "data": [
     {
-      "updatedAt": "2025-08-23T20:23:19.000Z",
-      "createdAt": "2025-08-22T16:03:50.531Z",
-      "id": "2OLvR1V9SkqTUYzD",
-      "name": "My workflow",
-      "active": false,
-      "isArchived": true,
-      "nodes": [
-        {
-          "parameters": {
-            "formTitle": "Arquivos para o merge",
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Arquivo main",
-                  "fieldType": "file",
-                  "multipleFiles": false
-                },
-                {
-                  "fieldLabel": "Arquivo sec",
-                  "fieldType": "file"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.formTrigger",
-          "typeVersion": 2.2,
-          "position": [
-            -384,
-            -32
-          ],
-          "id": "7f0a6b4f-0539-43d3-9c7c-4df3544ec49f",
-          "name": "On form submission",
-          "webhookId": "572bad21-e22b-4373-a7be-044b67fef470"
-        },
-        {
-          "parameters": {
-            "language": "python",
-            "pythonCode": "import pandas as pd\n\n# Carregar base Excel\ncadastros = pd.read_excel('Base-de-Cadastros.xlsx')\n\n# Carregar base CSV da Bertolini\nbertolini = pd.read_csv('BERTOLINI.csv')\n\n# Cruzar usando código único\nresultado = bertolini.merge(\n    cadastros,\n    left_on='raw_data',\n    right_on='CÓDIGO CRACHÁ',\n    how='left'\n)\n\n# Exibir as primeiras linhas do cruzamento para conferência\nprint(resultado.head())\n\n# Salvar resultado em Excel\nresultado.to_excel('resultado_cruzamento.xlsx', index=False)\n\nprint('Arquivo \"resultado_cruzamento.xlsx\" gerado com sucesso!')"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -176,
-            -32
-          ],
-          "id": "c45edbad-a524-4726-ba31-b50ea9e02400",
-          "name": "Code"
-        }
-      ],
-      "connections": {
-        "On form submission": {
-          "main": [
-            [
-              {
-                "node": "Code",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        }
-      },
-      "settings": {
-        "executionOrder": "v1"
-      },
-      "staticData": null,
-      "meta": null,
-      "pinData": {},
-      "versionId": "cb252f58-3e75-4e87-99a8-86c51e7f1869",
-      "activeVersionId": null,
-      "triggerCount": 0,
-      "shared": [
-        {
-          "updatedAt": "2025-08-22T16:03:50.545Z",
-          "createdAt": "2025-08-22T16:03:50.545Z",
-          "role": "workflow:owner",
-          "workflowId": "2OLvR1V9SkqTUYzD",
-          "projectId": "MDx9S6QRKUuQVawA"
-        }
-      ],
-      "activeVersion": null,
-      "tags": []
-    },
-    {
       "updatedAt": "2025-10-16T10:41:17.000Z",
       "createdAt": "2025-09-02T17:22:20.149Z",
       "id": "5ZnLGXLWdkUeYvTJ",
@@ -2612,9 +2527,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1764891879,
+            "lastTimeChecked": 1764971272,
             "possibleDuplicates": [
-              "19aebc3171abf4b1"
+              "19af07c71c3058af"
             ]
           }
         },
@@ -16770,7 +16685,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            0
+            12
           ]
         }
       },
@@ -26121,10 +26036,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-04T14:00:51Z"
+          "lastTimeChecked": "2025-12-05T16:03:04Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-04T14:00:49Z"
+          "lastTimeChecked": "2025-12-05T16:03:05Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -40314,7 +40229,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-04T23:47:29.000Z",
+      "updatedAt": "2025-12-05T20:36:18.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40334,7 +40249,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "titulo": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o título da notícia? '] }}",
-                "text": "={{ $json.output }}",
+                "text": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}",
                 "video": "={{ $('inserção de conteúdo da news Susana').item.json['Vídeo da notícia (opcional)'] }}",
                 "imagens": "={{ $('Upload file').item.json.webContentLink }}",
                 "Usuario": "Susana Cravo"
@@ -40410,8 +40325,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -688,
-            -96
+            -880,
+            -112
           ],
           "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
           "name": "Insert row"
@@ -40438,8 +40353,8 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1536,
-            -96
+            -1424,
+            -112
           ],
           "id": "0627e490-2ead-4958-9b86-ae50c8d1941a",
           "name": "Upload file",
@@ -40616,8 +40531,8 @@
         },
         {
           "parameters": {
-            "fromEmail": "contact@midiacode.tech",
-            "toEmail": "robson.lisboa@midiacode.com",
+            "fromEmail": "contacto@kutsaca.com",
+            "toEmail": "susanacravo@kutsaca.com",
             "ccEmail": "glauci@midiacode.com",
             "subject": "Seleção de notícias para próxima edição da newsletter",
             "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15842\n\nAtenciosamente,\nValentina",
@@ -40633,16 +40548,16 @@
           ],
           "credentials": {
             "smtp": {
-              "id": "0akA4vSRMV9Mz1p8",
-              "name": "SMTP from contact@midiacode.tech"
+              "id": "eIabgHBZcsJl51Oj",
+              "name": "Kutsaca.com - SMTP account"
             }
           }
         },
         {
           "parameters": {
-            "fromEmail": "contact@midiacode.tech",
+            "fromEmail": "contacto@kutsaca.com",
             "toEmail": "robson.lisboa@midiacode.com, lisborob@gmail.com",
-            "ccEmail": "glauci@midiacode.com",
+            "ccEmail": "glauci@midiacode.com, ",
             "subject": "={{ $json.output }}",
             "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
             "options": {}
@@ -40657,8 +40572,8 @@
           ],
           "credentials": {
             "smtp": {
-              "id": "0akA4vSRMV9Mz1p8",
-              "name": "SMTP from contact@midiacode.tech"
+              "id": "eIabgHBZcsJl51Oj",
+              "name": "Kutsaca.com - SMTP account"
             }
           }
         },
@@ -40679,13 +40594,13 @@
         {
           "parameters": {
             "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente\npara adicionar novos colaboradores, duplique todos os nós e revise todas as variáveis, adicionando o nome do novo publicador no Insert Row",
-            "height": 368,
+            "height": 688,
             "width": 1312
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -1792,
-            -256
+            -496
           ],
           "typeVersion": 1,
           "id": "4725f3b8-c72d-4939-a8fa-c0a1fd889c8c",
@@ -40710,8 +40625,8 @@
         {
           "parameters": {
             "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
-            "height": 416,
-            "width": 2672,
+            "height": 496,
+            "width": 2960,
             "color": 3
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -41082,9 +40997,9 @@
         {
           "parameters": {
             "fromEmail": "contact@midiacode.tech",
-            "toEmail": "oi@midiacode.com",
+            "toEmail": "susanacravo@kutsaca.com",
             "ccEmail": "robson.lisboa@midiacode.com",
-            "bccEmail": "={{ $json.emails }}",
+            "bccEmail": "=",
             "subject": "={{  $('pega o html certo da DT').item.json.subject }}",
             "html": "={{  $('Retira do html final a seção do aprovador').item.json.html }}",
             "options": {}
@@ -41239,8 +41154,8 @@
           "name": "Email Trigger (IMAP)",
           "credentials": {
             "imap": {
-              "id": "T2iCcPAs4ylH9UZY",
-              "name": "IMAP-contact@midiacode.tech"
+              "id": "Afnd8aBFfpqIgfDX",
+              "name": "Kutsaca.com - IMAP account"
             }
           }
         },
@@ -41312,8 +41227,8 @@
         {
           "parameters": {
             "fromEmail": "contact@midiacode.tech",
-            "toEmail": "robson.lisboa@midiacode.com",
-            "ccEmail": "glauci@midiacode.com",
+            "toEmail": "susanacravo@kutsaca.com",
+            "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
             "subject": "={{ $json.subject }}",
             "html": "={{ $json.html }}",
             "options": {}
@@ -41528,14 +41443,14 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=voce é especialista em escrever textos para newsletter.\nuse somente o Português de Portugal.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, a atratividade, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:  {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }} \nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.\nUse as informações a respeito do perfil da empresa ({{ $('Pega o perfil da empresa').item.json.Perfil_Empresa }}) e perfil do público alvo ({{ $('Pega o perfil da empresa').item.json.Perfil_Publico_Alvo }}) para re-escrever o artigo: {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}, com clareza e assertividade, seguindo o perfil de mensagem que a empresa quer ({{ $('Pega o perfil da empresa').item.json.Perfil_Mensagem }}).\nMantenha o texto curto e direto, para compor uma newsletter, usando para isso as melhores práticas de escrita do mercado.",
+            "text": "=voce é especialista em escrever textos para newsletter.\nuse somente o Português de Portugal.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, a atratividade, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:  {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }} \nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.\nUse as informações a respeito do perfil da empresa ({{ $('Pega o perfil da empresa').item.json.Perfil_Empresa }}) e perfil do público alvo ({{ $('Pega o perfil da empresa').item.json.Perfil_Publico_Alvo }}) para re-escrever o artigo: {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}, com clareza e assertividade, seguindo o perfil de mensagem que a empresa quer ({{ $('Pega o perfil da empresa').item.json.Perfil_Mensagem }}).\nMantenha o texto curto e direto, para compor uma newsletter, usando para isso as melhores práticas de escrita do mercado.\nCaso o texto tenha links, mantenha-os no texto de output.",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -960,
-            -96
+            -880,
+            64
           ],
           "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
           "name": "Melhora o texto da notícia"
@@ -41562,7 +41477,7 @@
         },
         {
           "parameters": {
-            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR TUDO\n\n",
+            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
             "height": 1120,
             "width": 992,
             "color": 6
@@ -41701,8 +41616,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1376,
-            -96
+            -1248,
+            64
           ],
           "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
           "name": "ID da Empresa"
@@ -41729,8 +41644,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1216,
-            -96
+            -1072,
+            64
           ],
           "id": "400bc9fa-0d26-479a-8851-6701103967d4",
           "name": "Pega o perfil da empresa"
@@ -41747,7 +41662,8 @@
                 },
                 {
                   "fieldLabel": "Qual o texto da notícia? ",
-                  "placeholder": "Digite aqui. Este texto será revisado e melhorado por IA.",
+                  "fieldType": "textarea",
+                  "placeholder": "Digite aqui. ",
                   "requiredField": true
                 },
                 {
@@ -41776,8 +41692,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.3,
           "position": [
-            -1696,
-            -96
+            -1712,
+            -112
           ],
           "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
           "name": "inserção de conteúdo da news Susana",
@@ -42019,7 +41935,7 @@
         },
         {
           "parameters": {
-            "content": "## Unsubscribe Kutsaca\ngerencia os emails que querem sair da lista",
+            "content": "## Unsubscribe\ngerencia os emails que querem sair da lista",
             "height": 672,
             "width": 1328,
             "color": 3
@@ -42605,6 +42521,168 @@
           ],
           "id": "d1d981a7-8e9b-493a-8fa9-06e73f4c76c8",
           "name": "Respond to Webhook3"
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "formulario-kutsaca",
+            "responseMode": "responseNode",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1712,
+            -352
+          ],
+          "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
+          "name": "da pagina web",
+          "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
+        },
+        {
+          "parameters": {
+            "inputDataFieldName": "=imagem",
+            "driveId": {
+              "__rl": true,
+              "value": "My Drive",
+              "mode": "list",
+              "cachedResultName": "My Drive",
+              "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+            },
+            "folderId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "n8n corporativo arquivos de clientes",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleDrive",
+          "typeVersion": 3,
+          "position": [
+            -1312,
+            -352
+          ],
+          "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
+          "name": "Upload file1",
+          "credentials": {
+            "googleDriveOAuth2Api": {
+              "id": "CXrTfmECCGCiT5hQ",
+              "name": "Google Drive account"
+            }
+          },
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "titulo": "={{ $('da pagina web').item.json.body.titulo }}",
+                "text": "={{ $('da pagina web').item.json.body.texto_html }}",
+                "video": "={{ $('da pagina web').item.json.body.video }}",
+                "imagens": "={{ $('Upload file1').item.json.webContentLink }}",
+                "Usuario": "Susana Cravo"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "titulo",
+                  "displayName": "titulo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "text",
+                  "displayName": "text",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "imagens",
+                  "displayName": "imagens",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "video",
+                  "displayName": "video",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "usado",
+                  "displayName": "usado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": true
+                },
+                {
+                  "id": "Usuario",
+                  "displayName": "Usuario",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -1104,
+            -352
+          ],
+          "id": "e99defe6-7089-4703-8084-d21f92bbcb48",
+          "name": "Insert row1"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://midiacode.com/formulario-kutsaca/\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            -896,
+            -352
+          ],
+          "id": "37a8e723-8c6d-4896-940d-185519913cb7",
+          "name": "Respond to Webhook4"
         }
       ],
       "connections": {
@@ -42612,7 +42690,7 @@
           "main": [
             [
               {
-                "node": "ID da Empresa",
+                "node": "Insert row",
                 "type": "main",
                 "index": 0
               }
@@ -42961,13 +43039,7 @@
         },
         "Melhora o texto da notícia": {
           "main": [
-            [
-              {
-                "node": "Insert row",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Groq Chat Model": {
@@ -43256,6 +43328,39 @@
               }
             ]
           ]
+        },
+        "da pagina web": {
+          "main": [
+            [
+              {
+                "node": "Upload file1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload file1": {
+          "main": [
+            [
+              {
+                "node": "Insert row1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Insert row1": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook4",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -43279,9 +43384,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
-      "activeVersionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
-      "triggerCount": 10,
+      "versionId": "4d05472e-4442-4583-b708-7e6366f2b586",
+      "activeVersionId": "4d05472e-4442-4583-b708-7e6366f2b586",
+      "triggerCount": 11,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -43292,9 +43397,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-04T23:47:29.641Z",
-        "createdAt": "2025-12-04T23:47:29.641Z",
-        "versionId": "59727355-06d6-4ae6-8d07-acb1bb28f12a",
+        "updatedAt": "2025-12-05T20:36:18.807Z",
+        "createdAt": "2025-12-05T20:36:18.807Z",
+        "versionId": "4d05472e-4442-4583-b708-7e6366f2b586",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -43310,7 +43415,7 @@
                 "mappingMode": "defineBelow",
                 "value": {
                   "titulo": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o título da notícia? '] }}",
-                  "text": "={{ $json.output }}",
+                  "text": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}",
                   "video": "={{ $('inserção de conteúdo da news Susana').item.json['Vídeo da notícia (opcional)'] }}",
                   "imagens": "={{ $('Upload file').item.json.webContentLink }}",
                   "Usuario": "Susana Cravo"
@@ -43386,8 +43491,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -688,
-              -96
+              -880,
+              -112
             ],
             "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
             "name": "Insert row"
@@ -43414,8 +43519,8 @@
             "type": "n8n-nodes-base.googleDrive",
             "typeVersion": 3,
             "position": [
-              -1536,
-              -96
+              -1424,
+              -112
             ],
             "id": "0627e490-2ead-4958-9b86-ae50c8d1941a",
             "name": "Upload file",
@@ -43592,8 +43697,8 @@
           },
           {
             "parameters": {
-              "fromEmail": "contact@midiacode.tech",
-              "toEmail": "robson.lisboa@midiacode.com",
+              "fromEmail": "contacto@kutsaca.com",
+              "toEmail": "susanacravo@kutsaca.com",
               "ccEmail": "glauci@midiacode.com",
               "subject": "Seleção de notícias para próxima edição da newsletter",
               "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15842\n\nAtenciosamente,\nValentina",
@@ -43609,16 +43714,16 @@
             ],
             "credentials": {
               "smtp": {
-                "id": "0akA4vSRMV9Mz1p8",
-                "name": "SMTP from contact@midiacode.tech"
+                "id": "eIabgHBZcsJl51Oj",
+                "name": "Kutsaca.com - SMTP account"
               }
             }
           },
           {
             "parameters": {
-              "fromEmail": "contact@midiacode.tech",
+              "fromEmail": "contacto@kutsaca.com",
               "toEmail": "robson.lisboa@midiacode.com, lisborob@gmail.com",
-              "ccEmail": "glauci@midiacode.com",
+              "ccEmail": "glauci@midiacode.com, ",
               "subject": "={{ $json.output }}",
               "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
               "options": {}
@@ -43633,8 +43738,8 @@
             ],
             "credentials": {
               "smtp": {
-                "id": "0akA4vSRMV9Mz1p8",
-                "name": "SMTP from contact@midiacode.tech"
+                "id": "eIabgHBZcsJl51Oj",
+                "name": "Kutsaca.com - SMTP account"
               }
             }
           },
@@ -43655,13 +43760,13 @@
           {
             "parameters": {
               "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente\npara adicionar novos colaboradores, duplique todos os nós e revise todas as variáveis, adicionando o nome do novo publicador no Insert Row",
-              "height": 368,
+              "height": 688,
               "width": 1312
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               -1792,
-              -256
+              -496
             ],
             "typeVersion": 1,
             "id": "4725f3b8-c72d-4939-a8fa-c0a1fd889c8c",
@@ -43686,8 +43791,8 @@
           {
             "parameters": {
               "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
-              "height": 416,
-              "width": 2672,
+              "height": 496,
+              "width": 2960,
               "color": 3
             },
             "type": "n8n-nodes-base.stickyNote",
@@ -44058,9 +44163,9 @@
           {
             "parameters": {
               "fromEmail": "contact@midiacode.tech",
-              "toEmail": "oi@midiacode.com",
+              "toEmail": "susanacravo@kutsaca.com",
               "ccEmail": "robson.lisboa@midiacode.com",
-              "bccEmail": "={{ $json.emails }}",
+              "bccEmail": "=",
               "subject": "={{  $('pega o html certo da DT').item.json.subject }}",
               "html": "={{  $('Retira do html final a seção do aprovador').item.json.html }}",
               "options": {}
@@ -44215,8 +44320,8 @@
             "name": "Email Trigger (IMAP)",
             "credentials": {
               "imap": {
-                "id": "T2iCcPAs4ylH9UZY",
-                "name": "IMAP-contact@midiacode.tech"
+                "id": "Afnd8aBFfpqIgfDX",
+                "name": "Kutsaca.com - IMAP account"
               }
             }
           },
@@ -44288,8 +44393,8 @@
           {
             "parameters": {
               "fromEmail": "contact@midiacode.tech",
-              "toEmail": "robson.lisboa@midiacode.com",
-              "ccEmail": "glauci@midiacode.com",
+              "toEmail": "susanacravo@kutsaca.com",
+              "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
               "subject": "={{ $json.subject }}",
               "html": "={{ $json.html }}",
               "options": {}
@@ -44504,14 +44609,14 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=voce é especialista em escrever textos para newsletter.\nuse somente o Português de Portugal.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, a atratividade, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:  {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }} \nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.\nUse as informações a respeito do perfil da empresa ({{ $('Pega o perfil da empresa').item.json.Perfil_Empresa }}) e perfil do público alvo ({{ $('Pega o perfil da empresa').item.json.Perfil_Publico_Alvo }}) para re-escrever o artigo: {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}, com clareza e assertividade, seguindo o perfil de mensagem que a empresa quer ({{ $('Pega o perfil da empresa').item.json.Perfil_Mensagem }}).\nMantenha o texto curto e direto, para compor uma newsletter, usando para isso as melhores práticas de escrita do mercado.",
+              "text": "=voce é especialista em escrever textos para newsletter.\nuse somente o Português de Portugal.\nvoce vai receber um texto que deverá corrigir ortograficamente e gramaticalmente, além de melhorar a clareza, a atratividade, o enredo e o texto como um todo.\nnão seja criativo demais, atenha-se ao cerne da mensagem recebida, mas com um requinte de quem escreve maravilhosamente bem.\no texto recebido está aqui:  {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }} \nno output não escreva comentários ou explicações ou diálogos, escreva somente o texto melhorado e nada mais.\nUse as informações a respeito do perfil da empresa ({{ $('Pega o perfil da empresa').item.json.Perfil_Empresa }}) e perfil do público alvo ({{ $('Pega o perfil da empresa').item.json.Perfil_Publico_Alvo }}) para re-escrever o artigo: {{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}, com clareza e assertividade, seguindo o perfil de mensagem que a empresa quer ({{ $('Pega o perfil da empresa').item.json.Perfil_Mensagem }}).\nMantenha o texto curto e direto, para compor uma newsletter, usando para isso as melhores práticas de escrita do mercado.\nCaso o texto tenha links, mantenha-os no texto de output.",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3,
             "position": [
-              -960,
-              -96
+              -880,
+              64
             ],
             "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
             "name": "Melhora o texto da notícia"
@@ -44538,7 +44643,7 @@
           },
           {
             "parameters": {
-              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR TUDO\n\n",
+              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
               "height": 1120,
               "width": 992,
               "color": 6
@@ -44677,8 +44782,8 @@
             "type": "n8n-nodes-base.set",
             "typeVersion": 3.4,
             "position": [
-              -1376,
-              -96
+              -1248,
+              64
             ],
             "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
             "name": "ID da Empresa"
@@ -44705,8 +44810,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1216,
-              -96
+              -1072,
+              64
             ],
             "id": "400bc9fa-0d26-479a-8851-6701103967d4",
             "name": "Pega o perfil da empresa"
@@ -44723,7 +44828,8 @@
                   },
                   {
                     "fieldLabel": "Qual o texto da notícia? ",
-                    "placeholder": "Digite aqui. Este texto será revisado e melhorado por IA.",
+                    "fieldType": "textarea",
+                    "placeholder": "Digite aqui. ",
                     "requiredField": true
                   },
                   {
@@ -44752,8 +44858,8 @@
             "type": "n8n-nodes-base.formTrigger",
             "typeVersion": 2.3,
             "position": [
-              -1696,
-              -96
+              -1712,
+              -112
             ],
             "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
             "name": "inserção de conteúdo da news Susana",
@@ -44995,7 +45101,7 @@
           },
           {
             "parameters": {
-              "content": "## Unsubscribe Kutsaca\ngerencia os emails que querem sair da lista",
+              "content": "## Unsubscribe\ngerencia os emails que querem sair da lista",
               "height": 672,
               "width": 1328,
               "color": 3
@@ -45581,6 +45687,168 @@
             ],
             "id": "d1d981a7-8e9b-493a-8fa9-06e73f4c76c8",
             "name": "Respond to Webhook3"
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "formulario-kutsaca",
+              "responseMode": "responseNode",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1712,
+              -352
+            ],
+            "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
+            "name": "da pagina web",
+            "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
+          },
+          {
+            "parameters": {
+              "inputDataFieldName": "=imagem",
+              "driveId": {
+                "__rl": true,
+                "value": "My Drive",
+                "mode": "list",
+                "cachedResultName": "My Drive",
+                "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+              },
+              "folderId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "n8n corporativo arquivos de clientes",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+              -1312,
+              -352
+            ],
+            "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
+            "name": "Upload file1",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "CXrTfmECCGCiT5hQ",
+                "name": "Google Drive account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "titulo": "={{ $('da pagina web').item.json.body.titulo }}",
+                  "text": "={{ $('da pagina web').item.json.body.texto_html }}",
+                  "video": "={{ $('da pagina web').item.json.body.video }}",
+                  "imagens": "={{ $('Upload file1').item.json.webContentLink }}",
+                  "Usuario": "Susana Cravo"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "titulo",
+                    "displayName": "titulo",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "text",
+                    "displayName": "text",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "imagens",
+                    "displayName": "imagens",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "video",
+                    "displayName": "video",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "usado",
+                    "displayName": "usado",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": true
+                  },
+                  {
+                    "id": "Usuario",
+                    "displayName": "Usuario",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              -1104,
+              -352
+            ],
+            "id": "e99defe6-7089-4703-8084-d21f92bbcb48",
+            "name": "Insert row1"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://midiacode.com/formulario-kutsaca/\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              -896,
+              -352
+            ],
+            "id": "37a8e723-8c6d-4896-940d-185519913cb7",
+            "name": "Respond to Webhook4"
           }
         ],
         "connections": {
@@ -45588,7 +45856,7 @@
             "main": [
               [
                 {
-                  "node": "ID da Empresa",
+                  "node": "Insert row",
                   "type": "main",
                   "index": 0
                 }
@@ -45937,13 +46205,7 @@
           },
           "Melhora o texto da notícia": {
             "main": [
-              [
-                {
-                  "node": "Insert row",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Groq Chat Model": {
@@ -46227,6 +46489,39 @@
               [
                 {
                   "node": "Respond to Webhook3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "da pagina web": {
+            "main": [
+              [
+                {
+                  "node": "Upload file1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload file1": {
+            "main": [
+              [
+                {
+                  "node": "Insert row1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Insert row1": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook4",
                   "type": "main",
                   "index": 0
                 }
@@ -47040,1483 +47335,6 @@
         "name": null,
         "description": null
       },
-      "tags": []
-    },
-    {
-      "updatedAt": "2025-08-23T20:23:01.000Z",
-      "createdAt": "2025-08-19T06:16:51.122Z",
-      "id": "tbLIj6U8nVj6qeyh",
-      "name": "Import Workflows",
-      "active": false,
-      "isArchived": true,
-      "nodes": [
-        {
-          "parameters": {
-            "operation": "fromJson",
-            "binaryPropertyName": "Workflow_File",
-            "destinationKey": "workflowData",
-            "options": {}
-          },
-          "id": "143a2419-bd3f-4e56-82f6-3731b4e762f3",
-          "name": "Extract from File",
-          "type": "n8n-nodes-base.extractFromFile",
-          "position": [
-            1600,
-            80
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "command": "n8n export:credentials --all --pretty --decrypted --output=/tmp/cred"
-          },
-          "id": "bdaa83ed-658f-4901-9b53-c9044e7aca36",
-          "name": "Export Credentials",
-          "type": "n8n-nodes-base.executeCommand",
-          "position": [
-            1824,
-            272
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "fileSelector": "/tmp/cred",
-            "options": {}
-          },
-          "id": "4a83c25a-67bd-4152-8c53-ddf3f696163e",
-          "name": "Get Credentials Data",
-          "type": "n8n-nodes-base.readWriteFile",
-          "position": [
-            2048,
-            272
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "fromJson",
-            "options": {}
-          },
-          "id": "ce65fb97-c90b-43d9-b927-9dd4f99d010a",
-          "name": "Binary to JSON",
-          "type": "n8n-nodes-base.extractFromFile",
-          "position": [
-            2272,
-            272
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "mode": "combine",
-            "combineBy": "combineByPosition",
-            "options": {
-              "includeUnpaired": true
-            }
-          },
-          "id": "c043b052-c4c6-4645-8166-557ed72bb221",
-          "name": "Merge",
-          "type": "n8n-nodes-base.merge",
-          "position": [
-            2704,
-            144
-          ],
-          "typeVersion": 3
-        },
-        {
-          "parameters": {},
-          "id": "56dbd472-d28a-4458-96b3-6d4947577b5c",
-          "name": "Collect Credentials to Replace",
-          "type": "n8n-nodes-base.merge",
-          "position": [
-            1680,
-            768
-          ],
-          "typeVersion": 3
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "8a5d50fc-95dc-40b3-a3f2-293521bab29a",
-                  "name": "remoteInstances",
-                  "type": "array",
-                  "value": "="
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "ff1be255-3aae-49e3-a739-3961d4a69af2",
-          "name": "Settings",
-          "type": "n8n-nodes-base.set",
-          "position": [
-            -384,
-            272
-          ],
-          "typeVersion": 3.4
-        },
-        {
-          "parameters": {
-            "jsCode": "output = {};\n\nfor (const instance of $('Settings').first().json.remoteInstances) {\n  if (instance.name == $('Choose Instance').first().json.Source) {\n    output.instance = instance;\n  }\n}\n\nreturn output;"
-          },
-          "id": "b123dc6e-540c-431b-8b0d-ce6998873543",
-          "name": "Prepare Request Data",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            288,
-            272
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "url": "={{ $json.instance.baseUrl }}/workflows",
-            "sendHeaders": true,
-            "headerParameters": {
-              "parameters": [
-                {
-                  "name": "X-N8N-API-KEY",
-                  "value": "={{ $json.instance.apiKey }}"
-                }
-              ]
-            },
-            "sendBody": true,
-            "bodyParameters": {
-              "parameters": [
-                {
-                  "name": "limit",
-                  "value": "250"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "1a3c9619-31d8-4b39-804c-6e048807d048",
-          "name": "Get Workflows",
-          "type": "n8n-nodes-base.httpRequest",
-          "position": [
-            512,
-            272
-          ],
-          "typeVersion": 4.2,
-          "onError": "continueErrorOutput"
-        },
-        {
-          "parameters": {},
-          "id": "4e4179fb-f4e3-4928-926f-7a2190099138",
-          "name": "No Operation",
-          "type": "n8n-nodes-base.noOp",
-          "position": [
-            1824,
-            80
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "version": 2,
-                "leftValue": "",
-                "caseSensitive": true,
-                "typeValidation": "strict"
-              },
-              "combinator": "and",
-              "conditions": [
-                {
-                  "id": "f1d93a30-01c9-4141-85b2-8ceb762b9e86",
-                  "operator": {
-                    "name": "filter.operator.equals",
-                    "type": "string",
-                    "operation": "equals"
-                  },
-                  "leftValue": "={{ $json.Source }}",
-                  "rightValue": "File Upload"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "24c2b8f4-7dd3-4167-af7f-c800d0f1c926",
-          "name": "Determine Workflow Source",
-          "type": "n8n-nodes-base.if",
-          "position": [
-            -608,
-            144
-          ],
-          "typeVersion": 2.2
-        },
-        {
-          "parameters": {
-            "content": "## Setup instances\nEach instnce requires a name, apiKey and baseURL",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914
-          },
-          "id": "79459bea-1455-49a2-9b89-b295dec19308",
-          "name": "Sticky Note6",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -448,
-            160
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "[REDACTED]",
-            "height": 223.19907940161124,
-            "width": 535.6419634856759,
-            "color": 5
-          },
-          "id": "a7d90086-003f-4f29-9b84-c7cebe4b1adb",
-          "name": "Sticky Note2",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -976,
-            320
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "A form which collects the source option.\n*Consider securing the form using Basic Auth.*",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "5433d788-8cf0-4570-822a-c70af880ded2",
-          "name": "Sticky Note7",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -880,
-            48
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Switch between the available options",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "5dfb4df7-a474-4fcb-a4b1-06529b747d42",
-          "name": "Sticky Note8",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -656,
-            48
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "completion",
-            "completionTitle": "⚠️ Import failed",
-            "completionMessage": "=Please check the workflow settings",
-            "options": {}
-          },
-          "id": "881331ab-d390-4c67-b222-653fc0a11d5b",
-          "name": "Error1",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            2352,
-            864
-          ],
-          "webhookId": "5c7933f0-f09a-4bc6-9e68-cf73e8fb5813",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "completion",
-            "completionTitle": "⚠️ Failed retrieving workflows",
-            "completionMessage": "=Please check the workflow settings",
-            "options": {}
-          },
-          "id": "5a49e6a9-2090-4787-b4df-66fd594d73ca",
-          "name": "Error",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            720,
-            352
-          ],
-          "webhookId": "5c7933f0-f09a-4bc6-9e68-cf73e8fb5813",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "fieldToSplitOut": "data",
-            "options": {}
-          },
-          "id": "43dcc314-4486-4a87-a9d9-dc8919a18e59",
-          "name": "Split Out Workflows",
-          "type": "n8n-nodes-base.splitOut",
-          "position": [
-            720,
-            192
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "jsCode": "dropDownValues = [];\n\nfor (const workflow of $input.all()) {\n  dropDownValues.push({\"option\": workflow.json.name});\n}\n\nreturn { \"options\": JSON.stringify(dropDownValues) };"
-          },
-          "id": "19ac285d-6bc4-488b-9fe3-525e72885aae",
-          "name": "Get Workflow Names",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            1168,
-            192
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "sortFieldsUi": {
-              "sortField": [
-                {
-                  "fieldName": "updatedAt",
-                  "order": "descending"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "390797bc-def4-4fd3-8b89-d3bf95938483",
-          "name": "Sort by updatedAt DESC",
-          "type": "n8n-nodes-base.sort",
-          "position": [
-            944,
-            192
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {},
-          "id": "a4fff53e-07c7-42f8-bdb7-3e76215edc07",
-          "name": "No Operation1",
-          "type": "n8n-nodes-base.noOp",
-          "position": [
-            2928,
-            320
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "## Map Credentials\nBeing mapped by name since one workflow can have multiple credentials of the same type.",
-            "height": 294.9905826938254,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "f777b344-295a-48e8-a303-eb33b8498d35",
-          "name": "Sticky Note9",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            144,
-            880
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "keys": {
-              "key": [
-                {
-                  "currentKey": "data",
-                  "newKey": "allCredentials"
-                }
-              ]
-            },
-            "additionalOptions": {}
-          },
-          "id": "5a5548de-1a03-459b-96a7-5daa12c1a98d",
-          "name": "Rename Keys",
-          "type": "n8n-nodes-base.renameKeys",
-          "position": [
-            2480,
-            272
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "create",
-            "workflowObject": "={{ $json.toJsonString() }}",
-            "requestOptions": {}
-          },
-          "id": "54efbb23-2504-41da-8314-3be671e69656",
-          "name": "Create Workflow",
-          "type": "n8n-nodes-base.n8n",
-          "position": [
-            2128,
-            768
-          ],
-          "typeVersion": 1,
-          "credentials": {
-            "n8nApi": {
-              "id": "M4Khp5HywcSE3nKc",
-              "name": "n8n account 2"
-            }
-          },
-          "onError": "continueErrorOutput"
-        },
-        {
-          "parameters": {
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Workflow File",
-                  "fieldType": "file",
-                  "acceptFileTypes": ".json",
-                  "requiredField": true
-                }
-              ]
-            },
-            "options": {
-              "formTitle": "Upload File",
-              "formDescription": "Choose an n8n workflow file"
-            }
-          },
-          "id": "4b5f5e3c-ab80-4176-ac31-f22c3c91b154",
-          "name": "Upload File",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            64,
-            80
-          ],
-          "webhookId": "b9850dfc-ecf9-45c8-ae68-39327c6a0143",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "defineForm": "json",
-            "jsonOutput": "=[\n   {\n      \"fieldLabel\": \"Workflow\",\n      \"fieldType\": \"dropdown\",\n      \"requiredField\": true,\n      \"fieldOptions\": {\n        \"values\": {{ $json.options }}\n      }\n   }\n]",
-            "options": {
-              "formTitle": "Choose Workflow",
-              "formDescription": "Choose the remote workflow which should be imported"
-            }
-          },
-          "id": "84851bbc-bf69-4325-9150-b92855dbdbe8",
-          "name": "Choose Workflow",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            1392,
-            192
-          ],
-          "webhookId": "100af69b-5203-48d3-8e90-1e846d0752d4",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "operation": "completion",
-            "completionTitle": "✅ Import completed",
-            "completionMessage": "=The workflow has been created successfully. {{ $if($('Get Missing Credentials').all().length > 0, \"Please head over to your credentials and update all new entries with a trailing ⚠️ symbol.\", \"\") }} ",
-            "options": {}
-          },
-          "id": "5945c9f9-c775-45e1-922a-d360afecbddc",
-          "name": "Success",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            2352,
-            672
-          ],
-          "webhookId": "5c7933f0-f09a-4bc6-9e68-cf73e8fb5813",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "defineForm": "json",
-            "jsonOutput": "=[\n   {\n      \"fieldLabel\": \"Source\",\n      \"fieldType\": \"dropdown\",\n      \"requiredField\": true,\n      \"fieldOptions\": {\n        \"values\": {{ $json.options }}\n      }\n   }\n]",
-            "options": {
-              "formTitle": "Select Source Instance",
-              "formDescription": "Choose the n8n instance where to retrieve workflows from"
-            }
-          },
-          "id": "445553d8-6db1-4351-b1a5-109220cf9f7a",
-          "name": "Choose Instance",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            64,
-            272
-          ],
-          "webhookId": "2a40fe8d-7b6b-4695-845c-2d278f5bf93e",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "formTitle": "Workflow Import",
-            "formDescription": "This tool allows importing an n8n workflow from a file or another n8n instance\n\nKeep in mind that your destination n8n instance (this environment) should always run on an equal or newer version then compared to the source.",
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Source",
-                  "fieldType": "dropdown",
-                  "fieldOptions": {
-                    "values": [
-                      {
-                        "option": "File Upload"
-                      },
-                      {
-                        "option": "Remote Instance"
-                      }
-                    ]
-                  },
-                  "requiredField": true
-                }
-              ]
-            },
-            "options": {
-              "appendAttribution": false,
-              "buttonLabel": "Continue"
-            }
-          },
-          "id": "0007227b-f552-412c-ab6b-98119a03d338",
-          "name": "On form submission",
-          "type": "n8n-nodes-base.formTrigger",
-          "position": [
-            -816,
-            144
-          ],
-          "webhookId": "2c9b2fa1-3235-4b73-a6e0-73392dcb9ed0",
-          "typeVersion": 2.2
-        },
-        {
-          "parameters": {
-            "jsCode": "dropDownValues = [];\n\nfor (const instance of $input.first().json.remoteInstances) {\n  dropDownValues.push({\"option\": instance.name});\n}\n\nreturn { \"options\": JSON.stringify(dropDownValues) };"
-          },
-          "id": "cca70c89-a623-4cbb-a1c6-01549c290710",
-          "name": "Generate Instance Options",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            -160,
-            272
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "content": "Prepare a list of options for the next form",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "343542f9-71bc-4063-aa9e-546a00f85166",
-          "name": "Sticky Note10",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -224,
-            160
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Request more input from the user",
-            "height": 416.4415465717213,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "fe14feed-1c05-4824-abaa-bc293afaf526",
-          "name": "Sticky Note11",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            0,
-            0
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Map Settings to selected instance and retrieve all workflows from it",
-            "height": 255.86856541619233,
-            "width": 435.59135570107514,
-            "color": 7
-          },
-          "id": "146b3988-5f07-463b-897a-871b8f762daa",
-          "name": "Sticky Note",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            224,
-            160
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Prepare a list of options for the next form",
-            "height": 255.86856541619233,
-            "width": 656.1389569291234,
-            "color": 7
-          },
-          "id": "e49fbf4f-57a9-4808-85c6-15eb284e7081",
-          "name": "Sticky Note12",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            672,
-            80
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Let the user choose a workflow from a list",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "07cd9ad0-76e8-4ead-9076-9edd172e13d0",
-          "name": "Sticky Note13",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            1328,
-            80
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Retrieve all credentials from this instance and convert the data to the final JSON format",
-            "height": 216.1478580797073,
-            "width": 875.9451799951569,
-            "color": 7
-          },
-          "id": "158a93be-589a-4034-aeeb-e3070d774eb0",
-          "name": "Sticky Note14",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            1760,
-            208
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "jsCode": "for (const workflow of $('Get Workflows').first().json.data) {\n  if (workflow.name == $input.first().json.Workflow) {\n    \n    return { \"workflowData\": workflow };\n  }\n}\n\nreturn false;"
-          },
-          "id": "92c3cbeb-e115-42fd-b742-ea6d94117f9f",
-          "name": "Get Selected Workflow",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            1600,
-            272
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "content": "Convert the retrieved workflow into the final JSON format",
-            "height": 416.4415465717213,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "cc813002-ec5f-42ce-af37-488ab856fe9d",
-          "name": "Sticky Note15",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            1552,
-            0
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Combine the workflow and credential data to one item",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "48b2ccb7-7db9-47bf-9efc-a253a33c0fb3",
-          "name": "Sticky Note16",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            2640,
-            64
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "fieldToSplitOut": "workflowData.nodes",
-            "options": {}
-          },
-          "id": "d1fbdad3-f686-4d3e-af8c-a4b16be876b7",
-          "name": "Split Out Nodes",
-          "type": "n8n-nodes-base.splitOut",
-          "position": [
-            -304,
-            672
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "version": 2,
-                "leftValue": "",
-                "caseSensitive": true,
-                "typeValidation": "strict"
-              },
-              "combinator": "and",
-              "conditions": [
-                {
-                  "id": "b14ec02c-c52c-4907-8f55-ebb168a8b10e",
-                  "operator": {
-                    "type": "object",
-                    "operation": "exists",
-                    "singleValue": true
-                  },
-                  "leftValue": "={{ $json.credentials }}",
-                  "rightValue": ""
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "6b87672f-4b09-425c-933e-668480e094cb",
-          "name": "Filter Out Nodes Having Credentials",
-          "type": "n8n-nodes-base.filter",
-          "position": [
-            -80,
-            672
-          ],
-          "typeVersion": 2.2
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "b37508a3-188e-4e6e-b251-b6a34ac193be",
-                  "name": "type",
-                  "type": "string",
-                  "value": "={{ $json.credentials.keys()[0] }}"
-                },
-                {
-                  "id": "fc308784-91ec-4b6b-8bca-2c01472574a7",
-                  "name": "name",
-                  "type": "string",
-                  "value": "={{ $json.credentials[$json.credentials.keys()[0]].name }}"
-                },
-                {
-                  "id": "a3142dc0-021d-4191-815b-d5cf6d9fe6a8",
-                  "name": "id",
-                  "type": "string",
-                  "value": "={{ $json.credentials[$json.credentials.keys()[0]].id }}"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "c3d7875f-b393-4fe0-8362-32d11de3990e",
-          "name": "Extract Credentials",
-          "type": "n8n-nodes-base.set",
-          "position": [
-            144,
-            672
-          ],
-          "typeVersion": 3.4
-        },
-        {
-          "parameters": {
-            "compare": "selectedFields",
-            "fieldsToCompare": "name",
-            "options": {}
-          },
-          "id": "df4afcb1-15be-4685-8651-7d8164be44e9",
-          "name": "Remove Duplicate Credentials by Name",
-          "type": "n8n-nodes-base.removeDuplicates",
-          "position": [
-            368,
-            672
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "defineForm": "json",
-            "jsonOutput": "={{ $json.options }}",
-            "options": {
-              "formTitle": "Map Credentials",
-              "formDescription": "Each option is labeled with the name of the original credential. Select the according credential for each item.\n\nYou can also choose to create a new credential. It will then create an empty credential, using the name of the original one, which you can configure afterwards.",
-              "buttonLabel": "Import Workflow"
-            }
-          },
-          "id": "7854f933-0de5-446b-9576-2c1e8ba4fa49",
-          "name": "Map Credentials",
-          "type": "n8n-nodes-base.form",
-          "position": [
-            800,
-            672
-          ],
-          "webhookId": "5aca5fbe-cbff-4824-8586-cd59967dd154",
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "jsCode": "[REDACTED]"
-          },
-          "id": "af120ce6-19d5-4f00-a60f-883753051b4b",
-          "name": "Get Selected Credentials",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            1024,
-            864
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "19847be5-420a-4dd7-8a45-fed1a1cbc0b8",
-                  "name": "oldName",
-                  "type": "string",
-                  "value": "={{ $json.name.replace(\" ⚠️\", \"\") }}"
-                }
-              ]
-            },
-            "includeOtherFields": true,
-            "options": {}
-          },
-          "id": "e0a3af5c-09ec-48a3-9137-4584d5408060",
-          "name": "Add Old Names",
-          "type": "n8n-nodes-base.set",
-          "position": [
-            1472,
-            672
-          ],
-          "typeVersion": 3.4
-        },
-        {
-          "parameters": {
-            "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nlet workflowData = $('Merge').first().json.workflowData;\nfor (const credential of $input.all()) {  \n  for (const nodes of workflowData.nodes) {\n    if (nodes.credentials \n        && nodes.credentials[credential.json.type] !== undefined \n        && nodes.credentials[credential.json.type].name == credential.json.oldName) {\n      nodes.credentials[credential.json.type].id = credential.json.id;\n      nodes.credentials[credential.json.type].name = credential.json.name;\n    }\n  }\n}\n\nreturn workflowData;\n\n"
-          },
-          "id": "34476d4a-d6f2-4798-92b4-87fcae7e60cc",
-          "name": "Replace Credentials in Workflow",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            1904,
-            768
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "content": "Extract a list of all credentials from the workflow. The reference will be the old/existing name of the credential, since one workflow can contain multiple credentials of the same type.",
-            "height": 257.0479807900252,
-            "width": 875.6296366281999,
-            "color": 7
-          },
-          "id": "63ad1ec4-859a-47f6-a350-9374243eeeba",
-          "name": "Sticky Note17",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -368,
-            560
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Let the user map every credential or create new ones",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "ea75defd-8053-47ec-932f-d7cbcee93b5d",
-          "name": "Sticky Note18",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            752,
-            560
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "jsCode": "[REDACTED]"
-          },
-          "id": "ee7e9390-4119-4447-bf61-14fa706d41db",
-          "name": "Generate Credential Options",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            592,
-            672
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "content": "Prepare a list of options for the next form",
-            "height": 255.86856541619233,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "92b33506-7d1a-4fd9-9fd0-2b3d3900c41a",
-          "name": "Sticky Note19",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            528,
-            560
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Split mapped credentials into two streams, depending on wether they exist or not",
-            "height": 456.12289999575364,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "38630d11-ad53-4ede-868f-ae81e2f0c956",
-          "name": "Sticky Note20",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            960,
-            560
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Create empty credentials if the option \"[create credential]\" was selected. and add the name of the originally assigned credential for future reference",
-            "height": 276.068565416192,
-            "width": 435.95830414662703,
-            "color": 7
-          },
-          "id": "125e3455-c32d-476d-9975-5581db3a5027",
-          "name": "Sticky Note21",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            1184,
-            560
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "resource": "credential",
-            "name": "={{ $json.name }}",
-            "credentialTypeName": "={{ $json.type }}",
-            "data": "={{ $json.data.toJsonString() }}",
-            "requestOptions": {}
-          },
-          "id": "18b8c639-4fba-4501-a160-1c4434ef5a29",
-          "name": "Create Empty Credentials",
-          "type": "n8n-nodes-base.n8n",
-          "position": [
-            1248,
-            672
-          ],
-          "typeVersion": 1,
-          "credentials": {
-            "n8nApi": {
-              "id": "B7hOhUe9XqfpCEU5",
-              "name": "n8n account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "jsCode": "[REDACTED]"
-          },
-          "id": "9b2428ef-dc60-4eb0-af38-f5e1e72f4e4a",
-          "name": "Get Missing Credentials",
-          "type": "n8n-nodes-base.code",
-          "position": [
-            1024,
-            672
-          ],
-          "typeVersion": 2
-        },
-        {
-          "parameters": {
-            "content": "Gather all new credential data and update the workflow accordingly. The oldName is being used as a reference during the search. ",
-            "height": 276.068565416192,
-            "width": 435.95830414662703,
-            "color": 7
-          },
-          "id": "780be961-cca5-47f8-8e45-b613a64c6e6c",
-          "name": "Sticky Note22",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            1632,
-            672
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Create the updated workflow on this instance",
-            "height": 275.841854198618,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "45373da0-231a-494c-9419-8ddfdd85e640",
-          "name": "Sticky Note23",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            2064,
-            672
-          ],
-          "typeVersion": 1
-        },
-        {
-          "parameters": {
-            "content": "Provide feedback to the user wether the process was successful or not",
-            "height": 456.12289999575364,
-            "width": 216.47293010628914,
-            "color": 7
-          },
-          "id": "c37a6187-84a7-43cf-b5b0-5767e2b6ab33",
-          "name": "Sticky Note24",
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            2288,
-            560
-          ],
-          "typeVersion": 1
-        }
-      ],
-      "connections": {
-        "Merge": {
-          "main": [
-            [
-              {
-                "node": "No Operation1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Settings": {
-          "main": [
-            [
-              {
-                "node": "Generate Instance Options",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Rename Keys": {
-          "main": [
-            [
-              {
-                "node": "Merge",
-                "type": "main",
-                "index": 1
-              }
-            ]
-          ]
-        },
-        "Upload File": {
-          "main": [
-            [
-              {
-                "node": "Extract from File",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "No Operation": {
-          "main": [
-            [
-              {
-                "node": "Merge",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Add Old Names": {
-          "main": [
-            [
-              {
-                "node": "Collect Credentials to Replace",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Workflows": {
-          "main": [
-            [
-              {
-                "node": "Split Out Workflows",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "Error",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "No Operation1": {
-          "main": [
-            [
-              {
-                "node": "Split Out Nodes",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Binary to JSON": {
-          "main": [
-            [
-              {
-                "node": "Rename Keys",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Choose Instance": {
-          "main": [
-            [
-              {
-                "node": "Prepare Request Data",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Choose Workflow": {
-          "main": [
-            [
-              {
-                "node": "Get Selected Workflow",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Create Workflow": {
-          "main": [
-            [
-              {
-                "node": "Success",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "Error1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Map Credentials": {
-          "main": [
-            [
-              {
-                "node": "Get Missing Credentials",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Get Selected Credentials",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Split Out Nodes": {
-          "main": [
-            [
-              {
-                "node": "Filter Out Nodes Having Credentials",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Extract from File": {
-          "main": [
-            [
-              {
-                "node": "Export Credentials",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "No Operation",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Export Credentials": {
-          "main": [
-            [
-              {
-                "node": "Get Credentials Data",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Workflow Names": {
-          "main": [
-            [
-              {
-                "node": "Choose Workflow",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "On form submission": {
-          "main": [
-            [
-              {
-                "node": "Determine Workflow Source",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Extract Credentials": {
-          "main": [
-            [
-              {
-                "node": "Remove Duplicate Credentials by Name",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Split Out Workflows": {
-          "main": [
-            [
-              {
-                "node": "Sort by updatedAt DESC",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Credentials Data": {
-          "main": [
-            [
-              {
-                "node": "Binary to JSON",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Prepare Request Data": {
-          "main": [
-            [
-              {
-                "node": "Get Workflows",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Selected Workflow": {
-          "main": [
-            [
-              {
-                "node": "Export Credentials",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "No Operation",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Sort by updatedAt DESC": {
-          "main": [
-            [
-              {
-                "node": "Get Workflow Names",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Missing Credentials": {
-          "main": [
-            [
-              {
-                "node": "Create Empty Credentials",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Create Empty Credentials": {
-          "main": [
-            [
-              {
-                "node": "Add Old Names",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get Selected Credentials": {
-          "main": [
-            [
-              {
-                "node": "Collect Credentials to Replace",
-                "type": "main",
-                "index": 1
-              }
-            ]
-          ]
-        },
-        "Determine Workflow Source": {
-          "main": [
-            [
-              {
-                "node": "Upload File",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "Settings",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Generate Instance Options": {
-          "main": [
-            [
-              {
-                "node": "Choose Instance",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Generate Credential Options": {
-          "main": [
-            [
-              {
-                "node": "Map Credentials",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Collect Credentials to Replace": {
-          "main": [
-            [
-              {
-                "node": "Replace Credentials in Workflow",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Replace Credentials in Workflow": {
-          "main": [
-            [
-              {
-                "node": "Create Workflow",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filter Out Nodes Having Credentials": {
-          "main": [
-            [
-              {
-                "node": "Extract Credentials",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Remove Duplicate Credentials by Name": {
-          "main": [
-            [
-              {
-                "node": "Generate Credential Options",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        }
-      },
-      "settings": {
-        "executionOrder": "v1"
-      },
-      "staticData": null,
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "pinData": {},
-      "versionId": "43abb447-0e16-4fa6-8da1-d0e5cdcfe1ca",
-      "activeVersionId": null,
-      "triggerCount": 0,
-      "shared": [
-        {
-          "updatedAt": "2025-08-19T06:16:51.126Z",
-          "createdAt": "2025-08-19T06:16:51.126Z",
-          "role": "workflow:owner",
-          "workflowId": "tbLIj6U8nVj6qeyh",
-          "projectId": "MDx9S6QRKUuQVawA"
-        }
-      ],
-      "activeVersion": null,
       "tags": []
     },
     {

@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765147712,
+            "lastTimeChecked": 1765232113,
             "possibleDuplicates": [
-              "19afb009c85af84c",
-              "19afa3b8ef07942b"
+              "19b00087d4d616af",
+              "19b000268111490b"
             ]
           }
         },
@@ -26037,14 +26037,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-06T14:00:21Z"
+          "lastTimeChecked": "2025-12-08T14:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-06T14:00:52Z"
+          "lastTimeChecked": "2025-12-08T14:00:52Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            341
+            343
           ]
         }
       },
@@ -40230,7 +40230,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-05T20:36:18.000Z",
+      "updatedAt": "2025-12-08T16:32:05.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40533,8 +40533,8 @@
         {
           "parameters": {
             "fromEmail": "contacto@kutsaca.com",
-            "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "glauci@midiacode.com",
+            "toEmail": "robson.lisboa@midiacode.com",
+            "ccEmail": "glauci@midiacode.com, ",
             "subject": "Seleção de notícias para próxima edição da newsletter",
             "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15842\n\nAtenciosamente,\nValentina",
             "options": {}
@@ -40610,14 +40610,14 @@
         {
           "parameters": {
             "content": "## Seleção das News para a próxima edição\nmensalmente envia para o gestor da Newsletter todos os artigos disponíveis para publicação. ",
-            "height": 368,
+            "height": 416,
             "width": 1264,
             "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -256,
-            -272
+            -320
           ],
           "typeVersion": 1,
           "id": "fc21171a-74ef-4a12-9311-6fd3d172b4db",
@@ -40628,7 +40628,7 @@
             "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
             "height": 496,
             "width": 2960,
-            "color": 3
+            "color": 5
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
@@ -41028,8 +41028,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            512,
-            1984
+            1504,
+            1504
           ],
           "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
           "name": "Google Gemini Chat Model",
@@ -41464,8 +41464,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            -208,
-            2000
+            1648,
+            1520
           ],
           "id": "678c0c86-1f88-4c22-a149-25406e91d39c",
           "name": "Groq Chat Model",
@@ -41936,10 +41936,10 @@
         },
         {
           "parameters": {
-            "content": "## Unsubscribe\ngerencia os emails que querem sair da lista",
+            "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
             "height": 672,
             "width": 1328,
-            "color": 3
+            "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
@@ -42684,6 +42684,66 @@
           ],
           "id": "37a8e723-8c6d-4896-940d-185519913cb7",
           "name": "Respond to Webhook4"
+        },
+        {
+          "parameters": {
+            "formTitle": "Revisão de Newsletter",
+            "responseMode": "lastNode",
+            "options": {
+              "appendAttribution": false,
+              "buttonLabel": "Iniciar para atualizar tabela"
+            }
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.3,
+          "position": [
+            -176,
+            -224
+          ],
+          "id": "bc4b9266-d2a1-4f6a-a7ae-2a1361eafaf8",
+          "name": "Iniciar Revisão de Newsletter",
+          "webhookId": "d8fee74e-5fc9-4fd5-95da-903046129ee4"
+        },
+        {
+          "parameters": {
+            "formFields": {
+              "values": [
+                {
+                  "fieldType": "html",
+                  "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/4XwUz6\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
+                }
+              ]
+            },
+            "options": {
+              "formTitle": "Clique no link abaixo para iniciar a Revisão.",
+              "buttonLabel": "Sair"
+            }
+          },
+          "type": "n8n-nodes-base.form",
+          "typeVersion": 2.3,
+          "position": [
+            864,
+            -64
+          ],
+          "id": "f4fd2752-97db-43d1-bdfa-491553a25a4c",
+          "name": "Form",
+          "webhookId": "a3df32e8-c203-4523-9ec2-1b1487583d8c"
+        },
+        {
+          "parameters": {
+            "content": "## Parece que este Ematil trigger IMAP não está funcionando, fazer testes para verificar",
+            "height": 416,
+            "width": 464,
+            "color": 3
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1712,
+            1872
+          ],
+          "typeVersion": 1,
+          "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
+          "name": "Sticky Note8"
         }
       ],
       "connections": {
@@ -42899,11 +42959,6 @@
           "ai_languageModel": [
             [
               {
-                "node": "AI Agent para criar subject",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
                 "node": "Ajuste do HTML AI Agent",
                 "type": "ai_languageModel",
                 "index": 0
@@ -43045,7 +43100,13 @@
         },
         "Groq Chat Model": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "AI Agent para criar subject",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "ID da Empresa": {
@@ -43362,6 +43423,28 @@
               }
             ]
           ]
+        },
+        "Iniciar Revisão de Newsletter": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Email para seleçao de News": {
+          "main": [
+            [
+              {
+                "node": "Form",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -43385,9 +43468,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "4d05472e-4442-4583-b708-7e6366f2b586",
-      "activeVersionId": "4d05472e-4442-4583-b708-7e6366f2b586",
-      "triggerCount": 11,
+      "versionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
+      "activeVersionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
+      "triggerCount": 12,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -43398,9 +43481,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-05T20:36:18.807Z",
-        "createdAt": "2025-12-05T20:36:18.807Z",
-        "versionId": "4d05472e-4442-4583-b708-7e6366f2b586",
+        "updatedAt": "2025-12-08T16:32:05.892Z",
+        "createdAt": "2025-12-08T16:32:05.892Z",
+        "versionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -43699,8 +43782,8 @@
           {
             "parameters": {
               "fromEmail": "contacto@kutsaca.com",
-              "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "glauci@midiacode.com",
+              "toEmail": "robson.lisboa@midiacode.com",
+              "ccEmail": "glauci@midiacode.com, ",
               "subject": "Seleção de notícias para próxima edição da newsletter",
               "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://midiacode.com/?page_id=15842\n\nAtenciosamente,\nValentina",
               "options": {}
@@ -43776,14 +43859,14 @@
           {
             "parameters": {
               "content": "## Seleção das News para a próxima edição\nmensalmente envia para o gestor da Newsletter todos os artigos disponíveis para publicação. ",
-              "height": 368,
+              "height": 416,
               "width": 1264,
               "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               -256,
-              -272
+              -320
             ],
             "typeVersion": 1,
             "id": "fc21171a-74ef-4a12-9311-6fd3d172b4db",
@@ -43794,7 +43877,7 @@
               "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
               "height": 496,
               "width": 2960,
-              "color": 3
+              "color": 5
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
@@ -44194,8 +44277,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1,
             "position": [
-              512,
-              1984
+              1504,
+              1504
             ],
             "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
             "name": "Google Gemini Chat Model",
@@ -44630,8 +44713,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              -208,
-              2000
+              1648,
+              1520
             ],
             "id": "678c0c86-1f88-4c22-a149-25406e91d39c",
             "name": "Groq Chat Model",
@@ -45102,10 +45185,10 @@
           },
           {
             "parameters": {
-              "content": "## Unsubscribe\ngerencia os emails que querem sair da lista",
+              "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
               "height": 672,
               "width": 1328,
-              "color": 3
+              "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
@@ -45850,6 +45933,66 @@
             ],
             "id": "37a8e723-8c6d-4896-940d-185519913cb7",
             "name": "Respond to Webhook4"
+          },
+          {
+            "parameters": {
+              "formTitle": "Revisão de Newsletter",
+              "responseMode": "lastNode",
+              "options": {
+                "appendAttribution": false,
+                "buttonLabel": "Iniciar para atualizar tabela"
+              }
+            },
+            "type": "n8n-nodes-base.formTrigger",
+            "typeVersion": 2.3,
+            "position": [
+              -176,
+              -224
+            ],
+            "id": "bc4b9266-d2a1-4f6a-a7ae-2a1361eafaf8",
+            "name": "Iniciar Revisão de Newsletter",
+            "webhookId": "d8fee74e-5fc9-4fd5-95da-903046129ee4"
+          },
+          {
+            "parameters": {
+              "formFields": {
+                "values": [
+                  {
+                    "fieldType": "html",
+                    "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/4XwUz6\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
+                  }
+                ]
+              },
+              "options": {
+                "formTitle": "Clique no link abaixo para iniciar a Revisão.",
+                "buttonLabel": "Sair"
+              }
+            },
+            "type": "n8n-nodes-base.form",
+            "typeVersion": 2.3,
+            "position": [
+              864,
+              -64
+            ],
+            "id": "f4fd2752-97db-43d1-bdfa-491553a25a4c",
+            "name": "Form",
+            "webhookId": "a3df32e8-c203-4523-9ec2-1b1487583d8c"
+          },
+          {
+            "parameters": {
+              "content": "## Parece que este Ematil trigger IMAP não está funcionando, fazer testes para verificar",
+              "height": 416,
+              "width": 464,
+              "color": 3
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -1712,
+              1872
+            ],
+            "typeVersion": 1,
+            "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
+            "name": "Sticky Note8"
           }
         ],
         "connections": {
@@ -46065,11 +46208,6 @@
             "ai_languageModel": [
               [
                 {
-                  "node": "AI Agent para criar subject",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
                   "node": "Ajuste do HTML AI Agent",
                   "type": "ai_languageModel",
                   "index": 0
@@ -46211,7 +46349,13 @@
           },
           "Groq Chat Model": {
             "ai_languageModel": [
-              []
+              [
+                {
+                  "node": "AI Agent para criar subject",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
             ]
           },
           "ID da Empresa": {
@@ -46523,6 +46667,28 @@
               [
                 {
                   "node": "Respond to Webhook4",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Iniciar Revisão de Newsletter": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s)",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Email para seleçao de News": {
+            "main": [
+              [
+                {
+                  "node": "Form",
                   "type": "main",
                   "index": 0
                 }
@@ -48254,7 +48420,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-02T16:56:02.000Z",
+      "updatedAt": "2025-12-08T11:02:15.000Z",
       "createdAt": "2025-11-28T17:26:36.080Z",
       "id": "whIGpwtnSC9hwpln",
       "name": "Matilde chat e WA Agent AI",
@@ -49844,6 +50010,31 @@
           ],
           "id": "bf13b979-107d-4762-a5d4-8e6baa92df54",
           "name": "Configuração"
+        },
+        {
+          "parameters": {
+            "mode": "insert",
+            "redisIndex": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.vectorStoreRedis",
+          "typeVersion": 1.3,
+          "position": [
+            2192,
+            -386.35497786122255
+          ],
+          "id": "d1c3aab4-9c18-4ccf-a686-c6bc288e432d",
+          "name": "Redis Vector Store",
+          "credentials": {
+            "redis": {
+              "id": "jYkzJzvQcfqLDvI0",
+              "name": "Redis account"
+            }
+          }
         }
       ],
       "connections": {
@@ -50599,7 +50790,7 @@
           }
         ]
       },
-      "versionId": "76e810de-430d-4054-8b38-e19aa2d31adf",
+      "versionId": "f2fa4b73-1211-4f9b-9bc0-32c620c2bfa0",
       "activeVersionId": null,
       "triggerCount": 5,
       "shared": [

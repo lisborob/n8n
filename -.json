@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765232113,
+            "lastTimeChecked": 1765323828,
             "possibleDuplicates": [
-              "19b00087d4d616af",
-              "19b000268111490b"
+              "19b058013373b2b0",
+              "19b0571e2c843ad5"
             ]
           }
         },
@@ -12592,7 +12592,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2177
+          "lastMessageUid": 2199
         }
       },
       "meta": {
@@ -29262,7 +29262,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2194
+          "lastMessageUid": 2199
         }
       },
       "meta": {
@@ -40230,7 +40230,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-08T16:32:05.000Z",
+      "updatedAt": "2025-12-09T20:39:58.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40557,8 +40557,8 @@
         {
           "parameters": {
             "fromEmail": "contacto@kutsaca.com",
-            "toEmail": "robson.lisboa@midiacode.com, lisborob@gmail.com",
-            "ccEmail": "glauci@midiacode.com, ",
+            "toEmail": "susanacravo@kutsaca.com",
+            "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
             "subject": "={{ $json.output }}",
             "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
             "options": {}
@@ -40658,13 +40658,13 @@
         },
         {
           "parameters": {
-            "functionCode": "const newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
+            "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
           },
           "name": "Preparar Atualização1",
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            208,
+            624,
             1024
           ],
           "id": "fe85622a-cfd0-4fe9-a73e-f5d53d3737b7"
@@ -40699,7 +40699,7 @@
           "name": "Get row(s) in sheet1",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -672,
+            -464,
             1024
           ],
           "typeVersion": 4.6,
@@ -40717,14 +40717,14 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
               "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": "gid=0",
+              "value": 718850216,
               "mode": "list",
-              "cachedResultName": "Sheet1",
+              "cachedResultName": "Emails",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
@@ -40738,8 +40738,8 @@
               ],
               "schema": [
                 {
-                  "id": "email",
-                  "displayName": "email",
+                  "id": "Email",
+                  "displayName": "Email",
                   "required": false,
                   "defaultMatch": false,
                   "display": true,
@@ -40748,8 +40748,8 @@
                   "removed": false
                 },
                 {
-                  "id": "Record Count",
-                  "displayName": "Record Count",
+                  "id": "Status",
+                  "displayName": "Status",
                   "required": false,
                   "defaultMatch": false,
                   "display": true,
@@ -40760,16 +40760,6 @@
                 {
                   "id": "news enviada",
                   "displayName": "news enviada",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "piloto",
-                  "displayName": "piloto",
                   "required": false,
                   "defaultMatch": false,
                   "display": true,
@@ -40797,7 +40787,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            400,
+            816,
             1024
           ],
           "id": "7064ac6f-bd9a-4f1c-aabe-7c061d898bea",
@@ -40811,13 +40801,13 @@
         },
         {
           "parameters": {
-            "functionCode": "// Node: Limitar a 100 registros e juntar em uma única string\n\n// Pega todos os registros vindos do node anterior (ex.: \"Filtra os emails...\")\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Extrai os emails e junta em uma única string separada por vírgula\nconst emails = limitados.map(r => r.email).join(\",\");\n\n// Retorna um único item com todos os emails juntos\nreturn [{ json: { emails } }];"
+            "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
           },
           "name": "Filtrar 100",
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            -272,
+            -80,
             1024
           ],
           "id": "109f1fd5-5e24-42a4-84b1-d29aa6626418"
@@ -40968,7 +40958,7 @@
             "filters": {
               "conditions": [
                 {
-                  "keyValue": "={{ Number($json.query.id) }}"
+                  "keyValue": "={{ $json.idnews }}"
                 }
               ]
             }
@@ -40976,7 +40966,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1232,
+            -1024,
             1024
           ],
           "id": "beba4886-b36f-4691-bfab-8cc63b202a1b",
@@ -40989,7 +40979,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -480,
+            -272,
             1024
           ],
           "id": "22b35040-6085-4b6d-8660-cd747a11700e",
@@ -40997,12 +40987,12 @@
         },
         {
           "parameters": {
-            "fromEmail": "contact@midiacode.tech",
+            "fromEmail": "contacto@kutsaca.com",
             "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "robson.lisboa@midiacode.com",
-            "bccEmail": "=",
-            "subject": "={{  $('pega o html certo da DT').item.json.subject }}",
-            "html": "={{  $('Retira do html final a seção do aprovador').item.json.html }}",
+            "ccEmail": "glauci@midiacode.com",
+            "bccEmail": "={{ $json.emails }}",
+            "subject": "={{ $json.subject }}",
+            "html": "={{ $json.html }}",
             "options": {}
           },
           "id": "dc6392e1-de0c-4b5b-a0c1-5213c016232a",
@@ -41010,13 +41000,13 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            -48,
+            368,
             1024
           ],
           "credentials": {
             "smtp": {
-              "id": "0akA4vSRMV9Mz1p8",
-              "name": "SMTP from contact@midiacode.tech"
+              "id": "eIabgHBZcsJl51Oj",
+              "name": "Kutsaca.com - SMTP account"
             }
           }
         },
@@ -41029,7 +41019,7 @@
           "typeVersion": 1,
           "position": [
             1504,
-            1504
+            2208
           ],
           "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
           "name": "Google Gemini Chat Model",
@@ -41043,8 +41033,8 @@
         {
           "parameters": {
             "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
-            "height": 304,
-            "width": 2400,
+            "height": 544,
+            "width": 2960,
             "color": 4
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -41058,12 +41048,12 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\n// Pega o HTML vindo do node anterior\nconst html = $json.html || \"\";\n\n// Remove o bloco <tr> que contém \"Orientações:\" até o fechamento </tr>\nconst cleanedHtml = html.replace(\n  /<tr>\\s*<td[^>]*>\\s*<h3>Orientações:[\\s\\S]*?<\\/tr>/i,\n  \"\"\n);\n\n// Retorna o HTML limpo\nreturn [{ json: { html: cleanedHtml } }];"
+            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -848,
+            -640,
             1024
           ],
           "id": "fa7b92e9-519e-4ad0-93ec-f775d447527e",
@@ -41133,7 +41123,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1040,
+            -832,
             1024
           ],
           "id": "84c8ceda-e69a-4e1d-94c7-13abfa86f924",
@@ -41464,8 +41454,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            1648,
-            1520
+            1728,
+            2208
           ],
           "id": "678c0c86-1f88-4c22-a149-25406e91d39c",
           "name": "Groq Chat Model",
@@ -42069,7 +42059,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            576,
+            992,
             1024
           ],
           "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
@@ -42744,6 +42734,318 @@
           "typeVersion": 1,
           "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
           "name": "Sticky Note8"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "=={{ $json.fileName }}",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            2688,
+            784
+          ],
+          "id": "3fd055da-fb63-4c71-ab71-b3b1c3364f78",
+          "name": "Upload a file",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "usado",
+                  "condition": "isEmpty"
+                },
+                {
+                  "keyName": "usado",
+                  "condition": "neq",
+                  "keyValue": "cancelado"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            1840,
+            672
+          ],
+          "id": "1cc20b95-b9c6-44d2-ac97-0253fb79294a",
+          "name": "Get row(s)3"
+        },
+        {
+          "parameters": {
+            "operation": "download",
+            "fileId": {
+              "__rl": true,
+              "value": "={{ $json.fileId }}",
+              "mode": "id"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleDrive",
+          "typeVersion": 3,
+          "position": [
+            2272,
+            672
+          ],
+          "id": "7ed4893e-9d4c-4dec-a19f-f7d3cde145af",
+          "name": "Download file",
+          "credentials": {
+            "googleDriveOAuth2Api": {
+              "id": "CXrTfmECCGCiT5hQ",
+              "name": "Google Drive account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Code in JavaScript (extrai fileId do link do Google Drive)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const imagensField = item.json.imagens || \"\";\n  let fileId = \"\";\n\n  if (imagensField.includes(\"id=\")) {\n    // Formato: uc?id=FILE_ID\n    const match = imagensField.match(/[?&]id=([^&]+)/);\n    if (match) fileId = match[1];\n  } else {\n    // Formato: /file/d/FILE_ID/view\n    const match = imagensField.match(/\\/d\\/([^/]+)/);\n    if (match) fileId = match[1];\n  }\n\n  return {\n    json: {\n      id: item.json.id,        // id do registro da DataTable\n      titulo: item.json.titulo,\n      fileId: fileId           // este é o que vai para o Download file\n    }\n  };\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            2048,
+            672
+          ],
+          "id": "f7c22ce0-7d11-4110-9943-2ca4f40fe5c5",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Code in JavaScript1 (gera fileName único e prepara binário para Upload a file)\n\nconst items = $input.all();\n\nreturn items.map((item, index) => {\n  // Usa o nome do arquivo do Drive se existir, senão usa o fileId\n  const baseName = item.json.name || item.json.fileId || `file${index}`;\n  const cleanName = String(baseName).replace(/[^a-zA-Z0-9.]/g, '_');\n\n  // Nome único: timestamp + índice\n  const fileName = `newsletter/2025/12/${Date.now()}-${index}-${cleanName}.jpg`;\n\n  return {\n    json: {\n      id: item.json.id,          // id do registro da DataTable\n      fileName,                  // 🔑 este campo precisa existir!\n      originalName: baseName,\n      mimeType: item.json.mimeType || 'image/jpeg'\n    },\n    binary: {\n      data: item.binary.data     // passa o binário para upload\n    }\n  };\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            2480,
+            672
+          ],
+          "id": "b9df37b5-53c2-4e23-bd58-1f0176bb4d8e",
+          "name": "Code in JavaScript1"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json.id }}"
+                }
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "imagens": "={{ $json.imageUrl }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "titulo",
+                  "displayName": "titulo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "text",
+                  "displayName": "text",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "imagens",
+                  "displayName": "imagens",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "video",
+                  "displayName": "video",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "usado",
+                  "displayName": "usado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Usuario",
+                  "displayName": "Usuario",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            3168,
+            672
+          ],
+          "id": "5e85f013-43a7-4cc6-87fc-0c1d77695731",
+          "name": "Update row(s)1"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Code in JavaScript2 (gera URL pública no formato path-style do S3, com '=' escapado)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucketName = 'auto.1mc.co';\n\n  // Prefixa '=' para refletir o nome real salvo no S3\n  const fileName = `=${item.json.fileName}`;\n\n  // URL pública no formato path-style\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucketName}/${encodeURIComponent(fileName)}`;\n\n  return {\n    json: {\n      id: item.json.id,\n      imageUrl,\n      fileName,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            2896,
+            672
+          ],
+          "id": "85d1f16b-9377-43dc-be13-6c6d10f9dc08",
+          "name": "Code in JavaScript2"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            1648,
+            672
+          ],
+          "id": "23f7f89e-11d5-4937-bc91-9a01f16be1c5",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                  "name": "idnews",
+                  "value": "={{ Number($json.query.id) }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -1248,
+            1024
+          ],
+          "id": "98ee2e52-81e0-411b-8fc2-aa92d0125eaa",
+          "name": "Edit Fields"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
+                  "leftValue": "={{ $json.emails }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notEmpty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            112,
+            1024
+          ],
+          "id": "1dac8800-de94-481b-a03d-3ce215f4e2af",
+          "name": "If2"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            336,
+            1232
+          ],
+          "id": "d9648888-87f0-42b9-ba3a-b0c1e3e2dc44",
+          "name": "No Operation, do nothing1"
+        },
+        {
+          "parameters": {
+            "amount": 3,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1200,
+            1024
+          ],
+          "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
+          "name": "Wait",
+          "webhookId": "d7917c0f-1510-4489-a886-ea03013e201b"
         }
       ],
       "connections": {
@@ -42899,7 +43201,7 @@
           "main": [
             [
               {
-                "node": "Distribuição da news",
+                "node": "If2",
                 "type": "main",
                 "index": 0
               }
@@ -42910,7 +43212,7 @@
           "main": [
             [
               {
-                "node": "pega o html certo da DT",
+                "node": "Edit Fields",
                 "type": "main",
                 "index": 0
               }
@@ -43445,6 +43747,133 @@
               }
             ]
           ]
+        },
+        "Get row(s)3": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Download file": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Download file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript1": {
+          "main": [
+            [
+              {
+                "node": "Upload a file",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Code in JavaScript2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload a file": {
+          "main": [
+            []
+          ]
+        },
+        "Code in JavaScript2": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "pega o html certo da DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If2": {
+          "main": [
+            [
+              {
+                "node": "Distribuição da news",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "ENVIAR REPORT VIA WHATS": {
+          "main": [
+            [
+              {
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -43468,8 +43897,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
-      "activeVersionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
+      "versionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
+      "activeVersionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
       "triggerCount": 12,
       "shared": [
         {
@@ -43481,9 +43910,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-08T16:32:05.892Z",
-        "createdAt": "2025-12-08T16:32:05.892Z",
-        "versionId": "6424bcea-828b-4eb1-81ad-d98bc2d9ef3f",
+        "updatedAt": "2025-12-09T20:39:58.002Z",
+        "createdAt": "2025-12-09T20:39:58.002Z",
+        "versionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -43806,8 +44235,8 @@
           {
             "parameters": {
               "fromEmail": "contacto@kutsaca.com",
-              "toEmail": "robson.lisboa@midiacode.com, lisborob@gmail.com",
-              "ccEmail": "glauci@midiacode.com, ",
+              "toEmail": "susanacravo@kutsaca.com",
+              "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
               "subject": "={{ $json.output }}",
               "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
               "options": {}
@@ -43907,13 +44336,13 @@
           },
           {
             "parameters": {
-              "functionCode": "const newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
+              "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
             },
             "name": "Preparar Atualização1",
             "type": "n8n-nodes-base.function",
             "typeVersion": 1,
             "position": [
-              208,
+              624,
               1024
             ],
             "id": "fe85622a-cfd0-4fe9-a73e-f5d53d3737b7"
@@ -43948,7 +44377,7 @@
             "name": "Get row(s) in sheet1",
             "type": "n8n-nodes-base.googleSheets",
             "position": [
-              -672,
+              -464,
               1024
             ],
             "typeVersion": 4.6,
@@ -43966,14 +44395,14 @@
                 "__rl": true,
                 "value": "[REDACTED]",
                 "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
                 "cachedResultUrl": "[REDACTED]"
               },
               "sheetName": {
                 "__rl": true,
-                "value": "gid=0",
+                "value": 718850216,
                 "mode": "list",
-                "cachedResultName": "Sheet1",
+                "cachedResultName": "Emails",
                 "cachedResultUrl": "[REDACTED]"
               },
               "columns": {
@@ -43987,8 +44416,8 @@
                 ],
                 "schema": [
                   {
-                    "id": "email",
-                    "displayName": "email",
+                    "id": "Email",
+                    "displayName": "Email",
                     "required": false,
                     "defaultMatch": false,
                     "display": true,
@@ -43997,8 +44426,8 @@
                     "removed": false
                   },
                   {
-                    "id": "Record Count",
-                    "displayName": "Record Count",
+                    "id": "Status",
+                    "displayName": "Status",
                     "required": false,
                     "defaultMatch": false,
                     "display": true,
@@ -44009,16 +44438,6 @@
                   {
                     "id": "news enviada",
                     "displayName": "news enviada",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "piloto",
-                    "displayName": "piloto",
                     "required": false,
                     "defaultMatch": false,
                     "display": true,
@@ -44046,7 +44465,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              400,
+              816,
               1024
             ],
             "id": "7064ac6f-bd9a-4f1c-aabe-7c061d898bea",
@@ -44060,13 +44479,13 @@
           },
           {
             "parameters": {
-              "functionCode": "// Node: Limitar a 100 registros e juntar em uma única string\n\n// Pega todos os registros vindos do node anterior (ex.: \"Filtra os emails...\")\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Extrai os emails e junta em uma única string separada por vírgula\nconst emails = limitados.map(r => r.email).join(\",\");\n\n// Retorna um único item com todos os emails juntos\nreturn [{ json: { emails } }];"
+              "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
             },
             "name": "Filtrar 100",
             "type": "n8n-nodes-base.function",
             "typeVersion": 1,
             "position": [
-              -272,
+              -80,
               1024
             ],
             "id": "109f1fd5-5e24-42a4-84b1-d29aa6626418"
@@ -44217,7 +44636,7 @@
               "filters": {
                 "conditions": [
                   {
-                    "keyValue": "={{ Number($json.query.id) }}"
+                    "keyValue": "={{ $json.idnews }}"
                   }
                 ]
               }
@@ -44225,7 +44644,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1232,
+              -1024,
               1024
             ],
             "id": "beba4886-b36f-4691-bfab-8cc63b202a1b",
@@ -44238,7 +44657,7 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -480,
+              -272,
               1024
             ],
             "id": "22b35040-6085-4b6d-8660-cd747a11700e",
@@ -44246,12 +44665,12 @@
           },
           {
             "parameters": {
-              "fromEmail": "contact@midiacode.tech",
+              "fromEmail": "contacto@kutsaca.com",
               "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "robson.lisboa@midiacode.com",
-              "bccEmail": "=",
-              "subject": "={{  $('pega o html certo da DT').item.json.subject }}",
-              "html": "={{  $('Retira do html final a seção do aprovador').item.json.html }}",
+              "ccEmail": "glauci@midiacode.com",
+              "bccEmail": "={{ $json.emails }}",
+              "subject": "={{ $json.subject }}",
+              "html": "={{ $json.html }}",
               "options": {}
             },
             "id": "dc6392e1-de0c-4b5b-a0c1-5213c016232a",
@@ -44259,13 +44678,13 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              -48,
+              368,
               1024
             ],
             "credentials": {
               "smtp": {
-                "id": "0akA4vSRMV9Mz1p8",
-                "name": "SMTP from contact@midiacode.tech"
+                "id": "eIabgHBZcsJl51Oj",
+                "name": "Kutsaca.com - SMTP account"
               }
             }
           },
@@ -44278,7 +44697,7 @@
             "typeVersion": 1,
             "position": [
               1504,
-              1504
+              2208
             ],
             "id": "1dcc0ccf-d040-44bd-a2de-cd90cf2bede0",
             "name": "Google Gemini Chat Model",
@@ -44292,8 +44711,8 @@
           {
             "parameters": {
               "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
-              "height": 304,
-              "width": 2400,
+              "height": 544,
+              "width": 2960,
               "color": 4
             },
             "type": "n8n-nodes-base.stickyNote",
@@ -44307,12 +44726,12 @@
           },
           {
             "parameters": {
-              "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\n// Pega o HTML vindo do node anterior\nconst html = $json.html || \"\";\n\n// Remove o bloco <tr> que contém \"Orientações:\" até o fechamento </tr>\nconst cleanedHtml = html.replace(\n  /<tr>\\s*<td[^>]*>\\s*<h3>Orientações:[\\s\\S]*?<\\/tr>/i,\n  \"\"\n);\n\n// Retorna o HTML limpo\nreturn [{ json: { html: cleanedHtml } }];"
+              "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -848,
+              -640,
               1024
             ],
             "id": "fa7b92e9-519e-4ad0-93ec-f775d447527e",
@@ -44382,7 +44801,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1040,
+              -832,
               1024
             ],
             "id": "84c8ceda-e69a-4e1d-94c7-13abfa86f924",
@@ -44713,8 +45132,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              1648,
-              1520
+              1728,
+              2208
             ],
             "id": "678c0c86-1f88-4c22-a149-25406e91d39c",
             "name": "Groq Chat Model",
@@ -45318,7 +45737,7 @@
             "type": "n8n-nodes-evolution-api.evolutionApi",
             "typeVersion": 1,
             "position": [
-              576,
+              992,
               1024
             ],
             "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
@@ -45993,6 +46412,318 @@
             "typeVersion": 1,
             "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
             "name": "Sticky Note8"
+          },
+          {
+            "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "=={{ $json.fileName }}",
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              2688,
+              784
+            ],
+            "id": "3fd055da-fb63-4c71-ab71-b3b1c3364f78",
+            "name": "Upload a file",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyName": "usado",
+                    "condition": "isEmpty"
+                  },
+                  {
+                    "keyName": "usado",
+                    "condition": "neq",
+                    "keyValue": "cancelado"
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              1840,
+              672
+            ],
+            "id": "1cc20b95-b9c6-44d2-ac97-0253fb79294a",
+            "name": "Get row(s)3"
+          },
+          {
+            "parameters": {
+              "operation": "download",
+              "fileId": {
+                "__rl": true,
+                "value": "={{ $json.fileId }}",
+                "mode": "id"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+              2272,
+              672
+            ],
+            "id": "7ed4893e-9d4c-4dec-a19f-f7d3cde145af",
+            "name": "Download file",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "CXrTfmECCGCiT5hQ",
+                "name": "Google Drive account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Code in JavaScript (extrai fileId do link do Google Drive)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const imagensField = item.json.imagens || \"\";\n  let fileId = \"\";\n\n  if (imagensField.includes(\"id=\")) {\n    // Formato: uc?id=FILE_ID\n    const match = imagensField.match(/[?&]id=([^&]+)/);\n    if (match) fileId = match[1];\n  } else {\n    // Formato: /file/d/FILE_ID/view\n    const match = imagensField.match(/\\/d\\/([^/]+)/);\n    if (match) fileId = match[1];\n  }\n\n  return {\n    json: {\n      id: item.json.id,        // id do registro da DataTable\n      titulo: item.json.titulo,\n      fileId: fileId           // este é o que vai para o Download file\n    }\n  };\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              2048,
+              672
+            ],
+            "id": "f7c22ce0-7d11-4110-9943-2ca4f40fe5c5",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Code in JavaScript1 (gera fileName único e prepara binário para Upload a file)\n\nconst items = $input.all();\n\nreturn items.map((item, index) => {\n  // Usa o nome do arquivo do Drive se existir, senão usa o fileId\n  const baseName = item.json.name || item.json.fileId || `file${index}`;\n  const cleanName = String(baseName).replace(/[^a-zA-Z0-9.]/g, '_');\n\n  // Nome único: timestamp + índice\n  const fileName = `newsletter/2025/12/${Date.now()}-${index}-${cleanName}.jpg`;\n\n  return {\n    json: {\n      id: item.json.id,          // id do registro da DataTable\n      fileName,                  // 🔑 este campo precisa existir!\n      originalName: baseName,\n      mimeType: item.json.mimeType || 'image/jpeg'\n    },\n    binary: {\n      data: item.binary.data     // passa o binário para upload\n    }\n  };\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              2480,
+              672
+            ],
+            "id": "b9df37b5-53c2-4e23-bd58-1f0176bb4d8e",
+            "name": "Code in JavaScript1"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyValue": "={{ $json.id }}"
+                  }
+                ]
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "imagens": "={{ $json.imageUrl }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "titulo",
+                    "displayName": "titulo",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "text",
+                    "displayName": "text",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "imagens",
+                    "displayName": "imagens",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "video",
+                    "displayName": "video",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "usado",
+                    "displayName": "usado",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "Usuario",
+                    "displayName": "Usuario",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              3168,
+              672
+            ],
+            "id": "5e85f013-43a7-4cc6-87fc-0c1d77695731",
+            "name": "Update row(s)1"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Code in JavaScript2 (gera URL pública no formato path-style do S3, com '=' escapado)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucketName = 'auto.1mc.co';\n\n  // Prefixa '=' para refletir o nome real salvo no S3\n  const fileName = `=${item.json.fileName}`;\n\n  // URL pública no formato path-style\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucketName}/${encodeURIComponent(fileName)}`;\n\n  return {\n    json: {\n      id: item.json.id,\n      imageUrl,\n      fileName,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              2896,
+              672
+            ],
+            "id": "85d1f16b-9377-43dc-be13-6c6d10f9dc08",
+            "name": "Code in JavaScript2"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+              1648,
+              672
+            ],
+            "id": "23f7f89e-11d5-4937-bc91-9a01f16be1c5",
+            "name": "When clicking ‘Execute workflow’"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                    "name": "idnews",
+                    "value": "={{ Number($json.query.id) }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -1248,
+              1024
+            ],
+            "id": "98ee2e52-81e0-411b-8fc2-aa92d0125eaa",
+            "name": "Edit Fields"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
+                    "leftValue": "={{ $json.emails }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              112,
+              1024
+            ],
+            "id": "1dac8800-de94-481b-a03d-3ce215f4e2af",
+            "name": "If2"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              336,
+              1232
+            ],
+            "id": "d9648888-87f0-42b9-ba3a-b0c1e3e2dc44",
+            "name": "No Operation, do nothing1"
+          },
+          {
+            "parameters": {
+              "amount": 3,
+              "unit": "minutes"
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1200,
+              1024
+            ],
+            "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
+            "name": "Wait",
+            "webhookId": "d7917c0f-1510-4489-a886-ea03013e201b"
           }
         ],
         "connections": {
@@ -46148,7 +46879,7 @@
             "main": [
               [
                 {
-                  "node": "Distribuição da news",
+                  "node": "If2",
                   "type": "main",
                   "index": 0
                 }
@@ -46159,7 +46890,7 @@
             "main": [
               [
                 {
-                  "node": "pega o html certo da DT",
+                  "node": "Edit Fields",
                   "type": "main",
                   "index": 0
                 }
@@ -46689,6 +47420,133 @@
               [
                 {
                   "node": "Form",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s)3": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Download file": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Download file",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript1": {
+            "main": [
+              [
+                {
+                  "node": "Upload a file",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Code in JavaScript2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload a file": {
+            "main": [
+              []
+            ]
+          },
+          "Code in JavaScript2": {
+            "main": [
+              [
+                {
+                  "node": "Update row(s)1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "When clicking ‘Execute workflow’": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s)3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields": {
+            "main": [
+              [
+                {
+                  "node": "pega o html certo da DT",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If2": {
+            "main": [
+              [
+                {
+                  "node": "Distribuição da news",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "ENVIAR REPORT VIA WHATS": {
+            "main": [
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields",
                   "type": "main",
                   "index": 0
                 }

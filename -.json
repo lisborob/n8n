@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765323828,
+            "lastTimeChecked": 1765405803,
             "possibleDuplicates": [
-              "19b058013373b2b0",
-              "19b0571e2c843ad5"
+              "19b0a63949fe80c5",
+              "19b0a56e994cfdec"
             ]
           }
         },
@@ -12592,7 +12592,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2199
+          "lastMessageUid": 2201
         }
       },
       "meta": {
@@ -26037,14 +26037,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-08T14:00:21Z"
+          "lastTimeChecked": "2025-12-10T14:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-08T14:00:52Z"
+          "lastTimeChecked": "2025-12-10T14:00:52Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            343
+            345
           ]
         }
       },
@@ -29262,7 +29262,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2199
+          "lastMessageUid": 2201
         }
       },
       "meta": {
@@ -49278,11 +49278,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-08T11:02:15.000Z",
+      "updatedAt": "2025-12-10T17:27:23.000Z",
       "createdAt": "2025-11-28T17:26:36.080Z",
       "id": "whIGpwtnSC9hwpln",
       "name": "Matilde chat e WA Agent AI",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -49534,7 +49534,7 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1232,
+            -1392,
             1088
           ],
           "id": "71f1d044-00be-4e4e-9bc5-408a4c8cf6f8",
@@ -49543,25 +49543,6 @@
             "googleDriveOAuth2Api": {
               "id": "CXrTfmECCGCiT5hQ",
               "name": "Google Drive account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "options": {}
-          },
-          "id": "2c78458b-9454-41d9-889f-eec950bb6a0f",
-          "name": "Google Gemini Chat Model2",
-          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-          "position": [
-            800,
-            1120
-          ],
-          "typeVersion": 1,
-          "credentials": {
-            "googlePalmApi": {
-              "id": "veHITAbJHo5fcUku",
-              "name": "Google Gemini(PaLM) Api account"
             }
           }
         },
@@ -49589,20 +49570,6 @@
         },
         {
           "parameters": {
-            "operation": "pdf",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.extractFromFile",
-          "typeVersion": 1,
-          "position": [
-            -864,
-            992
-          ],
-          "id": "ddca85ff-51e2-4367-a06d-3493fd0b10eb",
-          "name": "Extract from File"
-        },
-        {
-          "parameters": {
             "pollTimes": {
               "item": [
                 {}
@@ -49613,7 +49580,7 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Auto ANPME",
+              "cachedResultName": "pdfs-matilde",
               "cachedResultUrl": "[REDACTED]"
             },
             "event": "fileUpdated",
@@ -49646,7 +49613,7 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Auto ANPME",
+              "cachedResultName": "pdfs-matilde",
               "cachedResultUrl": "[REDACTED]"
             },
             "event": "fileCreated",
@@ -49681,7 +49648,7 @@
           "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
           "typeVersion": 1.3,
           "position": [
-            -640,
+            -528,
             976
           ],
           "id": "5a8e0a12-c649-480e-8558-6b4b1cd82442",
@@ -49701,7 +49668,7 @@
           "type": "[REDACTED]",
           "typeVersion": 1.1,
           "position": [
-            -688,
+            -480,
             1248
           ],
           "id": "57ff95f6-8017-437d-9b4e-94b66933aa89",
@@ -49714,7 +49681,7 @@
           "type": "[REDACTED]",
           "typeVersion": 1,
           "position": [
-            -608,
+            -400,
             1392
           ],
           "id": "ef376022-01d0-47ec-8ebc-f1d33864e372",
@@ -49735,8 +49702,8 @@
           "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
           "typeVersion": 1.3,
           "position": [
-            1168,
-            1120
+            1216,
+            1152
           ],
           "id": "eb000653-f47f-4340-a75a-de10dff34436",
           "name": "Supabase Vector Store2",
@@ -49755,15 +49722,15 @@
           "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
           "typeVersion": 1.2,
           "position": [
-            640,
+            848,
             1456
           ],
           "id": "8d282644-c33e-4dff-a2a0-259b5b1a3c29",
           "name": "Embeddings OpenAI",
           "credentials": {
             "openAiApi": {
-              "id": "u2eMJA2qQE2fimpm",
-              "name": "OpenAi ANPME"
+              "id": "TCKM3qn6Jvi6Qa4j",
+              "name": "OpenAi account"
             }
           }
         },
@@ -50791,7 +50758,7 @@
             "promptType": "define",
             "text": "={{ $('When chat message received').item.json.chatInput }}",
             "options": {
-              "systemMessage": "=Voce é a Valentina, nossa agente de atendimento.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos.\nFoco nos conteúdos sobre o midiacode.com e sobre o ooniverse.ai. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+              "systemMessage": "=Voce é Matilde, a agente de atendimento da ANPME.\nUse sempre o português de Portugal.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor sua dúvida.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nnão fique sugerindo o acesso ao site da anpme.pt a cada interação. sugira o site somente no final da interação e se for necessário ou adequado.\nEndereços web importantess:\n- https://www.anpme.pt/\n- https://www.anpme.pt/ser-associado-anpme/\n- https://www.anpme.pt/noticias/\n- https://www.anpme.pt/eventos/\n- https://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\n- https://www.anpme.pt/anpme-formacao/\n- https://www.anpme.pt/apresentacao-anpme/\n- https://www.anpme.pt/contatos/"
             }
           },
           "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
@@ -50806,7 +50773,7 @@
         {
           "parameters": {
             "public": true,
-            "initialMessages": "Olá, sou a Valentina, como posso te ajudar?",
+            "initialMessages": "Olá, sou a Matilde, como posso ajudar-te?",
             "options": {
               "inputPlaceholder": "Digite aqui..",
               "loadPreviousSession": "memory",
@@ -50848,49 +50815,81 @@
         },
         {
           "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "5fe9949f-6e5a-4b6b-bf7a-12e14bd0d151",
-                  "name": "",
-                  "value": "",
-                  "type": "string"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -2688,
-            928
-          ],
-          "id": "bf13b979-107d-4762-a5d4-8e6baa92df54",
-          "name": "Configuração"
-        },
-        {
-          "parameters": {
             "mode": "insert",
             "redisIndex": {
               "__rl": true,
-              "mode": "list",
-              "value": ""
+              "value": "rag_index",
+              "mode": "id"
             },
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.vectorStoreRedis",
           "typeVersion": 1.3,
           "position": [
-            2192,
-            -386.35497786122255
+            -688,
+            784
           ],
-          "id": "d1c3aab4-9c18-4ccf-a686-c6bc288e432d",
+          "id": "256882a6-ff3f-4b34-84d8-f7f8631a6470",
           "name": "Redis Vector Store",
           "credentials": {
             "redis": {
-              "id": "jYkzJzvQcfqLDvI0",
-              "name": "Redis account"
+              "id": "qGHPhDn9JfRyw0gB",
+              "name": "Redis-Stack"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "pdf",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.extractFromFile",
+          "typeVersion": 1,
+          "position": [
+            -960,
+            1056
+          ],
+          "id": "a914b829-5f6c-49b9-810f-953fc9b19eb7",
+          "name": "Extract from PDF"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "propertyName": "rag_index",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.redis",
+          "typeVersion": 1,
+          "position": [
+            0,
+            0
+          ],
+          "id": "fcf1bd01-69ee-4580-9817-7b79abbfe573",
+          "name": "Redis1",
+          "credentials": {
+            "redis": {
+              "id": "qGHPhDn9JfRyw0gB",
+              "name": "Redis-Stack"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            832,
+            1104
+          ],
+          "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
+          "name": "Groq Chat Model",
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
             }
           }
         }
@@ -50999,19 +50998,8 @@
           "main": [
             [
               {
-                "node": "Extract from File",
+                "node": "Extract from PDF",
                 "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Google Gemini Chat Model2": {
-          "ai_languageModel": [
-            [
-              {
-                "node": "Agente do Chat",
-                "type": "ai_languageModel",
                 "index": 0
               }
             ]
@@ -51028,17 +51016,6 @@
               {
                 "node": "When chat message received",
                 "type": "ai_memory",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Extract from File": {
-          "main": [
-            [
-              {
-                "node": "Supabase Vector Store",
-                "type": "main",
                 "index": 0
               }
             ]
@@ -51113,12 +51090,12 @@
                 "index": 0
               },
               {
-                "node": "Supabase Vector Store2",
+                "node": "Supabase Vector Store1",
                 "type": "ai_embedding",
                 "index": 0
               },
               {
-                "node": "Supabase Vector Store1",
+                "node": "Supabase Vector Store2",
                 "type": "ai_embedding",
                 "index": 0
               }
@@ -51533,6 +51510,28 @@
             ],
             []
           ]
+        },
+        "Extract from PDF": {
+          "main": [
+            [
+              {
+                "node": "Supabase Vector Store",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -51546,10 +51545,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-11-27T11:58:26Z"
+          "lastTimeChecked": "2025-12-10T17:27:23Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-11-27T11:58:27Z"
+          "lastTimeChecked": "2025-12-10T17:27:23Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -51648,9 +51647,9 @@
           }
         ]
       },
-      "versionId": "f2fa4b73-1211-4f9b-9bc0-32c620c2bfa0",
-      "activeVersionId": null,
-      "triggerCount": 5,
+      "versionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
+      "activeVersionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
+      "triggerCount": 4,
       "shared": [
         {
           "updatedAt": "2025-11-28T17:26:36.088Z",
@@ -51660,7 +51659,2265 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2025-12-10T17:27:23.470Z",
+        "createdAt": "2025-12-10T17:27:23.470Z",
+        "versionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
+        "workflowId": "whIGpwtnSC9hwpln",
+        "nodes": [
+          {
+            "parameters": {
+              "options": {}
+            },
+            "id": "6a2b3d74-033b-47dd-87dc-6afdaa23a8ed",
+            "name": "Google Gemini Chat Model",
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "position": [
+              -416,
+              560
+            ],
+            "typeVersion": 1,
+            "credentials": {
+              "googlePalmApi": {
+                "id": "veHITAbJHo5fcUku",
+                "name": "Google Gemini(PaLM) Api account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
+              "options": {
+                "systemMessage": "=Seu nome é Valentina.\nnunca diga que você é um modelo de linguagem, mas que você é uma assistente virtual treinada para ajudar no que for possível.\ndata atual: {{ $now.setZone('Europe/Lisbon').toISO() }}\nCaso o cliente queira ou quando for interessante, sugira o agendamento de uma reunião através do link https://meetings.hubspot.com/contact-ooniverse\nSempre consulte e use o conteúdo do Supabase Vector Store3 antes de responder.\nUse o nome do cliente para chamá-lo pelo primeiro nome (não use nome completo): {{ $('Webhook').item.json.body.data.pushName }}, pelo menos na primeira interação.\nVocê é uma copywriter de mensagens para nossos clientes. \nIMPORTANTE: Crie mensagens bem originais, bem curtas, no máximo um parágrafo, de acordo com a interação com o cliente. \n\nSempre mande mensagens diferentes para os clientes, mantendo o mesmo sentido, mas escritas de forma diferente. Nunca mande várias mensagens iguais, nem para o mesmo cliente e nem entre clientes diferentes.\nNo começo das mensagens com os clientes, peça para que eles salvem o seu número em seus smartphones tipo: \"Antes de mais nada, já peço que você salve meu contato aí para ficar mais fácil de identificar no seu Whatsapp.\"\nSe a pessoa falar de algum assunto que  se pareça um assédio com termos do tipo: mande fotos pelada, olá linda, olá princesa, quero uma foto sua, meu amor, ou coisas do tipo, reitere que você é uma assistente virtual e que só pode tirar dúvidas relacionadas aos super apps da ooniverse.ai e ao CMS, transmídias e QR codes da midiacode.com.\nNunca seja repetitiva. Se já falou uma frase, procure não a repetir nas mensagens seguintes. \nSeja simples, em geral, mensagens curtas são melhores.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+              }
+            },
+            "id": "39f82257-4fa1-4469-af35-36ad97ae6fbf",
+            "name": "AI Agent",
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "position": [
+              -160,
+              320
+            ],
+            "typeVersion": 1.6
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "89717b5d-9134-42d5-aa1a-283c83ec6423",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -3328,
+              464
+            ],
+            "id": "1d172453-f046-4492-bbee-313f0e3457d6",
+            "name": "Webhook",
+            "webhookId": "89717b5d-9134-42d5-aa1a-283c83ec6423"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "75f80150-c16f-4273-ba4f-90e22e65c0fd",
+                    "name": "From",
+                    "value": "={{ $json.body.data.key.remoteJid }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "ceb74b4d-4335-4290-ba19-89b568901d24",
+                    "name": "Instance",
+                    "value": "={{ $json.body.instance }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "f7cf6551-bd7a-4550-a99f-0679cf738a13",
+                    "name": "IDMessage",
+                    "value": "={{ $json.body.data.key.id }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "c7b0263c-5778-4ed5-b1ca-5da4170640fe",
+                    "name": "Message",
+                    "value": "={{ $json.body.data.message.conversation }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "355106c8-0ee6-4882-8770-f4b8c91aea88",
+                    "name": "Tipo de Mensagem",
+                    "value": "={{ $json.body.data.messageType }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "00b3d059-142e-46f1-8b6f-bb4aa9fc0196",
+                    "name": "Nome da pessoa",
+                    "value": "={{ $json.body.data.pushName }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "e3f3c8aa-2219-400f-b12e-a7045ad554e2",
+                    "name": "DeOndeVeio",
+                    "value": "Whatsapp",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -2816,
+              464
+            ],
+            "id": "f7e23d31-0fb9-4692-8c68-e253e3dafe28",
+            "name": "Edit Fields"
+          },
+          {
+            "parameters": {
+              "resource": "chat-api",
+              "operation": "read-messages",
+              "instanceName": "={{ $('Webhook').item.json.body.instance }}",
+              "remoteJid": "={{ $('Webhook').item.json.body.data.pushName }}",
+              "messageId": "={{ $('Webhook').item.json.body.data.key.id }}"
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              -1600,
+              320
+            ],
+            "id": "89a3f2d6-7342-41f6-983b-b952e87200fa",
+            "name": "Marcar mensagens como lidas",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resource": "messages-api",
+              "instanceName": "Valentina",
+              "remoteJid": "={{ $('Edit Fields').item.json.From }}",
+              "messageText": "={{ $json.output }}",
+              "options_message": {
+                "delay": 300,
+                "linkPreview": true
+              }
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              464,
+              320
+            ],
+            "id": "d04b2318-1409-402f-8b6e-2ca5544c8599",
+            "name": "Enviar texto",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "sessionIdType": "customKey",
+              "sessionKey": "={{ $('Edit Fields').item.json.From }}",
+              "sessionTTL": 864000,
+              "contextWindowLength": 20
+            },
+            "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+            "typeVersion": 1.5,
+            "position": [
+              -288,
+              560
+            ],
+            "id": "455557ce-8313-4a82-a887-63aec6017103",
+            "name": "Redis Chat Memory",
+            "credentials": {
+              "redis": {
+                "id": "jYkzJzvQcfqLDvI0",
+                "name": "Redis account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "toolDescription": "consulta a pagina do oonierse.ai",
+              "url": "https://ooniverse.ai",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequestTool",
+            "typeVersion": 4.2,
+            "position": [
+              -128,
+              560
+            ],
+            "id": "b1a415f2-e39e-4ff9-be08-3d4675ddf6fe",
+            "name": "site ooniverse"
+          },
+          {
+            "parameters": {
+              "toolDescription": "consulta a pagina do midiacode",
+              "url": "https://midiacode.com",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequestTool",
+            "typeVersion": 4.2,
+            "position": [
+              -16,
+              560
+            ],
+            "id": "73ede037-53bc-40b9-9978-065113ad1122",
+            "name": "site midiacode"
+          },
+          {
+            "parameters": {
+              "toolDescription": "consulta a pagina do oasis",
+              "url": "https://www.oasis-connection.com/",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequestTool",
+            "typeVersion": 4.2,
+            "position": [
+              112,
+              560
+            ],
+            "id": "0c703a52-f2b1-4fd3-a1ab-d9dc87d4fdfa",
+            "name": "site oasis"
+          },
+          {
+            "parameters": {
+              "operation": "download",
+              "fileId": {
+                "__rl": true,
+                "value": "={{ $json.id }}",
+                "mode": "id"
+              },
+              "options": {
+                "googleFileConversion": {
+                  "conversion": {
+                    "docsToFormat": "application/pdf",
+                    "drawingsToFormat": "application/pdf",
+                    "slidesToFormat": "application/pdf",
+                    "sheetsToFormat": "application/pdf"
+                  }
+                }
+              }
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+              -1392,
+              1088
+            ],
+            "id": "71f1d044-00be-4e4e-9bc5-408a4c8cf6f8",
+            "name": "Download file",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "CXrTfmECCGCiT5hQ",
+                "name": "Google Drive account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "sessionIdType": "customKey",
+              "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
+              "sessionTTL": 864000,
+              "contextWindowLength": 20
+            },
+            "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+            "typeVersion": 1.5,
+            "position": [
+              1024,
+              1120
+            ],
+            "id": "01c729f0-dbea-45cc-8b85-6d0a6e06a564",
+            "name": "Redis Chat Memory1",
+            "credentials": {
+              "redis": {
+                "id": "jYkzJzvQcfqLDvI0",
+                "name": "Redis account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "pollTimes": {
+                "item": [
+                  {}
+                ]
+              },
+              "triggerOn": "specificFolder",
+              "folderToWatch": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "pdfs-matilde",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "event": "fileUpdated",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleDriveTrigger",
+            "typeVersion": 1,
+            "position": [
+              -1856,
+              1184
+            ],
+            "id": "0a1e6b96-23c0-4f45-9b57-42cea93148b2",
+            "name": "Google Drive Trigger Mudanças",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "CXrTfmECCGCiT5hQ",
+                "name": "Google Drive account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "pollTimes": {
+                "item": [
+                  {}
+                ]
+              },
+              "triggerOn": "specificFolder",
+              "folderToWatch": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "pdfs-matilde",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "event": "fileCreated",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleDriveTrigger",
+            "typeVersion": 1,
+            "position": [
+              -1856,
+              992
+            ],
+            "id": "9c61d60f-ecc9-4d5a-90dd-4e50adb9afb8",
+            "name": "Google Drive Trigger Novos Arquivos",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "CXrTfmECCGCiT5hQ",
+                "name": "Google Drive account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "mode": "insert",
+              "tableName": {
+                "__rl": true,
+                "value": "documents",
+                "mode": "list",
+                "cachedResultName": "documents"
+              },
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+            "typeVersion": 1.3,
+            "position": [
+              -528,
+              976
+            ],
+            "id": "5a8e0a12-c649-480e-8558-6b4b1cd82442",
+            "name": "Supabase Vector Store",
+            "credentials": {
+              "supabaseApi": {
+                "id": "G8G8slF1c3LDipdn",
+                "name": "Supabase Matilde ANPME"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "textSplittingMode": "custom",
+              "options": {}
+            },
+            "type": "[REDACTED]",
+            "typeVersion": 1.1,
+            "position": [
+              -480,
+              1248
+            ],
+            "id": "57ff95f6-8017-437d-9b4e-94b66933aa89",
+            "name": "Default Data Loader"
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "[REDACTED]",
+            "typeVersion": 1,
+            "position": [
+              -400,
+              1392
+            ],
+            "id": "ef376022-01d0-47ec-8ebc-f1d33864e372",
+            "name": "Recursive Character Text Splitter"
+          },
+          {
+            "parameters": {
+              "mode": "retrieve-as-tool",
+              "toolDescription": "Matilde",
+              "tableName": {
+                "__rl": true,
+                "value": "documents",
+                "mode": "list",
+                "cachedResultName": "documents"
+              },
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+            "typeVersion": 1.3,
+            "position": [
+              1216,
+              1152
+            ],
+            "id": "eb000653-f47f-4340-a75a-de10dff34436",
+            "name": "Supabase Vector Store2",
+            "credentials": {
+              "supabaseApi": {
+                "id": "G8G8slF1c3LDipdn",
+                "name": "Supabase Matilde ANPME"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "model": "text-embedding-ada-002",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+            "typeVersion": 1.2,
+            "position": [
+              848,
+              1456
+            ],
+            "id": "8d282644-c33e-4dff-a2a0-259b5b1a3c29",
+            "name": "Embeddings OpenAI",
+            "credentials": {
+              "openAiApi": {
+                "id": "TCKM3qn6Jvi6Qa4j",
+                "name": "OpenAi account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "content": "## Para testar a conversa com a IA",
+              "height": 464,
+              "width": 1552
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              0,
+              832
+            ],
+            "id": "21405162-8220-46fd-bfb5-11abe913ee16",
+            "name": "Sticky Note6"
+          },
+          {
+            "parameters": {
+              "content": "WA Agent para atendimentos",
+              "height": 432,
+              "width": 4112,
+              "color": 4
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -3392,
+              288
+            ],
+            "id": "35a982eb-8310-4119-a2b0-ff8800385a9e",
+            "name": "Sticky Note"
+          },
+          {
+            "parameters": {
+              "content": "RAG",
+              "height": 720,
+              "width": 1696,
+              "color": 6
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -1952,
+              880
+            ],
+            "id": "f783af9b-7ac9-44c8-9a4e-b7cf2925596b",
+            "name": "Sticky Note5"
+          },
+          {
+            "parameters": {
+              "rules": {
+                "values": [
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                          "rightValue": "conversation",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          },
+                          "id": "2c0ec42b-dd4b-4e27-bd37-6daad3bbdff5"
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "1c7cffc1-aa74-473b-afe2-2ce9c7ae7130",
+                          "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                          "rightValue": "audioMessage",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals",
+                            "name": "filter.operator.equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 3.2,
+            "position": [
+              -1440,
+              320
+            ],
+            "id": "0ce06d6b-491f-40fa-8d96-92330bc2d7ad",
+            "name": "Tipo de mensagem"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "16c204d9-7131-43d4-9b18-b1cb5b5d8e5f",
+                    "name": "Mensagem",
+                    "value": "={{ $('Edit Fields').item.json.Message }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -800,
+              320
+            ],
+            "id": "6ca264e4-2204-4f34-81d8-2f0b5d2b3e77",
+            "name": "Mensagem de texto"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "b6f7d89f-8811-4a10-a8bb-f89497a083af",
+                    "name": "Mensagem",
+                    "value": "={{ $json.Mensagem }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -352,
+              320
+            ],
+            "id": "ac70b815-c757-464d-8dc9-6d22ff4a8ee5",
+            "name": "Texto para IA"
+          },
+          {
+            "parameters": {
+              "resource": "chat-api",
+              "operation": "get-media-base64",
+              "instanceName": "={{ $('Webhook').item.json.body.instance }}",
+              "messageId": "={{ $('Webhook').item.json.body.data.key.id }}"
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              -1216,
+              464
+            ],
+            "id": "60735fa1-16cc-47ea-bd02-a78665ef3d8f",
+            "name": "Obter m dia em base64",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "toBinary",
+              "sourceProperty": "data.base64",
+              "options": {
+                "mimeType": "audio/mpeg"
+              }
+            },
+            "type": "n8n-nodes-base.convertToFile",
+            "typeVersion": 1.1,
+            "position": [
+              -1040,
+              464
+            ],
+            "id": "a5906ad9-7e42-4fbb-bd2b-d1de296a3502",
+            "name": "Convert to File"
+          },
+          {
+            "parameters": {
+              "method": "POST",
+              "url": "https://api.groq.com/openai/v1/audio/transcriptions",
+              "sendHeaders": true,
+              "headerParameters": {
+                "parameters": [
+                  {
+                    "name": "Authorization",
+                    "value": "=bearer {{ $('Configuração global').item.json['Chave Groq'] }}"
+                  }
+                ]
+              },
+              "sendBody": true,
+              "contentType": "multipart-form-data",
+              "bodyParameters": {
+                "parameters": [
+                  {
+                    "name": "model",
+                    "value": "whisper-large-v3-turbo"
+                  },
+                  {
+                    "name": "temperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "response_format",
+                    "value": "verbose_json"
+                  },
+                  {
+                    "name": "language",
+                    "value": "pt"
+                  },
+                  {
+                    "parameterType": "formBinaryData",
+                    "name": "file",
+                    "inputDataFieldName": "data"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+              -832,
+              464
+            ],
+            "id": "73383ccd-3c75-40d3-8db4-6854f161f39f",
+            "name": "HTTP Request"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "50794ab4-7ff9-490e-8d44-fb55601956a4",
+                    "name": "Chave Groq",
+                    "value": "[REDACTED]",
+                    "type": "string"
+                  },
+                  {
+                    "id": "102a546c-5a53-4db2-8a85-73ea1b4d6d63",
+                    "name": "Bot Name",
+                    "value": "ValentinaBot",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -2432,
+              464
+            ],
+            "id": "0522f39d-fea0-4649-a685-15382211e045",
+            "name": "Configuração global"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "6d33f72c-0e26-4e71-a4e0-f90bbb9db195",
+                    "name": "Mensagem",
+                    "value": "={{ $json.text }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -624,
+              464
+            ],
+            "id": "e56e28f4-6370-467e-b73b-8530a3804e55",
+            "name": "Transcrição"
+          },
+          {
+            "parameters": {
+              "operation": "set",
+              "key": "={{ $json['Bot Name'] }}_{{ $('Edit Fields').item.json.From }}_block",
+              "value": "true",
+              "expire": true,
+              "ttl": 180
+            },
+            "type": "n8n-nodes-base.redis",
+            "typeVersion": 1,
+            "position": [
+              288,
+              -432
+            ],
+            "id": "4478e623-c6d1-443e-9c2b-98cf53e5b037",
+            "name": "ChaveBlock",
+            "credentials": {
+              "redis": {
+                "id": "jYkzJzvQcfqLDvI0",
+                "name": "Redis account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "propertyName": "isBlocked",
+              "key": "={{ $json['Bot Name'] }}_{{ $('Edit Fields').item.json.From }}_block",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.redis",
+            "typeVersion": 1,
+            "position": [
+              80,
+              -320
+            ],
+            "id": "4dd3b734-d1b0-4958-b582-1d598d79b5c8",
+            "name": "Redis",
+            "credentials": {
+              "redis": {
+                "id": "jYkzJzvQcfqLDvI0",
+                "name": "Redis account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ebb02ff1-44d5-4c73-b930-6968f9af27c9",
+                    "leftValue": "={{ $json.isBlocked }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              288,
+              -112
+            ],
+            "id": "da9c31a4-a823-4a03-882a-1dc3492b3551",
+            "name": "If"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              496,
+              -272
+            ],
+            "id": "0f99245f-1eae-4841-8ef5-2fb04bf4e0a7",
+            "name": "No Operation, do nothing"
+          },
+          {
+            "parameters": {
+              "content": "Bloqueador, para quando um humano entrar",
+              "height": 528,
+              "width": 1408,
+              "color": 3
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -592,
+              -496
+            ],
+            "id": "b528054f-631a-4d57-942a-517c0a87f5a5",
+            "name": "Sticky Note1"
+          },
+          {
+            "parameters": {
+              "amount": 8
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              224,
+              320
+            ],
+            "id": "a12f941f-6832-4859-8c20-148320b739b9",
+            "name": "Wait",
+            "webhookId": "5510234e-efa5-4c21-b343-f6487dced6c0"
+          },
+          {
+            "parameters": {
+              "mode": "retrieve-as-tool",
+              "toolDescription": "valentina",
+              "tableName": {
+                "__rl": true,
+                "value": "documents",
+                "mode": "list",
+                "cachedResultName": "documents"
+              },
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+            "typeVersion": 1.3,
+            "position": [
+              288,
+              560
+            ],
+            "id": "bdf4c14e-fbf3-4a72-883c-2bdbfb24dfc9",
+            "name": "Supabase Vector Store1",
+            "credentials": {
+              "supabaseApi": {
+                "id": "TBul7j78sGTHvaLm",
+                "name": "Supabase account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "modelName": "models/gemini-2.0-flash-001",
+              "options": {}
+            },
+            "id": "7ed27484-539e-4525-9b06-6425c11fb8ed",
+            "name": "Google Gemini Chat Model1",
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "position": [
+              -1728,
+              -368
+            ],
+            "typeVersion": 1,
+            "credentials": {
+              "googlePalmApi": {
+                "id": "veHITAbJHo5fcUku",
+                "name": "Google Gemini(PaLM) Api account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resource": "chat-api",
+              "operation": "read-messages",
+              "instanceName": "={{ $('Webhook').item.json.body.instance }}",
+              "remoteJid": "={{ $('Webhook').item.json.body.data.pushName }}",
+              "messageId": "={{ $('Webhook').item.json.body.data.key.id }}"
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              -3088,
+              -592
+            ],
+            "id": "c8e3d0ee-4768-49f4-96c9-2b9f0e3c0b23",
+            "name": "Marcar mensagens como lidas1",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "toolDescription": "consulta a pagina do oonierse.ai",
+              "url": "https://ooniverse.ai",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequestTool",
+            "typeVersion": 4.2,
+            "position": [
+              -1008,
+              -448
+            ],
+            "id": "82a270d8-6c1c-4456-bb06-307dad26cfd4",
+            "name": "site ooniverse1"
+          },
+          {
+            "parameters": {
+              "rules": {
+                "values": [
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                          "rightValue": "conversation",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals"
+                          },
+                          "id": "2c0ec42b-dd4b-4e27-bd37-6daad3bbdff5"
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 2
+                      },
+                      "conditions": [
+                        {
+                          "id": "1c7cffc1-aa74-473b-afe2-2ce9c7ae7130",
+                          "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                          "rightValue": "audioMessage",
+                          "operator": {
+                            "type": "string",
+                            "operation": "equals",
+                            "name": "filter.operator.equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 3.2,
+            "position": [
+              -2928,
+              -592
+            ],
+            "id": "7a0b4e48-21da-40ba-a23e-88a031289b71",
+            "name": "Tipo de mensagem1"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "16c204d9-7131-43d4-9b18-b1cb5b5d8e5f",
+                    "name": "Mensagem",
+                    "value": "={{ $('Edit Fields').item.json.Message }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -2320,
+              -608
+            ],
+            "id": "df943234-067a-4540-ada6-f290041aa7f7",
+            "name": "Mensagem de texto1"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "b6f7d89f-8811-4a10-a8bb-f89497a083af",
+                    "name": "Mensagem",
+                    "value": "={{ $json.Mensagem }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -1664,
+              -608
+            ],
+            "id": "c2fe3aa9-0dc1-4da9-8063-6fa9eb73d9f2",
+            "name": "Texto para IA1"
+          },
+          {
+            "parameters": {
+              "resource": "chat-api",
+              "operation": "get-media-base64",
+              "instanceName": "={{ $('Webhook').item.json.body.instance }}",
+              "messageId": "={{ $('Webhook').item.json.body.data.key.id }}"
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              -2736,
+              -464
+            ],
+            "id": "39f994a6-449f-48cd-87d4-1e93319c52af",
+            "name": "Obter m dia em base",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "toBinary",
+              "sourceProperty": "data.base64",
+              "options": {
+                "mimeType": "audio/mpeg"
+              }
+            },
+            "type": "n8n-nodes-base.convertToFile",
+            "typeVersion": 1.1,
+            "position": [
+              -2560,
+              -464
+            ],
+            "id": "6646e86b-0a52-49c6-9c78-f826edd09cd7",
+            "name": "Convert to File1"
+          },
+          {
+            "parameters": {
+              "method": "POST",
+              "url": "https://api.groq.com/openai/v1/audio/transcriptions",
+              "sendHeaders": true,
+              "headerParameters": {
+                "parameters": [
+                  {
+                    "name": "Authorization",
+                    "value": "=bearer {{ $('Configuração global').item.json['Chave Groq'] }}"
+                  }
+                ]
+              },
+              "sendBody": true,
+              "contentType": "multipart-form-data",
+              "bodyParameters": {
+                "parameters": [
+                  {
+                    "name": "model",
+                    "value": "whisper-large-v3-turbo"
+                  },
+                  {
+                    "name": "temperature",
+                    "value": "0"
+                  },
+                  {
+                    "name": "response_format",
+                    "value": "verbose_json"
+                  },
+                  {
+                    "name": "language",
+                    "value": "pt"
+                  },
+                  {
+                    "parameterType": "formBinaryData",
+                    "name": "file",
+                    "inputDataFieldName": "data"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+              -2352,
+              -464
+            ],
+            "id": "e89a63b8-b959-4442-a11d-0367fb1554e4",
+            "name": "HTTP Request1"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "6d33f72c-0e26-4e71-a4e0-f90bbb9db195",
+                    "name": "Mensagem",
+                    "value": "={{ $json.text }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -1936,
+              -464
+            ],
+            "id": "78c79c91-baec-4ac4-bc3d-459f545b799e",
+            "name": "Transcrição1"
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
+              "options": {
+                "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYour are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+              }
+            },
+            "id": "8e492a93-3210-473e-becb-18c575d83a6f",
+            "name": "AI Agent exclusivo RL",
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "position": [
+              -1472,
+              -608
+            ],
+            "typeVersion": 1.6
+          },
+          {
+            "parameters": {
+              "endpointUrl": "https://n8n.ooniverse.ai/mcp/gmailAuto/sse",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+            "typeVersion": 1.1,
+            "position": [
+              -1376,
+              -352
+            ],
+            "id": "2d482e30-164a-426b-ab62-fc846ab21ef3",
+            "name": "MCP Client Gmail"
+          },
+          {
+            "parameters": {
+              "endpointUrl": "https://n8n.ooniverse.ai/mcp/calendarAuto",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+            "typeVersion": 1.1,
+            "position": [
+              -1248,
+              -368
+            ],
+            "id": "a3b362da-03ff-449a-b1f7-a6433232783e",
+            "name": "MCP Client Calendário"
+          },
+          {
+            "parameters": {
+              "toolDescription": "consulta a pagina do midiacode",
+              "url": "https://midiacode.com",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequestTool",
+            "typeVersion": 4.2,
+            "position": [
+              -1136,
+              -416
+            ],
+            "id": "9d77cafb-c910-4d4a-9610-7dd1bb2624d0",
+            "name": "site midiacode1"
+          },
+          {
+            "parameters": {
+              "resource": "messages-api",
+              "instanceName": "Valentina",
+              "remoteJid": "={{ $('Edit Fields').item.json.From }}",
+              "messageText": "={{ $json.output }}",
+              "options_message": {
+                "delay": 300,
+                "linkPreview": true
+              }
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              -1168,
+              -608
+            ],
+            "id": "0b32a25e-498b-4c7e-a999-1f20b3c35385",
+            "name": "Enviar texto1",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "content": "Assistente pessoal RL, precisa de revisão na parte de calendário.",
+              "height": 688,
+              "width": 2416,
+              "color": 2
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "typeVersion": 1,
+            "position": [
+              -3248,
+              -672
+            ],
+            "id": "f19dc83e-bd46-4d9e-b0b6-678755f5acef",
+            "name": "Sticky Note2"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "942d2e8c-6c57-4826-9a18-0d9e1d544fda",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.key.fromMe }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -128,
+              -416
+            ],
+            "id": "b8160490-a179-49dc-bcb9-bf4649bfdbc3",
+            "name": "É a Valentina?"
+          },
+          {
+            "parameters": {
+              "endpointUrl": "https://n8n.ooniverse.ai/mcp/contactAuto",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+            "typeVersion": 1.1,
+            "position": [
+              -1488,
+              -240
+            ],
+            "id": "f1fe674b-8f7a-4987-96c2-89f8f1de9eb1",
+            "name": "MCP Client Contacts"
+          },
+          {
+            "parameters": {
+              "includeTime": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Include_Current_Time', ``, 'boolean') }}",
+              "outputFieldName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Output_Field_Name', ``, 'string') }}",
+              "options": {
+                "timezone": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}"
+              }
+            },
+            "type": "n8n-nodes-base.dateTimeTool",
+            "typeVersion": 2,
+            "position": [
+              -992,
+              -288
+            ],
+            "id": "c91efe61-904d-4e83-b9fa-ada87bfab0dd",
+            "name": "Date & Time"
+          },
+          {
+            "parameters": {
+              "operation": "getAll",
+              "calendar": {
+                "__rl": true,
+                "value": "robson.lisboa@midiacode.com",
+                "mode": "list",
+                "cachedResultName": "robson.lisboa@midiacode.com"
+              },
+              "limit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Limit', ``, 'number') }}",
+              "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
+              "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
+              "options": {
+                "timeZone": {
+                  "mode": "list",
+                  "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}"
+                }
+              }
+            },
+            "type": "n8n-nodes-base.googleCalendarTool",
+            "typeVersion": 1.3,
+            "position": [
+              -1664,
+              -176
+            ],
+            "id": "090af3e4-2336-4756-81f3-dd1039a312da",
+            "name": "Get many events in Google Calendar",
+            "credentials": {
+              "googleCalendarOAuth2Api": {
+                "id": "qTbgWBTUXCgj3YfH",
+                "name": "Google Calendar account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "sessionIdType": "customKey",
+              "sessionKey": "={{ $('Webhook').item.json.body.data.pushName }}",
+              "sessionTTL": 3600,
+              "contextWindowLength": 20
+            },
+            "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+            "typeVersion": 1.5,
+            "position": [
+              -1472,
+              -464
+            ],
+            "id": "9f03b6d0-c0e6-4fdb-a0aa-b93952477dfd",
+            "name": "Redis Chat Memory2",
+            "credentials": {
+              "redis": {
+                "id": "jYkzJzvQcfqLDvI0",
+                "name": "Redis account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5fa63bf5-aeea-4cdc-b500-59743242a5fa",
+                    "leftValue": "={{ $json.body.instance }}",
+                    "rightValue": "Valentina",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -3120,
+              464
+            ],
+            "id": "07769152-7fe2-4988-bb20-f5166a99fb1d",
+            "name": "If1"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f5447fb7-e3f7-4cb8-bf45-9021e0cfe9bd",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+                    "rightValue": "351912508389@s.whatsapp.net",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "or"
+              },
+              "options": {
+                "ignoreCase": true
+              }
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -1312,
+              -160
+            ],
+            "id": "7b0d2bb4-162c-440e-a407-34e03d935898",
+            "name": "É o funcionário?"
+          },
+          {
+            "parameters": {
+              "agent": "conversationalAgent",
+              "promptType": "define",
+              "text": "={{ $('When chat message received').item.json.chatInput }}",
+              "options": {
+                "systemMessage": "=Voce é Matilde, a agente de atendimento da ANPME.\nUse sempre o português de Portugal.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor sua dúvida.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nnão fique sugerindo o acesso ao site da anpme.pt a cada interação. sugira o site somente no final da interação e se for necessário ou adequado.\nEndereços web importantess:\n- https://www.anpme.pt/\n- https://www.anpme.pt/ser-associado-anpme/\n- https://www.anpme.pt/noticias/\n- https://www.anpme.pt/eventos/\n- https://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\n- https://www.anpme.pt/anpme-formacao/\n- https://www.anpme.pt/apresentacao-anpme/\n- https://www.anpme.pt/contatos/"
+              }
+            },
+            "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
+            "name": "Agente do Chat",
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "position": [
+              960,
+              896
+            ],
+            "typeVersion": 1.6
+          },
+          {
+            "parameters": {
+              "public": true,
+              "initialMessages": "Olá, sou a Matilde, como posso ajudar-te?",
+              "options": {
+                "inputPlaceholder": "Digite aqui..",
+                "loadPreviousSession": "memory",
+                "showWelcomeScreen": false,
+                "subtitle": "Vamos conversar! Estamos aqui para ajudar...",
+                "title": "Olá! 👋",
+                "responseMode": "lastNode"
+              }
+            },
+            "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+            "typeVersion": 1.4,
+            "position": [
+              64,
+              896
+            ],
+            "id": "882f5ebd-0f50-4c4e-b6df-18687e82219a",
+            "name": "When chat message received",
+            "webhookId": "fcea155f-6545-4baf-9eb1-406808318689",
+            "alwaysOutputData": false,
+            "executeOnce": false,
+            "retryOnFail": true,
+            "maxTries": 4,
+            "waitBetweenTries": 100,
+            "notesInFlow": false
+          },
+          {
+            "parameters": {
+              "message": "Ocorreu um erro no meu sistema. Pode perguntar de novo, por favor?",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.chat",
+            "typeVersion": 1,
+            "position": [
+              224,
+              1168
+            ],
+            "id": "85772f3b-3669-4f8c-a416-24faffe35fbb",
+            "name": "Respond to Chat2"
+          },
+          {
+            "parameters": {
+              "mode": "insert",
+              "redisIndex": {
+                "__rl": true,
+                "value": "rag_index",
+                "mode": "id"
+              },
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreRedis",
+            "typeVersion": 1.3,
+            "position": [
+              -688,
+              784
+            ],
+            "id": "256882a6-ff3f-4b34-84d8-f7f8631a6470",
+            "name": "Redis Vector Store",
+            "credentials": {
+              "redis": {
+                "id": "qGHPhDn9JfRyw0gB",
+                "name": "Redis-Stack"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "pdf",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.extractFromFile",
+            "typeVersion": 1,
+            "position": [
+              -960,
+              1056
+            ],
+            "id": "a914b829-5f6c-49b9-810f-953fc9b19eb7",
+            "name": "Extract from PDF"
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "propertyName": "rag_index",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.redis",
+            "typeVersion": 1,
+            "position": [
+              0,
+              0
+            ],
+            "id": "fcf1bd01-69ee-4580-9817-7b79abbfe573",
+            "name": "Redis1",
+            "credentials": {
+              "redis": {
+                "id": "qGHPhDn9JfRyw0gB",
+                "name": "Redis-Stack"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              832,
+              1104
+            ],
+            "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
+            "name": "Groq Chat Model",
+            "credentials": {
+              "groqApi": {
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "AI Agent": {
+            "main": [
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Google Gemini Chat Model": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Webhook": {
+            "main": [
+              [
+                {
+                  "node": "If1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields": {
+            "main": [
+              [
+                {
+                  "node": "Configuração global",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Marcar mensagens como lidas": {
+            "main": [
+              [
+                {
+                  "node": "Tipo de mensagem",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Redis Chat Memory": {
+            "ai_memory": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_memory",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "site ooniverse": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "site midiacode": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "site oasis": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Download file": {
+            "main": [
+              [
+                {
+                  "node": "Extract from PDF",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Redis Chat Memory1": {
+            "ai_memory": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_memory",
+                  "index": 0
+                },
+                {
+                  "node": "When chat message received",
+                  "type": "ai_memory",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Google Drive Trigger Mudanças": {
+            "main": [
+              [
+                {
+                  "node": "Download file",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Google Drive Trigger Novos Arquivos": {
+            "main": [
+              [
+                {
+                  "node": "Download file",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Default Data Loader": {
+            "ai_document": [
+              [
+                {
+                  "node": "Supabase Vector Store",
+                  "type": "ai_document",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Recursive Character Text Splitter": {
+            "ai_textSplitter": [
+              [
+                {
+                  "node": "Default Data Loader",
+                  "type": "ai_textSplitter",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Supabase Vector Store2": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Supabase Vector Store": {
+            "main": [
+              []
+            ]
+          },
+          "Embeddings OpenAI": {
+            "ai_embedding": [
+              [
+                {
+                  "node": "Supabase Vector Store",
+                  "type": "ai_embedding",
+                  "index": 0
+                },
+                {
+                  "node": "Supabase Vector Store1",
+                  "type": "ai_embedding",
+                  "index": 0
+                },
+                {
+                  "node": "Supabase Vector Store2",
+                  "type": "ai_embedding",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Tipo de mensagem": {
+            "main": [
+              [
+                {
+                  "node": "Mensagem de texto",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Obter m dia em base64",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Mensagem de texto": {
+            "main": [
+              [
+                {
+                  "node": "Texto para IA",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Texto para IA": {
+            "main": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Obter m dia em base64": {
+            "main": [
+              [
+                {
+                  "node": "Convert to File",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Convert to File": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Configuração global": {
+            "main": [
+              [
+                {
+                  "node": "Marcar mensagens como lidas",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request": {
+            "main": [
+              [
+                {
+                  "node": "Transcrição",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Transcrição": {
+            "main": [
+              [
+                {
+                  "node": "Texto para IA",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Redis": {
+            "main": [
+              [
+                {
+                  "node": "If",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If": {
+            "main": [
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              []
+            ]
+          },
+          "Wait": {
+            "main": [
+              [
+                {
+                  "node": "Enviar texto",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Supabase Vector Store1": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Google Gemini Chat Model1": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Marcar mensagens como lidas1": {
+            "main": [
+              [
+                {
+                  "node": "Tipo de mensagem1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Tipo de mensagem1": {
+            "main": [
+              [
+                {
+                  "node": "Mensagem de texto1",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Obter m dia em base",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Mensagem de texto1": {
+            "main": [
+              [
+                {
+                  "node": "Texto para IA1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Texto para IA1": {
+            "main": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Obter m dia em base": {
+            "main": [
+              [
+                {
+                  "node": "Convert to File1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Convert to File1": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request1": {
+            "main": [
+              [
+                {
+                  "node": "Transcrição1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Transcrição1": {
+            "main": [
+              [
+                {
+                  "node": "Texto para IA1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "site ooniverse1": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "MCP Client Gmail": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "MCP Client Calendário": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "site midiacode1": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "AI Agent exclusivo RL": {
+            "main": [
+              [
+                {
+                  "node": "Enviar texto1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "É a Valentina?": {
+            "main": [
+              [
+                {
+                  "node": "ChaveBlock",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Redis",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "MCP Client Contacts": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Date & Time": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get many events in Google Calendar": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Redis Chat Memory2": {
+            "ai_memory": [
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_memory",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If1": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "É o funcionário?": {
+            "main": [
+              [
+                {
+                  "node": "Marcar mensagens como lidas1",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "É a Valentina?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Agente do Chat": {
+            "main": [
+              []
+            ]
+          },
+          "When chat message received": {
+            "main": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              []
+            ]
+          },
+          "Extract from PDF": {
+            "main": [
+              [
+                {
+                  "node": "Supabase Vector Store",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Groq Chat Model": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "authors": "Robson Lisboa",
+        "name": null,
+        "description": null
+      },
       "tags": []
     },
     {

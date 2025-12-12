@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765405803,
+            "lastTimeChecked": 1765496885,
             "possibleDuplicates": [
-              "19b0a63949fe80c5",
-              "19b0a56e994cfdec"
+              "19b0fd0a12654f7c",
+              "19b0faebaa87d5fc"
             ]
           }
         },
@@ -49278,7 +49278,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-10T17:27:23.000Z",
+      "updatedAt": "2025-12-11T19:58:46.000Z",
       "createdAt": "2025-11-28T17:26:36.080Z",
       "id": "whIGpwtnSC9hwpln",
       "name": "Matilde chat e WA Agent AI",
@@ -49534,7 +49534,7 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1392,
+            -1568,
             1088
           ],
           "id": "71f1d044-00be-4e4e-9bc5-408a4c8cf6f8",
@@ -49543,28 +49543,6 @@
             "googleDriveOAuth2Api": {
               "id": "CXrTfmECCGCiT5hQ",
               "name": "Google Drive account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "sessionIdType": "customKey",
-            "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
-            "sessionTTL": 864000,
-            "contextWindowLength": 20
-          },
-          "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
-          "typeVersion": 1.5,
-          "position": [
-            1024,
-            1120
-          ],
-          "id": "01c729f0-dbea-45cc-8b85-6d0a6e06a564",
-          "name": "Redis Chat Memory1",
-          "credentials": {
-            "redis": {
-              "id": "jYkzJzvQcfqLDvI0",
-              "name": "Redis account"
             }
           }
         },
@@ -49648,8 +49626,8 @@
           "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
           "typeVersion": 1.3,
           "position": [
-            -528,
-            976
+            -448,
+            1024
           ],
           "id": "5a8e0a12-c649-480e-8558-6b4b1cd82442",
           "name": "Supabase Vector Store",
@@ -49668,7 +49646,7 @@
           "type": "[REDACTED]",
           "typeVersion": 1.1,
           "position": [
-            -480,
+            -496,
             1248
           ],
           "id": "57ff95f6-8017-437d-9b4e-94b66933aa89",
@@ -49676,54 +49654,31 @@
         },
         {
           "parameters": {
+            "chunkSize": 250,
+            "chunkOverlap": 40,
             "options": {}
           },
           "type": "[REDACTED]",
           "typeVersion": 1,
           "position": [
-            -400,
-            1392
+            -448,
+            1456
           ],
           "id": "ef376022-01d0-47ec-8ebc-f1d33864e372",
           "name": "Recursive Character Text Splitter"
         },
         {
           "parameters": {
-            "mode": "retrieve-as-tool",
-            "toolDescription": "Matilde",
-            "tableName": {
-              "__rl": true,
-              "value": "documents",
-              "mode": "list",
-              "cachedResultName": "documents"
-            },
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
-          "typeVersion": 1.3,
-          "position": [
-            1216,
-            1152
-          ],
-          "id": "eb000653-f47f-4340-a75a-de10dff34436",
-          "name": "Supabase Vector Store2",
-          "credentials": {
-            "supabaseApi": {
-              "id": "G8G8slF1c3LDipdn",
-              "name": "Supabase Matilde ANPME"
-            }
-          }
-        },
-        {
-          "parameters": {
             "model": "text-embedding-ada-002",
-            "options": {}
+            "options": {
+              "batchSize": 300
+            }
           },
           "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
           "typeVersion": 1.2,
           "position": [
-            848,
-            1456
+            336,
+            1440
           ],
           "id": "8d282644-c33e-4dff-a2a0-259b5b1a3c29",
           "name": "Embeddings OpenAI",
@@ -49775,8 +49730,8 @@
           "type": "n8n-nodes-base.stickyNote",
           "typeVersion": 1,
           "position": [
-            -1952,
-            880
+            -2048,
+            896
           ],
           "id": "f783af9b-7ac9-44c8-9a4e-b7cf2925596b",
           "name": "Sticky Note5"
@@ -50754,11 +50709,10 @@
         },
         {
           "parameters": {
-            "agent": "conversationalAgent",
             "promptType": "define",
-            "text": "={{ $('When chat message received').item.json.chatInput }}",
+            "text": "={{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis.\n\nResponde exclusivamente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
             "options": {
-              "systemMessage": "=Voce é Matilde, a agente de atendimento da ANPME.\nUse sempre o português de Portugal.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor sua dúvida.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nnão fique sugerindo o acesso ao site da anpme.pt a cada interação. sugira o site somente no final da interação e se for necessário ou adequado.\nEndereços web importantess:\n- https://www.anpme.pt/\n- https://www.anpme.pt/ser-associado-anpme/\n- https://www.anpme.pt/noticias/\n- https://www.anpme.pt/eventos/\n- https://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\n- https://www.anpme.pt/anpme-formacao/\n- https://www.anpme.pt/apresentacao-anpme/\n- https://www.anpme.pt/contatos/"
+              "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nRespondes exclusivamente com base nos documentos recuperados pelo sistema de pesquisa (RAG). \nQuando a informação existir nos documentos, reproduzes o texto de forma literal. \nQuando não existir, informas o utilizador de que não encontraste essa informação e pedes o contacto.\n\nNão utilizas conhecimento externo. Não inventas. Não interpretas. Não resumas.\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n"
             }
           },
           "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
@@ -50801,20 +50755,6 @@
         },
         {
           "parameters": {
-            "message": "Ocorreu um erro no meu sistema. Pode perguntar de novo, por favor?",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.chat",
-          "typeVersion": 1,
-          "position": [
-            224,
-            1168
-          ],
-          "id": "85772f3b-3669-4f8c-a416-24faffe35fbb",
-          "name": "Respond to Chat2"
-        },
-        {
-          "parameters": {
             "mode": "insert",
             "redisIndex": {
               "__rl": true,
@@ -50846,8 +50786,8 @@
           "type": "n8n-nodes-base.extractFromFile",
           "typeVersion": 1,
           "position": [
-            -960,
-            1056
+            -1376,
+            1088
           ],
           "id": "a914b829-5f6c-49b9-810f-953fc9b19eb7",
           "name": "Extract from PDF"
@@ -50881,8 +50821,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            832,
-            1104
+            864,
+            1136
           ],
           "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
           "name": "Groq Chat Model",
@@ -50890,6 +50830,222 @@
             "groqApi": {
               "id": "krEnVyEOp7mxJ92O",
               "name": "Groq Robson-Midiacode"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Analise o texto do {{ $json.text }} e devolva APENAS um array JSON válido, sem markdown, sem texto adicional, sem explicações.\n\nFormato:\n[\n  { \"tema\": \"...\", \"conteudo\": \"...\" },\n  { \"tema\": \"...\", \"conteudo\": \"...\" }\n]\n\nTexto:\n{{ $json.text }}\nnão resuma, traga o texto inteiro",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -1168,
+            1088
+          ],
+          "id": "64263409-18fc-4c50-b6b4-c1910a67c41f",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            -1312,
+            1296
+          ],
+          "id": "42fecae2-6719-4c74-858e-6e9f47ee3cf7",
+          "name": "Groq Chat Model1",
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "return JSON.parse($json.output);"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -768,
+            1088
+          ],
+          "id": "7a1eb8e5-eb97-415d-9104-3fd64d77f576",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "mode": "retrieve-as-tool",
+            "toolDescription": "Matilde",
+            "tableName": {
+              "__rl": true,
+              "value": "documents",
+              "mode": "list",
+              "cachedResultName": "documents"
+            },
+            "includeDocumentMetadata": false,
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+          "typeVersion": 1.3,
+          "position": [
+            -288,
+            1408
+          ],
+          "id": "eb000653-f47f-4340-a75a-de10dff34436",
+          "name": "Matilde",
+          "credentials": {
+            "supabaseApi": {
+              "id": "G8G8slF1c3LDipdn",
+              "name": "Supabase Matilde ANPME"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1152,
+            1360
+          ],
+          "id": "e5afc3c6-93b5-4b6d-becf-b31d0f0857b1",
+          "name": "Perguntas Frequentes Primeiros Contactos",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            976,
+            1360
+          ],
+          "id": "77ca200a-b7c4-4561-a1ac-bb36be59275c",
+          "name": "Sobre a ANPME",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1296,
+            1360
+          ],
+          "id": "5524567c-9483-451d-9e70-e58531723b58",
+          "name": "Perguntas Frequentes Associados e Promotores",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1440,
+            1360
+          ],
+          "id": "e2700a3b-2f04-45f2-9732-dba4fab056af",
+          "name": "Formação e Eventos",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1600,
+            1360
+          ],
+          "id": "04de7c71-e41f-477f-9c75-c66a8af238bc",
+          "name": "Financeiro",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1728,
+            1360
+          ],
+          "id": "bfd9c324-cab7-43e2-8537-6b2e9fbc6e7f",
+          "name": "Parcerias",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            1840,
+            1360
+          ],
+          "id": "0602351b-f639-430b-a777-2421490c4303",
+          "name": "Informações documentação",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
             }
           }
         }
@@ -51005,22 +51161,6 @@
             ]
           ]
         },
-        "Redis Chat Memory1": {
-          "ai_memory": [
-            [
-              {
-                "node": "Agente do Chat",
-                "type": "ai_memory",
-                "index": 0
-              },
-              {
-                "node": "When chat message received",
-                "type": "ai_memory",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Google Drive Trigger Mudanças": {
           "main": [
             [
@@ -51065,17 +51205,6 @@
             ]
           ]
         },
-        "Supabase Vector Store2": {
-          "ai_tool": [
-            [
-              {
-                "node": "Agente do Chat",
-                "type": "ai_tool",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Supabase Vector Store": {
           "main": [
             []
@@ -51095,7 +51224,7 @@
                 "index": 0
               },
               {
-                "node": "Supabase Vector Store2",
+                "node": "Matilde",
                 "type": "ai_embedding",
                 "index": 0
               }
@@ -51515,7 +51644,7 @@
           "main": [
             [
               {
-                "node": "Supabase Vector Store",
+                "node": "AI Agent1",
                 "type": "main",
                 "index": 0
               }
@@ -51528,6 +51657,121 @@
               {
                 "node": "Agente do Chat",
                 "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent1": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Supabase Vector Store",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Matilde": {
+          "ai_tool": [
+            []
+          ]
+        },
+        "Perguntas Frequentes Primeiros Contactos": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Sobre a ANPME": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Perguntas Frequentes Associados e Promotores": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Formação e Eventos": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Financeiro": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Parcerias": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Informações documentação": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
                 "index": 0
               }
             ]
@@ -51545,10 +51789,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-10T17:27:23Z"
+          "lastTimeChecked": "2025-12-11T19:58:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-10T17:27:23Z"
+          "lastTimeChecked": "2025-12-11T19:58:47Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -51647,8 +51891,8 @@
           }
         ]
       },
-      "versionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
-      "activeVersionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
+      "versionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
+      "activeVersionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
       "triggerCount": 4,
       "shared": [
         {
@@ -51660,9 +51904,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-10T17:27:23.470Z",
-        "createdAt": "2025-12-10T17:27:23.470Z",
-        "versionId": "ed1789bb-67ae-4e51-8933-54c1ff137742",
+        "updatedAt": "2025-12-11T19:58:46.692Z",
+        "createdAt": "2025-12-11T19:58:46.692Z",
+        "versionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
         "workflowId": "whIGpwtnSC9hwpln",
         "nodes": [
           {
@@ -51914,7 +52158,7 @@
             "type": "n8n-nodes-base.googleDrive",
             "typeVersion": 3,
             "position": [
-              -1392,
+              -1568,
               1088
             ],
             "id": "71f1d044-00be-4e4e-9bc5-408a4c8cf6f8",
@@ -51923,28 +52167,6 @@
               "googleDriveOAuth2Api": {
                 "id": "CXrTfmECCGCiT5hQ",
                 "name": "Google Drive account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "sessionIdType": "customKey",
-              "sessionKey": "={{ $('When chat message received').item.json.sessionId }}",
-              "sessionTTL": 864000,
-              "contextWindowLength": 20
-            },
-            "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
-            "typeVersion": 1.5,
-            "position": [
-              1024,
-              1120
-            ],
-            "id": "01c729f0-dbea-45cc-8b85-6d0a6e06a564",
-            "name": "Redis Chat Memory1",
-            "credentials": {
-              "redis": {
-                "id": "jYkzJzvQcfqLDvI0",
-                "name": "Redis account"
               }
             }
           },
@@ -52028,8 +52250,8 @@
             "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
             "typeVersion": 1.3,
             "position": [
-              -528,
-              976
+              -448,
+              1024
             ],
             "id": "5a8e0a12-c649-480e-8558-6b4b1cd82442",
             "name": "Supabase Vector Store",
@@ -52048,7 +52270,7 @@
             "type": "[REDACTED]",
             "typeVersion": 1.1,
             "position": [
-              -480,
+              -496,
               1248
             ],
             "id": "57ff95f6-8017-437d-9b4e-94b66933aa89",
@@ -52056,54 +52278,31 @@
           },
           {
             "parameters": {
+              "chunkSize": 250,
+              "chunkOverlap": 40,
               "options": {}
             },
             "type": "[REDACTED]",
             "typeVersion": 1,
             "position": [
-              -400,
-              1392
+              -448,
+              1456
             ],
             "id": "ef376022-01d0-47ec-8ebc-f1d33864e372",
             "name": "Recursive Character Text Splitter"
           },
           {
             "parameters": {
-              "mode": "retrieve-as-tool",
-              "toolDescription": "Matilde",
-              "tableName": {
-                "__rl": true,
-                "value": "documents",
-                "mode": "list",
-                "cachedResultName": "documents"
-              },
-              "options": {}
-            },
-            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
-            "typeVersion": 1.3,
-            "position": [
-              1216,
-              1152
-            ],
-            "id": "eb000653-f47f-4340-a75a-de10dff34436",
-            "name": "Supabase Vector Store2",
-            "credentials": {
-              "supabaseApi": {
-                "id": "G8G8slF1c3LDipdn",
-                "name": "Supabase Matilde ANPME"
-              }
-            }
-          },
-          {
-            "parameters": {
               "model": "text-embedding-ada-002",
-              "options": {}
+              "options": {
+                "batchSize": 300
+              }
             },
             "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
             "typeVersion": 1.2,
             "position": [
-              848,
-              1456
+              336,
+              1440
             ],
             "id": "8d282644-c33e-4dff-a2a0-259b5b1a3c29",
             "name": "Embeddings OpenAI",
@@ -52155,8 +52354,8 @@
             "type": "n8n-nodes-base.stickyNote",
             "typeVersion": 1,
             "position": [
-              -1952,
-              880
+              -2048,
+              896
             ],
             "id": "f783af9b-7ac9-44c8-9a4e-b7cf2925596b",
             "name": "Sticky Note5"
@@ -53134,11 +53333,10 @@
           },
           {
             "parameters": {
-              "agent": "conversationalAgent",
               "promptType": "define",
-              "text": "={{ $('When chat message received').item.json.chatInput }}",
+              "text": "={{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis.\n\nResponde exclusivamente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
               "options": {
-                "systemMessage": "=Voce é Matilde, a agente de atendimento da ANPME.\nUse sempre o português de Portugal.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor sua dúvida.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nnão fique sugerindo o acesso ao site da anpme.pt a cada interação. sugira o site somente no final da interação e se for necessário ou adequado.\nEndereços web importantess:\n- https://www.anpme.pt/\n- https://www.anpme.pt/ser-associado-anpme/\n- https://www.anpme.pt/noticias/\n- https://www.anpme.pt/eventos/\n- https://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\n- https://www.anpme.pt/anpme-formacao/\n- https://www.anpme.pt/apresentacao-anpme/\n- https://www.anpme.pt/contatos/"
+                "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nRespondes exclusivamente com base nos documentos recuperados pelo sistema de pesquisa (RAG). \nQuando a informação existir nos documentos, reproduzes o texto de forma literal. \nQuando não existir, informas o utilizador de que não encontraste essa informação e pedes o contacto.\n\nNão utilizas conhecimento externo. Não inventas. Não interpretas. Não resumas.\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n"
               }
             },
             "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
@@ -53181,20 +53379,6 @@
           },
           {
             "parameters": {
-              "message": "Ocorreu um erro no meu sistema. Pode perguntar de novo, por favor?",
-              "options": {}
-            },
-            "type": "@n8n/n8n-nodes-langchain.chat",
-            "typeVersion": 1,
-            "position": [
-              224,
-              1168
-            ],
-            "id": "85772f3b-3669-4f8c-a416-24faffe35fbb",
-            "name": "Respond to Chat2"
-          },
-          {
-            "parameters": {
               "mode": "insert",
               "redisIndex": {
                 "__rl": true,
@@ -53226,8 +53410,8 @@
             "type": "n8n-nodes-base.extractFromFile",
             "typeVersion": 1,
             "position": [
-              -960,
-              1056
+              -1376,
+              1088
             ],
             "id": "a914b829-5f6c-49b9-810f-953fc9b19eb7",
             "name": "Extract from PDF"
@@ -53261,8 +53445,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              832,
-              1104
+              864,
+              1136
             ],
             "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
             "name": "Groq Chat Model",
@@ -53270,6 +53454,222 @@
               "groqApi": {
                 "id": "krEnVyEOp7mxJ92O",
                 "name": "Groq Robson-Midiacode"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=Analise o texto do {{ $json.text }} e devolva APENAS um array JSON válido, sem markdown, sem texto adicional, sem explicações.\n\nFormato:\n[\n  { \"tema\": \"...\", \"conteudo\": \"...\" },\n  { \"tema\": \"...\", \"conteudo\": \"...\" }\n]\n\nTexto:\n{{ $json.text }}\nnão resuma, traga o texto inteiro",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 3,
+            "position": [
+              -1168,
+              1088
+            ],
+            "id": "64263409-18fc-4c50-b6b4-c1910a67c41f",
+            "name": "AI Agent1"
+          },
+          {
+            "parameters": {
+              "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              -1312,
+              1296
+            ],
+            "id": "42fecae2-6719-4c74-858e-6e9f47ee3cf7",
+            "name": "Groq Chat Model1",
+            "credentials": {
+              "groqApi": {
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "return JSON.parse($json.output);"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -768,
+              1088
+            ],
+            "id": "7a1eb8e5-eb97-415d-9104-3fd64d77f576",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "mode": "retrieve-as-tool",
+              "toolDescription": "Matilde",
+              "tableName": {
+                "__rl": true,
+                "value": "documents",
+                "mode": "list",
+                "cachedResultName": "documents"
+              },
+              "includeDocumentMetadata": false,
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+            "typeVersion": 1.3,
+            "position": [
+              -288,
+              1408
+            ],
+            "id": "eb000653-f47f-4340-a75a-de10dff34436",
+            "name": "Matilde",
+            "credentials": {
+              "supabaseApi": {
+                "id": "G8G8slF1c3LDipdn",
+                "name": "Supabase Matilde ANPME"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1152,
+              1360
+            ],
+            "id": "e5afc3c6-93b5-4b6d-becf-b31d0f0857b1",
+            "name": "Perguntas Frequentes Primeiros Contactos",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              976,
+              1360
+            ],
+            "id": "77ca200a-b7c4-4561-a1ac-bb36be59275c",
+            "name": "Sobre a ANPME",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1296,
+              1360
+            ],
+            "id": "5524567c-9483-451d-9e70-e58531723b58",
+            "name": "Perguntas Frequentes Associados e Promotores",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1440,
+              1360
+            ],
+            "id": "e2700a3b-2f04-45f2-9732-dba4fab056af",
+            "name": "Formação e Eventos",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1600,
+              1360
+            ],
+            "id": "04de7c71-e41f-477f-9c75-c66a8af238bc",
+            "name": "Financeiro",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1728,
+              1360
+            ],
+            "id": "bfd9c324-cab7-43e2-8537-6b2e9fbc6e7f",
+            "name": "Parcerias",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              1840,
+              1360
+            ],
+            "id": "0602351b-f639-430b-a777-2421490c4303",
+            "name": "Informações documentação",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
               }
             }
           }
@@ -53385,22 +53785,6 @@
               ]
             ]
           },
-          "Redis Chat Memory1": {
-            "ai_memory": [
-              [
-                {
-                  "node": "Agente do Chat",
-                  "type": "ai_memory",
-                  "index": 0
-                },
-                {
-                  "node": "When chat message received",
-                  "type": "ai_memory",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Google Drive Trigger Mudanças": {
             "main": [
               [
@@ -53445,17 +53829,6 @@
               ]
             ]
           },
-          "Supabase Vector Store2": {
-            "ai_tool": [
-              [
-                {
-                  "node": "Agente do Chat",
-                  "type": "ai_tool",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Supabase Vector Store": {
             "main": [
               []
@@ -53475,7 +53848,7 @@
                   "index": 0
                 },
                 {
-                  "node": "Supabase Vector Store2",
+                  "node": "Matilde",
                   "type": "ai_embedding",
                   "index": 0
                 }
@@ -53895,7 +54268,7 @@
             "main": [
               [
                 {
-                  "node": "Supabase Vector Store",
+                  "node": "AI Agent1",
                   "type": "main",
                   "index": 0
                 }
@@ -53908,6 +54281,121 @@
                 {
                   "node": "Agente do Chat",
                   "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "AI Agent1": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Groq Chat Model1": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "AI Agent1",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Supabase Vector Store",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Matilde": {
+            "ai_tool": [
+              []
+            ]
+          },
+          "Perguntas Frequentes Primeiros Contactos": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Sobre a ANPME": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Perguntas Frequentes Associados e Promotores": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Formação e Eventos": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Financeiro": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Parcerias": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Informações documentação": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
                   "index": 0
                 }
               ]

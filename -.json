@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765496885,
+            "lastTimeChecked": 1765575871,
             "possibleDuplicates": [
-              "19b0fd0a12654f7c",
-              "19b0faebaa87d5fc"
+              "19b1485d17850093",
+              "19b147f400ded749"
             ]
           }
         },
@@ -26037,14 +26037,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-10T14:00:21Z"
+          "lastTimeChecked": "2025-12-12T14:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-10T14:00:52Z"
+          "lastTimeChecked": "2025-12-12T14:00:52Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            345
+            347
           ]
         }
       },
@@ -40230,7 +40230,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-09T20:39:58.000Z",
+      "updatedAt": "2025-12-12T13:14:41.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40252,7 +40252,7 @@
                 "titulo": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o título da notícia? '] }}",
                 "text": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}",
                 "video": "={{ $('inserção de conteúdo da news Susana').item.json['Vídeo da notícia (opcional)'] }}",
-                "imagens": "={{ $('Upload file').item.json.webContentLink }}",
+                "imagens": "={{ $json.imageUrl }}",
                 "Usuario": "Susana Cravo"
               },
               "matchingColumns": [],
@@ -40326,46 +40326,11 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -880,
-            -112
+            -640,
+            -256
           ],
           "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
           "name": "Insert row"
-        },
-        {
-          "parameters": {
-            "inputDataFieldName": "=Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
-            "driveId": {
-              "__rl": true,
-              "value": "My Drive",
-              "mode": "list",
-              "cachedResultName": "My Drive",
-              "cachedResultUrl": "https://drive.google.com/drive/my-drive"
-            },
-            "folderId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "n8n corporativo arquivos de clientes",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleDrive",
-          "typeVersion": 3,
-          "position": [
-            -1424,
-            -112
-          ],
-          "id": "0627e490-2ead-4958-9b86-ae50c8d1941a",
-          "name": "Upload file",
-          "credentials": {
-            "googleDriveOAuth2Api": {
-              "id": "CXrTfmECCGCiT5hQ",
-              "name": "Google Drive account"
-            }
-          },
-          "onError": "[REDACTED]"
         },
         {
           "parameters": {
@@ -40595,13 +40560,13 @@
         {
           "parameters": {
             "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente\npara adicionar novos colaboradores, duplique todos os nós e revise todas as variáveis, adicionando o nome do novo publicador no Insert Row",
-            "height": 688,
-            "width": 1312
+            "height": 736,
+            "width": 1360
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1792,
-            -496
+            -1776,
+            -640
           ],
           "typeVersion": 1,
           "id": "4725f3b8-c72d-4939-a8fa-c0a1fd889c8c",
@@ -41440,8 +41405,8 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -880,
-            64
+            -912,
+            -144
           ],
           "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
           "name": "Melhora o texto da notícia"
@@ -41468,7 +41433,7 @@
         },
         {
           "parameters": {
-            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
+            "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\nCaso o cliente queira que o texto da noticia seja melhorado por IA, adicione os nodes de IA no fluxo de inserção de conteúdo.\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\nAdicione a pasta com o nome do cliente no node UPLOAD IMAGEM PARA S3, no item 'parent folder key'\nNo código do GERA URL PUBLICA S3, no item 'const folder = 'Kutsaca';' troque o nome kutsaca pelo mesmo nome do cliente. Fique atento para maiusculas e minusculas. O nome do folder tem que ser identico entre estes dois últimos itens.\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
             "height": 1120,
             "width": 992,
             "color": 6
@@ -41607,8 +41572,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1248,
-            64
+            -1232,
+            -144
           ],
           "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
           "name": "ID da Empresa"
@@ -41635,8 +41600,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1072,
-            64
+            -1056,
+            -144
           ],
           "id": "400bc9fa-0d26-479a-8851-6701103967d4",
           "name": "Pega o perfil da empresa"
@@ -41683,8 +41648,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.3,
           "position": [
-            -1712,
-            -112
+            -1696,
+            -256
           ],
           "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
           "name": "inserção de conteúdo da news Susana",
@@ -42224,13 +42189,13 @@
         {
           "parameters": {
             "respondWith": "text",
-            "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Editar Notícia - ID {{ $json.id }}</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 600px; /* aumentei a largura para dar mais espaço */\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0 0 10px 0;\n      text-align: center;\n    }\n\n    label {\n      font-weight: bold;\n      color: #333;\n      margin-bottom: 4px;\n    }\n\n    input[type=\"text\"],\n    textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    textarea {\n      resize: vertical;\n      min-height: 250px; /* aumentei bastante a altura */\n    }\n\n    .buttons {\n      display: flex;\n      justify-content: space-between;\n      gap: 10px;\n      margin-top: 10px;\n    }\n\n    button,\n    .cancel-btn {\n      flex: 1;\n      padding: 12px;\n      border: none;\n      border-radius: 6px;\n      font-weight: bold;\n      font-size: 14px;\n      cursor: pointer;\n      text-align: center;\n      text-decoration: none;\n    }\n\n    button {\n      background: #e74c3c;\n      color: #fff;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .cancel-btn {\n      background: #aaa;\n      color: #fff;\n    }\n\n    .cancel-btn:hover {\n      background: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Editar Notícia ID {{ $json.id }}</h2>\n    <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n      <input type=\"hidden\" name=\"id\" value=\"{{ $json.id }}\">\n\n      <label for=\"titulo\">Título:</label>\n      <input type=\"text\" id=\"titulo\" name=\"titulo\" value=\"{{ $json.titulo }}\">\n\n      <label for=\"text\">Texto:</label>\n      <textarea id=\"text\" name=\"text\">{{ $json.text }}</textarea>\n\n      <label for=\"imagens\">Imagem (URL):</label>\n      <input type=\"text\" id=\"imagens\" name=\"imagens\" value=\"{{ $json.imagens }}\">\n\n      <label for=\"video\">Vídeo (URL):</label>\n      <input type=\"text\" id=\"video\" name=\"video\" value=\"{{ $json.video }}\">\n\n      <div class=\"buttons\">\n        <button type=\"submit\">Salvar alterações</button>\n        <a href=\"https://midiacode.com/?page_id=15842\" class=\"cancel-btn\">Cancelar</a>\n      </div>\n    </form>\n  </div>\n</body>\n</html>",
+            "responseBody": "[REDACTED]",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            1680,
+            1888,
             -224
           ],
           "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
@@ -42523,8 +42488,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1712,
-            -352
+            -1696,
+            -496
           ],
           "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
           "name": "da pagina web",
@@ -42552,8 +42517,8 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -1312,
-            -352
+            -1296,
+            -496
           ],
           "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
           "name": "Upload file1",
@@ -42654,8 +42619,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1104,
-            -352
+            -1088,
+            -496
           ],
           "id": "e99defe6-7089-4703-8084-d21f92bbcb48",
           "name": "Insert row1"
@@ -42669,8 +42634,8 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            -896,
-            -352
+            -880,
+            -496
           ],
           "id": "37a8e723-8c6d-4896-940d-185519913cb7",
           "name": "Respond to Webhook4"
@@ -42712,7 +42677,7 @@
           "type": "n8n-nodes-base.form",
           "typeVersion": 2.3,
           "position": [
-            864,
+            832,
             -64
           ],
           "id": "f4fd2752-97db-43d1-bdfa-491553a25a4c",
@@ -42734,235 +42699,6 @@
           "typeVersion": 1,
           "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
           "name": "Sticky Note8"
-        },
-        {
-          "parameters": {
-            "operation": "upload",
-            "bucketName": "auto.1mc.co",
-            "fileName": "=={{ $json.fileName }}",
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.awsS3",
-          "typeVersion": 2,
-          "position": [
-            2688,
-            784
-          ],
-          "id": "3fd055da-fb63-4c71-ab71-b3b1c3364f78",
-          "name": "Upload a file",
-          "credentials": {
-            "aws": {
-              "id": "nFJH8JqzQhkNaZsi",
-              "name": "AWS Auto.1mc.co"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "operation": "get",
-            "dataTableId": {
-              "__rl": true,
-              "value": "kzGI8GXGTDJG97g4",
-              "mode": "list",
-              "cachedResultName": "Kutsaca Newsletter Conteudos",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
-            },
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "usado",
-                  "condition": "isEmpty"
-                },
-                {
-                  "keyName": "usado",
-                  "condition": "neq",
-                  "keyValue": "cancelado"
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            1840,
-            672
-          ],
-          "id": "1cc20b95-b9c6-44d2-ac97-0253fb79294a",
-          "name": "Get row(s)3"
-        },
-        {
-          "parameters": {
-            "operation": "download",
-            "fileId": {
-              "__rl": true,
-              "value": "={{ $json.fileId }}",
-              "mode": "id"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleDrive",
-          "typeVersion": 3,
-          "position": [
-            2272,
-            672
-          ],
-          "id": "7ed4893e-9d4c-4dec-a19f-f7d3cde145af",
-          "name": "Download file",
-          "credentials": {
-            "googleDriveOAuth2Api": {
-              "id": "CXrTfmECCGCiT5hQ",
-              "name": "Google Drive account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Code in JavaScript (extrai fileId do link do Google Drive)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const imagensField = item.json.imagens || \"\";\n  let fileId = \"\";\n\n  if (imagensField.includes(\"id=\")) {\n    // Formato: uc?id=FILE_ID\n    const match = imagensField.match(/[?&]id=([^&]+)/);\n    if (match) fileId = match[1];\n  } else {\n    // Formato: /file/d/FILE_ID/view\n    const match = imagensField.match(/\\/d\\/([^/]+)/);\n    if (match) fileId = match[1];\n  }\n\n  return {\n    json: {\n      id: item.json.id,        // id do registro da DataTable\n      titulo: item.json.titulo,\n      fileId: fileId           // este é o que vai para o Download file\n    }\n  };\n});"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            2048,
-            672
-          ],
-          "id": "f7c22ce0-7d11-4110-9943-2ca4f40fe5c5",
-          "name": "Code in JavaScript"
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Code in JavaScript1 (gera fileName único e prepara binário para Upload a file)\n\nconst items = $input.all();\n\nreturn items.map((item, index) => {\n  // Usa o nome do arquivo do Drive se existir, senão usa o fileId\n  const baseName = item.json.name || item.json.fileId || `file${index}`;\n  const cleanName = String(baseName).replace(/[^a-zA-Z0-9.]/g, '_');\n\n  // Nome único: timestamp + índice\n  const fileName = `newsletter/2025/12/${Date.now()}-${index}-${cleanName}.jpg`;\n\n  return {\n    json: {\n      id: item.json.id,          // id do registro da DataTable\n      fileName,                  // 🔑 este campo precisa existir!\n      originalName: baseName,\n      mimeType: item.json.mimeType || 'image/jpeg'\n    },\n    binary: {\n      data: item.binary.data     // passa o binário para upload\n    }\n  };\n});"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            2480,
-            672
-          ],
-          "id": "b9df37b5-53c2-4e23-bd58-1f0176bb4d8e",
-          "name": "Code in JavaScript1"
-        },
-        {
-          "parameters": {
-            "operation": "update",
-            "dataTableId": {
-              "__rl": true,
-              "value": "kzGI8GXGTDJG97g4",
-              "mode": "list",
-              "cachedResultName": "Kutsaca Newsletter Conteudos",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
-            },
-            "filters": {
-              "conditions": [
-                {
-                  "keyValue": "={{ $json.id }}"
-                }
-              ]
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "imagens": "={{ $json.imageUrl }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "titulo",
-                  "displayName": "titulo",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "text",
-                  "displayName": "text",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "imagens",
-                  "displayName": "imagens",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "video",
-                  "displayName": "video",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "usado",
-                  "displayName": "usado",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "Usuario",
-                  "displayName": "Usuario",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            3168,
-            672
-          ],
-          "id": "5e85f013-43a7-4cc6-87fc-0c1d77695731",
-          "name": "Update row(s)1"
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Code in JavaScript2 (gera URL pública no formato path-style do S3, com '=' escapado)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucketName = 'auto.1mc.co';\n\n  // Prefixa '=' para refletir o nome real salvo no S3\n  const fileName = `=${item.json.fileName}`;\n\n  // URL pública no formato path-style\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucketName}/${encodeURIComponent(fileName)}`;\n\n  return {\n    json: {\n      id: item.json.id,\n      imageUrl,\n      fileName,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            2896,
-            672
-          ],
-          "id": "85d1f16b-9377-43dc-be13-6c6d10f9dc08",
-          "name": "Code in JavaScript2"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.manualTrigger",
-          "typeVersion": 1,
-          "position": [
-            1648,
-            672
-          ],
-          "id": "23f7f89e-11d5-4937-bc91-9a01f16be1c5",
-          "name": "When clicking ‘Execute workflow’"
         },
         {
           "parameters": {
@@ -43046,20 +42782,223 @@
           "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
           "name": "Wait",
           "webhookId": "d7917c0f-1510-4489-a886-ea03013e201b"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "={{ $json['Faça upload de uma imagem para essa notícia (opcional)'].filename }}",
+            "binaryPropertyName": "Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
+            "additionalFields": {
+              "parentFolderKey": "Kutsaca"
+            }
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            -1472,
+            -112
+          ],
+          "id": "8357d6ab-0882-49c2-bf89-ce4adc9a1d5c",
+          "name": "Upload imagem para S3",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Gera URL pública do S3 usando pasta fixa \"Kutsaca\"\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // filename vindo do formulário\n  const filename = item.json['Faça upload de uma imagem para essa notícia (opcional)']?.filename;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  // S3 usa + no lugar de espaço\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n\n  // Monta a URL pública com a pasta\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1472,
+            -256
+          ],
+          "id": "d0606705-42bc-48c9-8e6e-c92bcb1fd547",
+          "name": "Gera URL publica S3"
+        },
+        {
+          "parameters": {
+            "path": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            1056,
+            160
+          ],
+          "id": "680450da-b08f-4027-b857-922623209557",
+          "name": "Troca imagem",
+          "webhookId": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!-- Respond to Webhook: redireciona para o formulário de upload da nova imagem -->\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>Redirecionando...</title>\n\n  <!-- Redirecionamento automático para o Form Trigger de upload -->\n  <meta http-equiv=\"refresh\" content=\"0; URL='https://n8n.ooniverse.ai/webhook/FORM_UPLOAD_IMAGEM?id={{ $query.id }}&redirect={{ $query.redirect }}&titulo={{ $query.titulo | urlencode }}&video={{ $query.video | urlencode }}'\" />\n\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      padding: 40px;\n      text-align: center;\n      color: #555;\n    }\n    .box {\n      background: white;\n      padding: 24px;\n      border-radius: 8px;\n      border: 1px solid #dbdfe7;\n      display: inline-block;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"box\">\n    <h2 style=\"font-weight:600; margin-bottom:12px;\">Redirecionando...</h2>\n    <p style=\"font-size:14px;\">Aguarde, estamos abrindo o formulário para trocar a imagem.</p>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            2096,
+            160
+          ],
+          "id": "9faf5c6b-e2d7-4a4e-815f-c5728d217c2b",
+          "name": "Trocar imagem html"
+        },
+        {
+          "parameters": {
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "Escolha sua imagem ou arraste...",
+                  "fieldType": "file",
+                  "multipleFiles": false,
+                  "acceptFileTypes": "jpg, png",
+                  "requiredField": true
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.form",
+          "typeVersion": 2.3,
+          "position": [
+            1568,
+            160
+          ],
+          "id": "b798bf31-92fa-47d8-860e-be3917c6e25c",
+          "name": "upload nova imagem",
+          "webhookId": "fba963ca-5f7a-4e42-b94c-e28ddccd4505"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Normaliza dados da notícia vindos do DataTable\n// ---------------------------------------------------\n// O DataTable retorna os campos diretamente no $json.\n// Este node garante que o Respond to Webhook receba\n// exatamente os campos que o HTML espera usar.\n//\n// Isso resolve o problema do botão TROCAR IMAGEM,\n// que estava recebendo titulo=0, text=0, video=0\n// porque o $json do RespondToWebhook não continha\n// esses campos no formato correto.\n\nconst item = $json;\n\nreturn [\n  {\n    json: {\n      id: item.id,\n      titulo: item.titulo || \"\",\n      text: item.text || \"\",\n      video: item.video || \"\",\n      imagens: item.imagens || \"\"\n    }\n  }\n];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1680,
+            -224
+          ],
+          "id": "ed9781f4-e8a6-4f9b-9569-87f1e3868cb3",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Extrai parâmetros da query string do webhook TROCAR IMAGEM\n// ----------------------------------------------------------------\n// O webhook recebe todos os dados via URL:\n// ?id=18&redirect=...&titulo=...&text=...&video=...\n//\n// Este node:\n// 1. Lê todos os parâmetros da query\n// 2. Decodifica (URL decode) os campos text e titulo\n// 3. Retorna um JSON limpo para os próximos nodes\n\n// Pega todos os parâmetros da query string\nconst q = $json.query || {};\n\n// Função utilitária para decodificar strings URL-encoded\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value; // fallback\n  }\n}\n\n// Monta o objeto final\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      redirect: q.redirect || \"\",\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video)\n    }\n  }\n];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1264,
+            160
+          ],
+          "id": "33f9905a-12eb-4200-8617-1a7431c76098",
+          "name": "pega os dados do webhook"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "value": "kzGI8GXGTDJG97g4",
+              "mode": "list",
+              "cachedResultName": "Kutsaca Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+            },
+            "filters": {
+              "conditions": [
+                {}
+              ]
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {},
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "titulo",
+                  "displayName": "titulo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "text",
+                  "displayName": "text",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "imagens",
+                  "displayName": "imagens",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "video",
+                  "displayName": "video",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "usado",
+                  "displayName": "usado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "Usuario",
+                  "displayName": "Usuario",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            1776,
+            160
+          ],
+          "id": "1d81ab5b-1da5-4bf8-9e99-496385920c13",
+          "name": "Update row(s)1"
         }
       ],
       "connections": {
-        "Upload file": {
-          "main": [
-            [
-              {
-                "node": "Insert row",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Get row(s)": {
           "main": [
             [
@@ -43437,7 +43376,12 @@
           "main": [
             [
               {
-                "node": "Upload file",
+                "node": "Upload imagem para S3",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Gera URL publica S3",
                 "type": "main",
                 "index": 0
               }
@@ -43602,7 +43546,7 @@
           "main": [
             [
               {
-                "node": "Responde com formulario editavel",
+                "node": "Code in JavaScript",
                 "type": "main",
                 "index": 0
               }
@@ -43748,82 +43692,6 @@
             ]
           ]
         },
-        "Get row(s)3": {
-          "main": [
-            [
-              {
-                "node": "Code in JavaScript",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Download file": {
-          "main": [
-            [
-              {
-                "node": "Code in JavaScript1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Code in JavaScript": {
-          "main": [
-            [
-              {
-                "node": "Download file",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Code in JavaScript1": {
-          "main": [
-            [
-              {
-                "node": "Upload a file",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Code in JavaScript2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Upload a file": {
-          "main": [
-            []
-          ]
-        },
-        "Code in JavaScript2": {
-          "main": [
-            [
-              {
-                "node": "Update row(s)1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "When clicking ‘Execute workflow’": {
-          "main": [
-            [
-              {
-                "node": "Get row(s)3",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Edit Fields": {
           "main": [
             [
@@ -43874,6 +43742,77 @@
               }
             ]
           ]
+        },
+        "Upload imagem para S3": {
+          "main": [
+            []
+          ]
+        },
+        "Gera URL publica S3": {
+          "main": [
+            [
+              {
+                "node": "Insert row",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Troca imagem": {
+          "main": [
+            [
+              {
+                "node": "pega os dados do webhook",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "upload nova imagem": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Responde com formulario editavel",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "pega os dados do webhook": {
+          "main": [
+            [
+              {
+                "node": "upload nova imagem",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row(s)1": {
+          "main": [
+            [
+              {
+                "node": "Trocar imagem html",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -43897,9 +43836,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
-      "activeVersionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
-      "triggerCount": 12,
+      "versionId": "d32d70a2-b816-4e22-a865-b825b036a079",
+      "activeVersionId": "d32d70a2-b816-4e22-a865-b825b036a079",
+      "triggerCount": 13,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -43910,9 +43849,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-09T20:39:58.002Z",
-        "createdAt": "2025-12-09T20:39:58.002Z",
-        "versionId": "dc3f456f-5b90-4807-847c-a00b9a267ea8",
+        "updatedAt": "2025-12-12T13:14:41.607Z",
+        "createdAt": "2025-12-12T13:14:41.607Z",
+        "versionId": "d32d70a2-b816-4e22-a865-b825b036a079",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -43930,7 +43869,7 @@
                   "titulo": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o título da notícia? '] }}",
                   "text": "={{ $('inserção de conteúdo da news Susana').item.json['Qual o texto da notícia? '] }}",
                   "video": "={{ $('inserção de conteúdo da news Susana').item.json['Vídeo da notícia (opcional)'] }}",
-                  "imagens": "={{ $('Upload file').item.json.webContentLink }}",
+                  "imagens": "={{ $json.imageUrl }}",
                   "Usuario": "Susana Cravo"
                 },
                 "matchingColumns": [],
@@ -44004,46 +43943,11 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -880,
-              -112
+              -640,
+              -256
             ],
             "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
             "name": "Insert row"
-          },
-          {
-            "parameters": {
-              "inputDataFieldName": "=Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
-              "driveId": {
-                "__rl": true,
-                "value": "My Drive",
-                "mode": "list",
-                "cachedResultName": "My Drive",
-                "cachedResultUrl": "https://drive.google.com/drive/my-drive"
-              },
-              "folderId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "n8n corporativo arquivos de clientes",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleDrive",
-            "typeVersion": 3,
-            "position": [
-              -1424,
-              -112
-            ],
-            "id": "0627e490-2ead-4958-9b86-ae50c8d1941a",
-            "name": "Upload file",
-            "credentials": {
-              "googleDriveOAuth2Api": {
-                "id": "CXrTfmECCGCiT5hQ",
-                "name": "Google Drive account"
-              }
-            },
-            "onError": "[REDACTED]"
           },
           {
             "parameters": {
@@ -44273,13 +44177,13 @@
           {
             "parameters": {
               "content": "## Insere novos conteúdos de Newsletter\npara as próximas edições, continuamente\npara adicionar novos colaboradores, duplique todos os nós e revise todas as variáveis, adicionando o nome do novo publicador no Insert Row",
-              "height": 688,
-              "width": 1312
+              "height": 736,
+              "width": 1360
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -1792,
-              -496
+              -1776,
+              -640
             ],
             "typeVersion": 1,
             "id": "4725f3b8-c72d-4939-a8fa-c0a1fd889c8c",
@@ -45118,8 +45022,8 @@
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3,
             "position": [
-              -880,
-              64
+              -912,
+              -144
             ],
             "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
             "name": "Melhora o texto da notícia"
@@ -45146,7 +45050,7 @@
           },
           {
             "parameters": {
-              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
+              "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\nCaso o cliente queira que o texto da noticia seja melhorado por IA, adicione os nodes de IA no fluxo de inserção de conteúdo.\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\nAdicione a pasta com o nome do cliente no node UPLOAD IMAGEM PARA S3, no item 'parent folder key'\nNo código do GERA URL PUBLICA S3, no item 'const folder = 'Kutsaca';' troque o nome kutsaca pelo mesmo nome do cliente. Fique atento para maiusculas e minusculas. O nome do folder tem que ser identico entre estes dois últimos itens.\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
               "height": 1120,
               "width": 992,
               "color": 6
@@ -45285,8 +45189,8 @@
             "type": "n8n-nodes-base.set",
             "typeVersion": 3.4,
             "position": [
-              -1248,
-              64
+              -1232,
+              -144
             ],
             "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
             "name": "ID da Empresa"
@@ -45313,8 +45217,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1072,
-              64
+              -1056,
+              -144
             ],
             "id": "400bc9fa-0d26-479a-8851-6701103967d4",
             "name": "Pega o perfil da empresa"
@@ -45361,8 +45265,8 @@
             "type": "n8n-nodes-base.formTrigger",
             "typeVersion": 2.3,
             "position": [
-              -1712,
-              -112
+              -1696,
+              -256
             ],
             "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
             "name": "inserção de conteúdo da news Susana",
@@ -45902,13 +45806,13 @@
           {
             "parameters": {
               "respondWith": "text",
-              "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Editar Notícia - ID {{ $json.id }}</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 600px; /* aumentei a largura para dar mais espaço */\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      gap: 16px;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0 0 10px 0;\n      text-align: center;\n    }\n\n    label {\n      font-weight: bold;\n      color: #333;\n      margin-bottom: 4px;\n    }\n\n    input[type=\"text\"],\n    textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    textarea {\n      resize: vertical;\n      min-height: 250px; /* aumentei bastante a altura */\n    }\n\n    .buttons {\n      display: flex;\n      justify-content: space-between;\n      gap: 10px;\n      margin-top: 10px;\n    }\n\n    button,\n    .cancel-btn {\n      flex: 1;\n      padding: 12px;\n      border: none;\n      border-radius: 6px;\n      font-weight: bold;\n      font-size: 14px;\n      cursor: pointer;\n      text-align: center;\n      text-decoration: none;\n    }\n\n    button {\n      background: #e74c3c;\n      color: #fff;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .cancel-btn {\n      background: #aaa;\n      color: #fff;\n    }\n\n    .cancel-btn:hover {\n      background: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Editar Notícia ID {{ $json.id }}</h2>\n    <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n      <input type=\"hidden\" name=\"id\" value=\"{{ $json.id }}\">\n\n      <label for=\"titulo\">Título:</label>\n      <input type=\"text\" id=\"titulo\" name=\"titulo\" value=\"{{ $json.titulo }}\">\n\n      <label for=\"text\">Texto:</label>\n      <textarea id=\"text\" name=\"text\">{{ $json.text }}</textarea>\n\n      <label for=\"imagens\">Imagem (URL):</label>\n      <input type=\"text\" id=\"imagens\" name=\"imagens\" value=\"{{ $json.imagens }}\">\n\n      <label for=\"video\">Vídeo (URL):</label>\n      <input type=\"text\" id=\"video\" name=\"video\" value=\"{{ $json.video }}\">\n\n      <div class=\"buttons\">\n        <button type=\"submit\">Salvar alterações</button>\n        <a href=\"https://midiacode.com/?page_id=15842\" class=\"cancel-btn\">Cancelar</a>\n      </div>\n    </form>\n  </div>\n</body>\n</html>",
+              "responseBody": "[REDACTED]",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              1680,
+              1888,
               -224
             ],
             "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
@@ -46201,8 +46105,8 @@
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-              -1712,
-              -352
+              -1696,
+              -496
             ],
             "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
             "name": "da pagina web",
@@ -46230,8 +46134,8 @@
             "type": "n8n-nodes-base.googleDrive",
             "typeVersion": 3,
             "position": [
-              -1312,
-              -352
+              -1296,
+              -496
             ],
             "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
             "name": "Upload file1",
@@ -46332,8 +46236,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1104,
-              -352
+              -1088,
+              -496
             ],
             "id": "e99defe6-7089-4703-8084-d21f92bbcb48",
             "name": "Insert row1"
@@ -46347,8 +46251,8 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              -896,
-              -352
+              -880,
+              -496
             ],
             "id": "37a8e723-8c6d-4896-940d-185519913cb7",
             "name": "Respond to Webhook4"
@@ -46390,7 +46294,7 @@
             "type": "n8n-nodes-base.form",
             "typeVersion": 2.3,
             "position": [
-              864,
+              832,
               -64
             ],
             "id": "f4fd2752-97db-43d1-bdfa-491553a25a4c",
@@ -46412,235 +46316,6 @@
             "typeVersion": 1,
             "id": "0547fe7d-850b-47ca-b189-29905c72a9d3",
             "name": "Sticky Note8"
-          },
-          {
-            "parameters": {
-              "operation": "upload",
-              "bucketName": "auto.1mc.co",
-              "fileName": "=={{ $json.fileName }}",
-              "additionalFields": {}
-            },
-            "type": "n8n-nodes-base.awsS3",
-            "typeVersion": 2,
-            "position": [
-              2688,
-              784
-            ],
-            "id": "3fd055da-fb63-4c71-ab71-b3b1c3364f78",
-            "name": "Upload a file",
-            "credentials": {
-              "aws": {
-                "id": "nFJH8JqzQhkNaZsi",
-                "name": "AWS Auto.1mc.co"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "operation": "get",
-              "dataTableId": {
-                "__rl": true,
-                "value": "kzGI8GXGTDJG97g4",
-                "mode": "list",
-                "cachedResultName": "Kutsaca Newsletter Conteudos",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
-              },
-              "filters": {
-                "conditions": [
-                  {
-                    "keyName": "usado",
-                    "condition": "isEmpty"
-                  },
-                  {
-                    "keyName": "usado",
-                    "condition": "neq",
-                    "keyValue": "cancelado"
-                  }
-                ]
-              }
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              1840,
-              672
-            ],
-            "id": "1cc20b95-b9c6-44d2-ac97-0253fb79294a",
-            "name": "Get row(s)3"
-          },
-          {
-            "parameters": {
-              "operation": "download",
-              "fileId": {
-                "__rl": true,
-                "value": "={{ $json.fileId }}",
-                "mode": "id"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleDrive",
-            "typeVersion": 3,
-            "position": [
-              2272,
-              672
-            ],
-            "id": "7ed4893e-9d4c-4dec-a19f-f7d3cde145af",
-            "name": "Download file",
-            "credentials": {
-              "googleDriveOAuth2Api": {
-                "id": "CXrTfmECCGCiT5hQ",
-                "name": "Google Drive account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "jsCode": "// Node: Code in JavaScript (extrai fileId do link do Google Drive)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const imagensField = item.json.imagens || \"\";\n  let fileId = \"\";\n\n  if (imagensField.includes(\"id=\")) {\n    // Formato: uc?id=FILE_ID\n    const match = imagensField.match(/[?&]id=([^&]+)/);\n    if (match) fileId = match[1];\n  } else {\n    // Formato: /file/d/FILE_ID/view\n    const match = imagensField.match(/\\/d\\/([^/]+)/);\n    if (match) fileId = match[1];\n  }\n\n  return {\n    json: {\n      id: item.json.id,        // id do registro da DataTable\n      titulo: item.json.titulo,\n      fileId: fileId           // este é o que vai para o Download file\n    }\n  };\n});"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              2048,
-              672
-            ],
-            "id": "f7c22ce0-7d11-4110-9943-2ca4f40fe5c5",
-            "name": "Code in JavaScript"
-          },
-          {
-            "parameters": {
-              "jsCode": "// Node: Code in JavaScript1 (gera fileName único e prepara binário para Upload a file)\n\nconst items = $input.all();\n\nreturn items.map((item, index) => {\n  // Usa o nome do arquivo do Drive se existir, senão usa o fileId\n  const baseName = item.json.name || item.json.fileId || `file${index}`;\n  const cleanName = String(baseName).replace(/[^a-zA-Z0-9.]/g, '_');\n\n  // Nome único: timestamp + índice\n  const fileName = `newsletter/2025/12/${Date.now()}-${index}-${cleanName}.jpg`;\n\n  return {\n    json: {\n      id: item.json.id,          // id do registro da DataTable\n      fileName,                  // 🔑 este campo precisa existir!\n      originalName: baseName,\n      mimeType: item.json.mimeType || 'image/jpeg'\n    },\n    binary: {\n      data: item.binary.data     // passa o binário para upload\n    }\n  };\n});"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              2480,
-              672
-            ],
-            "id": "b9df37b5-53c2-4e23-bd58-1f0176bb4d8e",
-            "name": "Code in JavaScript1"
-          },
-          {
-            "parameters": {
-              "operation": "update",
-              "dataTableId": {
-                "__rl": true,
-                "value": "kzGI8GXGTDJG97g4",
-                "mode": "list",
-                "cachedResultName": "Kutsaca Newsletter Conteudos",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
-              },
-              "filters": {
-                "conditions": [
-                  {
-                    "keyValue": "={{ $json.id }}"
-                  }
-                ]
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "imagens": "={{ $json.imageUrl }}"
-                },
-                "matchingColumns": [],
-                "schema": [
-                  {
-                    "id": "titulo",
-                    "displayName": "titulo",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "text",
-                    "displayName": "text",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "imagens",
-                    "displayName": "imagens",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "video",
-                    "displayName": "video",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "usado",
-                    "displayName": "usado",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "Usuario",
-                    "displayName": "Usuario",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              3168,
-              672
-            ],
-            "id": "5e85f013-43a7-4cc6-87fc-0c1d77695731",
-            "name": "Update row(s)1"
-          },
-          {
-            "parameters": {
-              "jsCode": "// Node: Code in JavaScript2 (gera URL pública no formato path-style do S3, com '=' escapado)\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucketName = 'auto.1mc.co';\n\n  // Prefixa '=' para refletir o nome real salvo no S3\n  const fileName = `=${item.json.fileName}`;\n\n  // URL pública no formato path-style\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucketName}/${encodeURIComponent(fileName)}`;\n\n  return {\n    json: {\n      id: item.json.id,\n      imageUrl,\n      fileName,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              2896,
-              672
-            ],
-            "id": "85d1f16b-9377-43dc-be13-6c6d10f9dc08",
-            "name": "Code in JavaScript2"
-          },
-          {
-            "parameters": {},
-            "type": "n8n-nodes-base.manualTrigger",
-            "typeVersion": 1,
-            "position": [
-              1648,
-              672
-            ],
-            "id": "23f7f89e-11d5-4937-bc91-9a01f16be1c5",
-            "name": "When clicking ‘Execute workflow’"
           },
           {
             "parameters": {
@@ -46724,20 +46399,223 @@
             "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
             "name": "Wait",
             "webhookId": "d7917c0f-1510-4489-a886-ea03013e201b"
+          },
+          {
+            "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "={{ $json['Faça upload de uma imagem para essa notícia (opcional)'].filename }}",
+              "binaryPropertyName": "Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
+              "additionalFields": {
+                "parentFolderKey": "Kutsaca"
+              }
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              -1472,
+              -112
+            ],
+            "id": "8357d6ab-0882-49c2-bf89-ce4adc9a1d5c",
+            "name": "Upload imagem para S3",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "// Gera URL pública do S3 usando pasta fixa \"Kutsaca\"\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // filename vindo do formulário\n  const filename = item.json['Faça upload de uma imagem para essa notícia (opcional)']?.filename;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  // S3 usa + no lugar de espaço\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n\n  // Monta a URL pública com a pasta\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -1472,
+              -256
+            ],
+            "id": "d0606705-42bc-48c9-8e6e-c92bcb1fd547",
+            "name": "Gera URL publica S3"
+          },
+          {
+            "parameters": {
+              "path": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              1056,
+              160
+            ],
+            "id": "680450da-b08f-4027-b857-922623209557",
+            "name": "Troca imagem",
+            "webhookId": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!-- Respond to Webhook: redireciona para o formulário de upload da nova imagem -->\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>Redirecionando...</title>\n\n  <!-- Redirecionamento automático para o Form Trigger de upload -->\n  <meta http-equiv=\"refresh\" content=\"0; URL='https://n8n.ooniverse.ai/webhook/FORM_UPLOAD_IMAGEM?id={{ $query.id }}&redirect={{ $query.redirect }}&titulo={{ $query.titulo | urlencode }}&video={{ $query.video | urlencode }}'\" />\n\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      padding: 40px;\n      text-align: center;\n      color: #555;\n    }\n    .box {\n      background: white;\n      padding: 24px;\n      border-radius: 8px;\n      border: 1px solid #dbdfe7;\n      display: inline-block;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"box\">\n    <h2 style=\"font-weight:600; margin-bottom:12px;\">Redirecionando...</h2>\n    <p style=\"font-size:14px;\">Aguarde, estamos abrindo o formulário para trocar a imagem.</p>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              2096,
+              160
+            ],
+            "id": "9faf5c6b-e2d7-4a4e-815f-c5728d217c2b",
+            "name": "Trocar imagem html"
+          },
+          {
+            "parameters": {
+              "formFields": {
+                "values": [
+                  {
+                    "fieldLabel": "Escolha sua imagem ou arraste...",
+                    "fieldType": "file",
+                    "multipleFiles": false,
+                    "acceptFileTypes": "jpg, png",
+                    "requiredField": true
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.form",
+            "typeVersion": 2.3,
+            "position": [
+              1568,
+              160
+            ],
+            "id": "b798bf31-92fa-47d8-860e-be3917c6e25c",
+            "name": "upload nova imagem",
+            "webhookId": "fba963ca-5f7a-4e42-b94c-e28ddccd4505"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Normaliza dados da notícia vindos do DataTable\n// ---------------------------------------------------\n// O DataTable retorna os campos diretamente no $json.\n// Este node garante que o Respond to Webhook receba\n// exatamente os campos que o HTML espera usar.\n//\n// Isso resolve o problema do botão TROCAR IMAGEM,\n// que estava recebendo titulo=0, text=0, video=0\n// porque o $json do RespondToWebhook não continha\n// esses campos no formato correto.\n\nconst item = $json;\n\nreturn [\n  {\n    json: {\n      id: item.id,\n      titulo: item.titulo || \"\",\n      text: item.text || \"\",\n      video: item.video || \"\",\n      imagens: item.imagens || \"\"\n    }\n  }\n];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1680,
+              -224
+            ],
+            "id": "ed9781f4-e8a6-4f9b-9569-87f1e3868cb3",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Extrai parâmetros da query string do webhook TROCAR IMAGEM\n// ----------------------------------------------------------------\n// O webhook recebe todos os dados via URL:\n// ?id=18&redirect=...&titulo=...&text=...&video=...\n//\n// Este node:\n// 1. Lê todos os parâmetros da query\n// 2. Decodifica (URL decode) os campos text e titulo\n// 3. Retorna um JSON limpo para os próximos nodes\n\n// Pega todos os parâmetros da query string\nconst q = $json.query || {};\n\n// Função utilitária para decodificar strings URL-encoded\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value; // fallback\n  }\n}\n\n// Monta o objeto final\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      redirect: q.redirect || \"\",\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video)\n    }\n  }\n];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1264,
+              160
+            ],
+            "id": "33f9905a-12eb-4200-8617-1a7431c76098",
+            "name": "pega os dados do webhook"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "dataTableId": {
+                "__rl": true,
+                "value": "kzGI8GXGTDJG97g4",
+                "mode": "list",
+                "cachedResultName": "Kutsaca Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              },
+              "filters": {
+                "conditions": [
+                  {}
+                ]
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {},
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "titulo",
+                    "displayName": "titulo",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "text",
+                    "displayName": "text",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "imagens",
+                    "displayName": "imagens",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "video",
+                    "displayName": "video",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "usado",
+                    "displayName": "usado",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  },
+                  {
+                    "id": "Usuario",
+                    "displayName": "Usuario",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "readOnly": false,
+                    "removed": false
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              1776,
+              160
+            ],
+            "id": "1d81ab5b-1da5-4bf8-9e99-496385920c13",
+            "name": "Update row(s)1"
           }
         ],
         "connections": {
-          "Upload file": {
-            "main": [
-              [
-                {
-                  "node": "Insert row",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Get row(s)": {
             "main": [
               [
@@ -47115,7 +46993,12 @@
             "main": [
               [
                 {
-                  "node": "Upload file",
+                  "node": "Upload imagem para S3",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Gera URL publica S3",
                   "type": "main",
                   "index": 0
                 }
@@ -47280,7 +47163,7 @@
             "main": [
               [
                 {
-                  "node": "Responde com formulario editavel",
+                  "node": "Code in JavaScript",
                   "type": "main",
                   "index": 0
                 }
@@ -47426,82 +47309,6 @@
               ]
             ]
           },
-          "Get row(s)3": {
-            "main": [
-              [
-                {
-                  "node": "Code in JavaScript",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Download file": {
-            "main": [
-              [
-                {
-                  "node": "Code in JavaScript1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Code in JavaScript": {
-            "main": [
-              [
-                {
-                  "node": "Download file",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Code in JavaScript1": {
-            "main": [
-              [
-                {
-                  "node": "Upload a file",
-                  "type": "main",
-                  "index": 0
-                },
-                {
-                  "node": "Code in JavaScript2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Upload a file": {
-            "main": [
-              []
-            ]
-          },
-          "Code in JavaScript2": {
-            "main": [
-              [
-                {
-                  "node": "Update row(s)1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "When clicking ‘Execute workflow’": {
-            "main": [
-              [
-                {
-                  "node": "Get row(s)3",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Edit Fields": {
             "main": [
               [
@@ -47547,6 +47354,77 @@
               [
                 {
                   "node": "Edit Fields",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload imagem para S3": {
+            "main": [
+              []
+            ]
+          },
+          "Gera URL publica S3": {
+            "main": [
+              [
+                {
+                  "node": "Insert row",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Troca imagem": {
+            "main": [
+              [
+                {
+                  "node": "pega os dados do webhook",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "upload nova imagem": {
+            "main": [
+              [
+                {
+                  "node": "Update row(s)1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Responde com formulario editavel",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "pega os dados do webhook": {
+            "main": [
+              [
+                {
+                  "node": "upload nova imagem",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Update row(s)1": {
+            "main": [
+              [
+                {
+                  "node": "Trocar imagem html",
                   "type": "main",
                   "index": 0
                 }

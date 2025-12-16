@@ -2527,10 +2527,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1765750396,
+            "lastTimeChecked": 1765842331,
             "possibleDuplicates": [
-              "19b1eecd6fa41aa2",
-              "19b1eb1eb7869db7"
+              "19b2467c566b1699"
             ]
           }
         },
@@ -29707,6 +29706,1070 @@
       "tags": []
     },
     {
+      "updatedAt": "2025-12-15T21:58:09.000Z",
+      "createdAt": "2025-12-15T19:44:19.084Z",
+      "id": "bjLQyxsXwueVF8bn",
+      "name": "Email AUTO lisborob@gmail.com incoming",
+      "active": true,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
+            "categories": {
+              "categories": [
+                {
+                  "category": "Faturas",
+                  "description": "qualquer fatura para pagamento de banco ou concessionária de serviços públicos ou qualquer outra conta para pagamento"
+                },
+                {
+                  "category": "Encomendas",
+                  "description": "emails com confirmação de encomendas"
+                },
+                {
+                  "category": "Promo",
+                  "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                },
+                {
+                  "category": "social",
+                  "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                },
+                {
+                  "category": "Keep it in inbox",
+                  "description": "Anything that does not match the other categories. also emails from theresanaiforthat.com, "
+                },
+                {
+                  "category": "Viagem",
+                  "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                },
+                {
+                  "category": "extratos de banco",
+                  "description": "qualquer documento ou extrato de banco para simples conferencia"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.textClassifier",
+          "typeVersion": 1.1,
+          "position": [
+            -32,
+            224
+          ],
+          "id": "ba6a36f0-0314-4ed7-9d89-c857894b865c",
+          "name": "Text Classifier"
+        },
+        {
+          "parameters": {
+            "modelName": "models/gemini-2.0-flash-lite",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1,
+          "position": [
+            112,
+            1056
+          ],
+          "id": "5140d560-a930-47da-9ed2-ab6c8fd0cf9f",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "dZqtJbDlzlidR2nh",
+              "name": "Google Gemini(PaLM) Api LISBOROB"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "markAsUnread",
+            "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            704,
+            192
+          ],
+          "id": "aff2df9f-42d1-4928-bd92-5fec2758ae86",
+          "name": "Mark a message as unread",
+          "webhookId": "c40d6f07-e2e3-4cfd-a177-b5d678155589",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "messageId": "={{ $json.id }}"
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            1248,
+            192
+          ],
+          "id": "538ba16a-8503-49dc-a01f-4d99ec6a89f4",
+          "name": "Delete a message",
+          "webhookId": "c186a110-1851-420e-86b6-ad0d05611282",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            2960,
+            464
+          ],
+          "id": "6f3b5c42-a1f0-43ea-ba1d-582fde2a5c5a",
+          "name": "Remove message from INBOX",
+          "webhookId": "25decb7e-562e-4d5e-91e0-60a3858e032d",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=Mensagem chegou em lisborob, referene a viagem de {{ $('Gmail Trigger - lisborob').item.json.from.value[0].address }}\nAssunto\n{{ $('Gmail Trigger - lisborob').item.json.subject }}\nMensagem\n{{ $('Gmail Trigger - lisborob').item.json.text }}",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1248,
+            640
+          ],
+          "id": "4cbd373e-8161-4dff-9c42-b0946defb4b6",
+          "name": "Enviar texto",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "removeLabels",
+            "messageId": "={{ $json.id }}",
+            "labelIds": [
+              "INBOX"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            896,
+            192
+          ],
+          "id": "9dc6a5d5-463e-4317-b9d3-7600e11140f3",
+          "name": "Remove message from INBOX 1",
+          "webhookId": "b6515d73-79bb-41cd-b745-bdd8c3a298ee",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resource": "messages-api",
+            "instanceName": "Valentina",
+            "remoteJid": "351912508389@s.whatsapp.net",
+            "messageText": "=email de encomenda no lisborob de {{ $('Gmail Trigger - lisborob').item.json.from.value[0].address }}\nassunto: \n{{ $('Gmail Trigger - lisborob').item.json.subject }}\nmensagem: \n{{ $('Gmail Trigger - lisborob').item.json.text }}\n",
+            "options_message": {}
+          },
+          "type": "n8n-nodes-evolution-api.evolutionApi",
+          "typeVersion": 1,
+          "position": [
+            1712,
+            -96
+          ],
+          "id": "50eec25d-dd67-4ac2-bafb-097fd081ff88",
+          "name": "Relatorio de envio para adm",
+          "credentials": {
+            "evolutionApi": {
+              "id": "4gvC5iGuSb0S7dgW",
+              "name": "Evolution account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "simple": false,
+            "filters": {},
+            "options": {}
+          },
+          "type": "n8n-nodes-base.gmailTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -880,
+            384
+          ],
+          "id": "e0ad5a81-1b6f-40cc-a267-6f98d9fe65dd",
+          "name": "Gmail Trigger - lisborob",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+            "labelIds": [
+              "Label_235007576996048720"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            688,
+            -208
+          ],
+          "id": "7a075856-ac92-4f03-bed2-495cf5eb324b",
+          "name": "contas a pagar",
+          "webhookId": "ad6a1d5a-782f-4a2a-9d90-ec8b86f3f0b6",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+            "labelIds": [
+              "Label_42"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            688,
+            -32
+          ],
+          "id": "79b9555d-9dc8-463e-b20e-6514e5212ce2",
+          "name": "Compras",
+          "webhookId": "d09d5708-7d25-4c21-a07d-bde61dbdcbc5",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            704,
+            416
+          ],
+          "id": "e89049fd-22a9-4d4c-bea7-0a7c17a89da8",
+          "name": "No Operation, do nothing1"
+        },
+        {
+          "parameters": {
+            "operation": "addLabels",
+            "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+            "labelIds": [
+              "Label_4266700994207943183"
+            ]
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
+          "position": [
+            704,
+            624
+          ],
+          "id": "80f158b6-0acd-4c43-9610-be36280b09f8",
+          "name": "Viagem",
+          "webhookId": "b53ceaed-e9a2-483e-986a-6efcef1fa4ea",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "KDOT0bj7QZa0C8HW",
+              "name": "Gmail Lisborob"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Text Classifier": {
+          "main": [
+            [
+              {
+                "node": "contas a pagar",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Compras",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Mark a message as unread",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Mark a message as unread",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing1",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Viagem",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ]
+        },
+        "Mark a message as unread": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX 1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Enviar texto": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Remove message from INBOX 1": {
+          "main": [
+            [
+              {
+                "node": "Delete a message",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Relatorio de envio para adm": {
+          "main": [
+            []
+          ]
+        },
+        "Gmail Trigger - lisborob": {
+          "main": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "contas a pagar": {
+          "main": [
+            [
+              {
+                "node": "Remove message from INBOX",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Compras": {
+          "main": [
+            [
+              {
+                "node": "Relatorio de envio para adm",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Viagem": {
+          "main": [
+            [
+              {
+                "node": "Enviar texto",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": {
+        "node:Gmail Trigger": {
+          "Gmail Trigger": {
+            "lastTimeChecked": 1762791045,
+            "possibleDuplicates": [
+              "19a6e88f51ccb3ae",
+              "19a6e830dec045f1"
+            ]
+          }
+        },
+        "node:Gmail Trigger - robson.lisboa@midiacode.com": {
+          "Gmail Trigger - robson.lisboa@midiacode.com": {
+            "lastTimeChecked": 1765833259,
+            "possibleDuplicates": [
+              "19b23ddceb0c1376"
+            ]
+          }
+        },
+        "node:Google Sheets Trigger1": {
+          "documentId": "[REDACTED]",
+          "sheetId": 0,
+          "lastRevision": 40,
+          "lastRevisionLink": "[REDACTED]"
+        },
+        "node:Gmail Trigger - lisborob": {
+          "Gmail Trigger - lisborob": {
+            "lastTimeChecked": 1765842962,
+            "possibleDuplicates": [
+              "19b24720a2d051a4",
+              "19b241ab558eb3bc"
+            ]
+          }
+        }
+      },
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {
+        "Gmail Trigger - lisborob": [
+          {
+            "json": {
+              "id": "19b23d8490b075ab",
+              "threadId": "19b23d8490b075ab",
+              "labelIds": [
+                "UNREAD",
+                "IMPORTANT",
+                "CATEGORY_UPDATES",
+                "INBOX"
+              ],
+              "sizeEstimate": 14090,
+              "headers": {
+                "delivered-to": "Delivered-To: lisborob@gmail.com",
+                "received": "[REDACTED]",
+                "x-received": "[REDACTED]",
+                "arc-seal": "[REDACTED]",
+                "arc-message-signature": "[REDACTED]",
+                "arc-authentication-results": "ARC-Authentication-Results: i=1; mx.google.com;\r\n       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=WBGzWGJM;\r\n       spf=pass (google.com: domain of 353haaqgtccwvw-zmxtgikkwcvba.owwotm.kwutqajwzwjouiqt.kwu@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=353hAaQgTCCwVW-ZMXTgIKKWcVba.OWWOTM.KWUTQaJWZWJOUIQT.KWU@gaia.bounces.google.com;\r\n       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;\r\n       dara=pass header.i=@gmail.com",
+                "return-path": "Return-Path: <353hAaQgTCCwVW-ZMXTgIKKWcVba.OWWOTM.KWUTQaJWZWJOUIQT.KWU@gaia.bounces.google.com>",
+                "received-spf": "Received-SPF: pass (google.com: domain of 353haaqgtccwvw-zmxtgikkwcvba.owwotm.kwutqajwzwjouiqt.kwu@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;",
+                "authentication-results": "Authentication-Results: mx.google.com;\r\n       dkim=pass header.i=@accounts.google.com header.s=20230601 header.b=WBGzWGJM;\r\n       spf=pass (google.com: domain of 353haaqgtccwvw-zmxtgikkwcvba.owwotm.kwutqajwzwjouiqt.kwu@gaia.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=353hAaQgTCCwVW-ZMXTgIKKWcVba.OWWOTM.KWUTQaJWZWJOUIQT.KWU@gaia.bounces.google.com;\r\n       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accounts.google.com;\r\n       dara=pass header.i=@gmail.com",
+                "dkim-signature": "[REDACTED]",
+                "x-google-dkim-signature": "[REDACTED]",
+                "x-gm-message-state": "[REDACTED]",
+                "x-google-smtp-source": "[REDACTED]",
+                "mime-version": "MIME-Version: 1.0",
+                "date": "Date: Mon, 15 Dec 2025 21:08:54 GMT",
+                "x-account-notification-type": "X-Account-Notification-Type: 127",
+                "feedback-id": "Feedback-ID: 127:account-notifier",
+                "gmsai": "gmsai: true",
+                "x-notifications": "X-Notifications: 8dee88c462260000",
+                "x-notifications-bounce-info": "[REDACTED]",
+                "message-id": "[REDACTED]",
+                "subject": "Subject: =?UTF-8?Q?Alerta_de_seguran=C3=A7a?=",
+                "from": "From: Google <no-reply@accounts.google.com>",
+                "to": "To: lisborob@gmail.com",
+                "content-type": "[REDACTED]"
+              },
+              "html": "[REDACTED]",
+              "text": "[REDACTED]",
+              "textAsHtml": "[REDACTED]",
+              "subject": "Alerta de segurança",
+              "date": "2025-12-15T21:08:54.000Z",
+              "to": {
+                "value": [
+                  {
+                    "address": "lisborob@gmail.com",
+                    "name": ""
+                  }
+                ],
+                "html": "<span class=\"mp_address_group\"><a href=\"mailto:lisborob@gmail.com\" class=\"mp_address_email\">lisborob@gmail.com</a></span>",
+                "text": "lisborob@gmail.com"
+              },
+              "from": {
+                "value": [
+                  {
+                    "address": "no-reply@accounts.google.com",
+                    "name": "Google"
+                  }
+                ],
+                "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Google</span> &lt;<a href=\"mailto:no-reply@accounts.google.com\" class=\"mp_address_email\">no-reply@accounts.google.com</a>&gt;</span>",
+                "text": "\"Google\" <no-reply@accounts.google.com>"
+              },
+              "messageId": "[REDACTED]"
+            }
+          }
+        ]
+      },
+      "versionId": "71817447-481b-4bbe-86e4-fea574813764",
+      "activeVersionId": "71817447-481b-4bbe-86e4-fea574813764",
+      "triggerCount": 1,
+      "shared": [
+        {
+          "updatedAt": "2025-12-15T19:44:19.091Z",
+          "createdAt": "2025-12-15T19:44:19.091Z",
+          "role": "workflow:owner",
+          "workflowId": "bjLQyxsXwueVF8bn",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": {
+        "updatedAt": "2025-12-15T21:58:09.138Z",
+        "createdAt": "2025-12-15T21:58:09.138Z",
+        "versionId": "71817447-481b-4bbe-86e4-fea574813764",
+        "workflowId": "bjLQyxsXwueVF8bn",
+        "nodes": [
+          {
+            "parameters": {
+              "inputText": "=Subject: {{ $json.subject }}\nText: {{ $json.text }}",
+              "categories": {
+                "categories": [
+                  {
+                    "category": "Faturas",
+                    "description": "qualquer fatura para pagamento de banco ou concessionária de serviços públicos ou qualquer outra conta para pagamento"
+                  },
+                  {
+                    "category": "Encomendas",
+                    "description": "emails com confirmação de encomendas"
+                  },
+                  {
+                    "category": "Promo",
+                    "description": "anything with promotions, discount or with clear not asked commercial  approach, or e-commerce"
+                  },
+                  {
+                    "category": "social",
+                    "description": "anything from social networks, just about interactions on those platforms such as Linkedin, Facebook, Instagram etc"
+                  },
+                  {
+                    "category": "Keep it in inbox",
+                    "description": "Anything that does not match the other categories. also emails from theresanaiforthat.com, "
+                  },
+                  {
+                    "category": "Viagem",
+                    "description": "anything that comes with travel arrangements, tickets, hotel vouchers, or anything similar."
+                  },
+                  {
+                    "category": "extratos de banco",
+                    "description": "qualquer documento ou extrato de banco para simples conferencia"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.textClassifier",
+            "typeVersion": 1.1,
+            "position": [
+              -32,
+              224
+            ],
+            "id": "ba6a36f0-0314-4ed7-9d89-c857894b865c",
+            "name": "Text Classifier"
+          },
+          {
+            "parameters": {
+              "modelName": "models/gemini-2.0-flash-lite",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1,
+            "position": [
+              112,
+              1056
+            ],
+            "id": "5140d560-a930-47da-9ed2-ab6c8fd0cf9f",
+            "name": "Google Gemini Chat Model",
+            "credentials": {
+              "googlePalmApi": {
+                "id": "dZqtJbDlzlidR2nh",
+                "name": "Google Gemini(PaLM) Api LISBOROB"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "markAsUnread",
+              "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}"
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              704,
+              192
+            ],
+            "id": "aff2df9f-42d1-4928-bd92-5fec2758ae86",
+            "name": "Mark a message as unread",
+            "webhookId": "c40d6f07-e2e3-4cfd-a177-b5d678155589",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "delete",
+              "messageId": "={{ $json.id }}"
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              1248,
+              192
+            ],
+            "id": "538ba16a-8503-49dc-a01f-4d99ec6a89f4",
+            "name": "Delete a message",
+            "webhookId": "c186a110-1851-420e-86b6-ad0d05611282",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "removeLabels",
+              "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+              "labelIds": [
+                "INBOX"
+              ]
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              2960,
+              464
+            ],
+            "id": "6f3b5c42-a1f0-43ea-ba1d-582fde2a5c5a",
+            "name": "Remove message from INBOX",
+            "webhookId": "25decb7e-562e-4d5e-91e0-60a3858e032d",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resource": "messages-api",
+              "instanceName": "Valentina",
+              "remoteJid": "351912508389@s.whatsapp.net",
+              "messageText": "=Mensagem chegou em lisborob, referene a viagem de {{ $('Gmail Trigger - lisborob').item.json.from.value[0].address }}\nAssunto\n{{ $('Gmail Trigger - lisborob').item.json.subject }}\nMensagem\n{{ $('Gmail Trigger - lisborob').item.json.text }}",
+              "options_message": {}
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              1248,
+              640
+            ],
+            "id": "4cbd373e-8161-4dff-9c42-b0946defb4b6",
+            "name": "Enviar texto",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "removeLabels",
+              "messageId": "={{ $json.id }}",
+              "labelIds": [
+                "INBOX"
+              ]
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              896,
+              192
+            ],
+            "id": "9dc6a5d5-463e-4317-b9d3-7600e11140f3",
+            "name": "Remove message from INBOX 1",
+            "webhookId": "b6515d73-79bb-41cd-b745-bdd8c3a298ee",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resource": "messages-api",
+              "instanceName": "Valentina",
+              "remoteJid": "351912508389@s.whatsapp.net",
+              "messageText": "=email de encomenda no lisborob de {{ $('Gmail Trigger - lisborob').item.json.from.value[0].address }}\nassunto: \n{{ $('Gmail Trigger - lisborob').item.json.subject }}\nmensagem: \n{{ $('Gmail Trigger - lisborob').item.json.text }}\n",
+              "options_message": {}
+            },
+            "type": "n8n-nodes-evolution-api.evolutionApi",
+            "typeVersion": 1,
+            "position": [
+              1712,
+              -96
+            ],
+            "id": "50eec25d-dd67-4ac2-bafb-097fd081ff88",
+            "name": "Relatorio de envio para adm",
+            "credentials": {
+              "evolutionApi": {
+                "id": "4gvC5iGuSb0S7dgW",
+                "name": "Evolution account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "pollTimes": {
+                "item": [
+                  {
+                    "mode": "everyMinute"
+                  }
+                ]
+              },
+              "simple": false,
+              "filters": {},
+              "options": {}
+            },
+            "type": "n8n-nodes-base.gmailTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -880,
+              384
+            ],
+            "id": "e0ad5a81-1b6f-40cc-a267-6f98d9fe65dd",
+            "name": "Gmail Trigger - lisborob",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "addLabels",
+              "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+              "labelIds": [
+                "Label_235007576996048720"
+              ]
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              688,
+              -208
+            ],
+            "id": "7a075856-ac92-4f03-bed2-495cf5eb324b",
+            "name": "contas a pagar",
+            "webhookId": "ad6a1d5a-782f-4a2a-9d90-ec8b86f3f0b6",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "addLabels",
+              "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+              "labelIds": [
+                "Label_42"
+              ]
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              688,
+              -32
+            ],
+            "id": "79b9555d-9dc8-463e-b20e-6514e5212ce2",
+            "name": "Compras",
+            "webhookId": "d09d5708-7d25-4c21-a07d-bde61dbdcbc5",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              704,
+              416
+            ],
+            "id": "e89049fd-22a9-4d4c-bea7-0a7c17a89da8",
+            "name": "No Operation, do nothing1"
+          },
+          {
+            "parameters": {
+              "operation": "addLabels",
+              "messageId": "={{ $('Gmail Trigger - lisborob').item.json.id }}",
+              "labelIds": [
+                "Label_4266700994207943183"
+              ]
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.1,
+            "position": [
+              704,
+              624
+            ],
+            "id": "80f158b6-0acd-4c43-9610-be36280b09f8",
+            "name": "Viagem",
+            "webhookId": "b53ceaed-e9a2-483e-986a-6efcef1fa4ea",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "KDOT0bj7QZa0C8HW",
+                "name": "Gmail Lisborob"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "Google Gemini Chat Model": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "Text Classifier",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Text Classifier": {
+            "main": [
+              [
+                {
+                  "node": "contas a pagar",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Compras",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Mark a message as unread",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Mark a message as unread",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing1",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Viagem",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ]
+          },
+          "Mark a message as unread": {
+            "main": [
+              [
+                {
+                  "node": "Remove message from INBOX 1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Enviar texto": {
+            "main": [
+              [
+                {
+                  "node": "Remove message from INBOX",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Remove message from INBOX 1": {
+            "main": [
+              [
+                {
+                  "node": "Delete a message",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Relatorio de envio para adm": {
+            "main": [
+              []
+            ]
+          },
+          "Gmail Trigger - lisborob": {
+            "main": [
+              [
+                {
+                  "node": "Text Classifier",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "contas a pagar": {
+            "main": [
+              [
+                {
+                  "node": "Remove message from INBOX",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Compras": {
+            "main": [
+              [
+                {
+                  "node": "Relatorio de envio para adm",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Viagem": {
+            "main": [
+              [
+                {
+                  "node": "Enviar texto",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "authors": "Robson Lisboa",
+        "name": null,
+        "description": null
+      },
+      "tags": []
+    },
+    {
       "updatedAt": "2025-11-28T16:02:48.000Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
@@ -40230,7 +41293,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-12T13:14:41.000Z",
+      "updatedAt": "2025-12-15T23:12:26.000Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -40354,7 +41417,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            16,
+            80,
             -64
           ],
           "id": "930a82d8-a34d-47a5-b396-5be4c19c8b11",
@@ -42165,7 +43228,7 @@
           "typeVersion": 1,
           "position": [
             1472,
-            -224
+            -400
           ],
           "id": "0417ab49-b61b-4e31-a2f4-c294d9d4ea03",
           "name": "Pega noticia a ser editada"
@@ -42180,7 +43243,7 @@
           "typeVersion": 2.1,
           "position": [
             1056,
-            -224
+            -400
           ],
           "id": "56a86907-aec1-4b48-bcfd-56e18d7c303d",
           "name": "Edita news",
@@ -42196,7 +43259,7 @@
           "typeVersion": 1.4,
           "position": [
             1888,
-            -224
+            -400
           ],
           "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
           "name": "Responde com formulario editavel"
@@ -42212,7 +43275,7 @@
           "typeVersion": 2.1,
           "position": [
             1056,
-            -16
+            -192
           ],
           "id": "50e22102-6fe9-4ee8-9a08-0ce1aa591b31",
           "name": "Webhook1",
@@ -42315,7 +43378,7 @@
           "typeVersion": 1,
           "position": [
             1264,
-            -16
+            -192
           ],
           "id": "347e2bc9-8200-4568-a008-5ba9d575b85f",
           "name": "Update row(s)"
@@ -42330,7 +43393,7 @@
           "typeVersion": 1.4,
           "position": [
             2000,
-            -16
+            -192
           ],
           "id": "4b0aeb3f-2d15-448d-bc0f-1d9f49cea1c6",
           "name": "Respond to Webhook2"
@@ -42348,7 +43411,7 @@
           "typeVersion": 1,
           "position": [
             1808,
-            -16
+            -192
           ],
           "id": "a3709b3a-1ca9-4164-bb9e-0ff213a0d458",
           "name": "Update a page1",
@@ -42382,7 +43445,7 @@
           "typeVersion": 1,
           "position": [
             1440,
-            -16
+            -192
           ],
           "id": "80b70a55-9a19-4a1b-ac0f-ebd085c1695d",
           "name": "Get row(s)2"
@@ -42390,14 +43453,14 @@
         {
           "parameters": {
             "content": "## Edição de noticia\nedita uma noticia e volta para a seleção",
-            "height": 528,
+            "height": 736,
             "width": 1264,
             "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             992,
-            -368
+            -544
           ],
           "typeVersion": 1,
           "id": "736ccd25-468f-46f8-934f-a8571b62c9bd",
@@ -42411,7 +43474,7 @@
           "typeVersion": 2,
           "position": [
             1264,
-            -224
+            -400
           ],
           "id": "2005bed2-beba-43b4-b292-1d474773b49f",
           "name": "Ajusta ID para número"
@@ -42424,7 +43487,7 @@
           "typeVersion": 2,
           "position": [
             1616,
-            -16
+            -192
           ],
           "id": "0f461f6c-cbac-465b-9b7f-bc911688b2e3",
           "name": "monta o html a partir do get rows2"
@@ -42823,84 +43886,16 @@
         },
         {
           "parameters": {
-            "path": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.webhook",
-          "typeVersion": 2.1,
-          "position": [
-            1056,
-            160
-          ],
-          "id": "680450da-b08f-4027-b857-922623209557",
-          "name": "Troca imagem",
-          "webhookId": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d"
-        },
-        {
-          "parameters": {
-            "respondWith": "text",
-            "responseBody": "<!-- Respond to Webhook: redireciona para o formulário de upload da nova imagem -->\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>Redirecionando...</title>\n\n  <!-- Redirecionamento automático para o Form Trigger de upload -->\n  <meta http-equiv=\"refresh\" content=\"0; URL='https://n8n.ooniverse.ai/webhook/FORM_UPLOAD_IMAGEM?id={{ $query.id }}&redirect={{ $query.redirect }}&titulo={{ $query.titulo | urlencode }}&video={{ $query.video | urlencode }}'\" />\n\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      padding: 40px;\n      text-align: center;\n      color: #555;\n    }\n    .box {\n      background: white;\n      padding: 24px;\n      border-radius: 8px;\n      border: 1px solid #dbdfe7;\n      display: inline-block;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"box\">\n    <h2 style=\"font-weight:600; margin-bottom:12px;\">Redirecionando...</h2>\n    <p style=\"font-size:14px;\">Aguarde, estamos abrindo o formulário para trocar a imagem.</p>\n  </div>\n</body>\n</html>",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.respondToWebhook",
-          "typeVersion": 1.4,
-          "position": [
-            2096,
-            160
-          ],
-          "id": "9faf5c6b-e2d7-4a4e-815f-c5728d217c2b",
-          "name": "Trocar imagem html"
-        },
-        {
-          "parameters": {
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Escolha sua imagem ou arraste...",
-                  "fieldType": "file",
-                  "multipleFiles": false,
-                  "acceptFileTypes": "jpg, png",
-                  "requiredField": true
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.form",
-          "typeVersion": 2.3,
-          "position": [
-            1568,
-            160
-          ],
-          "id": "b798bf31-92fa-47d8-860e-be3917c6e25c",
-          "name": "upload nova imagem",
-          "webhookId": "fba963ca-5f7a-4e42-b94c-e28ddccd4505"
-        },
-        {
-          "parameters": {
             "jsCode": "// Node: Normaliza dados da notícia vindos do DataTable\n// ---------------------------------------------------\n// O DataTable retorna os campos diretamente no $json.\n// Este node garante que o Respond to Webhook receba\n// exatamente os campos que o HTML espera usar.\n//\n// Isso resolve o problema do botão TROCAR IMAGEM,\n// que estava recebendo titulo=0, text=0, video=0\n// porque o $json do RespondToWebhook não continha\n// esses campos no formato correto.\n\nconst item = $json;\n\nreturn [\n  {\n    json: {\n      id: item.id,\n      titulo: item.titulo || \"\",\n      text: item.text || \"\",\n      video: item.video || \"\",\n      imagens: item.imagens || \"\"\n    }\n  }\n];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
             1680,
-            -224
+            -400
           ],
           "id": "ed9781f4-e8a6-4f9b-9569-87f1e3868cb3",
           "name": "Code in JavaScript"
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Extrai parâmetros da query string do webhook TROCAR IMAGEM\n// ----------------------------------------------------------------\n// O webhook recebe todos os dados via URL:\n// ?id=18&redirect=...&titulo=...&text=...&video=...\n//\n// Este node:\n// 1. Lê todos os parâmetros da query\n// 2. Decodifica (URL decode) os campos text e titulo\n// 3. Retorna um JSON limpo para os próximos nodes\n\n// Pega todos os parâmetros da query string\nconst q = $json.query || {};\n\n// Função utilitária para decodificar strings URL-encoded\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value; // fallback\n  }\n}\n\n// Monta o objeto final\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      redirect: q.redirect || \"\",\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video)\n    }\n  }\n];"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            1264,
-            160
-          ],
-          "id": "33f9905a-12eb-4200-8617-1a7431c76098",
-          "name": "pega os dados do webhook"
         },
         {
           "parameters": {
@@ -42914,12 +43909,19 @@
             },
             "filters": {
               "conditions": [
-                {}
+                {
+                  "keyValue": "={{ $json.id }}"
+                }
               ]
             },
             "columns": {
               "mappingMode": "defineBelow",
-              "value": {},
+              "value": {
+                "imagens": "={{ $json.novaImagem }}",
+                "titulo": "={{ $json.titulo }}",
+                "text": "={{ $json.text }}",
+                "video": "={{ $json.video }}"
+              },
               "matchingColumns": [],
               "schema": [
                 {
@@ -42991,11 +43993,91 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            1776,
-            160
+            1536,
+            16
           ],
           "id": "1d81ab5b-1da5-4bf8-9e99-496385920c13",
           "name": "Update row(s)1"
+        },
+        {
+          "parameters": {
+            "formTitle": "Carregar nova imagem",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "nova_imagem",
+                  "fieldType": "file",
+                  "multipleFiles": false,
+                  "acceptFileTypes": "jpg, png"
+                }
+              ]
+            },
+            "responseMode": "lastNode",
+            "options": {
+              "appendAttribution": false,
+              "buttonLabel": "Enviar"
+            }
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.3,
+          "position": [
+            1056,
+            16
+          ],
+          "id": "fc9c0a16-ca04-40ee-81b5-3336ac630823",
+          "name": "Carregar nova imagem",
+          "webhookId": "697ac58a-3b4d-4315-a3f7-7c6ae26b8f80"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "={{ $binary.nova_imagem.fileName }}",
+            "binaryPropertyName": "nova_imagem",
+            "additionalFields": {
+              "parentFolderKey": "Kutsaca"
+            }
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            1296,
+            192
+          ],
+          "id": "704e1745-7afd-4a24-8c27-20e5708a6a75",
+          "name": "Upload imagem S3",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Unifica:\n// 1. Extração dos parâmetros do Form Trigger\n// 2. Preservação do binário\n// 3. Geração da URL pública do S3 sem depender do retorno do S3\n// -------------------------------------------------------\n\n//\n// 1. Extrai parâmetros do formulário\n//\nconst q = $json.formQueryParameters || {};\n\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value;\n  }\n}\n\n//\n// 2. Gera o nome do arquivo manualmente\n//\nconst original = $binary.nova_imagem.fileName;\n\n// S3 usa encoding + substituição de espaços\nconst encoded = encodeURIComponent(original).replace(/%20/g, '+');\n\n//\n// 3. Monta URL pública no padrão do editor\n//\nconst region = 'us-east-1';\nconst bucket = 'auto.1mc.co';\nconst folder = 'Kutsaca';\n\nconst finalUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n//\n// 4. Retorna tudo pronto para o DataTable\n//\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video),\n      novaImagem: finalUrl\n    },\n    binary: {\n      nova_imagem: $binary.nova_imagem\n    }\n  }\n];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1344,
+            16
+          ],
+          "id": "42e6cc6d-f2c1-4583-8540-9b08e1136748",
+          "name": "Gera URL publica S"
+        },
+        {
+          "parameters": {
+            "jsCode": "return [\n  {\n    json: {\n      redirect: `https://n8n.ooniverse.ai/webhook/edit-news?id=${$json.id}`\n    }\n  }\n];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1712,
+            16
+          ],
+          "id": "c3806abe-3a17-4cad-b827-f02e9bdffa28",
+          "name": "abre janela do edit news"
         }
       ],
       "connections": {
@@ -43759,28 +44841,6 @@
             ]
           ]
         },
-        "Troca imagem": {
-          "main": [
-            [
-              {
-                "node": "pega os dados do webhook",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "upload nova imagem": {
-          "main": [
-            [
-              {
-                "node": "Update row(s)1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Code in JavaScript": {
           "main": [
             [
@@ -43792,22 +44852,49 @@
             ]
           ]
         },
-        "pega os dados do webhook": {
+        "Update row(s)1": {
           "main": [
             [
               {
-                "node": "upload nova imagem",
+                "node": "abre janela do edit news",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Update row(s)1": {
+        "Carregar nova imagem": {
           "main": [
             [
               {
-                "node": "Trocar imagem html",
+                "node": "Upload imagem S3",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Gera URL publica S",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload imagem S3": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Gera URL publica S": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)1",
                 "type": "main",
                 "index": 0
               }
@@ -43836,8 +44923,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "d32d70a2-b816-4e22-a865-b825b036a079",
-      "activeVersionId": "d32d70a2-b816-4e22-a865-b825b036a079",
+      "versionId": "60c81dd7-a000-4d08-9d35-2bbe244597ce",
+      "activeVersionId": "60c81dd7-a000-4d08-9d35-2bbe244597ce",
       "triggerCount": 13,
       "shared": [
         {
@@ -43849,9 +44936,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-12T13:14:41.607Z",
-        "createdAt": "2025-12-12T13:14:41.607Z",
-        "versionId": "d32d70a2-b816-4e22-a865-b825b036a079",
+        "updatedAt": "2025-12-15T23:12:26.905Z",
+        "createdAt": "2025-12-15T23:12:26.905Z",
+        "versionId": "60c81dd7-a000-4d08-9d35-2bbe244597ce",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -43971,7 +45058,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              16,
+              80,
               -64
             ],
             "id": "930a82d8-a34d-47a5-b396-5be4c19c8b11",
@@ -45782,7 +46869,7 @@
             "typeVersion": 1,
             "position": [
               1472,
-              -224
+              -400
             ],
             "id": "0417ab49-b61b-4e31-a2f4-c294d9d4ea03",
             "name": "Pega noticia a ser editada"
@@ -45797,7 +46884,7 @@
             "typeVersion": 2.1,
             "position": [
               1056,
-              -224
+              -400
             ],
             "id": "56a86907-aec1-4b48-bcfd-56e18d7c303d",
             "name": "Edita news",
@@ -45813,7 +46900,7 @@
             "typeVersion": 1.4,
             "position": [
               1888,
-              -224
+              -400
             ],
             "id": "48668b89-dae9-4aec-9b70-8447d91afcc6",
             "name": "Responde com formulario editavel"
@@ -45829,7 +46916,7 @@
             "typeVersion": 2.1,
             "position": [
               1056,
-              -16
+              -192
             ],
             "id": "50e22102-6fe9-4ee8-9a08-0ce1aa591b31",
             "name": "Webhook1",
@@ -45932,7 +47019,7 @@
             "typeVersion": 1,
             "position": [
               1264,
-              -16
+              -192
             ],
             "id": "347e2bc9-8200-4568-a008-5ba9d575b85f",
             "name": "Update row(s)"
@@ -45947,7 +47034,7 @@
             "typeVersion": 1.4,
             "position": [
               2000,
-              -16
+              -192
             ],
             "id": "4b0aeb3f-2d15-448d-bc0f-1d9f49cea1c6",
             "name": "Respond to Webhook2"
@@ -45965,7 +47052,7 @@
             "typeVersion": 1,
             "position": [
               1808,
-              -16
+              -192
             ],
             "id": "a3709b3a-1ca9-4164-bb9e-0ff213a0d458",
             "name": "Update a page1",
@@ -45999,7 +47086,7 @@
             "typeVersion": 1,
             "position": [
               1440,
-              -16
+              -192
             ],
             "id": "80b70a55-9a19-4a1b-ac0f-ebd085c1695d",
             "name": "Get row(s)2"
@@ -46007,14 +47094,14 @@
           {
             "parameters": {
               "content": "## Edição de noticia\nedita uma noticia e volta para a seleção",
-              "height": 528,
+              "height": 736,
               "width": 1264,
               "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               992,
-              -368
+              -544
             ],
             "typeVersion": 1,
             "id": "736ccd25-468f-46f8-934f-a8571b62c9bd",
@@ -46028,7 +47115,7 @@
             "typeVersion": 2,
             "position": [
               1264,
-              -224
+              -400
             ],
             "id": "2005bed2-beba-43b4-b292-1d474773b49f",
             "name": "Ajusta ID para número"
@@ -46041,7 +47128,7 @@
             "typeVersion": 2,
             "position": [
               1616,
-              -16
+              -192
             ],
             "id": "0f461f6c-cbac-465b-9b7f-bc911688b2e3",
             "name": "monta o html a partir do get rows2"
@@ -46440,84 +47527,16 @@
           },
           {
             "parameters": {
-              "path": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d",
-              "options": {}
-            },
-            "type": "n8n-nodes-base.webhook",
-            "typeVersion": 2.1,
-            "position": [
-              1056,
-              160
-            ],
-            "id": "680450da-b08f-4027-b857-922623209557",
-            "name": "Troca imagem",
-            "webhookId": "8a5a7087-5e09-46f5-a4fc-927dddf70c1d"
-          },
-          {
-            "parameters": {
-              "respondWith": "text",
-              "responseBody": "<!-- Respond to Webhook: redireciona para o formulário de upload da nova imagem -->\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>Redirecionando...</title>\n\n  <!-- Redirecionamento automático para o Form Trigger de upload -->\n  <meta http-equiv=\"refresh\" content=\"0; URL='https://n8n.ooniverse.ai/webhook/FORM_UPLOAD_IMAGEM?id={{ $query.id }}&redirect={{ $query.redirect }}&titulo={{ $query.titulo | urlencode }}&video={{ $query.video | urlencode }}'\" />\n\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      padding: 40px;\n      text-align: center;\n      color: #555;\n    }\n    .box {\n      background: white;\n      padding: 24px;\n      border-radius: 8px;\n      border: 1px solid #dbdfe7;\n      display: inline-block;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"box\">\n    <h2 style=\"font-weight:600; margin-bottom:12px;\">Redirecionando...</h2>\n    <p style=\"font-size:14px;\">Aguarde, estamos abrindo o formulário para trocar a imagem.</p>\n  </div>\n</body>\n</html>",
-              "options": {}
-            },
-            "type": "n8n-nodes-base.respondToWebhook",
-            "typeVersion": 1.4,
-            "position": [
-              2096,
-              160
-            ],
-            "id": "9faf5c6b-e2d7-4a4e-815f-c5728d217c2b",
-            "name": "Trocar imagem html"
-          },
-          {
-            "parameters": {
-              "formFields": {
-                "values": [
-                  {
-                    "fieldLabel": "Escolha sua imagem ou arraste...",
-                    "fieldType": "file",
-                    "multipleFiles": false,
-                    "acceptFileTypes": "jpg, png",
-                    "requiredField": true
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.form",
-            "typeVersion": 2.3,
-            "position": [
-              1568,
-              160
-            ],
-            "id": "b798bf31-92fa-47d8-860e-be3917c6e25c",
-            "name": "upload nova imagem",
-            "webhookId": "fba963ca-5f7a-4e42-b94c-e28ddccd4505"
-          },
-          {
-            "parameters": {
               "jsCode": "// Node: Normaliza dados da notícia vindos do DataTable\n// ---------------------------------------------------\n// O DataTable retorna os campos diretamente no $json.\n// Este node garante que o Respond to Webhook receba\n// exatamente os campos que o HTML espera usar.\n//\n// Isso resolve o problema do botão TROCAR IMAGEM,\n// que estava recebendo titulo=0, text=0, video=0\n// porque o $json do RespondToWebhook não continha\n// esses campos no formato correto.\n\nconst item = $json;\n\nreturn [\n  {\n    json: {\n      id: item.id,\n      titulo: item.titulo || \"\",\n      text: item.text || \"\",\n      video: item.video || \"\",\n      imagens: item.imagens || \"\"\n    }\n  }\n];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
               1680,
-              -224
+              -400
             ],
             "id": "ed9781f4-e8a6-4f9b-9569-87f1e3868cb3",
             "name": "Code in JavaScript"
-          },
-          {
-            "parameters": {
-              "jsCode": "// Node: Extrai parâmetros da query string do webhook TROCAR IMAGEM\n// ----------------------------------------------------------------\n// O webhook recebe todos os dados via URL:\n// ?id=18&redirect=...&titulo=...&text=...&video=...\n//\n// Este node:\n// 1. Lê todos os parâmetros da query\n// 2. Decodifica (URL decode) os campos text e titulo\n// 3. Retorna um JSON limpo para os próximos nodes\n\n// Pega todos os parâmetros da query string\nconst q = $json.query || {};\n\n// Função utilitária para decodificar strings URL-encoded\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value; // fallback\n  }\n}\n\n// Monta o objeto final\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      redirect: q.redirect || \"\",\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video)\n    }\n  }\n];"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              1264,
-              160
-            ],
-            "id": "33f9905a-12eb-4200-8617-1a7431c76098",
-            "name": "pega os dados do webhook"
           },
           {
             "parameters": {
@@ -46531,12 +47550,19 @@
               },
               "filters": {
                 "conditions": [
-                  {}
+                  {
+                    "keyValue": "={{ $json.id }}"
+                  }
                 ]
               },
               "columns": {
                 "mappingMode": "defineBelow",
-                "value": {},
+                "value": {
+                  "imagens": "={{ $json.novaImagem }}",
+                  "titulo": "={{ $json.titulo }}",
+                  "text": "={{ $json.text }}",
+                  "video": "={{ $json.video }}"
+                },
                 "matchingColumns": [],
                 "schema": [
                   {
@@ -46608,11 +47634,91 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              1776,
-              160
+              1536,
+              16
             ],
             "id": "1d81ab5b-1da5-4bf8-9e99-496385920c13",
             "name": "Update row(s)1"
+          },
+          {
+            "parameters": {
+              "formTitle": "Carregar nova imagem",
+              "formFields": {
+                "values": [
+                  {
+                    "fieldLabel": "nova_imagem",
+                    "fieldType": "file",
+                    "multipleFiles": false,
+                    "acceptFileTypes": "jpg, png"
+                  }
+                ]
+              },
+              "responseMode": "lastNode",
+              "options": {
+                "appendAttribution": false,
+                "buttonLabel": "Enviar"
+              }
+            },
+            "type": "n8n-nodes-base.formTrigger",
+            "typeVersion": 2.3,
+            "position": [
+              1056,
+              16
+            ],
+            "id": "fc9c0a16-ca04-40ee-81b5-3336ac630823",
+            "name": "Carregar nova imagem",
+            "webhookId": "697ac58a-3b4d-4315-a3f7-7c6ae26b8f80"
+          },
+          {
+            "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "={{ $binary.nova_imagem.fileName }}",
+              "binaryPropertyName": "nova_imagem",
+              "additionalFields": {
+                "parentFolderKey": "Kutsaca"
+              }
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              1296,
+              192
+            ],
+            "id": "704e1745-7afd-4a24-8c27-20e5708a6a75",
+            "name": "Upload imagem S3",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "// Unifica:\n// 1. Extração dos parâmetros do Form Trigger\n// 2. Preservação do binário\n// 3. Geração da URL pública do S3 sem depender do retorno do S3\n// -------------------------------------------------------\n\n//\n// 1. Extrai parâmetros do formulário\n//\nconst q = $json.formQueryParameters || {};\n\nfunction decode(value) {\n  if (!value) return \"\";\n  try {\n    return decodeURIComponent(value);\n  } catch (e) {\n    return value;\n  }\n}\n\n//\n// 2. Gera o nome do arquivo manualmente\n//\nconst original = $binary.nova_imagem.fileName;\n\n// S3 usa encoding + substituição de espaços\nconst encoded = encodeURIComponent(original).replace(/%20/g, '+');\n\n//\n// 3. Monta URL pública no padrão do editor\n//\nconst region = 'us-east-1';\nconst bucket = 'auto.1mc.co';\nconst folder = 'Kutsaca';\n\nconst finalUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n//\n// 4. Retorna tudo pronto para o DataTable\n//\nreturn [\n  {\n    json: {\n      id: Number(q.id) || null,\n      titulo: decode(q.titulo),\n      text: decode(q.text),\n      video: decode(q.video),\n      novaImagem: finalUrl\n    },\n    binary: {\n      nova_imagem: $binary.nova_imagem\n    }\n  }\n];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1344,
+              16
+            ],
+            "id": "42e6cc6d-f2c1-4583-8540-9b08e1136748",
+            "name": "Gera URL publica S"
+          },
+          {
+            "parameters": {
+              "jsCode": "return [\n  {\n    json: {\n      redirect: `https://n8n.ooniverse.ai/webhook/edit-news?id=${$json.id}`\n    }\n  }\n];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1712,
+              16
+            ],
+            "id": "c3806abe-3a17-4cad-b827-f02e9bdffa28",
+            "name": "abre janela do edit news"
           }
         ],
         "connections": {
@@ -47376,28 +48482,6 @@
               ]
             ]
           },
-          "Troca imagem": {
-            "main": [
-              [
-                {
-                  "node": "pega os dados do webhook",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "upload nova imagem": {
-            "main": [
-              [
-                {
-                  "node": "Update row(s)1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Code in JavaScript": {
             "main": [
               [
@@ -47409,22 +48493,49 @@
               ]
             ]
           },
-          "pega os dados do webhook": {
+          "Update row(s)1": {
             "main": [
               [
                 {
-                  "node": "upload nova imagem",
+                  "node": "abre janela do edit news",
                   "type": "main",
                   "index": 0
                 }
               ]
             ]
           },
-          "Update row(s)1": {
+          "Carregar nova imagem": {
             "main": [
               [
                 {
-                  "node": "Trocar imagem html",
+                  "node": "Upload imagem S3",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Gera URL publica S",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload imagem S3": {
+            "main": [
+              [
+                {
+                  "node": "Update row(s)1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Gera URL publica S": {
+            "main": [
+              [
+                {
+                  "node": "Update row(s)1",
                   "type": "main",
                   "index": 0
                 }
@@ -49156,7 +50267,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-11T19:58:46.000Z",
+      "updatedAt": "2025-12-15T18:10:29.000Z",
       "createdAt": "2025-11-28T17:26:36.080Z",
       "id": "whIGpwtnSC9hwpln",
       "name": "Matilde chat e WA Agent AI",
@@ -50588,9 +51699,9 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "={{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis.\n\nResponde exclusivamente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
+            "text": "=a pergunta é :{{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis, mas não precisa citar isso nas suas respostas.\n\nResponde preferencialmente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
             "options": {
-              "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nRespondes exclusivamente com base nos documentos recuperados pelo sistema de pesquisa (RAG). \nQuando a informação existir nos documentos, reproduzes o texto de forma literal. \nQuando não existir, informas o utilizador de que não encontraste essa informação e pedes o contacto.\n\nNão utilizas conhecimento externo. Não inventas. Não interpretas. Não resumas.\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n"
+              "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n\nMissão \nContribuir para o progresso do país, estimulando a iniciativa privada, atuando como agente facilitador da atividade empresarial, promovendo condições favoráveis ao desenvolvimento das micro, pequenas e médias empresas, e representando os seus legítimos interesses e direitos, dotando os empresários dos melhores equipamentos e soluções em todas as etapas do seu negócio. \nVisão \nSer reconhecida como uma Instituição de prestígio no apoio ao tecido empresarial e um parceiro de negócios de todos as PME, pela qualidade, inovação e excelência dos serviços que presta. \nValores\nIntegridade e Ética Promovemos os mais elevados padrões de ética em todas as relações com associados, fornecedores e parceiros, numa cultura de confiança mutua e reflectimos nas atividades diárias uma total integridade. \nProfissionalismo e Competência Assumimos o compromisso em apostar na selecção e formação continua da nossa equipa, pois consideramos que elevados padrões de profissionalismo, competência e disciplina constituem alavancas indispensáveis e são fundamentais numa atuação competitiva e exigente. \nQualidade e Inovação Inovamos para, cada vez mais, servir melhor os nossos associados e poder corresponder às suas melhores expectativas. O desafio diário de todos os nossos colaboradores consiste em superar as expectativas dos nossos associados para assegurar a máxima qualidade e eficácia das soluções desenvolvidos ao serviço das empresas e do seu negócio. \nCultura de parcerias De norte a sul do país, apoiamos e criamos laços com parceiros de referência, que chegam até nós porque acreditam na nossa missão. \nSustentabilidade Defendemos um modo de desenvolvimento capaz de responder às necessidades do presente sem comprometer a capacidade de crescimento das gerações futuras, com um triplo objetivo: um desenvolvimento economicamente eficaz, socialmente equitativo e ecologicamente sustentável. \nAreas de Atuação \nConsultoria - A ANPME apoia os seus associados com um serviço gratuito de aconselhamento, concebido para orientar decisões e impulsionar o crescimento. Através de uma equipa técnica experiente e multidisciplinar, oferece apoio prático e estratégico nas áreas de gestão, finanças, marketing, juridico, recursos humanos, inovação, fiscalidade e qualidade, ajudando cada empresa a encontrar as melhores soluções para os seus desafios. \nEmpreendedorismo e criação de empresas - A ANPME presta um apoio direto aos potenciais empreendedores, desde a conceção e estruturação de uma ideia de negocio até à abertura da empresa. \nA ANPME faz parte da Rede de Entidades Prestadoras de Apoio Técnico (EPAT) ao abrigo de Protocolo de Cooperação celebrado com o IEFP, sendo uma entidade especializada no domínio da prestação de serviços de apoio técnico de projetos para a criação de empresas/microempresas por desempregados. \nExpansão e Modernização - No processo de expansão e modernização de uma empresa, é essencial garantir que cada etapa é cuidadosamente planeada — desde a definição da estratégia até à obtenção dos recursos financeiros necessários para a sua concretização. A ANPME apoia integralmente os seus associados neste percurso,\ndisponibilizando acompanhamento técnico e estratégico em todas as fases do investimento. Seja para obras de modernização ou ampliação, aquisição de equipamentos, projetos de investigação e desenvolvimento, ou iniciativas de inovação, a ANPME assegura que cada empresa dispõe das ferramentas certas para crescer de forma sustentada e competitiva. \nIncentivos e Financiamentos - A ANPME dispõe de uma equipa técnica especializada preparada para o apoiar em todas as etapas do seu projeto de investimento — desde o enquadramento estratégico até à execução e acompanhamento final. O objetivo é garantir que cada empresa maximiza o acesso aos sistemas de incentivos e linhas de financiamento disponíveis, transformando ideias em resultados concretos. \nApoiamo-lo de forma completa e personalizada: \n● Analisamos e enquadramos os investimentos planeados nos programas de apoio mais adequados; \n● Elaboramos estudos técnicos e económicos e procedemos à submissão das candidaturas; \n● Acompanhamos a execução dos investimentos, assegurando o cumprimento dos prazos e objetivos; \n● Organizamos os dossiers de pedido de pagamento e prestamos apoio durante as auditorias físicas e contabilísticas. \nInternacionalização - Através do seu departamento especializado em internacionalização, a ANPME presta serviços de consultoria e acompanhamento personalizado, apoiando as empresas em todas as fases do processo — desde o estudo de mercado até à implantação e expansão nos mercados externos. \nApoio ao Endividamento e recuperação de empresas - No âmbito da sua missão de representação e defesa dos interesses dos pequenos e médios empresários, a ANPME criou o Gabinete de Apoio ao Endividamento, colocando à disposição da sua empresa uma equipa de técnicos especializados em situações de sobre-endividamento. \nOs técnicos do GAE identificam a origem do sobre-endividamento da sua empresa e apresentam as soluções que melhor se coadunam para reverter essa situação. \nPara potenciar a atividade da sua empresa, o GAE coloca ainda à sua disposição consultoria gratuita nas mais diversas áreas, para as quais colaboram todos os \n\n"
             }
           },
           "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
@@ -50608,7 +51719,6 @@
             "initialMessages": "Olá, sou a Matilde, como posso ajudar-te?",
             "options": {
               "inputPlaceholder": "Digite aqui..",
-              "loadPreviousSession": "memory",
               "showWelcomeScreen": false,
               "subtitle": "Vamos conversar! Estamos aqui para ajudar...",
               "title": "Olá! 👋",
@@ -50626,7 +51736,7 @@
           "webhookId": "fcea155f-6545-4baf-9eb1-406808318689",
           "alwaysOutputData": false,
           "executeOnce": false,
-          "retryOnFail": true,
+          "retryOnFail": false,
           "maxTries": 4,
           "waitBetweenTries": 100,
           "notesInFlow": false
@@ -50699,8 +51809,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            864,
-            1136
+            816,
+            1184
           ],
           "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
           "name": "Groq Chat Model",
@@ -50920,6 +52030,26 @@
           ],
           "id": "0602351b-f639-430b-a777-2421490c4303",
           "name": "Informações documentação",
+          "credentials": {
+            "googleDocsOAuth2Api": {
+              "id": "JJub0Q9J9RCo4TNw",
+              "name": "Google Docs robson.lisboa@midiacode.com"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "documentURL": "[REDACTED]"
+          },
+          "type": "n8n-nodes-base.googleDocsTool",
+          "typeVersion": 2,
+          "position": [
+            2000,
+            1360
+          ],
+          "id": "055836c2-3194-4d96-9a9c-aa3cf0383512",
+          "name": "Ser_associado_ANPME",
           "credentials": {
             "googleDocsOAuth2Api": {
               "id": "JJub0Q9J9RCo4TNw",
@@ -51654,6 +52784,17 @@
               }
             ]
           ]
+        },
+        "Ser_associado_ANPME": {
+          "ai_tool": [
+            [
+              {
+                "node": "Agente do Chat",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -51667,10 +52808,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-11T19:58:46Z"
+          "lastTimeChecked": "2025-12-15T18:10:29Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-11T19:58:47Z"
+          "lastTimeChecked": "2025-12-15T18:10:29Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -51769,8 +52910,8 @@
           }
         ]
       },
-      "versionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
-      "activeVersionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
+      "versionId": "3461d8bb-2239-4dd0-8ab1-c0ca9f676979",
+      "activeVersionId": "3461d8bb-2239-4dd0-8ab1-c0ca9f676979",
       "triggerCount": 4,
       "shared": [
         {
@@ -51782,9 +52923,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-11T19:58:46.692Z",
-        "createdAt": "2025-12-11T19:58:46.692Z",
-        "versionId": "3b4fcebd-5b1f-47e2-aacb-25e204bd90e7",
+        "updatedAt": "2025-12-15T18:10:29.129Z",
+        "createdAt": "2025-12-15T18:10:29.129Z",
+        "versionId": "3461d8bb-2239-4dd0-8ab1-c0ca9f676979",
         "workflowId": "whIGpwtnSC9hwpln",
         "nodes": [
           {
@@ -53212,9 +54353,9 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "={{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis.\n\nResponde exclusivamente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
+              "text": "=a pergunta é :{{ $('When chat message received').item.json.chatInput }}\n\nAntes de responder, deves consultar SEMPRE os documentos do google drive disponíveis, mas não precisa citar isso nas suas respostas.\n\nResponde preferencialmente com base nos documentos recuperados. Se a informação estiver presente, reproduz o texto de forma literal, sem alterar palavras, sem resumir e sem interpretar.\n\nprocure a informação em todos os documentos antes de responder\n\nSe a informação não estiver nos documentos, responde apenas:\n\"Não encontrei essa informação nos meus registos. Por favor deixe o seu contacto e entraremos em contacto consigo com a resposta.\"\n\nNão utilizes conhecimento externo. Não inventes. Não preenchas lacunas.\nMantém sempre um tom alegre, educado e profissional.\nuse sempre o português de portugal\nCaso queiram o contacto ou agendar uma reunião: Pode contactar-nos através do site, e-mail, telefone ou agendar uma reunião online através do link: Agenda https://outlook.office365.com/book/Associados1@anpme.pt/",
               "options": {
-                "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nRespondes exclusivamente com base nos documentos recuperados pelo sistema de pesquisa (RAG). \nQuando a informação existir nos documentos, reproduzes o texto de forma literal. \nQuando não existir, informas o utilizador de que não encontraste essa informação e pedes o contacto.\n\nNão utilizas conhecimento externo. Não inventas. Não interpretas. Não resumas.\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n"
+                "systemMessage": "És a Matilde, assistente de atendimento da ANPME.\nUsas sempre português de Portugal e manténs um tom alegre, educado e profissional.\n\nNunca inicies respostas com frases como:\n- \"Com base nas informações obtidas...\"\n- \"Não tenho informações específicas nos meus dados...\"\n\nInclui links sempre em formato clicável.\nSó sugeres visitar o site da ANPME quando for realmente necessário e apenas no final da interação.\n\nLinks importantes:\nhttps://www.anpme.pt/\nhttps://www.anpme.pt/ser-associado-anpme/\nhttps://www.anpme.pt/noticias/\nhttps://www.anpme.pt/eventos/\nhttps://sgp.anpme.pt/portal/index.php?option=com_users&view=login&Itemid=127\nhttps://www.anpme.pt/anpme-formacao/\nhttps://www.anpme.pt/apresentacao-anpme/\nhttps://www.anpme.pt/contatos/\nnão fique apresentando links para sites a toda hora, faça somente quando a informação do site for fundamental.\n\nMissão \nContribuir para o progresso do país, estimulando a iniciativa privada, atuando como agente facilitador da atividade empresarial, promovendo condições favoráveis ao desenvolvimento das micro, pequenas e médias empresas, e representando os seus legítimos interesses e direitos, dotando os empresários dos melhores equipamentos e soluções em todas as etapas do seu negócio. \nVisão \nSer reconhecida como uma Instituição de prestígio no apoio ao tecido empresarial e um parceiro de negócios de todos as PME, pela qualidade, inovação e excelência dos serviços que presta. \nValores\nIntegridade e Ética Promovemos os mais elevados padrões de ética em todas as relações com associados, fornecedores e parceiros, numa cultura de confiança mutua e reflectimos nas atividades diárias uma total integridade. \nProfissionalismo e Competência Assumimos o compromisso em apostar na selecção e formação continua da nossa equipa, pois consideramos que elevados padrões de profissionalismo, competência e disciplina constituem alavancas indispensáveis e são fundamentais numa atuação competitiva e exigente. \nQualidade e Inovação Inovamos para, cada vez mais, servir melhor os nossos associados e poder corresponder às suas melhores expectativas. O desafio diário de todos os nossos colaboradores consiste em superar as expectativas dos nossos associados para assegurar a máxima qualidade e eficácia das soluções desenvolvidos ao serviço das empresas e do seu negócio. \nCultura de parcerias De norte a sul do país, apoiamos e criamos laços com parceiros de referência, que chegam até nós porque acreditam na nossa missão. \nSustentabilidade Defendemos um modo de desenvolvimento capaz de responder às necessidades do presente sem comprometer a capacidade de crescimento das gerações futuras, com um triplo objetivo: um desenvolvimento economicamente eficaz, socialmente equitativo e ecologicamente sustentável. \nAreas de Atuação \nConsultoria - A ANPME apoia os seus associados com um serviço gratuito de aconselhamento, concebido para orientar decisões e impulsionar o crescimento. Através de uma equipa técnica experiente e multidisciplinar, oferece apoio prático e estratégico nas áreas de gestão, finanças, marketing, juridico, recursos humanos, inovação, fiscalidade e qualidade, ajudando cada empresa a encontrar as melhores soluções para os seus desafios. \nEmpreendedorismo e criação de empresas - A ANPME presta um apoio direto aos potenciais empreendedores, desde a conceção e estruturação de uma ideia de negocio até à abertura da empresa. \nA ANPME faz parte da Rede de Entidades Prestadoras de Apoio Técnico (EPAT) ao abrigo de Protocolo de Cooperação celebrado com o IEFP, sendo uma entidade especializada no domínio da prestação de serviços de apoio técnico de projetos para a criação de empresas/microempresas por desempregados. \nExpansão e Modernização - No processo de expansão e modernização de uma empresa, é essencial garantir que cada etapa é cuidadosamente planeada — desde a definição da estratégia até à obtenção dos recursos financeiros necessários para a sua concretização. A ANPME apoia integralmente os seus associados neste percurso,\ndisponibilizando acompanhamento técnico e estratégico em todas as fases do investimento. Seja para obras de modernização ou ampliação, aquisição de equipamentos, projetos de investigação e desenvolvimento, ou iniciativas de inovação, a ANPME assegura que cada empresa dispõe das ferramentas certas para crescer de forma sustentada e competitiva. \nIncentivos e Financiamentos - A ANPME dispõe de uma equipa técnica especializada preparada para o apoiar em todas as etapas do seu projeto de investimento — desde o enquadramento estratégico até à execução e acompanhamento final. O objetivo é garantir que cada empresa maximiza o acesso aos sistemas de incentivos e linhas de financiamento disponíveis, transformando ideias em resultados concretos. \nApoiamo-lo de forma completa e personalizada: \n● Analisamos e enquadramos os investimentos planeados nos programas de apoio mais adequados; \n● Elaboramos estudos técnicos e económicos e procedemos à submissão das candidaturas; \n● Acompanhamos a execução dos investimentos, assegurando o cumprimento dos prazos e objetivos; \n● Organizamos os dossiers de pedido de pagamento e prestamos apoio durante as auditorias físicas e contabilísticas. \nInternacionalização - Através do seu departamento especializado em internacionalização, a ANPME presta serviços de consultoria e acompanhamento personalizado, apoiando as empresas em todas as fases do processo — desde o estudo de mercado até à implantação e expansão nos mercados externos. \nApoio ao Endividamento e recuperação de empresas - No âmbito da sua missão de representação e defesa dos interesses dos pequenos e médios empresários, a ANPME criou o Gabinete de Apoio ao Endividamento, colocando à disposição da sua empresa uma equipa de técnicos especializados em situações de sobre-endividamento. \nOs técnicos do GAE identificam a origem do sobre-endividamento da sua empresa e apresentam as soluções que melhor se coadunam para reverter essa situação. \nPara potenciar a atividade da sua empresa, o GAE coloca ainda à sua disposição consultoria gratuita nas mais diversas áreas, para as quais colaboram todos os \n\n"
               }
             },
             "id": "5457c226-6840-4af7-9b18-8ac85fd9fb53",
@@ -53232,7 +54373,6 @@
               "initialMessages": "Olá, sou a Matilde, como posso ajudar-te?",
               "options": {
                 "inputPlaceholder": "Digite aqui..",
-                "loadPreviousSession": "memory",
                 "showWelcomeScreen": false,
                 "subtitle": "Vamos conversar! Estamos aqui para ajudar...",
                 "title": "Olá! 👋",
@@ -53250,7 +54390,7 @@
             "webhookId": "fcea155f-6545-4baf-9eb1-406808318689",
             "alwaysOutputData": false,
             "executeOnce": false,
-            "retryOnFail": true,
+            "retryOnFail": false,
             "maxTries": 4,
             "waitBetweenTries": 100,
             "notesInFlow": false
@@ -53323,8 +54463,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              864,
-              1136
+              816,
+              1184
             ],
             "id": "a919ecce-6d74-4d18-935a-5ddf2e6d18aa",
             "name": "Groq Chat Model",
@@ -53544,6 +54684,26 @@
             ],
             "id": "0602351b-f639-430b-a777-2421490c4303",
             "name": "Informações documentação",
+            "credentials": {
+              "googleDocsOAuth2Api": {
+                "id": "JJub0Q9J9RCo4TNw",
+                "name": "Google Docs robson.lisboa@midiacode.com"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "documentURL": "[REDACTED]"
+            },
+            "type": "n8n-nodes-base.googleDocsTool",
+            "typeVersion": 2,
+            "position": [
+              2000,
+              1360
+            ],
+            "id": "055836c2-3194-4d96-9a9c-aa3cf0383512",
+            "name": "Ser_associado_ANPME",
             "credentials": {
               "googleDocsOAuth2Api": {
                 "id": "JJub0Q9J9RCo4TNw",
@@ -54269,6 +55429,17 @@
             ]
           },
           "Informações documentação": {
+            "ai_tool": [
+              [
+                {
+                  "node": "Agente do Chat",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Ser_associado_ANPME": {
             "ai_tool": [
               [
                 {

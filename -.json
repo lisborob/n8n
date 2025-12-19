@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1766012644,
+            "lastTimeChecked": 1766099402,
             "possibleDuplicates": [
-              "19b2e8ea07f6cbd9",
-              "19b2e8db46dfb963"
+              "19b33ba41bb5eeee",
+              "19b33467d90f4926"
             ]
           }
         },
@@ -24051,14 +24051,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-16T18:18:55Z"
+          "lastTimeChecked": "2025-12-18T14:00:42Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-16T18:18:55Z"
+          "lastTimeChecked": "2025-12-18T14:00:50Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            351
+            353
           ]
         }
       },
@@ -27302,7 +27302,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2201
+          "lastMessageUid": 2203
         }
       },
       "meta": {
@@ -28244,10 +28244,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1766009043,
+            "lastTimeChecked": 1766094605,
             "possibleDuplicates": [
-              "19b2e57896927972",
-              "19b2e54e5cbe9c85"
+              "19b337119bd56b10",
+              "19b3323f5958320e"
             ]
           }
         }
@@ -38390,7 +38390,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-17T22:46:29.000Z",
+      "updatedAt": "2025-12-18T17:58:58.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38558,7 +38558,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -38664,7 +38664,7 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            624,
+            832,
             1024
           ],
           "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
@@ -38675,20 +38675,20 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
               "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": 718850216,
+              "value": 1647537936,
               "mode": "list",
-              "cachedResultName": "Emails",
+              "cachedResultName": "clientes app",
               "cachedResultUrl": "[REDACTED]"
             },
             "filtersUI": {
               "values": [
                 {
-                  "lookupColumn": "Status",
+                  "lookupColumn": "status",
                   "lookupValue": "on"
                 }
               ]
@@ -38717,14 +38717,14 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
               "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": 718850216,
+              "value": 1647537936,
               "mode": "list",
-              "cachedResultName": "Emails",
+              "cachedResultName": "clientes app",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
@@ -38787,7 +38787,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            816,
+            1024,
             1024
           ],
           "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
@@ -38949,10 +38949,10 @@
             "operation": "get",
             "dataTableId": {
               "__rl": true,
-              "value": "ASgwpF2PeV4ATAYu",
+              "value": "gbNejGV416c39TCE",
               "mode": "list",
-              "cachedResultName": "Kutsaca HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+              "cachedResultName": "Midiacode HTML envio news",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
             },
             "matchType": "=anyCondition",
             "filters": {
@@ -38987,9 +38987,9 @@
         },
         {
           "parameters": {
-            "fromEmail": "contacto@kutsaca.com",
-            "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "glauci@midiacode.com",
+            "fromEmail": "contact@ooniverse.ai",
+            "toEmail": "glauci@midiacode.com",
+            "ccEmail": "robson.lisboa@midiacode.com",
             "bccEmail": "={{ $json.emails }}",
             "subject": "={{ $json.subject }}",
             "html": "={{ $json.html }}",
@@ -39000,13 +39000,13 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            368,
+            576,
             1024
           ],
           "credentials": {
             "smtp": {
-              "id": "eIabgHBZcsJl51Oj",
-              "name": "Kutsaca.com - SMTP account"
+              "id": "5r4O3yWVtvULVe1v",
+              "name": "SMTP from contact@ooniverse.ai"
             }
           }
         },
@@ -39064,10 +39064,10 @@
             "operation": "update",
             "dataTableId": {
               "__rl": true,
-              "value": "ASgwpF2PeV4ATAYu",
+              "value": "gbNejGV416c39TCE",
               "mode": "list",
-              "cachedResultName": "Kutsaca HTML para envio de newsletter",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+              "cachedResultName": "Midiacode HTML envio news",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
             },
             "matchType": "=anyCondition",
             "filters": {
@@ -39893,84 +39893,8 @@
         },
         {
           "parameters": {
-            "operation": "update",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "id"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 718850216,
-              "mode": "list",
-              "cachedResultName": "Emails",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "Status": "UNSUBSCRIBED",
-                "Email": "={{ $json.Email }}"
-              },
-              "matchingColumns": [
-                "Email"
-              ],
-              "schema": [
-                {
-                  "id": "Email",
-                  "displayName": "Email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "row_number",
-                  "displayName": "row_number",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "number",
-                  "canBeUsedToMatch": true,
-                  "readOnly": true,
-                  "removed": true
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -2224,
-            1248
-          ],
-          "id": "661b5e52-b4ff-4f49-9842-be7cc284c81f",
-          "name": "Atualiza a lista com UNSUBSCRIBED",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "respondWith": "text",
-            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/4c1f53c1-93b8-442a-9d2d-6c05ca20a318\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
@@ -40010,7 +39934,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            992,
+            1200,
             1024
           ],
           "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
@@ -40029,20 +39953,20 @@
               "__rl": true,
               "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
               "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": 718850216,
+              "value": 1647537936,
               "mode": "list",
-              "cachedResultName": "Emails",
+              "cachedResultName": "clientes app",
               "cachedResultUrl": "[REDACTED]"
             },
             "filtersUI": {
               "values": [
                 {
-                  "lookupColumn": "Email",
+                  "lookupColumn": "email",
                   "lookupValue": "={{ $json.email }}"
                 }
               ]
@@ -40110,7 +40034,7 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            -2032,
+            -1888,
             1248
           ]
         },
@@ -40125,7 +40049,7 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            -2032,
+            -1888,
             1472
           ]
         },
@@ -40418,7 +40342,7 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            336,
+            752,
             1232
           ],
           "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
@@ -40432,7 +40356,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1200,
+            1408,
             1024
           ],
           "id": "04fbd489-474a-49ec-abf3-403dbd7cedc3",
@@ -40880,10 +40804,10 @@
             "operation": "get",
             "dataTableId": {
               "__rl": true,
-              "value": "kzGI8GXGTDJG97g4",
+              "value": "I2FBbRnf2Orqr6A2",
               "mode": "list",
-              "cachedResultName": "Kutsaca Newsletter Conteudos",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              "cachedResultName": "Midiacode Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
             },
             "filters": {
               "conditions": [
@@ -40939,10 +40863,10 @@
             "operation": "update",
             "dataTableId": {
               "__rl": true,
-              "value": "kzGI8GXGTDJG97g4",
+              "value": "I2FBbRnf2Orqr6A2",
               "mode": "list",
-              "cachedResultName": "Kutsaca Newsletter Conteudos",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              "cachedResultName": "Midiacode Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
             },
             "filters": {
               "conditions": [
@@ -41039,7 +40963,7 @@
         {
           "parameters": {
             "respondWith": "text",
-            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p><a href=\"auto.1mc.co/Midiacode/index.html\" \n        style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n        Voltar à seleção de notícias\n     </a></p>\n</body>\n</html>",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p>\n    <a href=\"https://auto.1mc.co/Midiacode/index.html\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n       Voltar à seleção de notícias\n    </a>\n  </p>\n</body>\n</html>",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
@@ -41056,10 +40980,10 @@
             "operation": "get",
             "dataTableId": {
               "__rl": true,
-              "value": "kzGI8GXGTDJG97g4",
+              "value": "I2FBbRnf2Orqr6A2",
               "mode": "list",
-              "cachedResultName": "Kutsaca Newsletter Conteudos",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+              "cachedResultName": "Midiacode Newsletter Conteudos",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
             },
             "filters": {
               "conditions": [
@@ -41074,7 +40998,7 @@
           "typeVersion": 1,
           "position": [
             1440,
-            -240
+            -144
           ],
           "id": "06eb348c-9b39-428b-9c6e-623782bba233",
           "name": "Get row(s)"
@@ -41122,8 +41046,8 @@
           "type": "n8n-nodes-base.awsS3",
           "typeVersion": 2,
           "position": [
-            1808,
-            -240
+            1792,
+            -144
           ],
           "id": "d9947a7e-53e1-4ce1-8a3f-23e41966ec70",
           "name": "Upload html para priorização1",
@@ -41142,7 +41066,7 @@
           "typeVersion": 2,
           "position": [
             1616,
-            -240
+            -144
           ],
           "id": "97ed922c-fe72-463c-bd51-a1540e22eb96",
           "name": "monta o html a partir do get rows"
@@ -41164,6 +41088,104 @@
           "id": "acdedd29-1f1b-4299-96f3-0835bc43fc9f",
           "name": "Iniciar revisão news Midiacode",
           "webhookId": "d19399f2-ba1e-4a34-af35-df849755f06b"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1647537936,
+              "mode": "list",
+              "cachedResultName": "clientes app",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "email": "={{ $json.email }}",
+                "status": "UNSUBSCRIBED"
+              },
+              "matchingColumns": [
+                "email"
+              ],
+              "schema": [
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Record Count",
+                  "displayName": "Record Count",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2128,
+            1248
+          ],
+          "id": "ec1dc9e4-3f67-4ea2-b557-f87913597660",
+          "name": "Atualiza UNSUBSCRIBED",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         }
       ],
       "connections": {
@@ -41589,17 +41611,6 @@
             ]
           ]
         },
-        "Atualiza a lista com UNSUBSCRIBED": {
-          "main": [
-            [
-              {
-                "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Respond to Webhook1": {
           "main": [
             []
@@ -41631,7 +41642,7 @@
           "main": [
             [
               {
-                "node": "Atualiza a lista com UNSUBSCRIBED",
+                "node": "Atualiza UNSUBSCRIBED",
                 "type": "main",
                 "index": 0
               }
@@ -41920,7 +41931,7 @@
           "main": [
             [
               {
-                "node": "Get row(s)",
+                "node": "Respond to Webhook5",
                 "type": "main",
                 "index": 0
               }
@@ -41973,13 +41984,7 @@
         },
         "Upload html para priorização1": {
           "main": [
-            [
-              {
-                "node": "Respond to Webhook5",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Iniciar revisão news Midiacode": {
@@ -41987,6 +41992,17 @@
             [
               {
                 "node": "Get row(s)3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Atualiza UNSUBSCRIBED": {
+          "main": [
+            [
+              {
+                "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
                 "type": "main",
                 "index": 0
               }
@@ -42020,8 +42036,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "b50a05a7-fd51-4deb-8ca1-a339c5ed0bbc",
-      "activeVersionId": "b50a05a7-fd51-4deb-8ca1-a339c5ed0bbc",
+      "versionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
+      "activeVersionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
       "triggerCount": 13,
       "shared": [
         {
@@ -42033,9 +42049,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-17T22:46:29.313Z",
-        "createdAt": "2025-12-17T22:46:29.313Z",
-        "versionId": "b50a05a7-fd51-4deb-8ca1-a339c5ed0bbc",
+        "updatedAt": "2025-12-18T17:58:58.745Z",
+        "createdAt": "2025-12-18T17:58:58.745Z",
+        "versionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -42199,7 +42215,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+              "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -42305,7 +42321,7 @@
             "type": "n8n-nodes-base.function",
             "typeVersion": 1,
             "position": [
-              624,
+              832,
               1024
             ],
             "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
@@ -42316,20 +42332,20 @@
                 "__rl": true,
                 "value": "[REDACTED]",
                 "mode": "list",
-                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
                 "cachedResultUrl": "[REDACTED]"
               },
               "sheetName": {
                 "__rl": true,
-                "value": 718850216,
+                "value": 1647537936,
                 "mode": "list",
-                "cachedResultName": "Emails",
+                "cachedResultName": "clientes app",
                 "cachedResultUrl": "[REDACTED]"
               },
               "filtersUI": {
                 "values": [
                   {
-                    "lookupColumn": "Status",
+                    "lookupColumn": "status",
                     "lookupValue": "on"
                   }
                 ]
@@ -42358,14 +42374,14 @@
                 "__rl": true,
                 "value": "[REDACTED]",
                 "mode": "list",
-                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
                 "cachedResultUrl": "[REDACTED]"
               },
               "sheetName": {
                 "__rl": true,
-                "value": 718850216,
+                "value": 1647537936,
                 "mode": "list",
-                "cachedResultName": "Emails",
+                "cachedResultName": "clientes app",
                 "cachedResultUrl": "[REDACTED]"
               },
               "columns": {
@@ -42428,7 +42444,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              816,
+              1024,
               1024
             ],
             "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
@@ -42590,10 +42606,10 @@
               "operation": "get",
               "dataTableId": {
                 "__rl": true,
-                "value": "ASgwpF2PeV4ATAYu",
+                "value": "gbNejGV416c39TCE",
                 "mode": "list",
-                "cachedResultName": "Kutsaca HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+                "cachedResultName": "Midiacode HTML envio news",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
               },
               "matchType": "=anyCondition",
               "filters": {
@@ -42628,9 +42644,9 @@
           },
           {
             "parameters": {
-              "fromEmail": "contacto@kutsaca.com",
-              "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "glauci@midiacode.com",
+              "fromEmail": "contact@ooniverse.ai",
+              "toEmail": "glauci@midiacode.com",
+              "ccEmail": "robson.lisboa@midiacode.com",
               "bccEmail": "={{ $json.emails }}",
               "subject": "={{ $json.subject }}",
               "html": "={{ $json.html }}",
@@ -42641,13 +42657,13 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              368,
+              576,
               1024
             ],
             "credentials": {
               "smtp": {
-                "id": "eIabgHBZcsJl51Oj",
-                "name": "Kutsaca.com - SMTP account"
+                "id": "5r4O3yWVtvULVe1v",
+                "name": "SMTP from contact@ooniverse.ai"
               }
             }
           },
@@ -42705,10 +42721,10 @@
               "operation": "update",
               "dataTableId": {
                 "__rl": true,
-                "value": "ASgwpF2PeV4ATAYu",
+                "value": "gbNejGV416c39TCE",
                 "mode": "list",
-                "cachedResultName": "Kutsaca HTML para envio de newsletter",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+                "cachedResultName": "Midiacode HTML envio news",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
               },
               "matchType": "=anyCondition",
               "filters": {
@@ -43534,84 +43550,8 @@
           },
           {
             "parameters": {
-              "operation": "update",
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "id"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": 718850216,
-                "mode": "list",
-                "cachedResultName": "Emails",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "Status": "UNSUBSCRIBED",
-                  "Email": "={{ $json.Email }}"
-                },
-                "matchingColumns": [
-                  "Email"
-                ],
-                "schema": [
-                  {
-                    "id": "Email",
-                    "displayName": "Email",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "Status",
-                    "displayName": "Status",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "row_number",
-                    "displayName": "row_number",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "number",
-                    "canBeUsedToMatch": true,
-                    "readOnly": true,
-                    "removed": true
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -2224,
-              1248
-            ],
-            "id": "661b5e52-b4ff-4f49-9842-be7cc284c81f",
-            "name": "Atualiza a lista com UNSUBSCRIBED",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            }
-          },
-          {
-            "parameters": {
               "respondWith": "text",
-              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/unsubscribe_kutsaca-submit\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Cancelar inscrição</title>\n  <style>\n    * { box-sizing: border-box; }\n\n    body {\n      font-family: Arial, sans-serif;\n      background: #f4f4f4;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      min-height: 100vh;\n      margin: 0;\n    }\n\n    .container {\n      background: #fff;\n      padding: 30px;\n      border-radius: 8px;\n      box-shadow: 0 8px 20px rgba(0,0,0,0.1);\n      width: 360px;\n      max-width: 95vw;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      gap: 16px;\n      text-align: center;\n    }\n\n    h2 {\n      color: #e74c3c;\n      margin: 0;\n    }\n\n    p {\n      color: #555;\n      margin: 0;\n    }\n\n    form {\n      width: 100%;\n      display: flex;\n      flex-direction: column;\n      gap: 12px;\n      align-items: center;\n    }\n\n    input[type=\"email\"] {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      font-size: 14px;\n    }\n\n    button {\n      width: 100%;\n      background: #e74c3c;\n      color: #fff;\n      border: none;\n      padding: 12px 16px;\n      border-radius: 6px;\n      cursor: pointer;\n      font-weight: bold;\n      font-size: 14px;\n    }\n\n    button:hover {\n      background: #c0392b;\n    }\n\n    .note {\n      font-size: 12px;\n      color: #888;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <h2>Cancelar inscrição</h2>\n    <p>Digite o seu email para cancelar a inscrição na newsletter:</p>\n\n    <form action=\"https://n8n.ooniverse.ai/webhook/4c1f53c1-93b8-442a-9d2d-6c05ca20a318\" method=\"POST\">\n      <input type=\"email\" name=\"email\" placeholder=\"seu email@exemplo.com\" required>\n      <button type=\"submit\">Enviar</button>\n    </form>\n\n    <p class=\"note\">Você verá uma confirmação após enviar.</p>",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
@@ -43651,7 +43591,7 @@
             "type": "n8n-nodes-evolution-api.evolutionApi",
             "typeVersion": 1,
             "position": [
-              992,
+              1200,
               1024
             ],
             "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
@@ -43670,20 +43610,20 @@
                 "__rl": true,
                 "value": "[REDACTED]",
                 "mode": "list",
-                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
                 "cachedResultUrl": "[REDACTED]"
               },
               "sheetName": {
                 "__rl": true,
-                "value": 718850216,
+                "value": 1647537936,
                 "mode": "list",
-                "cachedResultName": "Emails",
+                "cachedResultName": "clientes app",
                 "cachedResultUrl": "[REDACTED]"
               },
               "filtersUI": {
                 "values": [
                   {
-                    "lookupColumn": "Email",
+                    "lookupColumn": "email",
                     "lookupValue": "={{ $json.email }}"
                   }
                 ]
@@ -43751,7 +43691,7 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              -2032,
+              -1888,
               1248
             ]
           },
@@ -43766,7 +43706,7 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              -2032,
+              -1888,
               1472
             ]
           },
@@ -44059,7 +43999,7 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              336,
+              752,
               1232
             ],
             "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
@@ -44073,7 +44013,7 @@
             "type": "n8n-nodes-base.wait",
             "typeVersion": 1.1,
             "position": [
-              1200,
+              1408,
               1024
             ],
             "id": "04fbd489-474a-49ec-abf3-403dbd7cedc3",
@@ -44521,10 +44461,10 @@
               "operation": "get",
               "dataTableId": {
                 "__rl": true,
-                "value": "kzGI8GXGTDJG97g4",
+                "value": "I2FBbRnf2Orqr6A2",
                 "mode": "list",
-                "cachedResultName": "Kutsaca Newsletter Conteudos",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+                "cachedResultName": "Midiacode Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
               },
               "filters": {
                 "conditions": [
@@ -44580,10 +44520,10 @@
               "operation": "update",
               "dataTableId": {
                 "__rl": true,
-                "value": "kzGI8GXGTDJG97g4",
+                "value": "I2FBbRnf2Orqr6A2",
                 "mode": "list",
-                "cachedResultName": "Kutsaca Newsletter Conteudos",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+                "cachedResultName": "Midiacode Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
               },
               "filters": {
                 "conditions": [
@@ -44680,7 +44620,7 @@
           {
             "parameters": {
               "respondWith": "text",
-              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p><a href=\"auto.1mc.co/Midiacode/index.html\" \n        style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n        Voltar à seleção de notícias\n     </a></p>\n</body>\n</html>",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head><meta charset=\"UTF-8\"><title>Notícia atualizada</title></head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n  <h2>✅ Notícia atualizada com sucesso!</h2>\n  <p>\n    <a href=\"https://auto.1mc.co/Midiacode/index.html\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;\">\n       Voltar à seleção de notícias\n    </a>\n  </p>\n</body>\n</html>",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
@@ -44697,10 +44637,10 @@
               "operation": "get",
               "dataTableId": {
                 "__rl": true,
-                "value": "kzGI8GXGTDJG97g4",
+                "value": "I2FBbRnf2Orqr6A2",
                 "mode": "list",
-                "cachedResultName": "Kutsaca Newsletter Conteudos",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
+                "cachedResultName": "Midiacode Newsletter Conteudos",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/I2FBbRnf2Orqr6A2"
               },
               "filters": {
                 "conditions": [
@@ -44715,7 +44655,7 @@
             "typeVersion": 1,
             "position": [
               1440,
-              -240
+              -144
             ],
             "id": "06eb348c-9b39-428b-9c6e-623782bba233",
             "name": "Get row(s)"
@@ -44763,8 +44703,8 @@
             "type": "n8n-nodes-base.awsS3",
             "typeVersion": 2,
             "position": [
-              1808,
-              -240
+              1792,
+              -144
             ],
             "id": "d9947a7e-53e1-4ce1-8a3f-23e41966ec70",
             "name": "Upload html para priorização1",
@@ -44783,7 +44723,7 @@
             "typeVersion": 2,
             "position": [
               1616,
-              -240
+              -144
             ],
             "id": "97ed922c-fe72-463c-bd51-a1540e22eb96",
             "name": "monta o html a partir do get rows"
@@ -44805,6 +44745,104 @@
             "id": "acdedd29-1f1b-4299-96f3-0835bc43fc9f",
             "name": "Iniciar revisão news Midiacode",
             "webhookId": "d19399f2-ba1e-4a34-af35-df849755f06b"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 1647537936,
+                "mode": "list",
+                "cachedResultName": "clientes app",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "email": "={{ $json.email }}",
+                  "status": "UNSUBSCRIBED"
+                },
+                "matchingColumns": [
+                  "email"
+                ],
+                "schema": [
+                  {
+                    "id": "email",
+                    "displayName": "email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Record Count",
+                    "displayName": "Record Count",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "news enviada",
+                    "displayName": "news enviada",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2128,
+              1248
+            ],
+            "id": "ec1dc9e4-3f67-4ea2-b557-f87913597660",
+            "name": "Atualiza UNSUBSCRIBED",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
           }
         ],
         "connections": {
@@ -45230,17 +45268,6 @@
               ]
             ]
           },
-          "Atualiza a lista com UNSUBSCRIBED": {
-            "main": [
-              [
-                {
-                  "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Respond to Webhook1": {
             "main": [
               []
@@ -45272,7 +45299,7 @@
             "main": [
               [
                 {
-                  "node": "Atualiza a lista com UNSUBSCRIBED",
+                  "node": "Atualiza UNSUBSCRIBED",
                   "type": "main",
                   "index": 0
                 }
@@ -45561,7 +45588,7 @@
             "main": [
               [
                 {
-                  "node": "Get row(s)",
+                  "node": "Respond to Webhook5",
                   "type": "main",
                   "index": 0
                 }
@@ -45614,13 +45641,7 @@
           },
           "Upload html para priorização1": {
             "main": [
-              [
-                {
-                  "node": "Respond to Webhook5",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Iniciar revisão news Midiacode": {
@@ -45628,6 +45649,17 @@
               [
                 {
                   "node": "Get row(s)3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Atualiza UNSUBSCRIBED": {
+            "main": [
+              [
+                {
+                  "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
                   "type": "main",
                   "index": 0
                 }

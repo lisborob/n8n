@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1766099402,
+            "lastTimeChecked": 1766184793,
             "possibleDuplicates": [
-              "19b33ba41bb5eeee",
-              "19b33467d90f4926"
+              "19b38d13944de2e5",
+              "19b388bc45a6e367"
             ]
           }
         },
@@ -28244,10 +28244,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1766094605,
+            "lastTimeChecked": 1766187541,
             "possibleDuplicates": [
-              "19b337119bd56b10",
-              "19b3323f5958320e"
+              "19b38fbbb3e6b554",
+              "19b3845c8c9c8873"
             ]
           }
         }
@@ -38390,7 +38390,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-18T17:58:58.000Z",
+      "updatedAt": "2025-12-19T20:14:23.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38558,7 +38558,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+            "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista. | You received this newsletter because you are subscribed to our list. <br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição | Unsubscribe\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -38680,9 +38680,9 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": 1647537936,
+              "value": "gid=0",
               "mode": "list",
-              "cachedResultName": "clientes app",
+              "cachedResultName": "todos publicadores",
               "cachedResultUrl": "[REDACTED]"
             },
             "filtersUI": {
@@ -38722,9 +38722,9 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": 1647537936,
+              "value": "gid=0",
               "mode": "list",
-              "cachedResultName": "clientes app",
+              "cachedResultName": "todos publicadores",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
@@ -38988,8 +38988,7 @@
         {
           "parameters": {
             "fromEmail": "contact@ooniverse.ai",
-            "toEmail": "glauci@midiacode.com",
-            "ccEmail": "robson.lisboa@midiacode.com",
+            "toEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
             "bccEmail": "={{ $json.emails }}",
             "subject": "={{ $json.subject }}",
             "html": "={{ $json.html }}",
@@ -39879,12 +39878,12 @@
           "parameters": {
             "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
             "height": 672,
-            "width": 1328,
+            "width": 1360,
             "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -3072,
+            -3040,
             1088
           ],
           "typeVersion": 1,
@@ -39958,9 +39957,9 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": 1647537936,
+              "value": "gid=0",
               "mode": "list",
-              "cachedResultName": "clientes app",
+              "cachedResultName": "todos publicadores",
               "cachedResultUrl": "[REDACTED]"
             },
             "filtersUI": {
@@ -40049,7 +40048,7 @@
           "type": "n8n-nodes-base.respondToWebhook",
           "typeVersion": 1.4,
           "position": [
-            -1888,
+            -1968,
             1472
           ]
         },
@@ -40350,7 +40349,7 @@
         },
         {
           "parameters": {
-            "amount": 3,
+            "amount": 145,
             "unit": "minutes"
           },
           "type": "n8n-nodes-base.wait",
@@ -41101,9 +41100,9 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": 1647537936,
+              "value": "gid=0",
               "mode": "list",
-              "cachedResultName": "clientes app",
+              "cachedResultName": "todos publicadores",
               "cachedResultUrl": "[REDACTED]"
             },
             "columns": {
@@ -41186,6 +41185,276 @@
               "name": "Google Sheets account"
             }
           }
+        },
+        {
+          "parameters": {
+            "postProcessAction": "nothing",
+            "format": "resolved",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailReadImap",
+          "typeVersion": 2.1,
+          "position": [
+            -2944,
+            2160
+          ],
+          "id": "8dde0160-c85f-4dce-8c19-5aeb7d7c64df",
+          "name": "Email Trigger (IMAP)1",
+          "credentials": {
+            "imap": {
+              "id": "0wZQLLIT13m4wRKX",
+              "name": "IMAP_contact@ooniverse.ai"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Captura todas as partes possíveis do email\nconst subject = ($json.subject || \"\").toLowerCase();\nconst text = ($json.text || \"\").toLowerCase();\nconst html = ($json.html || \"\").toLowerCase();\nconst body = ($json.body || \"\").toLowerCase();\nconst raw = JSON.stringify($json).toLowerCase();\n\n// Junta tudo em um único texto\nconst full = subject + \" \" + text + \" \" + html + \" \" + body + \" \" + raw;\n\n// Palavras-chave reais de bounce\nconst bounceKeywords = [\n  \"undeliverable\",\n  \"undelivered\",\n  \"undelivered mail returned to sender\",\n  \"delivery status notification\",\n  \"mail delivery failed\",\n  \"returned mail\",\n  \"failure notice\",\n  \"user unknown\",\n  \"mailbox not found\",\n  \"blocked\",\n  \"bounce\",\n  \"delivery failure\",\n  \"delivery incomplete\",\n  \"delivery has failed\",\n  \"could not be delivered\",\n  \"no such user\",\n  \"recipient address rejected\"\n];\n\nlet isBounce = false;\n\nfor (const word of bounceKeywords) {\n  if (full.includes(word)) {\n    isBounce = true;\n    break;\n  }\n}\n\nreturn [{ json: { isBounce, raw: $json } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2736,
+            2160
+          ],
+          "id": "e09fa72e-4b6d-4cc2-bfb2-af79ef1dd6e2",
+          "name": "Detecta bounce"
+        },
+        {
+          "parameters": {
+            "jsCode": "const raw = JSON.stringify($json.raw).toLowerCase();\n\n// Regex universal para capturar emails válidos\nconst emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}/gi;\n\n// Extrai todos os emails válidos do texto\nlet matches = raw.match(emailRegex) || [];\n\n// Domínios que NÃO devem ser considerados como bounce\nconst ignoreDomains = [\n  \"ooniverse.ai\",          // seu domínio\n  \"mailchannels.net\",      // remetente do bounce\n  \"relay.mailchannels.net\" // servidores intermediários\n];\n\n// Filtra emails que não pertencem aos domínios ignorados\nmatches = matches.filter(email => {\n  return !ignoreDomains.some(domain => email.endsWith(domain));\n});\n\n// Remove duplicados\nconst unique = [...new Set(matches)];\n\n// Se não sobrou nenhum email, erro\nif (unique.length === 0) {\n  throw new Error(\"Nenhum email de bounce encontrado (exceto domínios ignorados).\");\n}\n\n// Retorna TODOS os emails de bounce encontrados\nreturn [{ json: { emails: unique } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2368,
+            2144
+          ],
+          "id": "cfbfcf6d-47d6-409d-88d3-f7090b749392",
+          "name": "Pega o email"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "todos publicadores",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "email",
+                  "lookupValue": "={{ $json.email }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2048,
+            2144
+          ],
+          "id": "b4466b41-00a2-4acd-8df4-5fc7a2478dca",
+          "name": "pega as linhas",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "todos publicadores",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "status": "BOUNCE",
+                "email": "={{ $json.email }}"
+              },
+              "matchingColumns": [
+                "email"
+              ],
+              "schema": [
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Record Count",
+                  "displayName": "Record Count",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "categoria",
+                  "displayName": "categoria",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1872,
+            2144
+          ],
+          "id": "08c87112-4042-4f2c-bff0-652a2dc4aced",
+          "name": "Update BOUNCE",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "content": "## Atualiza BOUNCE\ncheca os emails e ser for bounce, atualiza na planilha para não mais enviar",
+            "height": 672,
+            "width": 1328,
+            "color": 6
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -3024,
+            1920
+          ],
+          "typeVersion": 1,
+          "id": "8ab9800e-4793-4a93-91dc-8d712f0f1fac",
+          "name": "Sticky Note8"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "c0979939-a922-44c5-8152-d4f7143f57ca",
+                  "leftValue": "={{ $json.isBounce }}",
+                  "rightValue": "=true",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            -2560,
+            2160
+          ],
+          "id": "f67bb51a-9068-40d3-ac02-b5ebed85a28c",
+          "name": "Se Bounce"
+        },
+        {
+          "parameters": {
+            "jsCode": "const emails = $json.emails || [];\n\nreturn emails\n  .filter(e => typeof e === \"string\" && e.includes(\"@\"))\n  .map(email => ({ json: { email } }));"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2208,
+            2144
+          ],
+          "id": "6384dc34-e95e-4345-a64a-f56a812fe129",
+          "name": "separa emails"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            -2304,
+            2352
+          ],
+          "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
+          "name": "Ignora emails normais"
         }
       ],
       "connections": {
@@ -42008,6 +42277,79 @@
               }
             ]
           ]
+        },
+        "Email Trigger (IMAP)1": {
+          "main": [
+            [
+              {
+                "node": "Detecta bounce",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Detecta bounce": {
+          "main": [
+            [
+              {
+                "node": "Se Bounce",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Pega o email": {
+          "main": [
+            [
+              {
+                "node": "separa emails",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "pega as linhas": {
+          "main": [
+            [
+              {
+                "node": "Update BOUNCE",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Se Bounce": {
+          "main": [
+            [
+              {
+                "node": "Pega o email",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Ignora emails normais",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "separa emails": {
+          "main": [
+            [
+              {
+                "node": "pega as linhas",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -42030,15 +42372,18 @@
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
+        },
+        "node:Email Trigger (IMAP)1": {
+          "lastMessageUid": 1407
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
-      "activeVersionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
-      "triggerCount": 13,
+      "versionId": "5ca22501-0d57-4a5c-bd96-9933827aa9fc",
+      "activeVersionId": "5ca22501-0d57-4a5c-bd96-9933827aa9fc",
+      "triggerCount": 14,
       "shared": [
         {
           "updatedAt": "2025-12-16T17:37:36.899Z",
@@ -42049,9 +42394,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-18T17:58:58.745Z",
-        "createdAt": "2025-12-18T17:58:58.745Z",
-        "versionId": "0f8e759f-58ef-42cc-9e90-9bdd325fdd2c",
+        "updatedAt": "2025-12-19T20:14:23.480Z",
+        "createdAt": "2025-12-19T20:14:23.480Z",
+        "versionId": "5ca22501-0d57-4a5c-bd96-9933827aa9fc",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -42215,7 +42560,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista.<br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
+              "jsCode": "// Node: Cria HTML da Newsletter com ID na área de orientações\n\nconst items = $items(\"Normalizar links do GDrive - view\", 0, 0).map(i => i.json);\nconst recordId = $items(\"cria registro na DT da news\", 0, 0)[0].json.id;\n\n// Captura os textos vindos do Webhook\nconst webhook = $items(\"Webhook\", 0, 0)[0].json;\nconst saudacaoRaw = webhook.body?.saudacao || \"\";\nconst finalizacaoRaw = webhook.body?.finalizacao || \"\";\n\n// Converte quebras de linha para <br>\nconst saudacao = String(saudacaoRaw).replace(/\\r?\\n/g, \"<br>\");\nconst finalizacao = String(finalizacaoRaw).replace(/\\r?\\n/g, \"<br>\");\n\n// Identifica a notícia com prioridade 1\nconst destaque = items.find(i => String(i.priority).trim() === \"1\");\nconst restantes = items.filter(i => i !== destaque);\n\nlet html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Kutsaca News</title>\n</head>\n<body style=\"font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;\">\n  <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#f4f4f4; padding:20px;\">\n    <tr>\n      <td>\n        <table width=\"600\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; padding:20px; border-radius:8px;\">\n`;\n\n// ✅ Imagem de destaque no topo\nif (destaque?.imagem) {\n  html += `\n          <tr>\n            <td style=\"padding:0;\">\n              <img src=\"${destaque.imagem}\" alt=\"Imagem destaque\" style=\"width:100%; border-radius:8px; display:block;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Saudação\nif (saudacao) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${saudacao}\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Notícia destaque\nif (destaque) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:24px; margin-bottom:10px;\">${destaque.titulo}</h2>\n              <p style=\"color:#555; line-height:1.6; font-size:16px;\">${destaque.text}</p>\n              ${destaque.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${destaque.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Demais notícias\nfor (const item of restantes) {\n  html += `\n          <tr>\n            <td style=\"padding:15px; border-bottom:1px solid #ddd;\">\n              <h2 style=\"color:#2c3e50; font-size:20px;\">${item.titulo}</h2>\n              <p style=\"color:#555; line-height:1.5; font-size:14px;\">${item.text}</p>\n              ${item.imagem ? `<img src=\"${item.imagem}\" alt=\"Imagem\" style=\"max-width:100%; margin-top:10px; border-radius:4px;\">` : \"\"}\n              ${item.video ? `\n                <p style=\"margin-top:10px;\">\n                  <a href=\"${item.video}\" target=\"_blank\" style=\"display:inline-block; background:#3498db; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;\">\n                    ▶ Assistir ao Vídeo\n                  </a>\n                </p>` : \"\"}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Finalização\nif (finalizacao) {\n  html += `\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n          <tr>\n            <td style=\"padding:15px; color:#555; line-height:1.5;\">\n              ${finalizacao}\n            </td>\n          </tr>\n  `;\n}\n\n// ✅ Redes sociais + cancelar inscrição\nhtml += `\n          <tr>\n            <td align=\"center\" style=\"padding:20px;\">\n\n              <!-- YouTube -->\n              <a href=\"https://www.youtube.com/@midiacode_\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/1384/1384060.png\" alt=\"YouTube\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Instagram -->\n              <a href=\"https://www.instagram.com/midiacode\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/2111/2111463.png\" alt=\"Instagram\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- LinkedIn -->\n              <a href=\"https://www.linkedin.com/company/midiacode.com/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/3536/3536505.png\" alt=\"LinkedIn\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n              <!-- Facebook -->\n              <a href=\"https://www.facebook.com/midiacode/\" target=\"_blank\" style=\"margin:0 10px;\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/733/733547.png\" alt=\"Facebook\" width=\"24\" style=\"vertical-align:middle;\">\n              </a>\n\n            </td>\n          </tr>\n\n          <tr>\n            <td align=\"center\" style=\"padding:20px; color:#999; font-size:12px;\">\n              Você recebeu esta newsletter porque está inscrito em nossa lista. | You received this newsletter because you are subscribed to our list. <br>\n              <a href=\"https://n8n.ooniverse.ai/webhook/601187bc-a3a8-4922-8ff4-2fd27514af74\" target=\"_blank\" style=\"color:#3498db;\">\n                Cancelar inscrição | Unsubscribe\n              </a>\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:0 20px;\">\n              <hr style=\"border:none; border-top:1px solid #ddd; margin:30px 0;\">\n            </td>\n          </tr>\n\n          <tr>\n            <td style=\"padding:20px; color:#333; font-size:14px;\">\n              <h3>Orientações para o gestor da newsletter</h3>\n              <p style=\"color:#555;\">ID do registro desta newsletter: <strong>${recordId}</strong></p>\n              <p style=\"color:#555;\">Caso esta newsletter esteja aprovada e possa ser disparada para os destinatários, favor apertar no botão abaixo:</p>\n              <p style=\"margin-top:10px;\">\n                <a href=\"https://n8n.ooniverse.ai/webhook/da982777-5d33-40f4-a8a6-5f612609374f?id=${recordId}\" \n                   target=\"_blank\" \n                   style=\"display:inline-block; background:#27ae60; color:#fff; padding:12px 20px; text-decoration:none; border-radius:4px; font-weight:bold;\">\n                  ✅ APROVADA\n                </a>\n              </p>\n              <p style=\"color:#555; margin-top:10px;\">\n                Após o clique, você verá a mensagem: <em>“Sua aprovação foi computada e os disparos começarão ainda hoje.”</em>\n              </p>\n              <p style=\"color:#555; margin-top:15px;\">\n                Caso esta newsletter precise de ajustes, peço que responda a esta mensagem descrevendo os ajustes para que possamos corrigir e reenviar até que esteja aprovada.\n              </p>\n            </td>\n          </tr>\n\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>\n`;\n\nreturn [{ json: { html, recordId } }];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -42337,9 +42682,9 @@
               },
               "sheetName": {
                 "__rl": true,
-                "value": 1647537936,
+                "value": "gid=0",
                 "mode": "list",
-                "cachedResultName": "clientes app",
+                "cachedResultName": "todos publicadores",
                 "cachedResultUrl": "[REDACTED]"
               },
               "filtersUI": {
@@ -42379,9 +42724,9 @@
               },
               "sheetName": {
                 "__rl": true,
-                "value": 1647537936,
+                "value": "gid=0",
                 "mode": "list",
-                "cachedResultName": "clientes app",
+                "cachedResultName": "todos publicadores",
                 "cachedResultUrl": "[REDACTED]"
               },
               "columns": {
@@ -42645,8 +42990,7 @@
           {
             "parameters": {
               "fromEmail": "contact@ooniverse.ai",
-              "toEmail": "glauci@midiacode.com",
-              "ccEmail": "robson.lisboa@midiacode.com",
+              "toEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
               "bccEmail": "={{ $json.emails }}",
               "subject": "={{ $json.subject }}",
               "html": "={{ $json.html }}",
@@ -43536,12 +43880,12 @@
             "parameters": {
               "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
               "height": 672,
-              "width": 1328,
+              "width": 1360,
               "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -3072,
+              -3040,
               1088
             ],
             "typeVersion": 1,
@@ -43615,9 +43959,9 @@
               },
               "sheetName": {
                 "__rl": true,
-                "value": 1647537936,
+                "value": "gid=0",
                 "mode": "list",
-                "cachedResultName": "clientes app",
+                "cachedResultName": "todos publicadores",
                 "cachedResultUrl": "[REDACTED]"
               },
               "filtersUI": {
@@ -43706,7 +44050,7 @@
             "type": "n8n-nodes-base.respondToWebhook",
             "typeVersion": 1.4,
             "position": [
-              -1888,
+              -1968,
               1472
             ]
           },
@@ -44007,7 +44351,7 @@
           },
           {
             "parameters": {
-              "amount": 3,
+              "amount": 145,
               "unit": "minutes"
             },
             "type": "n8n-nodes-base.wait",
@@ -44758,9 +45102,9 @@
               },
               "sheetName": {
                 "__rl": true,
-                "value": 1647537936,
+                "value": "gid=0",
                 "mode": "list",
-                "cachedResultName": "clientes app",
+                "cachedResultName": "todos publicadores",
                 "cachedResultUrl": "[REDACTED]"
               },
               "columns": {
@@ -44843,6 +45187,276 @@
                 "name": "Google Sheets account"
               }
             }
+          },
+          {
+            "parameters": {
+              "postProcessAction": "nothing",
+              "format": "resolved",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailReadImap",
+            "typeVersion": 2.1,
+            "position": [
+              -2944,
+              2160
+            ],
+            "id": "8dde0160-c85f-4dce-8c19-5aeb7d7c64df",
+            "name": "Email Trigger (IMAP)1",
+            "credentials": {
+              "imap": {
+                "id": "0wZQLLIT13m4wRKX",
+                "name": "IMAP_contact@ooniverse.ai"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "// Captura todas as partes possíveis do email\nconst subject = ($json.subject || \"\").toLowerCase();\nconst text = ($json.text || \"\").toLowerCase();\nconst html = ($json.html || \"\").toLowerCase();\nconst body = ($json.body || \"\").toLowerCase();\nconst raw = JSON.stringify($json).toLowerCase();\n\n// Junta tudo em um único texto\nconst full = subject + \" \" + text + \" \" + html + \" \" + body + \" \" + raw;\n\n// Palavras-chave reais de bounce\nconst bounceKeywords = [\n  \"undeliverable\",\n  \"undelivered\",\n  \"undelivered mail returned to sender\",\n  \"delivery status notification\",\n  \"mail delivery failed\",\n  \"returned mail\",\n  \"failure notice\",\n  \"user unknown\",\n  \"mailbox not found\",\n  \"blocked\",\n  \"bounce\",\n  \"delivery failure\",\n  \"delivery incomplete\",\n  \"delivery has failed\",\n  \"could not be delivered\",\n  \"no such user\",\n  \"recipient address rejected\"\n];\n\nlet isBounce = false;\n\nfor (const word of bounceKeywords) {\n  if (full.includes(word)) {\n    isBounce = true;\n    break;\n  }\n}\n\nreturn [{ json: { isBounce, raw: $json } }];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -2736,
+              2160
+            ],
+            "id": "e09fa72e-4b6d-4cc2-bfb2-af79ef1dd6e2",
+            "name": "Detecta bounce"
+          },
+          {
+            "parameters": {
+              "jsCode": "const raw = JSON.stringify($json.raw).toLowerCase();\n\n// Regex universal para capturar emails válidos\nconst emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}/gi;\n\n// Extrai todos os emails válidos do texto\nlet matches = raw.match(emailRegex) || [];\n\n// Domínios que NÃO devem ser considerados como bounce\nconst ignoreDomains = [\n  \"ooniverse.ai\",          // seu domínio\n  \"mailchannels.net\",      // remetente do bounce\n  \"relay.mailchannels.net\" // servidores intermediários\n];\n\n// Filtra emails que não pertencem aos domínios ignorados\nmatches = matches.filter(email => {\n  return !ignoreDomains.some(domain => email.endsWith(domain));\n});\n\n// Remove duplicados\nconst unique = [...new Set(matches)];\n\n// Se não sobrou nenhum email, erro\nif (unique.length === 0) {\n  throw new Error(\"Nenhum email de bounce encontrado (exceto domínios ignorados).\");\n}\n\n// Retorna TODOS os emails de bounce encontrados\nreturn [{ json: { emails: unique } }];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -2368,
+              2144
+            ],
+            "id": "cfbfcf6d-47d6-409d-88d3-f7090b749392",
+            "name": "Pega o email"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": "gid=0",
+                "mode": "list",
+                "cachedResultName": "todos publicadores",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "email",
+                    "lookupValue": "={{ $json.email }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2048,
+              2144
+            ],
+            "id": "b4466b41-00a2-4acd-8df4-5fc7a2478dca",
+            "name": "pega as linhas",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": "gid=0",
+                "mode": "list",
+                "cachedResultName": "todos publicadores",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "status": "BOUNCE",
+                  "email": "={{ $json.email }}"
+                },
+                "matchingColumns": [
+                  "email"
+                ],
+                "schema": [
+                  {
+                    "id": "email",
+                    "displayName": "email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Record Count",
+                    "displayName": "Record Count",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "news enviada",
+                    "displayName": "news enviada",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "categoria",
+                    "displayName": "categoria",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -1872,
+              2144
+            ],
+            "id": "08c87112-4042-4f2c-bff0-652a2dc4aced",
+            "name": "Update BOUNCE",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "content": "## Atualiza BOUNCE\ncheca os emails e ser for bounce, atualiza na planilha para não mais enviar",
+              "height": 672,
+              "width": 1328,
+              "color": 6
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -3024,
+              1920
+            ],
+            "typeVersion": 1,
+            "id": "8ab9800e-4793-4a93-91dc-8d712f0f1fac",
+            "name": "Sticky Note8"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c0979939-a922-44c5-8152-d4f7143f57ca",
+                    "leftValue": "={{ $json.isBounce }}",
+                    "rightValue": "=true",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -2560,
+              2160
+            ],
+            "id": "f67bb51a-9068-40d3-ac02-b5ebed85a28c",
+            "name": "Se Bounce"
+          },
+          {
+            "parameters": {
+              "jsCode": "const emails = $json.emails || [];\n\nreturn emails\n  .filter(e => typeof e === \"string\" && e.includes(\"@\"))\n  .map(email => ({ json: { email } }));"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -2208,
+              2144
+            ],
+            "id": "6384dc34-e95e-4345-a64a-f56a812fe129",
+            "name": "separa emails"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              -2304,
+              2352
+            ],
+            "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
+            "name": "Ignora emails normais"
           }
         ],
         "connections": {
@@ -45660,6 +46274,79 @@
               [
                 {
                   "node": "Respond Unsubscribe - Email UNSUBSCRIBED",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Email Trigger (IMAP)1": {
+            "main": [
+              [
+                {
+                  "node": "Detecta bounce",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Detecta bounce": {
+            "main": [
+              [
+                {
+                  "node": "Se Bounce",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Pega o email": {
+            "main": [
+              [
+                {
+                  "node": "separa emails",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "pega as linhas": {
+            "main": [
+              [
+                {
+                  "node": "Update BOUNCE",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Se Bounce": {
+            "main": [
+              [
+                {
+                  "node": "Pega o email",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Ignora emails normais",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "separa emails": {
+            "main": [
+              [
+                {
+                  "node": "pega as linhas",
                   "type": "main",
                   "index": 0
                 }

@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1766532360,
+            "lastTimeChecked": 1766614017,
             "possibleDuplicates": [
-              "19b4d88d05a9bf7f",
-              "19b4d5a88023f69b"
+              "19b5266a878d02ee",
+              "19b520d9e3ff5b71"
             ]
           }
         },
@@ -24051,14 +24051,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-22T14:00:42Z"
+          "lastTimeChecked": "2025-12-24T14:00:42Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-22T14:00:50Z"
+          "lastTimeChecked": "2025-12-24T14:00:50Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            357
+            359
           ]
         }
       },
@@ -28244,12 +28244,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1766532939,
+            "lastTimeChecked": 1766607904,
             "possibleDuplicates": [
-              "19b4d918354d81ee",
-              "19b4d918219b9c5f",
-              "19b4d9180e22b7c0",
-              "19b4d4a5819e61b7"
+              "19b52096b43d0281",
+              "19b5159788e1f861"
             ]
           }
         }
@@ -38392,7 +38390,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-23T20:52:58.000Z",
+      "updatedAt": "2025-12-24T10:24:18.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -40328,21 +40326,6 @@
         },
         {
           "parameters": {
-            "amount": 145,
-            "unit": "minutes"
-          },
-          "type": "n8n-nodes-base.wait",
-          "typeVersion": 1.1,
-          "position": [
-            1808,
-            1024
-          ],
-          "id": "04fbd489-474a-49ec-abf3-403dbd7cedc3",
-          "name": "Wait",
-          "webhookId": "8f036e17-d527-41b2-9b8e-10ad1c410858"
-        },
-        {
-          "parameters": {
             "operation": "upload",
             "bucketName": "auto.1mc.co",
             "fileName": "={{ $json['Faça upload de uma imagem para essa notícia (opcional)'].filename }}",
@@ -42103,18 +42086,7 @@
           "main": [
             [
               {
-                "node": "Wait",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Wait": {
-          "main": [
-            [
-              {
-                "node": "Get row(s) News Execution",
+                "node": "Get row(s) in sheet1",
                 "type": "main",
                 "index": 0
               }
@@ -42519,7 +42491,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "7da79d3a-78ae-4308-91d3-00c7a4fb2c2a",
+      "versionId": "1ba9f4d2-7045-415f-8e61-126f391bac53",
       "activeVersionId": null,
       "triggerCount": 15,
       "shared": [

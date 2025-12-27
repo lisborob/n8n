@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1766700944,
+            "lastTimeChecked": 1766792025,
             "possibleDuplicates": [
-              "19b57950d6a8b713",
-              "19b56e790cf46beb"
+              "19b5d02d947eda69",
+              "19b5d0217d5f1e45"
             ]
           }
         },
@@ -24051,14 +24051,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-24T14:00:42Z"
+          "lastTimeChecked": "2025-12-26T14:00:42Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-24T14:00:50Z"
+          "lastTimeChecked": "2025-12-26T14:00:50Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            359
+            361
           ]
         }
       },
@@ -28244,10 +28244,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1766701086,
+            "lastTimeChecked": 1766788806,
             "possibleDuplicates": [
-              "19b57973ebf7907a",
-              "19b575d5d5474049"
+              "19b5cd1c13259448",
+              "19b5cc20bad793fa"
             ]
           }
         }
@@ -38390,7 +38390,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-24T10:24:18.000Z",
+      "updatedAt": "2025-12-26T09:49:59.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38664,8 +38664,8 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            1232,
-            1024
+            352,
+            1232
           ],
           "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
         },
@@ -38787,8 +38787,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1424,
-            1024
+            544,
+            1232
           ],
           "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
           "name": "Update row in sheet",
@@ -38999,8 +38999,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            976,
-            1024
+            752,
+            1008
           ],
           "credentials": {
             "smtp": {
@@ -39038,7 +39038,7 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1504,
+            -1568,
             896
           ],
           "typeVersion": 1,
@@ -39933,8 +39933,8 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            1600,
-            1024
+            1008,
+            1008
           ],
           "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
           "name": "ENVIAR REPORT VIA WHATS",
@@ -40307,7 +40307,7 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            656,
+            512,
             1024
           ],
           "id": "b59a7b8f-645d-4c0f-b249-9bf62e96672a",
@@ -40318,8 +40318,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            1376,
-            1232
+            1200,
+            1248
           ],
           "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
           "name": "No Operation, do nothing1"
@@ -41543,6 +41543,21 @@
           ],
           "id": "a8dbb1c1-1a95-4691-affa-a31aea8e4638",
           "name": "só lista de emails para  o if"
+        },
+        {
+          "parameters": {
+            "amount": 2,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            -288,
+            1248
+          ],
+          "id": "6586c04c-f9f9-4a96-a129-19236726d4ed",
+          "name": "Wait",
+          "webhookId": "a8782adf-5394-4cc8-851e-6b0cbad380f3"
         }
       ],
       "connections": {
@@ -41632,7 +41647,7 @@
           "main": [
             [
               {
-                "node": "ENVIAR REPORT VIA WHATS",
+                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -41644,6 +41659,11 @@
             [
               {
                 "node": "só lista de emails para  o if",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Preparar Atualização1",
                 "type": "main",
                 "index": 0
               }
@@ -41730,7 +41750,7 @@
           "main": [
             [
               {
-                "node": "Preparar Atualização1",
+                "node": "ENVIAR REPORT VIA WHATS",
                 "type": "main",
                 "index": 0
               }
@@ -42084,13 +42104,7 @@
         },
         "ENVIAR REPORT VIA WHATS": {
           "main": [
-            [
-              {
-                "node": "Get row(s) in sheet1",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Upload imagem para S3": {
@@ -42460,6 +42474,17 @@
               }
             ]
           ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) News Execution",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -42491,7 +42516,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "1ba9f4d2-7045-415f-8e61-126f391bac53",
+      "versionId": "0aa00af5-b051-4d0f-914a-9bfef69020ee",
       "activeVersionId": null,
       "triggerCount": 15,
       "shared": [

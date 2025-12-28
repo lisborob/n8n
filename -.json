@@ -2527,10 +2527,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1766792025,
+            "lastTimeChecked": 1766868405,
             "possibleDuplicates": [
-              "19b5d02d947eda69",
-              "19b5d0217d5f1e45"
+              "19b61904d72dc54c",
+              "19b6164a77d8439c",
+              "19b6164a1e157b01"
             ]
           }
         },
@@ -28244,10 +28245,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1766788806,
+            "lastTimeChecked": 1766868330,
             "possibleDuplicates": [
-              "19b5cd1c13259448",
-              "19b5cc20bad793fa"
+              "19b618f40b73281d",
+              "19b60e2106b3c039"
             ]
           }
         }
@@ -38390,7 +38391,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-26T09:49:59.000Z",
+      "updatedAt": "2025-12-27T11:20:33.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38664,7 +38665,7 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            352,
+            560,
             1232
           ],
           "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
@@ -38688,8 +38689,8 @@
             "filtersUI": {
               "values": [
                 {
-                  "lookupColumn": "status",
-                  "lookupValue": "on"
+                  "lookupColumn": "pode_enviar",
+                  "lookupValue": "ok"
                 }
               ]
             },
@@ -38699,7 +38700,7 @@
           "name": "Get row(s) in sheet1",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -272,
+            -64,
             1024
           ],
           "typeVersion": 4.6,
@@ -38787,7 +38788,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            544,
+            752,
             1232
           ],
           "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
@@ -38807,10 +38808,11 @@
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            112,
+            144,
             1024
           ],
-          "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7"
+          "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7",
+          "executeOnce": true
         },
         {
           "parameters": {
@@ -38966,24 +38968,11 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -832,
+            -624,
             1024
           ],
           "id": "0731d8cd-1031-4143-899a-8972d34dd493",
           "name": "pega o html certo da DT"
-        },
-        {
-          "parameters": {
-            "jsCode": "// Captura o ID da newsletter já unificado no node anterior\nconst newsAtual = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0].json.news_id\n);\n\n// Se não tiver ID, lança erro\nif (!newsAtual) {\n  throw new Error(\"news_id não encontrado no fluxo.\");\n}\n\n// Linhas da planilha\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\n// Filtra emails que ainda não receberam a newsletter\nconst filtrados = rows.filter(row => {\n  const enviado = Number(row[\"news enviada\"]) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number\n  }\n}));"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -80,
-            1024
-          ],
-          "id": "6e214bf5-e414-4f98-ae6f-51452f6e2808",
-          "name": "Filtra os emails que ainda não receberam a news"
         },
         {
           "parameters": {
@@ -38999,7 +38988,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            752,
+            960,
             1008
           ],
           "credentials": {
@@ -39052,7 +39041,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -448,
+            -240,
             1024
           ],
           "id": "c4f02519-5ecd-471d-a40a-d1c226368aad",
@@ -39122,7 +39111,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -640,
+            -432,
             1024
           ],
           "id": "40ae3aa2-9bb5-4ed2-9c0a-2ee31b1740ce",
@@ -39933,7 +39922,7 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            1008,
+            1216,
             1008
           ],
           "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
@@ -40307,7 +40296,7 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            512,
+            720,
             1024
           ],
           "id": "b59a7b8f-645d-4c0f-b249-9bf62e96672a",
@@ -40318,7 +40307,7 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            1200,
+            1408,
             1248
           ],
           "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
@@ -41440,7 +41429,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1040,
+            -832,
             1024
           ],
           "id": "ae606503-abd8-452b-8770-b5bece9cf367",
@@ -41525,7 +41514,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1248,
+            -1280,
             1024
           ],
           "id": "febb70bd-f5f8-420c-a06d-1e6dcdc43cb9",
@@ -41538,7 +41527,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            320,
+            528,
             1024
           ],
           "id": "a8dbb1c1-1a95-4691-affa-a31aea8e4638",
@@ -41552,12 +41541,135 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            -288,
+            -80,
             1248
           ],
           "id": "6586c04c-f9f9-4a96-a129-19236726d4ed",
           "name": "Wait",
           "webhookId": "a8782adf-5394-4cc8-851e-6b0cbad380f3"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "todos publicadores",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "row_number": 2,
+                "news atual": "={{ $json.news_id }}"
+              },
+              "matchingColumns": [
+                "row_number"
+              ],
+              "schema": [
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Record Count",
+                  "displayName": "Record Count",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "categoria",
+                  "displayName": "categoria",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "pode_enviar",
+                  "displayName": "pode_enviar",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "news atual",
+                  "displayName": "news atual",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1072,
+            1024
+          ],
+          "id": "080fdebf-c02c-42f2-8a4a-5cb4d0e21ffa",
+          "name": "atualiza a news atual na planilha",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         }
       ],
       "connections": {
@@ -41636,7 +41748,7 @@
           "main": [
             [
               {
-                "node": "Filtra os emails que ainda não receberam a news",
+                "node": "Filtrar 100",
                 "type": "main",
                 "index": 0
               }
@@ -41702,17 +41814,6 @@
             [
               {
                 "node": "atualiza a DT com Aprovada",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filtra os emails que ainda não receberam a news": {
-          "main": [
-            [
-              {
-                "node": "Filtrar 100",
                 "type": "main",
                 "index": 0
               }
@@ -42457,7 +42558,7 @@
           "main": [
             [
               {
-                "node": "Get row(s) News Execution",
+                "node": "atualiza a news atual na planilha",
                 "type": "main",
                 "index": 0
               }
@@ -42476,6 +42577,17 @@
           ]
         },
         "Wait": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) News Execution",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "atualiza a news atual na planilha": {
           "main": [
             [
               {
@@ -42516,7 +42628,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "0aa00af5-b051-4d0f-914a-9bfef69020ee",
+      "versionId": "e2cc59b5-ac28-4cc7-8ef6-c49685e264f7",
       "activeVersionId": null,
       "triggerCount": 15,
       "shared": [

@@ -2527,11 +2527,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1767050668,
+            "lastTimeChecked": 1767138906,
             "possibleDuplicates": [
-              "19b6c6d6bfb51410",
-              "19b6be77b1089273",
-              "19b6be7721c041fc"
+              "19b71b00409e3294",
+              "19b71adc61d79e6e",
+              "19b71adc3685710f"
             ]
           }
         },
@@ -28245,10 +28245,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1767042222,
+            "lastTimeChecked": 1767117170,
             "possibleDuplicates": [
-              "19b6bec9167e94ea",
-              "19b6bda9076f2022"
+              "19b708c8c0fd78e8",
+              "19b7067a81a9ed2b"
             ]
           }
         }
@@ -38391,7 +38391,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-29T13:53:43.000Z",
+      "updatedAt": "2025-12-30T22:03:38.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -41179,7 +41179,8 @@
               "id": "NgVtVrC0ohwSKTXA",
               "name": "Google Sheets account"
             }
-          }
+          },
+          "onError": "[REDACTED]"
         },
         {
           "parameters": {
@@ -42061,7 +42062,8 @@
             "bodyParameters": {
               "parameters": [
                 {
-                  "value": "{ \"news_id\": $json[\"news atual\"] }"
+                  "name": "news_id",
+                  "value": "={{ $json['news atual'] }}"
                 }
               ]
             },
@@ -43363,15 +43365,15 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1523
+          "lastMessageUid": 1525
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a710c00a-bb3d-4475-affc-ef3fd255d8ee",
-      "activeVersionId": "a710c00a-bb3d-4475-affc-ef3fd255d8ee",
+      "versionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
+      "activeVersionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
       "triggerCount": 17,
       "shared": [
         {
@@ -43383,9 +43385,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-29T13:53:43.361Z",
-        "createdAt": "2025-12-29T13:53:43.361Z",
-        "versionId": "a710c00a-bb3d-4475-affc-ef3fd255d8ee",
+        "updatedAt": "2025-12-30T22:03:38.938Z",
+        "createdAt": "2025-12-30T22:03:38.938Z",
+        "versionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -46169,7 +46171,8 @@
                 "id": "NgVtVrC0ohwSKTXA",
                 "name": "Google Sheets account"
               }
-            }
+            },
+            "onError": "[REDACTED]"
           },
           {
             "parameters": {
@@ -47051,7 +47054,8 @@
               "bodyParameters": {
                 "parameters": [
                   {
-                    "value": "{ \"news_id\": $json[\"news atual\"] }"
+                    "name": "news_id",
+                    "value": "={{ $json['news atual'] }}"
                   }
                 ]
               },

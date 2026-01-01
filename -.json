@@ -2527,11 +2527,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1767138906,
+            "lastTimeChecked": 1767217377,
             "possibleDuplicates": [
-              "19b71b00409e3294",
-              "19b71adc61d79e6e",
-              "19b71adc3685710f"
+              "19b765d38ed83f88",
+              "19b765d32e8714a8",
+              "19b75d3a971bf994"
             ]
           }
         },
@@ -28245,10 +28245,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1767117170,
+            "lastTimeChecked": 1767213600,
             "possibleDuplicates": [
-              "19b708c8c0fd78e8",
-              "19b7067a81a9ed2b"
+              "19b7623db3e03cfd",
+              "19b760fd54b8e3ef"
             ]
           }
         }
@@ -38391,7 +38391,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-30T22:03:38.000Z",
+      "updatedAt": "2025-12-31T11:16:43.000Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38802,7 +38802,7 @@
         },
         {
           "parameters": {
-            "functionCode": "// 1. Pega SOMENTE os itens do ÚLTIMO RUN do node anterior\nconst lastRunItems = $items(\"Get row(s) in sheet1\", 0, -1).map(i => i.json);\n\nif (!lastRunItems.length) {\n  return [];\n}\n\n// 2. Seleciona apenas os primeiros 100\nconst limitados = lastRunItems.slice(0, 100);\n\n// 3. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .join(\",\");\n\n// 4. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 5. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0]?.json?.news_id\n);\n\n// 6. Retorna:\n//    - item 0: envio\n//    - itens 1..n: atualização\nreturn [\n  { json: { emails: emailsConcatenados, subject, html, news_id } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
+            "functionCode": "// 1. Pega TODOS os itens vindos do node anterior (cada item = 1 linha da planilha)\nconst allItems = $input.all();\n\n// Se não veio nada, não faz nada\nif (!allItems || allItems.length === 0) {\n  return [];\n}\n\n// 2. Extrai só o .json de cada item\nlet rows = allItems.map(item => item.json);\n\n// 3. Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// 4. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .filter(e => !!e)\n  .join(\",\");\n\n// 5. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 6. Captura o news_id diretamente do node \"Get rows News Execution\"\nconst news_id = Number(\n  $items(\"Get row(s) News Execution\", 0, 0)[0].json.news_id\n);\n\n// 7. Retorna:\n//    - item 0: envio (emails concatenados)\n//    - itens 1..n: atualização de cada linha\nreturn [\n  {\n    json: {\n      emails: emailsConcatenados,\n      subject,\n      html,\n      news_id\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
           },
           "name": "Filtrar 100",
           "type": "n8n-nodes-base.function",
@@ -42032,7 +42032,7 @@
               "conditions": [
                 {
                   "id": "746dbdd3-4b55-48a7-9a5d-ce68d31a216b",
-                  "leftValue": "={{ $json.news_id !== undefined && $json.news_id > 0 }}",
+                  "leftValue": "={{ typeof $json.body.news_id === \"number\" && $json.body.news_id > 0 }}",
                   "rightValue": "true",
                   "operator": {
                     "type": "boolean",
@@ -43365,15 +43365,15 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1525
+          "lastMessageUid": 1539
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
-      "activeVersionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
+      "versionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
+      "activeVersionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
       "triggerCount": 17,
       "shared": [
         {
@@ -43385,9 +43385,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-30T22:03:38.938Z",
-        "createdAt": "2025-12-30T22:03:38.938Z",
-        "versionId": "a866cca8-7bc6-427e-84f8-532132c4e69d",
+        "updatedAt": "2025-12-31T11:16:43.854Z",
+        "createdAt": "2025-12-31T11:16:43.854Z",
+        "versionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -43794,7 +43794,7 @@
           },
           {
             "parameters": {
-              "functionCode": "// 1. Pega SOMENTE os itens do ÚLTIMO RUN do node anterior\nconst lastRunItems = $items(\"Get row(s) in sheet1\", 0, -1).map(i => i.json);\n\nif (!lastRunItems.length) {\n  return [];\n}\n\n// 2. Seleciona apenas os primeiros 100\nconst limitados = lastRunItems.slice(0, 100);\n\n// 3. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .join(\",\");\n\n// 4. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 5. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0]?.json?.news_id\n);\n\n// 6. Retorna:\n//    - item 0: envio\n//    - itens 1..n: atualização\nreturn [\n  { json: { emails: emailsConcatenados, subject, html, news_id } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
+              "functionCode": "// 1. Pega TODOS os itens vindos do node anterior (cada item = 1 linha da planilha)\nconst allItems = $input.all();\n\n// Se não veio nada, não faz nada\nif (!allItems || allItems.length === 0) {\n  return [];\n}\n\n// 2. Extrai só o .json de cada item\nlet rows = allItems.map(item => item.json);\n\n// 3. Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// 4. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .filter(e => !!e)\n  .join(\",\");\n\n// 5. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 6. Captura o news_id diretamente do node \"Get rows News Execution\"\nconst news_id = Number(\n  $items(\"Get row(s) News Execution\", 0, 0)[0].json.news_id\n);\n\n// 7. Retorna:\n//    - item 0: envio (emails concatenados)\n//    - itens 1..n: atualização de cada linha\nreturn [\n  {\n    json: {\n      emails: emailsConcatenados,\n      subject,\n      html,\n      news_id\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
             },
             "name": "Filtrar 100",
             "type": "n8n-nodes-base.function",
@@ -47024,7 +47024,7 @@
                 "conditions": [
                   {
                     "id": "746dbdd3-4b55-48a7-9a5d-ce68d31a216b",
-                    "leftValue": "={{ $json.news_id !== undefined && $json.news_id > 0 }}",
+                    "leftValue": "={{ typeof $json.body.news_id === \"number\" && $json.body.news_id > 0 }}",
                     "rightValue": "true",
                     "operator": {
                       "type": "boolean",

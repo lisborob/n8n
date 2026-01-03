@@ -2527,10 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1767311113,
+            "lastTimeChecked": 1767393636,
             "possibleDuplicates": [
-              "19b7bf381d2e06ee",
-              "19b7bdfe7f77a10b"
+              "19b80deb8cc517f0",
+              "19b80a4cbe3e1d55"
             ]
           }
         },
@@ -21637,7 +21637,7 @@
       ]
     },
     {
-      "updatedAt": "2025-12-16T18:18:55.000Z",
+      "updatedAt": "2026-01-02T19:06:35.352Z",
       "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
@@ -23266,11 +23266,10 @@
         },
         {
           "parameters": {
-            "agent": "conversationalAgent",
             "promptType": "define",
             "text": "={{ $('When chat message received').item.json.chatInput }}",
             "options": {
-              "systemMessage": "=Voce é a Valentina, nossa agente de atendimento.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos.\nFoco nos conteúdos sobre o midiacode.com e sobre o ooniverse.ai. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+              "systemMessage": "Voce é a Valentina, uma assistente digital solicita e inteligente.\nSempre que perguntarem como criar um contéudo no Midiacode, peça para o usuário acessar o site studio.midiacode.com, logar e proceder com o passo a passo, conforme instruções dos conteúdos disponíveis via vector store."
             }
           },
           "id": "6dc505ac-0e05-4016-99e0-6c588a0f6df3",
@@ -24051,14 +24050,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-28T14:00:42Z"
+          "lastTimeChecked": "2026-01-02T19:09:22Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-28T14:00:50Z"
+          "lastTimeChecked": "2026-01-02T19:09:22Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            363
+            353
           ]
         }
       },
@@ -24153,8 +24152,8 @@
           }
         ]
       },
-      "versionId": "1ce6dd95-5ff4-40bd-936c-b3d6c6b8ccff",
-      "activeVersionId": "1ce6dd95-5ff4-40bd-936c-b3d6c6b8ccff",
+      "versionId": "845060f3-fa4f-4742-b611-17e1956350ab",
+      "activeVersionId": "845060f3-fa4f-4742-b611-17e1956350ab",
       "triggerCount": 5,
       "shared": [
         {
@@ -24166,9 +24165,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-16T18:18:55.056Z",
-        "createdAt": "2025-12-16T18:18:55.056Z",
-        "versionId": "1ce6dd95-5ff4-40bd-936c-b3d6c6b8ccff",
+        "updatedAt": "2026-01-02T19:06:35.354Z",
+        "createdAt": "2026-01-02T19:06:35.354Z",
+        "versionId": "845060f3-fa4f-4742-b611-17e1956350ab",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
           {
@@ -25793,11 +25792,10 @@
           },
           {
             "parameters": {
-              "agent": "conversationalAgent",
               "promptType": "define",
               "text": "={{ $('When chat message received').item.json.chatInput }}",
               "options": {
-                "systemMessage": "=Voce é a Valentina, nossa agente de atendimento.\nUse o conteúdo do chat para responder adequadamente às perguntas do usuário:  {{ $('When chat message received').item.json.chatInput }}\nSeja sempre alegre! Responda como quem tem um sorriso rosto sempre.\nSeja profissional e educada.\nNão aceite provocações e nem gracejos.\nFoco nos conteúdos sobre o midiacode.com e sobre o ooniverse.ai. \nNunca comece a resposta com as frases:\n- Com base nas informações obtidas...\n- Não tenho informações específicas em meus dados.\nAo invés disso, vá direto para a resposta ou faça perguntas ao usuário para entender melhor.\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+                "systemMessage": "Voce é a Valentina, uma assistente digital solicita e inteligente.\nSempre que perguntarem como criar um contéudo no Midiacode, peça para o usuário acessar o site studio.midiacode.com, logar e proceder com o passo a passo, conforme instruções dos conteúdos disponíveis via vector store."
               }
             },
             "id": "6dc505ac-0e05-4016-99e0-6c588a0f6df3",
@@ -28244,10 +28242,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1767308928,
+            "lastTimeChecked": 1767393889,
             "possibleDuplicates": [
-              "19b7bd22cd1f97df",
-              "19b7a658fe9a133a"
+              "19b80e28ea006eb5",
+              "19b809e4592cf12d"
             ]
           }
         }
@@ -38390,7 +38388,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-12-31T11:16:43.000Z",
+      "updatedAt": "2026-01-02T19:14:49.405Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -38658,14 +38656,14 @@
         },
         {
           "parameters": {
-            "functionCode": "// 1. Pega TODOS os itens do node \"Filtrar 100\"\nconst allItems = $items(\"Filtrar 100\", 0, 0).map(i => i.json);\n\n// 2. Remove o item 0 (que é o item de envio)\nconst updateItems = allItems.slice(1);\n\n// 3. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0].json.news_id\n);\n\n// 4. Prepara os itens para atualização\nreturn updateItems.map(r => ({\n  json: {\n    row_number: r.row_number,\n    Email: r.Email || r.email,\n    news_id\n  }\n}));"
+            "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
           },
           "name": "Preparar Atualização1",
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            1184,
-            1136
+            832,
+            1024
           ],
           "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
         },
@@ -38688,8 +38686,8 @@
             "filtersUI": {
               "values": [
                 {
-                  "lookupColumn": "pode_enviar",
-                  "lookupValue": "ok"
+                  "lookupColumn": "status",
+                  "lookupValue": "on"
                 }
               ]
             },
@@ -38699,8 +38697,8 @@
           "name": "Get row(s) in sheet1",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            736,
-            960
+            -464,
+            1024
           ],
           "typeVersion": 4.6,
           "credentials": {
@@ -38731,7 +38729,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "row_number": "={{ $json.row_number }}",
-                "news enviada": "={{ $json[\"news_id\"] }}"
+                "news enviada": "={{ $json[\"news enviada\"] }}"
               },
               "matchingColumns": [
                 "row_number"
@@ -38787,8 +38785,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1376,
-            1136
+            1024,
+            1024
           ],
           "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
           "name": "Update row in sheet",
@@ -38801,17 +38799,16 @@
         },
         {
           "parameters": {
-            "functionCode": "// 1. Pega TODOS os itens vindos do node anterior (cada item = 1 linha da planilha)\nconst allItems = $input.all();\n\n// Se não veio nada, não faz nada\nif (!allItems || allItems.length === 0) {\n  return [];\n}\n\n// 2. Extrai só o .json de cada item\nlet rows = allItems.map(item => item.json);\n\n// 3. Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// 4. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .filter(e => !!e)\n  .join(\",\");\n\n// 5. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 6. Captura o news_id diretamente do node \"Get rows News Execution\"\nconst news_id = Number(\n  $items(\"Get row(s) News Execution\", 0, 0)[0].json.news_id\n);\n\n// 7. Retorna:\n//    - item 0: envio (emails concatenados)\n//    - itens 1..n: atualização de cada linha\nreturn [\n  {\n    json: {\n      emails: emailsConcatenados,\n      subject,\n      html,\n      news_id\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
+            "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
           },
           "name": "Filtrar 100",
           "type": "n8n-nodes-base.function",
           "typeVersion": 1,
           "position": [
-            944,
-            960
+            -80,
+            1024
           ],
-          "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7",
-          "executeOnce": true
+          "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7"
         },
         {
           "parameters": {
@@ -38959,7 +38956,7 @@
             "filters": {
               "conditions": [
                 {
-                  "keyValue": "={{ $json.news_id }}"
+                  "keyValue": "={{ $json.idnews }}"
                 }
               ]
             }
@@ -38967,12 +38964,24 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            112,
-            960
+            -1024,
+            1024
           ],
           "id": "0731d8cd-1031-4143-899a-8972d34dd493",
-          "name": "pega o html certo da DT",
-          "executeOnce": true
+          "name": "pega o html certo da DT"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Filtra os emails que ainda não receberam a newsletter atual\n// e remover os que contêm 'anonimo'\n\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\nconst filtrados = rows.filter(row => {\n  const enviado = parseInt(row[\"news enviada\"], 10) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number   // garante que o update saiba qual linha alterar\n  }\n}));"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -272,
+            1024
+          ],
+          "id": "6e214bf5-e414-4f98-ae6f-51452f6e2808",
+          "name": "Filtra os emails que ainda não receberam a news"
         },
         {
           "parameters": {
@@ -38988,8 +38997,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            1232,
-            960
+            576,
+            1024
           ],
           "credentials": {
             "smtp": {
@@ -39022,12 +39031,12 @@
           "parameters": {
             "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
             "height": 544,
-            "width": 3376,
+            "width": 2960,
             "color": 4
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1568,
+            -1504,
             896
           ],
           "typeVersion": 1,
@@ -39041,8 +39050,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            560,
-            960
+            -640,
+            1024
           ],
           "id": "c4f02519-5ecd-471d-a40a-d1c226368aad",
           "name": "Retira do html final a seção do aprovador"
@@ -39111,8 +39120,8 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            304,
-            960
+            -832,
+            1024
           ],
           "id": "40ae3aa2-9bb5-4ed2-9c0a-2ee31b1740ce",
           "name": "atualiza a DT com Aprovada"
@@ -39457,14 +39466,14 @@
         {
           "parameters": {
             "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\nCaso o cliente queira que o texto da noticia seja melhorado por IA, adicione os nodes de IA no fluxo de inserção de conteúdo.\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\nAdicione a pasta com o nome do cliente no node UPLOAD IMAGEM PARA S3, no item 'parent folder key'\nNo código do GERA URL PUBLICA S3, no item 'const folder = 'Kutsaca';' troque o nome kutsaca pelo mesmo nome do cliente. Fique atento para maiusculas e minusculas. O nome do folder tem que ser identico entre estes dois últimos itens.\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
-            "height": 1120,
+            "height": 1344,
             "width": 992,
             "color": 6
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -2944,
-            -256
+            -480
           ],
           "typeVersion": 1,
           "id": "807898ff-150b-4ad5-a327-6b3694db9187",
@@ -39922,8 +39931,8 @@
           "type": "n8n-nodes-evolution-api.evolutionApi",
           "typeVersion": 1,
           "position": [
-            1424,
-            960
+            1200,
+            1024
           ],
           "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
           "name": "ENVIAR REPORT VIA WHATS",
@@ -40267,6 +40276,89 @@
           ],
           "id": "c5bc92cd-5520-4354-916a-f5a9ef6ddc49",
           "name": "Respond to Webhook4"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                  "name": "idnews",
+                  "value": "={{ Number($json.query.id) }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -1248,
+            1024
+          ],
+          "id": "dc4107b2-f315-4a94-a0c4-5b4380aa0b8f",
+          "name": "Edit Fields"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
+                  "leftValue": "={{ $json.emails }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notEmpty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            112,
+            1024
+          ],
+          "id": "b59a7b8f-645d-4c0f-b249-9bf62e96672a",
+          "name": "If2"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            752,
+            1232
+          ],
+          "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
+          "name": "No Operation, do nothing1"
+        },
+        {
+          "parameters": {
+            "amount": 145,
+            "unit": "minutes"
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1408,
+            1024
+          ],
+          "id": "04fbd489-474a-49ec-abf3-403dbd7cedc3",
+          "name": "Wait",
+          "webhookId": "8f036e17-d527-41b2-9b8e-10ad1c410858"
         },
         {
           "parameters": {
@@ -41178,8 +41270,7 @@
               "id": "NgVtVrC0ohwSKTXA",
               "name": "Google Sheets account"
             }
-          },
-          "onError": "[REDACTED]"
+          }
         },
         {
           "parameters": {
@@ -41362,891 +41453,6 @@
           ],
           "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
           "name": "Ignora emails normais"
-        },
-        {
-          "parameters": {
-            "operation": "get",
-            "dataTableId": {
-              "__rl": true,
-              "value": "iDE76R0KgGOwSwTP",
-              "mode": "list",
-              "cachedResultName": "Newsletter execution",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-            },
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "cliente",
-                  "keyValue": "Midiacode"
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            -96,
-            960
-          ],
-          "id": "ae606503-abd8-452b-8770-b5bece9cf367",
-          "name": "Get row(s) News Execution",
-          "executeOnce": true
-        },
-        {
-          "parameters": {
-            "formTitle": "News ID run enforcement",
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "news_id",
-                  "fieldType": "number",
-                  "placeholder": "entre o número da newsletter para executar",
-                  "requiredField": true
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.formTrigger",
-          "typeVersion": 2.3,
-          "position": [
-            -1456,
-            1232
-          ],
-          "id": "51471c5c-c5de-42a2-b22f-7a96a8d37c61",
-          "name": "On form submission",
-          "webhookId": "d8320bc2-192c-4b74-aee8-b75f6689ea7d"
-        },
-        {
-          "parameters": {
-            "operation": "update",
-            "dataTableId": {
-              "__rl": true,
-              "value": "iDE76R0KgGOwSwTP",
-              "mode": "list",
-              "cachedResultName": "Newsletter execution",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-            },
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "cliente",
-                  "keyValue": "Midiacode"
-                }
-              ]
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "news_id": "={{ Number($json.news_id || $json.query.id) }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "cliente",
-                  "displayName": "cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": true
-                },
-                {
-                  "id": "news_id",
-                  "displayName": "news_id",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "number",
-                  "readOnly": false,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            -1280,
-            1024
-          ],
-          "id": "febb70bd-f5f8-420c-a06d-1e6dcdc43cb9",
-          "name": "Update row(s) id Midiacode"
-        },
-        {
-          "parameters": {
-            "operation": "update",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "todos publicadores",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "row_number": 2,
-                "news atual": "={{ $json.news_id }}"
-              },
-              "matchingColumns": [
-                "row_number"
-              ],
-              "schema": [
-                {
-                  "id": "email",
-                  "displayName": "email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Record Count",
-                  "displayName": "Record Count",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "news enviada",
-                  "displayName": "news enviada",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "status",
-                  "displayName": "status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "categoria",
-                  "displayName": "categoria",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "pode_enviar",
-                  "displayName": "pode_enviar",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "news atual",
-                  "displayName": "news atual",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "row_number",
-                  "displayName": "row_number",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "number",
-                  "canBeUsedToMatch": true,
-                  "readOnly": true,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -1072,
-            1024
-          ],
-          "id": "080fdebf-c02c-42f2-8a4a-5cb4d0e21ffa",
-          "name": "atualiza a news atual na planilha",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "functionCode": "// 1. Pega TODOS os itens do node \"Filtrar 100\"\nconst allItems = $items(\"Filtrar 100\", 0, 0).map(i => i.json);\n\n// 2. Remove o item 0 (que é o item de envio)\nconst updateItems = allItems.slice(1);\n\n// 3. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0].json.news_id\n);\n\n// 4. Prepara os itens para atualização\nreturn updateItems.map(r => ({\n  json: {\n    row_number: r.row_number,\n    Email: r.Email || r.email,\n    news_id\n  }\n}));"
-          },
-          "name": "Preparar Atualização",
-          "type": "n8n-nodes-base.function",
-          "typeVersion": 1,
-          "position": [
-            2160,
-            1760
-          ],
-          "id": "b0bb7cce-01a2-4387-8c42-08902be22958"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "todos publicadores",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "filtersUI": {
-              "values": [
-                {
-                  "lookupColumn": "pode_enviar",
-                  "lookupValue": "ok"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "id": "c6c7dfed-fa99-4c0c-92e8-06c4c755b90d",
-          "name": "Get row(s) in sheet2",
-          "type": "n8n-nodes-base.googleSheets",
-          "position": [
-            1712,
-            1584
-          ],
-          "typeVersion": 4.6,
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "operation": "update",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "todos publicadores",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "row_number": "={{ $json.row_number }}",
-                "news enviada": "={{ $json[\"news_id\"] }}"
-              },
-              "matchingColumns": [
-                "row_number"
-              ],
-              "schema": [
-                {
-                  "id": "Email",
-                  "displayName": "Email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "news enviada",
-                  "displayName": "news enviada",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "row_number",
-                  "displayName": "row_number",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "number",
-                  "canBeUsedToMatch": true,
-                  "readOnly": true,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            2352,
-            1760
-          ],
-          "id": "759b88f5-ff70-40be-8e6f-264caebec4d8",
-          "name": "Update row in sheet1",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "functionCode": "// 1. Pega SOMENTE os itens do ÚLTIMO RUN do node anterior\nconst lastRunItems = $items(\"Get row(s) in sheet1\", 0, -1).map(i => i.json);\n\nif (!lastRunItems.length) {\n  return [];\n}\n\n// 2. Seleciona apenas os primeiros 100\nconst limitados = lastRunItems.slice(0, 100);\n\n// 3. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .join(\",\");\n\n// 4. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 5. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0]?.json?.news_id\n);\n\n// 6. Retorna:\n//    - item 0: envio\n//    - itens 1..n: atualização\nreturn [\n  { json: { emails: emailsConcatenados, subject, html, news_id } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
-          },
-          "name": "Filtrar ",
-          "type": "n8n-nodes-base.function",
-          "typeVersion": 1,
-          "position": [
-            1920,
-            1584
-          ],
-          "id": "c3672743-bed9-4ac3-93d2-350961865b57",
-          "executeOnce": true
-        },
-        {
-          "parameters": {
-            "operation": "get",
-            "dataTableId": {
-              "__rl": true,
-              "value": "gbNejGV416c39TCE",
-              "mode": "list",
-              "cachedResultName": "Midiacode HTML envio news",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
-            },
-            "matchType": "=anyCondition",
-            "filters": {
-              "conditions": [
-                {
-                  "keyValue": "={{ $json.news_id }}"
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            1088,
-            1584
-          ],
-          "id": "321767d8-d474-4e80-8352-5ff56504227e",
-          "name": "pega o html certo da DT1",
-          "executeOnce": true
-        },
-        {
-          "parameters": {
-            "fromEmail": "contact@ooniverse.ai",
-            "toEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
-            "bccEmail": "={{ $json.emails }}",
-            "subject": "={{ $json.subject }}",
-            "html": "={{ $json.html }}",
-            "options": {}
-          },
-          "id": "13d0e6e6-9986-4deb-a343-0d12f4c3d389",
-          "name": "Distribuição da news1",
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 1,
-          "position": [
-            2624,
-            1568
-          ],
-          "credentials": {
-            "smtp": {
-              "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP from contact@ooniverse.ai"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            1536,
-            1584
-          ],
-          "id": "ddedba33-7ae9-4868-80be-72e369f284ae",
-          "name": "Retira do html final a seção do aprovador1"
-        },
-        {
-          "parameters": {
-            "operation": "update",
-            "dataTableId": {
-              "__rl": true,
-              "value": "gbNejGV416c39TCE",
-              "mode": "list",
-              "cachedResultName": "Midiacode HTML envio news",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
-            },
-            "matchType": "=anyCondition",
-            "filters": {
-              "conditions": [
-                {
-                  "keyValue": "={{ $json.id }}"
-                }
-              ]
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "status": "Aprovada"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "html",
-                  "displayName": "html",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "status",
-                  "displayName": "status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                },
-                {
-                  "id": "subject",
-                  "displayName": "subject",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "readOnly": false,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            1280,
-            1584
-          ],
-          "id": "b2d7e352-707a-407c-bf9b-dd9e87637545",
-          "name": "atualiza a DT com Aprovada1"
-        },
-        {
-          "parameters": {
-            "resource": "messages-api",
-            "instanceName": "Valentina",
-            "remoteJid": "351912508389@s.whatsapp.net",
-            "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar ').item.json.emails }}",
-            "options_message": {}
-          },
-          "type": "n8n-nodes-evolution-api.evolutionApi",
-          "typeVersion": 1,
-          "position": [
-            2880,
-            1568
-          ],
-          "id": "d684fcbe-7fe7-463b-a1a1-4335ef33e546",
-          "name": "ENVIAR REPORT VIA WHATS1",
-          "executeOnce": true,
-          "credentials": {
-            "evolutionApi": {
-              "id": "4gvC5iGuSb0S7dgW",
-              "name": "Evolution account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 2
-              },
-              "conditions": [
-                {
-                  "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
-                  "leftValue": "={{ $json.emails }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notEmpty",
-                    "singleValue": true
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.2,
-          "position": [
-            2384,
-            1584
-          ],
-          "id": "5c0cfad9-0ab5-471c-a516-9768440c8cef",
-          "name": "If3"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            2864,
-            1792
-          ],
-          "id": "c611ccd0-8f29-45d7-805e-7584f7c0b88e",
-          "name": "No Operation, do nothing2"
-        },
-        {
-          "parameters": {
-            "operation": "get",
-            "dataTableId": {
-              "__rl": true,
-              "value": "iDE76R0KgGOwSwTP",
-              "mode": "list",
-              "cachedResultName": "Newsletter execution",
-              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-            },
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "cliente",
-                  "keyValue": "Midiacode"
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.dataTable",
-          "typeVersion": 1,
-          "position": [
-            880,
-            1584
-          ],
-          "id": "a27915c1-ceb5-4b25-a31f-d9c42057d83a",
-          "name": "Get row(s) News Execution1",
-          "executeOnce": true
-        },
-        {
-          "parameters": {
-            "jsCode": "return [$input.first()];"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            2192,
-            1584
-          ],
-          "id": "b8d9cc00-4e20-4955-bffa-fe5bd552c981",
-          "name": "só lista de emails para  o if1"
-        },
-        {
-          "parameters": {
-            "amount": 2,
-            "unit": "minutes"
-          },
-          "type": "n8n-nodes-base.wait",
-          "typeVersion": 1.1,
-          "position": [
-            1312,
-            1776
-          ],
-          "id": "db6c6c99-9c2a-4c58-b30d-cdff2a0b8c1f",
-          "name": "Wait1",
-          "webhookId": "a8782adf-5394-4cc8-851e-6b0cbad380f3"
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 2
-              },
-              "conditions": [
-                {
-                  "id": "746dbdd3-4b55-48a7-9a5d-ce68d31a216b",
-                  "leftValue": "={{ typeof $json.body.news_id === \"number\" && $json.body.news_id > 0 }}",
-                  "rightValue": "true",
-                  "operator": {
-                    "type": "boolean",
-                    "operation": "true",
-                    "singleValue": true
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.2,
-          "position": [
-            -400,
-            960
-          ],
-          "id": "b90e98a9-14ab-49af-b5ac-fdf32192f90b",
-          "name": "If2"
-        },
-        {
-          "parameters": {
-            "method": "POST",
-            "url": "https://n8n.ooniverse.ai/webhook/87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-            "sendBody": true,
-            "bodyParameters": {
-              "parameters": [
-                {
-                  "name": "news_id",
-                  "value": "={{ $json['news atual'] }}"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.3,
-          "position": [
-            -864,
-            1024
-          ],
-          "id": "fbb07728-4eb8-4e57-84d3-084244e33ff6",
-          "name": "aciona o bloco 2"
-        },
-        {
-          "parameters": {
-            "httpMethod": "POST",
-            "path": "87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.webhook",
-          "typeVersion": 2.1,
-          "position": [
-            -608,
-            960
-          ],
-          "id": "96b59e1b-4503-4e21-afa3-e9ecdb310277",
-          "name": "inicio do bloco 2",
-          "webhookId": "87b866f2-e26d-421b-8bac-ab02a6c1a7e5"
-        },
-        {
-          "parameters": {
-            "httpMethod": "POST",
-            "path": "60eafbf5-431e-4236-a70e-536aba26a20a",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.webhook",
-          "typeVersion": 2.1,
-          "position": [
-            -576,
-            1264
-          ],
-          "id": "c530ac4c-d751-4c27-95c2-b795031b93cb",
-          "name": "bloco 3",
-          "webhookId": "60eafbf5-431e-4236-a70e-536aba26a20a"
-        },
-        {
-          "parameters": {
-            "method": "POST",
-            "url": "https://n8n.ooniverse.ai/webhook/60eafbf5-431e-4236-a70e-536aba26a20a",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.3,
-          "position": [
-            1584,
-            1136
-          ],
-          "id": "36e3c5eb-fc42-418e-81b8-4952dee06877",
-          "name": "Aciona bloco 3"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "todos publicadores",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "filtersUI": {
-              "values": [
-                {
-                  "lookupColumn": "pode_enviar",
-                  "lookupValue": "ok"
-                }
-              ]
-            },
-            "options": {
-              "returnFirstMatch": true
-            }
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -368,
-            1264
-          ],
-          "id": "8b425e37-79ee-4b42-a5b2-4a42a1841477",
-          "name": "get rows com pode-enviar-ok",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          },
-          "onError": "continueErrorOutput"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            -160,
-            1360
-          ],
-          "id": "fab47da9-eba6-40be-b11f-12c14e3ba341",
-          "name": "No Operation, do nothing1"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "todos publicadores",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {
-              "dataLocationOnSheet": {
-                "values": {
-                  "rangeDefinition": "specifyRangeA1",
-                  "range": "G2:G2"
-                }
-              }
-            }
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -160,
-            1168
-          ],
-          "id": "66fa8da6-91eb-45d2-b1ca-5b50080f3e1a",
-          "name": "Get news_ID number",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "NgVtVrC0ohwSKTXA",
-              "name": "Google Sheets account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "method": "POST",
-            "url": "https://n8n.ooniverse.ai/webhook/87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-            "sendHeaders": true,
-            "headerParameters": {
-              "parameters": [
-                {}
-              ]
-            },
-            "sendBody": true,
-            "bodyParameters": {
-              "parameters": [
-                {
-                  "value": "{ \"news_id\": $json[\"G2\"] }"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.3,
-          "position": [
-            80,
-            1168
-          ],
-          "id": "275a2c76-fb45-414a-8da1-c10080e324cb",
-          "name": "aciona de novo bloco 2"
         }
       ],
       "connections": {
@@ -42325,7 +41531,7 @@
           "main": [
             [
               {
-                "node": "Filtrar 100",
+                "node": "Filtra os emails que ainda não receberam a news",
                 "type": "main",
                 "index": 0
               }
@@ -42336,7 +41542,7 @@
           "main": [
             [
               {
-                "node": "Aciona bloco 3",
+                "node": "ENVIAR REPORT VIA WHATS",
                 "type": "main",
                 "index": 0
               }
@@ -42347,12 +41553,7 @@
           "main": [
             [
               {
-                "node": "Preparar Atualização1",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Distribuição da news",
+                "node": "If2",
                 "type": "main",
                 "index": 0
               }
@@ -42363,7 +41564,7 @@
           "main": [
             [
               {
-                "node": "Update row(s) id Midiacode",
+                "node": "Edit Fields",
                 "type": "main",
                 "index": 0
               }
@@ -42391,6 +41592,17 @@
             [
               {
                 "node": "atualiza a DT com Aprovada",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtra os emails que ainda não receberam a news": {
+          "main": [
+            [
+              {
+                "node": "Filtrar 100",
                 "type": "main",
                 "index": 0
               }
@@ -42428,7 +41640,7 @@
           "main": [
             [
               {
-                "node": "ENVIAR REPORT VIA WHATS",
+                "node": "Preparar Atualização1",
                 "type": "main",
                 "index": 0
               }
@@ -42762,9 +41974,55 @@
             ]
           ]
         },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "pega o html certo da DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If2": {
+          "main": [
+            [
+              {
+                "node": "Distribuição da news",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
         "ENVIAR REPORT VIA WHATS": {
           "main": [
-            []
+            [
+              {
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         },
         "Upload imagem para S3": {
@@ -43090,256 +42348,6 @@
               }
             ]
           ]
-        },
-        "Get row(s) News Execution": {
-          "main": [
-            [
-              {
-                "node": "pega o html certo da DT",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "On form submission": {
-          "main": [
-            [
-              {
-                "node": "Update row(s) id Midiacode",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Update row(s) id Midiacode": {
-          "main": [
-            [
-              {
-                "node": "atualiza a news atual na planilha",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "atualiza a news atual na planilha": {
-          "main": [
-            [
-              {
-                "node": "aciona o bloco 2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Preparar Atualização": {
-          "main": [
-            [
-              {
-                "node": "Update row in sheet1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get row(s) in sheet2": {
-          "main": [
-            [
-              {
-                "node": "Filtrar ",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Update row in sheet1": {
-          "main": [
-            [
-              {
-                "node": "Wait1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filtrar ": {
-          "main": [
-            [
-              {
-                "node": "só lista de emails para  o if1",
-                "type": "main",
-                "index": 0
-              },
-              {
-                "node": "Preparar Atualização",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "pega o html certo da DT1": {
-          "main": [
-            [
-              {
-                "node": "atualiza a DT com Aprovada1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Distribuição da news1": {
-          "main": [
-            [
-              {
-                "node": "ENVIAR REPORT VIA WHATS1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Retira do html final a seção do aprovador1": {
-          "main": [
-            [
-              {
-                "node": "Get row(s) in sheet2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "atualiza a DT com Aprovada1": {
-          "main": [
-            [
-              {
-                "node": "Retira do html final a seção do aprovador1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If3": {
-          "main": [
-            [
-              {
-                "node": "Distribuição da news1",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "No Operation, do nothing2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get row(s) News Execution1": {
-          "main": [
-            [
-              {
-                "node": "pega o html certo da DT1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "só lista de emails para  o if1": {
-          "main": [
-            [
-              {
-                "node": "If3",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Wait1": {
-          "main": [
-            [
-              {
-                "node": "Get row(s) News Execution1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If2": {
-          "main": [
-            [
-              {
-                "node": "Get row(s) News Execution",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "inicio do bloco 2": {
-          "main": [
-            [
-              {
-                "node": "If2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "bloco 3": {
-          "main": [
-            [
-              {
-                "node": "get rows com pode-enviar-ok",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "get rows com pode-enviar-ok": {
-          "main": [
-            [
-              {
-                "node": "Get news_ID number",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "No Operation, do nothing1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get news_ID number": {
-          "main": [
-            [
-              {
-                "node": "aciona de novo bloco 2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
         }
       },
       "settings": {
@@ -43361,21 +42369,19 @@
           "lastMessageUid": 2177
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
-          "recurrenceRules": [
-            0
-          ]
+          "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1539
+          "lastMessageUid": 1409
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
-      "activeVersionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
-      "triggerCount": 17,
+      "versionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
+      "activeVersionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
+      "triggerCount": 14,
       "shared": [
         {
           "updatedAt": "2025-12-16T17:37:36.899Z",
@@ -43386,9 +42392,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-31T11:16:43.854Z",
-        "createdAt": "2025-12-31T11:16:43.854Z",
-        "versionId": "61e6fd94-2e24-4f9a-acb7-5689183dc8db",
+        "updatedAt": "2026-01-02T19:14:49.419Z",
+        "createdAt": "2026-01-02T19:14:49.419Z",
+        "versionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -43652,14 +42658,14 @@
           },
           {
             "parameters": {
-              "functionCode": "// 1. Pega TODOS os itens do node \"Filtrar 100\"\nconst allItems = $items(\"Filtrar 100\", 0, 0).map(i => i.json);\n\n// 2. Remove o item 0 (que é o item de envio)\nconst updateItems = allItems.slice(1);\n\n// 3. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0].json.news_id\n);\n\n// 4. Prepara os itens para atualização\nreturn updateItems.map(r => ({\n  json: {\n    row_number: r.row_number,\n    Email: r.Email || r.email,\n    news_id\n  }\n}));"
+              "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
             },
             "name": "Preparar Atualização1",
             "type": "n8n-nodes-base.function",
             "typeVersion": 1,
             "position": [
-              1184,
-              1136
+              832,
+              1024
             ],
             "id": "43c89b32-3a17-493a-8d5b-3e83e483d16c"
           },
@@ -43682,8 +42688,8 @@
               "filtersUI": {
                 "values": [
                   {
-                    "lookupColumn": "pode_enviar",
-                    "lookupValue": "ok"
+                    "lookupColumn": "status",
+                    "lookupValue": "on"
                   }
                 ]
               },
@@ -43693,8 +42699,8 @@
             "name": "Get row(s) in sheet1",
             "type": "n8n-nodes-base.googleSheets",
             "position": [
-              736,
-              960
+              -464,
+              1024
             ],
             "typeVersion": 4.6,
             "credentials": {
@@ -43725,7 +42731,7 @@
                 "mappingMode": "defineBelow",
                 "value": {
                   "row_number": "={{ $json.row_number }}",
-                  "news enviada": "={{ $json[\"news_id\"] }}"
+                  "news enviada": "={{ $json[\"news enviada\"] }}"
                 },
                 "matchingColumns": [
                   "row_number"
@@ -43781,8 +42787,8 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              1376,
-              1136
+              1024,
+              1024
             ],
             "id": "52aa3538-f470-45eb-88a8-4321640e5c58",
             "name": "Update row in sheet",
@@ -43795,17 +42801,16 @@
           },
           {
             "parameters": {
-              "functionCode": "// 1. Pega TODOS os itens vindos do node anterior (cada item = 1 linha da planilha)\nconst allItems = $input.all();\n\n// Se não veio nada, não faz nada\nif (!allItems || allItems.length === 0) {\n  return [];\n}\n\n// 2. Extrai só o .json de cada item\nlet rows = allItems.map(item => item.json);\n\n// 3. Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// 4. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .filter(e => !!e)\n  .join(\",\");\n\n// 5. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 6. Captura o news_id diretamente do node \"Get rows News Execution\"\nconst news_id = Number(\n  $items(\"Get row(s) News Execution\", 0, 0)[0].json.news_id\n);\n\n// 7. Retorna:\n//    - item 0: envio (emails concatenados)\n//    - itens 1..n: atualização de cada linha\nreturn [\n  {\n    json: {\n      emails: emailsConcatenados,\n      subject,\n      html,\n      news_id\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
+              "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
             },
             "name": "Filtrar 100",
             "type": "n8n-nodes-base.function",
             "typeVersion": 1,
             "position": [
-              944,
-              960
+              -80,
+              1024
             ],
-            "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7",
-            "executeOnce": true
+            "id": "9f798021-8029-4a46-8f0d-6b06d89f60d7"
           },
           {
             "parameters": {
@@ -43953,7 +42958,7 @@
               "filters": {
                 "conditions": [
                   {
-                    "keyValue": "={{ $json.news_id }}"
+                    "keyValue": "={{ $json.idnews }}"
                   }
                 ]
               }
@@ -43961,12 +42966,24 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              112,
-              960
+              -1024,
+              1024
             ],
             "id": "0731d8cd-1031-4143-899a-8972d34dd493",
-            "name": "pega o html certo da DT",
-            "executeOnce": true
+            "name": "pega o html certo da DT"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Filtra os emails que ainda não receberam a newsletter atual\n// e remover os que contêm 'anonimo'\n\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\nconst filtrados = rows.filter(row => {\n  const enviado = parseInt(row[\"news enviada\"], 10) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number   // garante que o update saiba qual linha alterar\n  }\n}));"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -272,
+              1024
+            ],
+            "id": "6e214bf5-e414-4f98-ae6f-51452f6e2808",
+            "name": "Filtra os emails que ainda não receberam a news"
           },
           {
             "parameters": {
@@ -43982,8 +42999,8 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              1232,
-              960
+              576,
+              1024
             ],
             "credentials": {
               "smtp": {
@@ -44016,12 +43033,12 @@
             "parameters": {
               "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
               "height": 544,
-              "width": 3376,
+              "width": 2960,
               "color": 4
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -1568,
+              -1504,
               896
             ],
             "typeVersion": 1,
@@ -44035,8 +43052,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              560,
-              960
+              -640,
+              1024
             ],
             "id": "c4f02519-5ecd-471d-a40a-d1c226368aad",
             "name": "Retira do html final a seção do aprovador"
@@ -44105,8 +43122,8 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              304,
-              960
+              -832,
+              1024
             ],
             "id": "40ae3aa2-9bb5-4ed2-9c0a-2ee31b1740ce",
             "name": "atualiza a DT com Aprovada"
@@ -44451,14 +43468,14 @@
           {
             "parameters": {
               "content": "## Setup da Newsletter\ncoleta informações para a criação e manutenção da newsletter\n\nSETUP DA INSERÇÃO DE CONTEÚDOS NOVOS\nCaso o cliente queira que o texto da noticia seja melhorado por IA, adicione os nodes de IA no fluxo de inserção de conteúdo.\n1) Crie o perfil da empresa através do link... https://n8n.ooniverse.ai/form/8a653b33-7fc5-45b4-8d3f-6cfdd97f08ec\n2) Troque o número do ID da empresa no node ID da EMPRESA\n3) Ajuste o Agente de IA MELHORA O TEXTO DA NOTICIA\n4) Troque o nome da pessoa nos nodes INSERÇÃO DE CONTEÚDO DA NEWS [NOME DA PESSOA] e INSERT ROW - [USUÁRIO]\nAdicione a pasta com o nome do cliente no node UPLOAD IMAGEM PARA S3, no item 'parent folder key'\nNo código do GERA URL PUBLICA S3, no item 'const folder = 'Kutsaca';' troque o nome kutsaca pelo mesmo nome do cliente. Fique atento para maiusculas e minusculas. O nome do folder tem que ser identico entre estes dois últimos itens.\n5) Crie um data table exclusivo da empresa e insira no node INSERT ROW\n6) Salve e Teste a inserção de news\n7) Envie para o cliente com as seguintes instruções:\n- Insira uma noticia de cada vez\n- Para cada notícia é possível inserir uma imagem (upload) e um vídeo\n- Se tiver links para outras páginas web, insira-os no próprio texto da notícia.\n- Caso queira inserir texto de introdução e fechamento da newsletter, insira somente no campo \"texto da notícia\", ignorando todos os outros campos.\n\n\nSETUP DA SELEÇÃO DE NEWS\n1) Revise a periodicidade, conforme definido pelo cliente - GATILHO MENSAL, BIMESTRAL ou o que seja\n2) Atualize o nome da Data Table no node GET ROWS\n3) Crie (duplique de uma já existente)) uma página para este cliente no wordpress e anote o ID da página. Nesta página duplicada, edite no wordpress o html com o script, com o endereço do webhook (do primeiro node da sequencia MONTA A NEWSLETTER...).\n4) Atualize o node EMAIL PARA SELEÇÃO DE NEWS com os dados do cliente e da página html\n\nSETUP DO MONTA A NEWSLETTER\n1- Atualize os nodes de Data Table para pegar os dados da tabela do cliente\n2- Atualize o CRIA HTML NEWSLETTER com o unsubscribe_NOME DO CLIENTE e ajuste estes itens no Unsubscribe setup. Ajuste o link  da logo e das redes sociais, use ou retire o botão donativos (atualize o link).\n\n\nSETUP DA CORRIGE A NEWSLETTER\n1- No node IF, trocar o email do cliente (ele é que responde com as alterações) - gestor da newsletter\n2- Nos nodes de DT, tipo o 'insere novo html na DT1', garantir que estejam se referenciando à DT exclusiva do cliente \n3- Ajustar o email do cliente no node de EMAIL\n\nSETUP DO DISPARO DA NEWSLETTER\n1- Pegue o endereço de produção do webhook de disparo e configure no node CRIA HTML DA NEWSLETTER do fluxo de MONTA A NEWSLETTER... (isso irá garantir que, ao aprovar a newsletter, o webhook certo irá acionar o disparo).\n2- Configure os nodes de Data Table para pegarem o html e o subject do data table do cliente em questão\n3- Configure o node GET ROWS IN SHEET e UPDATE ROW IN SHEET para a planilha onde estão os emails a serem enviados (a planilha deve conter as seguintes colunas: email, status, news enviada)\n4-  Configure o node ENVIAR REPORT VIA WHATS com o telefone do cliente para que saiba que as news estão sendo enviadas\n\nREVISAR E TESTAR TUDO\n\n",
-              "height": 1120,
+              "height": 1344,
               "width": 992,
               "color": 6
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               -2944,
-              -256
+              -480
             ],
             "typeVersion": 1,
             "id": "807898ff-150b-4ad5-a327-6b3694db9187",
@@ -44916,8 +43933,8 @@
             "type": "n8n-nodes-evolution-api.evolutionApi",
             "typeVersion": 1,
             "position": [
-              1424,
-              960
+              1200,
+              1024
             ],
             "id": "9cc0f399-4db7-4baa-a314-0f7d8ff24279",
             "name": "ENVIAR REPORT VIA WHATS",
@@ -45261,6 +44278,89 @@
             ],
             "id": "c5bc92cd-5520-4354-916a-f5a9ef6ddc49",
             "name": "Respond to Webhook4"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                    "name": "idnews",
+                    "value": "={{ Number($json.query.id) }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -1248,
+              1024
+            ],
+            "id": "dc4107b2-f315-4a94-a0c4-5b4380aa0b8f",
+            "name": "Edit Fields"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
+                    "leftValue": "={{ $json.emails }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              112,
+              1024
+            ],
+            "id": "b59a7b8f-645d-4c0f-b249-9bf62e96672a",
+            "name": "If2"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              752,
+              1232
+            ],
+            "id": "4dc204c9-d9b6-4b29-9c9b-964ae1b6d439",
+            "name": "No Operation, do nothing1"
+          },
+          {
+            "parameters": {
+              "amount": 145,
+              "unit": "minutes"
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1408,
+              1024
+            ],
+            "id": "04fbd489-474a-49ec-abf3-403dbd7cedc3",
+            "name": "Wait",
+            "webhookId": "8f036e17-d527-41b2-9b8e-10ad1c410858"
           },
           {
             "parameters": {
@@ -46172,8 +45272,7 @@
                 "id": "NgVtVrC0ohwSKTXA",
                 "name": "Google Sheets account"
               }
-            },
-            "onError": "[REDACTED]"
+            }
           },
           {
             "parameters": {
@@ -46356,891 +45455,6 @@
             ],
             "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
             "name": "Ignora emails normais"
-          },
-          {
-            "parameters": {
-              "operation": "get",
-              "dataTableId": {
-                "__rl": true,
-                "value": "iDE76R0KgGOwSwTP",
-                "mode": "list",
-                "cachedResultName": "Newsletter execution",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-              },
-              "filters": {
-                "conditions": [
-                  {
-                    "keyName": "cliente",
-                    "keyValue": "Midiacode"
-                  }
-                ]
-              }
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              -96,
-              960
-            ],
-            "id": "ae606503-abd8-452b-8770-b5bece9cf367",
-            "name": "Get row(s) News Execution",
-            "executeOnce": true
-          },
-          {
-            "parameters": {
-              "formTitle": "News ID run enforcement",
-              "formFields": {
-                "values": [
-                  {
-                    "fieldLabel": "news_id",
-                    "fieldType": "number",
-                    "placeholder": "entre o número da newsletter para executar",
-                    "requiredField": true
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.formTrigger",
-            "typeVersion": 2.3,
-            "position": [
-              -1456,
-              1232
-            ],
-            "id": "51471c5c-c5de-42a2-b22f-7a96a8d37c61",
-            "name": "On form submission",
-            "webhookId": "d8320bc2-192c-4b74-aee8-b75f6689ea7d"
-          },
-          {
-            "parameters": {
-              "operation": "update",
-              "dataTableId": {
-                "__rl": true,
-                "value": "iDE76R0KgGOwSwTP",
-                "mode": "list",
-                "cachedResultName": "Newsletter execution",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-              },
-              "filters": {
-                "conditions": [
-                  {
-                    "keyName": "cliente",
-                    "keyValue": "Midiacode"
-                  }
-                ]
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "news_id": "={{ Number($json.news_id || $json.query.id) }}"
-                },
-                "matchingColumns": [],
-                "schema": [
-                  {
-                    "id": "cliente",
-                    "displayName": "cliente",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": true
-                  },
-                  {
-                    "id": "news_id",
-                    "displayName": "news_id",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "number",
-                    "readOnly": false,
-                    "removed": false
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              -1280,
-              1024
-            ],
-            "id": "febb70bd-f5f8-420c-a06d-1e6dcdc43cb9",
-            "name": "Update row(s) id Midiacode"
-          },
-          {
-            "parameters": {
-              "operation": "update",
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": "gid=0",
-                "mode": "list",
-                "cachedResultName": "todos publicadores",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "row_number": 2,
-                  "news atual": "={{ $json.news_id }}"
-                },
-                "matchingColumns": [
-                  "row_number"
-                ],
-                "schema": [
-                  {
-                    "id": "email",
-                    "displayName": "email",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Record Count",
-                    "displayName": "Record Count",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "news enviada",
-                    "displayName": "news enviada",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "status",
-                    "displayName": "status",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "categoria",
-                    "displayName": "categoria",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "pode_enviar",
-                    "displayName": "pode_enviar",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "news atual",
-                    "displayName": "news atual",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "row_number",
-                    "displayName": "row_number",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "number",
-                    "canBeUsedToMatch": true,
-                    "readOnly": true,
-                    "removed": false
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -1072,
-              1024
-            ],
-            "id": "080fdebf-c02c-42f2-8a4a-5cb4d0e21ffa",
-            "name": "atualiza a news atual na planilha",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "functionCode": "// 1. Pega TODOS os itens do node \"Filtrar 100\"\nconst allItems = $items(\"Filtrar 100\", 0, 0).map(i => i.json);\n\n// 2. Remove o item 0 (que é o item de envio)\nconst updateItems = allItems.slice(1);\n\n// 3. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0].json.news_id\n);\n\n// 4. Prepara os itens para atualização\nreturn updateItems.map(r => ({\n  json: {\n    row_number: r.row_number,\n    Email: r.Email || r.email,\n    news_id\n  }\n}));"
-            },
-            "name": "Preparar Atualização",
-            "type": "n8n-nodes-base.function",
-            "typeVersion": 1,
-            "position": [
-              2160,
-              1760
-            ],
-            "id": "b0bb7cce-01a2-4387-8c42-08902be22958"
-          },
-          {
-            "parameters": {
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": "gid=0",
-                "mode": "list",
-                "cachedResultName": "todos publicadores",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "filtersUI": {
-                "values": [
-                  {
-                    "lookupColumn": "pode_enviar",
-                    "lookupValue": "ok"
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "id": "c6c7dfed-fa99-4c0c-92e8-06c4c755b90d",
-            "name": "Get row(s) in sheet2",
-            "type": "n8n-nodes-base.googleSheets",
-            "position": [
-              1712,
-              1584
-            ],
-            "typeVersion": 4.6,
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "operation": "update",
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": "gid=0",
-                "mode": "list",
-                "cachedResultName": "todos publicadores",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "row_number": "={{ $json.row_number }}",
-                  "news enviada": "={{ $json[\"news_id\"] }}"
-                },
-                "matchingColumns": [
-                  "row_number"
-                ],
-                "schema": [
-                  {
-                    "id": "Email",
-                    "displayName": "Email",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "Status",
-                    "displayName": "Status",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "news enviada",
-                    "displayName": "news enviada",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "row_number",
-                    "displayName": "row_number",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "number",
-                    "canBeUsedToMatch": true,
-                    "readOnly": true,
-                    "removed": false
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              2352,
-              1760
-            ],
-            "id": "759b88f5-ff70-40be-8e6f-264caebec4d8",
-            "name": "Update row in sheet1",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "functionCode": "// 1. Pega SOMENTE os itens do ÚLTIMO RUN do node anterior\nconst lastRunItems = $items(\"Get row(s) in sheet1\", 0, -1).map(i => i.json);\n\nif (!lastRunItems.length) {\n  return [];\n}\n\n// 2. Seleciona apenas os primeiros 100\nconst limitados = lastRunItems.slice(0, 100);\n\n// 3. Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados\n  .map(r => r.Email || r.email)\n  .join(\",\");\n\n// 4. Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// 5. Captura o news_id unificado\nconst news_id = Number(\n  $items(\"Update row(s) id Midiacode\", 0, 0)[0]?.json?.news_id\n);\n\n// 6. Retorna:\n//    - item 0: envio\n//    - itens 1..n: atualização\nreturn [\n  { json: { emails: emailsConcatenados, subject, html, news_id } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      news_id\n    }\n  }))\n];"
-            },
-            "name": "Filtrar ",
-            "type": "n8n-nodes-base.function",
-            "typeVersion": 1,
-            "position": [
-              1920,
-              1584
-            ],
-            "id": "c3672743-bed9-4ac3-93d2-350961865b57",
-            "executeOnce": true
-          },
-          {
-            "parameters": {
-              "operation": "get",
-              "dataTableId": {
-                "__rl": true,
-                "value": "gbNejGV416c39TCE",
-                "mode": "list",
-                "cachedResultName": "Midiacode HTML envio news",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
-              },
-              "matchType": "=anyCondition",
-              "filters": {
-                "conditions": [
-                  {
-                    "keyValue": "={{ $json.news_id }}"
-                  }
-                ]
-              }
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              1088,
-              1584
-            ],
-            "id": "321767d8-d474-4e80-8352-5ff56504227e",
-            "name": "pega o html certo da DT1",
-            "executeOnce": true
-          },
-          {
-            "parameters": {
-              "fromEmail": "contact@ooniverse.ai",
-              "toEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
-              "bccEmail": "={{ $json.emails }}",
-              "subject": "={{ $json.subject }}",
-              "html": "={{ $json.html }}",
-              "options": {}
-            },
-            "id": "13d0e6e6-9986-4deb-a343-0d12f4c3d389",
-            "name": "Distribuição da news1",
-            "type": "n8n-nodes-base.emailSend",
-            "typeVersion": 1,
-            "position": [
-              2624,
-              1568
-            ],
-            "credentials": {
-              "smtp": {
-                "id": "5r4O3yWVtvULVe1v",
-                "name": "SMTP from contact@ooniverse.ai"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              1536,
-              1584
-            ],
-            "id": "ddedba33-7ae9-4868-80be-72e369f284ae",
-            "name": "Retira do html final a seção do aprovador1"
-          },
-          {
-            "parameters": {
-              "operation": "update",
-              "dataTableId": {
-                "__rl": true,
-                "value": "gbNejGV416c39TCE",
-                "mode": "list",
-                "cachedResultName": "Midiacode HTML envio news",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/gbNejGV416c39TCE"
-              },
-              "matchType": "=anyCondition",
-              "filters": {
-                "conditions": [
-                  {
-                    "keyValue": "={{ $json.id }}"
-                  }
-                ]
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "status": "Aprovada"
-                },
-                "matchingColumns": [],
-                "schema": [
-                  {
-                    "id": "html",
-                    "displayName": "html",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "status",
-                    "displayName": "status",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  },
-                  {
-                    "id": "subject",
-                    "displayName": "subject",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "readOnly": false,
-                    "removed": false
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              1280,
-              1584
-            ],
-            "id": "b2d7e352-707a-407c-bf9b-dd9e87637545",
-            "name": "atualiza a DT com Aprovada1"
-          },
-          {
-            "parameters": {
-              "resource": "messages-api",
-              "instanceName": "Valentina",
-              "remoteJid": "351912508389@s.whatsapp.net",
-              "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar ').item.json.emails }}",
-              "options_message": {}
-            },
-            "type": "n8n-nodes-evolution-api.evolutionApi",
-            "typeVersion": 1,
-            "position": [
-              2880,
-              1568
-            ],
-            "id": "d684fcbe-7fe7-463b-a1a1-4335ef33e546",
-            "name": "ENVIAR REPORT VIA WHATS1",
-            "executeOnce": true,
-            "credentials": {
-              "evolutionApi": {
-                "id": "4gvC5iGuSb0S7dgW",
-                "name": "Evolution account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
-                    "leftValue": "={{ $json.emails }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "notEmpty",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.if",
-            "typeVersion": 2.2,
-            "position": [
-              2384,
-              1584
-            ],
-            "id": "5c0cfad9-0ab5-471c-a516-9768440c8cef",
-            "name": "If3"
-          },
-          {
-            "parameters": {},
-            "type": "n8n-nodes-base.noOp",
-            "typeVersion": 1,
-            "position": [
-              2864,
-              1792
-            ],
-            "id": "c611ccd0-8f29-45d7-805e-7584f7c0b88e",
-            "name": "No Operation, do nothing2"
-          },
-          {
-            "parameters": {
-              "operation": "get",
-              "dataTableId": {
-                "__rl": true,
-                "value": "iDE76R0KgGOwSwTP",
-                "mode": "list",
-                "cachedResultName": "Newsletter execution",
-                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/iDE76R0KgGOwSwTP"
-              },
-              "filters": {
-                "conditions": [
-                  {
-                    "keyName": "cliente",
-                    "keyValue": "Midiacode"
-                  }
-                ]
-              }
-            },
-            "type": "n8n-nodes-base.dataTable",
-            "typeVersion": 1,
-            "position": [
-              880,
-              1584
-            ],
-            "id": "a27915c1-ceb5-4b25-a31f-d9c42057d83a",
-            "name": "Get row(s) News Execution1",
-            "executeOnce": true
-          },
-          {
-            "parameters": {
-              "jsCode": "return [$input.first()];"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              2192,
-              1584
-            ],
-            "id": "b8d9cc00-4e20-4955-bffa-fe5bd552c981",
-            "name": "só lista de emails para  o if1"
-          },
-          {
-            "parameters": {
-              "amount": 2,
-              "unit": "minutes"
-            },
-            "type": "n8n-nodes-base.wait",
-            "typeVersion": 1.1,
-            "position": [
-              1312,
-              1776
-            ],
-            "id": "db6c6c99-9c2a-4c58-b30d-cdff2a0b8c1f",
-            "name": "Wait1",
-            "webhookId": "a8782adf-5394-4cc8-851e-6b0cbad380f3"
-          },
-          {
-            "parameters": {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "746dbdd3-4b55-48a7-9a5d-ce68d31a216b",
-                    "leftValue": "={{ typeof $json.body.news_id === \"number\" && $json.body.news_id > 0 }}",
-                    "rightValue": "true",
-                    "operator": {
-                      "type": "boolean",
-                      "operation": "true",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.if",
-            "typeVersion": 2.2,
-            "position": [
-              -400,
-              960
-            ],
-            "id": "b90e98a9-14ab-49af-b5ac-fdf32192f90b",
-            "name": "If2"
-          },
-          {
-            "parameters": {
-              "method": "POST",
-              "url": "https://n8n.ooniverse.ai/webhook/87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-              "sendBody": true,
-              "bodyParameters": {
-                "parameters": [
-                  {
-                    "name": "news_id",
-                    "value": "={{ $json['news atual'] }}"
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.httpRequest",
-            "typeVersion": 4.3,
-            "position": [
-              -864,
-              1024
-            ],
-            "id": "fbb07728-4eb8-4e57-84d3-084244e33ff6",
-            "name": "aciona o bloco 2"
-          },
-          {
-            "parameters": {
-              "httpMethod": "POST",
-              "path": "87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-              "options": {}
-            },
-            "type": "n8n-nodes-base.webhook",
-            "typeVersion": 2.1,
-            "position": [
-              -608,
-              960
-            ],
-            "id": "96b59e1b-4503-4e21-afa3-e9ecdb310277",
-            "name": "inicio do bloco 2",
-            "webhookId": "87b866f2-e26d-421b-8bac-ab02a6c1a7e5"
-          },
-          {
-            "parameters": {
-              "httpMethod": "POST",
-              "path": "60eafbf5-431e-4236-a70e-536aba26a20a",
-              "options": {}
-            },
-            "type": "n8n-nodes-base.webhook",
-            "typeVersion": 2.1,
-            "position": [
-              -576,
-              1264
-            ],
-            "id": "c530ac4c-d751-4c27-95c2-b795031b93cb",
-            "name": "bloco 3",
-            "webhookId": "60eafbf5-431e-4236-a70e-536aba26a20a"
-          },
-          {
-            "parameters": {
-              "method": "POST",
-              "url": "https://n8n.ooniverse.ai/webhook/60eafbf5-431e-4236-a70e-536aba26a20a",
-              "options": {}
-            },
-            "type": "n8n-nodes-base.httpRequest",
-            "typeVersion": 4.3,
-            "position": [
-              1584,
-              1136
-            ],
-            "id": "36e3c5eb-fc42-418e-81b8-4952dee06877",
-            "name": "Aciona bloco 3"
-          },
-          {
-            "parameters": {
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": "gid=0",
-                "mode": "list",
-                "cachedResultName": "todos publicadores",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "filtersUI": {
-                "values": [
-                  {
-                    "lookupColumn": "pode_enviar",
-                    "lookupValue": "ok"
-                  }
-                ]
-              },
-              "options": {
-                "returnFirstMatch": true
-              }
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -368,
-              1264
-            ],
-            "id": "8b425e37-79ee-4b42-a5b2-4a42a1841477",
-            "name": "get rows com pode-enviar-ok",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            },
-            "onError": "continueErrorOutput"
-          },
-          {
-            "parameters": {},
-            "type": "n8n-nodes-base.noOp",
-            "typeVersion": 1,
-            "position": [
-              -160,
-              1360
-            ],
-            "id": "fab47da9-eba6-40be-b11f-12c14e3ba341",
-            "name": "No Operation, do nothing1"
-          },
-          {
-            "parameters": {
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": "gid=0",
-                "mode": "list",
-                "cachedResultName": "todos publicadores",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "options": {
-                "dataLocationOnSheet": {
-                  "values": {
-                    "rangeDefinition": "specifyRangeA1",
-                    "range": "G2:G2"
-                  }
-                }
-              }
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -160,
-              1168
-            ],
-            "id": "66fa8da6-91eb-45d2-b1ca-5b50080f3e1a",
-            "name": "Get news_ID number",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "NgVtVrC0ohwSKTXA",
-                "name": "Google Sheets account"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "method": "POST",
-              "url": "https://n8n.ooniverse.ai/webhook/87b866f2-e26d-421b-8bac-ab02a6c1a7e5",
-              "sendHeaders": true,
-              "headerParameters": {
-                "parameters": [
-                  {}
-                ]
-              },
-              "sendBody": true,
-              "bodyParameters": {
-                "parameters": [
-                  {
-                    "value": "{ \"news_id\": $json[\"G2\"] }"
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.httpRequest",
-            "typeVersion": 4.3,
-            "position": [
-              80,
-              1168
-            ],
-            "id": "275a2c76-fb45-414a-8da1-c10080e324cb",
-            "name": "aciona de novo bloco 2"
           }
         ],
         "connections": {
@@ -47319,7 +45533,7 @@
             "main": [
               [
                 {
-                  "node": "Filtrar 100",
+                  "node": "Filtra os emails que ainda não receberam a news",
                   "type": "main",
                   "index": 0
                 }
@@ -47330,7 +45544,7 @@
             "main": [
               [
                 {
-                  "node": "Aciona bloco 3",
+                  "node": "ENVIAR REPORT VIA WHATS",
                   "type": "main",
                   "index": 0
                 }
@@ -47341,12 +45555,7 @@
             "main": [
               [
                 {
-                  "node": "Preparar Atualização1",
-                  "type": "main",
-                  "index": 0
-                },
-                {
-                  "node": "Distribuição da news",
+                  "node": "If2",
                   "type": "main",
                   "index": 0
                 }
@@ -47357,7 +45566,7 @@
             "main": [
               [
                 {
-                  "node": "Update row(s) id Midiacode",
+                  "node": "Edit Fields",
                   "type": "main",
                   "index": 0
                 }
@@ -47385,6 +45594,17 @@
               [
                 {
                   "node": "atualiza a DT com Aprovada",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filtra os emails que ainda não receberam a news": {
+            "main": [
+              [
+                {
+                  "node": "Filtrar 100",
                   "type": "main",
                   "index": 0
                 }
@@ -47422,7 +45642,7 @@
             "main": [
               [
                 {
-                  "node": "ENVIAR REPORT VIA WHATS",
+                  "node": "Preparar Atualização1",
                   "type": "main",
                   "index": 0
                 }
@@ -47756,9 +45976,55 @@
               ]
             ]
           },
+          "Edit Fields": {
+            "main": [
+              [
+                {
+                  "node": "pega o html certo da DT",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If2": {
+            "main": [
+              [
+                {
+                  "node": "Distribuição da news",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
           "ENVIAR REPORT VIA WHATS": {
             "main": [
-              []
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
             ]
           },
           "Upload imagem para S3": {
@@ -48079,256 +46345,6 @@
               [
                 {
                   "node": "pega as linhas",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get row(s) News Execution": {
-            "main": [
-              [
-                {
-                  "node": "pega o html certo da DT",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "On form submission": {
-            "main": [
-              [
-                {
-                  "node": "Update row(s) id Midiacode",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Update row(s) id Midiacode": {
-            "main": [
-              [
-                {
-                  "node": "atualiza a news atual na planilha",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "atualiza a news atual na planilha": {
-            "main": [
-              [
-                {
-                  "node": "aciona o bloco 2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Preparar Atualização": {
-            "main": [
-              [
-                {
-                  "node": "Update row in sheet1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get row(s) in sheet2": {
-            "main": [
-              [
-                {
-                  "node": "Filtrar ",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Update row in sheet1": {
-            "main": [
-              [
-                {
-                  "node": "Wait1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Filtrar ": {
-            "main": [
-              [
-                {
-                  "node": "só lista de emails para  o if1",
-                  "type": "main",
-                  "index": 0
-                },
-                {
-                  "node": "Preparar Atualização",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "pega o html certo da DT1": {
-            "main": [
-              [
-                {
-                  "node": "atualiza a DT com Aprovada1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Distribuição da news1": {
-            "main": [
-              [
-                {
-                  "node": "ENVIAR REPORT VIA WHATS1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Retira do html final a seção do aprovador1": {
-            "main": [
-              [
-                {
-                  "node": "Get row(s) in sheet2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "atualiza a DT com Aprovada1": {
-            "main": [
-              [
-                {
-                  "node": "Retira do html final a seção do aprovador1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "If3": {
-            "main": [
-              [
-                {
-                  "node": "Distribuição da news1",
-                  "type": "main",
-                  "index": 0
-                }
-              ],
-              [
-                {
-                  "node": "No Operation, do nothing2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get row(s) News Execution1": {
-            "main": [
-              [
-                {
-                  "node": "pega o html certo da DT1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "só lista de emails para  o if1": {
-            "main": [
-              [
-                {
-                  "node": "If3",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Wait1": {
-            "main": [
-              [
-                {
-                  "node": "Get row(s) News Execution1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "If2": {
-            "main": [
-              [
-                {
-                  "node": "Get row(s) News Execution",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "inicio do bloco 2": {
-            "main": [
-              [
-                {
-                  "node": "If2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "bloco 3": {
-            "main": [
-              [
-                {
-                  "node": "get rows com pode-enviar-ok",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "get rows com pode-enviar-ok": {
-            "main": [
-              [
-                {
-                  "node": "Get news_ID number",
-                  "type": "main",
-                  "index": 0
-                }
-              ],
-              [
-                {
-                  "node": "No Operation, do nothing1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get news_ID number": {
-            "main": [
-              [
-                {
-                  "node": "aciona de novo bloco 2",
                   "type": "main",
                   "index": 0
                 }
@@ -52901,9 +50917,7 @@
           "recurrenceRules": []
         },
         "node:Gatilho mensal todo dia 1, 10am": {
-          "recurrenceRules": [
-            0
-          ]
+          "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
           "lastMessageUid": 2177
@@ -60882,10 +58896,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2025-12-17T19:11:08Z"
+          "lastTimeChecked": "2026-01-02T19:09:24Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2025-12-17T19:11:09Z"
+          "lastTimeChecked": "2026-01-02T19:09:24Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [

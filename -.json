@@ -2527,9 +2527,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1767565273,
+            "lastTimeChecked": 1767739692,
             "possibleDuplicates": [
-              "19b8b19b5d344f31"
+              "19b957f170adf5ce",
+              "19b956fc5ce4e96a"
             ]
           }
         },
@@ -24049,10 +24050,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-01-02T19:09:22Z"
+          "lastTimeChecked": "2026-01-06T21:17:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-01-02T19:09:22Z"
+          "lastTimeChecked": "2026-01-06T21:17:22Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -28241,10 +28242,9 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1767547927,
+            "lastTimeChecked": 1767724041,
             "possibleDuplicates": [
-              "19b8a10ffeb5c0a3",
-              "19b88e32d3c65b92"
+              "19b94906d5c03d2e"
             ]
           }
         }
@@ -38387,7 +38387,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-01-02T19:14:49.405Z",
+      "updatedAt": "2026-01-06T21:26:41.491Z",
       "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
@@ -39874,7 +39874,7 @@
         {
           "parameters": {
             "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
-            "height": 672,
+            "height": 768,
             "width": 1360,
             "color": 6
           },
@@ -41452,6 +41452,324 @@
           ],
           "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
           "name": "Ignora emails normais"
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {}
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "event": "rowAdded",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "typeVersion": 1,
+          "position": [
+            -2960,
+            1696
+          ],
+          "id": "ecee02da-c976-41ff-a0cb-84b79ab8963d",
+          "name": "Qdo alguem solicita remoção",
+          "credentials": {
+            "googleSheetsTriggerOAuth2Api": {
+              "id": "JCF4brTgSWmnD6tp",
+              "name": "Google Sheets Trigger account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Filtra os itens recebidos do trigger\nreturn items.filter(item => {\n  const email = item.json[\"Account email\"];\n  const status = item.json[\"status\"];\n\n  // Mantém apenas se email estiver preenchido e status estiver vazio\n  return email && email.trim() !== \"\" && (!status || status.trim() === \"\");\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2752,
+            1696
+          ],
+          "id": "5ed999aa-f39f-4067-a814-f59fbea9508c",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "todos publicadores",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "email": "={{ $json['Account email'] }}",
+                "status": "UNSUBSCRIBE"
+              },
+              "matchingColumns": [
+                "email"
+              ],
+              "schema": [
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Record Count",
+                  "displayName": "Record Count",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "categoria",
+                  "displayName": "categoria",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "pode_enviar",
+                  "displayName": "pode_enviar",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "news atual",
+                  "displayName": "news atual",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2544,
+            1696
+          ],
+          "id": "0bcdb458-aa2f-4e4b-bb7e-f7e3553dc5a1",
+          "name": "Atualiza a planilha publicadores",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Account email": "={{ $('Code in JavaScript').item.json['Account email'] }}",
+                "status": "done"
+              },
+              "matchingColumns": [
+                "Account email"
+              ],
+              "schema": [
+                {
+                  "id": "Carimbo de data/hora",
+                  "displayName": "Carimbo de data/hora",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "Account email",
+                  "displayName": "Account email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "displayName": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "Cliente pagante?",
+                  "displayName": "Cliente pagante?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "displayName": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "email requisitado de confirmação?",
+                  "displayName": "email requisitado de confirmação?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "possui conta no studio?",
+                  "displayName": "possui conta no studio?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2336,
+            1696
+          ],
+          "id": "1029a2e9-d0f6-4a31-842c-7904efd37de8",
+          "name": "Atualiza a Solicitação de Remoção",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
         }
       ],
       "connections": {
@@ -42347,6 +42665,39 @@
               }
             ]
           ]
+        },
+        "Qdo alguem solicita remoção": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Atualiza a planilha publicadores",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Atualiza a planilha publicadores": {
+          "main": [
+            [
+              {
+                "node": "Atualiza a Solicitação de Remoção",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -42365,22 +42716,27 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2177
+          "lastMessageUid": 2205
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1541
+          "lastMessageUid": 1544
+        },
+        "node:Qdo alguem solicita remoção": {
+          "documentId": "[REDACTED]",
+          "sheetId": 251696704,
+          "lastIndexChecked": 148
         }
       },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
-      "activeVersionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
-      "triggerCount": 14,
+      "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
+      "activeVersionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
+      "triggerCount": 15,
       "shared": [
         {
           "updatedAt": "2025-12-16T17:37:36.899Z",
@@ -42391,9 +42747,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-02T19:14:49.419Z",
-        "createdAt": "2026-01-02T19:14:49.419Z",
-        "versionId": "b494cd1a-fa56-49e9-abe0-5988ad2b6d7e",
+        "updatedAt": "2026-01-06T21:26:41.496Z",
+        "createdAt": "2026-01-06T21:26:41.496Z",
+        "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
           {
@@ -43876,7 +44232,7 @@
           {
             "parameters": {
               "content": "## Unsubscribe\ngerencia os emails que querem sair da lista. Este webhook está pendurado no botão \"Cancelar inscrição\" presente em cada email que é disparado. Ao clicar no link Cancelar inscrição, abre esse webhook com a confirmação do email de saída, aí executa o segundo webhook.",
-              "height": 672,
+              "height": 768,
               "width": 1360,
               "color": 6
             },
@@ -45454,6 +45810,324 @@
             ],
             "id": "406ec8a9-b020-4c6d-b9b5-4113f7aa9827",
             "name": "Ignora emails normais"
+          },
+          {
+            "parameters": {
+              "pollTimes": {
+                "item": [
+                  {}
+                ]
+              },
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 251696704,
+                "mode": "list",
+                "cachedResultName": "Respostas ao formulário 1",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "event": "rowAdded",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheetsTrigger",
+            "typeVersion": 1,
+            "position": [
+              -2960,
+              1696
+            ],
+            "id": "ecee02da-c976-41ff-a0cb-84b79ab8963d",
+            "name": "Qdo alguem solicita remoção",
+            "credentials": {
+              "googleSheetsTriggerOAuth2Api": {
+                "id": "JCF4brTgSWmnD6tp",
+                "name": "Google Sheets Trigger account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "// Filtra os itens recebidos do trigger\nreturn items.filter(item => {\n  const email = item.json[\"Account email\"];\n  const status = item.json[\"status\"];\n\n  // Mantém apenas se email estiver preenchido e status estiver vazio\n  return email && email.trim() !== \"\" && (!status || status.trim() === \"\");\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -2752,
+              1696
+            ],
+            "id": "5ed999aa-f39f-4067-a814-f59fbea9508c",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Usuários Publicadores no Midiacode_2511",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": "gid=0",
+                "mode": "list",
+                "cachedResultName": "todos publicadores",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "email": "={{ $json['Account email'] }}",
+                  "status": "UNSUBSCRIBE"
+                },
+                "matchingColumns": [
+                  "email"
+                ],
+                "schema": [
+                  {
+                    "id": "email",
+                    "displayName": "email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Record Count",
+                    "displayName": "Record Count",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "news enviada",
+                    "displayName": "news enviada",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "categoria",
+                    "displayName": "categoria",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "pode_enviar",
+                    "displayName": "pode_enviar",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "news atual",
+                    "displayName": "news atual",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2544,
+              1696
+            ],
+            "id": "0bcdb458-aa2f-4e4b-bb7e-f7e3553dc5a1",
+            "name": "Atualiza a planilha publicadores",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 251696704,
+                "mode": "list",
+                "cachedResultName": "Respostas ao formulário 1",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "Account email": "={{ $('Code in JavaScript').item.json['Account email'] }}",
+                  "status": "done"
+                },
+                "matchingColumns": [
+                  "Account email"
+                ],
+                "schema": [
+                  {
+                    "id": "Carimbo de data/hora",
+                    "displayName": "Carimbo de data/hora",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "Account email",
+                    "displayName": "Account email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                    "displayName": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "Cliente pagante?",
+                    "displayName": "Cliente pagante?",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                    "displayName": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "email requisitado de confirmação?",
+                    "displayName": "email requisitado de confirmação?",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "possui conta no studio?",
+                    "displayName": "possui conta no studio?",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2336,
+              1696
+            ],
+            "id": "1029a2e9-d0f6-4a31-842c-7904efd37de8",
+            "name": "Atualiza a Solicitação de Remoção",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
           }
         ],
         "connections": {
@@ -46344,6 +47018,39 @@
               [
                 {
                   "node": "pega as linhas",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Qdo alguem solicita remoção": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Atualiza a planilha publicadores",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Atualiza a planilha publicadores": {
+            "main": [
+              [
+                {
+                  "node": "Atualiza a Solicitação de Remoção",
                   "type": "main",
                   "index": 0
                 }
@@ -58895,10 +59602,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-01-02T19:09:24Z"
+          "lastTimeChecked": "2026-01-06T21:17:26Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-01-02T19:09:24Z"
+          "lastTimeChecked": "2026-01-06T21:17:26Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [

@@ -730,7 +730,7 @@
       ]
     },
     {
-      "updatedAt": "2025-12-03T15:30:26.000Z",
+      "updatedAt": "2026-01-07T08:51:37.564Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -792,7 +792,9 @@
                 }
               ]
             },
-            "options": {}
+            "options": {
+              "systemPromptTemplate": "Please classify the text provided by the user into one of the following categories: {categories}, and use the provided formatting instructions below. Don't explain, and only output the json.\nOutput EXCLUSIVALY a valid JSON following the below format:\n{\n  \"category\": \"nome_da_categoria\"\n}\n\nTexto:\n{{text}}\n"
+            }
           },
           "type": "@n8n/n8n-nodes-langchain.textClassifier",
           "typeVersion": 1.1,
@@ -811,8 +813,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1,
           "position": [
-            112,
-            1056
+            176,
+            1072
           ],
           "id": "4e3791bd-a3a8-4f27-a3ea-0b1054467541",
           "name": "Google Gemini Chat Model",
@@ -1055,8 +1057,8 @@
           "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
           "typeVersion": 1.3,
           "position": [
-            928,
-            960
+            976,
+            1008
           ],
           "id": "4be24ff1-aab3-4115-a1ff-0a569e402e18",
           "name": "Simple Memory"
@@ -1128,7 +1130,7 @@
           "typeVersion": 1,
           "position": [
             704,
-            1024
+            1072
           ],
           "id": "046365ec-613f-4ef5-bc72-f6d49fb14744",
           "name": "No Operation, do nothing"
@@ -1407,6 +1409,12 @@
             1456
           ],
           "typeVersion": 1,
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          },
           "disabled": true
         },
         {
@@ -1575,6 +1583,12 @@
             1456
           ],
           "typeVersion": 1,
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          },
           "disabled": true
         },
         {
@@ -1962,33 +1976,32 @@
               "name": "Evolution account"
             }
           }
+        },
+        {
+          "parameters": {
+            "model": "meta-llama/llama-guard-4-12b",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            48,
+            912
+          ],
+          "id": "92893c8d-3b87-4d8b-8768-a34939fe88d5",
+          "name": "Groq Chat Model2",
+          "credentials": {
+            "groqApi": {
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
+            }
+          }
         }
       ],
       "connections": {
         "Google Gemini Chat Model": {
           "ai_languageModel": [
-            [
-              {
-                "node": "Text Classifier",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
-                "node": "AI Agent1",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
-                "node": "seleciona faturas e notas para o ADM",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Text Classifier": {
@@ -2510,6 +2523,32 @@
               }
             ]
           ]
+        },
+        "Groq Chat Model2": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Text Classifier",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              },
+              {
+                "node": "seleciona faturas e notas para o ADM",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -2527,10 +2566,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1767739692,
+            "lastTimeChecked": 1767828474,
             "possibleDuplicates": [
-              "19b957f170adf5ce",
-              "19b956fc5ce4e96a"
+              "19b9ac9ca8bdf973",
+              "19b9ac9bcfbd9a87"
             ]
           }
         },
@@ -2898,8 +2937,8 @@
           }
         ]
       },
-      "versionId": "5d6ed6ee-ddf8-472d-8b13-7fc528c659cb",
-      "activeVersionId": "5d6ed6ee-ddf8-472d-8b13-7fc528c659cb",
+      "versionId": "b255be93-873c-43fc-9c53-a241a628269b",
+      "activeVersionId": "b255be93-873c-43fc-9c53-a241a628269b",
       "triggerCount": 1,
       "shared": [
         {
@@ -2911,9 +2950,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-03T15:30:26.769Z",
-        "createdAt": "2025-12-03T15:30:26.769Z",
-        "versionId": "5d6ed6ee-ddf8-472d-8b13-7fc528c659cb",
+        "updatedAt": "2026-01-07T08:51:37.570Z",
+        "createdAt": "2026-01-07T08:51:37.570Z",
+        "versionId": "b255be93-873c-43fc-9c53-a241a628269b",
         "workflowId": "AFySOWDVVQcGxps6",
         "nodes": [
           {
@@ -2971,7 +3010,9 @@
                   }
                 ]
               },
-              "options": {}
+              "options": {
+                "systemPromptTemplate": "Please classify the text provided by the user into one of the following categories: {categories}, and use the provided formatting instructions below. Don't explain, and only output the json.\nOutput EXCLUSIVALY a valid JSON following the below format:\n{\n  \"category\": \"nome_da_categoria\"\n}\n\nTexto:\n{{text}}\n"
+              }
             },
             "type": "@n8n/n8n-nodes-langchain.textClassifier",
             "typeVersion": 1.1,
@@ -2990,8 +3031,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1,
             "position": [
-              112,
-              1056
+              176,
+              1072
             ],
             "id": "4e3791bd-a3a8-4f27-a3ea-0b1054467541",
             "name": "Google Gemini Chat Model",
@@ -3234,8 +3275,8 @@
             "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
             "typeVersion": 1.3,
             "position": [
-              928,
-              960
+              976,
+              1008
             ],
             "id": "4be24ff1-aab3-4115-a1ff-0a569e402e18",
             "name": "Simple Memory"
@@ -3307,7 +3348,7 @@
             "typeVersion": 1,
             "position": [
               704,
-              1024
+              1072
             ],
             "id": "046365ec-613f-4ef5-bc72-f6d49fb14744",
             "name": "No Operation, do nothing"
@@ -3586,6 +3627,12 @@
               1456
             ],
             "typeVersion": 1,
+            "credentials": {
+              "groqApi": {
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
+              }
+            },
             "disabled": true
           },
           {
@@ -3754,6 +3801,12 @@
               1456
             ],
             "typeVersion": 1,
+            "credentials": {
+              "groqApi": {
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
+              }
+            },
             "disabled": true
           },
           {
@@ -4141,33 +4194,32 @@
                 "name": "Evolution account"
               }
             }
+          },
+          {
+            "parameters": {
+              "model": "meta-llama/llama-guard-4-12b",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              48,
+              912
+            ],
+            "id": "92893c8d-3b87-4d8b-8768-a34939fe88d5",
+            "name": "Groq Chat Model2",
+            "credentials": {
+              "groqApi": {
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
+              }
+            }
           }
         ],
         "connections": {
           "Google Gemini Chat Model": {
             "ai_languageModel": [
-              [
-                {
-                  "node": "Text Classifier",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
-                  "node": "AI Agent1",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
-                  "node": "AI Agent",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
-                  "node": "seleciona faturas e notas para o ADM",
-                  "type": "ai_languageModel",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Text Classifier": {
@@ -4689,6 +4741,32 @@
                 }
               ]
             ]
+          },
+          "Groq Chat Model2": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "Text Classifier",
+                  "type": "ai_languageModel",
+                  "index": 0
+                },
+                {
+                  "node": "AI Agent",
+                  "type": "ai_languageModel",
+                  "index": 0
+                },
+                {
+                  "node": "AI Agent1",
+                  "type": "ai_languageModel",
+                  "index": 0
+                },
+                {
+                  "node": "seleciona faturas e notas para o ADM",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "authors": "Robson Lisboa",
@@ -4698,7 +4776,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-21T15:06:49.000Z",
+      "updatedAt": "2026-01-07T11:26:56.171Z",
       "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
@@ -5477,26 +5555,6 @@
             "gmailOAuth2": {
               "id": "PGFxwBVu0LSu9lXR",
               "name": "Gmail account - robson.lisboa@midiacode.com"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "model": "meta-llama/llama-4-maverick",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-          "typeVersion": 1,
-          "position": [
-            688,
-            1072
-          ],
-          "id": "0c0b9405-c6fc-4ba1-8e87-5e6b0871f3bf",
-          "name": "OpenRouter Chat Model",
-          "credentials": {
-            "openRouterApi": {
-              "id": "9ZCVuzotZKrHSe9C",
-              "name": "OpenRouter account"
             }
           }
         },
@@ -6961,22 +7019,6 @@
             ]
           ]
         },
-        "OpenRouter Chat Model": {
-          "ai_languageModel": [
-            [
-              {
-                "node": "Text Classifier",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Text Classifier1": {
           "main": [
             [
@@ -7640,8 +7682,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "039eadfd-7c65-4807-afbf-fd9d3edd5983",
-      "activeVersionId": "039eadfd-7c65-4807-afbf-fd9d3edd5983",
+      "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
+      "activeVersionId": "e419473a-c003-47ec-826c-147fe25ee792",
       "triggerCount": 1,
       "shared": [
         {
@@ -7653,9 +7695,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
-        "versionId": "039eadfd-7c65-4807-afbf-fd9d3edd5983",
+        "updatedAt": "2026-01-07T11:26:56.177Z",
+        "createdAt": "2026-01-07T11:26:56.177Z",
+        "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
         "workflowId": "AMxqvub2sDhDLKka",
         "nodes": [
           {
@@ -8430,26 +8472,6 @@
               "gmailOAuth2": {
                 "id": "PGFxwBVu0LSu9lXR",
                 "name": "Gmail account - robson.lisboa@midiacode.com"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "model": "meta-llama/llama-4-maverick",
-              "options": {}
-            },
-            "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-            "typeVersion": 1,
-            "position": [
-              688,
-              1072
-            ],
-            "id": "0c0b9405-c6fc-4ba1-8e87-5e6b0871f3bf",
-            "name": "OpenRouter Chat Model",
-            "credentials": {
-              "openRouterApi": {
-                "id": "9ZCVuzotZKrHSe9C",
-                "name": "OpenRouter account"
               }
             }
           },
@@ -9914,22 +9936,6 @@
               ]
             ]
           },
-          "OpenRouter Chat Model": {
-            "ai_languageModel": [
-              [
-                {
-                  "node": "Text Classifier",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
-                  "node": "AI Agent",
-                  "type": "ai_languageModel",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Text Classifier1": {
             "main": [
               [
@@ -10561,7 +10567,7 @@
             ]
           }
         },
-        "authors": "system migration",
+        "authors": "Robson Lisboa",
         "name": null,
         "description": null
       },
@@ -28242,9 +28248,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1767724041,
+            "lastTimeChecked": 1767820419,
             "possibleDuplicates": [
-              "19b94906d5c03d2e"
+              "19b9a4ee2aa6811e",
+              "19b9a0fdddeee274"
             ]
           }
         }

@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-01-21T15:53:31.354Z",
+      "updatedAt": "2026-01-23T14:08:00.178Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -534,8 +534,8 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.2,
           "position": [
-            176,
-            -576
+            144,
+            -656
           ],
           "id": "7ffcd9cd-40e7-4154-b17f-96cd87e9f8f2",
           "name": "E-mail Lembrete",
@@ -900,7 +900,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "d6d4bae2-a3af-4a87-a0b1-28b450237f96",
+      "versionId": "292ae12c-8e64-4a9c-b08c-2f4bbcb834a1",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -3479,10 +3479,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1769125554,
+            "lastTimeChecked": 1769207545,
             "possibleDuplicates": [
-              "19be81a1584304ec",
-              "19be7ff717420e86"
+              "19becfcc36d5937c",
+              "19becf5204ee2997"
             ]
           }
         },
@@ -29159,10 +29159,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1769120981,
+            "lastTimeChecked": 1769205722,
             "possibleDuplicates": [
-              "19be7d3e779f1d1e",
-              "19be7c9e62212529"
+              "19beceebeb3b3057",
+              "19bebe6352d4b05c"
             ]
           }
         }
@@ -43634,13 +43634,13 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2206
+          "lastMessageUid": 2207
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1558
+          "lastMessageUid": 1560
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

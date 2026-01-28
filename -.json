@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-01-26T15:30:11.277Z",
+      "updatedAt": "2026-01-27T09:57:14.359Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -126,7 +126,7 @@
                     "conditions": [
                       {
                         "leftValue": "={{ $json['Dias Venc.'] }}",
-                        "rightValue": 0,
+                        "rightValue": 5,
                         "operator": {
                           "type": "number",
                           "operation": "equals"
@@ -149,7 +149,7 @@
                       {
                         "id": "3851331e-6035-4505-ab65-31d38f78211a",
                         "leftValue": "={{ $json['Dias Venc.'] }}",
-                        "rightValue": 3,
+                        "rightValue": 0,
                         "operator": {
                           "type": "number",
                           "operation": "equals"
@@ -171,7 +171,7 @@
                       {
                         "id": "17e0b16f-7339-48f6-b7e2-5536dba197b0",
                         "leftValue": "={{ $json['Dias Venc.'] }}",
-                        "rightValue": -11,
+                        "rightValue": -3,
                         "operator": {
                           "type": "number",
                           "operation": "equals"
@@ -193,7 +193,7 @@
                       {
                         "id": "a781bac2-15e6-446a-8987-956ebf210f21",
                         "leftValue": "={{ $json['Dias Venc.'] }}",
-                        "rightValue": -16,
+                        "rightValue": -15,
                         "operator": {
                           "type": "number",
                           "operation": "equals"
@@ -503,7 +503,7 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "={{ $json.emails_nf }}",
+            "toEmail": "=thiagopacioni@gmail.com",
             "subject": "={{ $('Lembrete').item.json.Assunto }}",
             "html": "={{ $('Lembrete').item.json['E-mail'] }}",
             "options": {}
@@ -760,7 +760,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "1c347d8a-b0ad-4ff0-87e9-5f629f8179df",
+      "versionId": "f9f97bd6-2e23-4db6-8ef7-9685b43a8048",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -3339,10 +3339,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1769468335,
+            "lastTimeChecked": 1769549841,
             "possibleDuplicates": [
-              "19bfc881981c5214",
-              "19bfc6238c5208f4"
+              "19c0163c967ba4fe",
+              "19c01508d2d987d1"
             ]
           }
         },
@@ -29019,10 +29019,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1769450774,
+            "lastTimeChecked": 1769547340,
             "possibleDuplicates": [
-              "19bfb7c297b980eb",
-              "19bfb6365ac665f9"
+              "19c0193139306f27",
+              "19c00f7d5de22020"
             ]
           }
         }
@@ -29586,24 +29586,25 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-01-26T16:11:22.647Z",
+      "updatedAt": "2026-01-27T16:01:57.476Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
           "parameters": {
             "events": [
-              "invoice.payment_succeeded"
+              "payment_intent.payment_failed",
+              "payment_intent.succeeded"
             ]
           },
           "type": "n8n-nodes-base.stripeTrigger",
           "typeVersion": 1,
           "position": [
-            -832,
-            -64
+            -1120,
+            -160
           ],
           "id": "519f674c-1a68-4776-beb6-c13ba10f0ac5",
           "name": "Stripe Trigger",
@@ -29617,7 +29618,187 @@
         },
         {
           "parameters": {
-            "operation": "append",
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "thiago.pacioni@midiacode.tech",
+            "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
+            "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            -480,
+            -176
+          ],
+          "id": "a036e574-c10f-466c-b455-ee059ba4adff",
+          "name": "Send email",
+          "webhookId": "6b31f3ca-bf14-4451-bfce-581c4a2738f2",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "a7d6e4d1-cee2-4c7f-bb9f-02ba4c89b879",
+                  "name": "Cliente",
+                  "value": "= {{ $json.data.object.charges.data[0].billing_details.name }}",
+                  "type": "string"
+                },
+                {
+                  "id": "c4e5274a-9105-4ed5-a27a-dcdce6ae83cf",
+                  "name": "E-mail Cliente",
+                  "value": "={{ $json.data.object.charges.data[0].billing_details.email }}",
+                  "type": "string"
+                },
+                {
+                  "id": "e88c793b-8d13-48a4-8854-881e6695335b",
+                  "name": "Valor ",
+                  "value": "={{ $json.data.object.amount/100 }}",
+                  "type": "number"
+                },
+                {
+                  "id": "a84e236b-1a88-46dc-ac4b-f63e208c0691",
+                  "name": "Moeda",
+                  "value": "={{ $json.data.object.charges.data[0].currency.toUpperCase() }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -880,
+            -96
+          ],
+          "id": "134dacbb-3b92-4a89-b157-4766b05201a3",
+          "name": "Edit Fields"
+        },
+        {
+          "parameters": {
+            "includeTime": false,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dateTime",
+          "typeVersion": 2,
+          "position": [
+            -320,
+            -176
+          ],
+          "id": "25679187-9b41-4e67-ae3b-5030b3d74c9a",
+          "name": "Date & Time"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "261558d8-3779-44a4-b5a7-08b6d5c609ea",
+                  "leftValue": "={{ $('Stripe Trigger').item.json.type }}",
+                  "rightValue": "payment_intent.succeeded",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -720,
+            -128
+          ],
+          "id": "a300a190-ad98-41dd-b755-52b94b321e05",
+          "name": "If"
+        },
+        {
+          "parameters": {
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "thiago.pacioni@midiacode.tech",
+            "subject": "=Falhou stripe  {{ $('Edit Fields').item.json.Cliente }} ",
+            "html": "=Pgto cliente  {{ $('Edit Fields').item.json.Cliente }} falhou ({{ $('Stripe Trigger').item.json.data.object.last_payment_error.type }})",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            -576,
+            64
+          ],
+          "id": "e904a054-f97e-492f-8e4a-0dc8978dbde3",
+          "name": "Send email1",
+          "webhookId": "d46ea7bd-d416-4510-babb-57efb3b15033",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "0da4b3e4-8b34-4ecb-a440-cc06af1b733f",
+                  "name": "currentDate",
+                  "value": "={{ $json.formattedDate }}",
+                  "type": "string"
+                },
+                {
+                  "id": "174903e6-5712-43ec-9115-dec361f78519",
+                  "name": "Competencia ",
+                  "value": "={{ $now.format('MM/yyyy') }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -32,
+            -176
+          ],
+          "id": "91d17b73-3397-44a7-8ebf-8b1acf6668b4",
+          "name": "Edit Fields1"
+        },
+        {
+          "parameters": {
+            "operation": "formatDate",
+            "date": "={{ $json.currentDate }}",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dateTime",
+          "typeVersion": 2,
+          "position": [
+            -176,
+            -176
+          ],
+          "id": "8359bf0f-366c-41aa-88c2-b3b541dda6af",
+          "name": "Date & Time1"
+        },
+        {
+          "parameters": {
+            "operation": "appendOrUpdate",
             "documentId": {
               "__rl": true,
               "value": "[REDACTED]",
@@ -29634,8 +29815,19 @@
             },
             "columns": {
               "mappingMode": "defineBelow",
-              "value": {},
-              "matchingColumns": [],
+              "value": {
+                "cliente": "={{ $('Edit Fields').item.json.Cliente }}",
+                "data_pagamento": "={{ $json.currentDate }}",
+                "moeda": "={{ $('Edit Fields').item.json.Moeda }}",
+                "valor": "={{ $('Edit Fields').item.json['Valor '] }}",
+                "Cobrança": "Stripe",
+                "status": "Recebido",
+                "competencia": "={{ $json['Competencia '] }}",
+                "receita_id": "={{ $json.receita_id }}"
+              },
+              "matchingColumns": [
+                "receita_id"
+              ],
               "schema": [
                 {
                   "id": "receita_id",
@@ -29644,7 +29836,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "cliente_id",
@@ -29662,7 +29855,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "competencia",
@@ -29781,11 +29975,12 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -480,
-            -64
+            384,
+            -176
           ],
           "id": "a0f40166-116e-4a42-add2-68bc2114e97f",
-          "name": "Append row in sheet",
+          "name": "Append or update row in sheet",
+          "executeOnce": true,
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "Pq7AiEm7Pa3TvTE4",
@@ -29795,27 +29990,70 @@
         },
         {
           "parameters": {
-            "fromEmail": "adm@midiacode.tech",
-            "toEmail": "thiago.pacioni@midiacode.tech",
-            "subject": "Alerta do Stripe",
-            "html": "Fatura paga",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1345173509,
+              "mode": "list",
+              "cachedResultName": "RECEITAS",
+              "cachedResultUrl": "[REDACTED]"
+            },
             "options": {}
           },
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 2.1,
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
           "position": [
-            -672,
-            -64
+            96,
+            -176
           ],
-          "id": "a036e574-c10f-466c-b455-ee059ba4adff",
-          "name": "Send email",
-          "webhookId": "6b31f3ca-bf14-4451-bfce-581c4a2738f2",
+          "id": "2d16c2b0-e787-4d6c-89a5-edab8d149fff",
+          "name": "Get row(s) in sheet",
           "credentials": {
-            "smtp": {
-              "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP from contact@ooniverse.ai"
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "63bd3a93-ae32-4b54-afdc-79bb0815a7d7",
+                  "leftValue": "={{ $json.status }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "empty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            224,
+            -176
+          ],
+          "id": "792c9f5f-7d84-4ada-b4f2-f627364b46b4",
+          "name": "Filter"
         }
       ],
       "connections": {
@@ -29823,23 +30061,107 @@
           "main": [
             [
               {
-                "node": "Send email",
+                "node": "Edit Fields",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Append row in sheet": {
-          "main": [
-            []
-          ]
-        },
         "Send email": {
           "main": [
             [
               {
-                "node": "Append row in sheet",
+                "node": "Date & Time",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Date & Time": {
+          "main": [
+            [
+              {
+                "node": "Date & Time1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Send email",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Send email1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields1": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Date & Time1": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append or update row in sheet": {
+          "main": [
+            []
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Filter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter": {
+          "main": [
+            [
+              {
+                "node": "Append or update row in sheet",
                 "type": "main",
                 "index": 0
               }
@@ -29850,14 +30172,23 @@
       "settings": {
         "executionOrder": "v1"
       },
-      "staticData": null,
+      "staticData": {
+        "node:Stripe Trigger": {
+          "webhookId": "[REDACTED]",
+          "webhookEvents": [
+            "payment_intent.payment_failed",
+            "payment_intent.succeeded"
+          ],
+          "webhookSecret": "[REDACTED]"
+        }
+      },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "9d337a8c-9425-4fbb-9a3c-78892c596e3d",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "versionId": "a3009969-fba4-45f6-84ec-bb87225ce599",
+      "activeVersionId": "a3009969-fba4-45f6-84ec-bb87225ce599",
+      "triggerCount": 1,
       "shared": [
         {
           "updatedAt": "2026-01-26T15:39:06.003Z",
@@ -29867,7 +30198,592 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-01-27T16:01:57.478Z",
+        "createdAt": "2026-01-27T16:01:57.478Z",
+        "versionId": "a3009969-fba4-45f6-84ec-bb87225ce599",
+        "workflowId": "dDazWeP6mqdbOYUo",
+        "nodes": [
+          {
+            "parameters": {
+              "events": [
+                "payment_intent.payment_failed",
+                "payment_intent.succeeded"
+              ]
+            },
+            "type": "n8n-nodes-base.stripeTrigger",
+            "typeVersion": 1,
+            "position": [
+              -1120,
+              -160
+            ],
+            "id": "519f674c-1a68-4776-beb6-c13ba10f0ac5",
+            "name": "Stripe Trigger",
+            "webhookId": "5843ad0b-e6c8-441c-828e-6ff96f6077fb",
+            "credentials": {
+              "stripeApi": {
+                "id": "xGo5T4EH8tSXhNxe",
+                "name": "Stripe account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "thiago.pacioni@midiacode.tech",
+              "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
+              "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              -480,
+              -176
+            ],
+            "id": "a036e574-c10f-466c-b455-ee059ba4adff",
+            "name": "Send email",
+            "webhookId": "6b31f3ca-bf14-4451-bfce-581c4a2738f2",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "a7d6e4d1-cee2-4c7f-bb9f-02ba4c89b879",
+                    "name": "Cliente",
+                    "value": "= {{ $json.data.object.charges.data[0].billing_details.name }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "c4e5274a-9105-4ed5-a27a-dcdce6ae83cf",
+                    "name": "E-mail Cliente",
+                    "value": "={{ $json.data.object.charges.data[0].billing_details.email }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "e88c793b-8d13-48a4-8854-881e6695335b",
+                    "name": "Valor ",
+                    "value": "={{ $json.data.object.amount/100 }}",
+                    "type": "number"
+                  },
+                  {
+                    "id": "a84e236b-1a88-46dc-ac4b-f63e208c0691",
+                    "name": "Moeda",
+                    "value": "={{ $json.data.object.charges.data[0].currency.toUpperCase() }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -880,
+              -96
+            ],
+            "id": "134dacbb-3b92-4a89-b157-4766b05201a3",
+            "name": "Edit Fields"
+          },
+          {
+            "parameters": {
+              "includeTime": false,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dateTime",
+            "typeVersion": 2,
+            "position": [
+              -320,
+              -176
+            ],
+            "id": "25679187-9b41-4e67-ae3b-5030b3d74c9a",
+            "name": "Date & Time"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "261558d8-3779-44a4-b5a7-08b6d5c609ea",
+                    "leftValue": "={{ $('Stripe Trigger').item.json.type }}",
+                    "rightValue": "payment_intent.succeeded",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -720,
+              -128
+            ],
+            "id": "a300a190-ad98-41dd-b755-52b94b321e05",
+            "name": "If"
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "thiago.pacioni@midiacode.tech",
+              "subject": "=Falhou stripe  {{ $('Edit Fields').item.json.Cliente }} ",
+              "html": "=Pgto cliente  {{ $('Edit Fields').item.json.Cliente }} falhou ({{ $('Stripe Trigger').item.json.data.object.last_payment_error.type }})",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              -576,
+              64
+            ],
+            "id": "e904a054-f97e-492f-8e4a-0dc8978dbde3",
+            "name": "Send email1",
+            "webhookId": "d46ea7bd-d416-4510-babb-57efb3b15033",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "0da4b3e4-8b34-4ecb-a440-cc06af1b733f",
+                    "name": "currentDate",
+                    "value": "={{ $json.formattedDate }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "174903e6-5712-43ec-9115-dec361f78519",
+                    "name": "Competencia ",
+                    "value": "={{ $now.format('MM/yyyy') }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -32,
+              -176
+            ],
+            "id": "91d17b73-3397-44a7-8ebf-8b1acf6668b4",
+            "name": "Edit Fields1"
+          },
+          {
+            "parameters": {
+              "operation": "formatDate",
+              "date": "={{ $json.currentDate }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.dateTime",
+            "typeVersion": 2,
+            "position": [
+              -176,
+              -176
+            ],
+            "id": "8359bf0f-366c-41aa-88c2-b3b541dda6af",
+            "name": "Date & Time1"
+          },
+          {
+            "parameters": {
+              "operation": "appendOrUpdate",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 1345173509,
+                "mode": "list",
+                "cachedResultName": "RECEITAS",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "cliente": "={{ $('Edit Fields').item.json.Cliente }}",
+                  "data_pagamento": "={{ $json.currentDate }}",
+                  "moeda": "={{ $('Edit Fields').item.json.Moeda }}",
+                  "valor": "={{ $('Edit Fields').item.json['Valor '] }}",
+                  "Cobrança": "Stripe",
+                  "status": "Recebido",
+                  "competencia": "={{ $json['Competencia '] }}",
+                  "receita_id": "={{ $json.receita_id }}"
+                },
+                "matchingColumns": [
+                  "receita_id"
+                ],
+                "schema": [
+                  {
+                    "id": "receita_id",
+                    "displayName": "receita_id",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "cliente_id",
+                    "displayName": "cliente_id",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "cliente",
+                    "displayName": "cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "competencia",
+                    "displayName": "competencia",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "vencimento",
+                    "displayName": "vencimento",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "data_pagamento",
+                    "displayName": "data_pagamento",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Conta",
+                    "displayName": "Conta",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "moeda",
+                    "displayName": "moeda",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "valor",
+                    "displayName": "valor",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "tipo_receita",
+                    "displayName": "tipo_receita",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Categoria",
+                    "displayName": "Categoria",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Cobrança",
+                    "displayName": "Cobrança",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "observacoes_nf",
+                    "displayName": "observacoes_nf",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Dias Venc.",
+                    "displayName": "Dias Venc.",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              384,
+              -176
+            ],
+            "id": "a0f40166-116e-4a42-add2-68bc2114e97f",
+            "name": "Append or update row in sheet",
+            "executeOnce": true,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 1345173509,
+                "mode": "list",
+                "cachedResultName": "RECEITAS",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              96,
+              -176
+            ],
+            "id": "2d16c2b0-e787-4d6c-89a5-edab8d149fff",
+            "name": "Get row(s) in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "63bd3a93-ae32-4b54-afdc-79bb0815a7d7",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              224,
+              -176
+            ],
+            "id": "792c9f5f-7d84-4ada-b4f2-f627364b46b4",
+            "name": "Filter"
+          }
+        ],
+        "connections": {
+          "Stripe Trigger": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Send email": {
+            "main": [
+              [
+                {
+                  "node": "Date & Time",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields": {
+            "main": [
+              [
+                {
+                  "node": "If",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Date & Time": {
+            "main": [
+              [
+                {
+                  "node": "Date & Time1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If": {
+            "main": [
+              [
+                {
+                  "node": "Send email",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Send email1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields1": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Date & Time1": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Append or update row in sheet": {
+            "main": [
+              []
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Filter",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter": {
+            "main": [
+              [
+                {
+                  "node": "Append or update row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "authors": "Robson Lisboa",
+        "name": null,
+        "description": null
+      },
       "tags": []
     },
     {
@@ -43785,7 +44701,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1563
+          "lastMessageUid": 1566
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

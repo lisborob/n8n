@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "updatedAt": "2026-01-29T15:45:09.745Z",
+      "updatedAt": "2026-01-30T10:06:59.396Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -91,6 +91,10 @@
                 {
                   "lookupColumn": "status",
                   "lookupValue": "Em Aberto"
+                },
+                {
+                  "lookupColumn": "Cobrança",
+                  "lookupValue": "Boleto"
                 }
               ]
             },
@@ -755,14 +759,18 @@
       "settings": {
         "executionOrder": "v1"
       },
-      "staticData": null,
+      "staticData": {
+        "node:Gatilho diário": {
+          "recurrenceRules": []
+        }
+      },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "00605717-cbde-4eca-9ecf-15ef9dd15d69",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "versionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
+      "activeVersionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
+      "triggerCount": 1,
       "shared": [
         {
           "updatedAt": "2026-01-19T16:53:47.369Z",
@@ -772,7 +780,764 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-01-30T08:41:47.128Z",
+        "createdAt": "2026-01-30T08:41:47.128Z",
+        "versionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
+        "workflowId": "4kFZ05E1mzXgyAjB",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 10
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -1120,
+              -336
+            ],
+            "id": "1f0763b4-c263-4bcc-8cbd-07d6f75f9623",
+            "name": "Gatilho diário"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bafddba8-1217-4f76-b82b-d406b8876b83",
+                    "leftValue": "={{ $json['Dias Venc.'] }}",
+                    "rightValue": 5,
+                    "operator": {
+                      "type": "number",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  },
+                  {
+                    "id": "3372965f-ba59-4ddc-a9b6-f02d38d20fa0",
+                    "leftValue": "={{ $json['Cobrança'] }}",
+                    "rightValue": "Boleto",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -704,
+              -352
+            ],
+            "id": "e7ae6ef4-c3fd-497e-bf8f-81976b77db7d",
+            "name": "Filter Dias Venc."
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 1345173509,
+                "mode": "list",
+                "cachedResultName": "RECEITAS",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "status",
+                    "lookupValue": "Em Aberto"
+                  },
+                  {
+                    "lookupColumn": "Cobrança",
+                    "lookupValue": "Boleto"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -896,
+              -336
+            ],
+            "id": "33e82e76-997c-42d2-9b44-07eadec60496",
+            "name": "Get row(s) Em Aberto",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rules": {
+                "values": [
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": 5,
+                          "operator": {
+                            "type": "number",
+                            "operation": "equals"
+                          },
+                          "id": "3af0cc4d-0e15-46fb-be77-b71122666525"
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "id": "3851331e-6035-4505-ab65-31d38f78211a",
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": 0,
+                          "operator": {
+                            "type": "number",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "id": "17e0b16f-7339-48f6-b7e2-5536dba197b0",
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": -3,
+                          "operator": {
+                            "type": "number",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "id": "a781bac2-15e6-446a-8987-956ebf210f21",
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": -15,
+                          "operator": {
+                            "type": "number",
+                            "operation": "equals"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    }
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 3.4,
+            "position": [
+              -480,
+              -384
+            ],
+            "id": "1a9353cb-73c6-42f4-bc8d-3e2d22be7268",
+            "name": "Dias venc."
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "9f011cd7-c369-45d2-8f13-76ea2201627d",
+                    "name": "Assunto",
+                    "value": "=🗓️Lembrete de Vencimento: Sua mensalidade Midiacode de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence em 5 dias",
+                    "type": "string"
+                  },
+                  {
+                    "id": "630ee297-2f56-4235-9f79-1a5f030fb1d0",
+                    "name": "E-mail",
+                    "value": "=Olá! Esperamos que esteja tudo bem. \n\nPassando apenas para lembrar que seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor.format() }} vence no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nProgramar o pagamento antecipado garante a continuidade dos seus serviços sem interrupções. \n\nCaso precise de uma segunda via, estamos à disposição! ",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -256,
+              -592
+            ],
+            "id": "d7d323fc-d433-4bf1-b5c7-4924b9b8bdb9",
+            "name": "Lembrete"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "95278bef-e74b-4ba2-b466-149eb8cdebf8",
+                    "name": "Assunto",
+                    "value": "ATRASOU: Pendência financeira Midiacode",
+                    "type": "string"
+                  },
+                  {
+                    "id": "7fb30dd5-cafc-4505-9723-3a80e00eb659",
+                    "name": "E-mail",
+                    "value": "=Olá, espero que esteja bem! \n\nEstou passando apenas para confirmar se o pagamento da mensalidade de R${{ $('Get row(s) Em Aberto').item.json.valor }}, com vencimento em {{ $('Filter Dias Venc.').item.json.vencimento }}, foi realizado. \n\nAté o momento não identifiquei a baixa aqui no sistema e, por isso, preferi confirmar contigo. \n\nSe o pagamento já foi feito, por favor desconsidere esta mensagem (e, se possível, envie-me o comprovante). Caso ainda esteja em aberto, poderia me informar a previsão?\"",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -272,
+              -288
+            ],
+            "id": "4347f8de-4d0d-4f5c-b711-0d2ab33ae528",
+            "name": "Atrasou"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "5d610aa8-90b0-4542-85c4-1b797f398cbc",
+                    "name": "Assunto",
+                    "value": "NOTIFICAÇÃO: Suspensão de serviços Midiacode em 15 dias ",
+                    "type": "string"
+                  },
+                  {
+                    "id": "60a57abe-ca24-4f28-85f7-3f0902dc4ebf",
+                    "name": "E-mail",
+                    "value": "=ALERTA DE SUSPENSÃO DE SERVIÇO: Seu boleto venceu no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nConforme previsto em contrato, estamos notificando que, caso o pagamento da mensalidade não seja identificado nos próximos 15 dias (totalizando 30 dias de atraso), sua licença da PLATAFORMA e dos CONTEÚDOS DIGITAIS será suspensa. \n\nEvite a interrupção do seu serviço regularizando sua situação agora. ",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -304,
+              -144
+            ],
+            "id": "3d1a24bc-6ee1-4a03-b312-8a7c4784b1a7",
+            "name": "Alerta"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "f70ad0a4-11f6-4a0a-9cd5-071276f97d0b",
+                    "name": "Assunto",
+                    "value": "⏳ Vence Hoje: Mensalidade Midiacode",
+                    "type": "string"
+                  },
+                  {
+                    "id": "f5aa6b94-a80b-4dee-8297-e1902bff1ac6",
+                    "name": "E-mail",
+                    "value": "=NÃO ESQUEÇA: Seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence hoje! \n\nEvite pendências realizando o pagamento até o fim do dia. \n\nSe tiver qualquer problema com o pagamento, fale conosco agora mesmo. ",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -240,
+              -432
+            ],
+            "id": "4d6a6534-3e0a-4c33-9228-5644e6cdbcfd",
+            "name": "Aviso"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "cliente_id",
+                    "lookupValue": "={{ $('Dias venc.').item.json.cliente_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -32,
+              -288
+            ],
+            "id": "8836d4f6-939c-484e-8927-7956ec10b000",
+            "name": "Cliente ID2",
+            "executeOnce": false,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "cliente_id",
+                    "lookupValue": "={{ $('Dias venc.').item.json.cliente_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -64,
+              -128
+            ],
+            "id": "aa868795-fe32-4665-b4bb-a2762e2ad858",
+            "name": "Cliente ID3",
+            "executeOnce": false,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "=thiagopacioni@gmail.com",
+              "subject": "={{ $('Lembrete').item.json.Assunto }}",
+              "html": "={{ $('Lembrete').item.json['E-mail'] }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              176,
+              -592
+            ],
+            "id": "817db644-beda-429f-ac9a-5ae98a053a42",
+            "name": "Send email",
+            "webhookId": "a08b3b7f-9a3c-4c6d-ada8-ab6470a362aa",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "thiagopacioni@gmail.com",
+              "subject": "={{ $('Aviso').item.json.Assunto }}",
+              "html": "={{ $('Aviso').item.json['E-mail'] }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              192,
+              -432
+            ],
+            "id": "8d9c16aa-ba08-4614-8a27-efa54513a898",
+            "name": "Send email1",
+            "webhookId": "a08b3b7f-9a3c-4c6d-ada8-ab6470a362aa",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "thiagopacioni@gmail.com",
+              "subject": "={{ $('Atrasou').item.json.Assunto }}",
+              "html": "={{ $('Atrasou').item.json['E-mail'] }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              192,
+              -288
+            ],
+            "id": "d20becce-7ee4-416e-be5f-663be0fb9efe",
+            "name": "Send email2",
+            "webhookId": "a08b3b7f-9a3c-4c6d-ada8-ab6470a362aa",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "thiagopacioni@gmail.com",
+              "subject": "={{ $('Alerta').item.json.Assunto }}",
+              "html": "={{ $('Alerta').item.json['E-mail'] }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              176,
+              -128
+            ],
+            "id": "2ccf6274-3a09-4a90-8730-a86a027059a2",
+            "name": "Send email3",
+            "webhookId": "a08b3b7f-9a3c-4c6d-ada8-ab6470a362aa",
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "cliente_id",
+                    "lookupValue": "={{ $('Dias venc.').item.json.cliente_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -32,
+              -592
+            ],
+            "id": "7eed4388-4f5c-4724-9399-c3e13654342a",
+            "name": "Dados Cliente",
+            "executeOnce": false,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "cliente_id",
+                    "lookupValue": "={{ $('Dias venc.').item.json.cliente_id }}"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -64,
+              -432
+            ],
+            "id": "c9acbf3b-9f9c-44c1-99a1-70b1081e7f4e",
+            "name": "Dados Cliente ID1",
+            "executeOnce": false,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "Gatilho diário": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) Em Aberto",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter Dias Venc.": {
+            "main": [
+              [
+                {
+                  "node": "Dias venc.",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) Em Aberto": {
+            "main": [
+              [
+                {
+                  "node": "Filter Dias Venc.",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Dias venc.": {
+            "main": [
+              [
+                {
+                  "node": "Lembrete",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Aviso",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Atrasou",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Alerta",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Lembrete": {
+            "main": [
+              [
+                {
+                  "node": "Dados Cliente",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Atrasou": {
+            "main": [
+              [
+                {
+                  "node": "Cliente ID2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Alerta": {
+            "main": [
+              [
+                {
+                  "node": "Cliente ID3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Aviso": {
+            "main": [
+              [
+                {
+                  "node": "Dados Cliente ID1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Cliente ID2": {
+            "main": [
+              [
+                {
+                  "node": "Send email2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Cliente ID3": {
+            "main": [
+              [
+                {
+                  "node": "Send email3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Dados Cliente": {
+            "main": [
+              [
+                {
+                  "node": "Send email",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Dados Cliente ID1": {
+            "main": [
+              [
+                {
+                  "node": "Send email1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "authors": "Robson Lisboa",
+        "name": null,
+        "description": null
+      },
       "tags": []
     },
     {
@@ -3339,10 +4104,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1769729572,
+            "lastTimeChecked": 1769809041,
             "possibleDuplicates": [
-              "19c0c1a3e9166d6b",
-              "19c0bb02b552e953"
+              "19c10d6da911c64b",
+              "19c108a046925aca"
             ]
           }
         },
@@ -29019,10 +29784,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1769714361,
+            "lastTimeChecked": 1769799871,
             "possibleDuplicates": [
-              "19c0b324aa892b08",
-              "19c0b2dbabd75bd4"
+              "19c104afb39ceeda",
+              "19c10439d82e7d8f"
             ]
           }
         }
@@ -44723,7 +45488,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1568
+          "lastMessageUid": 1571
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

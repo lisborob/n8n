@@ -4104,10 +4104,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1770765931,
+            "lastTimeChecked": 1770848512,
             "possibleDuplicates": [
-              "19c49e0287f22c4e",
-              "19c49c4f668f4c44"
+              "19c4ecbf54b275ad",
+              "19c4eb828f03bc92"
             ]
           }
         },
@@ -28127,6 +28127,38 @@
       ]
     },
     {
+      "updatedAt": "2026-02-11T15:31:45.581Z",
+      "createdAt": "2026-02-11T15:11:50.279Z",
+      "id": "SQ4YTolc8cXqIxgS",
+      "name": "teste Midiacode Nodes",
+      "active": false,
+      "isArchived": false,
+      "nodes": [],
+      "connections": {},
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "0308ea46-13dd-4d68-bc24-bf23472fe0d0",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-02-11T15:11:50.285Z",
+          "createdAt": "2026-02-11T15:11:50.285Z",
+          "role": "workflow:owner",
+          "workflowId": "SQ4YTolc8cXqIxgS",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
       "updatedAt": "2025-08-23T19:02:19.000Z",
       "createdAt": "2025-08-23T18:59:20.823Z",
       "id": "UBNd9OpM2Ld4FBDt",
@@ -29784,10 +29816,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1770751065,
+            "lastTimeChecked": 1770847165,
             "possibleDuplicates": [
-              "19c48fcfc31c653c",
-              "19c48f125bd1f0b8"
+              "19c4eb76dbdedbeb",
+              "19c4e2d680e2e2ff"
             ]
           }
         }
@@ -31574,7 +31606,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-11-28T16:02:48.000Z",
+      "updatedAt": "2026-02-11T15:08:16.900Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
@@ -31595,8 +31627,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -672,
-            16
+            -800,
+            -128
           ],
           "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
           "name": "Schedule Trigger"
@@ -31605,25 +31637,25 @@
           "parameters": {
             "documentId": {
               "__rl": true,
-              "value": "17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc",
+              "value": "[REDACTED]",
               "mode": "list",
-              "cachedResultName": "Cópia de Vencimento Contrato Clientes",
-              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit?usp=drivesdk"
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
-              "value": "gid=0",
+              "value": 835408503,
               "mode": "list",
-              "cachedResultName": "Clientes Ativos",
-              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit#gid=0"
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
             },
             "options": {}
           },
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -512,
-            16
+            -576,
+            -96
           ],
           "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
           "name": "Get row(s) in sheet",
@@ -31633,124 +31665,6 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 2
-              },
-              "conditions": [
-                {
-                  "id": "91dc34e8-1540-4c0a-95a7-86e65d841f82",
-                  "leftValue": "={{ $json['Vencimento Contrato'] }}",
-                  "rightValue": "=recorrente",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notEquals"
-                  }
-                },
-                {
-                  "id": "add7ca1a-35b0-47d3-a7b3-e9b01a2172bc",
-                  "leftValue": "={{ $json['Vencimento Contrato'] }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notEmpty",
-                    "singleValue": true
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.2,
-          "position": [
-            -368,
-            16
-          ],
-          "id": "9b41a6e1-f261-43f8-9588-87c73c885300",
-          "name": "Filter"
-        },
-        {
-          "parameters": {
-            "jsCode": "[REDACTED]"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -208,
-            16
-          ],
-          "id": "93809c6c-31aa-4a51-b175-99957ed2abd0",
-          "name": "Code in JavaScript2"
-        },
-        {
-          "parameters": {
-            "sendTo": "pacionithiago@gmail.com",
-            "subject": "=Vencimento Contrato - {{ $('Code in JavaScript3').item.json.nome_cliente_limpo }}",
-            "emailType": "text",
-            "message": "=Prezado(a),\n\nO contrato do cliente está próximo do vencimento.\n\nDetalhes:\n- Cliente: {{ $json.nome_cliente_limpo }}\n- Vencimento: {{ $json['Vencimento Contrato'] }}\n- **Dias Restantes: {{ $json.dias_para_vencer }} dias**\n- Valor: R${{ $json['Valor para emitir nota'] }}\n- Índice: {{ $json.indice_reajuste }}\n\nPor favor, inicie o processo de renegociação.\n\nhttps://n8n.ooniverse.ai/webhook-test/confirmar-renovacao\n\n\n",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            272,
-            16
-          ],
-          "id": "fae0f04d-2d8e-45c7-b07e-873c93f2bb9d",
-          "name": "Send a message",
-          "webhookId": "ccd9ea57-99b0-4896-9821-d3cfe7ef0461",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "SZbWN10XU5npdpxu",
-              "name": "Thiago - Gmail account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "operation": "sendAndWait",
-            "sendTo": "pacionithiago@gmail.com",
-            "subject": "=Vencimento contrato - {{ $json.nome_cliente_limpo }}",
-            "message": "=Prezado(a),\n\nO contrato do cliente está próximo do vencimento.\n\nDetalhes:\n- Cliente: {{ $json.nome_cliente_limpo }}\n- Vencimento: {{ $json['Vencimento Contrato'] }}\n- **Dias Restantes: {{ $json.dias_para_vencer }} dias**\n- Valor: R${{ $json['Valor para emitir nota'] }}\n- Índice: {{ $json.indice_reajuste }}\n\nPor favor, inicie o processo de renegociação.",
-            "responseType": "freeText",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            16,
-            -192
-          ],
-          "id": "3fa672cb-a2a8-424d-8639-25f2758cf4bd",
-          "name": "Send message and wait for response",
-          "webhookId": "db980121-aaa2-4627-99cf-033355b9974a",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "SZbWN10XU5npdpxu",
-              "name": "Thiago - Gmail account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "jsCode": "// Este nó assume que o item de entrada é o JSON completo do contrato\n// que já passou pela filtragem de data.\n\nfor (const item of $input.all()) {\n    const nomeCompleto = item.json[\"Cliente\"];\n    let nomeCliente = nomeCompleto;\n\n    if (nomeCompleto) {\n        // 1. Pega a primeira linha de texto (ignora quebras de linha)\n        let textoLimpo = nomeCompleto.split('\\n')[0].trim();\n        \n        // 2. Procura por separadores fortes (hífen, dois pontos, ou a palavra 'nf')\n        let separadorIndex = -1;\n        \n        // Tenta encontrar o primeiro hífen\n        separadorIndex = textoLimpo.indexOf('-');\n        \n        // Se não encontrar hífen, tenta encontrar dois pontos\n        if (separadorIndex === -1) {\n            separadorIndex = textoLimpo.indexOf(':');\n        }\n        \n        // Se encontrar um separador, pega o texto antes dele\n        if (separadorIndex !== -1) {\n            nomeCliente = textoLimpo.substring(0, separadorIndex).trim();\n        } else {\n            // Se não encontrar separador, tenta pegar o que está antes do primeiro e-mail\n            const regexEmail = /[^@]+@[^@]+\\.[^@]+/;\n            const matchEmail = textoLimpo.match(regexEmail);\n            \n            if (matchEmail) {\n                nomeCliente = textoLimpo.substring(0, matchEmail.index).trim();\n            } else {\n                // Se nada funcionar, usa a primeira linha inteira\n                nomeCliente = textoLimpo;\n            }\n        }\n        \n        // 3. Limpeza final de caracteres indesejados\n        nomeCliente = nomeCliente.replace(/[\\-–—:;]/g, '').trim();\n    }\n    \n    // Adiciona o nome limpo ao item\n    item.json.nome_cliente_limpo = nomeCliente;\n}\n\n// Retorna todos os itens com a nova propriedade\nreturn $input.all();\n"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -48,
-            16
-          ],
-          "id": "c4f123e9-00d4-44f1-aab3-8f7196751cee",
-          "name": "Code in JavaScript3"
         },
         {
           "parameters": {
@@ -31779,191 +31693,103 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.2,
           "position": [
-            112,
-            16
+            -64,
+            -336
           ],
           "id": "1b9dd5ee-2e24-4486-bfc6-db6e1d8ebbaa",
-          "name": "Filter1"
+          "name": "Filter1",
+          "disabled": true
         },
         {
           "parameters": {
-            "jsCode": "for (const item of $input.all()) {\n    const resposta = item.json.data.text; // A resposta do e-mail\n    const texto = resposta.toUpperCase();\n    \n    let valorAcordado = \"N/A\";\n    let indiceUsado = \"N/A\";\n    let statusRenovacao = \"Renovação Pendente\";\n\n    // 1. Extrair o Valor Acordado (Procura por R$ ou um número seguido de vírgula/ponto)\n    const regexValor = /(?:R\\$|\\s)(\\d{1,3}(?:\\.\\d{3})*,\\d{2})/;\n    const matchValor = resposta.match(regexValor);\n    if (matchValor) {\n        valorAcordado = matchValor[1];\n    } else {\n        // Tenta encontrar um número simples (ex: 500,00)\n        const regexValorSimples = /(\\d{1,}[,\\.]\\d{2})/;\n        const matchValorSimples = resposta.match(regexValorSimples);\n        if (matchValorSimples) {\n            valorAcordado = matchValorSimples[1];\n        }\n    }\n\n    // 2. Extrair o Índice Usado\n    const regexIndice = /(IPCA|IGP-M|IGPM|INPC)/;\n    const matchIndice = texto.match(regexIndice);\n    if (matchIndice) {\n        indiceUsado = matchIndice[1];\n    }\n\n    // 3. Definir o Status\n    if (texto.includes(\"APROVADO\") || texto.includes(\"ACORDADO\")) {\n        statusRenovacao = \"Renovação Aprovada\";\n    }\n\n    // Adiciona as novas propriedades ao item\n    item.json.novo_valor_acordado = valorAcordado;\n    item.json.indice_renovacao = indiceUsado;\n    item.json.status_renovacao = statusRenovacao;\n}\n\nreturn $input.all();\n"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -464,
-            176
-          ],
-          "id": "8d0d16e8-299c-4c01-8879-7079c43e4c11",
-          "name": "Code in JavaScript"
-        },
-        {
-          "parameters": {
-            "operation": "appendOrUpdate",
-            "documentId": {
-              "__rl": true,
-              "value": "17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc",
-              "mode": "list",
-              "cachedResultName": "Cópia de Vencimento Contrato Clientes",
-              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit?usp=drivesdk"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": "gid=0",
-              "mode": "list",
-              "cachedResultName": "Clientes Ativos",
-              "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17YY9fLJhG16_Zzab3dGnnZUKJxAwDOq-gExiCmcdYBc/edit#gid=0"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "Valor para emitir nota": "={{ $json.novo_valor_acordado }}",
-                "Cliente": "={{ $('Filter1').item.json.Cliente }}",
-                "Status": "=",
-                "Índice ": "={{ $json.indice_renovacao }}"
-              },
-              "matchingColumns": [
-                "Cliente"
-              ],
-              "schema": [
-                {
-                  "id": "Cliente",
-                  "displayName": "Cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "hubspot",
-                  "displayName": "hubspot",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Informações na nota",
-                  "displayName": "Informações na nota",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Vencimento Contrato",
-                  "displayName": "Vencimento Contrato",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Valor para emitir nota",
-                  "displayName": "Valor para emitir nota",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Vencimento boleto",
-                  "displayName": "Vencimento boleto",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "OBS",
-                  "displayName": "OBS",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Telefone",
-                  "displayName": "Telefone",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "email",
-                  "displayName": "email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Índice ",
-                  "displayName": "Índice ",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
+            "sendTo": "pacionithiago@gmail.com",
+            "subject": "=Vencimento Contrato - {{ $('Code in JavaScript3').item.json.nome_cliente_limpo }}",
+            "emailType": "text",
+            "message": "=Prezado(a),\n\nO contrato do cliente está próximo do vencimento.\n\nDetalhes:\n- Cliente: {{ $json.nome_cliente_limpo }}\n- Vencimento: {{ $json['Vencimento Contrato'] }}\n- **Dias Restantes: {{ $json.dias_para_vencer }} dias**\n- Valor: R${{ $json['Valor para emitir nota'] }}\n- Índice: {{ $json.indice_reajuste }}\n\nPor favor, inicie o processo de renegociação.\n\nhttps://n8n.ooniverse.ai/webhook-test/confirmar-renovacao\n\n\n",
             "options": {}
           },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.1,
           "position": [
-            -208,
-            176
+            528,
+            -208
           ],
-          "id": "6e17c1ec-d2a2-4702-b65d-c14716bdc52a",
-          "name": "Append or update row in sheet",
+          "id": "fae0f04d-2d8e-45c7-b07e-873c93f2bb9d",
+          "name": "Send a message",
+          "webhookId": "ccd9ea57-99b0-4896-9821-d3cfe7ef0461",
           "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
+            "gmailOAuth2": {
+              "id": "SZbWN10XU5npdpxu",
+              "name": "Thiago - Gmail account 2"
             }
           }
         },
         {
           "parameters": {
-            "path": "confirmar-renovacao",
-            "responseMode": "lastNode",
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "pacionithiago@gmail.com",
+            "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
+            "html": "=Olá,{{ $json.nom_fantasia }} ,\n\nEste é apenas um lembrete amigável de que seu contrato com  vence em 30 dias ({{ $json.cntrto_fim }}).\n\nSe desejar renovar ou tiver alguma dúvida sobre o encerramento, basta nos avisar por aqui.\n\nObrigado pela confiança!",
             "options": {}
           },
-          "type": "n8n-nodes-base.webhook",
+          "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -672,
-            176
+            -80,
+            -96
           ],
-          "id": "e5e367b7-42de-4f37-901d-ba0670d962cc",
-          "name": "Webhook",
-          "webhookId": "67d70545-9408-483a-a2f3-0652d2c313bf"
+          "id": "e28828e2-9885-42de-ab98-12a598b7122e",
+          "name": "Send email",
+          "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "6e75483b-ded3-4d4d-9f99-f7851966913b",
+                  "leftValue": "={{ $json['Dias Venc.'] }}",
+                  "rightValue": 0,
+                  "operator": {
+                    "type": "number",
+                    "operation": "exists",
+                    "singleValue": true
+                  }
+                },
+                {
+                  "id": "c65e2af1-46c6-4697-afc7-d822ab06775f",
+                  "leftValue": "={{ $json['Dias Venc.'] }}",
+                  "rightValue": 50,
+                  "operator": {
+                    "type": "number",
+                    "operation": "lt"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -352,
+            -96
+          ],
+          "id": "1083fe2b-39c2-4206-ac8b-f972279fe100",
+          "name": "Filter3"
         }
       ],
       "connections": {
@@ -31982,40 +31808,7 @@
           "main": [
             [
               {
-                "node": "Filter",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filter": {
-          "main": [
-            [
-              {
-                "node": "Code in JavaScript2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Code in JavaScript2": {
-          "main": [
-            [
-              {
-                "node": "Code in JavaScript3",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Code in JavaScript3": {
-          "main": [
-            [
-              {
-                "node": "Filter1",
+                "node": "Filter3",
                 "type": "main",
                 "index": 0
               }
@@ -32024,39 +31817,18 @@
         },
         "Filter1": {
           "main": [
+            []
+          ]
+        },
+        "Filter3": {
+          "main": [
             [
               {
-                "node": "Send a message",
+                "node": "Send email",
                 "type": "main",
                 "index": 0
               }
             ]
-          ]
-        },
-        "Send message and wait for response": {
-          "main": [
-            []
-          ]
-        },
-        "Code in JavaScript": {
-          "main": [
-            [
-              {
-                "node": "Append or update row in sheet",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Webhook": {
-          "main": [
-            []
-          ]
-        },
-        "Send a message": {
-          "main": [
-            []
           ]
         }
       },
@@ -32068,7 +31840,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "20d5b7dd-4310-4a6f-ab50-9df97fc96ab7",
+      "versionId": "fb63726a-d5a3-4f22-aba2-5b682ded54bc",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -45493,7 +45265,7 @@
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 149
+          "lastIndexChecked": 151
         }
       },
       "meta": {

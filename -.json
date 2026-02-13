@@ -4104,10 +4104,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1770848512,
+            "lastTimeChecked": 1770935666,
             "possibleDuplicates": [
-              "19c4ecbf54b275ad",
-              "19c4eb828f03bc92"
+              "19c53fdd5b4eea09",
+              "19c53992bc16d9c1"
             ]
           }
         },
@@ -29816,10 +29816,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1770847165,
+            "lastTimeChecked": 1770940198,
             "possibleDuplicates": [
-              "19c4eb76dbdedbeb",
-              "19c4e2d680e2e2ff"
+              "19c5442ee43d8387",
+              "19c5393004ed5463"
             ]
           }
         }
@@ -31606,7 +31606,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-11T15:08:16.900Z",
+      "updatedAt": "2026-02-12T17:25:29.645Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
@@ -31627,8 +31627,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -800,
-            -128
+            -864,
+            -208
           ],
           "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
           "name": "Schedule Trigger"
@@ -31654,8 +31654,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -576,
-            -96
+            -624,
+            -192
           ],
           "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
           "name": "Get row(s) in sheet",
@@ -31668,79 +31668,25 @@
         },
         {
           "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 2
-              },
-              "conditions": [
-                {
-                  "id": "85b5c47c-04d7-48b4-8264-58b194fc494c",
-                  "leftValue": "={{ $json['Valor para emitir nota'] }}",
-                  "rightValue": 490,
-                  "operator": {
-                    "type": "number",
-                    "operation": "lt"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.2,
-          "position": [
-            -64,
-            -336
-          ],
-          "id": "1b9dd5ee-2e24-4486-bfc6-db6e1d8ebbaa",
-          "name": "Filter1",
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "sendTo": "pacionithiago@gmail.com",
-            "subject": "=Vencimento Contrato - {{ $('Code in JavaScript3').item.json.nome_cliente_limpo }}",
-            "emailType": "text",
-            "message": "=Prezado(a),\n\nO contrato do cliente está próximo do vencimento.\n\nDetalhes:\n- Cliente: {{ $json.nome_cliente_limpo }}\n- Vencimento: {{ $json['Vencimento Contrato'] }}\n- **Dias Restantes: {{ $json.dias_para_vencer }} dias**\n- Valor: R${{ $json['Valor para emitir nota'] }}\n- Índice: {{ $json.indice_reajuste }}\n\nPor favor, inicie o processo de renegociação.\n\nhttps://n8n.ooniverse.ai/webhook-test/confirmar-renovacao\n\n\n",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.gmail",
-          "typeVersion": 2.1,
-          "position": [
-            528,
-            -208
-          ],
-          "id": "fae0f04d-2d8e-45c7-b07e-873c93f2bb9d",
-          "name": "Send a message",
-          "webhookId": "ccd9ea57-99b0-4896-9821-d3cfe7ef0461",
-          "credentials": {
-            "gmailOAuth2": {
-              "id": "SZbWN10XU5npdpxu",
-              "name": "Thiago - Gmail account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
             "fromEmail": "adm@midiacode.tech",
             "toEmail": "pacionithiago@gmail.com",
             "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
-            "html": "=Olá,{{ $json.nom_fantasia }} ,\n\nEste é apenas um lembrete amigável de que seu contrato com  vence em 30 dias ({{ $json.cntrto_fim }}).\n\nSe desejar renovar ou tiver alguma dúvida sobre o encerramento, basta nos avisar por aqui.\n\nObrigado pela confiança!",
-            "options": {}
+            "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEste é apenas um lembrete de que seu contrato vence em {{ $json['Dias Venc.'] }} dias ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!",
+            "options": {
+              "appendAttribution": false,
+              "ccEmail": "thiagopacioni@gmail.com"
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -80,
-            -96
+            16,
+            -48
           ],
           "id": "e28828e2-9885-42de-ab98-12a598b7122e",
           "name": "Send email",
           "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
+          "notesInFlow": false,
           "credentials": {
             "smtp": {
               "id": "opD4ihPIsdqEaeeI",
@@ -31785,11 +31731,104 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -352,
-            -96
+            -432,
+            -192
           ],
           "id": "1083fe2b-39c2-4206-ac8b-f972279fe100",
           "name": "Filter3"
+        },
+        {
+          "parameters": {
+            "rules": {
+              "values": [
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 3
+                    },
+                    "conditions": [
+                      {
+                        "leftValue": "={{ $json['Dias Venc.'] }}",
+                        "rightValue": -1,
+                        "operator": {
+                          "type": "number",
+                          "operation": "lte"
+                        },
+                        "id": "4d735451-604f-41eb-97f1-364bd1a43149"
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "Venceu"
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 3
+                    },
+                    "conditions": [
+                      {
+                        "id": "95ea98c0-ba73-4863-bf40-d2e1512887ad",
+                        "leftValue": "={{ $json['Dias Venc.'] }}",
+                        "rightValue": 0,
+                        "operator": {
+                          "type": "number",
+                          "operation": "gte"
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  },
+                  "renameOutput": true,
+                  "outputKey": "Vencerá"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.switch",
+          "typeVersion": 3.4,
+          "position": [
+            -224,
+            -192
+          ],
+          "id": "73b19d46-d04e-41f2-9022-6ccb83fc178e",
+          "name": "Switch"
+        },
+        {
+          "parameters": {
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "pacionithiago@gmail.com",
+            "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
+            "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEstamos entrando em contato, pois verificamos que seu contrato venceu em ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!\n\nAtenciosamente,",
+            "options": {
+              "appendAttribution": false,
+              "ccEmail": "thiagopacioni@gmail.com"
+            }
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            16,
+            -288
+          ],
+          "id": "2b09cf43-4308-4dc4-a2bb-3066e5d4d3cd",
+          "name": "Send email1",
+          "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
+          "notesInFlow": false,
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
         }
       ],
       "connections": {
@@ -31815,13 +31854,26 @@
             ]
           ]
         },
-        "Filter1": {
-          "main": [
-            []
-          ]
-        },
         "Filter3": {
           "main": [
+            [
+              {
+                "node": "Switch",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Switch": {
+          "main": [
+            [
+              {
+                "node": "Send email1",
+                "type": "main",
+                "index": 0
+              }
+            ],
             [
               {
                 "node": "Send email",
@@ -31840,7 +31892,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "fb63726a-d5a3-4f22-aba2-5b682ded54bc",
+      "versionId": "29ec3b03-a2bb-4113-bafa-17beb70bccac",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -45260,12 +45312,12 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1584
+          "lastMessageUid": 1585
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 151
+          "lastIndexChecked": 149
         }
       },
       "meta": {

@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-01-30T10:06:59.396Z",
+      "updatedAt": "2026-02-13T10:27:07.158Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -233,7 +233,7 @@
                 {
                   "id": "630ee297-2f56-4235-9f79-1a5f030fb1d0",
                   "name": "E-mail",
-                  "value": "=Olá! Esperamos que esteja tudo bem. \n\nPassando apenas para lembrar que seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor.format() }} vence no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nProgramar o pagamento antecipado garante a continuidade dos seus serviços sem interrupções. \n\nCaso precise de uma segunda via, estamos à disposição! ",
+                  "value": "=Olá! Esperamos que esteja tudo bem. <br><br>\n\nPassando apenas para lembrar que seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor.format() }} vence no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. <br><br>\n\nProgramar o pagamento antecipado garante a continuidade dos seus serviços sem interrupções. <br><br>\n\nCaso precise de uma segunda via, estamos à disposição! <br><br>\n\nAtenciosamente,\n",
                   "type": "string"
                 }
               ]
@@ -262,7 +262,7 @@
                 {
                   "id": "7fb30dd5-cafc-4505-9723-3a80e00eb659",
                   "name": "E-mail",
-                  "value": "=Olá, espero que esteja bem! \n\nEstou passando apenas para confirmar se o pagamento da mensalidade de R${{ $('Get row(s) Em Aberto').item.json.valor }}, com vencimento em {{ $('Filter Dias Venc.').item.json.vencimento }}, foi realizado. \n\nAté o momento não identifiquei a baixa aqui no sistema e, por isso, preferi confirmar contigo. \n\nSe o pagamento já foi feito, por favor desconsidere esta mensagem (e, se possível, envie-me o comprovante). Caso ainda esteja em aberto, poderia me informar a previsão?\"",
+                  "value": "=Olá, espero que esteja bem! <br><br>\n\nEstou passando apenas para confirmar se o pagamento da mensalidade de R${{ $('Get row(s) Em Aberto').item.json.valor }}, com vencimento em {{ $('Filter Dias Venc.').item.json.vencimento }}, foi realizado. <br><br>\n\nAté o momento não identifiquei a baixa aqui no sistema e, por isso, preferi confirmar contigo. <br><br>\n\nSe o pagamento já foi feito, por favor desconsidere esta mensagem (e, se possível, envie-me o comprovante). Caso ainda esteja em aberto, poderia me informar a previsão? <br><br>\n\nAtenciosamente",
                   "type": "string"
                 }
               ]
@@ -291,7 +291,7 @@
                 {
                   "id": "60a57abe-ca24-4f28-85f7-3f0902dc4ebf",
                   "name": "E-mail",
-                  "value": "=ALERTA DE SUSPENSÃO DE SERVIÇO: Seu boleto venceu no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nConforme previsto em contrato, estamos notificando que, caso o pagamento da mensalidade não seja identificado nos próximos 15 dias (totalizando 30 dias de atraso), sua licença da PLATAFORMA e dos CONTEÚDOS DIGITAIS será suspensa. \n\nEvite a interrupção do seu serviço regularizando sua situação agora. ",
+                  "value": "=ALERTA DE SUSPENSÃO DE SERVIÇO: Seu boleto venceu no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}.<br><br> \n\nConforme previsto em contrato, estamos notificando que, caso o pagamento da mensalidade não seja identificado nos próximos 15 dias (totalizando 30 dias de atraso), sua licença da PLATAFORMA e dos CONTEÚDOS DIGITAIS será suspensa. <br><br>\n\nEvite a interrupção do seu serviço regularizando sua situação agora. <br><br>\n\nAtenciosamente,",
                   "type": "string"
                 }
               ]
@@ -320,7 +320,7 @@
                 {
                   "id": "f5aa6b94-a80b-4dee-8297-e1902bff1ac6",
                   "name": "E-mail",
-                  "value": "=NÃO ESQUEÇA: Seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence hoje! \n\nEvite pendências realizando o pagamento até o fim do dia. \n\nSe tiver qualquer problema com o pagamento, fale conosco agora mesmo. ",
+                  "value": "=NÃO ESQUEÇA: Seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence hoje! <br><br>\n\nEvite pendências realizando o pagamento até o fim do dia. <br><br>\n\nSe tiver qualquer problema com o pagamento, fale conosco agora mesmo. <br><br>\n\nAtenciosamente,",
                   "type": "string"
                 }
               ]
@@ -426,7 +426,9 @@
             "toEmail": "=thiagopacioni@gmail.com",
             "subject": "={{ $('Lembrete').item.json.Assunto }}",
             "html": "={{ $('Lembrete').item.json['E-mail'] }}",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -450,7 +452,9 @@
             "toEmail": "thiagopacioni@gmail.com",
             "subject": "={{ $('Aviso').item.json.Assunto }}",
             "html": "={{ $('Aviso').item.json['E-mail'] }}",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -474,7 +478,9 @@
             "toEmail": "thiagopacioni@gmail.com",
             "subject": "={{ $('Atrasou').item.json.Assunto }}",
             "html": "={{ $('Atrasou').item.json['E-mail'] }}",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -498,7 +504,9 @@
             "toEmail": "thiagopacioni@gmail.com",
             "subject": "={{ $('Alerta').item.json.Assunto }}",
             "html": "={{ $('Alerta').item.json['E-mail'] }}",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -768,8 +776,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
-      "activeVersionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
+      "versionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
+      "activeVersionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
       "triggerCount": 1,
       "shared": [
         {
@@ -781,9 +789,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-30T08:41:47.128Z",
-        "createdAt": "2026-01-30T08:41:47.128Z",
-        "versionId": "32e5801b-44c9-45e3-9b87-1e441610c9a2",
+        "updatedAt": "2026-02-13T10:27:07.162Z",
+        "createdAt": "2026-02-13T10:27:07.162Z",
+        "versionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
         "workflowId": "4kFZ05E1mzXgyAjB",
         "nodes": [
           {
@@ -1011,7 +1019,7 @@
                   {
                     "id": "630ee297-2f56-4235-9f79-1a5f030fb1d0",
                     "name": "E-mail",
-                    "value": "=Olá! Esperamos que esteja tudo bem. \n\nPassando apenas para lembrar que seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor.format() }} vence no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nProgramar o pagamento antecipado garante a continuidade dos seus serviços sem interrupções. \n\nCaso precise de uma segunda via, estamos à disposição! ",
+                    "value": "=Olá! Esperamos que esteja tudo bem. <br><br>\n\nPassando apenas para lembrar que seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor.format() }} vence no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. <br><br>\n\nProgramar o pagamento antecipado garante a continuidade dos seus serviços sem interrupções. <br><br>\n\nCaso precise de uma segunda via, estamos à disposição! <br><br>\n\nAtenciosamente,\n",
                     "type": "string"
                   }
                 ]
@@ -1040,7 +1048,7 @@
                   {
                     "id": "7fb30dd5-cafc-4505-9723-3a80e00eb659",
                     "name": "E-mail",
-                    "value": "=Olá, espero que esteja bem! \n\nEstou passando apenas para confirmar se o pagamento da mensalidade de R${{ $('Get row(s) Em Aberto').item.json.valor }}, com vencimento em {{ $('Filter Dias Venc.').item.json.vencimento }}, foi realizado. \n\nAté o momento não identifiquei a baixa aqui no sistema e, por isso, preferi confirmar contigo. \n\nSe o pagamento já foi feito, por favor desconsidere esta mensagem (e, se possível, envie-me o comprovante). Caso ainda esteja em aberto, poderia me informar a previsão?\"",
+                    "value": "=Olá, espero que esteja bem! <br><br>\n\nEstou passando apenas para confirmar se o pagamento da mensalidade de R${{ $('Get row(s) Em Aberto').item.json.valor }}, com vencimento em {{ $('Filter Dias Venc.').item.json.vencimento }}, foi realizado. <br><br>\n\nAté o momento não identifiquei a baixa aqui no sistema e, por isso, preferi confirmar contigo. <br><br>\n\nSe o pagamento já foi feito, por favor desconsidere esta mensagem (e, se possível, envie-me o comprovante). Caso ainda esteja em aberto, poderia me informar a previsão? <br><br>\n\nAtenciosamente",
                     "type": "string"
                   }
                 ]
@@ -1069,7 +1077,7 @@
                   {
                     "id": "60a57abe-ca24-4f28-85f7-3f0902dc4ebf",
                     "name": "E-mail",
-                    "value": "=ALERTA DE SUSPENSÃO DE SERVIÇO: Seu boleto venceu no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}. \n\nConforme previsto em contrato, estamos notificando que, caso o pagamento da mensalidade não seja identificado nos próximos 15 dias (totalizando 30 dias de atraso), sua licença da PLATAFORMA e dos CONTEÚDOS DIGITAIS será suspensa. \n\nEvite a interrupção do seu serviço regularizando sua situação agora. ",
+                    "value": "=ALERTA DE SUSPENSÃO DE SERVIÇO: Seu boleto venceu no dia {{ $('Get row(s) Em Aberto').item.json.vencimento }}.<br><br> \n\nConforme previsto em contrato, estamos notificando que, caso o pagamento da mensalidade não seja identificado nos próximos 15 dias (totalizando 30 dias de atraso), sua licença da PLATAFORMA e dos CONTEÚDOS DIGITAIS será suspensa. <br><br>\n\nEvite a interrupção do seu serviço regularizando sua situação agora. <br><br>\n\nAtenciosamente,",
                     "type": "string"
                   }
                 ]
@@ -1098,7 +1106,7 @@
                   {
                     "id": "f5aa6b94-a80b-4dee-8297-e1902bff1ac6",
                     "name": "E-mail",
-                    "value": "=NÃO ESQUEÇA: Seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence hoje! \n\nEvite pendências realizando o pagamento até o fim do dia. \n\nSe tiver qualquer problema com o pagamento, fale conosco agora mesmo. ",
+                    "value": "=NÃO ESQUEÇA: Seu boleto de R${{ $('Get row(s) Em Aberto').item.json.valor }} vence hoje! <br><br>\n\nEvite pendências realizando o pagamento até o fim do dia. <br><br>\n\nSe tiver qualquer problema com o pagamento, fale conosco agora mesmo. <br><br>\n\nAtenciosamente,",
                     "type": "string"
                   }
                 ]
@@ -1204,7 +1212,9 @@
               "toEmail": "=thiagopacioni@gmail.com",
               "subject": "={{ $('Lembrete').item.json.Assunto }}",
               "html": "={{ $('Lembrete').item.json['E-mail'] }}",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -1228,7 +1238,9 @@
               "toEmail": "thiagopacioni@gmail.com",
               "subject": "={{ $('Aviso').item.json.Assunto }}",
               "html": "={{ $('Aviso').item.json['E-mail'] }}",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -1252,7 +1264,9 @@
               "toEmail": "thiagopacioni@gmail.com",
               "subject": "={{ $('Atrasou').item.json.Assunto }}",
               "html": "={{ $('Atrasou').item.json['E-mail'] }}",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -1276,7 +1290,9 @@
               "toEmail": "thiagopacioni@gmail.com",
               "subject": "={{ $('Alerta').item.json.Assunto }}",
               "html": "={{ $('Alerta').item.json['E-mail'] }}",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -4104,10 +4120,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1770935666,
+            "lastTimeChecked": 1771020180,
             "possibleDuplicates": [
-              "19c53fdd5b4eea09",
-              "19c53992bc16d9c1"
+              "19c59075d538fc48",
+              "19c58efea0dc521b"
             ]
           }
         },
@@ -28476,6 +28492,130 @@
       "tags": []
     },
     {
+      "updatedAt": "2026-02-13T15:48:49.344Z",
+      "createdAt": "2026-02-13T14:59:52.941Z",
+      "id": "VFWMWMKh40EAYDE5",
+      "name": "Lovable - Thiago",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyHour"
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "sheetName": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "typeVersion": 1,
+          "position": [
+            -608,
+            -96
+          ],
+          "id": "fa48e34c-ab68-4113-b711-23e3300e562d",
+          "name": "Google Sheets Trigger",
+          "credentials": {
+            "googleSheetsTriggerOAuth2Api": {
+              "id": "JCF4brTgSWmnD6tp",
+              "name": "Google Sheets Trigger account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update"
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -112,
+            -96
+          ],
+          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
+          "name": "Update a row",
+          "credentials": {
+            "supabaseApi": {
+              "id": "TBul7j78sGTHvaLm",
+              "name": "Supabase account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -320,
+            -96
+          ],
+          "id": "2863374b-84b0-40fe-a51b-e17204469716",
+          "name": "Edit Fields"
+        }
+      ],
+      "connections": {
+        "Google Sheets Trigger": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "Update a row",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "80c6d0ea-6944-41c8-8540-d9f845cd7ba3",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-02-13T14:59:54.623Z",
+          "createdAt": "2026-02-13T14:59:54.623Z",
+          "role": "workflow:owner",
+          "workflowId": "VFWMWMKh40EAYDE5",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
       "updatedAt": "2025-10-29T16:42:15.000Z",
       "createdAt": "2025-10-29T16:01:03.205Z",
       "id": "YAjdPcAv083KbwXa",
@@ -29816,10 +29956,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1770940198,
+            "lastTimeChecked": 1771015997,
             "possibleDuplicates": [
-              "19c5442ee43d8387",
-              "19c5393004ed5463"
+              "19c58c78a8e635d7",
+              "19c58afd96b88fec"
             ]
           }
         }
@@ -30383,7 +30523,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-01-29T09:22:42.223Z",
+      "updatedAt": "2026-02-13T09:46:01.128Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -30500,7 +30640,9 @@
             "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "=Falhou stripe  {{ $('Dados transação').item.json.Cliente }} ",
             "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou ({{ $('Stripe Gatilho Pagamento').item.json.data.object.last_payment_error.type }})",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -30524,7 +30666,9 @@
             "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
             "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
-            "options": {}
+            "options": {
+              "appendAttribution": false
+            }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
@@ -30995,8 +31139,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "527a5a28-45e4-44d3-8218-d038733c8513",
-      "activeVersionId": "527a5a28-45e4-44d3-8218-d038733c8513",
+      "versionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
+      "activeVersionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
       "triggerCount": 1,
       "shared": [
         {
@@ -31008,9 +31152,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-29T09:22:42.226Z",
-        "createdAt": "2026-01-29T09:22:42.226Z",
-        "versionId": "527a5a28-45e4-44d3-8218-d038733c8513",
+        "updatedAt": "2026-02-13T09:46:01.135Z",
+        "createdAt": "2026-02-13T09:46:01.135Z",
+        "versionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -31123,7 +31267,9 @@
               "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "=Falhou stripe  {{ $('Dados transação').item.json.Cliente }} ",
               "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou ({{ $('Stripe Gatilho Pagamento').item.json.data.object.last_payment_error.type }})",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -31147,7 +31293,9 @@
               "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
               "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
-              "options": {}
+              "options": {
+                "appendAttribution": false
+              }
             },
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
@@ -31606,7 +31754,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-12T17:25:29.645Z",
+      "updatedAt": "2026-02-13T10:15:45.628Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
@@ -31680,8 +31828,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            16,
-            -48
+            -16,
+            -32
           ],
           "id": "e28828e2-9885-42de-ab98-12a598b7122e",
           "name": "Send email",
@@ -31816,8 +31964,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            16,
-            -288
+            -48,
+            -336
           ],
           "id": "2b09cf43-4308-4dc4-a2bb-3066e5d4d3cd",
           "name": "Send email1",
@@ -31892,7 +32040,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "29ec3b03-a2bb-4113-bafa-17beb70bccac",
+      "versionId": "98d2ec89-d461-4ef1-bc33-37c63e72f937",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -45306,18 +45454,18 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2211
+          "lastMessageUid": 2212
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1585
+          "lastMessageUid": 1586
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 149
+          "lastIndexChecked": 152
         }
       },
       "meta": {

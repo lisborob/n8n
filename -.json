@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-02-13T10:27:07.158Z",
+      "updatedAt": "2026-02-16T17:45:44.965Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -423,7 +423,7 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "=thiagopacioni@gmail.com",
+            "toEmail": "=thiago.pacioni@midiacode.tech",
             "subject": "={{ $('Lembrete').item.json.Assunto }}",
             "html": "={{ $('Lembrete').item.json['E-mail'] }}",
             "options": {
@@ -776,8 +776,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
-      "activeVersionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
+      "versionId": "1eadaf18-866a-44a8-939b-1942d148cfac",
+      "activeVersionId": "1eadaf18-866a-44a8-939b-1942d148cfac",
       "triggerCount": 1,
       "shared": [
         {
@@ -789,9 +789,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-13T10:27:07.162Z",
-        "createdAt": "2026-02-13T10:27:07.162Z",
-        "versionId": "2dac5921-6b3c-434d-bf81-03ad81d0b6aa",
+        "updatedAt": "2026-02-16T17:45:44.969Z",
+        "createdAt": "2026-02-16T17:45:44.969Z",
+        "versionId": "1eadaf18-866a-44a8-939b-1942d148cfac",
         "workflowId": "4kFZ05E1mzXgyAjB",
         "nodes": [
           {
@@ -1209,7 +1209,7 @@
           {
             "parameters": {
               "fromEmail": "adm@midiacode.tech",
-              "toEmail": "=thiagopacioni@gmail.com",
+              "toEmail": "=thiago.pacioni@midiacode.tech",
               "subject": "={{ $('Lembrete').item.json.Assunto }}",
               "html": "={{ $('Lembrete').item.json['E-mail'] }}",
               "options": {
@@ -4120,11 +4120,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1771198404,
+            "lastTimeChecked": 1771286070,
             "possibleDuplicates": [
-              "19c63a6df807a118",
-              "19c63a6d85907534",
-              "19c62b275b12d4de"
+              "19c68e08ac9f4d9c",
+              "19c68e0846765552",
+              "19c6885709e64b64"
             ]
           }
         },
@@ -29957,10 +29957,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1771155421,
+            "lastTimeChecked": 1771283388,
             "possibleDuplicates": [
-              "19c611c4495d70f8",
-              "19c6111d65595eb1"
+              "19c68cb17898df55",
+              "19c682db25aba869"
             ]
           }
         }
@@ -30524,7 +30524,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-13T09:46:01.128Z",
+      "updatedAt": "2026-02-16T17:47:04.194Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -31140,8 +31140,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
-      "activeVersionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
+      "versionId": "df1170e4-fb54-4ab2-96c7-69c1e3d15031",
+      "activeVersionId": "df1170e4-fb54-4ab2-96c7-69c1e3d15031",
       "triggerCount": 1,
       "shared": [
         {
@@ -31153,9 +31153,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-13T09:46:01.135Z",
-        "createdAt": "2026-02-13T09:46:01.135Z",
-        "versionId": "553ffb55-f11d-4388-9e21-98b9206b4d80",
+        "updatedAt": "2026-02-16T17:47:04.196Z",
+        "createdAt": "2026-02-16T17:47:04.196Z",
+        "versionId": "df1170e4-fb54-4ab2-96c7-69c1e3d15031",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -31755,7 +31755,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-13T10:15:45.628Z",
+      "updatedAt": "2026-02-16T14:29:54.251Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
@@ -31767,7 +31767,7 @@
             "rule": {
               "interval": [
                 {
-                  "daysInterval": 5,
+                  "daysInterval": 30,
                   "triggerAtHour": 6
                 }
               ]
@@ -31776,8 +31776,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.2,
           "position": [
-            -864,
-            -208
+            -960,
+            -240
           ],
           "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
           "name": "Schedule Trigger"
@@ -31803,8 +31803,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -624,
-            -192
+            -752,
+            -240
           ],
           "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
           "name": "Get row(s) in sheet",
@@ -31829,8 +31829,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -16,
-            -32
+            -96,
+            -80
           ],
           "id": "e28828e2-9885-42de-ab98-12a598b7122e",
           "name": "Send email",
@@ -31880,8 +31880,8 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -432,
-            -192
+            -544,
+            -240
           ],
           "id": "1083fe2b-39c2-4206-ac8b-f972279fe100",
           "name": "Filter3"
@@ -31945,8 +31945,8 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 3.4,
           "position": [
-            -224,
-            -192
+            -304,
+            -240
           ],
           "id": "73b19d46-d04e-41f2-9022-6ccb83fc178e",
           "name": "Switch"
@@ -31965,7 +31965,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -48,
+            -128,
             -336
           ],
           "id": "2b09cf43-4308-4dc4-a2bb-3066e5d4d3cd",
@@ -31978,6 +31978,17 @@
               "name": "SMTP from adm@midiacode.tech"
             }
           }
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.errorTrigger",
+          "typeVersion": 1,
+          "position": [
+            -976,
+            -480
+          ],
+          "id": "25c7c0c8-1d8f-4c89-b42c-e637715de741",
+          "name": "Error Trigger"
         }
       ],
       "connections": {
@@ -32031,6 +32042,11 @@
               }
             ]
           ]
+        },
+        "Error Trigger": {
+          "main": [
+            []
+          ]
         }
       },
       "settings": {
@@ -32041,7 +32057,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "98d2ec89-d461-4ef1-bc33-37c63e72f937",
+      "versionId": "ba05aa24-f2ba-4eeb-8569-cf8c8ef93e55",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -45461,7 +45477,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1587
+          "lastMessageUid": 1589
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

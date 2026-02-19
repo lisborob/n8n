@@ -4120,10 +4120,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1771369261,
+            "lastTimeChecked": 1771455242,
             "possibleDuplicates": [
-              "19c6dd5f1d95952d",
-              "19c6d8956bbe2b3e"
+              "19c72f5f1489d29c"
             ]
           }
         },
@@ -28492,7 +28491,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-13T15:48:49.344Z",
+      "updatedAt": "2026-02-18T14:42:42.803Z",
       "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
@@ -28523,8 +28522,8 @@
           "type": "n8n-nodes-base.googleSheetsTrigger",
           "typeVersion": 1,
           "position": [
-            -608,
-            -96
+            -1104,
+            -352
           ],
           "id": "fa48e34c-ab68-4113-b711-23e3300e562d",
           "name": "Google Sheets Trigger",
@@ -28533,7 +28532,8 @@
               "id": "JCF4brTgSWmnD6tp",
               "name": "Google Sheets Trigger account"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -28542,8 +28542,8 @@
           "type": "n8n-nodes-base.supabase",
           "typeVersion": 1,
           "position": [
-            -112,
-            -96
+            -640,
+            -400
           ],
           "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
           "name": "Update a row",
@@ -28552,7 +28552,8 @@
               "id": "TBul7j78sGTHvaLm",
               "name": "Supabase account"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -28561,11 +28562,99 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -320,
-            -96
+            -832,
+            -384
           ],
           "id": "2863374b-84b0-40fe-a51b-e17204469716",
-          "name": "Edit Fields"
+          "name": "Edit Fields",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "7be70119-3688-4c13-97e3-b1b7e452c89c",
+            "responseMode": "responseNode",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1120,
+            -144
+          ],
+          "id": "6e80b659-b1df-4605-a4bb-2d9723cff714",
+          "name": "Webhook",
+          "webhookId": "7be70119-3688-4c13-97e3-b1b7e452c89c"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Responder: Tirar a dúvida do usuário {{ $('Webhook').item.json.body.pergunta }}\n\nCom base nos dados\n\n {{ $json.data }}\n\nCaso o assunto fuja deste escopo estrito do relatório responda questão fora de contexto!!",
+            "options": {
+              "systemMessage": "You are a helpful assistant que fornecerá a resposta da dúvida do usuário, com a mente e análise completa de um CFO com base nos dados financeiros do mês vigente de forma concisa, fornecendo apenas os principais pontos para sanar essa dúvida de forma formal e direta. \n\nCaso o assunto fuja deste escopo responda questão fora de contexto"
+            }
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3,
+          "position": [
+            -704,
+            -160
+          ],
+          "id": "6bdad66c-01c1-436c-81f6-6f5007a67dda",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            -400,
+            -144
+          ],
+          "id": "2727e61f-cd4f-4345-b9e2-daa246723c5d",
+          "name": "Respond to Webhook"
+        },
+        {
+          "parameters": {
+            "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            -704,
+            0
+          ],
+          "id": "b72cd488-8b03-47f4-a665-7009742680cb",
+          "name": "Groq Chat Model",
+          "credentials": {
+            "groqApi": {
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "url": "https://numbers-wisdom-dash.lovable.app/",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-scrapingbee.ScrapingBee",
+          "typeVersion": 1,
+          "position": [
+            -912,
+            -144
+          ],
+          "id": "4f940816-3f49-4023-a29c-c1109c0231b4",
+          "name": "Scrape using HTML API",
+          "credentials": {
+            "ScrapingBeeApi": {
+              "id": "KWH95xLMW7pPmUSh",
+              "name": "Thiago - ScrapingBee account"
+            }
+          }
         }
       ],
       "connections": {
@@ -28590,6 +28679,50 @@
               }
             ]
           ]
+        },
+        "Webhook": {
+          "main": [
+            [
+              {
+                "node": "Scrape using HTML API",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "AI Agent": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Groq Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Scrape using HTML API": {
+          "main": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -28600,7 +28733,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "80c6d0ea-6944-41c8-8540-d9f845cd7ba3",
+      "versionId": "a28ec892-e2e1-4339-9ef5-996a926114d9",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -29956,10 +30089,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1771364808,
+            "lastTimeChecked": 1771456270,
             "possibleDuplicates": [
-              "19c6d926a05be570",
-              "19c6d027a64cacb2"
+              "19c731da292f2a28",
+              "19c72f6448a3a082"
             ]
           }
         }
@@ -45476,7 +45609,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1590
+          "lastMessageUid": 1591
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

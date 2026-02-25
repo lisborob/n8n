@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-02-23T14:31:00.435Z",
+      "updatedAt": "2026-02-24T14:26:13.752Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -459,7 +459,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            400,
+            176,
             -432
           ],
           "id": "8d9c16aa-ba08-4614-8a27-efa54513a898",
@@ -607,33 +607,6 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
-        },
-        {
-          "parameters": {
-            "resource": "drive",
-            "operation": "get",
-            "driveId": {
-              "__rl": true,
-              "mode": "list",
-              "value": ""
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleDrive",
-          "typeVersion": 3,
-          "position": [
-            144,
-            -432
-          ],
-          "id": "512fc1df-545b-417d-98fb-cee231c19066",
-          "name": "Get shared drive",
-          "credentials": {
-            "googleDriveOAuth2Api": {
-              "id": "OeujTUJ75p0KgzGs",
-              "name": "Thiago teste"
-            }
-          },
-          "disabled": true
         }
       ],
       "connections": {
@@ -783,17 +756,6 @@
           "main": [
             [
               {
-                "node": "Get shared drive",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get shared drive": {
-          "main": [
-            [
-              {
                 "node": "Send email1",
                 "type": "main",
                 "index": 0
@@ -814,8 +776,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "641e500c-88ac-4e75-970d-acec4f18faf9",
-      "activeVersionId": "641e500c-88ac-4e75-970d-acec4f18faf9",
+      "versionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
+      "activeVersionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
       "triggerCount": 1,
       "shared": [
         {
@@ -827,9 +789,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-23T14:31:00.437Z",
-        "createdAt": "2026-02-23T14:31:00.437Z",
-        "versionId": "641e500c-88ac-4e75-970d-acec4f18faf9",
+        "updatedAt": "2026-02-24T14:26:13.754Z",
+        "createdAt": "2026-02-24T14:26:13.754Z",
+        "versionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
         "workflowId": "4kFZ05E1mzXgyAjB",
         "nodes": [
           {
@@ -1283,7 +1245,7 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
             "position": [
-              400,
+              176,
               -432
             ],
             "id": "8d9c16aa-ba08-4614-8a27-efa54513a898",
@@ -1431,33 +1393,6 @@
                 "name": "Thiago - Google Sheets account 2"
               }
             }
-          },
-          {
-            "parameters": {
-              "resource": "drive",
-              "operation": "get",
-              "driveId": {
-                "__rl": true,
-                "mode": "list",
-                "value": ""
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleDrive",
-            "typeVersion": 3,
-            "position": [
-              144,
-              -432
-            ],
-            "id": "512fc1df-545b-417d-98fb-cee231c19066",
-            "name": "Get shared drive",
-            "credentials": {
-              "googleDriveOAuth2Api": {
-                "id": "OeujTUJ75p0KgzGs",
-                "name": "Thiago teste"
-              }
-            },
-            "disabled": true
           }
         ],
         "connections": {
@@ -1604,17 +1539,6 @@
             ]
           },
           "Dados Cliente ID1": {
-            "main": [
-              [
-                {
-                  "node": "Get shared drive",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get shared drive": {
             "main": [
               [
                 {
@@ -4196,10 +4120,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1771881372,
+            "lastTimeChecked": 1771971145,
             "possibleDuplicates": [
-              "19c8c5c1ff86b9a3",
-              "19c8c3e689bacc85"
+              "19c91b5f2ba0739c",
+              "19c9195dadcd8d21"
             ]
           }
         },
@@ -23271,7 +23195,7 @@
       ]
     },
     {
-      "updatedAt": "2026-01-02T19:06:35.352Z",
+      "updatedAt": "2026-02-24T09:09:30.235Z",
       "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
@@ -24490,7 +24414,7 @@
             "promptType": "define",
             "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
             "options": {
-              "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYour are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+              "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYou are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nQuando chamar ferramentas, sempre envie valores booleanos como true ou false, sem aspas.\nQuando chamar ferramentas, nunca envie campos de data vazios.\nSe não houver valor para After ou Before, simplesmente não inclua esses parâmetros.\nse o usuário pedir alguma informação em relação ao dia de hoje, considere das 0 horas do dia de hoje até as 0 horas do dia seguinte."
             }
           },
           "id": "54576886-27ee-40e8-ba19-b2673d45a27d",
@@ -24519,7 +24443,9 @@
         {
           "parameters": {
             "endpointUrl": "https://n8n.ooniverse.ai/mcp/calendarAuto",
-            "options": {}
+            "options": {
+              "timeout": 60000
+            }
           },
           "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
           "typeVersion": 1.1,
@@ -24677,13 +24603,15 @@
               "mode": "list",
               "cachedResultName": "robson.lisboa@midiacode.com"
             },
-            "limit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Limit', ``, 'number') }}",
+            "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
             "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
             "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
             "options": {
               "timeZone": {
-                "mode": "list",
-                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}"
+                "__rl": true,
+                "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}",
+                "mode": "id",
+                "__regex": "([-+/_a-zA-Z0-9]*)"
               }
             }
           },
@@ -25684,10 +25612,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-02-15T08:18:31Z"
+          "lastTimeChecked": "2026-02-24T09:09:30Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-02-15T08:18:31Z"
+          "lastTimeChecked": "2026-02-24T09:09:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -25786,8 +25714,8 @@
           }
         ]
       },
-      "versionId": "845060f3-fa4f-4742-b611-17e1956350ab",
-      "activeVersionId": "845060f3-fa4f-4742-b611-17e1956350ab",
+      "versionId": "7931f390-0616-40ad-bd8d-cf985689096b",
+      "activeVersionId": "7931f390-0616-40ad-bd8d-cf985689096b",
       "triggerCount": 5,
       "shared": [
         {
@@ -25799,9 +25727,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-02T19:06:35.354Z",
-        "createdAt": "2026-01-02T19:06:35.354Z",
-        "versionId": "845060f3-fa4f-4742-b611-17e1956350ab",
+        "updatedAt": "2026-02-24T09:09:30.237Z",
+        "createdAt": "2026-02-24T09:09:30.237Z",
+        "versionId": "7931f390-0616-40ad-bd8d-cf985689096b",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
           {
@@ -27016,7 +26944,7 @@
               "promptType": "define",
               "text": "=The user sent the following message\nmessage type: {{ $('Edit Fields').item.json['Tipo de Mensagem'] }}\nmessage text or description:\n```{{ $json.Mensagem }}```\n{{ $json.message_caption ? `message caption: ${$json.message_caption.trim()}` : '' }}",
               "options": {
-                "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYour are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço."
+                "systemMessage": "=Today is {{ $now.setZone('Europe/Lisbon').toISO() }}\nYou are Valentina and, in this node, is assisting Robson Lisboa, robson.lisboa@midiacode.com.\n{{ new Date().toISOString() }}\nsempre considere o meu fuso horário o de Lisboa, Portugal (Europe/Lisbon)\nao enviar mensagens com links URL, sempre envie o endereço já com o link clicável, para facilitar o usuário de acessar o endereço.\nQuando chamar ferramentas, sempre envie valores booleanos como true ou false, sem aspas.\nQuando chamar ferramentas, nunca envie campos de data vazios.\nSe não houver valor para After ou Before, simplesmente não inclua esses parâmetros.\nse o usuário pedir alguma informação em relação ao dia de hoje, considere das 0 horas do dia de hoje até as 0 horas do dia seguinte."
               }
             },
             "id": "54576886-27ee-40e8-ba19-b2673d45a27d",
@@ -27045,7 +26973,9 @@
           {
             "parameters": {
               "endpointUrl": "https://n8n.ooniverse.ai/mcp/calendarAuto",
-              "options": {}
+              "options": {
+                "timeout": 60000
+              }
             },
             "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
             "typeVersion": 1.1,
@@ -27203,13 +27133,15 @@
                 "mode": "list",
                 "cachedResultName": "robson.lisboa@midiacode.com"
               },
-              "limit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Limit', ``, 'number') }}",
+              "returnAll": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Return_All', ``, 'boolean') }}",
               "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
               "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
               "options": {
                 "timeZone": {
-                  "mode": "list",
-                  "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}"
+                  "__rl": true,
+                  "value": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Timezone', ``, 'string') }}",
+                  "mode": "id",
+                  "__regex": "([-+/_a-zA-Z0-9]*)"
                 }
               }
             },
@@ -28568,7 +28500,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-18T14:42:42.803Z",
+      "updatedAt": "2026-02-24T15:02:39.740Z",
       "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
@@ -28586,13 +28518,17 @@
             },
             "documentId": {
               "__rl": true,
+              "value": "[REDACTED]",
               "mode": "list",
-              "value": ""
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
             },
             "sheetName": {
               "__rl": true,
+              "value": 1345173509,
               "mode": "list",
-              "value": ""
+              "cachedResultName": "RECEITAS",
+              "cachedResultUrl": "[REDACTED]"
             },
             "options": {}
           },
@@ -28609,42 +28545,7 @@
               "id": "JCF4brTgSWmnD6tp",
               "name": "Google Sheets Trigger account"
             }
-          },
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "operation": "update"
-          },
-          "type": "n8n-nodes-base.supabase",
-          "typeVersion": 1,
-          "position": [
-            -640,
-            -400
-          ],
-          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
-          "name": "Update a row",
-          "credentials": {
-            "supabaseApi": {
-              "id": "TBul7j78sGTHvaLm",
-              "name": "Supabase account"
-            }
-          },
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -832,
-            -384
-          ],
-          "id": "2863374b-84b0-40fe-a51b-e17204469716",
-          "name": "Edit Fields",
-          "disabled": true
+          }
         },
         {
           "parameters": {
@@ -28732,6 +28633,73 @@
               "name": "Thiago - ScrapingBee account"
             }
           }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "tableId": "ERP MIDIACODE",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "cliente_id",
+                  "keyValue": "={{ $json.cliente }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -880,
+            -352
+          ],
+          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
+          "name": "Get a row",
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "rules": {
+              "values": [
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 3
+                    },
+                    "conditions": [
+                      {
+                        "leftValue": "",
+                        "rightValue": "",
+                        "operator": {
+                          "type": "string",
+                          "operation": "equals"
+                        },
+                        "id": "5103b6f9-ed95-4008-8d35-cc462b942f4f"
+                      }
+                    ],
+                    "combinator": "and"
+                  }
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.switch",
+          "typeVersion": 3.4,
+          "position": [
+            -704,
+            -352
+          ],
+          "id": "b2c52778-5b30-4194-928c-7af6bd7443e9",
+          "name": "Switch"
         }
       ],
       "connections": {
@@ -28739,18 +28707,7 @@
           "main": [
             [
               {
-                "node": "Edit Fields",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Edit Fields": {
-          "main": [
-            [
-              {
-                "node": "Update a row",
+                "node": "Get a row",
                 "type": "main",
                 "index": 0
               }
@@ -28800,6 +28757,17 @@
               }
             ]
           ]
+        },
+        "Get a row": {
+          "main": [
+            [
+              {
+                "node": "Switch",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -28810,7 +28778,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a28ec892-e2e1-4339-9ef5-996a926114d9",
+      "versionId": "08329029-4348-41b3-a511-de98036f8e06",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -30166,10 +30134,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1771880746,
+            "lastTimeChecked": 1771963836,
             "possibleDuplicates": [
-              "19c8c529187788a1",
-              "19c8c2d1ea1cd9a1"
+              "19c9146af04aab51",
+              "19c91466ef91c3ab"
             ]
           }
         }
@@ -45688,7 +45656,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1595
+          "lastMessageUid": 1597
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

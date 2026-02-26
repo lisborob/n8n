@@ -2286,7 +2286,7 @@
       ]
     },
     {
-      "updatedAt": "2026-01-13T22:52:47.334Z",
+      "updatedAt": "2026-02-25T17:27:56.065Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -2361,7 +2361,6 @@
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.0-flash-lite",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -4120,10 +4119,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1771971145,
+            "lastTimeChecked": 1772057511,
             "possibleDuplicates": [
-              "19c91b5f2ba0739c",
-              "19c9195dadcd8d21"
+              "19c96dbcb0816151",
+              "19c9669f09d187bf"
             ]
           }
         },
@@ -4491,8 +4490,8 @@
           }
         ]
       },
-      "versionId": "c70c701b-d18f-4a38-85ba-4f0304c073da",
-      "activeVersionId": "c70c701b-d18f-4a38-85ba-4f0304c073da",
+      "versionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
+      "activeVersionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
       "triggerCount": 1,
       "shared": [
         {
@@ -4504,9 +4503,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-13T22:52:47.338Z",
-        "createdAt": "2026-01-13T22:52:47.338Z",
-        "versionId": "c70c701b-d18f-4a38-85ba-4f0304c073da",
+        "updatedAt": "2026-02-25T17:27:56.067Z",
+        "createdAt": "2026-02-25T17:27:56.067Z",
+        "versionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
         "workflowId": "AFySOWDVVQcGxps6",
         "nodes": [
           {
@@ -4577,7 +4576,6 @@
           },
           {
             "parameters": {
-              "modelName": "models/gemini-2.0-flash-lite",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -23195,7 +23193,7 @@
       ]
     },
     {
-      "updatedAt": "2026-02-24T09:09:30.235Z",
+      "updatedAt": "2026-02-25T16:58:01.102Z",
       "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
@@ -24132,7 +24130,7 @@
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.0-flash-001",
+            "modelName": "models/gemini-2.5-flash-lite",
             "options": {}
           },
           "id": "9d46e695-fbdb-4706-9e7d-b2d9560f8a3a",
@@ -25612,10 +25610,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-02-24T09:09:30Z"
+          "lastTimeChecked": "2026-02-25T16:58:01Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-02-24T09:09:30Z"
+          "lastTimeChecked": "2026-02-25T16:58:01Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -25714,8 +25712,8 @@
           }
         ]
       },
-      "versionId": "7931f390-0616-40ad-bd8d-cf985689096b",
-      "activeVersionId": "7931f390-0616-40ad-bd8d-cf985689096b",
+      "versionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
+      "activeVersionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
       "triggerCount": 5,
       "shared": [
         {
@@ -25727,9 +25725,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-24T09:09:30.237Z",
-        "createdAt": "2026-02-24T09:09:30.237Z",
-        "versionId": "7931f390-0616-40ad-bd8d-cf985689096b",
+        "updatedAt": "2026-02-25T16:58:01.111Z",
+        "createdAt": "2026-02-25T16:58:01.111Z",
+        "versionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
           {
@@ -26662,7 +26660,7 @@
           },
           {
             "parameters": {
-              "modelName": "models/gemini-2.0-flash-001",
+              "modelName": "models/gemini-2.5-flash-lite",
               "options": {}
             },
             "id": "9d46e695-fbdb-4706-9e7d-b2d9560f8a3a",
@@ -28500,53 +28498,13 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-24T15:02:39.740Z",
+      "updatedAt": "2026-02-25T15:07:33.526Z",
       "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
       "active": false,
       "isArchived": false,
       "nodes": [
-        {
-          "parameters": {
-            "pollTimes": {
-              "item": [
-                {
-                  "mode": "everyHour"
-                }
-              ]
-            },
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "ERP Midiacode",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 1345173509,
-              "mode": "list",
-              "cachedResultName": "RECEITAS",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheetsTrigger",
-          "typeVersion": 1,
-          "position": [
-            -1104,
-            -352
-          ],
-          "id": "fa48e34c-ab68-4113-b711-23e3300e562d",
-          "name": "Google Sheets Trigger",
-          "credentials": {
-            "googleSheetsTriggerOAuth2Api": {
-              "id": "JCF4brTgSWmnD6tp",
-              "name": "Google Sheets Trigger account"
-            }
-          }
-        },
         {
           "parameters": {
             "httpMethod": "POST",
@@ -28567,9 +28525,9 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Responder: Tirar a dúvida do usuário {{ $('Webhook').item.json.body.pergunta }}\n\nCom base nos dados\n\n {{ $json.data }}\n\nCaso o assunto fuja deste escopo estrito do relatório responda questão fora de contexto!!",
+            "text": "=Responder: Tirar a dúvida do usuário {{ $('Webhook').item.json.body.pergunta }}\n\nCom base nos dados do banco de dados do supabase - Use esta ferramenta para buscar dados financeiros reais (receita, despesas, lucro) da tabela ERP MIDIACORDE. Chame esta ferramenta sempre que o usuário perguntar sobre números ou meses específicos.\n\n \n\nCaso o assunto fuja deste escopo estrito do relatório responda questão fora de contexto!!",
             "options": {
-              "systemMessage": "You are a helpful assistant que fornecerá a resposta da dúvida do usuário, com a mente e análise completa de um CFO com base nos dados financeiros do mês vigente de forma concisa, fornecendo apenas os principais pontos para sanar essa dúvida de forma formal e direta. \n\nCaso o assunto fuja deste escopo responda questão fora de contexto"
+              "systemMessage": "You are a helpful assistant que fornecerá a resposta da dúvida do usuário, com a mente e análise completa de um CFO com base nos dados financeiros do mês vigente de forma concisa, fornecendo apenas os principais pontos para sanar essa dúvida de forma formal e direta. e lembre-se Você é um Analista Financeiro da Midiacorde. Sua regra de ouro: Nunca invente dados. Se o usuário perguntar sobre qualquer valor, mês ou métrica, você DEVE usar a ferramenta do Supabase para consultar os dados reais.\n\nSe a ferramenta retornar dados, analise-os. Se não retornar nada para um mês específico (como Junho 2027), diga claramente que não há registros desse período no banco de dados.\n\nCaso o assunto fuja deste escopo responda questão fora de contexto"
             }
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -28616,6 +28574,236 @@
         },
         {
           "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "39d866bc-e57f-4d5e-8a3b-e7f66d0a6d94",
+                  "leftValue": "={{ $json.cliente }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notEmpty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -736,
+            -448
+          ],
+          "id": "34623bba-de09-42f5-b1ea-ce1f6b3b014a",
+          "name": "If"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "21dc8b89-d9ec-4c08-83da-6f1e663230c3",
+                  "name": "vencimento",
+                  "value": "={{ $('ERP Atualização').item.json.vencimento.toDateTime() }}",
+                  "type": "number"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -512,
+            -528
+          ],
+          "id": "9d64ce8e-1542-49b1-9d57-34c09fd3aa8a",
+          "name": "Edit Fields",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "hour": 7
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 1345173509,
+              "mode": "list",
+              "cachedResultName": "RECEITAS",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "typeVersion": 1,
+          "position": [
+            -1120,
+            -432
+          ],
+          "id": "fa48e34c-ab68-4113-b711-23e3300e562d",
+          "name": "ERP Atualização",
+          "credentials": {
+            "googleSheetsTriggerOAuth2Api": {
+              "id": "JCF4brTgSWmnD6tp",
+              "name": "Google Sheets Trigger account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "tableId": "ERP MIDIACODE",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "receita_id",
+                  "keyValue": "={{ $json.receita_id }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -912,
+            -448
+          ],
+          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
+          "name": "Pegar as linhas do banco de dados",
+          "retryOnFail": true,
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "tableId": "ERP MIDIACODE",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "receita_id",
+                  "condition": "eq",
+                  "keyValue": "={{ $json.receita_id }}"
+                }
+              ]
+            },
+            "fieldsUi": {
+              "fieldValues": [
+                {
+                  "fieldId": "valor",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.valor }}"
+                },
+                {
+                  "fieldId": "moeda",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.moeda }}"
+                },
+                {
+                  "fieldId": "status",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.status }}"
+                },
+                {
+                  "fieldId": "vencimento",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.vencimento }}"
+                },
+                {
+                  "fieldId": "data_pagamento",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.data_pagamento }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -368,
+            -544
+          ],
+          "id": "0c5730c2-3767-48a4-8a77-c9b04a7109f9",
+          "name": "Atualizar linhas com dados",
+          "retryOnFail": true,
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "tableId": "ERP MIDIACODE",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "receita_id",
+                  "condition": "eq",
+                  "keyValue": "={{ $json.receita_id }}"
+                }
+              ]
+            },
+            "fieldsUi": {
+              "fieldValues": [
+                {
+                  "fieldId": "cliente",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.cliente }}"
+                },
+                {
+                  "fieldId": "Conta",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.Conta }}"
+                },
+                {
+                  "fieldId": "moeda",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.moeda }}"
+                },
+                {
+                  "fieldId": "valor",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.valor }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -352,
+            -352
+          ],
+          "id": "5bc32ade-a2a1-4fc0-92ec-86d1ec0959aa",
+          "name": "Atualizar linhas vazias",
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
             "url": "https://numbers-wisdom-dash.lovable.app/",
             "additionalFields": {}
           },
@@ -28632,88 +28820,33 @@
               "id": "KWH95xLMW7pPmUSh",
               "name": "Thiago - ScrapingBee account"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
-            "operation": "get",
-            "tableId": "ERP MIDIACODE",
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "cliente_id",
-                  "keyValue": "={{ $json.cliente }}"
-                }
-              ]
-            }
+            "descriptionType": "manual",
+            "toolDescription": "Get many rows in Supabase",
+            "operation": "getAll",
+            "tableId": "ERP MIDIACODE"
           },
-          "type": "n8n-nodes-base.supabase",
+          "type": "n8n-nodes-base.supabaseTool",
           "typeVersion": 1,
           "position": [
-            -880,
-            -352
+            -560,
+            48
           ],
-          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
-          "name": "Get a row",
+          "id": "506fef1f-399f-4a2a-b625-22cd719ed973",
+          "name": "Get many rows in Supabase",
           "credentials": {
             "supabaseApi": {
               "id": "fxOWOfbjtIn3SBkI",
               "name": "Supabase account 2 - Thiago"
             }
           }
-        },
-        {
-          "parameters": {
-            "rules": {
-              "values": [
-                {
-                  "conditions": {
-                    "options": {
-                      "caseSensitive": true,
-                      "leftValue": "",
-                      "typeValidation": "strict",
-                      "version": 3
-                    },
-                    "conditions": [
-                      {
-                        "leftValue": "",
-                        "rightValue": "",
-                        "operator": {
-                          "type": "string",
-                          "operation": "equals"
-                        },
-                        "id": "5103b6f9-ed95-4008-8d35-cc462b942f4f"
-                      }
-                    ],
-                    "combinator": "and"
-                  }
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.switch",
-          "typeVersion": 3.4,
-          "position": [
-            -704,
-            -352
-          ],
-          "id": "b2c52778-5b30-4194-928c-7af6bd7443e9",
-          "name": "Switch"
         }
       ],
       "connections": {
-        "Google Sheets Trigger": {
-          "main": [
-            [
-              {
-                "node": "Get a row",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Webhook": {
           "main": [
             [
@@ -28747,6 +28880,57 @@
             ]
           ]
         },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Atualizar linhas vazias",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "Atualizar linhas com dados",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "ERP Atualização": {
+          "main": [
+            [
+              {
+                "node": "Pegar as linhas do banco de dados",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Pegar as linhas do banco de dados": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
         "Scrape using HTML API": {
           "main": [
             [
@@ -28758,12 +28942,12 @@
             ]
           ]
         },
-        "Get a row": {
-          "main": [
+        "Get many rows in Supabase": {
+          "ai_tool": [
             [
               {
-                "node": "Switch",
-                "type": "main",
+                "node": "AI Agent",
+                "type": "ai_tool",
                 "index": 0
               }
             ]
@@ -28778,7 +28962,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "08329029-4348-41b3-a511-de98036f8e06",
+      "versionId": "1ca3e87d-0ba6-4487-8291-6d52d1c77946",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -30134,10 +30318,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1771963836,
+            "lastTimeChecked": 1772038381,
             "possibleDuplicates": [
-              "19c9146af04aab51",
-              "19c91466ef91c3ab"
+              "19c95bd98705d747",
+              "19c95816bc6c641f"
             ]
           }
         }
@@ -45656,7 +45840,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1597
+          "lastMessageUid": 1599
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

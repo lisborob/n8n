@@ -2286,7 +2286,7 @@
       ]
     },
     {
-      "updatedAt": "2026-02-25T17:27:56.065Z",
+      "updatedAt": "2026-02-26T19:06:55.411Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -2361,6 +2361,7 @@
         },
         {
           "parameters": {
+            "modelName": "models/gemini-2.5-computer-use-preview-10-2025",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -4119,10 +4120,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1772057511,
+            "lastTimeChecked": 1772149998,
             "possibleDuplicates": [
-              "19c96dbcb0816151",
-              "19c9669f09d187bf"
+              "19c9c5f119101760",
+              "19c9c03d8b8e388c"
             ]
           }
         },
@@ -4490,8 +4491,8 @@
           }
         ]
       },
-      "versionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
-      "activeVersionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
+      "versionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
+      "activeVersionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
       "triggerCount": 1,
       "shared": [
         {
@@ -4503,9 +4504,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-25T17:27:56.067Z",
-        "createdAt": "2026-02-25T17:27:56.067Z",
-        "versionId": "cb6202c5-d131-4814-a86d-2dde6af2ec14",
+        "updatedAt": "2026-02-26T19:06:55.414Z",
+        "createdAt": "2026-02-26T19:06:55.414Z",
+        "versionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
         "workflowId": "AFySOWDVVQcGxps6",
         "nodes": [
           {
@@ -4576,6 +4577,7 @@
           },
           {
             "parameters": {
+              "modelName": "models/gemini-2.5-computer-use-preview-10-2025",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -30318,10 +30320,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1772038381,
+            "lastTimeChecked": 1772144785,
             "possibleDuplicates": [
-              "19c95bd98705d747",
-              "19c95816bc6c641f"
+              "19c9c24cec8cca90",
+              "19c9ad72893c1463"
             ]
           }
         }
@@ -45840,7 +45842,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1599
+          "lastMessageUid": 1600
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

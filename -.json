@@ -2286,7 +2286,7 @@
       ]
     },
     {
-      "updatedAt": "2026-02-26T19:06:55.411Z",
+      "updatedAt": "2026-03-04T17:47:35.393Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -3533,7 +3533,7 @@
         },
         {
           "parameters": {
-            "model": "meta-llama/llama-guard-4-12b",
+            "model": "openai/gpt-oss-safeguard-20b",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -4120,10 +4120,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1772580091,
+            "lastTimeChecked": 1772656669,
             "possibleDuplicates": [
-              "19cb601b89acb8b9",
-              "19cb5c26b2051d8f"
+              "19cba9235ebd1710"
             ]
           }
         },
@@ -4491,8 +4490,8 @@
           }
         ]
       },
-      "versionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
-      "activeVersionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
+      "versionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
+      "activeVersionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
       "triggerCount": 1,
       "shared": [
         {
@@ -4504,9 +4503,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-26T19:06:55.414Z",
-        "createdAt": "2026-02-26T19:06:55.414Z",
-        "versionId": "f9b8911d-74e4-47c2-a992-ef7fa2055c44",
+        "updatedAt": "2026-03-04T17:47:35.399Z",
+        "createdAt": "2026-03-04T17:47:35.399Z",
+        "versionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
         "workflowId": "AFySOWDVVQcGxps6",
         "nodes": [
           {
@@ -5749,7 +5748,7 @@
           },
           {
             "parameters": {
-              "model": "meta-llama/llama-guard-4-12b",
+              "model": "openai/gpt-oss-safeguard-20b",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -30320,10 +30319,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1772574091,
+            "lastTimeChecked": 1772654126,
             "possibleDuplicates": [
-              "19cb5a6303ec16f0",
-              "19cb54d3b4d07050"
+              "19cba6b7979cd483",
+              "19cba0d700977d20"
             ]
           }
         }
@@ -45847,7 +45846,7 @@
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 153
+          "lastIndexChecked": 155
         }
       },
       "meta": {

@@ -4120,10 +4120,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1772746708,
+            "lastTimeChecked": 1772833041,
             "possibleDuplicates": [
-              "19cbff01ae295984",
-              "19cbf907b4067025"
+              "19cc515739f59131",
+              "19cc4eaf8cb2f606"
             ]
           }
         },
@@ -29378,7 +29378,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2215
+          "lastMessageUid": 2217
         }
       },
       "meta": {
@@ -30320,10 +30320,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1772741794,
+            "lastTimeChecked": 1772831028,
             "possibleDuplicates": [
-              "19cbfa51ed54cd56",
-              "19cbf756303f96d5"
+              "19cc4f6ba7d75e74",
+              "19cc418ffefec9d5"
             ]
           }
         }
@@ -30887,7 +30887,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-23T14:43:16.267Z",
+      "updatedAt": "2026-03-06T14:45:57.925Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -31503,9 +31503,282 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "pinData": {},
-      "versionId": "8f860e93-a5ed-4346-ad7b-43685e14f86a",
-      "activeVersionId": "8f860e93-a5ed-4346-ad7b-43685e14f86a",
+      "pinData": {
+        "Stripe Gatilho Pagamento": [
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "object": "event",
+              "api_version": "2022-08-01",
+              "created": 1772725852,
+              "data": {
+                "object": {
+                  "id": "[REDACTED]",
+                  "object": "invoice",
+                  "account_country": "PT",
+                  "account_name": "Midiacode",
+                  "account_tax_ids": [
+                    "[REDACTED]"
+                  ],
+                  "amount_due": 450,
+                  "amount_overpaid": 0,
+                  "amount_paid": 450,
+                  "amount_remaining": 0,
+                  "amount_shipping": 0,
+                  "application": null,
+                  "application_fee_amount": null,
+                  "attempt_count": 1,
+                  "attempted": true,
+                  "auto_advance": false,
+                  "automatic_tax": {
+                    "disabled_reason": null,
+                    "enabled": false,
+                    "liability": null,
+                    "provider": null,
+                    "status": null
+                  },
+                  "automatically_finalizes_at": null,
+                  "billing_reason": "subscription_cycle",
+                  "charge": "[REDACTED]",
+                  "collection_method": "charge_automatically",
+                  "created": 1772722208,
+                  "currency": "eur",
+                  "custom_fields": null,
+                  "customer": "cus_SRYC6N88EeFgkH",
+                  "customer_account": null,
+                  "customer_address": {
+                    "city": null,
+                    "country": "BR",
+                    "line1": null,
+                    "line2": null,
+                    "postal_code": null,
+                    "state": null
+                  },
+                  "customer_email": "clubempvantagens@gmail.com",
+                  "customer_name": "Bruna TT Torres",
+                  "customer_phone": null,
+                  "customer_shipping": null,
+                  "customer_tax_exempt": "none",
+                  "customer_tax_ids": [],
+                  "default_payment_method": null,
+                  "default_source": null,
+                  "default_tax_rates": [],
+                  "description": "Thanks for using Midiacode. We have lots of features to improve your business. Use your subscription as much as possible. New feaures are realeased very often. Double check our how-to videos at https://midiacode.com/how-to-use-midiacode-studio/\nIf you have any doubt, make any question at suporte@midiacode.com\nWe are here to support you in anything you need.",
+                  "discount": null,
+                  "discounts": [],
+                  "due_date": null,
+                  "effective_at": 1772725845,
+                  "ending_balance": 0,
+                  "footer": "If you have any doubt about the Terms & Conditions of using our platform, check it at https://midiacode.com/terms-and-conditions/\nAlso check our Privacy Policy at https://midiacode.com/privacy-policy/",
+                  "from_invoice": null,
+                  "hosted_invoice_url": "[REDACTED]",
+                  "invoice_pdf": "[REDACTED]",
+                  "issuer": {
+                    "type": "self"
+                  },
+                  "last_finalization_error": null,
+                  "latest_revision": null,
+                  "lines": {
+                    "object": "list",
+                    "data": [
+                      {
+                        "id": "[REDACTED]",
+                        "object": "line_item",
+                        "amount": 450,
+                        "amount_excluding_tax": 450,
+                        "currency": "eur",
+                        "description": "1 × Midiacode Studio Start (at €4.50 / month)",
+                        "discount_amounts": [],
+                        "discountable": true,
+                        "discounts": [],
+                        "invoice": "[REDACTED]",
+                        "livemode": true,
+                        "metadata": {},
+                        "parent": {
+                          "invoice_item_details": null,
+                          "subscription_item_details": {
+                            "invoice_item": null,
+                            "proration": false,
+                            "proration_details": {
+                              "credited_items": null
+                            },
+                            "subscription": "[REDACTED]",
+                            "subscription_item": "si_SRYCsmnDWzCp5h"
+                          },
+                          "type": "subscription_item_details"
+                        },
+                        "period": {
+                          "end": 1775400520,
+                          "start": 1772722120
+                        },
+                        "plan": {
+                          "id": "[REDACTED]",
+                          "object": "plan",
+                          "active": false,
+                          "aggregate_usage": null,
+                          "amount": 450,
+                          "amount_decimal": "450",
+                          "billing_scheme": "per_unit",
+                          "created": 1663149471,
+                          "currency": "eur",
+                          "interval": "month",
+                          "interval_count": 1,
+                          "livemode": true,
+                          "metadata": {},
+                          "meter": null,
+                          "nickname": null,
+                          "product": "prod_MQjpzrI2CqIe8J",
+                          "tiers_mode": null,
+                          "transform_usage": null,
+                          "trial_period_days": null,
+                          "usage_type": "licensed"
+                        },
+                        "pretax_credit_amounts": [],
+                        "price": {
+                          "id": "[REDACTED]",
+                          "object": "price",
+                          "active": false,
+                          "billing_scheme": "per_unit",
+                          "created": 1663149471,
+                          "currency": "eur",
+                          "custom_unit_amount": null,
+                          "livemode": true,
+                          "lookup_key": null,
+                          "metadata": {},
+                          "nickname": null,
+                          "product": "prod_MQjpzrI2CqIe8J",
+                          "recurring": {
+                            "aggregate_usage": null,
+                            "interval": "month",
+                            "interval_count": 1,
+                            "meter": null,
+                            "trial_period_days": null,
+                            "usage_type": "licensed"
+                          },
+                          "tax_behavior": "unspecified",
+                          "tiers_mode": null,
+                          "transform_quantity": null,
+                          "type": "recurring",
+                          "unit_amount": 450,
+                          "unit_amount_decimal": "450"
+                        },
+                        "pricing": {
+                          "price_details": {
+                            "price": "[REDACTED]",
+                            "product": "prod_MQjpzrI2CqIe8J"
+                          },
+                          "type": "price_details",
+                          "unit_amount_decimal": "450"
+                        },
+                        "proration": false,
+                        "proration_details": {
+                          "credited_items": null
+                        },
+                        "quantity": 1,
+                        "subscription": "[REDACTED]",
+                        "subscription_item": "si_SRYCsmnDWzCp5h",
+                        "subtotal": 450,
+                        "tax_amounts": [],
+                        "tax_rates": [],
+                        "taxes": [],
+                        "type": "subscription",
+                        "unit_amount_excluding_tax": "450"
+                      }
+                    ],
+                    "has_more": false,
+                    "total_count": 1,
+                    "url": "[REDACTED]"
+                  },
+                  "livemode": true,
+                  "metadata": {},
+                  "next_payment_attempt": null,
+                  "number": "0BC57229-0931",
+                  "on_behalf_of": null,
+                  "paid": true,
+                  "paid_out_of_band": false,
+                  "parent": {
+                    "quote_details": null,
+                    "subscription_details": {
+                      "metadata": {},
+                      "subscription": "[REDACTED]"
+                    },
+                    "type": "subscription_details"
+                  },
+                  "payment_intent": "[REDACTED]",
+                  "payment_settings": {
+                    "default_mandate": null,
+                    "payment_method_options": {
+                      "acss_debit": null,
+                      "bancontact": null,
+                      "card": {
+                        "request_three_d_secure": "automatic"
+                      },
+                      "customer_balance": null,
+                      "konbini": null,
+                      "payto": null,
+                      "sepa_debit": null,
+                      "us_bank_account": null
+                    },
+                    "payment_method_types": null
+                  },
+                  "period_end": 1772722120,
+                  "period_start": 1770302920,
+                  "post_payment_credit_notes_amount": 0,
+                  "pre_payment_credit_notes_amount": 0,
+                  "quote": null,
+                  "receipt_number": "2548-8167",
+                  "rendering": {
+                    "amount_tax_display": null,
+                    "pdf": null,
+                    "template": null,
+                    "template_version": null
+                  },
+                  "rendering_options": null,
+                  "shipping_cost": null,
+                  "shipping_details": null,
+                  "starting_balance": 0,
+                  "statement_descriptor": null,
+                  "status": "paid",
+                  "status_transitions": {
+                    "finalized_at": 1772725845,
+                    "marked_uncollectible_at": null,
+                    "paid_at": 1772725845,
+                    "voided_at": null
+                  },
+                  "subscription": "[REDACTED]",
+                  "subscription_details": {
+                    "metadata": {}
+                  },
+                  "subtotal": 450,
+                  "subtotal_excluding_tax": 450,
+                  "tax": null,
+                  "test_clock": null,
+                  "total": 450,
+                  "total_discount_amounts": [],
+                  "total_excluding_tax": 450,
+                  "total_pretax_credit_amounts": [],
+                  "total_tax_amounts": [],
+                  "total_taxes": [],
+                  "transfer_data": null,
+                  "webhooks_delivered_at": 1772722209
+                }
+              },
+              "livemode": true,
+              "pending_webhooks": 2,
+              "request": {
+                "id": null,
+                "idempotency_key": null
+              },
+              "type": "invoice.payment_succeeded"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ]
+      },
+      "versionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
+      "activeVersionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
       "triggerCount": 1,
       "shared": [
         {
@@ -31517,9 +31790,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-23T14:43:16.275Z",
-        "createdAt": "2026-02-23T14:43:16.275Z",
-        "versionId": "8f860e93-a5ed-4346-ad7b-43685e14f86a",
+        "updatedAt": "2026-03-06T14:45:57.926Z",
+        "createdAt": "2026-03-06T14:45:57.926Z",
+        "versionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {

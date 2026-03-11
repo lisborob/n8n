@@ -4120,10 +4120,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1773098044,
+            "lastTimeChecked": 1773184783,
             "possibleDuplicates": [
-              "19cd4e10f82fb2f5",
-              "19cd4d3241c603ec"
+              "19cda0ca84a3c7b1",
+              "19cd9aee378d51be"
             ]
           }
         },
@@ -30320,10 +30320,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1773098724,
+            "lastTimeChecked": 1773174624,
             "possibleDuplicates": [
-              "19cd4eb78a786bf7",
-              "19cd40aeb4883ebd"
+              "19cd97204929efbf",
+              "19cd96679e09784d",
+              "19cd93fafad3dfbb"
             ]
           }
         }
@@ -51402,7 +51403,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-23T11:07:13.887Z",
+      "updatedAt": "2026-03-10T21:27:25.333Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -51502,7 +51503,8 @@
             -256
           ],
           "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
-          "name": "Insert row"
+          "name": "Insert row",
+          "disabled": true
         },
         {
           "parameters": {
@@ -51647,10 +51649,10 @@
         {
           "parameters": {
             "fromEmail": "contacto@kutsaca.com",
-            "toEmail": "robson.lisboa@midiacode.com",
-            "ccEmail": "glauci@midiacode.com, ",
+            "toEmail": "susanacravo@kutsaca.com",
+            "ccEmail": "robson.lisboa@midiacode.com",
             "subject": "Seleção de notícias para próxima edição da newsletter",
-            "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://auto.1mc.co/Kutsaca/index-kutsaca.html\n\nAtenciosamente,\nValentina",
+            "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://1mc.co/JhiP4W\n\nAtenciosamente,\nValentina",
             "options": {}
           },
           "id": "a59c83f9-f9fc-4b4b-90ea-858d54f90ac7",
@@ -51672,7 +51674,7 @@
           "parameters": {
             "fromEmail": "contacto@kutsaca.com",
             "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+            "ccEmail": "robson.lisboa@midiacode.com",
             "subject": "={{ $json.output }}",
             "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
             "options": {}
@@ -52558,7 +52560,8 @@
             -144
           ],
           "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
-          "name": "Melhora o texto da notícia"
+          "name": "Melhora o texto da notícia",
+          "disabled": true
         },
         {
           "parameters": {
@@ -52725,7 +52728,8 @@
             -144
           ],
           "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
-          "name": "ID da Empresa"
+          "name": "ID da Empresa",
+          "disabled": true
         },
         {
           "parameters": {
@@ -52753,7 +52757,8 @@
             -144
           ],
           "id": "400bc9fa-0d26-479a-8851-6701103967d4",
-          "name": "Pega o perfil da empresa"
+          "name": "Pega o perfil da empresa",
+          "disabled": true
         },
         {
           "parameters": {
@@ -52802,7 +52807,8 @@
           ],
           "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
           "name": "inserção de conteúdo da news Susana",
-          "webhookId": "84f3137d-0454-4b86-a1f7-3f044f91261f"
+          "webhookId": "84f3137d-0454-4b86-a1f7-3f044f91261f",
+          "disabled": true
         },
         {
           "parameters": {
@@ -53632,7 +53638,9 @@
             "httpMethod": "POST",
             "path": "formulario-kutsaca",
             "responseMode": "responseNode",
-            "options": {}
+            "options": {
+              "binaryPropertyName": "imagem"
+            }
           },
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
@@ -53643,41 +53651,6 @@
           "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
           "name": "da pagina web",
           "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
-        },
-        {
-          "parameters": {
-            "inputDataFieldName": "=imagem",
-            "driveId": {
-              "__rl": true,
-              "value": "My Drive",
-              "mode": "list",
-              "cachedResultName": "My Drive",
-              "cachedResultUrl": "https://drive.google.com/drive/my-drive"
-            },
-            "folderId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "n8n corporativo arquivos de clientes",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleDrive",
-          "typeVersion": 3,
-          "position": [
-            -1296,
-            -496
-          ],
-          "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
-          "name": "Upload file1",
-          "credentials": {
-            "googleDriveOAuth2Api": {
-              "id": "CXrTfmECCGCiT5hQ",
-              "name": "Google Drive account"
-            }
-          },
-          "onError": "[REDACTED]"
         },
         {
           "parameters": {
@@ -53694,7 +53667,7 @@
                 "titulo": "={{ $('da pagina web').item.json.body.titulo }}",
                 "text": "={{ $('da pagina web').item.json.body.texto_html }}",
                 "video": "={{ $('da pagina web').item.json.body.video }}",
-                "imagens": "={{ $('Upload file1').item.json.webContentLink }}",
+                "imagens": "={{ $('Gera URL publica S5').item.json.imageUrl }}",
                 "Usuario": "Susana Cravo"
               },
               "matchingColumns": [],
@@ -53777,7 +53750,7 @@
         {
           "parameters": {
             "respondWith": "text",
-            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://midiacode.com/formulario-kutsaca/\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://auto.1mc.co/Kutsaca/formulario_Susana_Kutsaca.html\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
@@ -53811,8 +53784,8 @@
         {
           "parameters": {
             "content": "## Parece que este Ematil trigger IMAP não está funcionando, fazer testes para verificar",
-            "height": 416,
-            "width": 464,
+            "height": 112,
+            "width": 304,
             "color": 3
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -53930,7 +53903,8 @@
               "id": "nFJH8JqzQhkNaZsi",
               "name": "AWS Auto.1mc.co"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -53943,7 +53917,8 @@
             -256
           ],
           "id": "d0606705-42bc-48c9-8e6e-c92bcb1fd547",
-          "name": "Gera URL publica S3"
+          "name": "Gera URL publica S3",
+          "disabled": true
         },
         {
           "parameters": {
@@ -54031,7 +54006,7 @@
               "values": [
                 {
                   "fieldType": "html",
-                  "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/4XwUz6\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
+                  "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/JhiP4W\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
                 }
               ]
             },
@@ -54078,7 +54053,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// ------------------------------------------------------------\n// Node: Normaliza dados da notícia vindos do DataTable\n// + Gera o HTML completo para edição da notícia\n// ------------------------------------------------------------\n\n// Dados vindos do DataTable\nconst item = $json;\n\n// Normalização\nconst id = item.id;\nconst titulo = item.titulo || \"\";\nconst text = item.text || \"\";\nconst video = item.video || \"\";\nconst imagens = item.imagens || \"\";\n\n// ------------------------------------------------------------\n// Função para escapar aspas dentro de atributos HTML\n// ------------------------------------------------------------\nfunction esc(v) {\n  return (v || \"\").replace(/\"/g, '&quot;');\n}\n\n// ------------------------------------------------------------\n// Montagem do HTML dinâmico\n// ------------------------------------------------------------\nconst html = `\n<!-- FORMULÁRIO DE EDIÇÃO DA NOTÍCIA -->\n<div style=\"font-family: 'Open Sans', sans-serif; background: #fbfcfe; padding: 24px; border-radius: 8px; max-width: 600px; margin: auto;\">\n\n  <!-- FORM deve enviar para o webhook save-news -->\n  <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n\n    <!-- Campo oculto: ID da notícia -->\n    <input type=\"hidden\" name=\"id\" value=\"${id}\" />\n\n    <!-- Campo: Título da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Título da notícia\n    </label>\n    <input \n      type=\"text\" \n      name=\"titulo\" \n      value=\"${esc(titulo)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Campo: Texto da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Texto da notícia\n    </label>\n    <textarea \n      name=\"text\" \n      rows=\"6\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    >${text}</textarea>\n\n    <!-- Campo: Imagem atual -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Imagem da notícia\n    </label>\n\n    <img \n      src=\"${imagens}\" \n      alt=\"Imagem da notícia\" \n      style=\"max-width:100%; border-radius:6px; margin-bottom:12px; border:1px solid #dbdfe7;\"\n    />\n\n    <!-- BOTÃO TROCAR IMAGEM (somente ID) -->\n    <a \n      href=\"https://n8n.ooniverse.ai/form/697ac58a-3b4d-4315-a3f7-7c6ae26b8f80?id=${id}\"\n      style=\"\n        display:inline-block;\n        padding:10px 16px;\n        background:#e5a552;\n        color:#fff;\n        border-radius:6px;\n        text-decoration:none;\n        font-weight:600;\n        margin-bottom:16px;\n      \"\n    >\n      Trocar imagem\n    </a>\n\n    <!-- Campo: Link do vídeo -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Link do vídeo (opcional)\n    </label>\n    <input \n      type=\"text\" \n      name=\"video\" \n      value=\"${esc(video)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:24px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Botões de ação -->\n    <div style=\"display:flex; justify-content:space-between;\">\n      <button \n        type=\"submit\" \n        style=\"background:#e5a552; color:#fff; padding:12px 24px; border:none; border-radius:6px; font-weight:600; cursor:pointer;\"\n      >\n        Salvar alterações\n      </button>\n\n      <!-- ✅ BOTÃO CANCELAR: VOLTA PARA A TELA ANTERIOR -->\n      <a \n        href=\"javascript:history.back()\"\n        style=\"background:#7e8186; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:600;\"\n      >\n        Cancelar\n      </a>\n    </div>\n\n  </form>\n</div>\n`;\n\n// ------------------------------------------------------------\n// Retorno final do node\n// ------------------------------------------------------------\nreturn [\n  {\n    json: {\n      id,\n      titulo,\n      text,\n      video,\n      imagens,\n      html\n    }\n  }\n];"
+            "jsCode": "// ------------------------------------------------------------\n// Node: Normaliza dados da notícia vindos do DataTable\n// + Gera o HTML completo para edição da notícia\n// ------------------------------------------------------------\n\n// Dados vindos do DataTable\nconst item = $json;\n\n// Normalização\nconst id = item.id;\nconst titulo = item.titulo || \"\";\nconst text = item.text || \"\";\nconst video = item.video || \"\";\nconst imagens = item.imagens || \"\";\n\n// ------------------------------------------------------------\n// Função para escapar aspas dentro de atributos HTML\n// ------------------------------------------------------------\nfunction esc(v) {\n  return (v || \"\").replace(/\"/g, '&quot;');\n}\n\n// ------------------------------------------------------------\n// Montagem do HTML dinâmico\n// ------------------------------------------------------------\nconst html = `\n<!-- FORMULÁRIO DE EDIÇÃO DA NOTÍCIA -->\n<div style=\"font-family: 'Open Sans', sans-serif; background: #fbfcfe; padding: 24px; border-radius: 8px; max-width: 600px; margin: auto;\">\n\n  <!-- FORM deve enviar para o webhook save-news -->\n  <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n\n    <!-- Campo oculto: ID da notícia -->\n    <input type=\"hidden\" name=\"id\" value=\"${id}\" />\n\n    <!-- Campo oculto: URL da imagem atual -->\n    <input type=\"hidden\" name=\"imagens\" value=\"${esc(imagens)}\" />\n\n    <!-- Campo: Título da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Título da notícia\n    </label>\n    <input \n      type=\"text\" \n      name=\"titulo\" \n      value=\"${esc(titulo)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Campo: Texto da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Texto da notícia\n    </label>\n    <textarea \n      name=\"text\" \n      rows=\"6\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    >${text}</textarea>\n\n    <!-- Campo: Imagem atual -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Imagem da notícia\n    </label>\n\n    <img \n      src=\"${imagens}\" \n      alt=\"Imagem da notícia\" \n      style=\"max-width:100%; border-radius:6px; margin-bottom:12px; border:1px solid #dbdfe7;\"\n    />\n\n    <!-- BOTÃO TROCAR IMAGEM (somente ID) -->\n    <a \n      href=\"https://n8n.ooniverse.ai/form/697ac58a-3b4d-4315-a3f7-7c6ae26b8f80?id=${id}\"\n      style=\"\n        display:inline-block;\n        padding:10px 16px;\n        background:#e5a552;\n        color:#fff;\n        border-radius:6px;\n        text-decoration:none;\n        font-weight:600;\n        margin-bottom:16px;\n      \"\n    >\n      Trocar imagem\n    </a>\n\n    <!-- Campo: Link do vídeo -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Link do vídeo (opcional)\n    </label>\n    <input \n      type=\"text\" \n      name=\"video\" \n      value=\"${esc(video)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:24px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Botões de ação -->\n    <div style=\"display:flex; justify-content:space-between;\">\n      <button \n        type=\"submit\" \n        style=\"background:#e5a552; color:#fff; padding:12px 24px; border:none; border-radius:6px; font-weight:600; cursor:pointer;\"\n      >\n        Salvar alterações\n      </button>\n\n      <!-- BOTÃO CANCELAR -->\n      <a \n        href=\"javascript:history.back()\"\n        style=\"background:#7e8186; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:600;\"\n      >\n        Cancelar\n      </a>\n    </div>\n\n  </form>\n</div>\n`;\n\n// ------------------------------------------------------------\n// Retorno final do node\n// ------------------------------------------------------------\nreturn [\n  {\n    json: {\n      id,\n      titulo,\n      text,\n      video,\n      imagens,\n      html\n    }\n  }\n];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -54190,6 +54165,94 @@
         },
         {
           "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "={{ $binary.imagem0.fileName }}",
+            "binaryPropertyName": "imagem0",
+            "additionalFields": {
+              "parentFolderKey": "Kutsaca"
+            }
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            -1312,
+            -384
+          ],
+          "id": "c48707c1-884f-42a1-8396-6c1736c2770d",
+          "name": "Upload imagem para S4",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // pega a primeira chave binária existente\n  const binKeys = Object.keys(item.binary || {});\n  if (binKeys.length === 0) {\n    throw new Error('Nenhum arquivo binário encontrado.');\n  }\n\n  const bin = item.binary[binKeys[0]];\n  const filename = bin.fileName;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1424,
+            -528
+          ],
+          "id": "b1c3a7e3-8ccf-4e21-996a-9188fa792d1c",
+          "name": "Gera URL publica S5"
+        },
+        {
+          "parameters": {
+            "content": "foram criados formularios no html direto e publicados no AWS, com link 1mc, para cada publicadora",
+            "height": 352,
+            "color": 6
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1856,
+            -816
+          ],
+          "typeVersion": 1,
+          "id": "2579cfbf-c217-4818-97e8-7bb202086013",
+          "name": "Sticky Note10"
+        },
+        {
+          "parameters": {
+            "content": "## ESTOU AJUSTANDO ESSA CONFORME A DEMANDA DA KUTSAKA ATÉ AJUSTAR A PRINCIPAL (MIDIACODE)\nQUANDO A PRINCIPAL ESTIVER PERFEITA, VOU CRIAR O SETUP DE NEWS E IMPLEMENTAR PRIMEIRO NA KUTSACA\nAVALIAR NO PRINCIPAL SE AS MÚLTIPLAS FORMAS DE INPUT DO TEXTO (VIA DIRETO, DO INSTAGRAM, ETC) SÃO NORMALIZADOS PELO CRIADOR DE HTML.\nNO KUTSACA ISSO FOI IMPORTANTE PARA QUE O VISUAL FICASSE UNIFICADO",
+            "height": 480,
+            "width": 1792,
+            "color": 3
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            176,
+            -1232
+          ],
+          "typeVersion": 1,
+          "id": "99410f53-36d5-4adb-a21d-a1c4c362a179",
+          "name": "Sticky Note9"
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "formulario-kutsaca2",
+            "responseMode": "responseNode",
+            "options": {
+              "binaryPropertyName": "imagem"
+            }
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1632,
+            -848
+          ],
+          "id": "141e7ee4-8c0f-4342-b71a-159070be2bd1",
+          "name": "da pagina web1",
+          "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
+        },
+        {
+          "parameters": {
             "dataTableId": {
               "__rl": true,
               "value": "kzGI8GXGTDJG97g4",
@@ -54200,10 +54263,10 @@
             "columns": {
               "mappingMode": "defineBelow",
               "value": {
-                "titulo": "={{ $('inserção de conteúdo da news Rafaela').item.json['Qual o título da notícia? '] }}",
-                "text": "={{ $('inserção de conteúdo da news Rafaela').item.json['Qual o texto da notícia? '] }}",
-                "video": "={{ $('inserção de conteúdo da news Rafaela').item.json['Vídeo da notícia (opcional)'] }}",
-                "imagens": "={{ $json.imageUrl }}",
+                "titulo": "={{ $('da pagina web1').item.json.body.titulo }}",
+                "text": "={{ $('da pagina web1').item.json.body.texto_html }}",
+                "video": "={{ $('da pagina web1').item.json.body.video }}",
+                "imagens": "={{ $('Gera URL publica S6').item.json.imageUrl }}",
                 "Usuario": "Rafaela Andrade"
               },
               "matchingColumns": [],
@@ -54277,18 +54340,33 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -720,
+            -1024,
             -848
           ],
-          "id": "54b2d7e2-99a8-4968-8bd1-cfbdbf4972f1",
+          "id": "66e55259-b19d-4186-b28c-65d42eb3584d",
           "name": "Insert row2"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://auto.1mc.co/Kutsaca/formulario_rafaela_kutsaca.html\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.4,
+          "position": [
+            -816,
+            -848
+          ],
+          "id": "b7feabad-d98a-423b-afe9-9503c38330ae",
+          "name": "Respond to Webhook5"
         },
         {
           "parameters": {
             "operation": "upload",
             "bucketName": "auto.1mc.co",
-            "fileName": "={{ $json['Faça upload de uma imagem para essa notícia (opcional)'].filename }}",
-            "binaryPropertyName": "Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
+            "fileName": "={{ $binary.imagem0.fileName }}",
+            "binaryPropertyName": "imagem0",
             "additionalFields": {
               "parentFolderKey": "Kutsaca"
             }
@@ -54296,10 +54374,10 @@
           "type": "n8n-nodes-base.awsS3",
           "typeVersion": 2,
           "position": [
-            -1456,
-            -704
+            -1248,
+            -736
           ],
-          "id": "5b489c93-3c23-4687-9c8d-dce8efd386cc",
+          "id": "35698d29-13e3-4342-9b6e-7ad936117052",
           "name": "Upload imagem para S",
           "credentials": {
             "aws": {
@@ -54310,65 +54388,16 @@
         },
         {
           "parameters": {
-            "jsCode": "// Gera URL pública do S3 usando pasta fixa \"Kutsaca\"\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // filename vindo do formulário\n  const filename = item.json['Faça upload de uma imagem para essa notícia (opcional)']?.filename;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  // S3 usa + no lugar de espaço\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n\n  // Monta a URL pública com a pasta\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+            "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // pega a primeira chave binária existente\n  const binKeys = Object.keys(item.binary || {});\n  if (binKeys.length === 0) {\n    throw new Error('Nenhum arquivo binário encontrado.');\n  }\n\n  const bin = item.binary[binKeys[0]];\n  const filename = bin.fileName;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -1456,
-            -848
+            -1360,
+            -880
           ],
-          "id": "344abffe-2eeb-4193-9329-68370f3d613e",
-          "name": "Gera URL publica S4"
-        },
-        {
-          "parameters": {
-            "formTitle": "Newsletter Kutsaca - Rafaela",
-            "formDescription": "Preencha as informações que vão entrar para a próxima news.",
-            "formFields": {
-              "values": [
-                {
-                  "fieldLabel": "Qual o título da notícia? ",
-                  "placeholder": "Digite aqui. Este texto não será revisado por IA."
-                },
-                {
-                  "fieldLabel": "Qual o texto da notícia? ",
-                  "fieldType": "textarea",
-                  "placeholder": "Digite aqui. ",
-                  "requiredField": true
-                },
-                {
-                  "fieldLabel": "Faça upload de uma imagem para essa notícia (opcional)",
-                  "fieldType": "file",
-                  "multipleFiles": false,
-                  "acceptFileTypes": ".jpg, .png"
-                },
-                {
-                  "fieldLabel": "Vídeo da notícia (opcional)",
-                  "placeholder": "Coloque o link do vídeo aqui."
-                }
-              ]
-            },
-            "options": {
-              "appendAttribution": false,
-              "buttonLabel": "Enviar",
-              "respondWithOptions": {
-                "values": {
-                  "formSubmittedText": "Seu registro de newsletter foi feito com sucesso."
-                }
-              },
-              "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #e5a552;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
-            }
-          },
-          "type": "n8n-nodes-base.formTrigger",
-          "typeVersion": 2.3,
-          "position": [
-            -1680,
-            -848
-          ],
-          "id": "d61ac673-2c3d-4304-9c07-4d7b639d04b4",
-          "name": "inserção de conteúdo da news Rafaela",
-          "webhookId": "5dd5cf3e-59e9-4d81-8bdb-ace9917a5e3e"
+          "id": "3d9625c3-6f18-4c60-b23b-955d72d2f2f9",
+          "name": "Gera URL publica S6"
         }
       ],
       "connections": {
@@ -55003,18 +55032,12 @@
           "main": [
             [
               {
-                "node": "Upload file1",
+                "node": "Upload imagem para S4",
                 "type": "main",
                 "index": 0
-              }
-            ]
-          ]
-        },
-        "Upload file1": {
-          "main": [
-            [
+              },
               {
-                "node": "Insert row1",
+                "node": "Gera URL publica S5",
                 "type": "main",
                 "index": 0
               }
@@ -55186,18 +55209,18 @@
             ]
           ]
         },
-        "Gera URL publica S4": {
+        "Gera URL publica S5": {
           "main": [
             [
               {
-                "node": "Insert row2",
+                "node": "Insert row1",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "inserção de conteúdo da news Rafaela": {
+        "da pagina web1": {
           "main": [
             [
               {
@@ -55206,7 +55229,29 @@
                 "index": 0
               },
               {
-                "node": "Gera URL publica S4",
+                "node": "Gera URL publica S6",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Insert row2": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook5",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Gera URL publica S6": {
+          "main": [
+            [
+              {
+                "node": "Insert row2",
                 "type": "main",
                 "index": 0
               }
@@ -55237,9 +55282,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "885e84a4-b524-4633-a2ef-c8247d898809",
-      "activeVersionId": "885e84a4-b524-4633-a2ef-c8247d898809",
-      "triggerCount": 14,
+      "versionId": "e21c066f-b442-4e08-9a92-ec7e3b40af19",
+      "activeVersionId": "e21c066f-b442-4e08-9a92-ec7e3b40af19",
+      "triggerCount": 13,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -55250,9 +55295,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-23T11:06:51.469Z",
-        "createdAt": "2026-02-23T11:06:51.469Z",
-        "versionId": "885e84a4-b524-4633-a2ef-c8247d898809",
+        "updatedAt": "2026-03-10T21:27:25.336Z",
+        "createdAt": "2026-03-10T21:27:25.336Z",
+        "versionId": "e21c066f-b442-4e08-9a92-ec7e3b40af19",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -55348,7 +55393,8 @@
               -256
             ],
             "id": "2b6da566-2aae-4a8a-b0a5-2c86e995c479",
-            "name": "Insert row"
+            "name": "Insert row",
+            "disabled": true
           },
           {
             "parameters": {
@@ -55493,10 +55539,10 @@
           {
             "parameters": {
               "fromEmail": "contacto@kutsaca.com",
-              "toEmail": "robson.lisboa@midiacode.com",
-              "ccEmail": "glauci@midiacode.com, ",
+              "toEmail": "susanacravo@kutsaca.com",
+              "ccEmail": "robson.lisboa@midiacode.com",
               "subject": "Seleção de notícias para próxima edição da newsletter",
-              "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://auto.1mc.co/Kutsaca/index-kutsaca.html\n\nAtenciosamente,\nValentina",
+              "text": "Olá Susana,\nAqui estão as informações para que avalie as notícias disponíveis para a newsletter deste mês.\n1)  Ao acessar o link abaixo, terás acesso a uma página com todas as notícias disponíveis.\n2) Para cada notícia que queira publicar, insira um número de prioridade.\n3) Use números para definir a ordem de publicação (1 = primeira notícia, 2 = segunda, etc.).\n4) Notícias com campo em branco não serão usadas na próxima edição, mas poderão ser usadas em edições futuras.\n5) Se quiser apagar uma notícia para não mais ser usada, coloque um X na prioridade.\n6) Em cada bloco nesta página verás o ID da notícia, o título, o texto, o link da imagem e o link do vídeo, além do campo de prioridade, o qual deves preencher.\n7) Acesse a página através deste link... https://1mc.co/JhiP4W\n\nAtenciosamente,\nValentina",
               "options": {}
             },
             "id": "a59c83f9-f9fc-4b4b-90ea-858d54f90ac7",
@@ -55518,7 +55564,7 @@
             "parameters": {
               "fromEmail": "contacto@kutsaca.com",
               "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+              "ccEmail": "robson.lisboa@midiacode.com",
               "subject": "={{ $json.output }}",
               "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
               "options": {}
@@ -56404,7 +56450,8 @@
               -144
             ],
             "id": "a4954488-90c5-4d21-a126-2e9d7a5ff961",
-            "name": "Melhora o texto da notícia"
+            "name": "Melhora o texto da notícia",
+            "disabled": true
           },
           {
             "parameters": {
@@ -56571,7 +56618,8 @@
               -144
             ],
             "id": "04866e92-3c7f-40e6-8cc1-1ce54ce71e0b",
-            "name": "ID da Empresa"
+            "name": "ID da Empresa",
+            "disabled": true
           },
           {
             "parameters": {
@@ -56599,7 +56647,8 @@
               -144
             ],
             "id": "400bc9fa-0d26-479a-8851-6701103967d4",
-            "name": "Pega o perfil da empresa"
+            "name": "Pega o perfil da empresa",
+            "disabled": true
           },
           {
             "parameters": {
@@ -56648,7 +56697,8 @@
             ],
             "id": "9bd16b3f-ecf7-4280-99d3-fa34358d262b",
             "name": "inserção de conteúdo da news Susana",
-            "webhookId": "84f3137d-0454-4b86-a1f7-3f044f91261f"
+            "webhookId": "84f3137d-0454-4b86-a1f7-3f044f91261f",
+            "disabled": true
           },
           {
             "parameters": {
@@ -57478,7 +57528,9 @@
               "httpMethod": "POST",
               "path": "formulario-kutsaca",
               "responseMode": "responseNode",
-              "options": {}
+              "options": {
+                "binaryPropertyName": "imagem"
+              }
             },
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
@@ -57489,41 +57541,6 @@
             "id": "4b2c4e79-2fbc-4a23-a7f0-489ad75f49e9",
             "name": "da pagina web",
             "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
-          },
-          {
-            "parameters": {
-              "inputDataFieldName": "=imagem",
-              "driveId": {
-                "__rl": true,
-                "value": "My Drive",
-                "mode": "list",
-                "cachedResultName": "My Drive",
-                "cachedResultUrl": "https://drive.google.com/drive/my-drive"
-              },
-              "folderId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "n8n corporativo arquivos de clientes",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleDrive",
-            "typeVersion": 3,
-            "position": [
-              -1296,
-              -496
-            ],
-            "id": "e275dff1-8cde-4074-b198-b6e0edfba671",
-            "name": "Upload file1",
-            "credentials": {
-              "googleDriveOAuth2Api": {
-                "id": "CXrTfmECCGCiT5hQ",
-                "name": "Google Drive account"
-              }
-            },
-            "onError": "[REDACTED]"
           },
           {
             "parameters": {
@@ -57540,7 +57557,7 @@
                   "titulo": "={{ $('da pagina web').item.json.body.titulo }}",
                   "text": "={{ $('da pagina web').item.json.body.texto_html }}",
                   "video": "={{ $('da pagina web').item.json.body.video }}",
-                  "imagens": "={{ $('Upload file1').item.json.webContentLink }}",
+                  "imagens": "={{ $('Gera URL publica S5').item.json.imageUrl }}",
                   "Usuario": "Susana Cravo"
                 },
                 "matchingColumns": [],
@@ -57623,7 +57640,7 @@
           {
             "parameters": {
               "respondWith": "text",
-              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://midiacode.com/formulario-kutsaca/\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://auto.1mc.co/Kutsaca/formulario_Susana_Kutsaca.html\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
@@ -57657,8 +57674,8 @@
           {
             "parameters": {
               "content": "## Parece que este Ematil trigger IMAP não está funcionando, fazer testes para verificar",
-              "height": 416,
-              "width": 464,
+              "height": 112,
+              "width": 304,
               "color": 3
             },
             "type": "n8n-nodes-base.stickyNote",
@@ -57776,7 +57793,8 @@
                 "id": "nFJH8JqzQhkNaZsi",
                 "name": "AWS Auto.1mc.co"
               }
-            }
+            },
+            "disabled": true
           },
           {
             "parameters": {
@@ -57789,7 +57807,8 @@
               -256
             ],
             "id": "d0606705-42bc-48c9-8e6e-c92bcb1fd547",
-            "name": "Gera URL publica S3"
+            "name": "Gera URL publica S3",
+            "disabled": true
           },
           {
             "parameters": {
@@ -57877,7 +57896,7 @@
                 "values": [
                   {
                     "fieldType": "html",
-                    "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/4XwUz6\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
+                    "html": "<table width=\"100%\" style=\"margin-top:16px;\">\n  <tr>\n    <td align=\"center\">\n      <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n        <tr>\n          <td bgcolor=\"#d35400\" style=\"padding:12px 24px;\">\n            <a href=\"https://1mc.co/JhiP4W\" target=\"_blank\">\n              <font color=\"#ffffff\"><b>REVISAR NEWSLETTER</b></font>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>"
                   }
                 ]
               },
@@ -57924,7 +57943,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// ------------------------------------------------------------\n// Node: Normaliza dados da notícia vindos do DataTable\n// + Gera o HTML completo para edição da notícia\n// ------------------------------------------------------------\n\n// Dados vindos do DataTable\nconst item = $json;\n\n// Normalização\nconst id = item.id;\nconst titulo = item.titulo || \"\";\nconst text = item.text || \"\";\nconst video = item.video || \"\";\nconst imagens = item.imagens || \"\";\n\n// ------------------------------------------------------------\n// Função para escapar aspas dentro de atributos HTML\n// ------------------------------------------------------------\nfunction esc(v) {\n  return (v || \"\").replace(/\"/g, '&quot;');\n}\n\n// ------------------------------------------------------------\n// Montagem do HTML dinâmico\n// ------------------------------------------------------------\nconst html = `\n<!-- FORMULÁRIO DE EDIÇÃO DA NOTÍCIA -->\n<div style=\"font-family: 'Open Sans', sans-serif; background: #fbfcfe; padding: 24px; border-radius: 8px; max-width: 600px; margin: auto;\">\n\n  <!-- FORM deve enviar para o webhook save-news -->\n  <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n\n    <!-- Campo oculto: ID da notícia -->\n    <input type=\"hidden\" name=\"id\" value=\"${id}\" />\n\n    <!-- Campo: Título da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Título da notícia\n    </label>\n    <input \n      type=\"text\" \n      name=\"titulo\" \n      value=\"${esc(titulo)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Campo: Texto da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Texto da notícia\n    </label>\n    <textarea \n      name=\"text\" \n      rows=\"6\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    >${text}</textarea>\n\n    <!-- Campo: Imagem atual -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Imagem da notícia\n    </label>\n\n    <img \n      src=\"${imagens}\" \n      alt=\"Imagem da notícia\" \n      style=\"max-width:100%; border-radius:6px; margin-bottom:12px; border:1px solid #dbdfe7;\"\n    />\n\n    <!-- BOTÃO TROCAR IMAGEM (somente ID) -->\n    <a \n      href=\"https://n8n.ooniverse.ai/form/697ac58a-3b4d-4315-a3f7-7c6ae26b8f80?id=${id}\"\n      style=\"\n        display:inline-block;\n        padding:10px 16px;\n        background:#e5a552;\n        color:#fff;\n        border-radius:6px;\n        text-decoration:none;\n        font-weight:600;\n        margin-bottom:16px;\n      \"\n    >\n      Trocar imagem\n    </a>\n\n    <!-- Campo: Link do vídeo -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Link do vídeo (opcional)\n    </label>\n    <input \n      type=\"text\" \n      name=\"video\" \n      value=\"${esc(video)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:24px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Botões de ação -->\n    <div style=\"display:flex; justify-content:space-between;\">\n      <button \n        type=\"submit\" \n        style=\"background:#e5a552; color:#fff; padding:12px 24px; border:none; border-radius:6px; font-weight:600; cursor:pointer;\"\n      >\n        Salvar alterações\n      </button>\n\n      <!-- ✅ BOTÃO CANCELAR: VOLTA PARA A TELA ANTERIOR -->\n      <a \n        href=\"javascript:history.back()\"\n        style=\"background:#7e8186; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:600;\"\n      >\n        Cancelar\n      </a>\n    </div>\n\n  </form>\n</div>\n`;\n\n// ------------------------------------------------------------\n// Retorno final do node\n// ------------------------------------------------------------\nreturn [\n  {\n    json: {\n      id,\n      titulo,\n      text,\n      video,\n      imagens,\n      html\n    }\n  }\n];"
+              "jsCode": "// ------------------------------------------------------------\n// Node: Normaliza dados da notícia vindos do DataTable\n// + Gera o HTML completo para edição da notícia\n// ------------------------------------------------------------\n\n// Dados vindos do DataTable\nconst item = $json;\n\n// Normalização\nconst id = item.id;\nconst titulo = item.titulo || \"\";\nconst text = item.text || \"\";\nconst video = item.video || \"\";\nconst imagens = item.imagens || \"\";\n\n// ------------------------------------------------------------\n// Função para escapar aspas dentro de atributos HTML\n// ------------------------------------------------------------\nfunction esc(v) {\n  return (v || \"\").replace(/\"/g, '&quot;');\n}\n\n// ------------------------------------------------------------\n// Montagem do HTML dinâmico\n// ------------------------------------------------------------\nconst html = `\n<!-- FORMULÁRIO DE EDIÇÃO DA NOTÍCIA -->\n<div style=\"font-family: 'Open Sans', sans-serif; background: #fbfcfe; padding: 24px; border-radius: 8px; max-width: 600px; margin: auto;\">\n\n  <!-- FORM deve enviar para o webhook save-news -->\n  <form action=\"https://n8n.ooniverse.ai/webhook/save-news\" method=\"POST\">\n\n    <!-- Campo oculto: ID da notícia -->\n    <input type=\"hidden\" name=\"id\" value=\"${id}\" />\n\n    <!-- Campo oculto: URL da imagem atual -->\n    <input type=\"hidden\" name=\"imagens\" value=\"${esc(imagens)}\" />\n\n    <!-- Campo: Título da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Título da notícia\n    </label>\n    <input \n      type=\"text\" \n      name=\"titulo\" \n      value=\"${esc(titulo)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Campo: Texto da notícia -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Texto da notícia\n    </label>\n    <textarea \n      name=\"text\" \n      rows=\"6\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:16px; font-size:14px; color:#71747A;\"\n    >${text}</textarea>\n\n    <!-- Campo: Imagem atual -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Imagem da notícia\n    </label>\n\n    <img \n      src=\"${imagens}\" \n      alt=\"Imagem da notícia\" \n      style=\"max-width:100%; border-radius:6px; margin-bottom:12px; border:1px solid #dbdfe7;\"\n    />\n\n    <!-- BOTÃO TROCAR IMAGEM (somente ID) -->\n    <a \n      href=\"https://n8n.ooniverse.ai/form/697ac58a-3b4d-4315-a3f7-7c6ae26b8f80?id=${id}\"\n      style=\"\n        display:inline-block;\n        padding:10px 16px;\n        background:#e5a552;\n        color:#fff;\n        border-radius:6px;\n        text-decoration:none;\n        font-weight:600;\n        margin-bottom:16px;\n      \"\n    >\n      Trocar imagem\n    </a>\n\n    <!-- Campo: Link do vídeo -->\n    <label style=\"display:block; font-weight:600; margin-bottom:8px; color:#555;\">\n      Link do vídeo (opcional)\n    </label>\n    <input \n      type=\"text\" \n      name=\"video\" \n      value=\"${esc(video)}\" \n      style=\"width:100%; padding:12px; border:1px solid #dbdfe7; border-radius:6px; margin-bottom:24px; font-size:14px; color:#71747A;\"\n    />\n\n    <!-- Botões de ação -->\n    <div style=\"display:flex; justify-content:space-between;\">\n      <button \n        type=\"submit\" \n        style=\"background:#e5a552; color:#fff; padding:12px 24px; border:none; border-radius:6px; font-weight:600; cursor:pointer;\"\n      >\n        Salvar alterações\n      </button>\n\n      <!-- BOTÃO CANCELAR -->\n      <a \n        href=\"javascript:history.back()\"\n        style=\"background:#7e8186; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:600;\"\n      >\n        Cancelar\n      </a>\n    </div>\n\n  </form>\n</div>\n`;\n\n// ------------------------------------------------------------\n// Retorno final do node\n// ------------------------------------------------------------\nreturn [\n  {\n    json: {\n      id,\n      titulo,\n      text,\n      video,\n      imagens,\n      html\n    }\n  }\n];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -58036,6 +58055,94 @@
           },
           {
             "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "={{ $binary.imagem0.fileName }}",
+              "binaryPropertyName": "imagem0",
+              "additionalFields": {
+                "parentFolderKey": "Kutsaca"
+              }
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              -1312,
+              -384
+            ],
+            "id": "c48707c1-884f-42a1-8396-6c1736c2770d",
+            "name": "Upload imagem para S4",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // pega a primeira chave binária existente\n  const binKeys = Object.keys(item.binary || {});\n  if (binKeys.length === 0) {\n    throw new Error('Nenhum arquivo binário encontrado.');\n  }\n\n  const bin = item.binary[binKeys[0]];\n  const filename = bin.fileName;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -1424,
+              -528
+            ],
+            "id": "b1c3a7e3-8ccf-4e21-996a-9188fa792d1c",
+            "name": "Gera URL publica S5"
+          },
+          {
+            "parameters": {
+              "content": "foram criados formularios no html direto e publicados no AWS, com link 1mc, para cada publicadora",
+              "height": 352,
+              "color": 6
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -1856,
+              -816
+            ],
+            "typeVersion": 1,
+            "id": "2579cfbf-c217-4818-97e8-7bb202086013",
+            "name": "Sticky Note10"
+          },
+          {
+            "parameters": {
+              "content": "## ESTOU AJUSTANDO ESSA CONFORME A DEMANDA DA KUTSAKA ATÉ AJUSTAR A PRINCIPAL (MIDIACODE)\nQUANDO A PRINCIPAL ESTIVER PERFEITA, VOU CRIAR O SETUP DE NEWS E IMPLEMENTAR PRIMEIRO NA KUTSACA\nAVALIAR NO PRINCIPAL SE AS MÚLTIPLAS FORMAS DE INPUT DO TEXTO (VIA DIRETO, DO INSTAGRAM, ETC) SÃO NORMALIZADOS PELO CRIADOR DE HTML.\nNO KUTSACA ISSO FOI IMPORTANTE PARA QUE O VISUAL FICASSE UNIFICADO",
+              "height": 480,
+              "width": 1792,
+              "color": 3
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              176,
+              -1232
+            ],
+            "typeVersion": 1,
+            "id": "99410f53-36d5-4adb-a21d-a1c4c362a179",
+            "name": "Sticky Note9"
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "formulario-kutsaca2",
+              "responseMode": "responseNode",
+              "options": {
+                "binaryPropertyName": "imagem"
+              }
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1632,
+              -848
+            ],
+            "id": "141e7ee4-8c0f-4342-b71a-159070be2bd1",
+            "name": "da pagina web1",
+            "webhookId": "46e2d561-060e-4cdc-b6eb-0dfa7d5ca6a2"
+          },
+          {
+            "parameters": {
               "dataTableId": {
                 "__rl": true,
                 "value": "kzGI8GXGTDJG97g4",
@@ -58046,10 +58153,10 @@
               "columns": {
                 "mappingMode": "defineBelow",
                 "value": {
-                  "titulo": "={{ $('inserção de conteúdo da news Rafaela').item.json['Qual o título da notícia? '] }}",
-                  "text": "={{ $('inserção de conteúdo da news Rafaela').item.json['Qual o texto da notícia? '] }}",
-                  "video": "={{ $('inserção de conteúdo da news Rafaela').item.json['Vídeo da notícia (opcional)'] }}",
-                  "imagens": "={{ $json.imageUrl }}",
+                  "titulo": "={{ $('da pagina web1').item.json.body.titulo }}",
+                  "text": "={{ $('da pagina web1').item.json.body.texto_html }}",
+                  "video": "={{ $('da pagina web1').item.json.body.video }}",
+                  "imagens": "={{ $('Gera URL publica S6').item.json.imageUrl }}",
                   "Usuario": "Rafaela Andrade"
                 },
                 "matchingColumns": [],
@@ -58123,18 +58230,33 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -720,
+              -1024,
               -848
             ],
-            "id": "54b2d7e2-99a8-4968-8bd1-cfbdbf4972f1",
+            "id": "66e55259-b19d-4186-b28c-65d42eb3584d",
             "name": "Insert row2"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Notícia criada</title>\n  <style>\n    body {\n      font-family: 'Open Sans', sans-serif;\n      background: #fbfcfe;\n      margin: 0;\n      padding: 40px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      height: 100vh;\n    }\n    .card {\n      background: #ffffff;\n      border: 1px solid #dbdfe7;\n      border-radius: 8px;\n      box-shadow: 0px 4px 16px rgba(99, 77, 255, 0.06);\n      padding: 24px;\n      text-align: center;\n      max-width: 480px;\n    }\n    h1 {\n      font-size: 20px;\n      color: #525356;\n      margin-bottom: 16px;\n    }\n    p {\n      font-size: 14px;\n      color: #555555;\n      margin-bottom: 24px;\n    }\n    a.button {\n      display: inline-block;\n      background: #e5a552;\n      color: #ffffff;\n      font-weight: bold;\n      text-decoration: none;\n      border-radius: 6px;\n      padding: 12px 20px;\n      font-size: 14px;\n      transition: background 0.3s ease;\n    }\n    a.button:hover {\n      background: #d48f3f;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h1>✅ Notícia criada com sucesso!</h1>\n    <p>Sua notícia foi registrada na newsletter.</p>\n    <a href=\"https://auto.1mc.co/Kutsaca/formulario_rafaela_kutsaca.html\" class=\"button\">Adicionar mais uma notícia</a>\n  </div>\n</body>\n</html>",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.4,
+            "position": [
+              -816,
+              -848
+            ],
+            "id": "b7feabad-d98a-423b-afe9-9503c38330ae",
+            "name": "Respond to Webhook5"
           },
           {
             "parameters": {
               "operation": "upload",
               "bucketName": "auto.1mc.co",
-              "fileName": "={{ $json['Faça upload de uma imagem para essa notícia (opcional)'].filename }}",
-              "binaryPropertyName": "Fa_a_upload_de_uma_imagem_para_essa_not_cia__opcional_",
+              "fileName": "={{ $binary.imagem0.fileName }}",
+              "binaryPropertyName": "imagem0",
               "additionalFields": {
                 "parentFolderKey": "Kutsaca"
               }
@@ -58142,10 +58264,10 @@
             "type": "n8n-nodes-base.awsS3",
             "typeVersion": 2,
             "position": [
-              -1456,
-              -704
+              -1248,
+              -736
             ],
-            "id": "5b489c93-3c23-4687-9c8d-dce8efd386cc",
+            "id": "35698d29-13e3-4342-9b6e-7ad936117052",
             "name": "Upload imagem para S",
             "credentials": {
               "aws": {
@@ -58156,65 +58278,16 @@
           },
           {
             "parameters": {
-              "jsCode": "// Gera URL pública do S3 usando pasta fixa \"Kutsaca\"\n\nconst items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // filename vindo do formulário\n  const filename = item.json['Faça upload de uma imagem para essa notícia (opcional)']?.filename;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  // S3 usa + no lugar de espaço\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n\n  // Monta a URL pública com a pasta\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
+              "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const region = 'us-east-1';\n  const bucket = 'auto.1mc.co';\n  const folder = 'Kutsaca';\n\n  // pega a primeira chave binária existente\n  const binKeys = Object.keys(item.binary || {});\n  if (binKeys.length === 0) {\n    throw new Error('Nenhum arquivo binário encontrado.');\n  }\n\n  const bin = item.binary[binKeys[0]];\n  const filename = bin.fileName;\n\n  if (!filename) {\n    throw new Error('Nenhum filename encontrado no formulário.');\n  }\n\n  const encoded = encodeURIComponent(filename).replace(/%20/g, '+');\n  const imageUrl = `https://s3.${region}.amazonaws.com/${bucket}/${folder}/${encoded}`;\n\n  return {\n    json: {\n      imageUrl,\n      filename,\n      uploadedAt: new Date().toISOString()\n    }\n  };\n});"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -1456,
-              -848
+              -1360,
+              -880
             ],
-            "id": "344abffe-2eeb-4193-9329-68370f3d613e",
-            "name": "Gera URL publica S4"
-          },
-          {
-            "parameters": {
-              "formTitle": "Newsletter Kutsaca - Rafaela",
-              "formDescription": "Preencha as informações que vão entrar para a próxima news.",
-              "formFields": {
-                "values": [
-                  {
-                    "fieldLabel": "Qual o título da notícia? ",
-                    "placeholder": "Digite aqui. Este texto não será revisado por IA."
-                  },
-                  {
-                    "fieldLabel": "Qual o texto da notícia? ",
-                    "fieldType": "textarea",
-                    "placeholder": "Digite aqui. ",
-                    "requiredField": true
-                  },
-                  {
-                    "fieldLabel": "Faça upload de uma imagem para essa notícia (opcional)",
-                    "fieldType": "file",
-                    "multipleFiles": false,
-                    "acceptFileTypes": ".jpg, .png"
-                  },
-                  {
-                    "fieldLabel": "Vídeo da notícia (opcional)",
-                    "placeholder": "Coloque o link do vídeo aqui."
-                  }
-                ]
-              },
-              "options": {
-                "appendAttribution": false,
-                "buttonLabel": "Enviar",
-                "respondWithOptions": {
-                  "values": {
-                    "formSubmittedText": "Seu registro de newsletter foi feito com sucesso."
-                  }
-                },
-                "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #e5a552;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
-              }
-            },
-            "type": "n8n-nodes-base.formTrigger",
-            "typeVersion": 2.3,
-            "position": [
-              -1680,
-              -848
-            ],
-            "id": "d61ac673-2c3d-4304-9c07-4d7b639d04b4",
-            "name": "inserção de conteúdo da news Rafaela",
-            "webhookId": "5dd5cf3e-59e9-4d81-8bdb-ace9917a5e3e"
+            "id": "3d9625c3-6f18-4c60-b23b-955d72d2f2f9",
+            "name": "Gera URL publica S6"
           }
         ],
         "connections": {
@@ -58849,18 +58922,12 @@
             "main": [
               [
                 {
-                  "node": "Upload file1",
+                  "node": "Upload imagem para S4",
                   "type": "main",
                   "index": 0
-                }
-              ]
-            ]
-          },
-          "Upload file1": {
-            "main": [
-              [
+                },
                 {
-                  "node": "Insert row1",
+                  "node": "Gera URL publica S5",
                   "type": "main",
                   "index": 0
                 }
@@ -59032,18 +59099,18 @@
               ]
             ]
           },
-          "Gera URL publica S4": {
+          "Gera URL publica S5": {
             "main": [
               [
                 {
-                  "node": "Insert row2",
+                  "node": "Insert row1",
                   "type": "main",
                   "index": 0
                 }
               ]
             ]
           },
-          "inserção de conteúdo da news Rafaela": {
+          "da pagina web1": {
             "main": [
               [
                 {
@@ -59052,7 +59119,29 @@
                   "index": 0
                 },
                 {
-                  "node": "Gera URL publica S4",
+                  "node": "Gera URL publica S6",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Insert row2": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook5",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Gera URL publica S6": {
+            "main": [
+              [
+                {
+                  "node": "Insert row2",
                   "type": "main",
                   "index": 0
                 }

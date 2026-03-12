@@ -2286,6 +2286,826 @@
       ]
     },
     {
+      "updatedAt": "2026-03-11T15:13:23.758Z",
+      "createdAt": "2026-03-11T07:31:14.422Z",
+      "id": "8cJZdnmna8WSsIOk",
+      "name": "Solicitação Remoção Conta - Thiago",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "mode": "everyMinute"
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "event": "rowAdded",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "typeVersion": 1,
+          "position": [
+            -640,
+            -128
+          ],
+          "id": "feafb2d6-31b1-4ce7-ae06-243c868dad20",
+          "name": "Google Sheets Trigger",
+          "credentials": {
+            "googleSheetsTriggerOAuth2Api": {
+              "id": "JCF4brTgSWmnD6tp",
+              "name": "Google Sheets Trigger account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "thiago.pacioni@midiacode.tech",
+            "subject": "=Solicitação Remoção de Conta -  {{ $json['Account email'] }}",
+            "html": "=Atenção, o cliente - {{ $('Google Sheets Trigger').item.json['Account email'] }} - solicitou o cancelamento do plano ",
+            "options": {
+              "appendAttribution": false
+            }
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            -320,
+            -144
+          ],
+          "id": "5ad52559-eeb8-4867-b343-5bedee29983a",
+          "name": "Send email",
+          "webhookId": "435a9fae-ae04-44d1-a9af-eb37952e997b",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "rules": {
+              "values": [
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 3
+                    },
+                    "conditions": [
+                      {
+                        "leftValue": "={{ $json['cobrança'] }}",
+                        "rightValue": "",
+                        "operator": {
+                          "type": "string",
+                          "operation": "exists",
+                          "singleValue": true
+                        },
+                        "id": "ce0cae8a-7ea1-46af-a302-2b939a39a602"
+                      }
+                    ],
+                    "combinator": "and"
+                  }
+                },
+                {
+                  "conditions": {
+                    "options": {
+                      "caseSensitive": true,
+                      "leftValue": "",
+                      "typeValidation": "strict",
+                      "version": 3
+                    },
+                    "conditions": [
+                      {
+                        "id": "0f9e1118-dbb5-4501-85d8-0fb7353a6ff6",
+                        "leftValue": "={{ $json['cobrança'] }}",
+                        "rightValue": "",
+                        "operator": {
+                          "type": "string",
+                          "operation": "notExists",
+                          "singleValue": true
+                        }
+                      }
+                    ],
+                    "combinator": "and"
+                  }
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.switch",
+          "typeVersion": 3.4,
+          "position": [
+            144,
+            -144
+          ],
+          "id": "5dbf7b6d-8357-486e-aef4-226df2aecbd3",
+          "name": "Switch"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 835408503,
+              "mode": "list",
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "emails_nf",
+                  "lookupValue": "={{ $json['Account email'] }}"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -96,
+            -144
+          ],
+          "id": "f9eed400-cf24-4cbe-af40-3aaaa2e106a2",
+          "name": "Get row(s) in sheet",
+          "executeOnce": false,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "status": "done",
+                "Cliente pagante?": "sim, cancelado",
+                "Account email": "={{ $json.emails_nf }}"
+              },
+              "matchingColumns": [
+                "Account email"
+              ],
+              "schema": [
+                {
+                  "id": "Carimbo de data/hora",
+                  "displayName": "Carimbo de data/hora",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Account email",
+                  "displayName": "Account email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "displayName": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Cliente pagante?",
+                  "displayName": "Cliente pagante?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "displayName": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "email requisitado de confirmação?",
+                  "displayName": "email requisitado de confirmação?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "possui conta no studio?",
+                  "displayName": "possui conta no studio?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            560,
+            -224
+          ],
+          "id": "a2945357-969e-4fe9-be19-a2f31867b4ee",
+          "name": "Update row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Cliente pagante?": "não",
+                "status": "done"
+              },
+              "matchingColumns": [
+                "Account email"
+              ],
+              "schema": [
+                {
+                  "id": "Carimbo de data/hora",
+                  "displayName": "Carimbo de data/hora",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Account email",
+                  "displayName": "Account email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "displayName": "I am aware that, by making this request, I will lose all my data on the Midiacode platform",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Cliente pagante?",
+                  "displayName": "Cliente pagante?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "displayName": "Let us know what you missed in Midiacode that motivated you to leave. ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "email requisitado de confirmação?",
+                  "displayName": "email requisitado de confirmação?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "possui conta no studio?",
+                  "displayName": "possui conta no studio?",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            560,
+            -32
+          ],
+          "id": "3bd12942-dd6a-4cd1-806d-652aae465e15",
+          "name": "Update row in sheet1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "a8c225a3-5b98-4c98-bafc-ca8e523d62b4",
+                  "leftValue": "={{ $json['Account email'] }}",
+                  "rightValue": "clubempvantagens@gmail.com",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -512,
+            -128
+          ],
+          "id": "a0363e8b-b55a-4474-96df-c871abcd7907",
+          "name": "Filter"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "39d866bc-e57f-4d5e-8a3b-e7f66d0a6d94",
+                  "leftValue": "={{ $json.status }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "exists",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -544,
+            224
+          ],
+          "id": "50dbcfb1-9844-4108-92dc-cb76ff52694c",
+          "name": "If"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "21dc8b89-d9ec-4c08-83da-6f1e663230c3",
+                  "name": "vencimento",
+                  "value": "={{ $('Atualização').item.json.vencimento.toDateTime() }}",
+                  "type": "number"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -320,
+            144
+          ],
+          "id": "d55097b4-9131-4346-9024-6eb516b20146",
+          "name": "Edit Fields",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "tableId": "Remoção clientes",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "Account email",
+                  "keyValue": "={{ $json['Account email'] }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -704,
+            224
+          ],
+          "id": "8d67d061-befd-45a6-a0cf-d445a7bb8c46",
+          "name": "Pegar as linhas do banco de dados",
+          "retryOnFail": true,
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          },
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "tableId": "Remoção clientes",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "Account email",
+                  "condition": "eq",
+                  "keyValue": "={{ $json['Account email'] }}"
+                }
+              ]
+            },
+            "fieldsUi": {
+              "fieldValues": [
+                {
+                  "fieldId": "status",
+                  "fieldValue": "={{ $('Pegar as linhas do banco de dados').item.json.status }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -160,
+            320
+          ],
+          "id": "9d3bf62c-efb5-451e-b28e-3201831617db",
+          "name": "Atualizar linhas vazias",
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "pollTimes": {
+              "item": [
+                {
+                  "hour": 7
+                }
+              ]
+            },
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Solicitação de Remoção de Conta Midiacode (respostas)",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 251696704,
+              "mode": "list",
+              "cachedResultName": "Respostas ao formulário 1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTrigger",
+          "typeVersion": 1,
+          "position": [
+            -928,
+            208
+          ],
+          "id": "a660177e-00e7-40b1-9c4c-4cad96b34989",
+          "name": "Atualização",
+          "credentials": {
+            "googleSheetsTriggerOAuth2Api": {
+              "id": "JCF4brTgSWmnD6tp",
+              "name": "Google Sheets Trigger account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "tableId": "Remoção clientes",
+            "filters": {
+              "conditions": [
+                {
+                  "keyName": "Account email",
+                  "condition": "eq",
+                  "keyValue": "={{ $('If').item.json['Account email'] }}"
+                }
+              ]
+            },
+            "fieldsUi": {
+              "fieldValues": [
+                {
+                  "fieldId": "status",
+                  "fieldValue": "={{ $('If').item.json.status }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.supabase",
+          "typeVersion": 1,
+          "position": [
+            -144,
+            128
+          ],
+          "id": "f1eaca04-9569-47c4-9ba2-51358e6674ca",
+          "name": "Atualizar linhas com dados",
+          "retryOnFail": true,
+          "credentials": {
+            "supabaseApi": {
+              "id": "fxOWOfbjtIn3SBkI",
+              "name": "Supabase account 2 - Thiago"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Google Sheets Trigger": {
+          "main": [
+            [
+              {
+                "node": "Filter",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send email": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Switch",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Switch": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Update row in sheet1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter": {
+          "main": [
+            [
+              {
+                "node": "Send email",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Atualizar linhas vazias",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Pegar as linhas do banco de dados": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Atualização": {
+          "main": [
+            [
+              {
+                "node": "Pegar as linhas do banco de dados",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "Atualizar linhas com dados",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "717830cd-7aa1-4c00-891a-97dcafba0b50",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-03-11T07:31:14.430Z",
+          "createdAt": "2026-03-11T07:31:14.430Z",
+          "role": "workflow:owner",
+          "workflowId": "8cJZdnmna8WSsIOk",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
       "updatedAt": "2026-03-04T17:47:35.393Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
@@ -4120,10 +4940,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1773184783,
+            "lastTimeChecked": 1773265014,
             "possibleDuplicates": [
-              "19cda0ca84a3c7b1",
-              "19cd9aee378d51be"
+              "19cded4d0bbf838e",
+              "19cdec71b3ec88a8"
             ]
           }
         },
@@ -28500,7 +29320,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-25T15:07:33.526Z",
+      "updatedAt": "2026-03-11T14:59:06.732Z",
       "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
@@ -28586,7 +29406,7 @@
               "conditions": [
                 {
                   "id": "39d866bc-e57f-4d5e-8a3b-e7f66d0a6d94",
-                  "leftValue": "={{ $json.cliente }}",
+                  "leftValue": "={{ $('ERP Atualização').item.json.cliente }}",
                   "rightValue": "",
                   "operator": {
                     "type": "string",
@@ -28602,35 +29422,11 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            -736,
-            -448
+            -656,
+            -432
           ],
           "id": "34623bba-de09-42f5-b1ea-ce1f6b3b014a",
           "name": "If"
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "21dc8b89-d9ec-4c08-83da-6f1e663230c3",
-                  "name": "vencimento",
-                  "value": "={{ $('ERP Atualização').item.json.vencimento.toDateTime() }}",
-                  "type": "number"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -512,
-            -528
-          ],
-          "id": "9d64ce8e-1542-49b1-9d57-34c09fd3aa8a",
-          "name": "Edit Fields",
-          "disabled": true
         },
         {
           "parameters": {
@@ -28674,35 +29470,6 @@
         },
         {
           "parameters": {
-            "operation": "get",
-            "tableId": "ERP MIDIACODE",
-            "filters": {
-              "conditions": [
-                {
-                  "keyName": "receita_id",
-                  "keyValue": "={{ $json.receita_id }}"
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.supabase",
-          "typeVersion": 1,
-          "position": [
-            -912,
-            -448
-          ],
-          "id": "2cd7c38e-31f6-4d21-affd-8896b7ef08b9",
-          "name": "Pegar as linhas do banco de dados",
-          "retryOnFail": true,
-          "credentials": {
-            "supabaseApi": {
-              "id": "fxOWOfbjtIn3SBkI",
-              "name": "Supabase account 2 - Thiago"
-            }
-          }
-        },
-        {
-          "parameters": {
             "operation": "update",
             "tableId": "ERP MIDIACODE",
             "filters": {
@@ -28710,7 +29477,7 @@
                 {
                   "keyName": "receita_id",
                   "condition": "eq",
-                  "keyValue": "={{ $json.receita_id }}"
+                  "keyValue": "={{ $('ERP Atualização').item.json.receita_id }}"
                 }
               ]
             },
@@ -28735,6 +29502,30 @@
                 {
                   "fieldId": "data_pagamento",
                   "fieldValue": "={{ $('ERP Atualização').item.json.data_pagamento }}"
+                },
+                {
+                  "fieldId": "competencia",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.competencia }}"
+                },
+                {
+                  "fieldId": "cliente",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.cliente }}"
+                },
+                {
+                  "fieldId": "tipo_receita",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.tipo_receita }}"
+                },
+                {
+                  "fieldId": "Categoria",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.Categoria }}"
+                },
+                {
+                  "fieldId": "Cobrança",
+                  "fieldValue": "={{ $('ERP Atualização').item.json['Cobrança'] }}"
+                },
+                {
+                  "fieldId": "cliente_id",
+                  "fieldValue": "={{ $('ERP Atualização').item.json.cliente_id }}"
                 }
               ]
             }
@@ -28742,7 +29533,7 @@
           "type": "n8n-nodes-base.supabase",
           "typeVersion": 1,
           "position": [
-            -368,
+            -160,
             -544
           ],
           "id": "0c5730c2-3767-48a4-8a77-c9b04a7109f9",
@@ -28792,7 +29583,7 @@
           "type": "n8n-nodes-base.supabase",
           "typeVersion": 1,
           "position": [
-            -352,
+            -144,
             -352
           ],
           "id": "5bc32ade-a2a1-4fc0-92ec-86d1ec0959aa",
@@ -28846,6 +29637,44 @@
               "name": "Supabase account 2 - Thiago"
             }
           }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "842a3187-f68a-4fb2-a3b7-a39258f5286d",
+                  "name": "competencia",
+                  "value": "={{ $json.vencimento ? new Date(Math.round(($json.vencimento - 25569) * 86400 * 1000)).toISOString().split('T')[0] : null }}",
+                  "type": "number"
+                },
+                {
+                  "id": "86c4c1d8-ee5a-419a-8007-394590c88d23",
+                  "name": "vencimento",
+                  "value": "={{ $json.vencimento ? new Date(Math.round(($json.vencimento - 25569) * 86400 * 1000)).toISOString().split('T')[0] : null }}",
+                  "type": "string"
+                },
+                {
+                  "id": "f5ccbf5a-8fff-4d90-a484-c5b5820b7900",
+                  "name": "data_pagamento",
+                  "value": "={{ $json.vencimento ? new Date(Math.round(($json.vencimento - 25569) * 86400 * 1000)).toISOString().split('T')[0] : null }}",
+                  "type": "number"
+                }
+              ]
+            },
+            "options": {
+              "ignoreConversionErrors": true
+            }
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -912,
+            -432
+          ],
+          "id": "be92f09a-ce52-4e41-9bb5-380e529156d9",
+          "name": "Edit Fields",
+          "disabled": true
         }
       ],
       "connections": {
@@ -28886,7 +29715,7 @@
           "main": [
             [
               {
-                "node": "Edit Fields",
+                "node": "Atualizar linhas com dados",
                 "type": "main",
                 "index": 0
               }
@@ -28900,33 +29729,11 @@
             ]
           ]
         },
-        "Edit Fields": {
-          "main": [
-            [
-              {
-                "node": "Atualizar linhas com dados",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "ERP Atualização": {
           "main": [
             [
               {
-                "node": "Pegar as linhas do banco de dados",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Pegar as linhas do banco de dados": {
-          "main": [
-            [
-              {
-                "node": "If",
+                "node": "Edit Fields",
                 "type": "main",
                 "index": 0
               }
@@ -28954,6 +29761,17 @@
               }
             ]
           ]
+        },
+        "Edit Fields": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -28964,7 +29782,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "1ca3e87d-0ba6-4487-8291-6d52d1c77946",
+      "versionId": "a5c5afef-c52c-4790-8b3f-9ef2a4715689",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -30320,11 +31138,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1773174624,
+            "lastTimeChecked": 1773262831,
             "possibleDuplicates": [
-              "19cd97204929efbf",
-              "19cd96679e09784d",
-              "19cd93fafad3dfbb"
+              "19cdeb3877c10a41",
+              "19cde7388cefb5d7"
             ]
           }
         }

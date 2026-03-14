@@ -1552,7 +1552,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -2256,7 +2257,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": [
         {
@@ -3106,7 +3108,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-03-04T17:47:35.393Z",
+      "updatedAt": "2026-03-13T15:26:09.505Z",
       "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
@@ -3181,7 +3183,6 @@
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.5-computer-use-preview-10-2025",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -4359,8 +4360,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            80,
-            848
+            0,
+            912
           ],
           "id": "92893c8d-3b87-4d8b-8768-a34939fe88d5",
           "name": "Groq Chat Model2",
@@ -4940,10 +4941,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1773358138,
+            "lastTimeChecked": 1773440210,
             "possibleDuplicates": [
-              "19ce461ff50d9a33",
-              "19ce42714815f337"
+              "19ce946198e10d6b",
+              "19ce92df37956bc4"
             ]
           }
         },
@@ -5311,7 +5312,7 @@
           }
         ]
       },
-      "versionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
+      "versionId": "decb263a-e1d1-490e-b000-77ae895ad2a1",
       "activeVersionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
       "triggerCount": 1,
       "shared": [
@@ -7143,7 +7144,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -12941,7 +12943,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -16618,7 +16621,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -17052,7 +17056,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            21
+            0
           ]
         }
       },
@@ -17496,7 +17500,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -24015,7 +24020,7 @@
       ]
     },
     {
-      "updatedAt": "2026-02-25T16:58:01.102Z",
+      "updatedAt": "2026-03-13T15:30:47.369Z",
       "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
@@ -24952,7 +24957,7 @@
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.5-flash-lite",
+            "modelName": "models/gemini-2.5-computer-use-preview-10-2025",
             "options": {}
           },
           "id": "9d46e695-fbdb-4706-9e7d-b2d9560f8a3a",
@@ -25630,7 +25635,8 @@
             1120
           ],
           "id": "f7849e91-58e3-4b23-9258-2ef91e1e28c3",
-          "name": "Respond to Chat"
+          "name": "Respond to Chat",
+          "webhookId": "9f12ebea-d631-4a0f-8d6e-3b65765c25e4"
         },
         {
           "parameters": {
@@ -25644,7 +25650,8 @@
             896
           ],
           "id": "ed9f2bf8-74e2-4dd3-bcd2-d678fb068960",
-          "name": "Respond to Chat1"
+          "name": "Respond to Chat1",
+          "webhookId": "9e86e71c-46af-4ae4-aee4-085447456efa"
         },
         {
           "parameters": {
@@ -25704,7 +25711,8 @@
             1168
           ],
           "id": "8420ccc0-328c-413b-bcc2-c6153f993914",
-          "name": "Respond to Chat2"
+          "name": "Respond to Chat2",
+          "webhookId": "77cdf5be-0f0e-4150-b448-12a342b985ce"
         },
         {
           "parameters": {
@@ -25714,8 +25722,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            896,
-            1456
+            928,
+            1536
           ],
           "id": "ab4ce8e8-0e74-4e3c-b22f-03d4fd1dc571",
           "name": "Groq Chat Model",
@@ -26099,7 +26107,13 @@
         },
         "Google Gemini Chat Model1": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "AI Agent exclusivo RL",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "Marcar mensagens como lidas1": {
@@ -26411,11 +26425,6 @@
                 "node": "AI Agent",
                 "type": "ai_languageModel",
                 "index": 0
-              },
-              {
-                "node": "AI Agent exclusivo RL",
-                "type": "ai_languageModel",
-                "index": 0
               }
             ]
           ]
@@ -26432,10 +26441,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-03-08T19:09:24Z"
+          "lastTimeChecked": "2026-03-13T15:29:30Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-03-08T19:09:26Z"
+          "lastTimeChecked": "2026-03-13T15:29:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -26534,8 +26543,8 @@
           }
         ]
       },
-      "versionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
-      "activeVersionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
+      "versionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
+      "activeVersionId": "bce013d8-b846-4bac-bba8-a21bfe58449b",
       "triggerCount": 5,
       "shared": [
         {
@@ -26547,9 +26556,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-25T16:58:01.111Z",
-        "createdAt": "2026-02-25T16:58:01.111Z",
-        "versionId": "86063e43-88af-44af-9c44-7bc83e2791d5",
+        "updatedAt": "2026-03-13T15:29:31.000Z",
+        "createdAt": "2026-03-13T15:28:17.949Z",
+        "versionId": "bce013d8-b846-4bac-bba8-a21bfe58449b",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
           {
@@ -27482,7 +27491,6 @@
           },
           {
             "parameters": {
-              "modelName": "models/gemini-2.5-flash-lite",
               "options": {}
             },
             "id": "9d46e695-fbdb-4706-9e7d-b2d9560f8a3a",
@@ -28160,7 +28168,8 @@
               1120
             ],
             "id": "f7849e91-58e3-4b23-9258-2ef91e1e28c3",
-            "name": "Respond to Chat"
+            "name": "Respond to Chat",
+            "webhookId": "9f12ebea-d631-4a0f-8d6e-3b65765c25e4"
           },
           {
             "parameters": {
@@ -28174,7 +28183,8 @@
               896
             ],
             "id": "ed9f2bf8-74e2-4dd3-bcd2-d678fb068960",
-            "name": "Respond to Chat1"
+            "name": "Respond to Chat1",
+            "webhookId": "9e86e71c-46af-4ae4-aee4-085447456efa"
           },
           {
             "parameters": {
@@ -28234,7 +28244,8 @@
               1168
             ],
             "id": "8420ccc0-328c-413b-bcc2-c6153f993914",
-            "name": "Respond to Chat2"
+            "name": "Respond to Chat2",
+            "webhookId": "77cdf5be-0f0e-4150-b448-12a342b985ce"
           },
           {
             "parameters": {
@@ -28244,8 +28255,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              896,
-              1456
+              928,
+              1536
             ],
             "id": "ab4ce8e8-0e74-4e3c-b22f-03d4fd1dc571",
             "name": "Groq Chat Model",
@@ -28629,7 +28640,13 @@
           },
           "Google Gemini Chat Model1": {
             "ai_languageModel": [
-              []
+              [
+                {
+                  "node": "AI Agent exclusivo RL",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
             ]
           },
           "Marcar mensagens como lidas1": {
@@ -28941,19 +28958,15 @@
                   "node": "AI Agent",
                   "type": "ai_languageModel",
                   "index": 0
-                },
-                {
-                  "node": "AI Agent exclusivo RL",
-                  "type": "ai_languageModel",
-                  "index": 0
                 }
               ]
             ]
           }
         },
         "authors": "Robson Lisboa",
-        "name": null,
-        "description": null
+        "name": "Version bce013d8",
+        "description": "troquei a IA do atendimento pessoal para o Gemini",
+        "autosaved": true
       },
       "tags": [
         {
@@ -30636,7 +30649,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -31138,10 +31152,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1773345851,
+            "lastTimeChecked": 1773436821,
             "possibleDuplicates": [
-              "19ce3a67d3bf200d",
-              "19ce32888b16d4ca"
+              "19ce91263a55a578",
+              "19ce8ec0fcf38ee0"
             ]
           }
         }
@@ -31700,7 +31714,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -33206,7 +33221,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -33215,7 +33231,7 @@
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -33236,7 +33252,8 @@
             -240
           ],
           "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
-          "name": "Schedule Trigger"
+          "name": "Schedule Trigger",
+          "disabled": true
         },
         {
           "parameters": {
@@ -33513,8 +33530,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "ba05aa24-f2ba-4eeb-8569-cf8c8ef93e55",
-      "activeVersionId": null,
+      "versionId": "6b284068-b024-4faa-bd77-537c541aa515",
+      "activeVersionId": "6b284068-b024-4faa-bd77-537c541aa515",
       "triggerCount": 0,
       "shared": [
         {
@@ -33525,7 +33542,305 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-03-13T15:19:50.026Z",
+        "createdAt": "2026-03-13T15:19:50.026Z",
+        "versionId": "6b284068-b024-4faa-bd77-537c541aa515",
+        "workflowId": "dJ8o6YEhOEP3OrJJ",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "daysInterval": 30,
+                    "triggerAtHour": 6
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.2,
+            "position": [
+              -960,
+              -240
+            ],
+            "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
+            "name": "Schedule Trigger",
+            "disabled": true
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -752,
+              -240
+            ],
+            "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
+            "name": "Get row(s) in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "pacionithiago@gmail.com",
+              "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
+              "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEste é apenas um lembrete de que seu contrato vence em {{ $json['Dias Venc.'] }} dias ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!",
+              "options": {
+                "appendAttribution": false,
+                "ccEmail": "thiagopacioni@gmail.com"
+              }
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              -96,
+              -80
+            ],
+            "id": "e28828e2-9885-42de-ab98-12a598b7122e",
+            "name": "Send email",
+            "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
+            "notesInFlow": false,
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "6e75483b-ded3-4d4d-9f99-f7851966913b",
+                    "leftValue": "={{ $json['Dias Venc.'] }}",
+                    "rightValue": 0,
+                    "operator": {
+                      "type": "number",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  },
+                  {
+                    "id": "c65e2af1-46c6-4697-afc7-d822ab06775f",
+                    "leftValue": "={{ $json['Dias Venc.'] }}",
+                    "rightValue": 50,
+                    "operator": {
+                      "type": "number",
+                      "operation": "lt"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -544,
+              -240
+            ],
+            "id": "1083fe2b-39c2-4206-ac8b-f972279fe100",
+            "name": "Filter3"
+          },
+          {
+            "parameters": {
+              "rules": {
+                "values": [
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": -1,
+                          "operator": {
+                            "type": "number",
+                            "operation": "lte"
+                          },
+                          "id": "4d735451-604f-41eb-97f1-364bd1a43149"
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "Venceu"
+                  },
+                  {
+                    "conditions": {
+                      "options": {
+                        "caseSensitive": true,
+                        "leftValue": "",
+                        "typeValidation": "strict",
+                        "version": 3
+                      },
+                      "conditions": [
+                        {
+                          "id": "95ea98c0-ba73-4863-bf40-d2e1512887ad",
+                          "leftValue": "={{ $json['Dias Venc.'] }}",
+                          "rightValue": 0,
+                          "operator": {
+                            "type": "number",
+                            "operation": "gte"
+                          }
+                        }
+                      ],
+                      "combinator": "and"
+                    },
+                    "renameOutput": true,
+                    "outputKey": "Vencerá"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 3.4,
+            "position": [
+              -304,
+              -240
+            ],
+            "id": "73b19d46-d04e-41f2-9022-6ccb83fc178e",
+            "name": "Switch"
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "pacionithiago@gmail.com",
+              "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
+              "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEstamos entrando em contato, pois verificamos que seu contrato venceu em ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!\n\nAtenciosamente,",
+              "options": {
+                "appendAttribution": false,
+                "ccEmail": "thiagopacioni@gmail.com"
+              }
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              -128,
+              -336
+            ],
+            "id": "2b09cf43-4308-4dc4-a2bb-3066e5d4d3cd",
+            "name": "Send email1",
+            "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
+            "notesInFlow": false,
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.errorTrigger",
+            "typeVersion": 1,
+            "position": [
+              -976,
+              -480
+            ],
+            "id": "25c7c0c8-1d8f-4c89-b42c-e637715de741",
+            "name": "Error Trigger"
+          }
+        ],
+        "connections": {
+          "Schedule Trigger": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Filter3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter3": {
+            "main": [
+              [
+                {
+                  "node": "Switch",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Switch": {
+            "main": [
+              [
+                {
+                  "node": "Send email1",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Send email",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Error Trigger": {
+            "main": [
+              []
+            ]
+          }
+        },
+        "authors": "system migration",
+        "name": null,
+        "description": null,
+        "autosaved": false
+      },
       "tags": []
     },
     {
@@ -34331,7 +34646,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -37775,7 +38091,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": [
         {
@@ -38468,7 +38785,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -46933,7 +47251,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1611
+          "lastMessageUid": 1613
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -51271,7 +51589,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -52215,7 +52534,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -59968,7 +60288,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -60770,7 +61091,8 @@
         },
         "authors": "system migration",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },
@@ -64321,10 +64643,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-03-08T19:09:34Z"
+          "lastTimeChecked": "2026-03-13T15:20:09Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-03-08T19:09:34Z"
+          "lastTimeChecked": "2026-03-13T15:20:09Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -67056,7 +67378,8 @@
         },
         "authors": "Robson Lisboa",
         "name": null,
-        "description": null
+        "description": null,
+        "autosaved": false
       },
       "tags": []
     },

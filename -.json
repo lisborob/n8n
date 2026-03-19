@@ -2288,7 +2288,7 @@
       ]
     },
     {
-      "updatedAt": "2026-03-11T15:13:23.758Z",
+      "updatedAt": "2026-03-18T11:13:46.725Z",
       "createdAt": "2026-03-11T07:31:14.422Z",
       "id": "8cJZdnmna8WSsIOk",
       "name": "Solicitação Remoção Conta - Thiago",
@@ -2324,8 +2324,8 @@
           "type": "n8n-nodes-base.googleSheetsTrigger",
           "typeVersion": 1,
           "position": [
-            -640,
-            -128
+            -880,
+            -272
           ],
           "id": "feafb2d6-31b1-4ce7-ae06-243c868dad20",
           "name": "Google Sheets Trigger",
@@ -2349,8 +2349,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -320,
-            -144
+            -624,
+            -272
           ],
           "id": "5ad52559-eeb8-4867-b343-5bedee29983a",
           "name": "Send email",
@@ -2419,8 +2419,8 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 3.4,
           "position": [
-            144,
-            -144
+            -368,
+            -272
           ],
           "id": "5dbf7b6d-8357-486e-aef4-226df2aecbd3",
           "name": "Switch"
@@ -2454,8 +2454,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -96,
-            -144
+            -496,
+            -272
           ],
           "id": "f9eed400-cf24-4cbe-af40-3aaaa2e106a2",
           "name": "Get row(s) in sheet",
@@ -2588,8 +2588,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            560,
-            -224
+            -160,
+            -304
           ],
           "id": "a2945357-969e-4fe9-be19-a2f31867b4ee",
           "name": "Update row in sheet",
@@ -2720,8 +2720,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            560,
-            -32
+            -160,
+            -192
           ],
           "id": "3bd12942-dd6a-4cd1-806d-652aae465e15",
           "name": "Update row in sheet1",
@@ -2759,8 +2759,8 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -512,
-            -128
+            -752,
+            -272
           ],
           "id": "a0363e8b-b55a-4474-96df-c871abcd7907",
           "name": "Filter"
@@ -3092,7 +3092,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "717830cd-7aa1-4c00-891a-97dcafba0b50",
+      "versionId": "a70a69ea-6c01-4e20-a53e-7de79239343c",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -4941,10 +4941,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1773783441,
+            "lastTimeChecked": 1773877802,
             "possibleDuplicates": [
-              "19cfdbb6538913d3",
-              "19cfdacaac2a35d5"
+              "19d035b6a915af3e",
+              "19d03570c8f4f512"
             ]
           }
         },
@@ -31152,10 +31152,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1773778630,
+            "lastTimeChecked": 1773866521,
             "possibleDuplicates": [
-              "19cfd71f978916b9",
-              "19cfd6860f9b9203"
+              "19d02e855e57a0f6",
+              "19d02c518a50ed5d",
+              "19d029a77daa52f7"
             ]
           }
         }
@@ -33227,11 +33228,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-02-16T14:29:54.251Z",
+      "updatedAt": "2026-03-18T11:05:38.623Z",
       "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
-      "active": true,
+      "active": false,
       "isArchived": false,
       "nodes": [
         {
@@ -33252,8 +33253,7 @@
             -240
           ],
           "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
-          "name": "Schedule Trigger",
-          "disabled": true
+          "name": "Schedule Trigger"
         },
         {
           "parameters": {
@@ -33461,7 +33461,8 @@
             -480
           ],
           "id": "25c7c0c8-1d8f-4c89-b42c-e637715de741",
-          "name": "Error Trigger"
+          "name": "Error Trigger",
+          "disabled": true
         }
       ],
       "connections": {
@@ -33530,8 +33531,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "6b284068-b024-4faa-bd77-537c541aa515",
-      "activeVersionId": "6b284068-b024-4faa-bd77-537c541aa515",
+      "versionId": "37a47301-89f0-4620-9d9d-cebecb774610",
+      "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
         {
@@ -33542,305 +33543,7 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": {
-        "updatedAt": "2026-03-13T15:19:50.026Z",
-        "createdAt": "2026-03-13T15:19:50.026Z",
-        "versionId": "6b284068-b024-4faa-bd77-537c541aa515",
-        "workflowId": "dJ8o6YEhOEP3OrJJ",
-        "nodes": [
-          {
-            "parameters": {
-              "rule": {
-                "interval": [
-                  {
-                    "daysInterval": 30,
-                    "triggerAtHour": 6
-                  }
-                ]
-              }
-            },
-            "type": "n8n-nodes-base.scheduleTrigger",
-            "typeVersion": 1.2,
-            "position": [
-              -960,
-              -240
-            ],
-            "id": "6582bc11-2806-4abe-975b-5695d4c45c92",
-            "name": "Schedule Trigger",
-            "disabled": true
-          },
-          {
-            "parameters": {
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "ERP Midiacode",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": 835408503,
-                "mode": "list",
-                "cachedResultName": "CLIENTES",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -752,
-              -240
-            ],
-            "id": "cd7c9982-3c5c-4150-b528-9ad33b92845c",
-            "name": "Get row(s) in sheet",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "Pq7AiEm7Pa3TvTE4",
-                "name": "Thiago - Google Sheets account 2"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "fromEmail": "adm@midiacode.tech",
-              "toEmail": "pacionithiago@gmail.com",
-              "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
-              "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEste é apenas um lembrete de que seu contrato vence em {{ $json['Dias Venc.'] }} dias ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!",
-              "options": {
-                "appendAttribution": false,
-                "ccEmail": "thiagopacioni@gmail.com"
-              }
-            },
-            "type": "n8n-nodes-base.emailSend",
-            "typeVersion": 2.1,
-            "position": [
-              -96,
-              -80
-            ],
-            "id": "e28828e2-9885-42de-ab98-12a598b7122e",
-            "name": "Send email",
-            "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
-            "notesInFlow": false,
-            "credentials": {
-              "smtp": {
-                "id": "opD4ihPIsdqEaeeI",
-                "name": "SMTP from adm@midiacode.tech"
-              }
-            }
-          },
-          {
-            "parameters": {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 3
-                },
-                "conditions": [
-                  {
-                    "id": "6e75483b-ded3-4d4d-9f99-f7851966913b",
-                    "leftValue": "={{ $json['Dias Venc.'] }}",
-                    "rightValue": 0,
-                    "operator": {
-                      "type": "number",
-                      "operation": "exists",
-                      "singleValue": true
-                    }
-                  },
-                  {
-                    "id": "c65e2af1-46c6-4697-afc7-d822ab06775f",
-                    "leftValue": "={{ $json['Dias Venc.'] }}",
-                    "rightValue": 50,
-                    "operator": {
-                      "type": "number",
-                      "operation": "lt"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.filter",
-            "typeVersion": 2.3,
-            "position": [
-              -544,
-              -240
-            ],
-            "id": "1083fe2b-39c2-4206-ac8b-f972279fe100",
-            "name": "Filter3"
-          },
-          {
-            "parameters": {
-              "rules": {
-                "values": [
-                  {
-                    "conditions": {
-                      "options": {
-                        "caseSensitive": true,
-                        "leftValue": "",
-                        "typeValidation": "strict",
-                        "version": 3
-                      },
-                      "conditions": [
-                        {
-                          "leftValue": "={{ $json['Dias Venc.'] }}",
-                          "rightValue": -1,
-                          "operator": {
-                            "type": "number",
-                            "operation": "lte"
-                          },
-                          "id": "4d735451-604f-41eb-97f1-364bd1a43149"
-                        }
-                      ],
-                      "combinator": "and"
-                    },
-                    "renameOutput": true,
-                    "outputKey": "Venceu"
-                  },
-                  {
-                    "conditions": {
-                      "options": {
-                        "caseSensitive": true,
-                        "leftValue": "",
-                        "typeValidation": "strict",
-                        "version": 3
-                      },
-                      "conditions": [
-                        {
-                          "id": "95ea98c0-ba73-4863-bf40-d2e1512887ad",
-                          "leftValue": "={{ $json['Dias Venc.'] }}",
-                          "rightValue": 0,
-                          "operator": {
-                            "type": "number",
-                            "operation": "gte"
-                          }
-                        }
-                      ],
-                      "combinator": "and"
-                    },
-                    "renameOutput": true,
-                    "outputKey": "Vencerá"
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.switch",
-            "typeVersion": 3.4,
-            "position": [
-              -304,
-              -240
-            ],
-            "id": "73b19d46-d04e-41f2-9022-6ccb83fc178e",
-            "name": "Switch"
-          },
-          {
-            "parameters": {
-              "fromEmail": "adm@midiacode.tech",
-              "toEmail": "pacionithiago@gmail.com",
-              "subject": "=Contrato Vence em  {{ $json['Dias Venc.'] }} Dias",
-              "html": "=Olá,{{ $json.nom_fantasia }} ,<br><br>\n\nEstamos entrando em contato, pois verificamos que seu contrato venceu em ({{ $json.cntrto_fim }}).<br><br>\n\nSe desejar renovar ou tiver alguma dúvida, basta nos avisar por aqui.<br><br>\n\nObrigado pela confiança!\n\nAtenciosamente,",
-              "options": {
-                "appendAttribution": false,
-                "ccEmail": "thiagopacioni@gmail.com"
-              }
-            },
-            "type": "n8n-nodes-base.emailSend",
-            "typeVersion": 2.1,
-            "position": [
-              -128,
-              -336
-            ],
-            "id": "2b09cf43-4308-4dc4-a2bb-3066e5d4d3cd",
-            "name": "Send email1",
-            "webhookId": "e469696f-0134-474d-ad19-ebffa463a81b",
-            "notesInFlow": false,
-            "credentials": {
-              "smtp": {
-                "id": "opD4ihPIsdqEaeeI",
-                "name": "SMTP from adm@midiacode.tech"
-              }
-            }
-          },
-          {
-            "parameters": {},
-            "type": "n8n-nodes-base.errorTrigger",
-            "typeVersion": 1,
-            "position": [
-              -976,
-              -480
-            ],
-            "id": "25c7c0c8-1d8f-4c89-b42c-e637715de741",
-            "name": "Error Trigger"
-          }
-        ],
-        "connections": {
-          "Schedule Trigger": {
-            "main": [
-              [
-                {
-                  "node": "Get row(s) in sheet",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Get row(s) in sheet": {
-            "main": [
-              [
-                {
-                  "node": "Filter3",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Filter3": {
-            "main": [
-              [
-                {
-                  "node": "Switch",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Switch": {
-            "main": [
-              [
-                {
-                  "node": "Send email1",
-                  "type": "main",
-                  "index": 0
-                }
-              ],
-              [
-                {
-                  "node": "Send email",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Error Trigger": {
-            "main": [
-              []
-            ]
-          }
-        },
-        "authors": "system migration",
-        "name": null,
-        "description": null,
-        "autosaved": false
-      },
+      "activeVersion": null,
       "tags": []
     },
     {

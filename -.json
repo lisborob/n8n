@@ -2288,7 +2288,7 @@
       ]
     },
     {
-      "updatedAt": "2026-03-18T11:13:46.725Z",
+      "updatedAt": "2026-03-19T14:44:54.661Z",
       "createdAt": "2026-03-11T07:31:14.422Z",
       "id": "8cJZdnmna8WSsIOk",
       "name": "Solicitação Remoção Conta - Thiago",
@@ -2324,7 +2324,7 @@
           "type": "n8n-nodes-base.googleSheetsTrigger",
           "typeVersion": 1,
           "position": [
-            -880,
+            -1040,
             -272
           ],
           "id": "feafb2d6-31b1-4ce7-ae06-243c868dad20",
@@ -2341,7 +2341,7 @@
             "fromEmail": "adm@midiacode.tech",
             "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "=Solicitação Remoção de Conta -  {{ $json['Account email'] }}",
-            "html": "=Atenção, o cliente - {{ $('Google Sheets Trigger').item.json['Account email'] }} - solicitou o cancelamento do plano ",
+            "html": "=Atenção, o cliente - {{ $('Google Sheets Trigger').item.json['Account email'] }} - solicitou o cancelamento do plano. ",
             "options": {
               "appendAttribution": false
             }
@@ -2349,7 +2349,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -624,
+            -704,
             -272
           ],
           "id": "5ad52559-eeb8-4867-b343-5bedee29983a",
@@ -2419,8 +2419,8 @@
           "type": "n8n-nodes-base.switch",
           "typeVersion": 3.4,
           "position": [
-            -368,
-            -272
+            -384,
+            -304
           ],
           "id": "5dbf7b6d-8357-486e-aef4-226df2aecbd3",
           "name": "Switch"
@@ -2445,7 +2445,7 @@
               "values": [
                 {
                   "lookupColumn": "emails_nf",
-                  "lookupValue": "={{ $json['Account email'] }}"
+                  "lookupValue": "={{ $('Google Sheets Trigger').item.json['Account email'] }}"
                 }
               ]
             },
@@ -2454,8 +2454,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -496,
-            -272
+            -544,
+            -288
           ],
           "id": "f9eed400-cf24-4cbe-af40-3aaaa2e106a2",
           "name": "Get row(s) in sheet",
@@ -2588,8 +2588,8 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -160,
-            -304
+            -192,
+            -336
           ],
           "id": "a2945357-969e-4fe9-be19-a2f31867b4ee",
           "name": "Update row in sheet",
@@ -2759,7 +2759,7 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -752,
+            -880,
             -272
           ],
           "id": "a0363e8b-b55a-4474-96df-c871abcd7907",
@@ -2967,6 +2967,600 @@
               "name": "Supabase account 2 - Thiago"
             }
           }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 835408503,
+              "mode": "list",
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "emails_nf": "={{ $('Update row in sheet').item.json['Account email'] }}",
+                "status": "Cancelado",
+                "contrato_fim": "={{ $json.currentDate }}"
+              },
+              "matchingColumns": [
+                "emails_nf"
+              ],
+              "schema": [
+                {
+                  "id": "cliente_id",
+                  "displayName": "cliente_id",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "cnpj/ contribuinte",
+                  "displayName": "cnpj/ contribuinte",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "razao_social",
+                  "displayName": "razao_social",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "nom_fantasia",
+                  "displayName": "nom_fantasia",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "País",
+                  "displayName": "País",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "ICP",
+                  "displayName": "ICP",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Seg Economico",
+                  "displayName": "Seg Economico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "servico",
+                  "displayName": "servico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "emails_nf",
+                  "displayName": "emails_nf",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "cobrança",
+                  "displayName": "cobrança",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "moeda",
+                  "displayName": "moeda",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "valor_contrato",
+                  "displayName": "valor_contrato",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "periodicidade",
+                  "displayName": "periodicidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "vencimento_padrao",
+                  "displayName": "vencimento_padrao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_inicio",
+                  "displayName": "contrato_inicio",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_fim",
+                  "displayName": "contrato_fim",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Dias Venc.",
+                  "displayName": "Dias Venc.",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "reajuste_tipo",
+                  "displayName": "reajuste_tipo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "% reajuste",
+                  "displayName": "% reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_ultimo_reajuste",
+                  "displayName": "data_ultimo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_proximo_reajuste",
+                  "displayName": "data_proximo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "confiabilidade",
+                  "displayName": "confiabilidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "atrasos",
+                  "displayName": "atrasos",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "LTV",
+                  "displayName": "LTV",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            432,
+            -336
+          ],
+          "id": "8e0953de-2679-440e-9ac3-6ef83da5005d",
+          "name": "Update row in sheet2",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 835408503,
+              "mode": "list",
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "emails_nf": "={{ $json['Account email'] }}",
+                "status": "Cancelado"
+              },
+              "matchingColumns": [
+                "emails_nf"
+              ],
+              "schema": [
+                {
+                  "id": "cliente_id",
+                  "displayName": "cliente_id",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "cnpj/ contribuinte",
+                  "displayName": "cnpj/ contribuinte",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "razao_social",
+                  "displayName": "razao_social",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "nom_fantasia",
+                  "displayName": "nom_fantasia",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "País",
+                  "displayName": "País",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "ICP",
+                  "displayName": "ICP",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Seg Economico",
+                  "displayName": "Seg Economico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "servico",
+                  "displayName": "servico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "emails_nf",
+                  "displayName": "emails_nf",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "cobrança",
+                  "displayName": "cobrança",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "moeda",
+                  "displayName": "moeda",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "valor_contrato",
+                  "displayName": "valor_contrato",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "periodicidade",
+                  "displayName": "periodicidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "vencimento_padrao",
+                  "displayName": "vencimento_padrao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_inicio",
+                  "displayName": "contrato_inicio",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_fim",
+                  "displayName": "contrato_fim",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Dias Venc.",
+                  "displayName": "Dias Venc.",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "reajuste_tipo",
+                  "displayName": "reajuste_tipo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "% reajuste",
+                  "displayName": "% reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_ultimo_reajuste",
+                  "displayName": "data_ultimo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_proximo_reajuste",
+                  "displayName": "data_proximo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "confiabilidade",
+                  "displayName": "confiabilidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "atrasos",
+                  "displayName": "atrasos",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "LTV",
+                  "displayName": "LTV",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            304,
+            -192
+          ],
+          "id": "30bf2d97-d81e-4d00-94eb-740853eab2cb",
+          "name": "Update row in sheet3",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "9a317e4d-714c-48a9-a002-87296ed4f17f",
+                  "name": "currentDate",
+                  "value": "={{ $now.format('dd/MM/yyyy') }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            160,
+            -336
+          ],
+          "id": "e7c10a7d-3980-4161-abec-dc80712919a7",
+          "name": "Edit Fields1"
         }
       ],
       "connections": {
@@ -3082,6 +3676,39 @@
               }
             ]
           ]
+        },
+        "Update row in sheet": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row in sheet1": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields1": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -3092,7 +3719,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a70a69ea-6c01-4e20-a53e-7de79239343c",
+      "versionId": "8aaa8611-508d-49e6-b104-807e2fe8e5d5",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -4941,10 +5568,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1773877802,
+            "lastTimeChecked": 1773960071,
             "possibleDuplicates": [
-              "19d035b6a915af3e",
-              "19d03570c8f4f512"
+              "19d08428ca089987",
+              "19d07e65c267230a"
             ]
           }
         },
@@ -31152,11 +31779,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1773866521,
+            "lastTimeChecked": 1773963260,
             "possibleDuplicates": [
-              "19d02e855e57a0f6",
-              "19d02c518a50ed5d",
-              "19d029a77daa52f7"
+              "19d087334586a940",
+              "19d082c67ccde604"
             ]
           }
         }

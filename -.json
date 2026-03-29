@@ -5568,9 +5568,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1774649619,
+            "lastTimeChecked": 1774737473,
             "possibleDuplicates": [
-              "19d315c3a9d2f506"
+              "19d3698c3d942b37",
+              "19d364dbab0e1afc",
+              "19d364db6a38e7fb"
             ]
           }
         },
@@ -31778,9 +31780,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1774651186,
+            "lastTimeChecked": 1774724651,
             "possibleDuplicates": [
-              "19d317435aa47302"
+              "19d35dffba5d0df8",
+              "19d35d2fb3afa977"
             ]
           }
         }

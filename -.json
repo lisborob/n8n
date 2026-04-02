@@ -5568,10 +5568,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1775082652,
+            "lastTimeChecked": 1775162402,
             "possibleDuplicates": [
-              "19d4b2caa49b9cea",
-              "19d4b2bc5b5d8721"
+              "19d4fecab92bc1df",
+              "19d4fda1a14e5a03"
             ]
           }
         },
@@ -17683,7 +17683,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            0
+            21
           ]
         }
       },
@@ -27068,10 +27068,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-03-13T15:29:30Z"
+          "lastTimeChecked": "2026-04-02T17:11:04Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-03-13T15:29:30Z"
+          "lastTimeChecked": "2026-04-02T17:11:05Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -31779,10 +31779,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1775071336,
+            "lastTimeChecked": 1775164970,
             "possibleDuplicates": [
-              "19d4ac2dc6fd8291",
-              "19d4a7f1aecd8951"
+              "19d5013da841ef66",
+              "19d4f6108f01b409"
             ]
           }
         }
@@ -32347,7 +32347,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-03-06T14:45:57.925Z",
+      "updatedAt": "2026-04-02T06:19:50.241Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -32783,6 +32783,16 @@
                   "canBeUsedToMatch": true
                 },
                 {
+                  "id": "número_nf",
+                  "displayName": "número_nf",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
                   "id": "status",
                   "displayName": "status",
                   "required": false,
@@ -32970,7 +32980,7 @@
               "id": "[REDACTED]",
               "object": "event",
               "api_version": "2022-08-01",
-              "created": 1772725852,
+              "created": 1775073023,
               "data": {
                 "object": {
                   "id": "[REDACTED]",
@@ -32980,9 +32990,9 @@
                   "account_tax_ids": [
                     "[REDACTED]"
                   ],
-                  "amount_due": 450,
+                  "amount_due": 875,
                   "amount_overpaid": 0,
-                  "amount_paid": 450,
+                  "amount_paid": 875,
                   "amount_remaining": 0,
                   "amount_shipping": 0,
                   "application": null,
@@ -33001,10 +33011,10 @@
                   "billing_reason": "subscription_cycle",
                   "charge": "[REDACTED]",
                   "collection_method": "charge_automatically",
-                  "created": 1772722208,
+                  "created": 1775069345,
                   "currency": "eur",
                   "custom_fields": null,
-                  "customer": "cus_SRYC6N88EeFgkH",
+                  "customer": "cus_QOcVOb3uCH4xhs",
                   "customer_account": null,
                   "customer_address": {
                     "city": null,
@@ -33014,8 +33024,8 @@
                     "postal_code": null,
                     "state": null
                   },
-                  "customer_email": "clubempvantagens@gmail.com",
-                  "customer_name": "Bruna TT Torres",
+                  "customer_email": "gift@oralgift.com",
+                  "customer_name": "Anelissa B de Souza",
                   "customer_phone": null,
                   "customer_shipping": null,
                   "customer_tax_exempt": "none",
@@ -33027,7 +33037,7 @@
                   "discount": null,
                   "discounts": [],
                   "due_date": null,
-                  "effective_at": 1772725845,
+                  "effective_at": 1775073017,
                   "ending_balance": 0,
                   "footer": "If you have any doubt about the Terms & Conditions of using our platform, check it at https://midiacode.com/terms-and-conditions/\nAlso check our Privacy Policy at https://midiacode.com/privacy-policy/",
                   "from_invoice": null,
@@ -33044,10 +33054,10 @@
                       {
                         "id": "[REDACTED]",
                         "object": "line_item",
-                        "amount": 450,
-                        "amount_excluding_tax": 450,
+                        "amount": 875,
+                        "amount_excluding_tax": 875,
                         "currency": "eur",
-                        "description": "1 × Midiacode Studio Start (at €4.50 / month)",
+                        "description": "1 × Unlimited Dynamic QR Codes (at €8.75 / month)",
                         "discount_amounts": [],
                         "discountable": true,
                         "discounts": [],
@@ -33056,6 +33066,7 @@
                         "metadata": {},
                         "parent": {
                           "invoice_item_details": null,
+                          "license_fee_subscription_details": null,
                           "subscription_item_details": {
                             "invoice_item": null,
                             "proration": false,
@@ -33063,23 +33074,23 @@
                               "credited_items": null
                             },
                             "subscription": "[REDACTED]",
-                            "subscription_item": "si_SRYCsmnDWzCp5h"
+                            "subscription_item": "si_QOcVyLvSTLfeNu"
                           },
                           "type": "subscription_item_details"
                         },
                         "period": {
-                          "end": 1775400520,
-                          "start": 1772722120
+                          "end": 1777661297,
+                          "start": 1775069297
                         },
                         "plan": {
                           "id": "[REDACTED]",
                           "object": "plan",
                           "active": false,
                           "aggregate_usage": null,
-                          "amount": 450,
-                          "amount_decimal": "450",
+                          "amount": 875,
+                          "amount_decimal": "875",
                           "billing_scheme": "per_unit",
-                          "created": 1663149471,
+                          "created": 1773066801,
                           "currency": "eur",
                           "interval": "month",
                           "interval_count": 1,
@@ -33087,7 +33098,7 @@
                           "metadata": {},
                           "meter": null,
                           "nickname": null,
-                          "product": "prod_MQjpzrI2CqIe8J",
+                          "product": "prod_OFHjyGxTvcndZv",
                           "tiers_mode": null,
                           "transform_usage": null,
                           "trial_period_days": null,
@@ -33099,14 +33110,14 @@
                           "object": "price",
                           "active": false,
                           "billing_scheme": "per_unit",
-                          "created": 1663149471,
+                          "created": 1773066801,
                           "currency": "eur",
                           "custom_unit_amount": null,
                           "livemode": true,
                           "lookup_key": null,
                           "metadata": {},
                           "nickname": null,
-                          "product": "prod_MQjpzrI2CqIe8J",
+                          "product": "prod_OFHjyGxTvcndZv",
                           "recurring": {
                             "aggregate_usage": null,
                             "interval": "month",
@@ -33119,30 +33130,31 @@
                           "tiers_mode": null,
                           "transform_quantity": null,
                           "type": "recurring",
-                          "unit_amount": 450,
-                          "unit_amount_decimal": "450"
+                          "unit_amount": 875,
+                          "unit_amount_decimal": "875"
                         },
                         "pricing": {
                           "price_details": {
                             "price": "[REDACTED]",
-                            "product": "prod_MQjpzrI2CqIe8J"
+                            "product": "prod_OFHjyGxTvcndZv"
                           },
                           "type": "price_details",
-                          "unit_amount_decimal": "450"
+                          "unit_amount_decimal": "875"
                         },
                         "proration": false,
                         "proration_details": {
                           "credited_items": null
                         },
                         "quantity": 1,
+                        "quantity_decimal": "1",
                         "subscription": "[REDACTED]",
-                        "subscription_item": "si_SRYCsmnDWzCp5h",
-                        "subtotal": 450,
+                        "subscription_item": "si_QOcVyLvSTLfeNu",
+                        "subtotal": 875,
                         "tax_amounts": [],
                         "tax_rates": [],
                         "taxes": [],
                         "type": "subscription",
-                        "unit_amount_excluding_tax": "450"
+                        "unit_amount_excluding_tax": "875"
                       }
                     ],
                     "has_more": false,
@@ -33152,7 +33164,7 @@
                   "livemode": true,
                   "metadata": {},
                   "next_payment_attempt": null,
-                  "number": "0BC57229-0931",
+                  "number": "0BC57229-0951",
                   "on_behalf_of": null,
                   "paid": true,
                   "paid_out_of_band": false,
@@ -33176,17 +33188,19 @@
                       "customer_balance": null,
                       "konbini": null,
                       "payto": null,
+                      "pix": null,
                       "sepa_debit": null,
+                      "upi": null,
                       "us_bank_account": null
                     },
                     "payment_method_types": null
                   },
-                  "period_end": 1772722120,
-                  "period_start": 1770302920,
+                  "period_end": 1775069297,
+                  "period_start": 1772390897,
                   "post_payment_credit_notes_amount": 0,
                   "pre_payment_credit_notes_amount": 0,
                   "quote": null,
-                  "receipt_number": "2548-8167",
+                  "receipt_number": null,
                   "rendering": {
                     "amount_tax_display": null,
                     "pdf": null,
@@ -33200,27 +33214,27 @@
                   "statement_descriptor": null,
                   "status": "paid",
                   "status_transitions": {
-                    "finalized_at": 1772725845,
+                    "finalized_at": 1775073017,
                     "marked_uncollectible_at": null,
-                    "paid_at": 1772725845,
+                    "paid_at": 1775073017,
                     "voided_at": null
                   },
                   "subscription": "[REDACTED]",
                   "subscription_details": {
                     "metadata": {}
                   },
-                  "subtotal": 450,
-                  "subtotal_excluding_tax": 450,
+                  "subtotal": 875,
+                  "subtotal_excluding_tax": 875,
                   "tax": null,
                   "test_clock": null,
-                  "total": 450,
+                  "total": 875,
                   "total_discount_amounts": [],
-                  "total_excluding_tax": 450,
+                  "total_excluding_tax": 875,
                   "total_pretax_credit_amounts": [],
                   "total_tax_amounts": [],
                   "total_taxes": [],
                   "transfer_data": null,
-                  "webhooks_delivered_at": 1772722209
+                  "webhooks_delivered_at": 1775069347
                 }
               },
               "livemode": true,
@@ -33237,8 +33251,8 @@
           }
         ]
       },
-      "versionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
-      "activeVersionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
+      "versionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
+      "activeVersionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
       "triggerCount": 1,
       "shared": [
         {
@@ -33250,9 +33264,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-03-06T14:45:57.926Z",
-        "createdAt": "2026-03-06T14:45:57.926Z",
-        "versionId": "885fe0b7-2598-4220-9e97-b3a3139b8213",
+        "updatedAt": "2026-04-02T11:24:33.000Z",
+        "createdAt": "2026-04-02T06:19:50.242Z",
+        "versionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -33684,6 +33698,16 @@
                     "canBeUsedToMatch": true
                   },
                   {
+                    "id": "número_nf",
+                    "displayName": "número_nf",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
                     "id": "status",
                     "displayName": "status",
                     "required": false,
@@ -33847,9 +33871,9 @@
           }
         },
         "authors": "Robson Lisboa",
-        "name": null,
-        "description": null,
-        "autosaved": false
+        "name": "Version 463dbb2e",
+        "description": "",
+        "autosaved": true
       },
       "tags": []
     },
@@ -43238,6 +43262,90 @@
           "createdAt": "2025-11-17T17:00:46.103Z",
           "role": "workflow:owner",
           "workflowId": "nlsS6SI0LwMS43nm",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
+      "updatedAt": "2026-04-02T18:01:09.193Z",
+      "createdAt": "2026-04-02T17:54:26.354Z",
+      "id": "pJh5nDTBlL8qms3p",
+      "name": "My workflow",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            0,
+            0
+          ],
+          "id": "6f91bcc1-e2a0-4ae9-a4c9-5d6e718b1489",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "company",
+            "operation": "get",
+            "companyId": {
+              "__rl": true,
+              "mode": "id",
+              "value": ""
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            208,
+            0
+          ],
+          "id": "69a9b7a8-6cad-49ef-8c5c-9390d7ad684c",
+          "name": "Get a company",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Get a company",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "6eb28151-6f75-4574-bc7d-2a29743d6de8",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-04-02T17:54:26.359Z",
+          "createdAt": "2026-04-02T17:54:26.359Z",
+          "role": "workflow:owner",
+          "workflowId": "pJh5nDTBlL8qms3p",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
@@ -64972,10 +65080,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-03-13T15:20:09Z"
+          "lastTimeChecked": "2026-04-02T17:11:09Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-03-13T15:20:09Z"
+          "lastTimeChecked": "2026-04-02T17:11:10Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [

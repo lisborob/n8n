@@ -5568,10 +5568,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1776121136,
+            "lastTimeChecked": 1776203340,
             "possibleDuplicates": [
-              "19d8911dcf167abf",
-              "19d88ebe2af37119"
+              "19d8df81eb7c7357",
+              "19d8dd05345575a6"
             ]
           }
         },
@@ -30836,7 +30836,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2217
+          "lastMessageUid": 2222
         }
       },
       "meta": {
@@ -31779,10 +31779,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1776110856,
+            "lastTimeChecked": 1776187955,
             "possibleDuplicates": [
-              "19d8874ec26d0eb3",
-              "19d8852e393275f0"
+              "19d8d187fb37c070",
+              "19d8cf755020c22c"
             ]
           }
         }
@@ -47682,13 +47682,13 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2221
+          "lastMessageUid": 2222
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1652
+          "lastMessageUid": 1654
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -62442,6 +62442,177 @@
           "createdAt": "2025-11-11T18:18:01.727Z",
           "role": "workflow:owner",
           "workflowId": "wPKx4SDtwC5gLko6",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
+      "updatedAt": "2026-04-14T14:32:06.804Z",
+      "createdAt": "2026-04-14T14:27:16.772Z",
+      "id": "wSadBIzs8TwiQuOQ",
+      "name": "Envio NF - Thiago",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            -448,
+            -64
+          ],
+          "id": "c8daaef4-57d3-478a-aa00-cad1a89cded1",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 835408503,
+              "mode": "list",
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "NF Mensal",
+                  "lookupValue": "Sim"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -272,
+            -64
+          ],
+          "id": "2c7322cc-d3d1-45cf-bf5a-5039f98410cc",
+          "name": "Get row(s) in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "adm@midiacode.tech",
+            "toEmail": "thiagopacioni@gmail.com",
+            "subject": "NF Abril/26",
+            "html": "=Prezado, bom dia! // \n\nSegue em anexo, a nota fiscal referente ao mês abril/26 //\n\nAtenciosamente",
+            "options": {
+              "attachments": ""
+            }
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            144,
+            -64
+          ],
+          "id": "82b9fd27-ae6d-49d9-9850-045478cfcef1",
+          "name": "Send an Email",
+          "webhookId": "a2f01d0d-181b-45fd-9fa0-b81594119ac6",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "download",
+            "fileId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleDrive",
+          "typeVersion": 3,
+          "position": [
+            -64,
+            -64
+          ],
+          "id": "d417ed21-c6bc-4158-9d8c-1cd94dedc5f4",
+          "name": "Download file",
+          "credentials": {
+            "googleDriveOAuth2Api": {
+              "id": "OeujTUJ75p0KgzGs",
+              "name": "Thiago teste"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Download file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Download file": {
+          "main": [
+            [
+              {
+                "node": "Send an Email",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "d001fe2d-9a96-42b6-b3b6-337bd18d501c",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-04-14T14:27:16.777Z",
+          "createdAt": "2026-04-14T14:27:16.777Z",
+          "role": "workflow:owner",
+          "workflowId": "wSadBIzs8TwiQuOQ",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],

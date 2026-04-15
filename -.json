@@ -5568,10 +5568,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1776203340,
+            "lastTimeChecked": 1776288549,
             "possibleDuplicates": [
-              "19d8df81eb7c7357",
-              "19d8dd05345575a6"
+              "19d930c4dc37e103",
+              "19d930ab764071cd"
             ]
           }
         },
@@ -31779,10 +31779,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1776187955,
+            "lastTimeChecked": 1776279151,
             "possibleDuplicates": [
-              "19d8d187fb37c070",
-              "19d8cf755020c22c"
+              "19d927ce7a217833",
+              "19d91c9c2e3d7442"
             ]
           }
         }
@@ -47688,7 +47688,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1654
+          "lastMessageUid": 1655
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -62449,7 +62449,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-04-14T14:32:06.804Z",
+      "updatedAt": "2026-04-15T11:08:44.866Z",
       "createdAt": "2026-04-14T14:27:16.772Z",
       "id": "wSadBIzs8TwiQuOQ",
       "name": "Envio NF - Thiago",
@@ -62511,22 +62511,24 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "thiagopacioni@gmail.com",
+            "toEmail": "pacionithiago@gmail.com",
             "subject": "NF Abril/26",
-            "html": "=Prezado, bom dia! // \n\nSegue em anexo, a nota fiscal referente ao mês abril/26 //\n\nAtenciosamente",
+            "html": "=<p>Prezado(a), bom dia!</p>\n\n<p>Segue em anexo a nota fiscal referente ao mês de abril/2026.</p>\n\n<p>Atenciosamente,<br>",
             "options": {
-              "attachments": ""
+              "appendAttribution": false,
+              "attachments": "data"
             }
           },
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            144,
+            208,
             -64
           ],
           "id": "82b9fd27-ae6d-49d9-9850-045478cfcef1",
           "name": "Send an Email",
           "webhookId": "a2f01d0d-181b-45fd-9fa0-b81594119ac6",
+          "executeOnce": true,
           "credentials": {
             "smtp": {
               "id": "opD4ihPIsdqEaeeI",
@@ -62536,26 +62538,368 @@
         },
         {
           "parameters": {
-            "operation": "download",
-            "fileId": {
-              "__rl": true,
-              "mode": "list",
-              "value": ""
+            "resource": "fileFolder",
+            "queryString": "={{ $json[\"cliente_id\"] }}",
+            "filter": {
+              "driveId": {
+                "__rl": true,
+                "value": "My Drive",
+                "mode": "list",
+                "cachedResultName": "My Drive",
+                "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+              },
+              "folderId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "02. Fevereiro",
+                "cachedResultUrl": "[REDACTED]"
+              }
             },
             "options": {}
           },
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -64,
+            -112,
             -64
           ],
           "id": "d417ed21-c6bc-4158-9d8c-1cd94dedc5f4",
+          "name": "Search files and folders",
+          "credentials": {
+            "googleDriveOAuth2Api": {
+              "id": "OeujTUJ75p0KgzGs",
+              "name": "Thiago teste"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "download",
+            "fileId": {
+              "__rl": true,
+              "value": "={{ $json.id }}",
+              "mode": "id"
+            },
+            "options": {
+              "binaryPropertyName": "data"
+            }
+          },
+          "type": "n8n-nodes-base.googleDrive",
+          "typeVersion": 3,
+          "position": [
+            48,
+            -64
+          ],
+          "id": "a2718750-4f6d-4282-beaa-0de00499c4c7",
           "name": "Download file",
           "credentials": {
             "googleDriveOAuth2Api": {
               "id": "OeujTUJ75p0KgzGs",
               "name": "Thiago teste"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "ERP Midiacode",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 835408503,
+              "mode": "list",
+              "cachedResultName": "CLIENTES",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "cliente_id": "={{ $('Get row(s) in sheet').item.json.cliente_id }}",
+                "NF Emitida": "Enviada"
+              },
+              "matchingColumns": [
+                "cliente_id"
+              ],
+              "schema": [
+                {
+                  "id": "cliente_id",
+                  "displayName": "cliente_id",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "cnpj/ contribuinte",
+                  "displayName": "cnpj/ contribuinte",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "razao_social",
+                  "displayName": "razao_social",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "nom_fantasia",
+                  "displayName": "nom_fantasia",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "País",
+                  "displayName": "País",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "ICP",
+                  "displayName": "ICP",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Seg Economico",
+                  "displayName": "Seg Economico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "servico",
+                  "displayName": "servico",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "emails_nf",
+                  "displayName": "emails_nf",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "cobrança",
+                  "displayName": "cobrança",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "moeda",
+                  "displayName": "moeda",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "valor_contrato",
+                  "displayName": "valor_contrato",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "periodicidade",
+                  "displayName": "periodicidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "vencimento_padrao",
+                  "displayName": "vencimento_padrao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_inicio",
+                  "displayName": "contrato_inicio",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "contrato_fim",
+                  "displayName": "contrato_fim",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Dias Venc.",
+                  "displayName": "Dias Venc.",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "reajuste_tipo",
+                  "displayName": "reajuste_tipo",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "% reajuste",
+                  "displayName": "% reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_ultimo_reajuste",
+                  "displayName": "data_ultimo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "data_proximo_reajuste",
+                  "displayName": "data_proximo_reajuste",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "confiabilidade",
+                  "displayName": "confiabilidade",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "atrasos",
+                  "displayName": "atrasos",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "status",
+                  "displayName": "status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "LTV",
+                  "displayName": "LTV",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "NF Mensal",
+                  "displayName": "NF Mensal",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "NF Emitida",
+                  "displayName": "NF Emitida",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            384,
+            -64
+          ],
+          "id": "684157e8-684e-4d3f-bfc0-f0871523dd99",
+          "name": "Update row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
             }
           }
         }
@@ -62576,6 +62920,17 @@
           "main": [
             [
               {
+                "node": "Search files and folders",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Search files and folders": {
+          "main": [
+            [
+              {
                 "node": "Download file",
                 "type": "main",
                 "index": 0
@@ -62593,6 +62948,17 @@
               }
             ]
           ]
+        },
+        "Send an Email": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -62604,7 +62970,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "d001fe2d-9a96-42b6-b3b6-337bd18d501c",
+      "versionId": "7dba329e-2547-45eb-a5f5-57acd5a3f220",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [

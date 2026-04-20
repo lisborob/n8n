@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "updatedAt": "2026-02-24T14:26:13.752Z",
+      "updatedAt": "2026-04-20T09:21:34.963Z",
       "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
@@ -449,7 +449,7 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "thiagopacioni@gmail.com",
+            "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "={{ $('Aviso').item.json.Assunto }}",
             "html": "={{ $('Aviso').item.json['E-mail'] }}",
             "options": {
@@ -475,7 +475,7 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "thiagopacioni@gmail.com",
+            "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "={{ $('Atrasou').item.json.Assunto }}",
             "html": "={{ $('Atrasou').item.json['E-mail'] }}",
             "options": {
@@ -501,7 +501,7 @@
         {
           "parameters": {
             "fromEmail": "adm@midiacode.tech",
-            "toEmail": "thiagopacioni@gmail.com",
+            "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "={{ $('Alerta').item.json.Assunto }}",
             "html": "={{ $('Alerta').item.json['E-mail'] }}",
             "options": {
@@ -765,7 +765,8 @@
         }
       },
       "settings": {
-        "executionOrder": "v1"
+        "executionOrder": "v1",
+        "binaryMode": "separate"
       },
       "staticData": {
         "node:Gatilho diário": {
@@ -776,8 +777,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
-      "activeVersionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
+      "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
+      "activeVersionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
       "triggerCount": 1,
       "shared": [
         {
@@ -789,9 +790,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-02-24T14:26:13.754Z",
-        "createdAt": "2026-02-24T14:26:13.754Z",
-        "versionId": "1f0cb8b0-f923-4bda-811e-4762403010c8",
+        "updatedAt": "2026-04-20T09:21:54.000Z",
+        "createdAt": "2026-04-20T09:21:34.964Z",
+        "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
         "workflowId": "4kFZ05E1mzXgyAjB",
         "nodes": [
           {
@@ -1235,7 +1236,7 @@
           {
             "parameters": {
               "fromEmail": "adm@midiacode.tech",
-              "toEmail": "thiagopacioni@gmail.com",
+              "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "={{ $('Aviso').item.json.Assunto }}",
               "html": "={{ $('Aviso').item.json['E-mail'] }}",
               "options": {
@@ -1261,7 +1262,7 @@
           {
             "parameters": {
               "fromEmail": "adm@midiacode.tech",
-              "toEmail": "thiagopacioni@gmail.com",
+              "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "={{ $('Atrasou').item.json.Assunto }}",
               "html": "={{ $('Atrasou').item.json['E-mail'] }}",
               "options": {
@@ -1287,7 +1288,7 @@
           {
             "parameters": {
               "fromEmail": "adm@midiacode.tech",
-              "toEmail": "thiagopacioni@gmail.com",
+              "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "={{ $('Alerta').item.json.Assunto }}",
               "html": "={{ $('Alerta').item.json['E-mail'] }}",
               "options": {
@@ -1551,9 +1552,9 @@
           }
         },
         "authors": "Robson Lisboa",
-        "name": null,
-        "description": null,
-        "autosaved": false
+        "name": "Régua de cobrança",
+        "description": "",
+        "autosaved": true
       },
       "tags": []
     },
@@ -5568,10 +5569,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1776632405,
+            "lastTimeChecked": 1776720687,
             "possibleDuplicates": [
-              "19da78b247552099",
-              "19da72b6ff25b3af"
+              "19dacce3bbe72f38",
+              "19dac8163eff7d72"
             ]
           }
         },
@@ -31779,10 +31780,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1776611848,
+            "lastTimeChecked": 1776701447,
             "possibleDuplicates": [
-              "19da65187b99af1b",
-              "19da645bb5548d75"
+              "19daba8a46b5a524",
+              "19dab950a2b7f55b"
             ]
           }
         }
@@ -47688,7 +47689,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1663
+          "lastMessageUid": 1665
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

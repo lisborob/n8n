@@ -5569,10 +5569,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1776807365,
+            "lastTimeChecked": 1776898648,
             "possibleDuplicates": [
-              "19db1f8cc1d9c400",
-              "19db198c6ea49abb"
+              "19db769e74356219",
+              "19db711e5e80836c"
             ]
           }
         },
@@ -31780,10 +31780,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1776798762,
+            "lastTimeChecked": 1776893282,
             "possibleDuplicates": [
-              "19db1758a20aab5a",
-              "19db1711fd797ac8"
+              "19db72a452dd8a59",
+              "19db65d461d18cf0"
             ]
           }
         }
@@ -32348,7 +32348,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-04-02T06:19:50.241Z",
+      "updatedAt": "2026-04-22T08:44:34.854Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -32667,7 +32667,8 @@
                 "competencia": "={{ $('Formatação data').item.json['Competencia '] }}",
                 "receita_id": "={{ $json.receita_id }}",
                 "observacoes_nf": "={{ $('Dados transação').item.json['ID transacao Stripe'] }}",
-                "vencimento": "={{ $('Formatação data').item.json.currentDate }}"
+                "vencimento": "={{ $('Formatação data').item.json.currentDate }}",
+                "tipo_receita": "Mensalidade - QR Code"
               },
               "matchingColumns": [
                 "receita_id"
@@ -32957,7 +32958,8 @@
         }
       },
       "settings": {
-        "executionOrder": "v1"
+        "executionOrder": "v1",
+        "binaryMode": "separate"
       },
       "staticData": {
         "node:Stripe Trigger": {},
@@ -33252,8 +33254,8 @@
           }
         ]
       },
-      "versionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
-      "activeVersionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
+      "versionId": "ef860b6d-9d8a-40de-a8e3-527350225be7",
+      "activeVersionId": "ef860b6d-9d8a-40de-a8e3-527350225be7",
       "triggerCount": 1,
       "shared": [
         {
@@ -33265,9 +33267,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-04-02T11:24:33.000Z",
-        "createdAt": "2026-04-02T06:19:50.242Z",
-        "versionId": "463dbb2e-b2a9-4cf2-92ee-ff958fff66e8",
+        "updatedAt": "2026-04-22T08:44:52.000Z",
+        "createdAt": "2026-04-22T08:44:34.856Z",
+        "versionId": "ef860b6d-9d8a-40de-a8e3-527350225be7",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -33582,7 +33584,8 @@
                   "competencia": "={{ $('Formatação data').item.json['Competencia '] }}",
                   "receita_id": "={{ $json.receita_id }}",
                   "observacoes_nf": "={{ $('Dados transação').item.json['ID transacao Stripe'] }}",
-                  "vencimento": "={{ $('Formatação data').item.json.currentDate }}"
+                  "vencimento": "={{ $('Formatação data').item.json.currentDate }}",
+                  "tipo_receita": "Mensalidade - QR Code"
                 },
                 "matchingColumns": [
                   "receita_id"
@@ -33872,7 +33875,7 @@
           }
         },
         "authors": "Robson Lisboa",
-        "name": "Version 463dbb2e",
+        "name": "Version ef860b6d",
         "description": "",
         "autosaved": true
       },
@@ -47689,7 +47692,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1670
+          "lastMessageUid": 1671
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

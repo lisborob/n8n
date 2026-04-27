@@ -2289,6 +2289,96 @@
       ]
     },
     {
+      "updatedAt": "2026-04-27T13:56:14.407Z",
+      "createdAt": "2026-04-27T13:50:47.824Z",
+      "id": "7dTg2N7F1J5CRtXd",
+      "name": "My workflow 2",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "updates": [
+              "messages"
+            ],
+            "options": {}
+          },
+          "type": "n8n-nodes-base.whatsAppTrigger",
+          "typeVersion": 1,
+          "position": [
+            0,
+            0
+          ],
+          "id": "03d1ce93-b541-463c-95a0-78d5e89ef7e5",
+          "name": "WhatsApp Trigger",
+          "webhookId": "2cb103d1-ea67-41e6-9801-ac7238514fd8",
+          "credentials": {
+            "whatsAppTriggerApi": {
+              "id": "ibcuaGxkSg9jQ7av",
+              "name": "Whatsapp Valentina Novo"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "send",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.whatsApp",
+          "typeVersion": 1.1,
+          "position": [
+            208,
+            0
+          ],
+          "id": "7098e835-6a98-4f70-9ea8-37a0bde084df",
+          "name": "Send message",
+          "webhookId": "c6d5f3fb-7404-43a8-8d1a-9b39a7661b91",
+          "credentials": {
+            "whatsAppApi": {
+              "id": "lDQLfw2dtD69Q0lV",
+              "name": "WhatsApp account Valentina"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "WhatsApp Trigger": {
+          "main": [
+            [
+              {
+                "node": "Send message",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "a591f273-3b16-4621-ac67-65fafa87cca0",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-04-27T13:50:47.831Z",
+          "createdAt": "2026-04-27T13:50:47.831Z",
+          "role": "workflow:owner",
+          "workflowId": "7dTg2N7F1J5CRtXd",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
       "updatedAt": "2026-03-19T14:44:54.661Z",
       "createdAt": "2026-03-11T07:31:14.422Z",
       "id": "8cJZdnmna8WSsIOk",
@@ -5569,10 +5659,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1777241081,
+            "lastTimeChecked": 1777325976,
             "possibleDuplicates": [
-              "19dcbd2e10d9362f",
-              "19dcbb17cc456bfd"
+              "19dd0e253a8834ed",
+              "19dd0e165b3566ad"
             ]
           }
         },
@@ -31780,10 +31870,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1777219801,
+            "lastTimeChecked": 1777328607,
             "possibleDuplicates": [
-              "19dca8f707364896",
-              "19dca5e6680bacfe"
+              "19dd10a57aa1c1d0",
+              "19dd0ab0dfaa6849"
             ]
           }
         }
@@ -47686,13 +47776,13 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2224
+          "lastMessageUid": 2223
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1678
+          "lastMessageUid": 1679
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

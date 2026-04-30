@@ -5659,10 +5659,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1777498534,
+            "lastTimeChecked": 1777587570,
             "possibleDuplicates": [
-              "19ddb2b42d0083f1",
-              "19ddb27ffa66c2d0"
+              "19de07a273fdbc78",
+              "19de01d03b9566d7"
             ]
           }
         },
@@ -15714,7 +15714,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2025-09-12T13:15:04.000Z",
+      "updatedAt": "2026-04-30T13:07:02.178Z",
       "createdAt": "2025-08-19T06:12:04.092Z",
       "id": "OTt8iKvm0mjBHLMi",
       "name": "No Show MCOO",
@@ -15745,7 +15745,7 @@
           "credentials": {
             "smtp": {
               "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP account"
+              "name": "SMTP from contact@ooniverse.ai"
             }
           }
         },
@@ -15814,7 +15814,7 @@
           "credentials": {
             "smtp": {
               "id": "5r4O3yWVtvULVe1v",
-              "name": "SMTP account"
+              "name": "SMTP from contact@ooniverse.ai"
             }
           }
         },
@@ -16331,22 +16331,12 @@
           "main": [
             [
               {
-                "node": "Enviar texto",
-                "type": "main",
-                "index": 0
-              },
-              {
                 "node": "Send email",
                 "type": "main",
                 "index": 0
               }
             ],
             [
-              {
-                "node": "Enviar texto1",
-                "type": "main",
-                "index": 0
-              },
               {
                 "node": "Send email",
                 "type": "main",
@@ -16374,22 +16364,12 @@
           "main": [
             [
               {
-                "node": "Enviar texto2",
-                "type": "main",
-                "index": 0
-              },
-              {
                 "node": "Send email1",
                 "type": "main",
                 "index": 0
               }
             ],
             [
-              {
-                "node": "Enviar texto3",
-                "type": "main",
-                "index": 0
-              },
               {
                 "node": "Send email1",
                 "type": "main",
@@ -16517,14 +16497,15 @@
         }
       },
       "settings": {
-        "executionOrder": "v1"
+        "executionOrder": "v1",
+        "binaryMode": "separate"
       },
       "staticData": null,
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "6eb42fdd-93f8-4dac-9140-7992059cbb7e",
+      "versionId": "44932029-994a-48e0-886f-ef0833bf74dd",
       "activeVersionId": "6eb42fdd-93f8-4dac-9140-7992059cbb7e",
       "triggerCount": 1,
       "shared": [
@@ -27159,14 +27140,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-04-02T17:11:04Z"
+          "lastTimeChecked": "2026-04-30T15:28:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-04-02T17:11:05Z"
+          "lastTimeChecked": "2026-04-30T15:28:36Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            353
+            121
           ]
         }
       },
@@ -31870,10 +31851,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1777495131,
+            "lastTimeChecked": 1777581734,
             "possibleDuplicates": [
-              "19ddb08c484e8666",
-              "19ddaa431f45d33a"
+              "19de020c56abaaf7",
+              "19ddfd89a220c7fc"
             ]
           }
         }
@@ -65711,10 +65692,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-04-02T17:11:09Z"
+          "lastTimeChecked": "2026-04-30T15:28:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-04-02T17:11:10Z"
+          "lastTimeChecked": "2026-04-30T15:28:38Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [

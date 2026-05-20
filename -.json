@@ -5659,11 +5659,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1779229636,
+            "lastTimeChecked": 1779317730,
             "possibleDuplicates": [
-              "19e4259b65cfe61a",
-              "19e4259b0a55f214",
-              "19e4258c291904e1"
+              "19e4799ed7cfbd39",
+              "19e47993518c7dcf",
+              "19e479824c2158ff"
             ]
           }
         },
@@ -27141,14 +27141,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-05-18T13:00:21Z"
+          "lastTimeChecked": "2026-05-20T13:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-05-18T13:00:49Z"
+          "lastTimeChecked": "2026-05-20T13:00:49Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            139
+            141
           ]
         }
       },
@@ -31852,10 +31852,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1779225247,
+            "lastTimeChecked": 1779317378,
             "possibleDuplicates": [
-              "19e4216c6efe59c9",
-              "19e41f2f9b1996e6"
+              "19e4794950c04c2f",
+              "19e477122f30c549"
             ]
           }
         }
@@ -47766,7 +47766,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1722
+          "lastMessageUid": 1723
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -62527,7 +62527,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-04-15T11:08:44.866Z",
+      "updatedAt": "2026-05-20T14:35:32.866Z",
       "createdAt": "2026-04-14T14:27:16.772Z",
       "id": "wSadBIzs8TwiQuOQ",
       "name": "Envio NF - Thiago",
@@ -62539,8 +62539,8 @@
           "type": "n8n-nodes-base.manualTrigger",
           "typeVersion": 1,
           "position": [
-            -448,
-            -64
+            -608,
+            -224
           ],
           "id": "c8daaef4-57d3-478a-aa00-cad1a89cded1",
           "name": "When clicking ‘Execute workflow’"
@@ -62574,11 +62574,12 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -272,
-            -64
+            -304,
+            -144
           ],
           "id": "2c7322cc-d3d1-45cf-bf5a-5039f98410cc",
           "name": "Get row(s) in sheet",
+          "executeOnce": false,
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "Pq7AiEm7Pa3TvTE4",
@@ -62600,8 +62601,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            208,
-            -64
+            816,
+            -224
           ],
           "id": "82b9fd27-ae6d-49d9-9850-045478cfcef1",
           "name": "Send an Email",
@@ -62639,11 +62640,12 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            -112,
-            -64
+            -144,
+            -144
           ],
           "id": "d417ed21-c6bc-4158-9d8c-1cd94dedc5f4",
           "name": "Search files and folders",
+          "executeOnce": true,
           "credentials": {
             "googleDriveOAuth2Api": {
               "id": "OeujTUJ75p0KgzGs",
@@ -62666,8 +62668,8 @@
           "type": "n8n-nodes-base.googleDrive",
           "typeVersion": 3,
           "position": [
-            48,
-            -64
+            32,
+            -144
           ],
           "id": "a2718750-4f6d-4282-beaa-0de00499c4c7",
           "name": "Download file",
@@ -62969,7 +62971,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            384,
+            1008,
             -64
           ],
           "id": "684157e8-684e-4d3f-bfc0-f0871523dd99",
@@ -62980,6 +62982,180 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "chatId": "1755791123",
+            "text": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }}📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}",
+            "replyMarkup": "inlineKeyboard",
+            "inlineKeyboard": {
+              "rows": [
+                {
+                  "row": {
+                    "buttons": [
+                      {
+                        "text": "🟢 Aprovar e Enviar",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/aprovar"
+                        }
+                      },
+                      {
+                        "text": "🔴 Rejeitar Envio",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/rejeitar"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.telegram",
+          "typeVersion": 1.2,
+          "position": [
+            -112,
+            -528
+          ],
+          "id": "0af7fa98-586a-4ebd-a71c-a8352052bf50",
+          "name": "Send a text message",
+          "webhookId": "145c55ea-7291-4da5-bc9b-28c38420aa59",
+          "credentials": {
+            "telegramApi": {
+              "id": "lxV6aVR2Uu6tbEMu",
+              "name": "Telegram account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "resume": "webhook",
+            "options": {
+              "webhookSuffix": ": decisao"
+            }
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            256,
+            -144
+          ],
+          "id": "c8430ad1-484c-44b3-a6a6-96355bc04537",
+          "name": "Wait",
+          "webhookId": "057016d3-5044-41e6-b7ec-a115427a4319"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "fa6b372f-583b-4caf-9405-9e0fd704ad95",
+                  "leftValue": "={{ $json.data.approved }}{{ $json.webhookUrl }}",
+                  "rightValue": "aprovar",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            496,
+            -144
+          ],
+          "id": "5ad019bc-cf56-4382-8d9e-9157f34342e7",
+          "name": "If"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            720,
+            80
+          ],
+          "id": "f0a32db3-0e38-4aa7-ad28-9e4382a11dcd",
+          "name": "No Operation, do nothing"
+        },
+        {
+          "parameters": {
+            "operation": "sendDocument",
+            "chatId": "1755791123",
+            "binaryData": true,
+            "replyMarkup": "inlineKeyboard",
+            "inlineKeyboard": {
+              "rows": [
+                {
+                  "row": {
+                    "buttons": [
+                      {
+                        "text": "🟢 Aprovar e Enviar",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/aprovar"
+                        }
+                      },
+                      {
+                        "text": "🔴 Rejeitar Envio",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/rejeitar"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "additionalFields": {
+              "caption": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }} 📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}"
+            }
+          },
+          "type": "n8n-nodes-base.telegram",
+          "typeVersion": 1.2,
+          "position": [
+            240,
+            -304
+          ],
+          "id": "ab6679bf-3da4-4d21-8af2-8a24547767c3",
+          "name": "Send a document",
+          "webhookId": "c5934816-dc85-4f97-b5a5-4ca03dd1d586",
+          "credentials": {
+            "telegramApi": {
+              "id": "lxV6aVR2Uu6tbEMu",
+              "name": "Telegram account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "field": "minutes",
+                  "minutesInterval": 10
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -608,
+            -64
+          ],
+          "id": "8b0c61eb-3205-4f43-a64f-9fcfca115797",
+          "name": "Schedule Trigger"
         }
       ],
       "connections": {
@@ -63020,7 +63196,12 @@
           "main": [
             [
               {
-                "node": "Send an Email",
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "Send a document",
                 "type": "main",
                 "index": 0
               }
@@ -63037,20 +63218,68 @@
               }
             ]
           ]
+        },
+        "Send a text message": {
+          "main": [
+            []
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Send an Email",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send a document": {
+          "main": [
+            []
+          ]
+        },
+        "Schedule Trigger": {
+          "main": [
+            []
+          ]
         }
       },
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
-      "staticData": null,
+      "staticData": {
+        "node:Schedule Trigger": {
+          "recurrenceRules": []
+        }
+      },
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "7dba329e-2547-45eb-a5f5-57acd5a3f220",
+      "versionId": "9f38d235-8b33-4e3e-b683-e6ea71117005",
       "activeVersionId": null,
-      "triggerCount": 0,
+      "triggerCount": 1,
       "shared": [
         {
           "updatedAt": "2026-04-14T14:27:16.777Z",

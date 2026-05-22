@@ -5659,10 +5659,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1779399460,
+            "lastTimeChecked": 1779489530,
             "possibleDuplicates": [
-              "19e4c7907a874bd3",
-              "19e4c78b797972a9"
+              "19e51d76544dc914"
             ]
           }
         },
@@ -27140,14 +27139,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-05-20T13:00:21Z"
+          "lastTimeChecked": "2026-05-22T13:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-05-20T13:00:49Z"
+          "lastTimeChecked": "2026-05-22T13:00:49Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            141
+            143
           ]
         }
       },
@@ -31851,10 +31850,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1779401113,
+            "lastTimeChecked": 1779487168,
             "possibleDuplicates": [
-              "19e4c9249b7bf611",
-              "19e4c85cc86406d1"
+              "19e51b35ff0f8dc1",
+              "19e50f643c9cd99b"
             ]
           }
         }
@@ -47765,7 +47764,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1723
+          "lastMessageUid": 1727
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -62526,7 +62525,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-05-20T14:35:32.866Z",
+      "updatedAt": "2026-05-22T09:13:55.916Z",
       "createdAt": "2026-04-14T14:27:16.772Z",
       "id": "wSadBIzs8TwiQuOQ",
       "name": "Envio NF - Thiago",
@@ -62539,7 +62538,7 @@
           "typeVersion": 1,
           "position": [
             -608,
-            -224
+            -272
           ],
           "id": "c8daaef4-57d3-478a-aa00-cad1a89cded1",
           "name": "When clicking ‘Execute workflow’"
@@ -62606,7 +62605,7 @@
           "id": "82b9fd27-ae6d-49d9-9850-045478cfcef1",
           "name": "Send an Email",
           "webhookId": "a2f01d0d-181b-45fd-9fa0-b81594119ac6",
-          "executeOnce": true,
+          "executeOnce": false,
           "credentials": {
             "smtp": {
               "id": "opD4ihPIsdqEaeeI",
@@ -62644,7 +62643,7 @@
           ],
           "id": "d417ed21-c6bc-4158-9d8c-1cd94dedc5f4",
           "name": "Search files and folders",
-          "executeOnce": true,
+          "executeOnce": false,
           "credentials": {
             "googleDriveOAuth2Api": {
               "id": "OeujTUJ75p0KgzGs",
@@ -63030,9 +63029,7 @@
         {
           "parameters": {
             "resume": "webhook",
-            "options": {
-              "webhookSuffix": ": decisao"
-            }
+            "options": {}
           },
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
@@ -63056,11 +63053,11 @@
               "conditions": [
                 {
                   "id": "fa6b372f-583b-4caf-9405-9e0fd704ad95",
-                  "leftValue": "={{ $json.data.approved }}{{ $json.webhookUrl }}",
+                  "leftValue": "={{ $json.query.decisao }}",
                   "rightValue": "aprovar",
                   "operator": {
                     "type": "string",
-                    "operation": "contains"
+                    "operation": "equals"
                   }
                 }
               ],
@@ -63102,13 +63099,13 @@
                       {
                         "text": "🟢 Aprovar e Enviar",
                         "additionalFields": {
-                          "url": "={{ $execution.resumeUrl }}/aprovar"
+                          "url": "={{ $execution.resumeUrl }}&decisao=aprovar"
                         }
                       },
                       {
                         "text": "🔴 Rejeitar Envio",
                         "additionalFields": {
-                          "url": "={{ $execution.resumeUrl }}/rejeitar"
+                          "url": "={{ $execution.resumeUrl }}&decisao=rejeitar"
                         }
                       }
                     ]
@@ -63141,8 +63138,9 @@
             "rule": {
               "interval": [
                 {
-                  "field": "minutes",
-                  "minutesInterval": 10
+                  "field": "months",
+                  "triggerAtDayOfMonth": 4,
+                  "triggerAtHour": 10
                 }
               ]
             }
@@ -63151,10 +63149,23 @@
           "typeVersion": 1.3,
           "position": [
             -608,
-            -64
+            -16
           ],
           "id": "8b0c61eb-3205-4f43-a64f-9fcfca115797",
           "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "jsCode": "// 1. Resgata todos os 20 itens originais com seus respectivos arquivos binários\nconst loteOriginal = $('Download file').all();\n\n// 2. Retorna a lista completa para o fluxo seguir com 20 execuções em paralelo\nreturn loteOriginal;"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            640,
+            -224
+          ],
+          "id": "57d81b85-f959-4d57-8b8e-fb2524567a62",
+          "name": "Code in JavaScript"
         }
       ],
       "connections": {
@@ -63238,7 +63249,7 @@
           "main": [
             [
               {
-                "node": "Send an Email",
+                "node": "Code in JavaScript",
                 "type": "main",
                 "index": 0
               }
@@ -63259,7 +63270,24 @@
         },
         "Schedule Trigger": {
           "main": [
-            []
+            [
+              {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Send an Email",
+                "type": "main",
+                "index": 0
+              }
+            ]
           ]
         }
       },
@@ -63276,7 +63304,7 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "9f38d235-8b33-4e3e-b683-e6ea71117005",
+      "versionId": "9e0cb484-1ff1-427e-b962-1c3a26d71a9e",
       "activeVersionId": null,
       "triggerCount": 1,
       "shared": [

@@ -1551,6 +1551,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": "Régua de cobrança",
         "description": "",
@@ -2256,6 +2257,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -5659,10 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1780437551,
+            "lastTimeChecked": 1780518448,
             "possibleDuplicates": [
-              "19e8a590d12541aa",
-              "19e8a49b7fcec370"
+              "19e8f2b77b83dc8e",
+              "19e8f25e925de80a"
             ]
           }
         },
@@ -7860,6 +7862,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -13659,6 +13662,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -17318,6 +17322,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -17755,7 +17760,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            21
+            0
           ]
         }
       },
@@ -18197,6 +18202,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -27140,14 +27146,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-01T13:00:21Z"
+          "lastTimeChecked": "2026-06-03T13:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-01T13:00:49Z"
+          "lastTimeChecked": "2026-06-03T13:00:40Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            153
+            155
           ]
         }
       },
@@ -29662,6 +29668,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": "Version bce013d8",
         "description": "troquei a IA do atendimento pessoal para o Gemini",
@@ -31346,6 +31353,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -31851,10 +31859,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1780436194,
+            "lastTimeChecked": 1780521109,
             "possibleDuplicates": [
-              "19e8a64dcda61b24",
-              "19e89ea070def3ec"
+              "19e8f5410bf6386f",
+              "19e8ee9523786ea8"
             ]
           }
         }
@@ -32411,6 +32419,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -33945,6 +33954,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": "Version ef860b6d",
         "description": "",
@@ -35072,6 +35082,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -38517,6 +38528,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -39211,6 +39223,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -47765,12 +47778,12 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1753
+          "lastMessageUid": 1756
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 158
+          "lastIndexChecked": 160
         }
       },
       "meta": {
@@ -52101,6 +52114,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -53046,6 +53060,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -60800,6 +60815,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
@@ -61603,6 +61619,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "system migration",
         "name": null,
         "description": null,
@@ -65952,10 +65969,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-04-30T15:28:38Z"
+          "lastTimeChecked": "2026-06-03T05:09:33Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-04-30T15:28:38Z"
+          "lastTimeChecked": "2026-06-03T05:09:34Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -68685,6 +68702,7 @@
             ]
           }
         },
+        "nodeGroups": [],
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,

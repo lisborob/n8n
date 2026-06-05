@@ -5661,9 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1780608224,
+            "lastTimeChecked": 1780695441,
             "possibleDuplicates": [
-              "19e94854dbf58914"
+              "19e99b824145d854",
+              "19e99927ee293f02"
             ]
           }
         },
@@ -27145,14 +27146,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-03T13:00:21Z"
+          "lastTimeChecked": "2026-06-05T13:00:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-03T13:00:40Z"
+          "lastTimeChecked": "2026-06-05T13:00:40Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            155
+            157
           ]
         }
       },
@@ -31858,10 +31859,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1780605552,
+            "lastTimeChecked": 1780693511,
             "possibleDuplicates": [
-              "19e945c8613f0884",
-              "19e93d84dd0571b2"
+              "19e999ab45e59659",
+              "19e99928e359ee28"
             ]
           }
         }
@@ -47777,7 +47778,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1757
+          "lastMessageUid": 1759
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

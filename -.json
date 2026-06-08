@@ -5661,10 +5661,9 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1780866719,
+            "lastTimeChecked": 1780955573,
             "possibleDuplicates": [
-              "19ea3eda21a66878",
-              "19ea388feaa432e9"
+              "19ea9396e48fa74e"
             ]
           }
         },
@@ -31859,10 +31858,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1780870645,
+            "lastTimeChecked": 1780957270,
             "possibleDuplicates": [
-              "19ea4298e17bd6a8",
-              "19ea3fcb426089a1"
+              "19ea9535b500cf1a",
+              "19ea91ac1dbc64e1"
             ]
           }
         }
@@ -39229,6 +39228,312 @@
         "description": null,
         "autosaved": false
       },
+      "tags": []
+    },
+    {
+      "updatedAt": "2026-06-08T09:34:38.663Z",
+      "createdAt": "2026-06-08T08:16:49.405Z",
+      "id": "lBfUOUIFI7bohh0W",
+      "name": "Analytics exercicio",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            0,
+            0
+          ],
+          "id": "0c4d42a2-20d5-499f-b0ec-ee1314046b89",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "operation": "search",
+            "workspaceId": "8c8e993a-5d67-48c1-a239-42111cf6f656",
+            "pageSize": 500,
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            208,
+            0
+          ],
+          "id": "eb244e15-e19d-41f5-8ad1-0e22ad8fb626",
+          "name": "Search contents",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Se você está usando \"Run Once for All Items\" no Code node:\nconst root = items[0].json;\n\n// Garante que results existe e é um array\nconst results = Array.isArray(root.results) ? root.results : [];\n\nconst fieldsToSum = [\n  \"total_events\",\n  \"total_scan_code\",\n  \"total_request_doc\",\n  \"total_read_doc\",\n  \"total_click_link\",\n  \"total_share_doc\",\n  \"total_delete_doc\",\n  \"total_scans_current_month\"\n];\n\nconst totals = {};\nfieldsToSum.forEach(f => totals[f] = 0);\n\nfor (const item of results) {\n  for (const field of fieldsToSum) {\n    const value = Number(item[field]) || 0;\n    totals[field] += value;\n  }\n}\n\nreturn [\n  {\n    json: totals\n  }\n];\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            416,
+            0
+          ],
+          "id": "c3298848-d088-45d5-8c3d-0623d6a764c6",
+          "name": "Code para pegar os analytics"
+        },
+        {
+          "parameters": {
+            "dataTableId": {
+              "__rl": true,
+              "value": "GpUo3CfjvnBWdOjc",
+              "mode": "list",
+              "cachedResultName": "Analytics exercicio",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/GpUo3CfjvnBWdOjc"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "total_events": "={{ $json.total_events }}",
+                "total_scan_code": "={{ $json.total_scan_code }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "total_events",
+                  "displayName": "total_events",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "readOnly": false,
+                  "removed": false
+                },
+                {
+                  "id": "total_scan_code",
+                  "displayName": "total_scan_code",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "readOnly": false,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1.1,
+          "position": [
+            624,
+            0
+          ],
+          "id": "0e558a6d-05b1-4211-819f-9ac3b67d5bb2",
+          "name": "Insert row"
+        },
+        {
+          "parameters": {
+            "resource": "pushNotification",
+            "notificationTitle": "Estatistica de hoje",
+            "notificationBody": "=veja o número de hoje...  {{ $json.total_events }}",
+            "shortCode": "140uKUqP",
+            "users": "robson.lisboa@midiacode.com,lgavinho@midiacode.com,glauci@midiacode.com",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            1456,
+            0
+          ],
+          "id": "6a1b4545-e169-493d-a64f-27a963420797",
+          "name": "Send push notification",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "title": "analytics",
+            "workspaceIdBody": "8c8e993a-5d67-48c1-a239-42111cf6f656",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            816,
+            0
+          ],
+          "id": "db6f8a48-c1f6-445b-81c3-60a4ed39e0d8",
+          "name": "Create content",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "updateLink",
+            "workspaceIdBody": "={{ $json.workspace_id }}",
+            "contentId": "={{ $json.id }}",
+            "url": "https://midiacode.com",
+            "embeddedOnMobileApp": true,
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            1024,
+            0
+          ],
+          "id": "aa6e9b62-5ac1-4cd1-a0ba-c1d33b70e669",
+          "name": "Update content link",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "publish",
+            "workspaceIdBody": "={{ $json.workspace_id }}",
+            "contentIdPublish": "={{ $json.id }}",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            1232,
+            0
+          ],
+          "id": "7aec35fa-4dcc-440d-bea7-2d4e47c2a8c6",
+          "name": "Publish content",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Search contents",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Search contents": {
+          "main": [
+            [
+              {
+                "node": "Code para pegar os analytics",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code para pegar os analytics": {
+          "main": [
+            [
+              {
+                "node": "Insert row",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Insert row": {
+          "main": [
+            [
+              {
+                "node": "Create content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send push notification": {
+          "main": [
+            []
+          ]
+        },
+        "Create content": {
+          "main": [
+            [
+              {
+                "node": "Update content link",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update content link": {
+          "main": [
+            [
+              {
+                "node": "Publish content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Publish content": {
+          "main": [
+            [
+              {
+                "node": "Send push notification",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "pinData": {},
+      "versionId": "eb32f28f-40e3-4b63-a1d5-61ebb356d5fb",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-06-08T08:16:49.411Z",
+          "createdAt": "2026-06-08T08:16:49.411Z",
+          "role": "workflow:owner",
+          "workflowId": "lBfUOUIFI7bohh0W",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
       "tags": []
     },
     {
@@ -47778,7 +48083,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1763
+          "lastMessageUid": 1764
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

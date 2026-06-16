@@ -5661,10 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1781564230,
+            "lastTimeChecked": 1781645841,
             "possibleDuplicates": [
-              "19ecd80db8023fd9",
-              "19ecd7dd96f4d4c3"
+              "19ed25e1710c22d9",
+              "19ed22b515e53c1e"
             ]
           }
         },
@@ -30915,7 +30915,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2222
+          "lastMessageUid": 2229
         }
       },
       "meta": {
@@ -31859,10 +31859,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1781564025,
+            "lastTimeChecked": 1781644924,
             "possibleDuplicates": [
-              "19ecd7daeeb6cbcf",
-              "19ecd7c14d7c0f83"
+              "19ed250190b888cc",
+              "19ed20e4b40d55ce"
             ]
           }
         }
@@ -48076,7 +48076,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2227
+          "lastMessageUid": 2230
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -48084,7 +48084,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1774
+          "lastMessageUid": 1777
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -53375,7 +53375,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-15T22:37:42.876Z",
+      "updatedAt": "2026-06-16T14:47:27.093Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -53646,7 +53646,7 @@
           "parameters": {
             "fromEmail": "contacto@kutsaca.com",
             "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "robson.lisboa@midiacode.com",
+            "ccEmail": "robson.lisboa@midiacode.com; contact@midiacode.tech",
             "subject": "={{ $json.output }}",
             "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
             "options": {}
@@ -54100,7 +54100,7 @@
         },
         {
           "parameters": {
-            "modelName": "models/gemini-2.5-pro",
+            "modelName": "models/gemini-2.5-flash-lite",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -54226,7 +54226,7 @@
           "type": "n8n-nodes-base.emailReadImap",
           "typeVersion": 2.1,
           "position": [
-            -1184,
+            -1200,
             1728
           ],
           "id": "fe3b32c6-08a0-43a5-a9e3-5b341cc8c2ab",
@@ -54287,7 +54287,7 @@
           "typeVersion": 2.2,
           "position": [
             -976,
-            1728
+            1760
           ],
           "id": "a30875e9-e8e7-4525-9d0f-def576b6d823",
           "name": "If"
@@ -54297,8 +54297,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            -592,
-            2032
+            -416,
+            2128
           ],
           "id": "81dd9930-87df-46be-b34c-8e2c8a901156",
           "name": "No Operation, do nothing"
@@ -54307,7 +54307,7 @@
           "parameters": {
             "fromEmail": "contact@midiacode.tech",
             "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+            "ccEmail": "robson.lisboa@midiacode.com",
             "subject": "={{ $json.subject }}",
             "html": "={{ $json.html }}",
             "options": {}
@@ -54317,7 +54317,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            416,
+            768,
             1712
           ],
           "credentials": {
@@ -54335,8 +54335,8 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1472,
-            1520
+            -1392,
+            1536
           ],
           "typeVersion": 1,
           "id": "a9b3cc2b-8824-4a9a-96b8-802203108f74",
@@ -54349,7 +54349,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -32,
+            320,
             1712
           ],
           "id": "72ed705d-06e9-4ca4-81bb-751f7b58b06d",
@@ -54412,7 +54412,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -208,
+            144,
             1712
           ],
           "id": "1c5c37b7-105c-4418-b22e-09cd656a08d3",
@@ -54439,8 +54439,7 @@
               "mappingMode": "defineBelow",
               "value": {
                 "status": "revisada e alterada",
-                "html": "={{ $json.html }}",
-                "subject": "={{ $('Ajuste do SUBJECT AI Agent').item.json.output }}"
+                "html": "={{ $json.html }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -54472,7 +54471,7 @@
                   "display": true,
                   "type": "string",
                   "readOnly": false,
-                  "removed": false
+                  "removed": true
                 }
               ],
               "attemptToConvertTypes": false,
@@ -54483,7 +54482,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            176,
+            528,
             1712
           ],
           "id": "b649336d-b8a7-40a7-9413-02679bbc38e8",
@@ -54498,26 +54497,11 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -768,
+            -416,
             1712
           ],
           "id": "eeae74ca-7332-42e3-9404-f7ead4f51fb5",
           "name": "Ajuste do HTML AI Agent"
-        },
-        {
-          "parameters": {
-            "promptType": "define",
-            "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT(assunto): {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3,
-          "position": [
-            -496,
-            1712
-          ],
-          "id": "d865abf1-70ad-4416-a4cf-2b1b290019f7",
-          "name": "Ajuste do SUBJECT AI Agent"
         },
         {
           "parameters": {
@@ -55747,7 +55731,7 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -1712,
+            -1648,
             1872
           ],
           "typeVersion": 1,
@@ -56384,6 +56368,70 @@
               "name": "AWS Auto.1mc.co"
             }
           }
+        },
+        {
+          "parameters": {
+            "postProcessAction": "nothing",
+            "format": "resolved",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailReadImap",
+          "typeVersion": 2.1,
+          "position": [
+            -1200,
+            2016
+          ],
+          "id": "2379c165-4806-4766-8778-ad1692b4cc78",
+          "name": "Email Trigger (IMAP)1",
+          "credentials": {
+            "imap": {
+              "id": "T2iCcPAs4ylH9UZY",
+              "name": "IMAP-contact@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 2
+              },
+              "conditions": [
+                {
+                  "id": "af20b5ab-b5c8-4b37-bf04-73b1f2fa3344",
+                  "leftValue": "={{ $json.text }}",
+                  "rightValue": "kutsaca",
+                  "operator": {
+                    "type": "string",
+                    "operation": "contains"
+                  }
+                },
+                {
+                  "id": "92250c05-354d-482b-b11a-0f3d7f89f245",
+                  "leftValue": "={{ $json.text }}",
+                  "rightValue": "Kutsaca",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals",
+                    "name": "filter.operator.equals"
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.2,
+          "position": [
+            -784,
+            1712
+          ],
+          "id": "d9808ceb-2f9d-4d92-ac01-523214371407",
+          "name": "If3"
         }
       ],
       "connections": {
@@ -56582,11 +56630,6 @@
                 "index": 0
               },
               {
-                "node": "Ajuste do SUBJECT AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              },
-              {
                 "node": "Melhora o texto da notícia",
                 "type": "ai_languageModel",
                 "index": 0
@@ -56629,20 +56672,14 @@
         },
         "Email Trigger (IMAP)": {
           "main": [
-            [
-              {
-                "node": "If",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "If": {
           "main": [
             [
               {
-                "node": "Ajuste do HTML AI Agent",
+                "node": "If3",
                 "type": "main",
                 "index": 0
               }
@@ -56690,17 +56727,6 @@
           ]
         },
         "Ajuste do HTML AI Agent": {
-          "main": [
-            [
-              {
-                "node": "Ajuste do SUBJECT AI Agent",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Ajuste do SUBJECT AI Agent": {
           "main": [
             [
               {
@@ -57243,6 +57269,29 @@
               }
             ]
           ]
+        },
+        "Email Trigger (IMAP)1": {
+          "main": [
+            []
+          ]
+        },
+        "If3": {
+          "main": [
+            [
+              {
+                "node": "Ajuste do HTML AI Agent",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -57269,9 +57318,9 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "2b7d9657-6b67-4433-b702-4061e55d869f",
-      "activeVersionId": "2b7d9657-6b67-4433-b702-4061e55d869f",
-      "triggerCount": 13,
+      "versionId": "b8cd1262-b9fd-4d45-b50d-bb6fabbe785c",
+      "activeVersionId": "b8dac93c-5318-4c9c-94cb-309bf691edbb",
+      "triggerCount": 14,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -57282,9 +57331,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-15T22:37:54.000Z",
-        "createdAt": "2026-06-15T22:37:42.880Z",
-        "versionId": "2b7d9657-6b67-4433-b702-4061e55d869f",
+        "updatedAt": "2026-06-16T13:26:29.000Z",
+        "createdAt": "2026-06-16T13:21:16.995Z",
+        "versionId": "b8dac93c-5318-4c9c-94cb-309bf691edbb",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -57551,7 +57600,7 @@
             "parameters": {
               "fromEmail": "contacto@kutsaca.com",
               "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "robson.lisboa@midiacode.com",
+              "ccEmail": "robson.lisboa@midiacode.com; contact@midiacode.tech",
               "subject": "={{ $json.output }}",
               "html": "={{  $('Cria HTML da Newsletter').item.json.html }}",
               "options": {}
@@ -58005,7 +58054,7 @@
           },
           {
             "parameters": {
-              "modelName": "models/gemini-2.5-pro",
+              "modelName": "models/gemini-2.5-flash-lite",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -58131,7 +58180,7 @@
             "type": "n8n-nodes-base.emailReadImap",
             "typeVersion": 2.1,
             "position": [
-              -1184,
+              -1200,
               1728
             ],
             "id": "fe3b32c6-08a0-43a5-a9e3-5b341cc8c2ab",
@@ -58191,7 +58240,7 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.2,
             "position": [
-              -976,
+              -1008,
               1728
             ],
             "id": "a30875e9-e8e7-4525-9d0f-def576b6d823",
@@ -58202,8 +58251,8 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              -592,
-              2032
+              -416,
+              2128
             ],
             "id": "81dd9930-87df-46be-b34c-8e2c8a901156",
             "name": "No Operation, do nothing"
@@ -58212,7 +58261,7 @@
             "parameters": {
               "fromEmail": "contact@midiacode.tech",
               "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+              "ccEmail": "robson.lisboa@midiacode.com",
               "subject": "={{ $json.subject }}",
               "html": "={{ $json.html }}",
               "options": {}
@@ -58222,7 +58271,7 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              416,
+              768,
               1712
             ],
             "credentials": {
@@ -58240,8 +58289,8 @@
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -1472,
-              1520
+              -1392,
+              1536
             ],
             "typeVersion": 1,
             "id": "a9b3cc2b-8824-4a9a-96b8-802203108f74",
@@ -58254,7 +58303,7 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -32,
+              320,
               1712
             ],
             "id": "72ed705d-06e9-4ca4-81bb-751f7b58b06d",
@@ -58317,7 +58366,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -208,
+              144,
               1712
             ],
             "id": "1c5c37b7-105c-4418-b22e-09cd656a08d3",
@@ -58344,8 +58393,7 @@
                 "mappingMode": "defineBelow",
                 "value": {
                   "status": "revisada e alterada",
-                  "html": "={{ $json.html }}",
-                  "subject": "={{ $('Ajuste do SUBJECT AI Agent').item.json.output }}"
+                  "html": "={{ $json.html }}"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -58377,7 +58425,7 @@
                     "display": true,
                     "type": "string",
                     "readOnly": false,
-                    "removed": false
+                    "removed": true
                   }
                 ],
                 "attemptToConvertTypes": false,
@@ -58388,7 +58436,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              176,
+              528,
               1712
             ],
             "id": "b649336d-b8a7-40a7-9413-02679bbc38e8",
@@ -58403,26 +58451,11 @@
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3,
             "position": [
-              -768,
+              -416,
               1712
             ],
             "id": "eeae74ca-7332-42e3-9404-f7ead4f51fb5",
             "name": "Ajuste do HTML AI Agent"
-          },
-          {
-            "parameters": {
-              "promptType": "define",
-              "text": "=voce é especialista em escrever emails do tipo newsletter e cria assuntos ou subjects perfeitos.\nvocê está recebendo uma mensagem de um revisor de uma newsletter que contém as orientações que devem ser corrigidas no texto e no assunto (subject), mas você só vai fazer as alterações do SUBJECT(assunto): {{ $('Email Trigger (IMAP)').item.json.subject }}\nCaso não tenha nenhuma orientação do revisor para mudar o subject, não mude e coloque no output o subject que veio do node IMAP: {{ $('Email Trigger (IMAP)').item.json.subject }} , retirando somente os indicativos de que o email é um reply, por exemplo \"Re:\"\nno seu output não precisa conversar, explicar nada, somente retorne o subject que será usado para envio do email para o revisor de volta, sem o \"Re:\". \nNo seu output, devolva apenas o texto puro em UTF-8, sem blocos de markdown ou explicações. \nGaranta que todos os acentos e emojis sejam preservados corretamente.\nTendou ou não alteração no subject, sempre retire os indicativos de que o email é um reply: \"Re:\"",
-              "options": {}
-            },
-            "type": "@n8n/n8n-nodes-langchain.agent",
-            "typeVersion": 3,
-            "position": [
-              -496,
-              1712
-            ],
-            "id": "d865abf1-70ad-4416-a4cf-2b1b290019f7",
-            "name": "Ajuste do SUBJECT AI Agent"
           },
           {
             "parameters": {
@@ -59652,7 +59685,7 @@
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -1712,
+              -1648,
               1872
             ],
             "typeVersion": 1,
@@ -60289,6 +60322,70 @@
                 "name": "AWS Auto.1mc.co"
               }
             }
+          },
+          {
+            "parameters": {
+              "postProcessAction": "nothing",
+              "format": "resolved",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.emailReadImap",
+            "typeVersion": 2.1,
+            "position": [
+              -1200,
+              2016
+            ],
+            "id": "2379c165-4806-4766-8778-ad1692b4cc78",
+            "name": "Email Trigger (IMAP)1",
+            "credentials": {
+              "imap": {
+                "id": "T2iCcPAs4ylH9UZY",
+                "name": "IMAP-contact@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "af20b5ab-b5c8-4b37-bf04-73b1f2fa3344",
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "kutsaca",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  },
+                  {
+                    "id": "92250c05-354d-482b-b11a-0f3d7f89f245",
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "Kutsaca",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "or"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.2,
+            "position": [
+              -784,
+              1712
+            ],
+            "id": "d9808ceb-2f9d-4d92-ac01-523214371407",
+            "name": "If3"
           }
         ],
         "connections": {
@@ -60487,11 +60584,6 @@
                   "index": 0
                 },
                 {
-                  "node": "Ajuste do SUBJECT AI Agent",
-                  "type": "ai_languageModel",
-                  "index": 0
-                },
-                {
                   "node": "Melhora o texto da notícia",
                   "type": "ai_languageModel",
                   "index": 0
@@ -60547,7 +60639,7 @@
             "main": [
               [
                 {
-                  "node": "Ajuste do HTML AI Agent",
+                  "node": "If3",
                   "type": "main",
                   "index": 0
                 }
@@ -60595,17 +60687,6 @@
             ]
           },
           "Ajuste do HTML AI Agent": {
-            "main": [
-              [
-                {
-                  "node": "Ajuste do SUBJECT AI Agent",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Ajuste do SUBJECT AI Agent": {
             "main": [
               [
                 {
@@ -61148,11 +61229,40 @@
                 }
               ]
             ]
+          },
+          "Email Trigger (IMAP)1": {
+            "main": [
+              [
+                {
+                  "node": "If",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If3": {
+            "main": [
+              [
+                {
+                  "node": "Ajuste do HTML AI Agent",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 2b7d9657",
+        "name": "Version b8dac93c",
         "description": "",
         "autosaved": true
       },

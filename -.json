@@ -5661,10 +5661,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1781645841,
+            "lastTimeChecked": 1781726625,
             "possibleDuplicates": [
-              "19ed25e1710c22d9",
-              "19ed22b515e53c1e"
+              "19ed72ec118c7263",
+              "19ed72e8c319469f",
+              "19ed71a2db8c17f5"
             ]
           }
         },
@@ -27146,14 +27147,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-15T16:26:56Z"
+          "lastTimeChecked": "2026-06-17T13:00:39Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-15T16:26:57Z"
+          "lastTimeChecked": "2026-06-17T13:00:35Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            167
+            169
           ]
         }
       },
@@ -30039,7 +30040,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-03-11T14:59:06.732Z",
+      "updatedAt": "2026-06-17T12:58:15.901Z",
       "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
@@ -30056,8 +30057,8 @@
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1120,
-            -144
+            -1152,
+            -176
           ],
           "id": "6e80b659-b1df-4605-a4bb-2d9723cff714",
           "name": "Webhook",
@@ -30074,8 +30075,8 @@
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3,
           "position": [
-            -704,
-            -160
+            -720,
+            -192
           ],
           "id": "6bdad66c-01c1-436c-81f6-6f5007a67dda",
           "name": "AI Agent"
@@ -30101,8 +30102,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            -704,
-            0
+            -720,
+            -32
           ],
           "id": "b72cd488-8b03-47f4-a665-7009742680cb",
           "name": "Groq Chat Model",
@@ -30322,8 +30323,8 @@
           "type": "n8n-nodes-scrapingbee.ScrapingBee",
           "typeVersion": 1,
           "position": [
-            -912,
-            -144
+            -896,
+            -176
           ],
           "id": "4f940816-3f49-4023-a29c-c1109c0231b4",
           "name": "Scrape using HTML API",
@@ -30346,7 +30347,7 @@
           "typeVersion": 1,
           "position": [
             -560,
-            48
+            -16
           ],
           "id": "506fef1f-399f-4a2a-b625-22cd719ed973",
           "name": "Get many rows in Supabase",
@@ -30494,14 +30495,15 @@
         }
       },
       "settings": {
-        "executionOrder": "v1"
+        "executionOrder": "v1",
+        "binaryMode": "separate"
       },
       "staticData": null,
       "meta": {
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "a5c5afef-c52c-4790-8b3f-9ef2a4715689",
+      "versionId": "735f0c79-de37-4753-b8ce-af3aad63c6e9",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -31859,10 +31861,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1781644924,
+            "lastTimeChecked": 1781732745,
             "possibleDuplicates": [
-              "19ed250190b888cc",
-              "19ed20e4b40d55ce"
+              "19ed7c733d04e9ee",
+              "19ed6c43f5dc0414"
             ]
           }
         }
@@ -48084,12 +48086,12 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1777
+          "lastMessageUid": 1779
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 161
+          "lastIndexChecked": 162
         }
       },
       "meta": {
@@ -62988,11 +62990,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-05-22T09:13:55.916Z",
+      "updatedAt": "2026-06-17T12:57:24.420Z",
       "createdAt": "2026-04-14T14:27:16.772Z",
       "id": "wSadBIzs8TwiQuOQ",
       "name": "Envio NF - Thiago",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -63446,59 +63448,14 @@
         },
         {
           "parameters": {
-            "chatId": "1755791123",
-            "text": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }}📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}",
-            "replyMarkup": "inlineKeyboard",
-            "inlineKeyboard": {
-              "rows": [
-                {
-                  "row": {
-                    "buttons": [
-                      {
-                        "text": "🟢 Aprovar e Enviar",
-                        "additionalFields": {
-                          "url": "={{ $execution.resumeUrl }}/aprovar"
-                        }
-                      },
-                      {
-                        "text": "🔴 Rejeitar Envio",
-                        "additionalFields": {
-                          "url": "={{ $execution.resumeUrl }}/rejeitar"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.telegram",
-          "typeVersion": 1.2,
-          "position": [
-            -112,
-            -528
-          ],
-          "id": "0af7fa98-586a-4ebd-a71c-a8352052bf50",
-          "name": "Send a text message",
-          "webhookId": "145c55ea-7291-4da5-bc9b-28c38420aa59",
-          "credentials": {
-            "telegramApi": {
-              "id": "lxV6aVR2Uu6tbEMu",
-              "name": "Telegram account - Thiago"
-            }
-          }
-        },
-        {
-          "parameters": {
             "resume": "webhook",
             "options": {}
           },
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            256,
-            -144
+            240,
+            -128
           ],
           "id": "c8430ad1-484c-44b3-a6a6-96355bc04537",
           "name": "Wait",
@@ -63531,7 +63488,7 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            496,
+            416,
             -144
           ],
           "id": "5ad019bc-cf56-4382-8d9e-9157f34342e7",
@@ -63543,7 +63500,7 @@
           "typeVersion": 1,
           "position": [
             720,
-            80
+            64
           ],
           "id": "f0a32db3-0e38-4aa7-ad28-9e4382a11dcd",
           "name": "No Operation, do nothing"
@@ -63583,8 +63540,8 @@
           "type": "n8n-nodes-base.telegram",
           "typeVersion": 1.2,
           "position": [
-            240,
-            -304
+            192,
+            -352
           ],
           "id": "ab6679bf-3da4-4d21-8af2-8a24547767c3",
           "name": "Send a document",
@@ -63629,6 +63586,51 @@
           ],
           "id": "57d81b85-f959-4d57-8b8e-fb2524567a62",
           "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "chatId": "1755791123",
+            "text": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }}📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}",
+            "replyMarkup": "inlineKeyboard",
+            "inlineKeyboard": {
+              "rows": [
+                {
+                  "row": {
+                    "buttons": [
+                      {
+                        "text": "🟢 Aprovar e Enviar",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/aprovar"
+                        }
+                      },
+                      {
+                        "text": "🔴 Rejeitar Envio",
+                        "additionalFields": {
+                          "url": "={{ $execution.resumeUrl }}/rejeitar"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.telegram",
+          "typeVersion": 1.2,
+          "position": [
+            -112,
+            -528
+          ],
+          "id": "0af7fa98-586a-4ebd-a71c-a8352052bf50",
+          "name": "Send a text message",
+          "webhookId": "145c55ea-7291-4da5-bc9b-28c38420aa59",
+          "credentials": {
+            "telegramApi": {
+              "id": "lxV6aVR2Uu6tbEMu",
+              "name": "Telegram account - Thiago"
+            }
+          }
         }
       ],
       "connections": {
@@ -63690,11 +63692,6 @@
                 "index": 0
               }
             ]
-          ]
-        },
-        "Send a text message": {
-          "main": [
-            []
           ]
         },
         "Wait": {
@@ -63767,8 +63764,8 @@
         "templateCredsSetupCompleted": true
       },
       "pinData": {},
-      "versionId": "9e0cb484-1ff1-427e-b962-1c3a26d71a9e",
-      "activeVersionId": null,
+      "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
+      "activeVersionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
       "triggerCount": 1,
       "shared": [
         {
@@ -63779,7 +63776,772 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-06-17T12:57:27.000Z",
+        "createdAt": "2026-06-17T12:57:24.422Z",
+        "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
+        "workflowId": "wSadBIzs8TwiQuOQ",
+        "nodes": [
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+              -608,
+              -272
+            ],
+            "id": "c8daaef4-57d3-478a-aa00-cad1a89cded1",
+            "name": "When clicking ‘Execute workflow’"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "NF Mensal",
+                    "lookupValue": "Sim"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -304,
+              -144
+            ],
+            "id": "2c7322cc-d3d1-45cf-bf5a-5039f98410cc",
+            "name": "Get row(s) in sheet",
+            "executeOnce": false,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "adm@midiacode.tech",
+              "toEmail": "pacionithiago@gmail.com",
+              "subject": "NF Abril/26",
+              "html": "=<p>Prezado(a), bom dia!</p>\n\n<p>Segue em anexo a nota fiscal referente ao mês de abril/2026.</p>\n\n<p>Atenciosamente,<br>",
+              "options": {
+                "appendAttribution": false,
+                "attachments": "data"
+              }
+            },
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2.1,
+            "position": [
+              816,
+              -224
+            ],
+            "id": "82b9fd27-ae6d-49d9-9850-045478cfcef1",
+            "name": "Send an Email",
+            "webhookId": "a2f01d0d-181b-45fd-9fa0-b81594119ac6",
+            "executeOnce": false,
+            "credentials": {
+              "smtp": {
+                "id": "opD4ihPIsdqEaeeI",
+                "name": "SMTP from adm@midiacode.tech"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resource": "fileFolder",
+              "queryString": "={{ $json[\"cliente_id\"] }}",
+              "filter": {
+                "driveId": {
+                  "__rl": true,
+                  "value": "My Drive",
+                  "mode": "list",
+                  "cachedResultName": "My Drive",
+                  "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+                },
+                "folderId": {
+                  "__rl": true,
+                  "value": "[REDACTED]",
+                  "mode": "list",
+                  "cachedResultName": "02. Fevereiro",
+                  "cachedResultUrl": "[REDACTED]"
+                }
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+              -144,
+              -144
+            ],
+            "id": "d417ed21-c6bc-4158-9d8c-1cd94dedc5f4",
+            "name": "Search files and folders",
+            "executeOnce": false,
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "OeujTUJ75p0KgzGs",
+                "name": "Thiago teste"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "download",
+              "fileId": {
+                "__rl": true,
+                "value": "={{ $json.id }}",
+                "mode": "id"
+              },
+              "options": {
+                "binaryPropertyName": "data"
+              }
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+              32,
+              -144
+            ],
+            "id": "a2718750-4f6d-4282-beaa-0de00499c4c7",
+            "name": "Download file",
+            "credentials": {
+              "googleDriveOAuth2Api": {
+                "id": "OeujTUJ75p0KgzGs",
+                "name": "Thiago teste"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "ERP Midiacode",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 835408503,
+                "mode": "list",
+                "cachedResultName": "CLIENTES",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "cliente_id": "={{ $('Get row(s) in sheet').item.json.cliente_id }}",
+                  "NF Emitida": "Enviada"
+                },
+                "matchingColumns": [
+                  "cliente_id"
+                ],
+                "schema": [
+                  {
+                    "id": "cliente_id",
+                    "displayName": "cliente_id",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "cnpj/ contribuinte",
+                    "displayName": "cnpj/ contribuinte",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "razao_social",
+                    "displayName": "razao_social",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "nom_fantasia",
+                    "displayName": "nom_fantasia",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "País",
+                    "displayName": "País",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "ICP",
+                    "displayName": "ICP",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Seg Economico",
+                    "displayName": "Seg Economico",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "servico",
+                    "displayName": "servico",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "emails_nf",
+                    "displayName": "emails_nf",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "cobrança",
+                    "displayName": "cobrança",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "moeda",
+                    "displayName": "moeda",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "valor_contrato",
+                    "displayName": "valor_contrato",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "periodicidade",
+                    "displayName": "periodicidade",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "vencimento_padrao",
+                    "displayName": "vencimento_padrao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "contrato_inicio",
+                    "displayName": "contrato_inicio",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "contrato_fim",
+                    "displayName": "contrato_fim",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Dias Venc.",
+                    "displayName": "Dias Venc.",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "reajuste_tipo",
+                    "displayName": "reajuste_tipo",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "% reajuste",
+                    "displayName": "% reajuste",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "data_ultimo_reajuste",
+                    "displayName": "data_ultimo_reajuste",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "data_proximo_reajuste",
+                    "displayName": "data_proximo_reajuste",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "confiabilidade",
+                    "displayName": "confiabilidade",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "atrasos",
+                    "displayName": "atrasos",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "status",
+                    "displayName": "status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "LTV",
+                    "displayName": "LTV",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "NF Mensal",
+                    "displayName": "NF Mensal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "NF Emitida",
+                    "displayName": "NF Emitida",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1008,
+              -64
+            ],
+            "id": "684157e8-684e-4d3f-bfc0-f0871523dd99",
+            "name": "Update row in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "resume": "webhook",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              240,
+              -128
+            ],
+            "id": "c8430ad1-484c-44b3-a6a6-96355bc04537",
+            "name": "Wait",
+            "webhookId": "057016d3-5044-41e6-b7ec-a115427a4319"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "fa6b372f-583b-4caf-9405-9e0fd704ad95",
+                    "leftValue": "={{ $json.query.decisao }}",
+                    "rightValue": "aprovar",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              416,
+              -144
+            ],
+            "id": "5ad019bc-cf56-4382-8d9e-9157f34342e7",
+            "name": "If"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              720,
+              64
+            ],
+            "id": "f0a32db3-0e38-4aa7-ad28-9e4382a11dcd",
+            "name": "No Operation, do nothing"
+          },
+          {
+            "parameters": {
+              "operation": "sendDocument",
+              "chatId": "1755791123",
+              "binaryData": true,
+              "replyMarkup": "inlineKeyboard",
+              "inlineKeyboard": {
+                "rows": [
+                  {
+                    "row": {
+                      "buttons": [
+                        {
+                          "text": "🟢 Aprovar e Enviar",
+                          "additionalFields": {
+                            "url": "={{ $execution.resumeUrl }}&decisao=aprovar"
+                          }
+                        },
+                        {
+                          "text": "🔴 Rejeitar Envio",
+                          "additionalFields": {
+                            "url": "={{ $execution.resumeUrl }}&decisao=rejeitar"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {
+                "caption": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }} 📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}"
+              }
+            },
+            "type": "n8n-nodes-base.telegram",
+            "typeVersion": 1.2,
+            "position": [
+              192,
+              -352
+            ],
+            "id": "ab6679bf-3da4-4d21-8af2-8a24547767c3",
+            "name": "Send a document",
+            "webhookId": "c5934816-dc85-4f97-b5a5-4ca03dd1d586",
+            "credentials": {
+              "telegramApi": {
+                "id": "lxV6aVR2Uu6tbEMu",
+                "name": "Telegram account - Thiago"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "field": "months",
+                    "triggerAtDayOfMonth": 4,
+                    "triggerAtHour": 10
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -608,
+              -16
+            ],
+            "id": "8b0c61eb-3205-4f43-a64f-9fcfca115797",
+            "name": "Schedule Trigger"
+          },
+          {
+            "parameters": {
+              "jsCode": "// 1. Resgata todos os 20 itens originais com seus respectivos arquivos binários\nconst loteOriginal = $('Download file').all();\n\n// 2. Retorna a lista completa para o fluxo seguir com 20 execuções em paralelo\nreturn loteOriginal;"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              640,
+              -224
+            ],
+            "id": "57d81b85-f959-4d57-8b8e-fb2524567a62",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "chatId": "1755791123",
+              "text": "=⚠️ *Validação de Nota Fiscal* 👤 *Cliente:* {{ $('Get row(s) in sheet').item.json.nom_fantasia }}📧 *E-mail:* {{ $('Get row(s) in sheet').item.json.emails_nf }}",
+              "replyMarkup": "inlineKeyboard",
+              "inlineKeyboard": {
+                "rows": [
+                  {
+                    "row": {
+                      "buttons": [
+                        {
+                          "text": "🟢 Aprovar e Enviar",
+                          "additionalFields": {
+                            "url": "={{ $execution.resumeUrl }}/aprovar"
+                          }
+                        },
+                        {
+                          "text": "🔴 Rejeitar Envio",
+                          "additionalFields": {
+                            "url": "={{ $execution.resumeUrl }}/rejeitar"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.telegram",
+            "typeVersion": 1.2,
+            "position": [
+              -112,
+              -528
+            ],
+            "id": "0af7fa98-586a-4ebd-a71c-a8352052bf50",
+            "name": "Send a text message",
+            "webhookId": "145c55ea-7291-4da5-bc9b-28c38420aa59",
+            "credentials": {
+              "telegramApi": {
+                "id": "lxV6aVR2Uu6tbEMu",
+                "name": "Telegram account - Thiago"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "When clicking ‘Execute workflow’": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Search files and folders",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search files and folders": {
+            "main": [
+              [
+                {
+                  "node": "Download file",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Download file": {
+            "main": [
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Send a document",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Send an Email": {
+            "main": [
+              [
+                {
+                  "node": "Update row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait": {
+            "main": [
+              [
+                {
+                  "node": "If",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Send a document": {
+            "main": [
+              []
+            ]
+          },
+          "Schedule Trigger": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Send an Email",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "nodeGroups": [],
+        "authors": "Robson Lisboa",
+        "name": "Version 0fde4138",
+        "description": "",
+        "autosaved": true
+      },
       "tags": []
     },
     {

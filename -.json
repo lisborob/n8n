@@ -5661,10 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1781819736,
+            "lastTimeChecked": 1781905041,
             "possibleDuplicates": [
-              "19edcbb93b92e450",
-              "19edca46ed040535"
+              "19ee1d12c418199c",
+              "19ee1c8d5bf5daea"
             ]
           }
         },
@@ -27146,14 +27146,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-17T13:00:39Z"
+          "lastTimeChecked": "2026-06-19T13:00:39Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-17T13:00:35Z"
+          "lastTimeChecked": "2026-06-19T13:00:35Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            169
+            171
           ]
         }
       },
@@ -30916,7 +30916,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2236
+          "lastMessageUid": 2238
         }
       },
       "meta": {
@@ -31860,10 +31860,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1781817500,
+            "lastTimeChecked": 1781890294,
             "possibleDuplicates": [
-              "19edc9966b64c746",
-              "19edc87f6e30ba11"
+              "19ee0f02afee5bca",
+              "19ee0a0b18180d55"
             ]
           }
         }
@@ -48077,7 +48077,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2237
+          "lastMessageUid": 2238
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -48085,7 +48085,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1780
+          "lastMessageUid": 1781
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -53376,7 +53376,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-18T18:20:26.294Z",
+      "updatedAt": "2026-06-19T18:06:40.214Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -53714,7 +53714,7 @@
         {
           "parameters": {
             "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
-            "height": 576,
+            "height": 512,
             "width": 2960,
             "color": 5
           },
@@ -53730,32 +53730,18 @@
         {
           "parameters": {
             "path": "0debaaea-6221-4210-9762-dc12c57817b5",
-            "options": {
-              "responseData": "Newsletter aprovada! Pode fechar essa aba!"
-            }
+            "responseMode": "responseNode",
+            "options": {}
           },
           "type": "n8n-nodes-base.webhook",
           "typeVersion": 2.1,
           "position": [
-            -1664,
-            1040
+            -1680,
+            1312
           ],
           "id": "c03e2048-ea90-4de2-80bc-a9fd47881e4f",
           "name": "Aprovada",
           "webhookId": "0debaaea-6221-4210-9762-dc12c57817b5"
-        },
-        {
-          "parameters": {
-            "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
-          },
-          "name": "Preparar Atualização1",
-          "type": "n8n-nodes-base.function",
-          "typeVersion": 1,
-          "position": [
-            624,
-            1024
-          ],
-          "id": "fe85622a-cfd0-4fe9-a73e-f5d53d3737b7"
         },
         {
           "parameters": {
@@ -53777,7 +53763,11 @@
               "values": [
                 {
                   "lookupColumn": "Status",
-                  "lookupValue": "on"
+                  "lookupValue": "enviar"
+                },
+                {
+                  "lookupColumn": "comparacao",
+                  "lookupValue": "menor"
                 }
               ]
             },
@@ -53787,7 +53777,7 @@
           "name": "Get row(s) in sheet1",
           "type": "n8n-nodes-base.googleSheets",
           "position": [
-            -464,
+            -176,
             1024
           ],
           "typeVersion": 4.6,
@@ -53875,7 +53865,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            816,
+            1584,
             1024
           ],
           "id": "7064ac6f-bd9a-4f1c-aabe-7c061d898bea",
@@ -53886,19 +53876,6 @@
               "name": "Google Sheets account"
             }
           }
-        },
-        {
-          "parameters": {
-            "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
-          },
-          "name": "Filtrar 100",
-          "type": "n8n-nodes-base.function",
-          "typeVersion": 1,
-          "position": [
-            -80,
-            1024
-          ],
-          "id": "109f1fd5-5e24-42a4-84b1-d29aa6626418"
         },
         {
           "parameters": {
@@ -54055,7 +54032,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -1024,
+            -816,
             1024
           ],
           "id": "beba4886-b36f-4691-bfab-8cc63b202a1b",
@@ -54063,25 +54040,13 @@
         },
         {
           "parameters": {
-            "jsCode": "// Filtra os emails que ainda não receberam a newsletter atual\n// e remover os que contêm 'anonimo'\n\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\nconst filtrados = rows.filter(row => {\n  const enviado = parseInt(row[\"news enviada\"], 10) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number   // garante que o update saiba qual linha alterar\n  }\n}));"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -272,
-            1024
-          ],
-          "id": "22b35040-6085-4b6d-8660-cd747a11700e",
-          "name": "Filtra os emails que ainda não receberam a news"
-        },
-        {
-          "parameters": {
             "fromEmail": "contacto@kutsaca.com",
             "toEmail": "susanacravo@kutsaca.com",
-            "ccEmail": "glauci@midiacode.com",
-            "bccEmail": "={{ $json.emails }}",
-            "subject": "={{ $json.subject }}",
-            "html": "={{ $json.html }}",
+            "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+            "bccEmail": "={{ $('Filtra 100').item.json.emailsCSV }}",
+            "subject": "={{ $('Filtra 100').item.json.subject }}",
+            "text": "=",
+            "html": "={{ $('Filtra 100').item.json.html }}",
             "options": {}
           },
           "id": "dc6392e1-de0c-4b5b-a0c1-5213c016232a",
@@ -54089,8 +54054,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 1,
           "position": [
-            368,
-            1024
+            928,
+            960
           ],
           "credentials": {
             "smtp": {
@@ -54121,9 +54086,9 @@
         },
         {
           "parameters": {
-            "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
-            "height": 544,
-            "width": 3152,
+            "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez, separei os envios para criar dois fatores de disparo (guardrail)",
+            "height": 592,
+            "width": 3572,
             "color": 4
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -54137,12 +54102,12 @@
         },
         {
           "parameters": {
-            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
+            "jsCode": "const html = $json.html || \"\";\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{\n  json: {\n    ...$json,   // <— preserva tudo\n    html: cleanedHtml\n  }\n}];\n"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -640,
+            -432,
             1024
           ],
           "id": "fa7b92e9-519e-4ad0-93ec-f775d447527e",
@@ -54212,7 +54177,7 @@
           "type": "n8n-nodes-base.dataTable",
           "typeVersion": 1,
           "position": [
-            -832,
+            -624,
             1024
           ],
           "id": "84c8ceda-e69a-4e1d-94c7-13abfa86f924",
@@ -55112,30 +55077,6 @@
         },
         {
           "parameters": {
-            "resource": "messages-api",
-            "instanceName": "Valentina",
-            "remoteJid": "351912508389@s.whatsapp.net",
-            "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
-            "options_message": {}
-          },
-          "type": "n8n-nodes-evolution-api.evolutionApi",
-          "typeVersion": 1,
-          "position": [
-            992,
-            1024
-          ],
-          "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
-          "name": "ENVIAR REPORT VIA WHATS",
-          "executeOnce": true,
-          "credentials": {
-            "evolutionApi": {
-              "id": "4gvC5iGuSb0S7dgW",
-              "name": "Evolution account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "documentId": {
               "__rl": true,
               "value": "[REDACTED]",
@@ -55732,7 +55673,7 @@
                 {
                   "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
                   "name": "idnews",
-                  "value": "={{ Number($json.query.id) }}",
+                  "value": "={{ $json.query.id }}",
                   "type": "string"
                 }
               ]
@@ -55742,7 +55683,7 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1248,
+            -1040,
             1024
           ],
           "id": "98ee2e52-81e0-411b-8fc2-aa92d0125eaa",
@@ -55760,7 +55701,7 @@
               "conditions": [
                 {
                   "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
-                  "leftValue": "={{ $json.emails }}",
+                  "leftValue": "={{ $json.emailsCSV }}",
                   "rightValue": "",
                   "operator": {
                     "type": "string",
@@ -55776,7 +55717,7 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.2,
           "position": [
-            112,
+            672,
             1024
           ],
           "id": "1dac8800-de94-481b-a03d-3ce215f4e2af",
@@ -55787,8 +55728,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            336,
-            1232
+            1440,
+            1248
           ],
           "id": "d9648888-87f0-42b9-ba3a-b0c1e3e2dc44",
           "name": "No Operation, do nothing1"
@@ -55801,7 +55742,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1200,
+            1760,
             1024
           ],
           "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
@@ -56401,29 +56342,6 @@
         },
         {
           "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
-                  "name": "idnews",
-                  "value": "={{ Number($json.query.id) }}",
-                  "type": "string"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -1504,
-            1040
-          ],
-          "id": "0a4e5736-43b7-4fc4-9479-d129099fe583",
-          "name": "Edit Fields1"
-        },
-        {
-          "parameters": {
             "jsCode": "return [{\n  json: {\n    body: $json.body\n  }\n}];\n"
           },
           "type": "n8n-nodes-base.code",
@@ -56434,6 +56352,469 @@
           ],
           "id": "baebacd0-a40e-4b3a-a557-b41ce2ee7b7d",
           "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FS).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            -1008,
+            1296
+          ],
+          "id": "8b850162-a384-46f3-886c-e8b1c954f140",
+          "name": "Respond to Webhook6"
+        },
+        {
+          "parameters": {
+            "path": "send2all",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1552,
+            1024
+          ],
+          "id": "251b1449-aa0e-4270-8996-252021fe9ddc",
+          "name": "SEND2ALL",
+          "webhookId": "257db7eb-ffb3-4d5d-bbf9-71774b0d2194"
+        },
+        {
+          "parameters": {
+            "path": "send2managers",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -640,
+            1264
+          ],
+          "id": "cc4fe110-c7a2-45f0-a149-98c37d42fce1",
+          "name": "SEND2MANAGERS",
+          "webhookId": "257db7eb-ffb3-4d5d-bbf9-71774b0d2194"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                  "name": "idnews",
+                  "value": "={{ $json.query.id }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -464,
+            1264
+          ],
+          "id": "9e22ecb7-1be6-4093-8fc9-179d74fbf2d0",
+          "name": "Edit Fields2"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "ASgwpF2PeV4ATAYu",
+              "mode": "list",
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+            },
+            "matchType": "=anyCondition",
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json.idnews }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1,
+          "position": [
+            -288,
+            1264
+          ],
+          "id": "0b1b5651-8ac4-41f8-b6a9-3d8f0cf621e6",
+          "name": "pega o html certo da DT1"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -80,
+            1264
+          ],
+          "id": "4fb130e8-cf62-4461-922c-27bce2d0136c",
+          "name": "Retira do html final a seção do aprovador1"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 718850216,
+              "mode": "list",
+              "cachedResultName": "Emails",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "Status",
+                  "lookupValue": "manager"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "id": "e57f6871-2407-4529-987a-b6a6c16fb050",
+          "name": "Get row(s) in sheet2",
+          "type": "n8n-nodes-base.googleSheets",
+          "position": [
+            128,
+            1264
+          ],
+          "typeVersion": 4.6,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "contacto@kutsaca.com",
+            "toEmail": "susanacravo@kutsaca.com",
+            "ccEmail": "glauci@midiacode.com",
+            "bccEmail": "={{ $json.emails }}",
+            "subject": "={{ $('pega o html certo da DT1').item.json.subject }}",
+            "html": "={{ $('Retira do html final a seção do aprovador1').item.json.html }}",
+            "options": {}
+          },
+          "id": "400becde-740f-4ac1-a8bf-bc5aba994fce",
+          "name": "Distribuição da news1",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            528,
+            1264
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "eIabgHBZcsJl51Oj",
+              "name": "Kutsaca.com - SMTP account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "c982efdc-a66b-4b6d-bd9b-89f02802a6e4",
+                  "name": "idnews",
+                  "value": "={{ $json.query.id }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -1552,
+            1200
+          ],
+          "id": "a7a6bea6-0dd5-4ef3-aa77-62a04689f8be",
+          "name": "Edit Fields1"
+        },
+        {
+          "parameters": {
+            "jsCode": "const items = $input.all();\n\nfor (const item of items) {\n  const id = item.json.idnews;\n\n  const html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Escolha o público</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>📣 Escolha o público para envio</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Newsletter ID: <strong>${id}</strong>\n  </p>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Selecione abaixo para quem esta newsletter será enviada.\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"https://n8n.ooniverse.ai/webhook/send2managers?id=${id}\"\n       style=\"background:#007bff;color:#fff;padding:12px 18px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;margin-bottom:20px;\">\n       Enviar para Managers\n    </a>\n  </p>\n\n  <p>\n    <a href=\"https://n8n.ooniverse.ai/webhook/send2all?id=${id}\"\n       style=\"background:#28a745;color:#fff;padding:12px 18px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;\">\n       Enviar para Todos\n    </a>\n  </p>\n\n</body>\n</html>\n  `;\n\n  item.json.html = html;\n}\n\nreturn items;\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -1408,
+            1200
+          ],
+          "id": "64261ab6-f65b-43d7-8e0d-ffb09eae87aa",
+          "name": "cria html com botoes de envio"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "aprovacaoKutsaca2fa.html",
+            "binaryData": false,
+            "fileContent": "={{ $json.html }}",
+            "additionalFields": {
+              "parentFolderKey": "Kutsaca"
+            }
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            -1184,
+            1248
+          ],
+          "id": "775babc9-643d-4da6-83dd-36defcb61fa6",
+          "name": "Upload html botoes aprovacao",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "const items = $input.all();\n\n// Lista final de emails\nlet emails = [];\n\nfor (const item of items) {\n  const row = item.json;\n\n  // Tenta encontrar o campo de email automaticamente\n  const emailField = Object.keys(row).find(k =>\n    k.toLowerCase().includes(\"email\")\n  );\n\n  if (emailField && row[emailField]) {\n    const email = String(row[emailField]).trim();\n\n    // Validação simples\n    if (email.includes(\"@\")) {\n      emails.push(email);\n    }\n  }\n}\n\n// Remove duplicados\nemails = [...new Set(emails)];\n\n// Retorna um único item com os emails formatados\nreturn [\n  {\n    json: {\n      emailsArray: emails,          // array completo\n      emailsCSV: emails.join(\",\"),  // string separada por vírgulas\n      emails: emails.join(\",\"),     // alias para facilitar no EmailSend\n      totalEmails: emails.length\n    }\n  }\n];\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            336,
+            1264
+          ],
+          "id": "7feaae6a-9262-41d8-842a-f49cb8f6a0ce",
+          "name": "lista emails para envio"
+        },
+        {
+          "parameters": {
+            "respondWith": "text",
+            "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Newsletter enviada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>📣 Newsletter enviada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Newsletter enviada para os <strong>Managers</strong>.\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"URL_AQUI\"\n       style=\"background:#007bff;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;margin-bottom:20px;\">\n       VOLTAR\n    </a>\n  </p>\n\n  <p>\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.respondToWebhook",
+          "typeVersion": 1.5,
+          "position": [
+            736,
+            1264
+          ],
+          "id": "c8757950-094f-4740-9b0c-8b55e65fa4be",
+          "name": "Respond to Webhook7"
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 718850216,
+              "mode": "list",
+              "cachedResultName": "Emails",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "id atual": "={{ $json.idnews }}",
+                "Status": "enviar"
+              },
+              "matchingColumns": [
+                "Status"
+              ],
+              "schema": [
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "news enviada",
+                  "displayName": "news enviada",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "id atual",
+                  "displayName": "id atual",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "row_number",
+                  "displayName": "row_number",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "number",
+                  "canBeUsedToMatch": true,
+                  "readOnly": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -928,
+            848
+          ],
+          "id": "59b1c910-a11e-48ff-932c-a1285d706e2d",
+          "name": "leva o idnews para a planilha",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "66554146-f0aa-45e0-ac66-5f1db613f425",
+                  "name": "idnews",
+                  "value": "={{ $('Retira do html final a seção do aprovador').item.json.id }}",
+                  "type": "number"
+                },
+                {
+                  "id": "cf383d64-e943-4012-a993-79a1f8975236",
+                  "name": "subject",
+                  "value": "={{ $('Retira do html final a seção do aprovador').item.json.subject }}",
+                  "type": "string"
+                },
+                {
+                  "id": "41b75c11-f9f9-4066-bf3c-df9795ed86d7",
+                  "name": "html",
+                  "value": "={{ $('Retira do html final a seção do aprovador').item.json.html }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            48,
+            1024
+          ],
+          "id": "ab78e3a6-cfde-4461-809b-f1242c89fddb",
+          "name": "Propaga dados globais",
+          "executeOnce": false
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Filtrar até 100 emails e retornar CSV + registros completos + idnews + subject + html\n\n// 1. Pega todos os itens vindos do node anterior\nconst items = $input.all();\n\n// 2. Recupera dados globais (idnews, subject, html) do primeiro item\nconst idnews = items[0].json.idnews;\nconst subject = items[0].json.subject;\nconst html = items[0].json.html;\n\n// 3. Extrai todos os registros completos\nconst rows = items.map(i => i.json);\n\n// 4. Extrai apenas os e-mails válidos\nconst emails = rows\n  .map(r => r.Email || r.email || \"\")\n  .map(e => String(e).trim())\n  .filter(e => e.includes(\"@\"));\n\n// 5. Limita a 100\nconst limitados = rows.slice(0, 100);\nconst emailsLimitados = emails.slice(0, 100);\n\n// 6. Gera CSV\nconst emailsCSV = emailsLimitados.join(\",\");\n\n// 7. Retorna:\n// - item 0: CSV + idnews + subject + html (para envio)\n// - itens 1..100: registros completos (para update)\nreturn [\n  {\n    json: {\n      idnews,\n      subject,\n      html,\n      emailsCSV\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      ...r\n    }\n  }))\n];\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            240,
+            1024
+          ],
+          "id": "d774abd4-f0d9-46f8-81dc-abb4c4ff854d",
+          "name": "Filtra 100"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// 1. ID da news atual (propagado no fluxo)\nconst newsAtual = parseInt($json.idnews, 10);\n\n// 2. Pega os registros vindos do node \"Filtrar 100\"\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number);\n\n// 3. Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1248,
+            1024
+          ],
+          "id": "08bf3036-c27b-4e77-9a42-b454708b0071",
+          "name": "Preparar atualização1"
+        },
+        {
+          "parameters": {
+            "content": "REVISAR REFAZER",
+            "height": 368,
+            "width": 3040
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1104,
+            848
+          ],
+          "typeVersion": 1,
+          "id": "1bb45aa4-4d23-4be6-9bfa-ecd8495e8b98",
+          "name": "Sticky Note11"
+        },
+        {
+          "parameters": {
+            "fromEmail": "contacto@kutsaca.com",
+            "toEmail": "susanacravo@kutsaca.com",
+            "bccEmail": "=sofiado@gmail.com,mariana.nok@gmail.com,mariajose.rola@gmail.com,",
+            "subject": "={{ $json.subject }}",
+            "text": "=",
+            "html": "={{ $json.html }}",
+            "options": {}
+          },
+          "id": "a45e2fb6-5712-49a0-9fb8-cb4a3443b480",
+          "name": "Distribuição da news avulsa",
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 1,
+          "position": [
+            -272,
+            912
+          ],
+          "credentials": {
+            "smtp": {
+              "id": "eIabgHBZcsJl51Oj",
+              "name": "Kutsaca.com - SMTP account"
+            }
+          }
         }
       ],
       "connections": {
@@ -56535,22 +56916,11 @@
             ]
           ]
         },
-        "Preparar Atualização1": {
-          "main": [
-            [
-              {
-                "node": "Update row in sheet",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Get row(s) in sheet1": {
           "main": [
             [
               {
-                "node": "Filtra os emails que ainda não receberam a news",
+                "node": "Propaga dados globais",
                 "type": "main",
                 "index": 0
               }
@@ -56561,18 +56931,7 @@
           "main": [
             [
               {
-                "node": "ENVIAR REPORT VIA WHATS",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filtrar 100": {
-          "main": [
-            [
-              {
-                "node": "If2",
+                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -56617,17 +56976,6 @@
             ]
           ]
         },
-        "Filtra os emails que ainda não receberam a news": {
-          "main": [
-            [
-              {
-                "node": "Filtrar 100",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Google Gemini Chat Model": {
           "ai_languageModel": [
             [
@@ -56659,7 +57007,7 @@
           "main": [
             [
               {
-                "node": "Preparar Atualização1",
+                "node": "Preparar atualização1",
                 "type": "main",
                 "index": 0
               }
@@ -57070,6 +57418,11 @@
                 "node": "pega o html certo da DT",
                 "type": "main",
                 "index": 0
+              },
+              {
+                "node": "leva o idnews para a planilha",
+                "type": "main",
+                "index": 0
               }
             ]
           ]
@@ -57086,17 +57439,6 @@
             [
               {
                 "node": "No Operation, do nothing1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "ENVIAR REPORT VIA WHATS": {
-          "main": [
-            [
-              {
-                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -57283,6 +57625,171 @@
               }
             ]
           ]
+        },
+        "SEND2ALL": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "SEND2MANAGERS": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields2": {
+          "main": [
+            [
+              {
+                "node": "pega o html certo da DT1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "pega o html certo da DT1": {
+          "main": [
+            [
+              {
+                "node": "Retira do html final a seção do aprovador1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Retira do html final a seção do aprovador1": {
+          "main": [
+            [
+              {
+                "node": "Get row(s) in sheet2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet2": {
+          "main": [
+            [
+              {
+                "node": "lista emails para envio",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields1": {
+          "main": [
+            [
+              {
+                "node": "cria html com botoes de envio",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "cria html com botoes de envio": {
+          "main": [
+            [
+              {
+                "node": "Upload html botoes aprovacao",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload html botoes aprovacao": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook6",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "lista emails para envio": {
+          "main": [
+            [
+              {
+                "node": "Distribuição da news1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Distribuição da news1": {
+          "main": [
+            [
+              {
+                "node": "Respond to Webhook7",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "leva o idnews para a planilha": {
+          "main": [
+            [
+              {
+                "node": "pega o html certo da DT",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Propaga dados globais": {
+          "main": [
+            [
+              {
+                "node": "Filtra 100",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtra 100": {
+          "main": [
+            [
+              {
+                "node": "If2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Preparar atualização1": {
+          "main": [
+            [
+              {
+                "node": "Update row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -57305,7 +57812,7 @@
           "lastMessageUid": 2177
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 2237
+          "lastMessageUid": 2238
         }
       },
       "meta": {
@@ -57451,11 +57958,129 @@
               "item": 0
             }
           }
+        ],
+        "Aprovada": [
+          {
+            "json": {
+              "headers": {
+                "host": "n8n.ooniverse.ai",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+                "cookie": "[REDACTED]",
+                "priority": "u=0, i",
+                "sec-ch-ua": "\"Google Chrome\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "document",
+                "sec-fetch-mode": "navigate",
+                "sec-fetch-site": "cross-site",
+                "sec-fetch-user": "?1",
+                "upgrade-insecure-requests": "1",
+                "x-forwarded-for": "148.63.218.129",
+                "x-forwarded-host": "n8n.ooniverse.ai",
+                "x-forwarded-port": "443",
+                "x-forwarded-proto": "https",
+                "x-forwarded-server": "f1fc59b294b9",
+                "x-real-ip": "148.63.218.129"
+              },
+              "params": {},
+              "query": {
+                "id": "48"
+              },
+              "body": {},
+              "webhookUrl": "https://n8n.ooniverse.ai/webhook/0debaaea-6221-4210-9762-dc12c57817b5",
+              "executionMode": "production"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ],
+        "SEND2MANAGERS": [
+          {
+            "json": {
+              "headers": {
+                "host": "n8n.ooniverse.ai",
+                "user-agent": "Mozilla/5.0 (Linux; Android 13; SM-N770F Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+                "priority": "u=0, i",
+                "sec-ch-ua": "\"Android WebView\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+                "sec-ch-ua-mobile": "?1",
+                "sec-ch-ua-platform": "\"Android\"",
+                "sec-fetch-dest": "document",
+                "sec-fetch-mode": "navigate",
+                "sec-fetch-site": "none",
+                "sec-fetch-user": "?1",
+                "upgrade-insecure-requests": "1",
+                "x-forwarded-for": "148.63.218.129",
+                "x-forwarded-host": "n8n.ooniverse.ai",
+                "x-forwarded-port": "443",
+                "x-forwarded-proto": "https",
+                "x-forwarded-server": "f1fc59b294b9",
+                "x-real-ip": "148.63.218.129",
+                "x-requested-with": "app.midiacode.kutsaca"
+              },
+              "params": {},
+              "query": {
+                "id": "48"
+              },
+              "body": {},
+              "webhookUrl": "https://n8n.ooniverse.ai/webhook/send2managers",
+              "executionMode": "production"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ],
+        "SEND2ALL": [
+          {
+            "json": {
+              "headers": {
+                "host": "n8n.ooniverse.ai",
+                "user-agent": "Mozilla/5.0 (Linux; Android 13; SM-N770F Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+                "if-none-match": "[REDACTED]",
+                "priority": "u=0, i",
+                "sec-ch-ua": "\"Android WebView\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+                "sec-ch-ua-mobile": "?1",
+                "sec-ch-ua-platform": "\"Android\"",
+                "sec-fetch-dest": "document",
+                "sec-fetch-mode": "navigate",
+                "sec-fetch-site": "none",
+                "sec-fetch-user": "?1",
+                "upgrade-insecure-requests": "1",
+                "x-forwarded-for": "148.63.218.129",
+                "x-forwarded-host": "n8n.ooniverse.ai",
+                "x-forwarded-port": "443",
+                "x-forwarded-proto": "https",
+                "x-forwarded-server": "f1fc59b294b9",
+                "x-real-ip": "148.63.218.129",
+                "x-requested-with": "app.midiacode.kutsaca"
+              },
+              "params": {},
+              "query": {
+                "id": "48"
+              },
+              "body": {},
+              "webhookUrl": "https://n8n.ooniverse.ai/webhook/send2all",
+              "executionMode": "production"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
         ]
       },
-      "versionId": "3322d1b9-1e62-461a-8071-31d58ad944cf",
-      "activeVersionId": "3322d1b9-1e62-461a-8071-31d58ad944cf",
-      "triggerCount": 13,
+      "versionId": "01bdda63-ab7e-4cdb-bafb-65261886a909",
+      "activeVersionId": "f76eab72-9866-4148-8d17-70183f0af3ea",
+      "triggerCount": 15,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -57466,9 +58091,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-18T18:20:40.000Z",
-        "createdAt": "2026-06-18T18:20:26.299Z",
-        "versionId": "3322d1b9-1e62-461a-8071-31d58ad944cf",
+        "updatedAt": "2026-06-19T18:06:33.000Z",
+        "createdAt": "2026-06-19T18:06:30.116Z",
+        "versionId": "f76eab72-9866-4148-8d17-70183f0af3ea",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -57802,7 +58427,7 @@
           {
             "parameters": {
               "content": "## Monta a Newsletter e envia para aprovação\nassim que o gestor seleciona os artigos a serem publicados, essa sequencia monta a news e envia uma amostra para aprovação do gestor",
-              "height": 576,
+              "height": 512,
               "width": 2960,
               "color": 5
             },
@@ -57818,32 +58443,18 @@
           {
             "parameters": {
               "path": "0debaaea-6221-4210-9762-dc12c57817b5",
-              "options": {
-                "responseData": "Newsletter aprovada! Pode fechar essa aba!"
-              }
+              "responseMode": "responseNode",
+              "options": {}
             },
             "type": "n8n-nodes-base.webhook",
             "typeVersion": 2.1,
             "position": [
-              -1664,
-              1040
+              -1680,
+              1312
             ],
             "id": "c03e2048-ea90-4de2-80bc-a9fd47881e4f",
             "name": "Aprovada",
             "webhookId": "0debaaea-6221-4210-9762-dc12c57817b5"
-          },
-          {
-            "parameters": {
-              "functionCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// ID da news aprovada\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\n\n// Pega os registros com row_number vindos do Filtrar 100\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number); // só pega os que têm row_number\n\n// Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));"
-            },
-            "name": "Preparar Atualização1",
-            "type": "n8n-nodes-base.function",
-            "typeVersion": 1,
-            "position": [
-              624,
-              1024
-            ],
-            "id": "fe85622a-cfd0-4fe9-a73e-f5d53d3737b7"
           },
           {
             "parameters": {
@@ -57865,7 +58476,11 @@
                 "values": [
                   {
                     "lookupColumn": "Status",
-                    "lookupValue": "on"
+                    "lookupValue": "enviar"
+                  },
+                  {
+                    "lookupColumn": "comparacao",
+                    "lookupValue": "menor"
                   }
                 ]
               },
@@ -57875,7 +58490,7 @@
             "name": "Get row(s) in sheet1",
             "type": "n8n-nodes-base.googleSheets",
             "position": [
-              -464,
+              -176,
               1024
             ],
             "typeVersion": 4.6,
@@ -57963,7 +58578,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              816,
+              1584,
               1024
             ],
             "id": "7064ac6f-bd9a-4f1c-aabe-7c061d898bea",
@@ -57974,19 +58589,6 @@
                 "name": "Google Sheets account"
               }
             }
-          },
-          {
-            "parameters": {
-              "functionCode": "// Node: Filtrar 100 — limita a 100 registros e retorna emails + row_number + subject + html\n\n// Pega todos os registros vindos do node anterior\nconst rows = $items(\"Filtra os emails que ainda não receberam a news\", 0, 0).map(i => i.json);\n\n// Seleciona apenas os primeiros 100\nconst limitados = rows.slice(0, 100);\n\n// Junta os emails em uma única string separada por vírgula\nconst emailsConcatenados = limitados.map(r => r.Email || r.email).join(\",\");\n\n// Pega o subject e html dos nodes anteriores\nconst subject = $items(\"pega o html certo da DT\", 0, 0)[0]?.json?.subject || \"\";\nconst html = $items(\"Retira do html final a seção do aprovador\", 0, 0)[0]?.json?.html || \"\";\n\n// Retorna dois tipos de saída:\n// 1. Um item com todos os emails concatenados + subject + html (para o envio)\n// 2. Um item por registro com row_number + email (para atualização)\nreturn [\n  { json: { emails: emailsConcatenados, subject, html } },\n  ...limitados.map(r => ({\n    json: {\n      row_number: r.row_number,\n      Email: r.Email || r.email,\n      subject,\n      html\n    }\n  }))\n];"
-            },
-            "name": "Filtrar 100",
-            "type": "n8n-nodes-base.function",
-            "typeVersion": 1,
-            "position": [
-              -80,
-              1024
-            ],
-            "id": "109f1fd5-5e24-42a4-84b1-d29aa6626418"
           },
           {
             "parameters": {
@@ -58143,7 +58745,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -1024,
+              -816,
               1024
             ],
             "id": "beba4886-b36f-4691-bfab-8cc63b202a1b",
@@ -58151,25 +58753,13 @@
           },
           {
             "parameters": {
-              "jsCode": "// Filtra os emails que ainda não receberam a newsletter atual\n// e remover os que contêm 'anonimo'\n\nconst newsAtual = parseInt($items(\"Aprovada\", 0, 0)[0].json.query.id, 10);\nconst rows = $items(\"Get row(s) in sheet1\", 0, 0).map(i => i.json);\n\nconst filtrados = rows.filter(row => {\n  const enviado = parseInt(row[\"news enviada\"], 10) || 0;\n  const email = (row.email || \"\").toLowerCase();\n  return enviado < newsAtual && !email.includes(\"anonimo\");\n});\n\n// Retorna preservando o row_number\nreturn filtrados.map(r => ({\n  json: {\n    ...r,\n    row_number: r.row_number   // garante que o update saiba qual linha alterar\n  }\n}));"
-            },
-            "type": "n8n-nodes-base.code",
-            "typeVersion": 2,
-            "position": [
-              -272,
-              1024
-            ],
-            "id": "22b35040-6085-4b6d-8660-cd747a11700e",
-            "name": "Filtra os emails que ainda não receberam a news"
-          },
-          {
-            "parameters": {
               "fromEmail": "contacto@kutsaca.com",
               "toEmail": "susanacravo@kutsaca.com",
-              "ccEmail": "glauci@midiacode.com",
-              "bccEmail": "={{ $json.emails }}",
-              "subject": "={{ $json.subject }}",
-              "html": "={{ $json.html }}",
+              "ccEmail": "glauci@midiacode.com, robson.lisboa@midiacode.com",
+              "bccEmail": "={{ $('Filtra 100').item.json.emailsCSV }}",
+              "subject": "={{ $('Filtra 100').item.json.subject }}",
+              "text": "=",
+              "html": "={{ $('Filtra 100').item.json.html }}",
               "options": {}
             },
             "id": "dc6392e1-de0c-4b5b-a0c1-5213c016232a",
@@ -58177,8 +58767,8 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              368,
-              1024
+              928,
+              960
             ],
             "credentials": {
               "smtp": {
@@ -58209,9 +58799,9 @@
           },
           {
             "parameters": {
-              "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez",
-              "height": 544,
-              "width": 3152,
+              "content": "## Disparo da Newsletter APROVADA\npara 100 emails por vez, separei os envios para criar dois fatores de disparo (guardrail)",
+              "height": 592,
+              "width": 3572,
               "color": 4
             },
             "type": "n8n-nodes-base.stickyNote",
@@ -58225,12 +58815,12 @@
           },
           {
             "parameters": {
-              "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
+              "jsCode": "const html = $json.html || \"\";\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{\n  json: {\n    ...$json,   // <— preserva tudo\n    html: cleanedHtml\n  }\n}];\n"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -640,
+              -432,
               1024
             ],
             "id": "fa7b92e9-519e-4ad0-93ec-f775d447527e",
@@ -58300,7 +58890,7 @@
             "type": "n8n-nodes-base.dataTable",
             "typeVersion": 1,
             "position": [
-              -832,
+              -624,
               1024
             ],
             "id": "84c8ceda-e69a-4e1d-94c7-13abfa86f924",
@@ -59200,30 +59790,6 @@
           },
           {
             "parameters": {
-              "resource": "messages-api",
-              "instanceName": "Valentina",
-              "remoteJid": "351912508389@s.whatsapp.net",
-              "messageText": "=relatório ... Enviado emails de newsletter ...  {{ $('Filtrar 100').item.json.emails }}",
-              "options_message": {}
-            },
-            "type": "n8n-nodes-evolution-api.evolutionApi",
-            "typeVersion": 1,
-            "position": [
-              992,
-              1024
-            ],
-            "id": "50e21ccb-2179-47c5-8418-542567dbaeef",
-            "name": "ENVIAR REPORT VIA WHATS",
-            "executeOnce": true,
-            "credentials": {
-              "evolutionApi": {
-                "id": "4gvC5iGuSb0S7dgW",
-                "name": "Evolution account"
-              }
-            }
-          },
-          {
-            "parameters": {
               "documentId": {
                 "__rl": true,
                 "value": "[REDACTED]",
@@ -59820,7 +60386,7 @@
                   {
                     "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
                     "name": "idnews",
-                    "value": "={{ Number($json.query.id) }}",
+                    "value": "={{ $json.query.id }}",
                     "type": "string"
                   }
                 ]
@@ -59830,7 +60396,7 @@
             "type": "n8n-nodes-base.set",
             "typeVersion": 3.4,
             "position": [
-              -1248,
+              -1040,
               1024
             ],
             "id": "98ee2e52-81e0-411b-8fc2-aa92d0125eaa",
@@ -59848,7 +60414,7 @@
                 "conditions": [
                   {
                     "id": "3b4fef98-b44e-4512-a5b2-c272f38fb802",
-                    "leftValue": "={{ $json.emails }}",
+                    "leftValue": "={{ $json.emailsCSV }}",
                     "rightValue": "",
                     "operator": {
                       "type": "string",
@@ -59864,7 +60430,7 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.2,
             "position": [
-              112,
+              672,
               1024
             ],
             "id": "1dac8800-de94-481b-a03d-3ce215f4e2af",
@@ -59875,8 +60441,8 @@
             "type": "n8n-nodes-base.noOp",
             "typeVersion": 1,
             "position": [
-              336,
-              1232
+              1440,
+              1248
             ],
             "id": "d9648888-87f0-42b9-ba3a-b0c1e3e2dc44",
             "name": "No Operation, do nothing1"
@@ -59889,7 +60455,7 @@
             "type": "n8n-nodes-base.wait",
             "typeVersion": 1.1,
             "position": [
-              1200,
+              1760,
               1024
             ],
             "id": "f589a8c5-dc4a-4cd0-a5a1-45b5e5765663",
@@ -60489,29 +61055,6 @@
           },
           {
             "parameters": {
-              "assignments": {
-                "assignments": [
-                  {
-                    "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
-                    "name": "idnews",
-                    "value": "={{ Number($json.query.id) }}",
-                    "type": "string"
-                  }
-                ]
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.set",
-            "typeVersion": 3.4,
-            "position": [
-              -1504,
-              1040
-            ],
-            "id": "0a4e5736-43b7-4fc4-9479-d129099fe583",
-            "name": "Edit Fields1"
-          },
-          {
-            "parameters": {
               "jsCode": "return [{\n  json: {\n    body: $json.body\n  }\n}];\n"
             },
             "type": "n8n-nodes-base.code",
@@ -60522,6 +61065,469 @@
             ],
             "id": "baebacd0-a40e-4b3a-a557-b41ce2ee7b7d",
             "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FS).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              -1008,
+              1296
+            ],
+            "id": "8b850162-a384-46f3-886c-e8b1c954f140",
+            "name": "Respond to Webhook6"
+          },
+          {
+            "parameters": {
+              "path": "send2all",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1552,
+              1024
+            ],
+            "id": "251b1449-aa0e-4270-8996-252021fe9ddc",
+            "name": "SEND2ALL",
+            "webhookId": "257db7eb-ffb3-4d5d-bbf9-71774b0d2194"
+          },
+          {
+            "parameters": {
+              "path": "send2managers",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -640,
+              1264
+            ],
+            "id": "cc4fe110-c7a2-45f0-a149-98c37d42fce1",
+            "name": "SEND2MANAGERS",
+            "webhookId": "257db7eb-ffb3-4d5d-bbf9-71774b0d2194"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "da496a08-c2cb-4fe1-ae05-e349b2996da8",
+                    "name": "idnews",
+                    "value": "={{ $json.query.id }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -464,
+              1264
+            ],
+            "id": "9e22ecb7-1be6-4093-8fc9-179d74fbf2d0",
+            "name": "Edit Fields2"
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "dataTableId": {
+                "__rl": true,
+                "value": "ASgwpF2PeV4ATAYu",
+                "mode": "list",
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+              },
+              "matchType": "=anyCondition",
+              "filters": {
+                "conditions": [
+                  {
+                    "keyValue": "={{ $json.idnews }}"
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1,
+            "position": [
+              -288,
+              1264
+            ],
+            "id": "0b1b5651-8ac4-41f8-b6a9-3d8f0cf621e6",
+            "name": "pega o html certo da DT1"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Remover bloco de orientações/aprovação do HTML final\n\nconst html = $json.html || \"\";\n\n// Remove tudo a partir de \"Orientações para o gestor da newsletter\" até o fim\nconst cleanedHtml = html.replace(\n  /Orientações para o gestor da newsletter[\\s\\S]*$/i,\n  \"\"\n);\n\nreturn [{ json: { html: cleanedHtml } }];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -80,
+              1264
+            ],
+            "id": "4fb130e8-cf62-4461-922c-27bce2d0136c",
+            "name": "Retira do html final a seção do aprovador1"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 718850216,
+                "mode": "list",
+                "cachedResultName": "Emails",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "Status",
+                    "lookupValue": "manager"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "id": "e57f6871-2407-4529-987a-b6a6c16fb050",
+            "name": "Get row(s) in sheet2",
+            "type": "n8n-nodes-base.googleSheets",
+            "position": [
+              128,
+              1264
+            ],
+            "typeVersion": 4.6,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "fromEmail": "contacto@kutsaca.com",
+              "toEmail": "susanacravo@kutsaca.com",
+              "ccEmail": "glauci@midiacode.com",
+              "bccEmail": "={{ $json.emails }}",
+              "subject": "={{ $('pega o html certo da DT1').item.json.subject }}",
+              "html": "={{ $('Retira do html final a seção do aprovador1').item.json.html }}",
+              "options": {}
+            },
+            "id": "400becde-740f-4ac1-a8bf-bc5aba994fce",
+            "name": "Distribuição da news1",
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 1,
+            "position": [
+              528,
+              1264
+            ],
+            "credentials": {
+              "smtp": {
+                "id": "eIabgHBZcsJl51Oj",
+                "name": "Kutsaca.com - SMTP account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "c982efdc-a66b-4b6d-bd9b-89f02802a6e4",
+                    "name": "idnews",
+                    "value": "={{ $json.query.id }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -1552,
+              1200
+            ],
+            "id": "a7a6bea6-0dd5-4ef3-aa77-62a04689f8be",
+            "name": "Edit Fields1"
+          },
+          {
+            "parameters": {
+              "jsCode": "const items = $input.all();\n\nfor (const item of items) {\n  const id = item.json.idnews;\n\n  const html = `\n<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Escolha o público</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>📣 Escolha o público para envio</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Newsletter ID: <strong>${id}</strong>\n  </p>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Selecione abaixo para quem esta newsletter será enviada.\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"https://n8n.ooniverse.ai/webhook/send2managers?id=${id}\"\n       style=\"background:#007bff;color:#fff;padding:12px 18px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;margin-bottom:20px;\">\n       Enviar para Managers\n    </a>\n  </p>\n\n  <p>\n    <a href=\"https://n8n.ooniverse.ai/webhook/send2all?id=${id}\"\n       style=\"background:#28a745;color:#fff;padding:12px 18px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;\">\n       Enviar para Todos\n    </a>\n  </p>\n\n</body>\n</html>\n  `;\n\n  item.json.html = html;\n}\n\nreturn items;\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -1408,
+              1200
+            ],
+            "id": "64261ab6-f65b-43d7-8e0d-ffb09eae87aa",
+            "name": "cria html com botoes de envio"
+          },
+          {
+            "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "aprovacaoKutsaca2fa.html",
+              "binaryData": false,
+              "fileContent": "={{ $json.html }}",
+              "additionalFields": {
+                "parentFolderKey": "Kutsaca"
+              }
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              -1184,
+              1248
+            ],
+            "id": "775babc9-643d-4da6-83dd-36defcb61fa6",
+            "name": "Upload html botoes aprovacao",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "const items = $input.all();\n\n// Lista final de emails\nlet emails = [];\n\nfor (const item of items) {\n  const row = item.json;\n\n  // Tenta encontrar o campo de email automaticamente\n  const emailField = Object.keys(row).find(k =>\n    k.toLowerCase().includes(\"email\")\n  );\n\n  if (emailField && row[emailField]) {\n    const email = String(row[emailField]).trim();\n\n    // Validação simples\n    if (email.includes(\"@\")) {\n      emails.push(email);\n    }\n  }\n}\n\n// Remove duplicados\nemails = [...new Set(emails)];\n\n// Retorna um único item com os emails formatados\nreturn [\n  {\n    json: {\n      emailsArray: emails,          // array completo\n      emailsCSV: emails.join(\",\"),  // string separada por vírgulas\n      emails: emails.join(\",\"),     // alias para facilitar no EmailSend\n      totalEmails: emails.length\n    }\n  }\n];\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              336,
+              1264
+            ],
+            "id": "7feaae6a-9262-41d8-842a-f49cb8f6a0ce",
+            "name": "lista emails para envio"
+          },
+          {
+            "parameters": {
+              "respondWith": "text",
+              "responseBody": "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Newsletter enviada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>📣 Newsletter enviada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Newsletter enviada para os <strong>Managers</strong>.\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"URL_AQUI\"\n       style=\"background:#007bff;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;display:inline-block;margin-bottom:20px;\">\n       VOLTAR\n    </a>\n  </p>\n\n  <p>\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.respondToWebhook",
+            "typeVersion": 1.5,
+            "position": [
+              736,
+              1264
+            ],
+            "id": "c8757950-094f-4740-9b0c-8b55e65fa4be",
+            "name": "Respond to Webhook7"
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Kutsaca emails-extraidos-limpo ",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 718850216,
+                "mode": "list",
+                "cachedResultName": "Emails",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "id atual": "={{ $json.idnews }}",
+                  "Status": "enviar"
+                },
+                "matchingColumns": [
+                  "Status"
+                ],
+                "schema": [
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "news enviada",
+                    "displayName": "news enviada",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "id atual",
+                    "displayName": "id atual",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "row_number",
+                    "displayName": "row_number",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "number",
+                    "canBeUsedToMatch": true,
+                    "readOnly": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -928,
+              848
+            ],
+            "id": "59b1c910-a11e-48ff-932c-a1285d706e2d",
+            "name": "leva o idnews para a planilha",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "66554146-f0aa-45e0-ac66-5f1db613f425",
+                    "name": "idnews",
+                    "value": "={{ $('Retira do html final a seção do aprovador').item.json.id }}",
+                    "type": "number"
+                  },
+                  {
+                    "id": "cf383d64-e943-4012-a993-79a1f8975236",
+                    "name": "subject",
+                    "value": "={{ $('Retira do html final a seção do aprovador').item.json.subject }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "41b75c11-f9f9-4066-bf3c-df9795ed86d7",
+                    "name": "html",
+                    "value": "={{ $('Retira do html final a seção do aprovador').item.json.html }}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              48,
+              1024
+            ],
+            "id": "ab78e3a6-cfde-4461-809b-f1242c89fddb",
+            "name": "Propaga dados globais",
+            "executeOnce": false
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Filtrar até 100 emails e retornar CSV + registros completos + idnews + subject + html\n\n// 1. Pega todos os itens vindos do node anterior\nconst items = $input.all();\n\n// 2. Recupera dados globais (idnews, subject, html) do primeiro item\nconst idnews = items[0].json.idnews;\nconst subject = items[0].json.subject;\nconst html = items[0].json.html;\n\n// 3. Extrai todos os registros completos\nconst rows = items.map(i => i.json);\n\n// 4. Extrai apenas os e-mails válidos\nconst emails = rows\n  .map(r => r.Email || r.email || \"\")\n  .map(e => String(e).trim())\n  .filter(e => e.includes(\"@\"));\n\n// 5. Limita a 100\nconst limitados = rows.slice(0, 100);\nconst emailsLimitados = emails.slice(0, 100);\n\n// 6. Gera CSV\nconst emailsCSV = emailsLimitados.join(\",\");\n\n// 7. Retorna:\n// - item 0: CSV + idnews + subject + html (para envio)\n// - itens 1..100: registros completos (para update)\nreturn [\n  {\n    json: {\n      idnews,\n      subject,\n      html,\n      emailsCSV\n    }\n  },\n  ...limitados.map(r => ({\n    json: {\n      ...r\n    }\n  }))\n];\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              240,
+              1024
+            ],
+            "id": "d774abd4-f0d9-46f8-81dc-abb4c4ff854d",
+            "name": "Filtra 100"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Node: Preparar atualização — marca os registros usados como \"news enviada\"\n\n// 1. ID da news atual (propagado no fluxo)\nconst newsAtual = parseInt($json.idnews, 10);\n\n// 2. Pega os registros vindos do node \"Filtrar 100\"\nconst rows = $items(\"Filtrar 100\", 0, 0)\n  .map(i => i.json)\n  .filter(r => r.row_number);\n\n// 3. Retorna cada registro com o campo atualizado\nreturn rows.map(r => ({\n  json: {\n    row_number: r.row_number,\n    \"news enviada\": newsAtual\n  }\n}));\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1248,
+              1024
+            ],
+            "id": "08bf3036-c27b-4e77-9a42-b454708b0071",
+            "name": "Preparar atualização1"
+          },
+          {
+            "parameters": {
+              "content": "REVISAR REFAZER",
+              "height": 368,
+              "width": 3040
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -1104,
+              848
+            ],
+            "typeVersion": 1,
+            "id": "1bb45aa4-4d23-4be6-9bfa-ecd8495e8b98",
+            "name": "Sticky Note11"
+          },
+          {
+            "parameters": {
+              "fromEmail": "contacto@kutsaca.com",
+              "toEmail": "susanacravo@kutsaca.com",
+              "bccEmail": "=sofiado@gmail.com,mariana.nok@gmail.com,mariajose.rola@gmail.com,",
+              "subject": "={{ $json.subject }}",
+              "text": "=",
+              "html": "={{ $json.html }}",
+              "options": {}
+            },
+            "id": "a45e2fb6-5712-49a0-9fb8-cb4a3443b480",
+            "name": "Distribuição da news avulsa",
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 1,
+            "position": [
+              -176,
+              832
+            ],
+            "credentials": {
+              "smtp": {
+                "id": "eIabgHBZcsJl51Oj",
+                "name": "Kutsaca.com - SMTP account"
+              }
+            }
           }
         ],
         "connections": {
@@ -60623,22 +61629,11 @@
               ]
             ]
           },
-          "Preparar Atualização1": {
-            "main": [
-              [
-                {
-                  "node": "Update row in sheet",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Get row(s) in sheet1": {
             "main": [
               [
                 {
-                  "node": "Filtra os emails que ainda não receberam a news",
+                  "node": "Propaga dados globais",
                   "type": "main",
                   "index": 0
                 }
@@ -60649,18 +61644,7 @@
             "main": [
               [
                 {
-                  "node": "ENVIAR REPORT VIA WHATS",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Filtrar 100": {
-            "main": [
-              [
-                {
-                  "node": "If2",
+                  "node": "Wait",
                   "type": "main",
                   "index": 0
                 }
@@ -60705,17 +61689,6 @@
               ]
             ]
           },
-          "Filtra os emails que ainda não receberam a news": {
-            "main": [
-              [
-                {
-                  "node": "Filtrar 100",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Google Gemini Chat Model": {
             "ai_languageModel": [
               [
@@ -60747,7 +61720,7 @@
             "main": [
               [
                 {
-                  "node": "Preparar Atualização1",
+                  "node": "Preparar atualização1",
                   "type": "main",
                   "index": 0
                 }
@@ -61158,6 +62131,11 @@
                   "node": "pega o html certo da DT",
                   "type": "main",
                   "index": 0
+                },
+                {
+                  "node": "leva o idnews para a planilha",
+                  "type": "main",
+                  "index": 0
                 }
               ]
             ]
@@ -61174,17 +62152,6 @@
               [
                 {
                   "node": "No Operation, do nothing1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "ENVIAR REPORT VIA WHATS": {
-            "main": [
-              [
-                {
-                  "node": "Wait",
                   "type": "main",
                   "index": 0
                 }
@@ -61371,11 +62338,176 @@
                 }
               ]
             ]
+          },
+          "SEND2ALL": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "SEND2MANAGERS": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields2": {
+            "main": [
+              [
+                {
+                  "node": "pega o html certo da DT1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "pega o html certo da DT1": {
+            "main": [
+              [
+                {
+                  "node": "Retira do html final a seção do aprovador1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Retira do html final a seção do aprovador1": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s) in sheet2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet2": {
+            "main": [
+              [
+                {
+                  "node": "lista emails para envio",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields1": {
+            "main": [
+              [
+                {
+                  "node": "cria html com botoes de envio",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "cria html com botoes de envio": {
+            "main": [
+              [
+                {
+                  "node": "Upload html botoes aprovacao",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload html botoes aprovacao": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook6",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "lista emails para envio": {
+            "main": [
+              [
+                {
+                  "node": "Distribuição da news1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Distribuição da news1": {
+            "main": [
+              [
+                {
+                  "node": "Respond to Webhook7",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "leva o idnews para a planilha": {
+            "main": [
+              [
+                {
+                  "node": "pega o html certo da DT",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Propaga dados globais": {
+            "main": [
+              [
+                {
+                  "node": "Filtra 100",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filtra 100": {
+            "main": [
+              [
+                {
+                  "node": "If2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Preparar atualização1": {
+            "main": [
+              [
+                {
+                  "node": "Update row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 3322d1b9",
+        "name": "Version f76eab72",
         "description": "",
         "autosaved": true
       },

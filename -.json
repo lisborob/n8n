@@ -5661,11 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1782253619,
+            "lastTimeChecked": 1782333808,
             "possibleDuplicates": [
-              "19ef6980a210b2a5",
-              "19ef697f73d6f2d2",
-              "19ef693dd4275b16"
+              "19efb5fa0af3e197",
+              "19efb30e08b3bbe7"
             ]
           }
         },
@@ -31861,10 +31860,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1782252251,
+            "lastTimeChecked": 1782331458,
             "possibleDuplicates": [
-              "19ef683368ef3ef5",
-              "19ef51af90f47ccc"
+              "19efb3bd0cebae13",
+              "19efaec4c3cc9b2a",
+              "19efb4fd1c6a30a8"
             ]
           }
         }
@@ -48078,7 +48078,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2238
+          "lastMessageUid": 2239
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -48091,7 +48091,7 @@
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 162
+          "lastIndexChecked": 163
         }
       },
       "meta": {
@@ -53377,7 +53377,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-19T18:06:40.214Z",
+      "updatedAt": "2026-06-24T17:41:37.999Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -56357,7 +56357,7 @@
         {
           "parameters": {
             "respondWith": "text",
-            "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FS).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+            "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FA).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
             "options": {}
           },
           "type": "n8n-nodes-base.respondToWebhook",
@@ -58079,8 +58079,8 @@
           }
         ]
       },
-      "versionId": "01bdda63-ab7e-4cdb-bafb-65261886a909",
-      "activeVersionId": "f76eab72-9866-4148-8d17-70183f0af3ea",
+      "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
+      "activeVersionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
       "triggerCount": 15,
       "shared": [
         {
@@ -58092,9 +58092,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-19T18:06:33.000Z",
-        "createdAt": "2026-06-19T18:06:30.116Z",
-        "versionId": "f76eab72-9866-4148-8d17-70183f0af3ea",
+        "updatedAt": "2026-06-24T17:41:44.000Z",
+        "createdAt": "2026-06-24T17:41:38.005Z",
+        "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -61070,7 +61070,7 @@
           {
             "parameters": {
               "respondWith": "text",
-              "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FS).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
+              "responseBody": "=<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Aprovação iniciada</title>\n</head>\n<body style=\"font-family:Arial;text-align:center;padding:40px;\">\n\n  <h2>🚀 Aprovação iniciada!</h2>\n\n  <p style=\"margin-top:10px;font-size:16px;color:#444;\">\n    Confirme no Super App os destinatários da newsletter.\n  </p>\n\n  <p style=\"margin-top:20px;font-size:18px;color:#000;\">\n    <strong style=\"font-size:20px;color:#000;\">\n      ID da Newsletter: {{ $('Edit Fields1').item.json.idnews }}\n    </strong>\n  </p>\n\n  <p style=\"margin-top:5px;font-size:15px;color:#444;\">\n    <strong>Confirme que este é o ID correto antes de aprovar o envio.</strong>\n  </p>\n\n  <p style=\"margin-top:25px;\">\n    <img src=\"https://s3.us-east-1.amazonaws.com/auto.1mc.co/Kutsaca/Aprova%C3%A7%C3%A3o+de+Envio+da+Newsletter+Kutsaca+2FA.png\"\n         alt=\"QR Code\"\n         style=\"width:180px;height:180px;border:1px solid #ccc;border-radius:8px;\">\n  </p>\n\n  <p style=\"margin-top:10px;font-size:14px;color:#666;\">\n    Escaneie o QR Code com o Super App Kutsaca para processar o envio (2FA).\n  </p>\n\n  <p style=\"margin-top:30px;\">\n    <a href=\"#\"\n       onclick=\"window.close(); return false;\"\n       style=\"background:#27ae60;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;font-size:15px;\">\n       FECHAR\n    </a>\n  </p>\n\n</body>\n</html>\n",
               "options": {}
             },
             "type": "n8n-nodes-base.respondToWebhook",
@@ -61520,8 +61520,8 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 1,
             "position": [
-              -176,
-              832
+              -272,
+              912
             ],
             "credentials": {
               "smtp": {
@@ -62508,7 +62508,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version f76eab72",
+        "name": "Version 75ab0a18",
         "description": "",
         "autosaved": true
       },

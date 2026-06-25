@@ -5661,10 +5661,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1782333808,
+            "lastTimeChecked": 1782425472,
             "possibleDuplicates": [
-              "19efb5fa0af3e197",
-              "19efb30e08b3bbe7"
+              "19f00d6530fc0af6",
+              "19f0093fde3579ac"
             ]
           }
         },
@@ -27146,14 +27146,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-23T13:00:39Z"
+          "lastTimeChecked": "2026-06-25T13:00:39Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-23T13:00:35Z"
+          "lastTimeChecked": "2026-06-25T13:00:35Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            175
+            177
           ]
         }
       },
@@ -30916,7 +30916,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2238
+          "lastMessageUid": 2240
         }
       },
       "meta": {
@@ -31860,11 +31860,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1782331458,
+            "lastTimeChecked": 1782410676,
             "possibleDuplicates": [
-              "19efb3bd0cebae13",
-              "19efaec4c3cc9b2a",
-              "19efb4fd1c6a30a8"
+              "19efff490467518b",
+              "19eff50a4b1adc17",
+              "19eff4cd70be08ce"
             ]
           }
         }
@@ -48078,7 +48078,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2239
+          "lastMessageUid": 2240
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -48086,7 +48086,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1788
+          "lastMessageUid": 1790
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -57813,7 +57813,7 @@
           "lastMessageUid": 2177
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 2239
+          "lastMessageUid": 2240
         }
       },
       "meta": {

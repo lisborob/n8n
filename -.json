@@ -5661,10 +5661,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1782675034,
+            "lastTimeChecked": 1782765007,
             "possibleDuplicates": [
-              "19f0fb653008a1e0",
-              "19f0f740ff92bef2"
+              "19f15134a6bbba2c",
+              "19f151306025e41a",
+              "19f14fa16c29f7a5"
             ]
           }
         },
@@ -27146,14 +27147,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-27T13:00:39Z"
+          "lastTimeChecked": "2026-06-29T13:00:39Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-27T13:00:35Z"
+          "lastTimeChecked": "2026-06-29T13:00:35Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            179
+            181
           ]
         }
       },
@@ -31860,10 +31861,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1782669932,
+            "lastTimeChecked": 1782770858,
             "possibleDuplicates": [
-              "19f0f78cb433fc48",
-              "19f0f2f65e1be4dd"
+              "19f156f63dd02ad0",
+              "19f155338f44d516"
             ]
           }
         }
@@ -32429,7 +32430,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-26T14:23:54.449Z",
+      "updatedAt": "2026-06-29T13:16:08.321Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -32447,8 +32448,8 @@
           "type": "n8n-nodes-base.stripeTrigger",
           "typeVersion": 1,
           "position": [
-            -1072,
-            -368
+            -1024,
+            -512
           ],
           "id": "519f674c-1a68-4776-beb6-c13ba10f0ac5",
           "name": "Stripe Gatilho Pagamento",
@@ -32936,8 +32937,8 @@
           "type": "n8n-nodes-base.stripeTrigger",
           "typeVersion": 1,
           "position": [
-            -1200,
-            -240
+            -1280,
+            -160
           ],
           "id": "3aaf2b97-5a0e-4a89-a1db-0e7339012254",
           "name": "Stripe Gatilho Pagamento1",
@@ -32947,8 +32948,7 @@
               "id": "xGo5T4EH8tSXhNxe",
               "name": "Stripe account"
             }
-          },
-          "disabled": true
+          }
         },
         {
           "parameters": {
@@ -32961,8 +32961,8 @@
           "type": "n8n-nodes-base.stripeTrigger",
           "typeVersion": 1,
           "position": [
-            -1072,
-            -64
+            -736,
+            -432
           ],
           "id": "529657f1-41ab-45e0-a8af-ddb3d4fadb0a",
           "name": "Stripe Trigger",
@@ -32972,7 +32972,8 @@
               "id": "xGo5T4EH8tSXhNxe",
               "name": "Stripe account"
             }
-          }
+          },
+          "disabled": true
         }
       ],
       "connections": {
@@ -33083,11 +33084,6 @@
         },
         "Stripe Gatilho Pagamento1": {
           "main": [
-            []
-          ]
-        },
-        "Stripe Trigger": {
-          "main": [
             [
               {
                 "node": "Dados transação",
@@ -33096,6 +33092,11 @@
               }
             ]
           ]
+        },
+        "Stripe Trigger": {
+          "main": [
+            []
+          ]
         }
       },
       "settings": {
@@ -33103,16 +33104,17 @@
         "binaryMode": "separate"
       },
       "staticData": {
-        "node:Stripe Trigger": {
+        "node:Stripe Trigger": {},
+        "node:Stripe Gatilho Pagamento": {},
+        "node:Stripe Gatilho Pagamento1": {
           "webhookId": "[REDACTED]",
           "webhookEvents": [
-            "invoice.payment_succeeded",
             "invoice.payment_failed",
+            "invoice.payment_succeeded",
             "payment_intent.payment_failed"
           ],
           "webhookSecret": "[REDACTED]"
-        },
-        "node:Stripe Gatilho Pagamento": {}
+        }
       },
       "meta": {
         "templateCredsSetupCompleted": true
@@ -33393,283 +33395,10 @@
               "item": 0
             }
           }
-        ],
-        "Stripe Gatilho Pagamento1": [
-          {
-            "json": {
-              "id": "[REDACTED]",
-              "object": "event",
-              "api_version": "2022-08-01",
-              "created": 1775073023,
-              "data": {
-                "object": {
-                  "id": "[REDACTED]",
-                  "object": "invoice",
-                  "account_country": "PT",
-                  "account_name": "Midiacode",
-                  "account_tax_ids": [
-                    "[REDACTED]"
-                  ],
-                  "amount_due": 875,
-                  "amount_overpaid": 0,
-                  "amount_paid": 875,
-                  "amount_remaining": 0,
-                  "amount_shipping": 0,
-                  "application": null,
-                  "application_fee_amount": null,
-                  "attempt_count": 1,
-                  "attempted": true,
-                  "auto_advance": false,
-                  "automatic_tax": {
-                    "disabled_reason": null,
-                    "enabled": false,
-                    "liability": null,
-                    "provider": null,
-                    "status": null
-                  },
-                  "automatically_finalizes_at": null,
-                  "billing_reason": "subscription_cycle",
-                  "charge": "[REDACTED]",
-                  "collection_method": "charge_automatically",
-                  "created": 1775069345,
-                  "currency": "eur",
-                  "custom_fields": null,
-                  "customer": "cus_QOcVOb3uCH4xhs",
-                  "customer_account": null,
-                  "customer_address": {
-                    "city": null,
-                    "country": "BR",
-                    "line1": null,
-                    "line2": null,
-                    "postal_code": null,
-                    "state": null
-                  },
-                  "customer_email": "gift@oralgift.com",
-                  "customer_name": "Anelissa B de Souza",
-                  "customer_phone": null,
-                  "customer_shipping": null,
-                  "customer_tax_exempt": "none",
-                  "customer_tax_ids": [],
-                  "default_payment_method": null,
-                  "default_source": null,
-                  "default_tax_rates": [],
-                  "description": "Thanks for using Midiacode. We have lots of features to improve your business. Use your subscription as much as possible. New feaures are realeased very often. Double check our how-to videos at https://midiacode.com/how-to-use-midiacode-studio/\nIf you have any doubt, make any question at suporte@midiacode.com\nWe are here to support you in anything you need.",
-                  "discount": null,
-                  "discounts": [],
-                  "due_date": null,
-                  "effective_at": 1775073017,
-                  "ending_balance": 0,
-                  "footer": "If you have any doubt about the Terms & Conditions of using our platform, check it at https://midiacode.com/terms-and-conditions/\nAlso check our Privacy Policy at https://midiacode.com/privacy-policy/",
-                  "from_invoice": null,
-                  "hosted_invoice_url": "[REDACTED]",
-                  "invoice_pdf": "[REDACTED]",
-                  "issuer": {
-                    "type": "self"
-                  },
-                  "last_finalization_error": null,
-                  "latest_revision": null,
-                  "lines": {
-                    "object": "list",
-                    "data": [
-                      {
-                        "id": "[REDACTED]",
-                        "object": "line_item",
-                        "amount": 875,
-                        "amount_excluding_tax": 875,
-                        "currency": "eur",
-                        "description": "1 × Unlimited Dynamic QR Codes (at €8.75 / month)",
-                        "discount_amounts": [],
-                        "discountable": true,
-                        "discounts": [],
-                        "invoice": "[REDACTED]",
-                        "livemode": true,
-                        "metadata": {},
-                        "parent": {
-                          "invoice_item_details": null,
-                          "license_fee_subscription_details": null,
-                          "subscription_item_details": {
-                            "invoice_item": null,
-                            "proration": false,
-                            "proration_details": {
-                              "credited_items": null
-                            },
-                            "subscription": "[REDACTED]",
-                            "subscription_item": "si_QOcVyLvSTLfeNu"
-                          },
-                          "type": "subscription_item_details"
-                        },
-                        "period": {
-                          "end": 1777661297,
-                          "start": 1775069297
-                        },
-                        "plan": {
-                          "id": "[REDACTED]",
-                          "object": "plan",
-                          "active": false,
-                          "aggregate_usage": null,
-                          "amount": 875,
-                          "amount_decimal": "875",
-                          "billing_scheme": "per_unit",
-                          "created": 1773066801,
-                          "currency": "eur",
-                          "interval": "month",
-                          "interval_count": 1,
-                          "livemode": true,
-                          "metadata": {},
-                          "meter": null,
-                          "nickname": null,
-                          "product": "prod_OFHjyGxTvcndZv",
-                          "tiers_mode": null,
-                          "transform_usage": null,
-                          "trial_period_days": null,
-                          "usage_type": "licensed"
-                        },
-                        "pretax_credit_amounts": [],
-                        "price": {
-                          "id": "[REDACTED]",
-                          "object": "price",
-                          "active": false,
-                          "billing_scheme": "per_unit",
-                          "created": 1773066801,
-                          "currency": "eur",
-                          "custom_unit_amount": null,
-                          "livemode": true,
-                          "lookup_key": null,
-                          "metadata": {},
-                          "nickname": null,
-                          "product": "prod_OFHjyGxTvcndZv",
-                          "recurring": {
-                            "aggregate_usage": null,
-                            "interval": "month",
-                            "interval_count": 1,
-                            "meter": null,
-                            "trial_period_days": null,
-                            "usage_type": "licensed"
-                          },
-                          "tax_behavior": "unspecified",
-                          "tiers_mode": null,
-                          "transform_quantity": null,
-                          "type": "recurring",
-                          "unit_amount": 875,
-                          "unit_amount_decimal": "875"
-                        },
-                        "pricing": {
-                          "price_details": {
-                            "price": "[REDACTED]",
-                            "product": "prod_OFHjyGxTvcndZv"
-                          },
-                          "type": "price_details",
-                          "unit_amount_decimal": "875"
-                        },
-                        "proration": false,
-                        "proration_details": {
-                          "credited_items": null
-                        },
-                        "quantity": 1,
-                        "quantity_decimal": "1",
-                        "subscription": "[REDACTED]",
-                        "subscription_item": "si_QOcVyLvSTLfeNu",
-                        "subtotal": 875,
-                        "tax_amounts": [],
-                        "tax_rates": [],
-                        "taxes": [],
-                        "type": "subscription",
-                        "unit_amount_excluding_tax": "875"
-                      }
-                    ],
-                    "has_more": false,
-                    "total_count": 1,
-                    "url": "[REDACTED]"
-                  },
-                  "livemode": true,
-                  "metadata": {},
-                  "next_payment_attempt": null,
-                  "number": "0BC57229-0951",
-                  "on_behalf_of": null,
-                  "paid": true,
-                  "paid_out_of_band": false,
-                  "parent": {
-                    "quote_details": null,
-                    "subscription_details": {
-                      "metadata": {},
-                      "subscription": "[REDACTED]"
-                    },
-                    "type": "subscription_details"
-                  },
-                  "payment_intent": "[REDACTED]",
-                  "payment_settings": {
-                    "default_mandate": null,
-                    "payment_method_options": {
-                      "acss_debit": null,
-                      "bancontact": null,
-                      "card": {
-                        "request_three_d_secure": "automatic"
-                      },
-                      "customer_balance": null,
-                      "konbini": null,
-                      "payto": null,
-                      "pix": null,
-                      "sepa_debit": null,
-                      "upi": null,
-                      "us_bank_account": null
-                    },
-                    "payment_method_types": null
-                  },
-                  "period_end": 1775069297,
-                  "period_start": 1772390897,
-                  "post_payment_credit_notes_amount": 0,
-                  "pre_payment_credit_notes_amount": 0,
-                  "quote": null,
-                  "receipt_number": null,
-                  "rendering": {
-                    "amount_tax_display": null,
-                    "pdf": null,
-                    "template": null,
-                    "template_version": null
-                  },
-                  "rendering_options": null,
-                  "shipping_cost": null,
-                  "shipping_details": null,
-                  "starting_balance": 0,
-                  "statement_descriptor": null,
-                  "status": "paid",
-                  "status_transitions": {
-                    "finalized_at": 1775073017,
-                    "marked_uncollectible_at": null,
-                    "paid_at": 1775073017,
-                    "voided_at": null
-                  },
-                  "subscription": "[REDACTED]",
-                  "subscription_details": {
-                    "metadata": {}
-                  },
-                  "subtotal": 875,
-                  "subtotal_excluding_tax": 875,
-                  "tax": null,
-                  "test_clock": null,
-                  "total": 875,
-                  "total_discount_amounts": [],
-                  "total_excluding_tax": 875,
-                  "total_pretax_credit_amounts": [],
-                  "total_tax_amounts": [],
-                  "total_taxes": [],
-                  "transfer_data": null,
-                  "webhooks_delivered_at": 1775069347
-                }
-              },
-              "livemode": true,
-              "pending_webhooks": 2,
-              "request": {
-                "id": null,
-                "idempotency_key": null
-              },
-              "type": "invoice.payment_succeeded"
-            }
-          }
         ]
       },
-      "versionId": "82d0eadc-d368-489c-8962-ec3ac282fc21",
-      "activeVersionId": "82d0eadc-d368-489c-8962-ec3ac282fc21",
+      "versionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
+      "activeVersionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
       "triggerCount": 1,
       "shared": [
         {
@@ -33681,9 +33410,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-26T14:23:57.000Z",
-        "createdAt": "2026-06-26T14:23:54.450Z",
-        "versionId": "82d0eadc-d368-489c-8962-ec3ac282fc21",
+        "updatedAt": "2026-06-29T13:24:08.000Z",
+        "createdAt": "2026-06-29T13:16:02.820Z",
+        "versionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -33697,8 +33426,8 @@
             "type": "n8n-nodes-base.stripeTrigger",
             "typeVersion": 1,
             "position": [
-              -1072,
-              -368
+              -1024,
+              -512
             ],
             "id": "519f674c-1a68-4776-beb6-c13ba10f0ac5",
             "name": "Stripe Gatilho Pagamento",
@@ -34186,8 +33915,8 @@
             "type": "n8n-nodes-base.stripeTrigger",
             "typeVersion": 1,
             "position": [
-              -1200,
-              -240
+              -1280,
+              -160
             ],
             "id": "3aaf2b97-5a0e-4a89-a1db-0e7339012254",
             "name": "Stripe Gatilho Pagamento1",
@@ -34197,8 +33926,7 @@
                 "id": "xGo5T4EH8tSXhNxe",
                 "name": "Stripe account"
               }
-            },
-            "disabled": true
+            }
           },
           {
             "parameters": {
@@ -34211,8 +33939,8 @@
             "type": "n8n-nodes-base.stripeTrigger",
             "typeVersion": 1,
             "position": [
-              -1072,
-              -64
+              -736,
+              -432
             ],
             "id": "529657f1-41ab-45e0-a8af-ddb3d4fadb0a",
             "name": "Stripe Trigger",
@@ -34222,7 +33950,8 @@
                 "id": "xGo5T4EH8tSXhNxe",
                 "name": "Stripe account"
               }
-            }
+            },
+            "disabled": true
           }
         ],
         "connections": {
@@ -34333,11 +34062,6 @@
           },
           "Stripe Gatilho Pagamento1": {
             "main": [
-              []
-            ]
-          },
-          "Stripe Trigger": {
-            "main": [
               [
                 {
                   "node": "Dados transação",
@@ -34346,11 +34070,16 @@
                 }
               ]
             ]
+          },
+          "Stripe Trigger": {
+            "main": [
+              []
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 82d0eadc",
+        "name": "Version 00e44726",
         "description": "",
         "autosaved": true
       },
@@ -48478,7 +48207,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1794
+          "lastMessageUid": 1795
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -58473,7 +58202,7 @@
       },
       "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
       "activeVersionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
-      "triggerCount": 15,
+      "triggerCount": 14,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",

@@ -776,6 +776,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
       "activeVersionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
@@ -1908,6 +1909,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
       "activeVersionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
@@ -2364,6 +2366,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "a591f273-3b16-4621-ac67-65fafa87cca0",
       "activeVersionId": null,
@@ -3811,6 +3814,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "8aaa8611-508d-49e6-b104-807e2fe8e5d5",
       "activeVersionId": null,
@@ -5661,11 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1782765007,
+            "lastTimeChecked": 1782859944,
             "possibleDuplicates": [
-              "19f15134a6bbba2c",
-              "19f151306025e41a",
-              "19f14fa16c29f7a5"
+              "19f1abbd5bd26b9e",
+              "19f1a771f961da5c"
             ]
           }
         },
@@ -5679,6 +5682,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "AI Agent1": [
           {
@@ -10777,6 +10781,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
       "activeVersionId": "e419473a-c003-47ec-826c-147fe25ee792",
@@ -15702,6 +15707,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "34391b60-76e4-4113-90b6-a374a2965602",
       "activeVersionId": null,
@@ -15712,6 +15718,187 @@
           "createdAt": "2025-11-17T18:54:22.151Z",
           "role": "workflow:owner",
           "workflowId": "E3vxX3V7dWUkw4Hf",
+          "projectId": "MDx9S6QRKUuQVawA"
+        }
+      ],
+      "activeVersion": null,
+      "tags": []
+    },
+    {
+      "updatedAt": "2026-06-30T19:00:47.730Z",
+      "createdAt": "2026-06-30T15:35:21.920Z",
+      "id": "NzeDQ7Ydb7gBYzSW",
+      "name": "Cria Conteúdos Cidade",
+      "active": false,
+      "isArchived": false,
+      "nodes": [
+        {
+          "parameters": {
+            "formTitle": "Pais e Cidade",
+            "formFields": {
+              "values": [
+                {
+                  "fieldLabel": "País"
+                },
+                {
+                  "fieldLabel": "Cidade"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.formTrigger",
+          "typeVersion": 2.6,
+          "position": [
+            -592,
+            -128
+          ],
+          "id": "1ff6d80d-a6ac-4d24-8139-3a510e6c92c0",
+          "name": "País e Cidade",
+          "webhookId": "b6a765b0-a9b0-40d3-a375-5136212e25d0"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "ef208756-3f11-4075-9905-7727352d2c34",
+                  "name": "cat_master",
+                  "value": "Onde Comer",
+                  "type": "string"
+                },
+                {
+                  "id": "86d0c11a-9d3f-41ee-b139-a6f0fe8f583b",
+                  "name": "sub_cat_1",
+                  "value": "Restaurantes",
+                  "type": "string"
+                },
+                {
+                  "id": "4c1ef8d4-7c9e-4674-9fad-7b1672c275b8",
+                  "name": "sub_cat_2",
+                  "value": "Comida Japonesa",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -160,
+            80
+          ],
+          "id": "98ced8e0-f3e3-481a-bcbf-870c0983d56e",
+          "name": "Onde Comer Japonesa"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "ef208756-3f11-4075-9905-7727352d2c34",
+                  "name": "cat_master",
+                  "value": "O que fazer",
+                  "type": "string"
+                },
+                {
+                  "id": "86d0c11a-9d3f-41ee-b139-a6f0fe8f583b",
+                  "name": "sub_cat_1",
+                  "value": "Monumentos",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -160,
+            -128
+          ],
+          "id": "e9cc6024-0f73-45e5-9e0c-0d4562b944cc",
+          "name": "O que fazer Monumentos"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "f7e0d6e0-6d50-45fc-bdbd-eca150b58d1b",
+                  "name": "Country",
+                  "value": "={{ $json['País'] }}",
+                  "type": "string"
+                },
+                {
+                  "id": "0cc87511-0188-43e2-9f11-4809ebccb0b5",
+                  "name": "City",
+                  "value": "={{ $json.Cidade }}",
+                  "type": "string"
+                },
+                {
+                  "id": "f09004e5-7b84-43c6-9bc3-738e997e9aa7",
+                  "name": "maps api key",
+                  "value": "[REDACTED]",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -384,
+            -128
+          ],
+          "id": "a743d1c4-e5a4-4a4b-83bb-8ef30a70bf1e",
+          "name": "cidade e api key"
+        }
+      ],
+      "connections": {
+        "País e Cidade": {
+          "main": [
+            [
+              {
+                "node": "cidade e api key",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "cidade e api key": {
+          "main": [
+            [
+              {
+                "node": "O que fazer Monumentos",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate",
+        "availableInMCP": false
+      },
+      "staticData": null,
+      "meta": null,
+      "nodeGroups": [],
+      "pinData": {},
+      "versionId": "f47f7b07-5d49-477a-a940-85de50dfa1dc",
+      "activeVersionId": null,
+      "triggerCount": 0,
+      "shared": [
+        {
+          "updatedAt": "2026-06-30T15:35:21.926Z",
+          "createdAt": "2026-06-30T15:35:21.926Z",
+          "role": "workflow:owner",
+          "workflowId": "NzeDQ7Ydb7gBYzSW",
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
@@ -16509,6 +16696,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "44932029-994a-48e0-886f-ef0833bf74dd",
       "activeVersionId": "6eb42fdd-93f8-4dac-9140-7992059cbb7e",
@@ -17768,6 +17956,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
       "activeVersionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
@@ -20057,6 +20246,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "457a2e0f-c9ea-4f6f-8fc6-4e315094a633",
       "activeVersionId": null,
@@ -24702,6 +24892,7 @@
       },
       "staticData": null,
       "meta": null,
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "e213f53c-7ddd-47ad-ab64-a101643a6fbd",
       "activeVersionId": null,
@@ -27147,10 +27338,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-29T13:00:39Z"
+          "lastTimeChecked": "2026-06-30T16:53:40Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-29T13:00:35Z"
+          "lastTimeChecked": "2026-06-30T16:53:41Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -27161,6 +27352,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "Webhook": [
           {
@@ -29706,6 +29898,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "0308ea46-13dd-4d68-bc24-bf23472fe0d0",
       "activeVersionId": null,
@@ -30023,6 +30216,7 @@
       "meta": {
         "templateId": "rag-starter-template"
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "bcf5880e-5aa6-4aa2-83a6-d1bc07730fc9",
       "activeVersionId": null,
@@ -30502,6 +30696,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "735f0c79-de37-4753-b8ce-af3aad63c6e9",
       "activeVersionId": null,
@@ -30923,6 +31118,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "Email Trigger (IMAP)": [
           {
@@ -31861,10 +32057,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1782770858,
+            "lastTimeChecked": 1782858714,
             "possibleDuplicates": [
-              "19f156f63dd02ad0",
-              "19f155338f44d516"
+              "19f1aa90e21b5ca5",
+              "19f1a84cec655d63"
             ]
           }
         }
@@ -31872,6 +32068,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "Gmail Trigger - lisborob": [
           {
@@ -33119,6 +33316,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "Stripe Gatilho Pagamento": [
           {
@@ -34388,6 +34586,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "37a47301-89f0-4620-9d9d-cebecb774610",
       "activeVersionId": null,
@@ -34809,6 +35008,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
       "activeVersionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
@@ -36930,6 +37130,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
       "activeVersionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
@@ -39009,6 +39210,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
       "activeVersionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
@@ -39644,6 +39846,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "eb32f28f-40e3-4b63-a1d5-61ebb356d5fb",
       "activeVersionId": null,
@@ -41861,6 +42064,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "f3f6dfa6-ee0c-4c0c-bcf3-7710aacfbfbf",
       "activeVersionId": null,
@@ -42984,6 +43188,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "8cee0cb7-f64d-4359-bd4b-a8081e03bde3",
       "activeVersionId": null,
@@ -43769,6 +43974,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "f88b1b7c-e3e9-469d-8bcd-fa9eb34936ec",
       "activeVersionId": null,
@@ -43853,6 +44059,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "6eb28151-6f75-4574-bc7d-2a29743d6de8",
       "activeVersionId": null,
@@ -48207,7 +48414,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1795
+          "lastMessageUid": 1799
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -48218,6 +48425,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
       "activeVersionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
@@ -53018,6 +53226,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
       "activeVersionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
@@ -57940,6 +58149,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "If": [
           {
@@ -58202,7 +58412,7 @@
       },
       "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
       "activeVersionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
-      "triggerCount": 14,
+      "triggerCount": 15,
       "shared": [
         {
           "updatedAt": "2025-12-02T16:56:56.577Z",
@@ -63031,6 +63241,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "c4034551-c458-464e-847e-b01d5aee8536",
       "activeVersionId": "c4034551-c458-464e-847e-b01d5aee8536",
@@ -63992,6 +64203,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "On form submission": [
           {
@@ -65128,6 +65340,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
       "activeVersionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
@@ -68555,6 +68768,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {
         "Webhook": [
           {
@@ -69470,6 +69684,7 @@
       "meta": {
         "templateCredsSetupCompleted": true
       },
+      "nodeGroups": [],
       "pinData": {},
       "versionId": "73fc1f6b-80a9-400d-8570-a62c70d97316",
       "activeVersionId": null,

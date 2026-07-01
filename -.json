@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1782859944,
+            "lastTimeChecked": 1782945167,
             "possibleDuplicates": [
-              "19f1abbd5bd26b9e",
-              "19f1a771f961da5c"
+              "19f1fd056db348a6",
+              "19f1fc1c0b465763"
             ]
           }
         },
@@ -15725,7 +15725,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-30T19:00:47.730Z",
+      "updatedAt": "2026-07-01T15:36:39.803Z",
       "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "Cria Conteúdos Cidade",
@@ -15750,8 +15750,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.6,
           "position": [
-            -592,
-            -128
+            -1216,
+            -144
           ],
           "id": "1ff6d80d-a6ac-4d24-8139-3a510e6c92c0",
           "name": "País e Cidade",
@@ -15786,8 +15786,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -160,
-            80
+            -784,
+            64
           ],
           "id": "98ced8e0-f3e3-481a-bcbf-870c0983d56e",
           "name": "Onde Comer Japonesa"
@@ -15815,8 +15815,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -160,
-            -128
+            -784,
+            -144
           ],
           "id": "e9cc6024-0f73-45e5-9e0c-0d4562b944cc",
           "name": "O que fazer Monumentos"
@@ -15850,11 +15850,123 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -384,
-            -128
+            -1008,
+            -144
           ],
           "id": "a743d1c4-e5a4-4a4b-83bb-8ef30a70bf1e",
           "name": "cidade e api key"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            -576,
+            -144
+          ],
+          "id": "77d66175-2b09-4cbb-838d-a86985ab0b3b",
+          "name": "HTTP Request"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -160,
+            -144
+          ],
+          "id": "674b4d7a-6d1e-4c6a-b0fb-20253f1e6e70",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            48,
+            -144
+          ],
+          "id": "7903cfd3-26ce-4f64-aa76-bd9a688d354f",
+          "name": "Upload a file",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "dataTableId": {
+              "__rl": true,
+              "mode": "list",
+              "value": ""
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {},
+              "matchingColumns": [],
+              "schema": [],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1.1,
+          "position": [
+            -368,
+            -144
+          ],
+          "id": "f95130d0-e06a-4fba-b403-a4b452361e77",
+          "name": "Update row(s)"
+        },
+        {
+          "parameters": {
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            256,
+            -144
+          ],
+          "id": "48da5150-8b86-4d3c-81ad-2c342344e1b7",
+          "name": "Create content",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            464,
+            -144
+          ],
+          "id": "b7c6b20b-6e46-4d89-85c0-4e5997d7ce3d",
+          "name": "Update content",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          }
         }
       ],
       "connections": {
@@ -15879,6 +15991,72 @@
               }
             ]
           ]
+        },
+        "O que fazer Monumentos": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "HTTP Request": {
+          "main": [
+            [
+              {
+                "node": "Update row(s)",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Upload a file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Update row(s)": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload a file": {
+          "main": [
+            [
+              {
+                "node": "Create content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Create content": {
+          "main": [
+            [
+              {
+                "node": "Update content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -15887,10 +16065,12 @@
         "availableInMCP": false
       },
       "staticData": null,
-      "meta": null,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "f47f7b07-5d49-477a-a940-85de50dfa1dc",
+      "versionId": "7d0e3401-8aa2-43f6-9caa-0e0445167cba",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -27338,14 +27518,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-06-30T16:53:40Z"
+          "lastTimeChecked": "2026-07-01T13:00:07Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-06-30T16:53:41Z"
+          "lastTimeChecked": "2026-07-01T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            181
+            183
           ]
         }
       },
@@ -32057,10 +32237,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1782858714,
+            "lastTimeChecked": 1782941419,
             "possibleDuplicates": [
-              "19f1aa90e21b5ca5",
-              "19f1a84cec655d63"
+              "19f1f9745f56a6b4",
+              "19f1ebe63db2f8ca"
             ]
           }
         }
@@ -32627,7 +32807,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-29T13:16:08.321Z",
+      "updatedAt": "2026-07-01T15:10:17.283Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -33134,8 +33314,8 @@
           "type": "n8n-nodes-base.stripeTrigger",
           "typeVersion": 1,
           "position": [
-            -1280,
-            -160
+            -1168,
+            32
           ],
           "id": "3aaf2b97-5a0e-4a89-a1db-0e7339012254",
           "name": "Stripe Gatilho Pagamento1",
@@ -33145,7 +33325,8 @@
               "id": "xGo5T4EH8tSXhNxe",
               "name": "Stripe account"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -33171,6 +33352,22 @@
             }
           },
           "disabled": true
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "55236fcc-86d7-4c1d-a0ea-68750d20a6e5",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -1200,
+            -160
+          ],
+          "id": "26f3e7ec-ec82-4ef2-ac95-24ef43239982",
+          "name": "Webhook",
+          "webhookId": "55236fcc-86d7-4c1d-a0ea-68750d20a6e5"
         }
       ],
       "connections": {
@@ -33281,6 +33478,16 @@
         },
         "Stripe Gatilho Pagamento1": {
           "main": [
+            []
+          ]
+        },
+        "Stripe Trigger": {
+          "main": [
+            []
+          ]
+        },
+        "Webhook": {
+          "main": [
             [
               {
                 "node": "Dados transação",
@@ -33288,11 +33495,6 @@
                 "index": 0
               }
             ]
-          ]
-        },
-        "Stripe Trigger": {
-          "main": [
-            []
           ]
         }
       },
@@ -33303,15 +33505,7 @@
       "staticData": {
         "node:Stripe Trigger": {},
         "node:Stripe Gatilho Pagamento": {},
-        "node:Stripe Gatilho Pagamento1": {
-          "webhookId": "[REDACTED]",
-          "webhookEvents": [
-            "invoice.payment_failed",
-            "invoice.payment_succeeded",
-            "payment_intent.payment_failed"
-          ],
-          "webhookSecret": "[REDACTED]"
-        }
+        "node:Stripe Gatilho Pagamento1": {}
       },
       "meta": {
         "templateCredsSetupCompleted": true
@@ -33595,8 +33789,8 @@
           }
         ]
       },
-      "versionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
-      "activeVersionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
+      "versionId": "838787fd-f9dd-4cc6-a015-818383e0fce7",
+      "activeVersionId": "838787fd-f9dd-4cc6-a015-818383e0fce7",
       "triggerCount": 1,
       "shared": [
         {
@@ -33608,9 +33802,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-29T13:24:08.000Z",
-        "createdAt": "2026-06-29T13:16:02.820Z",
-        "versionId": "00e44726-d068-4568-9402-d7fdd37b8ea7",
+        "updatedAt": "2026-07-01T15:10:19.000Z",
+        "createdAt": "2026-07-01T15:10:17.284Z",
+        "versionId": "838787fd-f9dd-4cc6-a015-818383e0fce7",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -34113,8 +34307,8 @@
             "type": "n8n-nodes-base.stripeTrigger",
             "typeVersion": 1,
             "position": [
-              -1280,
-              -160
+              -1168,
+              32
             ],
             "id": "3aaf2b97-5a0e-4a89-a1db-0e7339012254",
             "name": "Stripe Gatilho Pagamento1",
@@ -34124,7 +34318,8 @@
                 "id": "xGo5T4EH8tSXhNxe",
                 "name": "Stripe account"
               }
-            }
+            },
+            "disabled": true
           },
           {
             "parameters": {
@@ -34150,6 +34345,22 @@
               }
             },
             "disabled": true
+          },
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "55236fcc-86d7-4c1d-a0ea-68750d20a6e5",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -1200,
+              -160
+            ],
+            "id": "26f3e7ec-ec82-4ef2-ac95-24ef43239982",
+            "name": "Webhook",
+            "webhookId": "55236fcc-86d7-4c1d-a0ea-68750d20a6e5"
           }
         ],
         "connections": {
@@ -34260,6 +34471,16 @@
           },
           "Stripe Gatilho Pagamento1": {
             "main": [
+              []
+            ]
+          },
+          "Stripe Trigger": {
+            "main": [
+              []
+            ]
+          },
+          "Webhook": {
+            "main": [
               [
                 {
                   "node": "Dados transação",
@@ -34268,16 +34489,11 @@
                 }
               ]
             ]
-          },
-          "Stripe Trigger": {
-            "main": [
-              []
-            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 00e44726",
+        "name": "Version 838787fd",
         "description": "",
         "autosaved": true
       },
@@ -48410,16 +48626,16 @@
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
-            4
+            6
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1799
+          "lastMessageUid": 1800
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 163
+          "lastIndexChecked": 164
         }
       },
       "meta": {
@@ -53707,7 +53923,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-06-24T17:41:37.999Z",
+      "updatedAt": "2026-07-01T20:10:09.010Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -53820,11 +54036,18 @@
               "cachedResultName": "Kutsaca Newsletter Conteudos",
               "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
             },
+            "matchType": "allConditions",
             "filters": {
               "conditions": [
                 {
                   "keyName": "usado",
-                  "condition": "isEmpty"
+                  "condition": "neq",
+                  "keyValue": "sim"
+                },
+                {
+                  "keyName": "usado",
+                  "condition": "neq",
+                  "keyValue": "cancelado"
                 }
               ]
             }
@@ -57146,6 +57369,144 @@
               "name": "Kutsaca.com - SMTP account"
             }
           }
+        },
+        {
+          "parameters": {
+            "content": "## Publica a News no Super App",
+            "height": 496,
+            "width": 1600
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -3264,
+            1856
+          ],
+          "typeVersion": 1,
+          "id": "cb1973fb-c895-4fdd-b386-0e1aa2e9d57b",
+          "name": "Sticky Note12"
+        },
+        {
+          "parameters": {
+            "operation": "get",
+            "dataTableId": {
+              "__rl": true,
+              "value": "ASgwpF2PeV4ATAYu",
+              "mode": "list",
+              "cachedResultName": "Kutsaca HTML para envio de newsletter",
+              "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+            },
+            "filters": {
+              "conditions": [
+                {
+                  "keyValue": "={{ $json['News ID'] }}"
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.dataTable",
+          "typeVersion": 1.1,
+          "position": [
+            -2768,
+            2016
+          ],
+          "id": "d56f9e31-7224-4b46-9c02-aec1cebc3f52",
+          "name": "Get row(s)3"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            -3184,
+            2016
+          ],
+          "id": "82425371-2396-44ca-a0e0-94c211a32cc0",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "7392d3d1-ef9e-4cf2-b8ad-e67caa64887c",
+                  "name": "News ID",
+                  "value": "48",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -2976,
+            2016
+          ],
+          "id": "2f3beeb9-3917-4e18-966d-014a5872e518",
+          "name": "Edit Fields3"
+        },
+        {
+          "parameters": {
+            "jsCode": "const html = $json.html || \"\";\n\n// 1. Remove SOMENTE o bloco do gestor usando o comentário como âncora\nconst cleanedHtml = html.replace(\n  /<!-- Orientações para o gestor[\\s\\S]*?<tr>[\\s\\S]*?<\\/tr>/i,\n  \"\"\n);\n\n// 2. Bloco de responsividade a ser inserido no <head>\nconst responsiveBlock = `\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n<style>\n  body {\n    margin: 0;\n    padding: 0;\n    -webkit-text-size-adjust: 100%;\n  }\n\n  table {\n    max-width: 100% !important;\n    width: 100% !important;\n  }\n\n  img {\n    max-width: 100% !important;\n    height: auto !important;\n  }\n\n  @media only screen and (max-width: 600px) {\n    body {\n      padding: 0 !important;\n    }\n\n    table[width=\"600\"] {\n      width: 100% !important;\n      padding: 10px !important;\n    }\n\n    td {\n      padding: 10px !important;\n    }\n\n    h1, h2, h3 {\n      font-size: 22px !important;\n      line-height: 1.3 !important;\n    }\n\n    p {\n      font-size: 15px !important;\n      line-height: 1.5 !important;\n    }\n  }\n</style>\n`;\n\n// 3. Insere o bloco dentro do <head>\nconst finalHtml = cleanedHtml.replace(\n  /<head>/i,\n  `<head>${responsiveBlock}`\n);\n\nreturn [{\n  json: {\n    ...$json,\n    html: finalHtml\n  }\n}];\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -2528,
+            2016
+          ],
+          "id": "ff490655-1439-4c9e-ad45-b5ef63b99e33",
+          "name": "Retira do html final a seção do aprovador2"
+        },
+        {
+          "parameters": {
+            "operation": "upload",
+            "bucketName": "auto.1mc.co",
+            "fileName": "newsKutsacaNoApp.html",
+            "binaryData": false,
+            "fileContent": "={{ $json.html }}",
+            "additionalFields": {
+              "parentFolderKey": "Kutsaca"
+            }
+          },
+          "type": "n8n-nodes-base.awsS3",
+          "typeVersion": 2,
+          "position": [
+            -2304,
+            2016
+          ],
+          "id": "000d8215-a1fe-498d-8e13-834d3898a4d9",
+          "name": "Upload html para priorização2",
+          "credentials": {
+            "aws": {
+              "id": "nFJH8JqzQhkNaZsi",
+              "name": "AWS Auto.1mc.co"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "update",
+            "title": "={{ $('Get row(s)3').item.json.subject }}",
+            "workspaceIdBody": "e6066079-3fa6-455e-a637-dbfb556a14e7",
+            "contentId": "03170b6b-97a3-4602-9ba0-ab8ae5bc13d0",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            -2096,
+            2016
+          ],
+          "id": "519d503c-534b-47d2-a353-4f0057f58837",
+          "name": "Update content",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "llEkL0ZhP8FZxXdT",
+              "name": "Kutsaca APIKey no MC Studio"
+            }
+          }
         }
       ],
       "connections": {
@@ -58121,6 +58482,61 @@
               }
             ]
           ]
+        },
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields3": {
+          "main": [
+            [
+              {
+                "node": "Get row(s)3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s)3": {
+          "main": [
+            [
+              {
+                "node": "Retira do html final a seção do aprovador2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Retira do html final a seção do aprovador2": {
+          "main": [
+            [
+              {
+                "node": "Upload html para priorização2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Upload html para priorização2": {
+          "main": [
+            [
+              {
+                "node": "Update content",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -58136,7 +58552,7 @@
         },
         "node:Gatilho mensal todo dia 1, 10am": {
           "recurrenceRules": [
-            4
+            6
           ]
         },
         "node:Email Trigger (IMAP)": {
@@ -58408,10 +58824,21 @@
               "item": 0
             }
           }
+        ],
+        "Iniciar Revisão de Newsletter": [
+          {
+            "json": {
+              "submittedAt": "2026-07-01T13:11:48.112+01:00",
+              "formMode": "test"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
         ]
       },
-      "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
-      "activeVersionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
+      "versionId": "0bd82727-61f6-4eb9-b29d-a115cf9a481f",
+      "activeVersionId": "0ac220b1-1f70-4a7c-bf6c-83b182c1ef57",
       "triggerCount": 15,
       "shared": [
         {
@@ -58423,9 +58850,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-24T17:41:44.000Z",
-        "createdAt": "2026-06-24T17:41:38.005Z",
-        "versionId": "75ab0a18-d623-47f7-ae8a-e36036bea155",
+        "updatedAt": "2026-07-01T12:23:05.000Z",
+        "createdAt": "2026-07-01T12:16:47.904Z",
+        "versionId": "0ac220b1-1f70-4a7c-bf6c-83b182c1ef57",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -58534,11 +58961,18 @@
                 "cachedResultName": "Kutsaca Newsletter Conteudos",
                 "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/kzGI8GXGTDJG97g4"
               },
+              "matchType": "allConditions",
               "filters": {
                 "conditions": [
                   {
                     "keyName": "usado",
-                    "condition": "isEmpty"
+                    "condition": "neq",
+                    "keyValue": "sim"
+                  },
+                  {
+                    "keyName": "usado",
+                    "condition": "neq",
+                    "keyValue": "cancelado"
                   }
                 ]
               }
@@ -62839,7 +63273,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 75ab0a18",
+        "name": "Version 0ac220b1",
         "description": "",
         "autosaved": true
       },

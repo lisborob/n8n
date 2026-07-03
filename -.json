@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1783030678,
+            "lastTimeChecked": 1783114641,
             "possibleDuplicates": [
-              "19f24e91579c385f",
-              "19f249877ab66cac"
+              "19f29ea3408e4f10",
+              "19f29bd009d69c9f"
             ]
           }
         },
@@ -27518,14 +27518,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-01T13:00:07Z"
+          "lastTimeChecked": "2026-07-03T13:00:07Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-01T13:00:58Z"
+          "lastTimeChecked": "2026-07-03T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            183
+            185
           ]
         }
       },
@@ -32237,10 +32237,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1783026266,
+            "lastTimeChecked": 1783111169,
             "possibleDuplicates": [
-              "19f24a5b1329806a",
-              "19f2448f468f4fa2"
+              "19f29b73cb60ad24",
+              "19f2994e75ec4c03"
             ]
           }
         }
@@ -32807,7 +32807,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-02T08:15:45.227Z",
+      "updatedAt": "2026-07-03T09:51:48.997Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -32846,31 +32846,37 @@
                 {
                   "id": "a7d6e4d1-cee2-4c7f-bb9f-02ba4c89b879",
                   "name": "Cliente",
-                  "value": "={{ $json.data.object.customer_name }}{{ $json.data.object.charges.data[0].billing_details.email }}",
+                  "value": "={{ $json.body.data.object.customer_name }}",
                   "type": "string"
                 },
                 {
                   "id": "c4e5274a-9105-4ed5-a27a-dcdce6ae83cf",
                   "name": "E-mail Cliente",
-                  "value": "={{ $json.data.object.customer_email }}{{ $json.data.object.charges.data[0].billing_details.email }}",
+                  "value": "={{ $json.body.data.object.customer_email }}",
                   "type": "string"
                 },
                 {
                   "id": "e88c793b-8d13-48a4-8854-881e6695335b",
                   "name": "Valor ",
-                  "value": "={{ $json.data.object.amount_paid/100  }} ",
+                  "value": "={{ $('Webhook').item.json.body.data.object.total / 100 }}",
                   "type": "number"
                 },
                 {
                   "id": "a84e236b-1a88-46dc-ac4b-f63e208c0691",
                   "name": "Moeda",
-                  "value": "={{ $json.data.object.currency.toUpperCase() }}",
+                  "value": "={{ $json.body.data.object.currency.toUpperCase() }}",
                   "type": "string"
                 },
                 {
                   "id": "f63449a4-588b-4921-a3de-6e1198446cee",
                   "name": "ID transacao Stripe",
                   "value": "={{ $json.data.object.id }}",
+                  "type": "string"
+                },
+                {
+                  "id": "28f28658-3db2-49d5-ab0c-99660b5f7b55",
+                  "name": "Fatura",
+                  "value": "={{ $json.body.data.object.number }}",
                   "type": "string"
                 }
               ]
@@ -32950,7 +32956,7 @@
             "fromEmail": "adm@midiacode.tech",
             "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
-            "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
+            "html": "=Fatura de {{ $json['Valor '] }}{{ $json.Moeda }}  paga  {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}",
             "options": {
               "appendAttribution": false
             }
@@ -32958,7 +32964,7 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            -560,
+            -512,
             -176
           ],
           "id": "a036e574-c10f-466c-b455-ee059ba4adff",
@@ -32979,7 +32985,7 @@
           "type": "n8n-nodes-base.dateTime",
           "typeVersion": 2,
           "position": [
-            -320,
+            -192,
             -176
           ],
           "id": "25679187-9b41-4e67-ae3b-5030b3d74c9a",
@@ -32996,7 +33002,7 @@
           "type": "n8n-nodes-base.dateTime",
           "typeVersion": 2,
           "position": [
-            -176,
+            32,
             -176
           ],
           "id": "8359bf0f-366c-41aa-88c2-b3b541dda6af",
@@ -33025,7 +33031,7 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -32,
+            144,
             -176
           ],
           "id": "91d17b73-3397-44a7-8ebf-8b1acf6668b4",
@@ -33052,7 +33058,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            96,
+            304,
             -176
           ],
           "id": "2d16c2b0-e787-4d6c-89a5-edab8d149fff",
@@ -33092,7 +33098,7 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            224,
+            432,
             -176
           ],
           "id": "792c9f5f-7d84-4ada-b4f2-f627364b46b4",
@@ -33128,7 +33134,8 @@
                 "receita_id": "={{ $json.receita_id }}",
                 "observacoes_nf": "={{ $('Dados transação').item.json['ID transacao Stripe'] }}",
                 "vencimento": "={{ $('Formatação data').item.json.currentDate }}",
-                "tipo_receita": "Mensalidade - QR Code"
+                "tipo_receita": "Mensalidade - QR Code",
+                "número_nf": "={{ $('Dados transação').item.json.Fatura }}"
               },
               "matchingColumns": [
                 "receita_id"
@@ -33290,7 +33297,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            384,
+            592,
             -176
           ],
           "id": "a0f40166-116e-4a42-add2-68bc2114e97f",
@@ -34087,8 +34094,8 @@
           }
         ]
       },
-      "versionId": "5ae7510a-8ca5-4ffe-812c-b0c5d7e125cc",
-      "activeVersionId": "5ae7510a-8ca5-4ffe-812c-b0c5d7e125cc",
+      "versionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
+      "activeVersionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
       "triggerCount": 1,
       "shared": [
         {
@@ -34100,9 +34107,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-02T08:21:31.000Z",
-        "createdAt": "2026-07-02T08:15:45.228Z",
-        "versionId": "5ae7510a-8ca5-4ffe-812c-b0c5d7e125cc",
+        "updatedAt": "2026-07-03T09:51:53.000Z",
+        "createdAt": "2026-07-03T09:51:48.999Z",
+        "versionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -34137,31 +34144,37 @@
                   {
                     "id": "a7d6e4d1-cee2-4c7f-bb9f-02ba4c89b879",
                     "name": "Cliente",
-                    "value": "={{ $json.data.object.customer_name }}{{ $json.data.object.charges.data[0].billing_details.email }}",
+                    "value": "={{ $json.body.data.object.customer_name }}",
                     "type": "string"
                   },
                   {
                     "id": "c4e5274a-9105-4ed5-a27a-dcdce6ae83cf",
                     "name": "E-mail Cliente",
-                    "value": "={{ $json.data.object.customer_email }}{{ $json.data.object.charges.data[0].billing_details.email }}",
+                    "value": "={{ $json.body.data.object.customer_email }}",
                     "type": "string"
                   },
                   {
                     "id": "e88c793b-8d13-48a4-8854-881e6695335b",
                     "name": "Valor ",
-                    "value": "={{ $json.data.object.amount_paid/100  }} ",
+                    "value": "={{ $('Webhook').item.json.body.data.object.total / 100 }}",
                     "type": "number"
                   },
                   {
                     "id": "a84e236b-1a88-46dc-ac4b-f63e208c0691",
                     "name": "Moeda",
-                    "value": "={{ $json.data.object.currency.toUpperCase() }}",
+                    "value": "={{ $json.body.data.object.currency.toUpperCase() }}",
                     "type": "string"
                   },
                   {
                     "id": "f63449a4-588b-4921-a3de-6e1198446cee",
                     "name": "ID transacao Stripe",
                     "value": "={{ $json.data.object.id }}",
+                    "type": "string"
+                  },
+                  {
+                    "id": "28f28658-3db2-49d5-ab0c-99660b5f7b55",
+                    "name": "Fatura",
+                    "value": "={{ $json.body.data.object.number }}",
                     "type": "string"
                   }
                 ]
@@ -34241,7 +34254,7 @@
               "fromEmail": "adm@midiacode.tech",
               "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "=Alerta do Stripe - Pgto {{ $json.Cliente }}",
-              "html": "=Fatura de {{ $json['Valor '] }} {{ $json.Moeda }} paga {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}\n",
+              "html": "=Fatura de {{ $json['Valor '] }}{{ $json.Moeda }}  paga  {{ $json.Cliente }} - {{ $json['E-mail Cliente'] }}",
               "options": {
                 "appendAttribution": false
               }
@@ -34249,7 +34262,7 @@
             "type": "n8n-nodes-base.emailSend",
             "typeVersion": 2.1,
             "position": [
-              -560,
+              -512,
               -176
             ],
             "id": "a036e574-c10f-466c-b455-ee059ba4adff",
@@ -34270,7 +34283,7 @@
             "type": "n8n-nodes-base.dateTime",
             "typeVersion": 2,
             "position": [
-              -320,
+              -192,
               -176
             ],
             "id": "25679187-9b41-4e67-ae3b-5030b3d74c9a",
@@ -34287,7 +34300,7 @@
             "type": "n8n-nodes-base.dateTime",
             "typeVersion": 2,
             "position": [
-              -176,
+              32,
               -176
             ],
             "id": "8359bf0f-366c-41aa-88c2-b3b541dda6af",
@@ -34316,7 +34329,7 @@
             "type": "n8n-nodes-base.set",
             "typeVersion": 3.4,
             "position": [
-              -32,
+              144,
               -176
             ],
             "id": "91d17b73-3397-44a7-8ebf-8b1acf6668b4",
@@ -34343,7 +34356,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              96,
+              304,
               -176
             ],
             "id": "2d16c2b0-e787-4d6c-89a5-edab8d149fff",
@@ -34383,7 +34396,7 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              224,
+              432,
               -176
             ],
             "id": "792c9f5f-7d84-4ada-b4f2-f627364b46b4",
@@ -34419,7 +34432,8 @@
                   "receita_id": "={{ $json.receita_id }}",
                   "observacoes_nf": "={{ $('Dados transação').item.json['ID transacao Stripe'] }}",
                   "vencimento": "={{ $('Formatação data').item.json.currentDate }}",
-                  "tipo_receita": "Mensalidade - QR Code"
+                  "tipo_receita": "Mensalidade - QR Code",
+                  "número_nf": "={{ $('Dados transação').item.json.Fatura }}"
                 },
                 "matchingColumns": [
                   "receita_id"
@@ -34581,7 +34595,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              384,
+              592,
               -176
             ],
             "id": "a0f40166-116e-4a42-add2-68bc2114e97f",
@@ -34791,7 +34805,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 5ae7510a",
+        "name": "Version 0c998d79",
         "description": "",
         "autosaved": true
       },

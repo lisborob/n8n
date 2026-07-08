@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1783462564,
+            "lastTimeChecked": 1783550663,
             "possibleDuplicates": [
-              "19f3ea7144a5126b",
-              "19f3ea2822e02310"
+              "19f43e7b0222f4d9",
+              "19f439b102e1ebe3"
             ]
           }
         },
@@ -15725,7 +15725,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-01T15:36:39.803Z",
+      "updatedAt": "2026-07-08T14:07:52.085Z",
       "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "Cria Conteúdos Cidade",
@@ -15871,19 +15871,6 @@
         },
         {
           "parameters": {
-            "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
-          },
-          "type": "n8n-nodes-base.code",
-          "typeVersion": 2,
-          "position": [
-            -160,
-            -144
-          ],
-          "id": "674b4d7a-6d1e-4c6a-b0fb-20253f1e6e70",
-          "name": "Code in JavaScript"
-        },
-        {
-          "parameters": {
             "operation": "upload",
             "additionalFields": {}
           },
@@ -15967,6 +15954,19 @@
               "name": "Midiacode MKT"
             }
           }
+        },
+        {
+          "parameters": {
+            "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -160,
+            -144
+          ],
+          "id": "674b4d7a-6d1e-4c6a-b0fb-20253f1e6e70",
+          "name": "cria html de cada POI"
         }
       ],
       "connections": {
@@ -16014,22 +16014,11 @@
             ]
           ]
         },
-        "Code in JavaScript": {
-          "main": [
-            [
-              {
-                "node": "Upload a file",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Update row(s)": {
           "main": [
             [
               {
-                "node": "Code in JavaScript",
+                "node": "cria html de cada POI",
                 "type": "main",
                 "index": 0
               }
@@ -16057,6 +16046,17 @@
               }
             ]
           ]
+        },
+        "cria html de cada POI": {
+          "main": [
+            [
+              {
+                "node": "Upload a file",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -16070,7 +16070,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "7d0e3401-8aa2-43f6-9caa-0e0445167cba",
+      "versionId": "5cf675f9-5e28-46a8-be0e-7ee5124ebff8",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -32237,10 +32237,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1783453064,
+            "lastTimeChecked": 1783529531,
             "possibleDuplicates": [
-              "19f3e161e53e5d16",
-              "19f3de88b3081e89"
+              "19f42a4f5c55f9a9",
+              "19f422c1e4f08fb1"
             ]
           }
         }
@@ -48942,7 +48942,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1812
+          "lastMessageUid": 1813
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

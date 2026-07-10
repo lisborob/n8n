@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1783632043,
+            "lastTimeChecked": 1783720650,
             "possibleDuplicates": [
-              "19f48c1210328131",
-              "19f4858cbdf0d6ff"
+              "19f4e0952040771b",
+              "19f4dfd02d2cdef2"
             ]
           }
         },
@@ -15725,10 +15725,10 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-08T14:07:52.085Z",
+      "updatedAt": "2026-07-10T22:24:17.294Z",
       "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
-      "name": "Cria Conteúdos Cidade",
+      "name": "Google Places Tourist POI Scraper",
       "active": false,
       "isArchived": false,
       "nodes": [
@@ -15750,8 +15750,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.6,
           "position": [
-            -1216,
-            -144
+            -1168,
+            224
           ],
           "id": "1ff6d80d-a6ac-4d24-8139-3a510e6c92c0",
           "name": "País e Cidade",
@@ -15787,7 +15787,7 @@
           "typeVersion": 3.4,
           "position": [
             -784,
-            64
+            -400
           ],
           "id": "98ced8e0-f3e3-481a-bcbf-870c0983d56e",
           "name": "Onde Comer Japonesa"
@@ -15815,8 +15815,8 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -784,
-            -144
+            -736,
+            224
           ],
           "id": "e9cc6024-0f73-45e5-9e0c-0d4562b944cc",
           "name": "O que fazer Monumentos"
@@ -15850,21 +15850,57 @@
           "type": "n8n-nodes-base.set",
           "typeVersion": 3.4,
           "position": [
-            -1008,
-            -144
+            -960,
+            224
           ],
           "id": "a743d1c4-e5a4-4a4b-83bb-8ef30a70bf1e",
           "name": "cidade e api key"
         },
         {
           "parameters": {
+            "method": "POST",
+            "url": "https://places.googleapis.com/v1/places:searchText",
+            "sendHeaders": true,
+            "headerParameters": {
+              "parameters": [
+                {
+                  "name": "X-Goog-FieldMask",
+                  "value": "[REDACTED]"
+                },
+                {
+                  "name": "X-Goog-Api-Key",
+                  "value": "={{ $('cidade e api key').item.json['maps api key'] }}"
+                },
+                {
+                  "name": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            },
+            "sendBody": true,
+            "bodyParameters": {
+              "parameters": [
+                {
+                  "name": "textQuery",
+                  "value": "={{ $json.sub_cat_1 + ' em ' + $node['cidade e api key'].json.City + ', ' + $node['cidade e api key'].json.Country }}"
+                },
+                {
+                  "name": "pageSize",
+                  "value": "={{ 60 }}"
+                },
+                {
+                  "name": "languageCode",
+                  "value": "pt"
+                }
+              ]
+            },
             "options": {}
           },
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            -576,
-            -144
+            -384,
+            224
           ],
           "id": "77d66175-2b09-4cbb-838d-a86985ab0b3b",
           "name": "HTTP Request"
@@ -15967,6 +16003,249 @@
           ],
           "id": "674b4d7a-6d1e-4c6a-b0fb-20253f1e6e70",
           "name": "cria html de cada POI"
+        },
+        {
+          "parameters": {
+            "functionCode": "const results = items[0].json.results;\nreturn results.map(r => ({ json: {\n  name: r.name,\n  address: r.formatted_address,\n  rating: r.rating || null,\n  reviews: r.user_ratings_total || null,\n  lat: r.geometry.location.lat,\n  lng: r.geometry.location.lng,\n  place_id: r.place_id\n}}));"
+          },
+          "id": "662b1d49-69b6-4d42-86b5-16f67ab275eb",
+          "name": "Extract Results",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            0,
+            224
+          ]
+        },
+        {
+          "parameters": {
+            "authentication": "oAuth2",
+            "operation": "append",
+            "sheetId": "[REDACTED]",
+            "range": "Página1!A:Z",
+            "options": {}
+          },
+          "id": "3af4132b-99b2-495c-abd6-5af45158bfa2",
+          "name": "Append to Google Sheets",
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 1,
+          "position": [
+            336,
+            224
+          ],
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "functionCode": "const results = items[0].json.results;\nreturn results.map(r => ({ json: {\n  name: r.name,\n  address: r.formatted_address,\n  rating: r.rating || null,\n  reviews: r.user_ratings_total || null,\n  lat: r.geometry.location.lat,\n  lng: r.geometry.location.lng,\n  place_id: r.place_id\n}}));"
+          },
+          "id": "7ebeee61-697f-433c-9baf-948b3118417d",
+          "name": "Extract Next Page Results",
+          "type": "n8n-nodes-base.function",
+          "typeVersion": 1,
+          "position": [
+            1536,
+            672
+          ]
+        },
+        {
+          "parameters": {
+            "authentication": "oAuth2",
+            "operation": "append",
+            "sheetId": "[REDACTED]",
+            "range": "Página1!A:Z",
+            "options": {}
+          },
+          "id": "0ddc1dd3-9443-46f8-b377-01a8140ae7f2",
+          "name": "Append Next Page",
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 1,
+          "position": [
+            1776,
+            672
+          ],
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {},
+          "id": "d603f5c1-f3b1-46a8-93e3-413f53a494f0",
+          "name": "Loop Back",
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            2000,
+            672
+          ]
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "aa7d77d8-4042-4c09-ad35-5d2768ed8e9c",
+                  "leftValue": "={{ $('HTTP Request').item.json.next_page_token }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "empty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            352,
+            656
+          ],
+          "id": "0e102865-2b98-448f-82d2-23759fd92cbe",
+          "name": "If"
+        },
+        {
+          "parameters": {
+            "url": "=https://places.googleapis.com/v1/places:searchText/json?pagetoken={{ $('PageToken').item.json.pagetoken }}&key={{ $('cidade e api key').item.json['maps api key'] }}",
+            "sendQuery": true,
+            "queryParameters": {
+              "parameters": []
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            864,
+            672
+          ],
+          "id": "79fe4810-91b2-4dc4-8e6d-7f0f296a3ddd",
+          "name": "pega proxima pagina"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "5e769d98-727f-4647-9365-191d858fc268",
+                  "leftValue": "={{ $json.status }}",
+                  "rightValue": "=INVALID_REQUEST",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            1072,
+            672
+          ],
+          "id": "43c8b51d-92a9-4c83-81e0-f8d377903a56",
+          "name": "If1"
+        },
+        {
+          "parameters": {
+            "amount": 10
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1296,
+            608
+          ],
+          "id": "237590da-a3da-4ae6-8b8f-4b8e2b20f709",
+          "name": "Wait",
+          "webhookId": "f6ded920-a8aa-4934-85b6-1c0dbc5c624d"
+        },
+        {
+          "parameters": {
+            "amount": 15,
+            "unit": "seconds"
+          },
+          "id": "60f903f1-69d1-47e5-aec9-653e49bb94c5",
+          "name": "Wait 15s",
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1,
+          "position": [
+            592,
+            672
+          ],
+          "webhookId": "9dc87655-31d9-46c3-b0cc-394b02311ebd"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "f4dfcdbb-87dc-4125-8aa0-a53eedc21f2e",
+                  "name": "pagetoken",
+                  "value": "={{ $json.next_page_token }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            2208,
+            672
+          ],
+          "id": "9cde7e70-3158-4d5a-a874-22159e5d96c6",
+          "name": "Edit Fields1"
+        },
+        {
+          "parameters": {
+            "assignments": {
+              "assignments": [
+                {
+                  "id": "4fd12f62-1b03-4f8b-9982-ae5aa9dc6b65",
+                  "name": "pagetoken",
+                  "value": "={{ $json.next_page_token }}",
+                  "type": "string"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.set",
+          "typeVersion": 3.4,
+          "position": [
+            -32,
+            656
+          ],
+          "id": "5b0fb245-dcc1-42f0-81e3-dc3f6185c798",
+          "name": "PageToken"
         }
       ],
       "connections": {
@@ -16007,7 +16286,12 @@
           "main": [
             [
               {
-                "node": "Update row(s)",
+                "node": "Extract Results",
+                "type": "main",
+                "index": 0
+              },
+              {
+                "node": "PageToken",
                 "type": "main",
                 "index": 0
               }
@@ -16057,6 +16341,135 @@
               }
             ]
           ]
+        },
+        "Extract Results": {
+          "main": [
+            [
+              {
+                "node": "Append to Google Sheets",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Extract Next Page Results": {
+          "main": [
+            [
+              {
+                "node": "Append Next Page",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append Next Page": {
+          "main": [
+            [
+              {
+                "node": "Loop Back",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Loop Back": {
+          "main": [
+            [
+              {
+                "node": "Edit Fields1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [],
+            [
+              {
+                "node": "Wait 15s",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "pega proxima pagina": {
+          "main": [
+            [
+              {
+                "node": "If1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If1": {
+          "main": [
+            [
+              {
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Extract Next Page Results",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "pega proxima pagina",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait 15s": {
+          "main": [
+            [
+              {
+                "node": "pega proxima pagina",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Edit Fields1": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "PageToken": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -16069,8 +16482,22 @@
         "templateCredsSetupCompleted": true
       },
       "nodeGroups": [],
-      "pinData": {},
-      "versionId": "5cf675f9-5e28-46a8-be0e-7ee5124ebff8",
+      "pinData": {
+        "País e Cidade": [
+          {
+            "json": {
+              "País": "portugal",
+              "Cidade": "porto",
+              "submittedAt": "2026-07-10T16:05:45.263+01:00",
+              "formMode": "test"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ]
+      },
+      "versionId": "8207f950-b221-4710-ac53-6c3b60fd0396",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -32237,10 +32664,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1783633483,
+            "lastTimeChecked": 1783718318,
             "possibleDuplicates": [
-              "19f48d717a28242f",
-              "19f487b035220abc"
+              "19f4de592ee9fa96",
+              "19f4d4f34c61953c"
             ]
           }
         }
@@ -48942,7 +49369,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1815
+          "lastMessageUid": 1816
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

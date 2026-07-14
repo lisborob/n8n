@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1783981763,
+            "lastTimeChecked": 1784069140,
             "possibleDuplicates": [
-              "19f5d99fac43f207",
-              "19f5d71c061c0457"
+              "19f62ceb32ec9535",
+              "19f629828a7bb40b"
             ]
           }
         },
@@ -32664,10 +32664,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1783955360,
+            "lastTimeChecked": 1784059444,
             "possibleDuplicates": [
-              "19f5c068c442ed1c",
-              "19f5c041a38ed32f"
+              "19f623abe98b66cc",
+              "19f61cd06ba2a5e1"
             ]
           }
         }
@@ -33234,7 +33234,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-03T09:51:48.997Z",
+      "updatedAt": "2026-07-14T14:12:39.259Z",
       "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
@@ -33357,7 +33357,7 @@
             "fromEmail": "adm@midiacode.tech",
             "toEmail": "thiago.pacioni@midiacode.tech",
             "subject": "=Falhou stripe  {{ $('Dados transação').item.json.Cliente }} ",
-            "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou ({{ $('Stripe Gatilho Pagamento').item.json.data.object.last_payment_error.type }})",
+            "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou {{ $('Dados transação').item.json['Valor '] }}",
             "options": {
               "appendAttribution": false
             }
@@ -34228,17 +34228,17 @@
               "headers": {
                 "host": "n8n.ooniverse.ai",
                 "user-agent": "Stripe/1.0 (+https://stripe.com/docs/webhooks)",
-                "content-length": "9175",
+                "content-length": "9172",
                 "accept": "*/*; q=0.5, application/json",
                 "cache-control": "no-cache",
                 "content-type": "application/json; charset=utf-8",
                 "stripe-signature": "[REDACTED]",
-                "x-forwarded-for": "54.187.216.72",
+                "x-forwarded-for": "54.187.205.235",
                 "x-forwarded-host": "n8n.ooniverse.ai",
                 "x-forwarded-port": "443",
                 "x-forwarded-proto": "https",
                 "x-forwarded-server": "f1fc59b294b9",
-                "x-real-ip": "54.187.216.72",
+                "x-real-ip": "54.187.205.235",
                 "accept-encoding": "gzip"
               },
               "params": {},
@@ -34247,7 +34247,7 @@
                 "id": "[REDACTED]",
                 "object": "event",
                 "api_version": "2022-08-01",
-                "created": 1782968506,
+                "created": 1783958404,
                 "data": {
                   "object": {
                     "id": "[REDACTED]",
@@ -34259,14 +34259,14 @@
                     ],
                     "amount_due": 875,
                     "amount_overpaid": 0,
-                    "amount_paid": 875,
-                    "amount_remaining": 0,
+                    "amount_paid": 0,
+                    "amount_remaining": 875,
                     "amount_shipping": 0,
                     "application": null,
                     "application_fee_amount": null,
-                    "attempt_count": 4,
+                    "attempt_count": 1,
                     "attempted": true,
-                    "auto_advance": false,
+                    "auto_advance": true,
                     "automatic_tax": {
                       "disabled_reason": null,
                       "enabled": false,
@@ -34278,7 +34278,7 @@
                     "billing_reason": "subscription_cycle",
                     "charge": "[REDACTED]",
                     "collection_method": "charge_automatically",
-                    "created": 1781362839,
+                    "created": 1783954781,
                     "currency": "eur",
                     "custom_fields": null,
                     "customer": "cus_QefWn1K3xBRHDq",
@@ -34304,7 +34304,7 @@
                     "discount": null,
                     "discounts": [],
                     "due_date": null,
-                    "effective_at": 1781366492,
+                    "effective_at": 1783958397,
                     "ending_balance": 0,
                     "footer": "If you have any doubt about the Terms & Conditions of using our platform, check it at https://midiacode.com/terms-and-conditions/\nAlso check our Privacy Policy at https://midiacode.com/privacy-policy/",
                     "from_invoice": null,
@@ -34346,8 +34346,8 @@
                             "type": "subscription_item_details"
                           },
                           "period": {
-                            "end": 1783954750,
-                            "start": 1781362750
+                            "end": 1786633150,
+                            "start": 1783954750
                           },
                           "plan": {
                             "id": "[REDACTED]",
@@ -34430,10 +34430,10 @@
                     },
                     "livemode": true,
                     "metadata": {},
-                    "next_payment_attempt": null,
-                    "number": "0BC57229-1009",
+                    "next_payment_attempt": 1784617203,
+                    "number": "0BC57229-1031",
                     "on_behalf_of": null,
-                    "paid": true,
+                    "paid": false,
                     "paid_out_of_band": false,
                     "parent": {
                       "quote_details": null,
@@ -34462,8 +34462,8 @@
                       },
                       "payment_method_types": null
                     },
-                    "period_end": 1781362750,
-                    "period_start": 1778684350,
+                    "period_end": 1783954750,
+                    "period_start": 1781362750,
                     "post_payment_credit_notes_amount": 0,
                     "pre_payment_credit_notes_amount": 0,
                     "quote": null,
@@ -34479,11 +34479,11 @@
                     "shipping_details": null,
                     "starting_balance": 0,
                     "statement_descriptor": null,
-                    "status": "paid",
+                    "status": "open",
                     "status_transitions": {
-                      "finalized_at": 1781366492,
+                      "finalized_at": 1783958397,
                       "marked_uncollectible_at": null,
-                      "paid_at": 1782968503,
+                      "paid_at": null,
                       "voided_at": null
                     },
                     "subscription": "[REDACTED]",
@@ -34501,16 +34501,16 @@
                     "total_tax_amounts": [],
                     "total_taxes": [],
                     "transfer_data": null,
-                    "webhooks_delivered_at": 1781362841
+                    "webhooks_delivered_at": 1783954783
                   }
                 },
                 "livemode": true,
-                "pending_webhooks": 3,
+                "pending_webhooks": 4,
                 "request": {
                   "id": null,
                   "idempotency_key": null
                 },
-                "type": "invoice.payment_succeeded"
+                "type": "invoice.payment_failed"
               },
               "webhookUrl": "https://n8n.ooniverse.ai/webhook/55236fcc-86d7-4c1d-a0ea-68750d20a6e5",
               "executionMode": "production"
@@ -34521,8 +34521,8 @@
           }
         ]
       },
-      "versionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
-      "activeVersionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
+      "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
+      "activeVersionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
       "triggerCount": 1,
       "shared": [
         {
@@ -34534,9 +34534,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-03T09:51:53.000Z",
-        "createdAt": "2026-07-03T09:51:48.999Z",
-        "versionId": "0c998d79-f95b-4f5c-b3cf-823e995b1492",
+        "updatedAt": "2026-07-14T14:12:44.000Z",
+        "createdAt": "2026-07-14T14:12:39.261Z",
+        "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
           {
@@ -34655,7 +34655,7 @@
               "fromEmail": "adm@midiacode.tech",
               "toEmail": "thiago.pacioni@midiacode.tech",
               "subject": "=Falhou stripe  {{ $('Dados transação').item.json.Cliente }} ",
-              "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou ({{ $('Stripe Gatilho Pagamento').item.json.data.object.last_payment_error.type }})",
+              "html": "=Pgto cliente  {{ $('Dados transação').item.json.Cliente }} falhou {{ $('Dados transação').item.json['Valor '] }}",
               "options": {
                 "appendAttribution": false
               }
@@ -35232,7 +35232,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 0c998d79",
+        "name": "Version 1ad79ee5",
         "description": "",
         "autosaved": true
       },
@@ -49369,7 +49369,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1819
+          "lastMessageUid": 1823
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1784586101,
+            "lastTimeChecked": 1784672208,
             "possibleDuplicates": [
-              "19f819f128994c0d",
-              "19f819af025542dc"
+              "19f86c0d18c8cfc8",
+              "19f869cad4bbfe1c"
             ]
           }
         },
@@ -29544,14 +29544,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-19T13:00:07Z"
+          "lastTimeChecked": "2026-07-21T20:46:08Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-19T13:00:58Z"
+          "lastTimeChecked": "2026-07-21T20:46:09Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            201
+            203
           ]
         }
       },
@@ -29648,7 +29648,7 @@
         ]
       },
       "versionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
-      "activeVersionId": "bce013d8-b846-4bac-bba8-a21bfe58449b",
+      "activeVersionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
       "triggerCount": 5,
       "shared": [
         {
@@ -29660,9 +29660,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-03-13T15:29:31.000Z",
-        "createdAt": "2026-03-13T15:28:17.949Z",
-        "versionId": "bce013d8-b846-4bac-bba8-a21bfe58449b",
+        "updatedAt": "2026-07-21T20:46:09.000Z",
+        "createdAt": "2026-03-13T15:30:47.371Z",
+        "versionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
           {
@@ -30595,6 +30595,7 @@
           },
           {
             "parameters": {
+              "modelName": "models/gemini-2.5-computer-use-preview-10-2025",
               "options": {}
             },
             "id": "9d46e695-fbdb-4706-9e7d-b2d9560f8a3a",
@@ -32069,8 +32070,8 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version bce013d8",
-        "description": "troquei a IA do atendimento pessoal para o Gemini",
+        "name": "Version 85f8fe98",
+        "description": "",
         "autosaved": true
       },
       "tags": [
@@ -34263,10 +34264,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1784559901,
+            "lastTimeChecked": 1784669285,
             "possibleDuplicates": [
-              "19f8027a38b87cd1",
-              "19f7f320762bf3fe"
+              "19f86942fb4618fe",
+              "19f862013580883c"
             ]
           }
         }
@@ -51051,7 +51052,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1828
+          "lastMessageUid": 1832
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

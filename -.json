@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1784757990,
+            "lastTimeChecked": 1784847525,
             "possibleDuplicates": [
-              "19f8bddb40ea74a1",
-              "19f8ba86b69b0745"
+              "19f91347aebe9953",
+              "19f90eb287085085"
             ]
           }
         },
@@ -13677,7 +13677,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-22T15:29:22.608Z",
+      "updatedAt": "2026-07-23T14:40:34.901Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -13711,32 +13711,10 @@
           "name": "When Executed by Another Workflow",
           "type": "[REDACTED]",
           "position": [
-            -432,
-            896
-          ]
-        },
-        {
-          "parameters": {
-            "assignments": {
-              "assignments": [
-                {
-                  "id": "b015b3ed-4cd5-41f4-bf20-17e11e5e37ef",
-                  "name": "Rascunho email",
-                  "value": "=Olá {{ $json.nome_cliente }}, faz uns dias que mandamos a proposta....",
-                  "type": "string"
-                }
-              ]
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.set",
-          "typeVersion": 3.4,
-          "position": [
-            -208,
-            880
+            -512,
+            832
           ],
-          "id": "ca22aa6e-e137-4e56-ac60-7bb6bc73bcda",
-          "name": "Edit Fields"
+          "disabled": true
         },
         {
           "parameters": {},
@@ -13905,7 +13883,8 @@
           ],
           "id": "6d989b89-55ee-4372-a062-8cb1a2f86da8",
           "name": "Wait",
-          "webhookId": "eb0f4091-c268-48c4-8bce-84f1f57c9de8"
+          "webhookId": "eb0f4091-c268-48c4-8bce-84f1f57c9de8",
+          "disabled": true
         },
         {
           "parameters": {
@@ -13918,8 +13897,8 @@
           "type": "n8n-nodes-base.emailSend",
           "typeVersion": 2.1,
           "position": [
-            0,
-            912
+            -80,
+            848
           ],
           "id": "b5dc8e70-bf79-4973-874f-c2d19f44723c",
           "name": "Send an Email",
@@ -13929,7 +13908,8 @@
               "id": "opD4ihPIsdqEaeeI",
               "name": "SMTP from adm@midiacode.tech"
             }
-          }
+          },
+          "disabled": true
         },
         {
           "parameters": {
@@ -13974,32 +13954,6 @@
         },
         {
           "parameters": {
-            "resource": "calendar",
-            "calendar": {
-              "__rl": true,
-              "value": "robson.lisboa@midiacode.com",
-              "mode": "list",
-              "cachedResultName": "robson.lisboa@midiacode.com"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleCalendar",
-          "typeVersion": 1.3,
-          "position": [
-            0,
-            576
-          ],
-          "id": "045ce9e0-4b7b-445d-8b03-16b4f65b47ea",
-          "name": "Get availability in a calendar",
-          "credentials": {
-            "googleCalendarOAuth2Api": {
-              "id": "qTbgWBTUXCgj3YfH",
-              "name": "Google Calendar account"
-            }
-          }
-        },
-        {
-          "parameters": {
             "events": [
               "MEETING_ENDED"
             ],
@@ -14013,22 +13967,350 @@
           ],
           "id": "57495c0f-097a-4ff5-a8eb-048b56c470d5",
           "name": "Cal.com Trigger",
-          "webhookId": "a292f7db-1e6a-4bcc-933d-1fd1ed409695"
+          "webhookId": "a292f7db-1e6a-4bcc-933d-1fd1ed409695",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "httpMethod": "POST",
+            "path": "cc5705f9-ef92-4aad-90dd-68ed4a396296",
+            "responseMode": "lastNode",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.webhook",
+          "typeVersion": 2.1,
+          "position": [
+            -624,
+            1328
+          ],
+          "id": "d0217886-7593-463f-94be-880a385881c9",
+          "name": "Webhook",
+          "webhookId": "cc5705f9-ef92-4aad-90dd-68ed4a396296"
+        },
+        {
+          "parameters": {
+            "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 10h e 17h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 10 && hour < 17) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 17h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 17) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            -208,
+            1328
+          ],
+          "id": "1c0782c1-6fa2-4918-aa78-3a7e841c371d",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "calendar": {
+              "__rl": true,
+              "value": "thiagopacioni@gmail.com",
+              "mode": "list",
+              "cachedResultName": "thiagopacioni@gmail.com"
+            },
+            "start": "={{ $json.meeting_start }}",
+            "end": "={{ $json.meeting_end }}",
+            "additionalFields": {
+              "attendees": [
+                "={{ $('Webhook').item.json.body.email }}"
+              ],
+              "conferenceDataUi": {
+                "conferenceDataValues": {
+                  "conferenceSolution": "hangoutsMeet"
+                }
+              },
+              "summary": "=Reunião de Alinhamento - {{ $json.subject }}"
+            }
+          },
+          "type": "n8n-nodes-base.googleCalendar",
+          "typeVersion": 1.3,
+          "position": [
+            -16,
+            1312
+          ],
+          "id": "ef7bb2f1-50b5-4054-9054-87fe538e2419",
+          "name": "Create an event",
+          "credentials": {
+            "googleCalendarOAuth2Api": {
+              "id": "D8IBn3ay3WciQC3t",
+              "name": "Google Calendar account 2 - thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "fromEmail": "thiagopacioni@gmail.com",
+            "toEmail": "thiagopacioni@gmail.com",
+            "subject": "={{ $('Webhook').item.json.body.subject }}",
+            "html": "={{ $('Webhook').item.json.body.message }}",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.emailSend",
+          "typeVersion": 2.1,
+          "position": [
+            400,
+            1312
+          ],
+          "id": "950dd5f4-61d3-4352-b70f-ba21c146a0f3",
+          "name": "Send an Email3",
+          "webhookId": "a646a393-1615-4a8f-b8b6-929f5a941eae",
+          "credentials": {
+            "smtp": {
+              "id": "opD4ihPIsdqEaeeI",
+              "name": "SMTP from adm@midiacode.tech"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "method": "POST",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotOAuth2Api",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            624,
+            1328
+          ],
+          "id": "b22b6571-adfb-4127-9918-b49cb88c7b8a",
+          "name": "HTTP Request",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "Cliente": "={{ $('Webhook').item.json.body.client }}",
+                "Email": "={{ $('Webhook').item.json.body.email }}",
+                "Fase": "={{ $('Webhook').item.json.body.stage }}",
+                "Assunto": "={{ $('Webhook').item.json.body.subject }}",
+                "Texto Proposto": "={{ $('Webhook').item.json.body.message }}",
+                "Status": "Aprovado"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "ID do Deal",
+                  "displayName": "ID do Deal",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Cliente",
+                  "displayName": "Cliente",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Empresa",
+                  "displayName": "Empresa",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Fase",
+                  "displayName": "Fase",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Assunto",
+                  "displayName": "Assunto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Texto Proposto",
+                  "displayName": "Texto Proposto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Data de Reexibicao",
+                  "displayName": "Data de Reexibicao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                },
+                {
+                  "id": "Horario Sugerido",
+                  "displayName": "Horario Sugerido",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            832,
+            1328
+          ],
+          "id": "78ce7e0c-b06a-45b1-a485-7fe47c4d8d96",
+          "name": "Append row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "delete",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "startIndex": "={{ $('Webhook').item.json.body.rowNumber }}"
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            1040,
+            1328
+          ],
+          "id": "1f9fc9d8-1070-4a06-94dd-3025717b6614",
+          "name": "Delete rows or columns from sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "getAll",
+            "calendar": {
+              "__rl": true,
+              "value": "thiagopacioni@gmail.com",
+              "mode": "list",
+              "cachedResultName": "thiagopacioni@gmail.com"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleCalendar",
+          "typeVersion": 1.3,
+          "position": [
+            -416,
+            1328
+          ],
+          "id": "bd76c955-0d03-4b8b-a060-b0f194c792a1",
+          "name": "Get many events",
+          "credentials": {
+            "googleCalendarOAuth2Api": {
+              "id": "D8IBn3ay3WciQC3t",
+              "name": "Google Calendar account 2 - thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "sendTo": "thiago.pacioni@midiacode.tech",
+            "subject": "={{ $('Webhook').item.json.body.subject }}",
+            "message": "={{ $('Webhook').item.json.body.message }} \n\nSegue link para reunião {{ $json.hangoutLink }}",
+            "options": {
+              "appendAttribution": false,
+              "attachmentsUi": {
+                "attachmentsBinary": []
+              }
+            }
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.2,
+          "position": [
+            176,
+            1312
+          ],
+          "id": "9251fed7-f0bb-4398-a558-c2119cc09fdb",
+          "name": "Send a message",
+          "webhookId": "4f9ae34e-e2af-40cc-a88e-401e7c8b2298",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "SZbWN10XU5npdpxu",
+              "name": "Thiago - Gmail account 2"
+            }
+          }
         }
       ],
       "connections": {
         "When Executed by Another Workflow": {
-          "main": [
-            [
-              {
-                "node": "Edit Fields",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Edit Fields": {
           "main": [
             [
               {
@@ -14129,6 +14411,93 @@
               }
             ]
           ]
+        },
+        "Webhook": {
+          "main": [
+            [
+              {
+                "node": "Get many events",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Create an event",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Create an event": {
+          "main": [
+            [
+              {
+                "node": "Send a message",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send an Email3": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "HTTP Request": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append row in sheet": {
+          "main": [
+            [
+              {
+                "node": "Delete rows or columns from sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Delete rows or columns from sheet": {
+          "main": [
+            []
+          ]
+        },
+        "Get many events": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Send a message": {
+          "main": [
+            []
+          ]
         }
       },
       "settings": {
@@ -14142,7 +14511,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "06492a38-0d78-4df0-8cc2-89f6471d8b4f",
+      "versionId": "375220fb-78bc-46da-a8f9-ab2058cb9bb2",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -16206,7 +16575,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-22T14:54:55.832Z",
+      "updatedAt": "2026-07-23T15:25:45.055Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -16629,8 +16998,8 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -2336,
-            -1248
+            -2320,
+            -1280
           ],
           "typeVersion": 1,
           "id": "e0a73338-37ae-4cea-8bdd-9b315bd0c696",
@@ -16772,6 +17141,7 @@
             "authentication": "appToken",
             "resource": "deal",
             "operation": "search",
+            "limit": 50,
             "filterGroupsUi": {
               "filterGroupsValues": [
                 {
@@ -16893,46 +17263,17 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=VoVocê é um SDR Consultivo da Midiacode.\n\nSeu trabalho é escrever e-mails personalizados para reengajar leads que já tiveram algum contato com a empresa.\n\nSeu objetivo NÃO é vender imediatamente.\n\nSeu objetivo é iniciar uma conversa relevante e despertar curiosidade suficiente para que o cliente responda ou aceite uma reunião.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\n\nA Midiacode não é apenas uma empresa de QR Codes.\n\nA empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\n\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos, plataformas de marketing, sistemas internos e processos desconectados entre si.\n\nA Midiacode resolve esse problema.\n\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\n\nO Smart QR é apenas uma das portas de entrada dessa infraestrutura.\n\nAtravés dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\n\nA plataforma também reúne tecnologias como:\n\n• Super App\n• Inteligência Artificial\n• Automações\n• Smart QR\n• Landing Pages\n• Lead Capture\n• Analytics\n• Integrações\n• APIs\n• CRM\n• Programas de fidelização\n• Gestão centralizada\n\nO verdadeiro valor da Midiacode não está nas funcionalidades isoladas.\n\nEstá em reduzir a complexidade tecnológica das empresas, eliminar processos fragmentados e criar jornadas digitais inteligentes.\n\nEla transforma vários sistemas desconectados em uma experiência integrada.\n\nSeu propósito é aumentar eficiência operacional, gerar inteligência sobre o comportamento do consumidor e criar novas oportunidades de negócio através da convergência tecnológica.\n\nSempre pense na Midiacode como uma empresa de transformação digital e infraestrutura phygital, nunca como uma empresa que vende QR Codes.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\n\nA Midiacode possui atuação consultiva.\n\nEla entende os desafios do cliente antes de sugerir soluções.\n\nEvite parecer um vendedor insistente.\n\nEscreva como alguém que entende negócios.\n\nNunca faça uma lista de funcionalidades.\n\nQuando mencionar a plataforma, fale sobre os benefícios que ela entrega:\n\n• simplificação da operação;\n• integração entre sistemas;\n• automação de processos;\n• convergência tecnológica;\n• maior eficiência operacional;\n• melhor experiência do cliente;\n• inteligência sobre jornadas físicas e digitais;\n• redução de retrabalho;\n• digitalização da jornada do consumidor.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome:\n{{ $('Get a contact').item.json.properties.firstname?.value || '' }} {{ $('Get a contact').item.json.properties.lastname?.value || '' }}\n\nEmpresa:\n{{ $('Get a company').item.json.properties.name?.value || $('Get a deal').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n\n{{ $('HTTP Request').item.json.associations.emails }}\n\n----------------------------------------------------\nINSTRUÇÕES\n----------------------------------------------------\n\nLeia todo o histórico antes de escrever.\n\nSe existir contexto anterior:\n\n• utilize-o naturalmente;\n• mencione assuntos discutidos anteriormente;\n• faça referência a desafios do cliente;\n• conecte a conversa às evoluções da Midiacode quando fizer sentido.\n\nCaso o histórico seja pequeno ou inexistente, produza um e-mail elegante e personalizado.\n\nNunca invente fatos.\n\nNunca diga que \"vi que...\" ou \"analisei seu histórico\".\n\nO cliente deve sentir que está continuando uma conversa.\n\n----------------------------------------------------\nESTILO\n----------------------------------------------------\n\nEscreva como uma pessoa experiente em relacionamento B2B.\n\nTom:\n\n• natural\n• profissional\n• consultivo\n• inteligente\n• elegante\n\nEvite frases prontas como:\n\n\"Espero que esteja bem.\"\n\n\"Passando para fazer follow-up.\"\n\n\"Só queria saber se...\"\n\n\"Gostaria de verificar...\"\n\n\"Teve oportunidade de analisar?\"\n\nPrefira abrir a conversa de maneira contextualizada.\n\nO e-mail deve transmitir valor antes de pedir uma reunião.\n\nQuando fizer sentido, utilize como gancho mudanças recentes da empresa, transformação digital, automação, IA ou necessidade de integrar tecnologias.\n\n----------------------------------------------------\nFORMATO\n----------------------------------------------------\n\nProduza apenas:\n\nAssunto:\n\nCorpo:\n\nEntre 80 e 180 palavras.\n\nFinalize sempre com uma pergunta aberta que incentive resposta.\n\nNunca utilize emojis.\n\nNunca use linguagem exageradamente comercial.\n\nNunca transforme o e-mail em propaganda.\n\nO cliente deve sentir que está conversando com um especialista, não com um vendedor.",
+            "text": "=VoVocê é um SDR Consultivo da Midiacode.\n\nSeu trabalho é escrever e-mails personalizados para reengajar leads que já tiveram algum contato com a empresa.\n\nSeu objetivo NÃO é vender imediatamente.\n\nSeu objetivo é iniciar uma conversa relevante e despertar curiosidade suficiente para que o cliente responda ou aceite uma reunião.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\n\nA Midiacode não é apenas uma empresa de QR Codes.\n\nA empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\n\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos, plataformas de marketing, sistemas internos e processos desconectados entre si.\n\nA Midiacode resolve esse problema.\n\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\n\nO Smart QR é apenas uma das portas de entrada dessa infraestrutura.\n\nAtravés dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\n\nA plataforma também reúne tecnologias como:\n\n• Super App\n• Inteligência Artificial\n• Automações\n• Smart QR\n• Landing Pages\n• Lead Capture\n• Analytics\n• Integrações\n• APIs\n• CRM\n• Programas de fidelização\n• Gestão centralizada\n\nO verdadeiro valor da Midiacode não está nas funcionalidades isoladas.\n\nEstá em reduzir a complexidade tecnológica das empresas, eliminar processos fragmentados e criar jornadas digitais inteligentes.\n\nEla transforma vários sistemas desconectados em uma experiência integrada.\n\nSeu propósito é aumentar eficiência operacional, gerar inteligência sobre o comportamento do consumidor e criar novas oportunidades de negócio através da convergência tecnológica.\n\nSempre pense na Midiacode como uma empresa de transformação digital e infraestrutura phygital, nunca como uma empresa que vende QR Codes.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\n\nA Midiacode possui atuação consultiva.\n\nEla entende os desafios do cliente antes de sugerir soluções.\n\nEvite parecer um vendedor insistente.\n\nEscreva como alguém que entende negócios.\n\nNunca faça uma lista de funcionalidades.\n\nQuando mencionar a plataforma, fale sobre os benefícios que ela entrega:\n\n• simplificação da operação;\n• integração entre sistemas;\n• automação de processos;\n• convergência tecnológica;\n• maior eficiência operacional;\n• melhor experiência do cliente;\n• inteligência sobre jornadas físicas e digitais;\n• redução de retrabalho;\n• digitalização da jornada do consumidor.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome:\n\n\nEmpresa:\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n\n{{ $('HTTP Request').item.json.associations.emails }}\n\n----------------------------------------------------\nINSTRUÇÕES\n----------------------------------------------------\n\nLeia todo o histórico antes de escrever.\n\nSe existir contexto anterior:\n\n• utilize-o naturalmente;\n• mencione assuntos discutidos anteriormente;\n• faça referência a desafios do cliente;\n• conecte a conversa às evoluções da Midiacode quando fizer sentido.\n\nCaso o histórico seja pequeno ou inexistente, produza um e-mail elegante e personalizado.\n\nNunca invente fatos.\n\nNunca diga que \"vi que...\" ou \"analisei seu histórico\".\n\nO cliente deve sentir que está continuando uma conversa.\n\n----------------------------------------------------\nESTILO\n----------------------------------------------------\n\nEscreva como uma pessoa experiente em relacionamento B2B.\n\nTom:\n\n• natural\n• profissional\n• consultivo\n• inteligente\n• elegante\n\nEvite frases prontas como:\n\n\"Espero que esteja bem.\"\n\n\"Passando para fazer follow-up.\"\n\n\"Só queria saber se...\"\n\n\"Gostaria de verificar...\"\n\n\"Teve oportunidade de analisar?\"\n\nPrefira abrir a conversa de maneira contextualizada.\n\nO e-mail deve transmitir valor antes de pedir uma reunião.\n\nQuando fizer sentido, utilize como gancho mudanças recentes da empresa, transformação digital, automação, IA ou necessidade de integrar tecnologias.\n\n----------------------------------------------------\nFORMATO\n----------------------------------------------------\n\nProduza apenas:\n\nAssunto:\n\nCorpo:\n\nEntre 80 e 180 palavras.\n\nFinalize sempre com uma pergunta aberta que incentive resposta.\n\nNunca utilize emojis.\n\nNunca use linguagem exageradamente comercial.\n\nNunca transforme o e-mail em propaganda.\n\nO cliente deve sentir que está conversando com um especialista, não com um vendedor.",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3.1,
           "position": [
-            256,
+            16,
             -1184
           ],
           "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
           "name": "AI Agent"
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "engagement",
-            "operation": "get",
-            "engagementId": {
-              "__rl": true,
-              "value": "={{ $('Get a contact').item.json.properties.hs_v2_date_entered_opportunity.value }}",
-              "mode": "id"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -416,
-            -1184
-          ],
-          "id": "35f252d0-bb51-465f-ae3a-7a91d4dd5e32",
-          "name": "Get an engagement",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "disabled": true,
-          "onError": "[REDACTED]"
         },
         {
           "parameters": {
@@ -16944,7 +17285,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            -192,
+            -400,
             -1184
           ],
           "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
@@ -16966,7 +17307,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            32,
+            -192,
             -1184
           ],
           "id": "87ce293b-7494-4664-b840-48c43a8d8689",
@@ -16986,8 +17327,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            240,
-            -1008
+            208,
+            -976
           ],
           "id": "27e067e1-fa54-4257-b204-8164b48402d4",
           "name": "Groq Chat Model",
@@ -17106,6 +17447,35 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "engagement",
+            "operation": "get",
+            "engagementId": {
+              "__rl": true,
+              "value": "={{ $('Get a contact').item.json.properties.hs_v2_date_entered_opportunity.value }}",
+              "mode": "id"
+            }
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            -432,
+            -1008
+          ],
+          "id": "35f252d0-bb51-465f-ae3a-7a91d4dd5e32",
+          "name": "Get an engagement",
+          "executeOnce": true,
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          },
+          "disabled": true,
+          "onError": "[REDACTED]"
         }
       ],
       "connections": {
@@ -17231,7 +17601,7 @@
           "main": [
             [
               {
-                "node": "Get an engagement",
+                "node": "HTTP Request",
                 "type": "main",
                 "index": 0
               }
@@ -17254,17 +17624,6 @@
             [
               {
                 "node": "Append row in sheet",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get an engagement": {
-          "main": [
-            [
-              {
-                "node": "HTTP Request",
                 "type": "main",
                 "index": 0
               }
@@ -17336,6 +17695,11 @@
               }
             ]
           ]
+        },
+        "Get an engagement": {
+          "main": [
+            []
+          ]
         }
       },
       "settings": {
@@ -17348,8 +17712,29 @@
         "templateCredsSetupCompleted": true
       },
       "nodeGroups": [],
-      "pinData": {},
-      "versionId": "0aee6928-0d82-43a1-9934-8d0060388f5a",
+      "pinData": {
+        "Schedule Trigger1": [
+          {
+            "json": {
+              "timestamp": "2026-07-23T15:47:30.140+01:00",
+              "Readable date": "July 23rd 2026, 3:47:30 pm",
+              "Readable time": "3:47:30 pm",
+              "Day of week": "Thursday",
+              "Year": "2026",
+              "Month": "July",
+              "Day of month": "23",
+              "Hour": "15",
+              "Minute": "47",
+              "Second": "30",
+              "Timezone": "Europe/Lisbon (UTC+01:00)"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ]
+      },
+      "versionId": "4d08b417-73eb-491c-bc87-14ce1f6f29fd",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -29585,14 +29970,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-21T20:46:08Z"
+          "lastTimeChecked": "2026-07-23T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-21T20:46:09Z"
+          "lastTimeChecked": "2026-07-23T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            203
+            205
           ]
         }
       },
@@ -34305,10 +34690,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1784760611,
+            "lastTimeChecked": 1784844823,
             "possibleDuplicates": [
-              "19f8c05b7ffd0310",
-              "19f8b7d13ad856bf"
+              "19f910aacabad64c",
+              "19f8f93ea980cc45"
             ]
           }
         }

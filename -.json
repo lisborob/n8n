@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785101302,
+            "lastTimeChecked": 1785192358,
             "possibleDuplicates": [
-              "19fa0543b933bb67",
-              "19fa024d753bf999"
+              "19fa5c1a54ca2350",
+              "19fa576df8d6dee5"
             ]
           }
         },
@@ -13677,7 +13677,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-24T06:38:04.460Z",
+      "updatedAt": "2026-07-27T15:15:23.092Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -13800,17 +13800,6 @@
           "name": "Wait1",
           "webhookId": "2073a831-bd63-4a96-86c1-a46a6cb536bc",
           "disabled": true
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            416,
-            1104
-          ],
-          "id": "392b55f9-29d7-4436-86ac-07620ec4c274",
-          "name": "No Operation, do nothing1"
         },
         {
           "parameters": {
@@ -14049,7 +14038,7 @@
           "typeVersion": 2.1,
           "position": [
             416,
-            1632
+            1568
           ],
           "id": "950dd5f4-61d3-4352-b70f-ba21c146a0f3",
           "name": "Send an Email3",
@@ -14370,13 +14359,7 @@
                 "index": 0
               }
             ],
-            [
-              {
-                "node": "No Operation, do nothing1",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Wait": {
@@ -14517,7 +14500,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "2ac741f5-8a44-4131-9350-68a432ee4050",
+      "versionId": "b399438a-29a1-477a-a6b1-bf0cf57eda17",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -16581,191 +16564,13 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-24T10:53:39.620Z",
+      "updatedAt": "2026-07-27T15:15:33.446Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
       "active": false,
       "isArchived": false,
       "nodes": [
-        {
-          "parameters": {
-            "rule": {
-              "interval": [
-                {
-                  "triggerAtHour": 8,
-                  "triggerAtMinute": 15
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.scheduleTrigger",
-          "typeVersion": 1.3,
-          "position": [
-            -3328,
-            -640
-          ],
-          "id": "1aba040b-fa76-4b80-8779-769500a4f368",
-          "name": "Schedule Trigger"
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "getAll",
-            "filters": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -3104,
-            -640
-          ],
-          "id": "e452edf6-6f55-4eb7-a0ec-6d2839c1ee67",
-          "name": "Get many deals",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "4280b8ba-6336-49bc-9bc7-36ba6dfcb238",
-                  "leftValue": "={{ $json.properties.dealstage }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
-                  }
-                },
-                {
-                  "id": "20dd6777-d0c1-4453-a5ca-cf03fe85687c",
-                  "leftValue": "={{ $json.stateChanges }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.3,
-          "position": [
-            -2880,
-            -640
-          ],
-          "id": "e313c647-3b85-44fd-b20b-46fbecb14f16",
-          "name": "If"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            -2656,
-            -544
-          ],
-          "id": "e85708ff-26f1-40cc-b852-4591626050bb",
-          "name": "No Operation, do nothing"
-        },
-        {
-          "parameters": {
-            "workflowId": {
-              "__rl": true,
-              "value": "DYs4g4Avo5oWwlKB",
-              "mode": "list",
-              "cachedResultUrl": "/workflow/DYs4g4Avo5oWwlKB",
-              "cachedResultName": "My Sub-Workflow - Auto Vendas - Thiago"
-            },
-            "workflowInputs": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "Deal ID": "={{ $('Get many deals').item.json.dealId }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "Deal ID",
-                  "displayName": "Deal ID",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Nome_cliente",
-                  "displayName": "Nome_cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Email_cliente",
-                  "displayName": "Email_cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Fase_deal",
-                  "displayName": "Fase_deal",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Texto_email_rascunho",
-                  "displayName": "Texto_email_rascunho",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": true
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.executeWorkflow",
-          "typeVersion": 1.3,
-          "position": [
-            -2656,
-            -736
-          ],
-          "id": "e24d3f9e-0344-4a9c-a6a9-ccbb5e8a0550",
-          "name": "Execute Workflow"
-        },
         {
           "parameters": {
             "rule": {
@@ -16784,216 +16589,6 @@
           ],
           "id": "b9474c6d-0c69-4cd1-b53a-9ebd3a116715",
           "name": "Schedule Trigger1"
-        },
-        {
-          "parameters": {
-            "rule": {
-              "interval": [
-                {
-                  "triggerAtHour": 8,
-                  "triggerAtMinute": 10
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.scheduleTrigger",
-          "typeVersion": 1.3,
-          "position": [
-            -3296,
-            -1200
-          ],
-          "id": "9c28f38d-c89b-459d-a265-2704f3bbed33",
-          "name": "Schedule Trigger2"
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "getAll",
-            "filters": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -3072,
-            -1200
-          ],
-          "id": "ee760a4a-5c98-40d4-a772-fc3d1f3d3004",
-          "name": "Get many deals2",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "4280b8ba-6336-49bc-9bc7-36ba6dfcb238",
-                  "leftValue": "={{ $json.properties.dealstage }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
-                  }
-                },
-                {
-                  "id": "20dd6777-d0c1-4453-a5ca-cf03fe85687c",
-                  "leftValue": "={{ $json.stateChanges }}",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.3,
-          "position": [
-            -2848,
-            -1200
-          ],
-          "id": "4f46456e-2532-48b1-94d8-39a08613144a",
-          "name": "If2"
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            -2624,
-            -1168
-          ],
-          "id": "9b660d73-d426-49c4-a50a-16b2afc46711",
-          "name": "No Operation, do nothing2"
-        },
-        {
-          "parameters": {
-            "workflowId": {
-              "__rl": true,
-              "value": "DYs4g4Avo5oWwlKB",
-              "mode": "list",
-              "cachedResultUrl": "/workflow/DYs4g4Avo5oWwlKB",
-              "cachedResultName": "My Sub-Workflow - Auto Vendas - Thiago"
-            },
-            "workflowInputs": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "Deal ID": "={{ $('Get many deals2').item.json.dealId }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "Deal ID",
-                  "displayName": "Deal ID",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Nome_cliente",
-                  "displayName": "Nome_cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Email_cliente",
-                  "displayName": "Email_cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Fase_deal",
-                  "displayName": "Fase_deal",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                },
-                {
-                  "id": "Texto_email_rascunho",
-                  "displayName": "Texto_email_rascunho",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "canBeUsedToMatch": true,
-                  "type": "string",
-                  "removed": false
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": true
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.executeWorkflow",
-          "typeVersion": 1.3,
-          "position": [
-            -2624,
-            -1296
-          ],
-          "id": "d370f6c2-db93-4bd1-bf77-9c7f6c25ad9c",
-          "name": "Execute Workflow2"
-        },
-        {
-          "parameters": {
-            "content": "Fluxo - **P2.3 e P2.4**\n",
-            "height": 352,
-            "width": 1056,
-            "color": "#126828"
-          },
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -3504,
-            -752
-          ],
-          "typeVersion": 1,
-          "id": "f2a019a4-8f78-4335-a8eb-52d1c4143318",
-          "name": "Sticky Note"
-        },
-        {
-          "parameters": {
-            "content": "Fluxo - **P2, P2.1 e P2.2**\n",
-            "height": 368,
-            "width": 1056,
-            "color": "#8F8300"
-          },
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -3456,
-            -1328
-          ],
-          "typeVersion": 1,
-          "id": "1e37561a-01f6-4f64-8eca-e18c628ebec9",
-          "name": "Sticky Note1"
         },
         {
           "parameters": {
@@ -17840,7 +17435,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            1184,
+            1040,
             -464
           ],
           "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
@@ -18599,32 +18194,6 @@
         },
         {
           "parameters": {
-            "model": {
-              "__rl": true,
-              "value": "gpt-3.5-turbo",
-              "mode": "list",
-              "cachedResultName": "gpt-3.5-turbo"
-            },
-            "builtInTools": {},
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-          "typeVersion": 1.3,
-          "position": [
-            1008,
-            -480
-          ],
-          "id": "e24a4404-d2fb-4fc6-a710-d661dbbe9f42",
-          "name": "OpenAI Chat Model",
-          "credentials": {
-            "openAiApi": {
-              "id": "iOj3xzcBtDD0DLRM",
-              "name": "Thiago - OpenAi account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
             "authentication": "appToken",
             "resource": "deal",
             "operation": "search",
@@ -18831,96 +18400,11 @@
         }
       ],
       "connections": {
-        "Schedule Trigger": {
-          "main": [
-            [
-              {
-                "node": "Get many deals",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get many deals": {
-          "main": [
-            [
-              {
-                "node": "If",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If": {
-          "main": [
-            [
-              {
-                "node": "Execute Workflow",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "No Operation, do nothing",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Execute Workflow": {
-          "main": [
-            []
-          ]
-        },
         "Schedule Trigger1": {
           "main": [
             [
               {
                 "node": "Consulta IDs registrados",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Schedule Trigger2": {
-          "main": [
-            [
-              {
-                "node": "Get many deals2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get many deals2": {
-          "main": [
-            [
-              {
-                "node": "If2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If2": {
-          "main": [
-            [
-              {
-                "node": "Execute Workflow2",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "No Operation, do nothing2",
                 "type": "main",
                 "index": 0
               }
@@ -19143,7 +18627,13 @@
         },
         "Groq Chat Model1": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "Corte de data negócios P": {
@@ -19379,17 +18869,6 @@
             ]
           ]
         },
-        "OpenAI Chat Model": {
-          "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent1",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Merge1": {
           "main": [
             [
@@ -19523,7 +19002,7 @@
           }
         ]
       },
-      "versionId": "30e177e6-235f-4cda-96c8-a38c1770100a",
+      "versionId": "6cf6a2c0-7928-4c8e-b8c9-8e287c8cad1d",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -31759,14 +31238,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-25T13:00:35Z"
+          "lastTimeChecked": "2026-07-27T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-25T13:00:58Z"
+          "lastTimeChecked": "2026-07-27T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            207
+            209
           ]
         }
       },
@@ -36479,10 +35958,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785105700,
+            "lastTimeChecked": 1785178737,
             "possibleDuplicates": [
-              "19fa09761d334b04",
-              "19fa05f1105ab2c5"
+              "19fa4f1d1b5b2cc4",
+              "19fa4b55bb6bb6d8"
             ]
           }
         }

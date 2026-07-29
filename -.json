@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785274641,
+            "lastTimeChecked": 1785362826,
             "possibleDuplicates": [
-              "19faaa92f450d97c",
-              "19faa4cfa3049fc4"
+              "19fafead2881483d",
+              "19fafe83166d3c36"
             ]
           }
         },
@@ -13677,7 +13677,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-27T15:15:23.092Z",
+      "updatedAt": "2026-07-29T14:45:28.214Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -14060,8 +14060,8 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            640,
-            1472
+            816,
+            1552
           ],
           "id": "b22b6571-adfb-4127-9918-b49cb88c7b8a",
           "name": "HTTP Request",
@@ -14500,7 +14500,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "b399438a-29a1-477a-a6b1-bf0cf57eda17",
+      "versionId": "66d9e28a-4309-4612-97ab-1eded1f7e6f0",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -16564,7 +16564,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-27T15:15:33.446Z",
+      "updatedAt": "2026-07-29T14:39:35.277Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -16594,7 +16594,7 @@
           "parameters": {
             "content": "Fluxo - **P1**\n",
             "height": 464,
-            "width": 3156,
+            "width": 3460,
             "color": "#800000"
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -16631,1021 +16631,9 @@
                 "Status": "Pendente",
                 "Empresa": "={{ $('Get a company').item.json.properties.name?.value || $('Get a deal').item.json.properties.dealname }}",
                 "Email": "={{ $('Get a contact').item.json.properties.email?.value || '' }}",
-                "Texto Proposto": "={{ $json.output }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "ID do Deal",
-                  "displayName": "ID do Deal",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Cliente",
-                  "displayName": "Cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Empresa",
-                  "displayName": "Empresa",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Email",
-                  "displayName": "Email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Fase",
-                  "displayName": "Fase",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Texto Proposto",
-                  "displayName": "Texto Proposto",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Data de Reexibicao",
-                  "displayName": "Data de Reexibicao",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Horario Sugerido",
-                  "displayName": "Horario Sugerido",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            608,
-            -1184
-          ],
-          "id": "cfe91737-e5cf-44aa-8b86-43ac5a41b73e",
-          "name": "Append row in sheet",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "search",
-            "limit": 50,
-            "filterGroupsUi": {
-              "filterGroupsValues": [
-                {
-                  "filtersUi": {
-                    "filterValues": [
-                      {
-                        "propertyName": "dealstage",
-                        "value": "[REDACTED]"
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "additionalFields": {
-              "direction": "DESCENDING",
-              "sortBy": "notes_last_updated"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -1760,
-            -1184
-          ],
-          "id": "955147b7-9539-40c4-8ebc-366e09cbdfb1",
-          "name": "Search for deals",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "get",
-            "dealId": {
-              "__rl": true,
-              "value": "={{ $json.id }}",
-              "mode": "id"
-            },
-            "filters": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -1088,
-            -1184
-          ],
-          "id": "b36bfcda-e63d-4244-8de8-0691a9cd12a3",
-          "name": "Get a deal",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "company",
-            "operation": "get",
-            "companyId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "id"
-            },
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -640,
-            -1184
-          ],
-          "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
-          "name": "Get a company",
-          "alwaysOutputData": false,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "operation": "get",
-            "contactId": {
-              "__rl": true,
-              "value": "={{ $json.associations.associatedVids[0] }}",
-              "mode": "id"
-            },
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -864,
-            -1184
-          ],
-          "id": "c62d7c47-9dae-4e8e-80df-53b224a17ce6",
-          "name": "Get a contact",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "promptType": "define",
-            "text": "=VoVocê é um SDR Consultivo da Midiacode.\n\nSeu trabalho é escrever e-mails personalizados para reengajar leads que já tiveram algum contato com a empresa.\n\nSeu objetivo NÃO é vender imediatamente.\n\nSeu objetivo é iniciar uma conversa relevante e despertar curiosidade suficiente para que o cliente responda ou aceite uma reunião.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\n\nA Midiacode não é apenas uma empresa de QR Codes.\n\nA empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\n\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos, plataformas de marketing, sistemas internos e processos desconectados entre si.\n\nA Midiacode resolve esse problema.\n\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\n\nO Smart QR é apenas uma das portas de entrada dessa infraestrutura.\n\nAtravés dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\n\nA plataforma também reúne tecnologias como:\n\n• Super App\n• Inteligência Artificial\n• Automações\n• Smart QR\n• Landing Pages\n• Lead Capture\n• Analytics\n• Integrações\n• APIs\n• CRM\n• Programas de fidelização\n• Gestão centralizada\n\nO verdadeiro valor da Midiacode não está nas funcionalidades isoladas.\n\nEstá em reduzir a complexidade tecnológica das empresas, eliminar processos fragmentados e criar jornadas digitais inteligentes.\n\nEla transforma vários sistemas desconectados em uma experiência integrada.\n\nSeu propósito é aumentar eficiência operacional, gerar inteligência sobre o comportamento do consumidor e criar novas oportunidades de negócio através da convergência tecnológica.\n\nSempre pense na Midiacode como uma empresa de transformação digital e infraestrutura phygital, nunca como uma empresa que vende QR Codes.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\n\nA Midiacode possui atuação consultiva.\n\nEla entende os desafios do cliente antes de sugerir soluções.\n\nEvite parecer um vendedor insistente.\n\nEscreva como alguém que entende negócios.\n\nNunca faça uma lista de funcionalidades.\n\nQuando mencionar a plataforma, fale sobre os benefícios que ela entrega:\n\n• simplificação da operação;\n• integração entre sistemas;\n• automação de processos;\n• convergência tecnológica;\n• maior eficiência operacional;\n• melhor experiência do cliente;\n• inteligência sobre jornadas físicas e digitais;\n• redução de retrabalho;\n• digitalização da jornada do consumidor.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome:\n\n\nEmpresa:\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n\n{{ $('HTTP Request').item.json.associations.emails }}\n\n----------------------------------------------------\nINSTRUÇÕES\n----------------------------------------------------\n\nLeia todo o histórico antes de escrever.\n\nSe existir contexto anterior:\n\n• utilize-o naturalmente;\n• mencione assuntos discutidos anteriormente;\n• faça referência a desafios do cliente;\n• conecte a conversa às evoluções da Midiacode quando fizer sentido.\n\nCaso o histórico seja pequeno ou inexistente, produza um e-mail elegante e personalizado.\n\nNunca invente fatos.\n\nNunca diga que \"vi que...\" ou \"analisei seu histórico\".\n\nO cliente deve sentir que está continuando uma conversa.\n\n----------------------------------------------------\nESTILO\n----------------------------------------------------\n\nEscreva como uma pessoa experiente em relacionamento B2B.\n\nTom:\n\n• natural\n• profissional\n• consultivo\n• inteligente\n• elegante\n\nEvite frases prontas como:\n\n\"Espero que esteja bem.\"\n\n\"Passando para fazer follow-up.\"\n\n\"Só queria saber se...\"\n\n\"Gostaria de verificar...\"\n\n\"Teve oportunidade de analisar?\"\n\nPrefira abrir a conversa de maneira contextualizada.\n\nO e-mail deve transmitir valor antes de pedir uma reunião.\n\nQuando fizer sentido, utilize como gancho mudanças recentes da empresa, transformação digital, automação, IA ou necessidade de integrar tecnologias.\n\n----------------------------------------------------\nFORMATO\n----------------------------------------------------\n\nProduza apenas:\n\nAssunto:\n\nCorpo:\n\nEntre 80 e 180 palavras.\n\nFinalize sempre com uma pergunta aberta que incentive resposta.\n\nNunca utilize emojis.\n\nNunca use linguagem exageradamente comercial.\n\nNunca transforme o e-mail em propaganda.\n\nO cliente deve sentir que está conversando com um especialista, não com um vendedor.",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3.1,
-          "position": [
-            16,
-            -1184
-          ],
-          "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
-          "name": "AI Agent"
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact').item.json.vid }}?associations=emails",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            -400,
-            -1184
-          ],
-          "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
-          "name": "HTTP Request",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            -192,
-            -1184
-          ],
-          "id": "87ce293b-7494-4664-b840-48c43a8d8689",
-          "name": "HTTP Request1",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "model": "llama-3.1-8b-instant",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
-          "typeVersion": 1,
-          "position": [
-            48,
-            -992
-          ],
-          "id": "27e067e1-fa54-4257-b204-8164b48402d4",
-          "name": "Groq Chat Model",
-          "credentials": {
-            "groqApi": {
-              "id": "krEnVyEOp7mxJ92O",
-              "name": "Groq Robson-Midiacode"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "beforeOrEquals"
-                  }
-                },
-                {
-                  "id": "d5c86600-0878-4b5e-9a73-307b0c7e6af8",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 90 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "afterOrEquals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -1536,
-            -1184
-          ],
-          "id": "2b17a4ad-767f-4280-a167-85b5c6e8fe60",
-          "name": "Corte de data negócios P1"
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "loose",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
-                  "leftValue": "={{ $('Consulta IDs registrados').all().map(item => String(item.json['ID do Deal'])) }}",
-                  "rightValue": "={{ String($json.id) }}",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notContains"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "looseTypeValidation": true,
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -1312,
-            -1184
-          ],
-          "id": "b27f7d51-bc37-490e-9231-a808b23c0c32",
-          "name": "Filter1 - ID já registrado?"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -1984,
-            -1184
-          ],
-          "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
-          "name": "Consulta IDs registrados",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "engagement",
-            "operation": "get",
-            "engagementId": {
-              "__rl": true,
-              "value": "={{ $('Get a contact').item.json.properties.hs_v2_date_entered_opportunity.value }}",
-              "mode": "id"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -432,
-            -1008
-          ],
-          "id": "35f252d0-bb51-465f-ae3a-7a91d4dd5e32",
-          "name": "Get an engagement",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "disabled": true,
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "rule": {
-              "interval": [
-                {
-                  "triggerAtHour": 8
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.scheduleTrigger",
-          "typeVersion": 1.3,
-          "position": [
-            -2192,
-            -688
-          ],
-          "id": "7d95214b-14eb-48fd-aeb1-d8cd57f84626",
-          "name": "Schedule Trigger3"
-        },
-        {
-          "parameters": {
-            "content": "Fluxo - **P2, P2.1 e P2.2**\n",
-            "height": 464,
-            "width": 4052,
-            "color": "#916403"
-          },
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -2320,
-            -784
-          ],
-          "typeVersion": 1,
-          "id": "fecce526-a3cc-4ab4-a139-4138d4451cdd",
-          "name": "Sticky Note3"
-        },
-        {
-          "parameters": {
-            "operation": "append",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
-                "Cliente": "={{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}",
-                "Status": "Pendente",
-                "Empresa": "={{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}",
-                "Email": "={{ $('Get a contact1').item.json.properties.email?.value || '' }}",
-                "Texto Proposto": "={{ $json.output }}"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "ID do Deal",
-                  "displayName": "ID do Deal",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Cliente",
-                  "displayName": "Cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Empresa",
-                  "displayName": "Empresa",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Email",
-                  "displayName": "Email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Fase",
-                  "displayName": "Fase",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Texto Proposto",
-                  "displayName": "Texto Proposto",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Data de Reexibicao",
-                  "displayName": "Data de Reexibicao",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Horario Sugerido",
-                  "displayName": "Horario Sugerido",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            1424,
-            -688
-          ],
-          "id": "72f28f1c-ed7d-49c0-89ec-005dcb3ba6a6",
-          "name": "Append row in sheet1",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "search",
-            "returnAll": true,
-            "filterGroupsUi": {
-              "filterGroupsValues": [
-                {
-                  "filtersUi": {
-                    "filterValues": [
-                      {
-                        "propertyName": "dealstage",
-                        "value": "[REDACTED]"
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "additionalFields": {
-              "direction": "DESCENDING",
-              "sortBy": "notes_last_updated"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -1520,
-            -768
-          ],
-          "id": "b03eaf08-d043-459c-a420-9a08c486891e",
-          "name": "Search for deals1",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "get",
-            "dealId": {
-              "__rl": true,
-              "value": "={{ $json.id }}",
-              "mode": "id"
-            },
-            "filters": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -80,
-            -688
-          ],
-          "id": "bfe0398b-404d-4e4f-8f3e-445c947be21e",
-          "name": "Get a deal1",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "company",
-            "operation": "get",
-            "companyId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "id"
-            },
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            368,
-            -688
-          ],
-          "id": "22f73655-59ce-492b-9e46-aaf70bddced6",
-          "name": "Get a company1",
-          "alwaysOutputData": false,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "operation": "get",
-            "contactId": {
-              "__rl": true,
-              "value": "={{ $json.associations.associatedVids[0] }}",
-              "mode": "id"
-            },
-            "additionalFields": {}
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            144,
-            -688
-          ],
-          "id": "227458e7-51c3-4133-8bd8-9d1ee0f51780",
-          "name": "Get a contact1",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "promptType": "define",
-            "text": "=Você é um SDR / Executivo de Contas Consultivo da Midiacode.\n\nSeu trabalho é escrever e-mails personalizados de acompanhamento (follow-up) para clientes que já receberam uma proposta comercial ou desenho de solução técnica (Fases de Negociação P2, P2.1 e P2.2).\n\nSeu objetivo NÃO é pressionar pelo fechamento da venda ou cobrar assinaturas.\n\nSeu objetivo é garantir que a solução proposta está alinhada às expectativas, esclarecer eventuais dúvidas técnicas ou de negócio e sugerir uma breve reunião de atualização e alinhamento do projeto.\n\nSOBRE A MIDIACODE\nA Midiacode não é apenas uma empresa de QR Codes.\n\nA empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\n\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos, plataformas de marketing, sistemas internos e processos desconectados entre si.\n\nA Midiacode resolve esse problema.\n\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\n\nO Smart QR é apenas uma das portas de entrada dessa infraestrutura.\n\nAtravés dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\n\nA plataforma também reúne tecnologias como:\n\n• Super App\n• Inteligência Artificial\n• Automações\n• Smart QR\n• Landing Pages\n• Lead Capture\n• Analytics\n• Integrações\n• APIs\n• CRM\n• Programas de fidelização\n• Gestão centralizada\n\nO verdadeiro valor da Midiacode não está nas funcionalidades isoladas.\n\nEstá em reduzir a complexidade tecnológica das empresas, eliminar processos fragmentados e criar jornadas digitais inteligentes.\n\nEla transforma vários sistemas desconectados em uma experiência integrada.\n\nSeu propósito é aumentar eficiência operacional, gerar inteligência sobre o comportamento do consumidor e criar novas oportunidades de negócio através da convergência tecnológica.\n\nSempre pense na Midiacode como uma empresa de transformação digital e infraestrutura phygital, nunca como uma empresa que vende QR Codes.\n\nPOSICIONAMENTO\nA Midiacode possui atuação consultiva.\n\nEla entende os desafios do cliente antes de sugerir soluções.\n\nEvite parecer um vendedor insistente ou alguém cobrando uma resposta do comercial.\n\nEscreva como alguém que entende de arquitetura de negócios e tecnologia.\n\nNunca faça uma lista de funcionalidades.\n\nQuando mencionar a plataforma ou a proposta enviada, fale sobre os benefícios que ela entrega ao cenário do cliente:\n\n• simplificação da operação;\n• integração entre sistemas;\n• automação de processos;\n• convergência tecnológica;\n• maior eficiência operacional;\n• melhor experiência do cliente;\n• inteligência sobre jornadas físicas e digitais;\n• redução de retrabalho;\n• digitalização da jornada do consumidor.\n\nDADOS DO CLIENTE\nNome: {{ $('Merge').item.json.properties.dealname }}\nEmpresa: {{ $('Get a company1').item.json.properties.name.value }}{{ $('Get a company1').item.json.properties.name.versions[0].value }}\n\nHISTÓRICO\n{{ $('HTTP Request2').item.json.associations.emails }}\n\nINSTRUÇÕES\nLeia todo o histórico antes de escrever.\n\nComo o cliente já recebeu uma proposta ou alinhamento prévio:\n\n• mencione o contexto dos desafios discutidos anteriormente que motivaram a nossa proposta;\n• demonstre interesse em saber se o escopo desenhado fez sentido para o momento atual da empresa;\n• o foco da mensagem deve ser um convite sutil para uma reunião rápida de atualização (status report) ou para tirar dúvidas do projeto.\n\nCaso o histórico seja pequeno, produza um e-mail elegante focando em revisar o alinhamento da proposta com o momento tecnológico da empresa.\n\nNunca invente fatos.\n\nNunca diga que \"vi que...\", \"analisei seu histórico\" ou \"estou cobrando a proposta\".\n\nO cliente deve sentir que está continuando uma conversa de alto nível estratégico.\n\nESTILO\nEscreva como uma pessoa experiente em relacionamento e arquitetura B2B.\n\nTom:\n\n• natural\n• profissional\n• consultivo\n• inteligente\n• elegante\n\nEvite absolutamente frases prontas e clichês de cobrança como:\n\n\"Espero que esteja bem.\"\n\"Passando para fazer follow-up.\"\n\"Só queria saber se...\"\n\"Gostaria de verificar o status da proposta...\"\n\"Teve oportunidade de analisar nosso orçamento?\"\n\nPrefira abrir a conversa conectando-se diretamente ao valor do projeto discutido.\n\nO e-mail deve transmitir segurança e parceria estratégica antes de sugerir a reunião de atualização.\n\nFORMATO\nProduza apenas:\n\nAssunto:\n\nCorpo:\n\nEntre 80 e 180 palavras.\n\nFinalize sempre com uma pergunta aberta e natural sugerindo o papo de atualização/alinhamento.\n\nNunca utilize emojis.\n\nNunca use linguagem exageradamente comercial.\n\nNunca transforme o e-mail em cobrança.\n\nO cliente deve sentir que está conversando com um consultor especialista focado no sucesso do projeto dele, não com um vendedor ansioso pelo fechamento.",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3.1,
-          "position": [
-            1024,
-            -688
-          ],
-          "id": "adc6c50f-0bb7-4965-bc26-c7d10ad79c9e",
-          "name": "AI Agent1"
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact1').item.json.vid }}?associations=emails",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            608,
-            -688
-          ],
-          "id": "0c50dcd5-053c-4c98-b397-7d8b4f528867",
-          "name": "HTTP Request2",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            816,
-            -688
-          ],
-          "id": "41827908-7a96-4c86-a352-9a310b2aacd4",
-          "name": "HTTP Request3",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "model": "openai/gpt-oss-120b",
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
-          "typeVersion": 1,
-          "position": [
-            1040,
-            -464
-          ],
-          "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
-          "name": "Groq Chat Model1",
-          "credentials": {
-            "groqApi": {
-              "id": "krEnVyEOp7mxJ92O",
-              "name": "Groq Robson-Midiacode"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "beforeOrEquals"
-                  }
-                },
-                {
-                  "id": "d5c86600-0878-4b5e-9a73-307b0c7e6af8",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 90 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "afterOrEquals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -528,
-            -688
-          ],
-          "id": "fe8630ad-1505-44dc-8136-6a7503f26603",
-          "name": "Corte de data negócios P"
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "loose",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
-                  "leftValue": "={{ $('Consulta IDs registrados1').all().map(item => String(item.json['ID do Deal'])) }}",
-                  "rightValue": "={{ String($json.id) }}",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notContains"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "looseTypeValidation": true,
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -304,
-            -688
-          ],
-          "id": "a201d3cc-bfb6-48f9-9fef-0a3168b433cb",
-          "name": "Filter1 - ID já registrado?1"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -1952,
-            -704
-          ],
-          "id": "1791c515-a694-47c6-afdf-d6e6f1921701",
-          "name": "Consulta IDs registrados1",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "engagement",
-            "operation": "get",
-            "engagementId": {
-              "__rl": true,
-              "value": "={{ $('Get a contact1').item.json.properties.hs_v2_date_entered_opportunity.value }}",
-              "mode": "id"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            576,
-            -496
-          ],
-          "id": "7df91867-51fd-47cf-8198-04cbdffb53f6",
-          "name": "Get an engagement1",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "disabled": true,
-          "onError": "[REDACTED]"
-        },
-        {
-          "parameters": {
-            "rule": {
-              "interval": [
-                {
-                  "triggerAtHour": 8
-                }
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.scheduleTrigger",
-          "typeVersion": 1.3,
-          "position": [
-            -2176,
-            -144
-          ],
-          "id": "230ca960-506b-4247-8bdb-91a533f8991f",
-          "name": "Schedule Trigger4"
-        },
-        {
-          "parameters": {
-            "content": "Fluxo - **P2.3 e P2.4**\n\n",
-            "height": 848,
-            "width": 3156,
-            "color": "#226F06"
-          },
-          "type": "n8n-nodes-base.stickyNote",
-          "position": [
-            -2272,
-            -288
-          ],
-          "typeVersion": 1,
-          "id": "0f6418a9-3995-4c47-bfe2-3f1e6ac2d06c",
-          "name": "Sticky Note4"
-        },
-        {
-          "parameters": {
-            "operation": "append",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "ID do Deal": "={{ $('Corte de data negócios P2').item.json.id }}",
-                "Cliente": "={{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}",
-                "Status": "Pendente",
-                "Empresa": "={{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}",
-                "Email": "={{ $('Get a contact2').item.json.properties.email?.value || '' }}",
-                "Texto Proposto": "={{ $json.output }}"
+                "Texto Proposto": "={{ $json.corpo }}",
+                "Fase": "[REDACTED]",
+                "Assunto": "={{ $json.assunto }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -17749,11 +16737,11 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            640,
-            -176
+            1024,
+            -1184
           ],
-          "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
-          "name": "Append row in sheet2",
+          "id": "cfe91737-e5cf-44aa-8b86-43ac5a41b73e",
+          "name": "Append row in sheet",
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "Pq7AiEm7Pa3TvTE4",
@@ -17766,7 +16754,6 @@
             "authentication": "appToken",
             "resource": "deal",
             "operation": "search",
-            "limit": 50,
             "filterGroupsUi": {
               "filterGroupsValues": [
                 {
@@ -17774,7 +16761,7 @@
                     "filterValues": [
                       {
                         "propertyName": "dealstage",
-                        "value": "1345937020"
+                        "value": "[REDACTED]"
                       }
                     ]
                   }
@@ -17789,11 +16776,11 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -1744,
-            -272
+            -1760,
+            -1184
           ],
-          "id": "9642864f-7ee7-4a4e-b806-f7d4409d2c8c",
-          "name": "Search for deals2",
+          "id": "955147b7-9539-40c4-8ebc-366e09cbdfb1",
+          "name": "Search for deals",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -17817,7 +16804,928 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -1056,
+            -672,
+            -1184
+          ],
+          "id": "b36bfcda-e63d-4244-8de8-0691a9cd12a3",
+          "name": "Get a deal",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "company",
+            "operation": "get",
+            "companyId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "id"
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            -224,
+            -1184
+          ],
+          "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
+          "name": "Get a company",
+          "alwaysOutputData": false,
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          },
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "operation": "get",
+            "contactId": {
+              "__rl": true,
+              "value": "={{ $json.associations.associatedVids[0] }}",
+              "mode": "id"
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            -448,
+            -1184
+          ],
+          "id": "c62d7c47-9dae-4e8e-80df-53b224a17ce6",
+          "name": "Get a contact",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          },
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Você é um SDR Consultivo da Midiacode.\nSeu trabalho é escrever e-mails personalizados para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa.\nSeu objetivo principal é iniciar uma conversa relevante, baseada no primeiro contato, e despertar curiosidade suficiente para requisitar e agendar uma próxima reunião. NÃO é vender imediatamente.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode não é apenas uma empresa de QR Codes. A empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos e processos desconectados entre si. A Midiacode resolve esse problema.\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\nO Smart QR é apenas uma das portas de entrada. Através dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\nO verdadeiro valor da Midiacode está em reduzir a complexidade tecnológica, eliminar processos fragmentados e criar jornadas digitais inteligentes. Posicione-nos como transformação digital e infraestrutura phygital.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\nA Midiacode possui atuação consultiva. Ela entende os desafios do cliente antes de sugerir soluções.\nEvite parecer um vendedor insistente. Escreva como alguém que entende negócios. Nunca faça uma lista de funcionalidades.\nFoque nestes benefícios: simplificação da operação, integração entre sistemas, automação, maior eficiência operacional e inteligência de dados.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('HTTP Request1').item.json.results || $('HTTP Request1').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 1500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever.\n2. Utilize o contexto anterior naturalmente, mencione desafios discutidos e conecte à necessidade de uma próxima reunião.\n3. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica.\n4. Escreva com tom natural, profissional, consultivo e inteligente.\n5. Evite frases prontas (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\").\n6. NUNCA invente fatos, NUNCA use emojis e NUNCA use linguagem exageradamente comercial.\n7. Se \"Nome\" estiver vazio, inicie com \"Olá,\". Se \"Empresa\" estiver vazia, diga \"sua empresa\".\n8. Assinatura obrigatória no final: \"SDR – Midiacode\" (nunca use [Seu Nome]).\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3.1,
+          "position": [
+            432,
+            -1184
+          ],
+          "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
+          "name": "AI Agent"
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact').item.json.vid }}?associations=emails",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            16,
+            -1184
+          ],
+          "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
+          "name": "HTTP Request",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            224,
+            -1184
+          ],
+          "id": "87ce293b-7494-4664-b840-48c43a8d8689",
+          "name": "HTTP Request1",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": "llama-3.3-70b-versatile",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            576,
+            -944
+          ],
+          "id": "27e067e1-fa54-4257-b204-8164b48402d4",
+          "name": "Groq Chat Model",
+          "credentials": {
+            "groqApi": {
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                  "operator": {
+                    "type": "dateTime",
+                    "operation": "beforeOrEquals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1536,
+            -1184
+          ],
+          "id": "2b17a4ad-767f-4280-a167-85b5c6e8fe60",
+          "name": "Corte de data negócios P1"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ $('Consulta IDs registrados').all().map(item => String(item.json['ID do Deal'])) }}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notContains"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1376,
+            -1184
+          ],
+          "id": "b27f7d51-bc37-490e-9231-a808b23c0c32",
+          "name": "Filter1 - ID já registrado?"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1984,
+            -1184
+          ],
+          "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
+          "name": "Consulta IDs registrados",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "triggerAtHour": 7
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -2192,
+            -688
+          ],
+          "id": "7d95214b-14eb-48fd-aeb1-d8cd57f84626",
+          "name": "Schedule Trigger3"
+        },
+        {
+          "parameters": {
+            "content": "Fluxo - **P2, P2.1 e P2.2**\n",
+            "height": 464,
+            "width": 4340,
+            "color": "#916403"
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -2272,
+            -784
+          ],
+          "typeVersion": 1,
+          "id": "fecce526-a3cc-4ab4-a139-4138d4451cdd",
+          "name": "Sticky Note3"
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
+                "Cliente": "={{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}",
+                "Status": "Pendente",
+                "Empresa": "={{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}",
+                "Email": "={{ $('Get a contact1').item.json.properties.email?.value || '' }}",
+                "Texto Proposto": "={{ $json.corpo }}",
+                "Assunto": "={{ $json.assunto }}",
+                "Fase": "[REDACTED]"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "ID do Deal",
+                  "displayName": "ID do Deal",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Cliente",
+                  "displayName": "Cliente",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Empresa",
+                  "displayName": "Empresa",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Fase",
+                  "displayName": "Fase",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Assunto",
+                  "displayName": "Assunto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto Proposto",
+                  "displayName": "Texto Proposto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Data de Reexibicao",
+                  "displayName": "Data de Reexibicao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Horario Sugerido",
+                  "displayName": "Horario Sugerido",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            1776,
+            -688
+          ],
+          "id": "72f28f1c-ed7d-49c0-89ec-005dcb3ba6a6",
+          "name": "Append row in sheet1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "deal",
+            "operation": "search",
+            "returnAll": true,
+            "filterGroupsUi": {
+              "filterGroupsValues": [
+                {
+                  "filtersUi": {
+                    "filterValues": [
+                      {
+                        "propertyName": "dealstage",
+                        "value": "[REDACTED]"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "additionalFields": {
+              "direction": "DESCENDING",
+              "sortBy": "notes_last_updated"
+            }
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            -1520,
+            -768
+          ],
+          "id": "b03eaf08-d043-459c-a420-9a08c486891e",
+          "name": "Search for deals1",
+          "executeOnce": true,
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "deal",
+            "operation": "get",
+            "dealId": {
+              "__rl": true,
+              "value": "={{ $json.id }}",
+              "mode": "id"
+            },
+            "filters": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            336,
+            -704
+          ],
+          "id": "bfe0398b-404d-4e4f-8f3e-445c947be21e",
+          "name": "Get a deal1",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "company",
+            "operation": "get",
+            "companyId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "id"
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            784,
+            -688
+          ],
+          "id": "22f73655-59ce-492b-9e46-aaf70bddced6",
+          "name": "Get a company1",
+          "alwaysOutputData": false,
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          },
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "operation": "get",
+            "contactId": {
+              "__rl": true,
+              "value": "={{ $json.associations.associatedVids[0] }}",
+              "mode": "id"
+            },
+            "additionalFields": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            560,
+            -688
+          ],
+          "id": "227458e7-51c3-4133-8bd8-9d1ee0f51780",
+          "name": "Get a contact1",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          },
+          "onError": "[REDACTED]"
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Você é um Executivo de Contas Consultivo da Midiacode.\nSeu objetivo é escrever e-mails de acompanhamento inicial (follow-up) para clientes que receberam a proposta comercial recentemente (Fases P2, P2.1 e P2.2).\nObjetivo principal: Confirmar o entendimento do escopo, validar se a solução atende às necessidades técnicas/operacionais da empresa e sugerir uma breve reunião de alinhamento. NÃO é pressionar fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode oferece uma infraestrutura de convergência tecnológica que conecta o mundo físico ao digital (phygital). Resolvemos o caos de sistemas desconectados (ERPs, CRMs, apps) integrando pessoas, processos e canais por automação, Smart QR, Super App e IA.\nNosso valor: reduzir complexidade tecnológica, eliminar processos fragmentados, gerar inteligência e aumentar eficiência operacional. Posicione-nos como transformação digital, nunca como empresa de QR Code.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome: {{ $('Get a contact1').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  ($('HTTP Request3').item.json.results || $('HTTP Request3').item.json.associations?.emails || [])\n    .map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email))\n    .join('\\n---\\n')\n    .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte com os desafios operacionais, de integração ou processos discutidos nas conversas anteriores.\n2. Destaque o valor da infraestrutura em resolver a complexidade tecnológica e conectar a operação da empresa.\n3. Escreva como um especialista consultivo B2B de alto nível, focado em ROI, eficiência e parceria estratégica.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança comercial (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Executivo de Contas – Midiacode\" (nunca use [Seu Nome]).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 80 e 180 palavras.\n- Finalize sempre com uma pergunta aberta sugerindo uma conversa rápida de alinhamento.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos).\nUse estritamente esta estrutura para que o sistema leia os dados:\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3.1,
+          "position": [
+            1344,
+            -704
+          ],
+          "id": "adc6c50f-0bb7-4965-bc26-c7d10ad79c9e",
+          "name": "AI Agent1"
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact1').item.json.vid }}?associations=emails",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            1024,
+            -688
+          ],
+          "id": "0c50dcd5-053c-4c98-b397-7d8b4f528867",
+          "name": "HTTP Request2",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            1232,
+            -688
+          ],
+          "id": "41827908-7a96-4c86-a352-9a310b2aacd4",
+          "name": "HTTP Request3",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "model": "llama-3.3-70b-versatile",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+          "typeVersion": 1,
+          "position": [
+            1376,
+            -464
+          ],
+          "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
+          "name": "Groq Chat Model1",
+          "credentials": {
+            "groqApi": {
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                  "operator": {
+                    "type": "dateTime",
+                    "operation": "beforeOrEquals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -640,
+            -720
+          ],
+          "id": "fe8630ad-1505-44dc-8136-6a7503f26603",
+          "name": "Corte de data negócios P"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ $('Consulta IDs registrados1').all().map(item => String(item.json['ID do Deal'])) }}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notContains"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -384,
+            -720
+          ],
+          "id": "a201d3cc-bfb6-48f9-9fef-0a3168b433cb",
+          "name": "Filter1 - ID já registrado?1"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1952,
+            -704
+          ],
+          "id": "1791c515-a694-47c6-afdf-d6e6f1921701",
+          "name": "Consulta IDs registrados1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "triggerAtHour": 6
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.3,
+          "position": [
+            -2176,
+            -144
+          ],
+          "id": "230ca960-506b-4247-8bdb-91a533f8991f",
+          "name": "Schedule Trigger4"
+        },
+        {
+          "parameters": {
+            "content": "Fluxo - **P2.3 e P2.4**\n\n",
+            "height": 848,
+            "width": 3444,
+            "color": "#226F06"
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -2224,
+            -288
+          ],
+          "typeVersion": 1,
+          "id": "0f6418a9-3995-4c47-bfe2-3f1e6ac2d06c",
+          "name": "Sticky Note4"
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4').item.json.id }}",
+                "Cliente": "={{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}",
+                "Status": "Pendente",
+                "Empresa": "={{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}",
+                "Email": "={{ $('Get a contact2').item.json.properties.email?.value || $('Get a contact2').item.json.properties.email || '' }}",
+                "Texto Proposto": "={{ $json.corpo }}",
+                "Fase": "[REDACTED]",
+                "Assunto": "={{ $json.assunto }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "ID do Deal",
+                  "displayName": "ID do Deal",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Cliente",
+                  "displayName": "Cliente",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Empresa",
+                  "displayName": "Empresa",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Fase",
+                  "displayName": "Fase",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Assunto",
+                  "displayName": "Assunto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto Proposto",
+                  "displayName": "Texto Proposto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Data de Reexibicao",
+                  "displayName": "Data de Reexibicao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Horario Sugerido",
+                  "displayName": "Horario Sugerido",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            976,
+            -160
+          ],
+          "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
+          "name": "Append row in sheet2",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "authentication": "appToken",
+            "resource": "deal",
+            "operation": "get",
+            "dealId": {
+              "__rl": true,
+              "value": "={{ $json.id }}",
+              "mode": "id"
+            },
+            "filters": {}
+          },
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
+          "position": [
+            -640,
             -176
           ],
           "id": "5f0e9951-75f6-407c-8793-9631dba046fa",
@@ -17844,7 +17752,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -608,
+            -192,
             -176
           ],
           "id": "74fc6ecc-8262-4db0-8459-7b74443bf65a",
@@ -17872,7 +17780,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -832,
+            -416,
             -176
           ],
           "id": "e05160cf-fb0c-4f80-99f0-527ee8f09017",
@@ -17887,159 +17795,23 @@
         },
         {
           "parameters": {
-            "promptType": "define",
-            "text": "=Você é um SDR Consultivo da Midiacode.\n\nSeu trabalho é escrever e-mails personalizados para reengajar leads que já tiveram algum contato com a empresa.\n\nSeu objetivo NÃO é vender imediatamente.\n\nSeu objetivo é iniciar uma conversa relevante e despertar curiosidade suficiente para que o cliente responda ou aceite uma reunião.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\n\nA Midiacode não é apenas uma empresa de QR Codes.\n\nA empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\n\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos, plataformas de marketing, sistemas internos e processos desconectados entre si.\n\nA Midiacode resolve esse problema.\n\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\n\nO Smart QR é apenas uma das portas de entrada dessa infraestrutura.\n\nAtravés dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\n\nA plataforma também reúne tecnologias como:\n\n• Super App\n• Inteligência Artificial\n• Automações\n• Smart QR\n• Landing Pages\n• Lead Capture\n• Analytics\n• Integrações\n• APIs\n• CRM\n• Programas de fidelização\n• Gestão centralizada\n\nO verdadeiro valor da Midiacode não está nas funcionalidades isoladas.\n\nEstá em reduzir a complexidade tecnológica das empresas, eliminar processos fragmentados e criar jornadas digitais inteligentes.\n\nEla transforma vários sistemas desconectados em uma experiência integrada.\n\nSeu propósito é aumentar eficiência operacional, gerar inteligência sobre o comportamento do consumidor e criar novas oportunidades de negócio através da convergência tecnológica.\n\nSempre pense na Midiacode como uma empresa de transformação digital e infraestrutura phygital, nunca como uma empresa que vende QR Codes.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\n\nA Midiacode possui atuação consultiva.\n\nEla entende os desafios do cliente antes de sugerir soluções.\n\nEvite parecer um vendedor insistente.\n\nEscreva como alguém que entende negócios.\n\nNunca faça uma lista de funcionalidades.\n\nQuando mencionar a plataforma, fale sobre os benefícios que ela entrega:\n\n• simplificação da operação;\n• integração entre sistemas;\n• automação de processos;\n• convergência tecnológica;\n• maior eficiência operacional;\n• melhor experiência do cliente;\n• inteligência sobre jornadas físicas e digitais;\n• redução de retrabalho;\n• digitalização da jornada do consumidor.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome:\n\n\nEmpresa:\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n\n{{ $('HTTP Request4').item.json.associations.emails }}\n\n----------------------------------------------------\nINSTRUÇÕES\n----------------------------------------------------\n\nLeia todo o histórico antes de escrever.\n\nSe existir contexto anterior:\n\n• utilize-o naturalmente;\n• mencione assuntos discutidos anteriormente;\n• faça referência a desafios do cliente;\n• conecte a conversa às evoluções da Midiacode quando fizer sentido.\n\nCaso o histórico seja pequeno ou inexistente, produza um e-mail elegante e personalizado.\n\nNunca invente fatos.\n\nNunca diga que \"vi que...\" ou \"analisei seu histórico\".\n\nO cliente deve sentir que está continuando uma conversa.\n\n----------------------------------------------------\nESTILO\n----------------------------------------------------\n\nEscreva como uma pessoa experiente em relacionamento B2B.\n\nTom:\n\n• natural\n• profissional\n• consultivo\n• inteligente\n• elegante\n\nEvite frases prontas como:\n\n\"Espero que esteja bem.\"\n\n\"Passando para fazer follow-up.\"\n\n\"Só queria saber se...\"\n\n\"Gostaria de verificar...\"\n\n\"Teve oportunidade de analisar?\"\n\nPrefira abrir a conversa de maneira contextualizada.\n\nO e-mail deve transmitir valor antes de pedir uma reunião.\n\nQuando fizer sentido, utilize como gancho mudanças recentes da empresa, transformação digital, automação, IA ou necessidade de integrar tecnologias.\n\n----------------------------------------------------\nFORMATO\n----------------------------------------------------\n\nProduza apenas:\n\nAssunto:\n\nCorpo:\n\nEntre 80 e 180 palavras.\n\nFinalize sempre com uma pergunta aberta que incentive resposta.\n\nNunca utilize emojis.\n\nNunca use linguagem exageradamente comercial.\n\nNunca transforme o e-mail em propaganda.\n\nO cliente deve sentir que está conversando com um especialista, não com um vendedor.",
-            "hasOutputParser": true,
-            "options": {}
-          },
-          "type": "@n8n/n8n-nodes-langchain.agent",
-          "typeVersion": 3.1,
-          "position": [
-            48,
-            -176
-          ],
-          "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
-          "name": "AI Agent2"
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact2').item.json.vid }}?associations=emails",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            -368,
-            -176
-          ],
-          "id": "5bedd606-8d12-4dc9-9bd1-6fb5ec22415c",
-          "name": "HTTP Request4",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotAppToken",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            -160,
-            -176
-          ],
-          "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
-          "name": "HTTP Request5",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "model": "llama-3.1-8b-instant",
+            "model": "llama-3.3-70b-versatile",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            80,
-            32
+            448,
+            96
           ],
           "id": "3afcfcd8-9d0b-47d3-89ff-5cd16a01d193",
           "name": "Groq Chat Model2",
           "credentials": {
             "groqApi": {
-              "id": "krEnVyEOp7mxJ92O",
-              "name": "Groq Robson-Midiacode"
+              "id": "w9FbSKYgIiJIWO2u",
+              "name": "Groq account - Thiago"
             }
           }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "beforeOrEquals"
-                  }
-                },
-                {
-                  "id": "d5c86600-0878-4b5e-9a73-307b0c7e6af8",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 90 }).toISODate() }}",
-                  "operator": {
-                    "type": "dateTime",
-                    "operation": "afterOrEquals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -1408,
-            -176
-          ],
-          "id": "a7a365ba-9fa2-4441-976d-d5241c3cabbc",
-          "name": "Corte de data negócios P2"
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "loose",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
-                  "leftValue": "={{ $('Consulta IDs registrados2').all().map(item => String(item.json['ID do Deal'])) }}",
-                  "rightValue": "={{ String($json.id) }}",
-                  "operator": {
-                    "type": "string",
-                    "operation": "notContains"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "looseTypeValidation": true,
-            "options": {}
-          },
-          "type": "n8n-nodes-base.filter",
-          "typeVersion": 2.3,
-          "position": [
-            -1280,
-            -176
-          ],
-          "id": "130b7752-34ba-4c62-8999-7cf619916e0a",
-          "name": "Filter1 - ID já registrado?2"
         },
         {
           "parameters": {
@@ -18073,35 +17845,6 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "engagement",
-            "operation": "get",
-            "engagementId": {
-              "__rl": true,
-              "value": "={{ $('Get a contact2').item.json.properties.hs_v2_date_entered_opportunity.value }}",
-              "mode": "id"
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            -400,
-            16
-          ],
-          "id": "d8a5dba8-745c-4eef-b94e-2488ee2603d6",
-          "name": "Get an engagement2",
-          "executeOnce": true,
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "disabled": true,
-          "onError": "[REDACTED]"
         },
         {
           "parameters": {
@@ -18194,6 +17937,317 @@
         },
         {
           "parameters": {
+            "numberInputs": 6
+          },
+          "type": "n8n-nodes-base.merge",
+          "typeVersion": 3.2,
+          "position": [
+            -1520,
+            -128
+          ],
+          "id": "f1c17d81-e7a0-418a-9751-f424ab54441e",
+          "name": "Merge1"
+        },
+        {
+          "parameters": {
+            "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"assunto\": {\n      \"type\": \"string\",\n      \"description\": \"Assunto do e-mail de follow-up.\"\n    },\n    \"corpo\": {\n      \"type\": \"string\",\n      \"description\": \"Corpo completo do e-mail de follow-up.\"\n    }\n  },\n  \"required\": [\"assunto\", \"corpo\"]\n}"
+          },
+          "type": "[REDACTED]",
+          "typeVersion": 1.3,
+          "position": [
+            896,
+            64
+          ],
+          "id": "2411e57c-2243-4a6b-b3b1-93fb6cce127c",
+          "name": "Structured Output Parser"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                  "leftValue": "={{ $json.properties.hs_lastmodifieddate || $json.properties.closedate }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 7 }).toISODate() }}",
+                  "operator": {
+                    "type": "dateTime",
+                    "operation": "beforeOrEquals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1408,
+            -176
+          ],
+          "id": "a7a365ba-9fa2-4441-976d-d5241c3cabbc",
+          "name": "Corte de data negócios P2.3 e P2.4"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ $('Consulta IDs registrados2').all().map(item => String(item.json['ID do Deal'])) }}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notContains"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1248,
+            -176
+          ],
+          "id": "130b7752-34ba-4c62-8999-7cf619916e0a",
+          "name": "Filtro - ID já registrado?"
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact2').item.json.vid }}?associations=emails",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            48,
+            -176
+          ],
+          "id": "5bedd606-8d12-4dc9-9bd1-6fb5ec22415c",
+          "name": "Buscar E-mails do Contato",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+            "authentication": "[REDACTED]",
+            "nodeCredentialType": "hubspotAppToken",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.httpRequest",
+          "typeVersion": 4.4,
+          "position": [
+            288,
+            -192
+          ],
+          "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
+          "name": "Histórico e-mails",
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "promptType": "define",
+            "text": "=Você é um Executivo de Contas Consultivo da Midiacode.\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam proposta comercial e orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar sobre o escopo/investimento, esclarecer dúvidas e propor uma breve reunião de alinhamento/revisão. NÃO é pressionar fechamento nem dar descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode oferece uma infraestrutura de convergência tecnológica que conecta o mundo físico ao digital (phygital). Resolvemos o caos de sistemas desconectados (ERPs, CRMs, apps) integrando pessoas, processos e canais por automação, Smart QR, Super App e IA.\nNosso valor: reduzir complexidade tecnológica, eliminar processos fragmentados, gerar inteligência e aumentar eficiência operacional. Posicione-nos como transformação digital, nunca como empresa de QR Code.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome: {{ $('Get a contact2').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || [])\n    .map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email))\n    .join('\\n---\\n')\n    .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte com os desafios/escopo previamente discutidos.\n2. Mostre abertura total para revisar o escopo e adequar o investimento à realidade atual da empresa.\n3. Escreva como um especialista consultivo B2B de alto nível, focado em ROI, eficiência e parceria estratégica.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança comercial (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Executivo de Contas – Midiacode\" (nunca use [Seu Nome]).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 80 e 180 palavras.\n- Finalize sempre com uma pergunta aberta sugerindo uma reunião rápida de alinhamento.\n\n--------------------------------------------------------------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos).\nUse estritamente esta estrutura para que o sistema leia os dados:\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.agent",
+          "typeVersion": 3.1,
+          "position": [
+            512,
+            -224
+          ],
+          "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
+          "name": "Executivo de contas"
+        },
+        {
+          "parameters": {
+            "maxItems": 5
+          },
+          "type": "n8n-nodes-base.limit",
+          "typeVersion": 1,
+          "position": [
+            -1040,
+            -176
+          ],
+          "id": "eb11dfb1-3e3a-4e08-8711-deb86cda3d24",
+          "name": "Limit"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.splitInBatches",
+          "typeVersion": 3,
+          "position": [
+            -832,
+            -176
+          ],
+          "id": "525a6b9a-fc07-4c45-8dec-753b887821e2",
+          "name": "Loop Over Items"
+        },
+        {
+          "parameters": {
+            "amount": 4
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1104,
+            -160
+          ],
+          "id": "fd6f13e1-bfd8-4d4a-b74c-8279871076f8",
+          "name": "Wait1",
+          "webhookId": "f405566d-e2f0-4c6d-a842-8b4727a349f9"
+        },
+        {
+          "parameters": {
+            "maxItems": 5
+          },
+          "type": "n8n-nodes-base.limit",
+          "typeVersion": 1,
+          "position": [
+            -176,
+            -720
+          ],
+          "id": "e5e78406-a269-4d73-9852-7d3afea50547",
+          "name": "Limit1"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.splitInBatches",
+          "typeVersion": 3,
+          "position": [
+            32,
+            -720
+          ],
+          "id": "e56b5acd-bcc8-4f8e-912a-973f51457c15",
+          "name": "Loop Over Items1"
+        },
+        {
+          "parameters": {
+            "amount": 10
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            1920,
+            -688
+          ],
+          "id": "f301cd2c-edec-4a6b-8885-3563eb641542",
+          "name": "Wait",
+          "webhookId": "45e5b2db-2e6d-49c3-9e53-bcfb693e8142"
+        },
+        {
+          "parameters": {
+            "maxItems": 5
+          },
+          "type": "n8n-nodes-base.limit",
+          "typeVersion": 1,
+          "position": [
+            -1168,
+            -1184
+          ],
+          "id": "79ccda55-398c-4c14-9550-8eb83bc9775c",
+          "name": "Limit2"
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "n8n-nodes-base.splitInBatches",
+          "typeVersion": 3,
+          "position": [
+            -960,
+            -1184
+          ],
+          "id": "9b6c0752-7c0f-48cd-916d-e91f3b0ba67f",
+          "name": "Loop Over Items2"
+        },
+        {
+          "parameters": {
+            "amount": 10
+          },
+          "type": "n8n-nodes-base.wait",
+          "typeVersion": 1.1,
+          "position": [
+            -768,
+            -1008
+          ],
+          "id": "769b944b-6931-4112-8cde-6282c1a5995d",
+          "name": "Wait2",
+          "webhookId": "6e3d2518-0738-40ab-a17a-bbed5f031c43"
+        },
+        {
+          "parameters": {
+            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            832,
+            -192
+          ],
+          "id": "b7fa1163-5576-472f-a619-9aff55868dac",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "jsCode": "let respostaIA = $input.item.json.output;\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\nlet dadosTratados = JSON.parse(jsonLimpo);\nreturn [{ json: { assunto: dadosTratados.assunto, corpo: dadosTratados.corpo } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            1648,
+            -704
+          ],
+          "id": "455b8565-196f-41fd-ac6f-fd03d1f3a713",
+          "name": "Code in JavaScript1"
+        },
+        {
+          "parameters": {
+            "jsCode": "let respostaIA = $input.item.json.output;\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\nlet dadosTratados = JSON.parse(jsonLimpo);\nreturn [{ json: { assunto: dadosTratados.assunto, corpo: dadosTratados.corpo } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            784,
+            -1184
+          ],
+          "id": "6e429901-04eb-45bc-8be5-d441a19491c8",
+          "name": "Code in JavaScript2"
+        },
+        {
+          "parameters": {
             "authentication": "appToken",
             "resource": "deal",
             "operation": "search",
@@ -18221,10 +18275,10 @@
           "typeVersion": 2.2,
           "position": [
             -1744,
-            -160
+            -144
           ],
           "id": "90ba0a6f-448b-402c-baf7-f9722fcc067d",
-          "name": "Search for deals5",
+          "name": "Search for deals - P2.3 - Amarelo",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -18238,7 +18292,7 @@
             "authentication": "appToken",
             "resource": "deal",
             "operation": "search",
-            "returnAll": true,
+            "limit": 50,
             "filterGroupsUi": {
               "filterGroupsValues": [
                 {
@@ -18246,23 +18300,26 @@
                     "filterValues": [
                       {
                         "propertyName": "dealstage",
-                        "value": "1345937017"
+                        "value": "1345937020"
                       }
                     ]
                   }
                 }
               ]
             },
-            "additionalFields": {}
+            "additionalFields": {
+              "direction": "DESCENDING",
+              "sortBy": "notes_last_updated"
+            }
           },
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
             -1744,
-            128
+            -288
           ],
-          "id": "a4e97230-1b79-48ad-86a8-5d7871823801",
-          "name": "Search for deals6",
+          "id": "9642864f-7ee7-4a4e-b806-f7d4409d2c8c",
+          "name": "Search for deals2 - P2.4 - Vermelho",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -18300,7 +18357,7 @@
             16
           ],
           "id": "771bd578-4957-42c3-b9e5-cbd5fefa72f2",
-          "name": "Search for deals7",
+          "name": "Search for deals - P2.3 - Verde",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -18322,7 +18379,7 @@
                     "filterValues": [
                       {
                         "propertyName": "dealstage",
-                        "value": "f4a06b1c-1247-4ad8-bfbb-de9471050c2e"
+                        "value": "1345937017"
                       }
                     ]
                   }
@@ -18334,11 +18391,11 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -1760,
-            416
+            -1744,
+            128
           ],
-          "id": "564351f3-961f-4f58-8a21-6a34645f0a57",
-          "name": "Search for deals8",
+          "id": "a4e97230-1b79-48ad-86a8-5d7871823801",
+          "name": "Search for deals - P2.4 - Vermelho",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -18376,7 +18433,7 @@
             272
           ],
           "id": "3a6101fa-6272-487b-985e-4e184cd1dad1",
-          "name": "Search for deals9",
+          "name": "Search for deals - P2.4 - Amarelo",
           "executeOnce": true,
           "credentials": {
             "hubspotAppToken": {
@@ -18387,16 +18444,98 @@
         },
         {
           "parameters": {
-            "numberInputs": 6
+            "authentication": "appToken",
+            "resource": "deal",
+            "operation": "search",
+            "returnAll": true,
+            "filterGroupsUi": {
+              "filterGroupsValues": [
+                {
+                  "filtersUi": {
+                    "filterValues": [
+                      {
+                        "propertyName": "dealstage",
+                        "value": "f4a06b1c-1247-4ad8-bfbb-de9471050c2e"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "additionalFields": {}
           },
-          "type": "n8n-nodes-base.merge",
-          "typeVersion": 3.2,
+          "type": "n8n-nodes-base.hubspot",
+          "typeVersion": 2.2,
           "position": [
-            -1568,
-            -112
+            -1760,
+            416
           ],
-          "id": "f1c17d81-e7a0-418a-9751-f424ab54441e",
-          "name": "Merge1"
+          "id": "564351f3-961f-4f58-8a21-6a34645f0a57",
+          "name": "Search for deals - P2.4 - Verde",
+          "executeOnce": true,
+          "credentials": {
+            "hubspotAppToken": {
+              "id": "daCJatUnhTA4GPYO",
+              "name": "HubSpot App Token account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1.1,
+          "position": [
+            384,
+            -976
+          ],
+          "id": "013dc046-a06f-4f0c-b119-bf2ef29bbe4a",
+          "name": "Google Gemini Chat Model",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "KDxlVuLHWGFmNGgu",
+              "name": "Google Gemini(PaLM) Api account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1.1,
+          "position": [
+            1264,
+            -496
+          ],
+          "id": "0e9e06f1-dbec-4df2-9352-1a6bc3a10554",
+          "name": "Google Gemini Chat Model1",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "KDxlVuLHWGFmNGgu",
+              "name": "Google Gemini(PaLM) Api account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "options": {}
+          },
+          "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+          "typeVersion": 1.1,
+          "position": [
+            384,
+            -16
+          ],
+          "id": "2831ade2-fa1b-4b17-a9e6-a56b21b24982",
+          "name": "Google Gemini Chat Model2",
+          "credentials": {
+            "googlePalmApi": {
+              "id": "KDxlVuLHWGFmNGgu",
+              "name": "Google Gemini(PaLM) Api account 2"
+            }
+          }
         }
       ],
       "connections": {
@@ -18459,7 +18598,7 @@
           "main": [
             [
               {
-                "node": "Append row in sheet",
+                "node": "Code in JavaScript2",
                 "type": "main",
                 "index": 0
               }
@@ -18490,13 +18629,7 @@
         },
         "Groq Chat Model": {
           "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Corte de data negócios P1": {
@@ -18514,7 +18647,7 @@
           "main": [
             [
               {
-                "node": "Get a deal",
+                "node": "Limit2",
                 "type": "main",
                 "index": 0
               }
@@ -18530,11 +18663,6 @@
                 "index": 0
               }
             ]
-          ]
-        },
-        "Get an engagement": {
-          "main": [
-            []
           ]
         },
         "Schedule Trigger3": {
@@ -18596,7 +18724,7 @@
           "main": [
             [
               {
-                "node": "Append row in sheet1",
+                "node": "Code in JavaScript1",
                 "type": "main",
                 "index": 0
               }
@@ -18627,13 +18755,7 @@
         },
         "Groq Chat Model1": {
           "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent1",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Corte de data negócios P": {
@@ -18651,7 +18773,7 @@
           "main": [
             [
               {
-                "node": "Get a deal1",
+                "node": "Limit1",
                 "type": "main",
                 "index": 0
               }
@@ -18690,17 +18812,6 @@
             ]
           ]
         },
-        "Search for deals2": {
-          "main": [
-            [
-              {
-                "node": "Merge1",
-                "type": "main",
-                "index": 1
-              }
-            ]
-          ]
-        },
         "Get a deal2": {
           "main": [
             [
@@ -18716,7 +18827,7 @@
           "main": [
             [
               {
-                "node": "HTTP Request4",
+                "node": "Buscar E-mails do Contato",
                 "type": "main",
                 "index": 0
               }
@@ -18734,102 +18845,41 @@
             ]
           ]
         },
-        "AI Agent2": {
-          "main": [
-            [
-              {
-                "node": "Append row in sheet2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "HTTP Request4": {
-          "main": [
-            [
-              {
-                "node": "HTTP Request5",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "HTTP Request5": {
-          "main": [
-            [
-              {
-                "node": "AI Agent2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Groq Chat Model2": {
           "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent2",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Corte de data negócios P2": {
-          "main": [
-            [
-              {
-                "node": "Filter1 - ID já registrado?2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Filter1 - ID já registrado?2": {
-          "main": [
-            [
-              {
-                "node": "Get a deal2",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Consulta IDs registrados2": {
           "main": [
             [
               {
-                "node": "Search for deals2",
+                "node": "Search for deals2 - P2.4 - Vermelho",
                 "type": "main",
                 "index": 0
               },
               {
-                "node": "Search for deals5",
+                "node": "Search for deals - P2.3 - Amarelo",
                 "type": "main",
                 "index": 0
               },
               {
-                "node": "Search for deals7",
+                "node": "Search for deals - P2.3 - Verde",
                 "type": "main",
                 "index": 0
               },
               {
-                "node": "Search for deals6",
+                "node": "Search for deals - P2.4 - Vermelho",
                 "type": "main",
                 "index": 0
               },
               {
-                "node": "Search for deals9",
+                "node": "Search for deals - P2.4 - Amarelo",
                 "type": "main",
                 "index": 0
               },
               {
-                "node": "Search for deals8",
+                "node": "Search for deals - P2.4 - Verde",
                 "type": "main",
                 "index": 0
               }
@@ -18873,14 +18923,242 @@
           "main": [
             [
               {
-                "node": "Corte de data negócios P2",
+                "node": "Corte de data negócios P2.3 e P2.4",
                 "type": "main",
                 "index": 0
               }
             ]
           ]
         },
-        "Search for deals5": {
+        "Structured Output Parser": {
+          "ai_outputParser": [
+            []
+          ]
+        },
+        "Corte de data negócios P2.3 e P2.4": {
+          "main": [
+            [
+              {
+                "node": "Filtro - ID já registrado?",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filtro - ID já registrado?": {
+          "main": [
+            [
+              {
+                "node": "Limit",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Buscar E-mails do Contato": {
+          "main": [
+            [
+              {
+                "node": "Histórico e-mails",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Histórico e-mails": {
+          "main": [
+            [
+              {
+                "node": "Executivo de contas",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Executivo de contas": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Limit": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Loop Over Items": {
+          "main": [
+            [],
+            [
+              {
+                "node": "Get a deal2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append row in sheet2": {
+          "main": [
+            [
+              {
+                "node": "Wait1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait1": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Limit1": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Loop Over Items1": {
+          "main": [
+            [],
+            [
+              {
+                "node": "Get a deal1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append row in sheet1": {
+          "main": [
+            [
+              {
+                "node": "Wait",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Limit2": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Loop Over Items2": {
+          "main": [
+            [],
+            [
+              {
+                "node": "Get a deal",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append row in sheet": {
+          "main": [
+            [
+              {
+                "node": "Wait2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Wait2": {
+          "main": [
+            [
+              {
+                "node": "Loop Over Items2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript1": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript2": {
+          "main": [
+            [
+              {
+                "node": "Append row in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Search for deals - P2.3 - Amarelo": {
           "main": [
             [
               {
@@ -18891,7 +19169,18 @@
             ]
           ]
         },
-        "Search for deals7": {
+        "Search for deals2 - P2.4 - Vermelho": {
+          "main": [
+            [
+              {
+                "node": "Merge1",
+                "type": "main",
+                "index": 1
+              }
+            ]
+          ]
+        },
+        "Search for deals - P2.3 - Verde": {
           "main": [
             [
               {
@@ -18902,7 +19191,7 @@
             ]
           ]
         },
-        "Search for deals6": {
+        "Search for deals - P2.4 - Vermelho": {
           "main": [
             [
               {
@@ -18913,7 +19202,7 @@
             ]
           ]
         },
-        "Search for deals9": {
+        "Search for deals - P2.4 - Amarelo": {
           "main": [
             [
               {
@@ -18924,13 +19213,46 @@
             ]
           ]
         },
-        "Search for deals8": {
+        "Search for deals - P2.4 - Verde": {
           "main": [
             [
               {
                 "node": "Merge1",
                 "type": "main",
                 "index": 4
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model1": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Google Gemini Chat Model2": {
+          "ai_languageModel": [
+            [
+              {
+                "node": "Executivo de contas",
+                "type": "ai_languageModel",
+                "index": 0
               }
             ]
           ]
@@ -19002,7 +19324,7 @@
           }
         ]
       },
-      "versionId": "6cf6a2c0-7928-4c8e-b8c9-8e287c8cad1d",
+      "versionId": "6a44055f-aeae-414f-8565-4052b6a8e504",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -31238,14 +31560,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-27T13:00:35Z"
+          "lastTimeChecked": "2026-07-29T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-27T13:00:58Z"
+          "lastTimeChecked": "2026-07-29T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            209
+            211
           ]
         }
       },
@@ -35958,10 +36280,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785271633,
+            "lastTimeChecked": 1785362682,
             "possibleDuplicates": [
-              "19faa7b4a3135b4b",
-              "19fa955407cd2a59"
+              "19fafe89d74e1cf2",
+              "19faeea5b9df629d"
             ]
           }
         }

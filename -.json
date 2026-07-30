@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785362826,
+            "lastTimeChecked": 1785452294,
             "possibleDuplicates": [
-              "19fafead2881483d",
-              "19fafe83166d3c36"
+              "19fb53c53d196d0e",
+              "19fb519ac2762682"
             ]
           }
         },
@@ -13677,288 +13677,13 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-29T14:45:28.214Z",
+      "updatedAt": "2026-07-30T16:44:17.088Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
-        {
-          "parameters": {
-            "workflowInputs": {
-              "values": [
-                {
-                  "name": "Deal ID"
-                },
-                {
-                  "name": "Nome_cliente"
-                },
-                {
-                  "name": "Email_cliente"
-                },
-                {
-                  "name": "Fase_deal"
-                },
-                {
-                  "name": "Texto_email_rascunho"
-                }
-              ]
-            }
-          },
-          "id": "c055762a-8fe7-4141-a639-df2372f30060",
-          "typeVersion": 1.1,
-          "name": "When Executed by Another Workflow",
-          "type": "[REDACTED]",
-          "position": [
-            -512,
-            832
-          ],
-          "disabled": true
-        },
-        {
-          "parameters": {},
-          "type": "n8n-nodes-base.noOp",
-          "typeVersion": 1,
-          "position": [
-            1328,
-            800
-          ],
-          "id": "f7e1be96-5b64-45bb-9000-dbfd264ce88e",
-          "name": "No Operation, do nothing2"
-        },
-        {
-          "parameters": {
-            "fromEmail": "adm@midiacode.tech",
-            "toEmail": "PACIONITHIAGO@GMAIL.COM",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 2.1,
-          "position": [
-            1328,
-            992
-          ],
-          "id": "97ad7586-a3eb-44ab-b06b-416eac0c679c",
-          "name": "Send an Email2",
-          "webhookId": "f9f8afe4-b802-445c-9975-9b08f5658db9",
-          "credentials": {
-            "smtp": {
-              "id": "opD4ihPIsdqEaeeI",
-              "name": "SMTP from adm@midiacode.tech"
-            }
-          },
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "32bece60-ea31-4371-8658-bb21869593d0",
-                  "leftValue": "",
-                  "rightValue": "",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals",
-                    "name": "filter.operator.equals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.3,
-          "position": [
-            1120,
-            896
-          ],
-          "id": "8de34e01-765f-4594-9062-b7b2d4d8a27c",
-          "name": "If2",
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "amount": 24,
-            "unit": "hours"
-          },
-          "type": "n8n-nodes-base.wait",
-          "typeVersion": 1.1,
-          "position": [
-            704,
-            896
-          ],
-          "id": "073075e7-f860-4789-99d5-99c3c2e858bb",
-          "name": "Wait1",
-          "webhookId": "2073a831-bd63-4a96-86c1-a46a6cb536bc",
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "fromEmail": "adm@midiacode.tech",
-            "toEmail": "PACIONITHIAGO@GMAIL.COM",
-            "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333333; line-height: 1.6;\">\n  \n  <p>Olá, <strong>{{ $('When Executed by Another Workflow').item.json.nome_cliente }}</strong>,</p>\n\n  <div style=\"margin-bottom: 25px; white-space: pre-wrap;\">\n    {{ $('When Executed by Another Workflow').item.json.texto_email_rascunho }}\n  </div>\n\n  <p style=\"margin-bottom: 15px;\">\n    Para facilitar, você pode escolher o melhor dia e horário para nossa conversa diretamente na minha agenda pelo botão abaixo:\n  </p>\n\n  <div style=\"text-align: center; margin: 30px 0;\">\n    <a href=\"https://cal.com/robson-lisboa\" target=\"_blank\" style=\"background-color: #007bff; color: #ffffff; text-decoration: none; padding: 14px 28px; font-weight: bold; border-radius: 5px; display: inline-block; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.15);\">\n      RESERVAR HORÁRIO NA AGENDA\n    </a>\n  </div>\n\n  <p style=\"font-size: 14px; color: #666666;\">\n    Se preferir, basta responder a este e-mail com duas sugestões de horários que nos organizamos por aqui.\n  </p>\n\n  <hr style=\"border: 0; border-top: 1px solid #eeeeee; margin: 30px 0;\" />\n\n  <p style=\"font-size: 14px; color: #888888; margin-bottom: 0;\">\n    Atenciosamente,<br>\n    <strong>Robson Lisboa</strong><br>\n    Diretor de Vendas\n  </p>\n</div>",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 2.1,
-          "position": [
-            496,
-            896
-          ],
-          "id": "791615ed-e7d9-40b6-b28b-5bcfbd89994f",
-          "name": "Send an Email1",
-          "webhookId": "71c0aa03-6b58-46cd-823f-5ed60ecd43f5",
-          "credentials": {
-            "smtp": {
-              "id": "opD4ihPIsdqEaeeI",
-              "name": "SMTP from adm@midiacode.tech"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "conditions": {
-              "options": {
-                "caseSensitive": true,
-                "leftValue": "",
-                "typeValidation": "strict",
-                "version": 3
-              },
-              "conditions": [
-                {
-                  "id": "1b770d38-64a6-4da0-aec5-3f12ae381e83",
-                  "leftValue": "={{ $json.query.acao }}",
-                  "rightValue": "aprovar",
-                  "operator": {
-                    "type": "string",
-                    "operation": "equals"
-                  }
-                }
-              ],
-              "combinator": "and"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.if",
-          "typeVersion": 2.3,
-          "position": [
-            304,
-            928
-          ],
-          "id": "dc9cf9d5-1873-4396-ad19-ecb1334256de",
-          "name": "If1"
-        },
-        {
-          "parameters": {
-            "resume": "webhook",
-            "options": {
-              "responseData": "Ação registrada com sucesso! Você já pode fechar esta aba."
-            }
-          },
-          "type": "n8n-nodes-base.wait",
-          "typeVersion": 1.1,
-          "position": [
-            176,
-            928
-          ],
-          "id": "6d989b89-55ee-4372-a062-8cb1a2f86da8",
-          "name": "Wait",
-          "webhookId": "eb0f4091-c268-48c4-8bce-84f1f57c9de8",
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "fromEmail": "adm@midiacode.tech",
-            "toEmail": "pacionithiago@gmail.com",
-            "subject": "=Aprovação de Follow-up: {{ $json.nome_cliente }}",
-            "html": "=<div style=\"font-family: Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff;\">\n  \n  <h2 style=\"color: #333333; border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 0;\">\n    Solicitação de Aprovação de Follow-up\n  </h2>\n  \n  <p style=\"font-size: 15px; color: #555555; line-height: 1.5;\">\n    Olá, Diretor. O cliente abaixo atingiu os critérios de <strong>7 dias sem resposta pós-orçamento</strong> (Fase: {{ $json.fase_deal }}). \n    Por favor, revise os dados e o e-mail proposto abaixo.\n  </p>\n\n  <!-- DADOS DO CLIENTE -->\n  <div style=\"background-color: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px; border: 1px solid #e9ecef;\">\n    <h3 style=\"margin-top: 0; color: #007bff; font-size: 16px;\">Dados do Lead</h3>\n    <table style=\"width: 100%; font-size: 14px; color: #495057; border-collapse: collapse;\">\n      <tr>\n        <td style=\"padding: 4px 0; font-weight: bold; width: 120px;\">Cliente:</td>\n        <td style=\"padding: 4px 0;\">{{ $json.nome_cliente }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 4px 0; font-weight: bold;\">Empresa:</td>\n        <td style=\"padding: 4px 0;\">{{ $json.nome_empresa }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 4px 0; font-weight: bold;\">E-mail:</td>\n        <td style=\"padding: 4px 0;\">{{ $json.email_cliente }}</td>\n      </tr>\n    </table>\n  </div>\n\n  <!-- CONTEÚDO DO E-MAIL PROPOSTO -->\n  <h3 style=\"color: #333333; font-size: 16px; margin-bottom: 8px;\">Texto do E-mail Proposto:</h3>\n  <div style=\"background-color: #f1f3f5; padding: 20px; border-left: 4px solid #17a2b8; font-style: italic; color: #343a40; font-size: 14px; line-height: 1.6; border-radius: 0 6px 6px 0; margin-bottom: 30px; white-space: pre-wrap;\">{{ $json.texto_email_rascunho }}</div>\n\n  <!-- BOTÕES DE AÇÃO -->\n  <p style=\"text-align: center; font-weight: bold; color: #333333; margin-bottom: 15px;\">Como deseja prosseguir?</p>\n  \n  <table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" style=\"margin: 0 auto;\">\n    <tr>\n      <!-- BOTÃO APROVAR -->\n      <td style=\"border-radius: 6px; background-color: #28a745;\" align=\"center\">\n        <a href=\"{{ $execution.resumeUrl }}&acao=aprovar\" target=\"_blank\" style=\"font-family: sans-serif; font-size: 15px; color: #ffffff; text-decoration: none; border-radius: 6px; padding: 14px 28px; border: 1px solid #28a745; display: inline-block; font-weight: bold; letter-spacing: 0.5px;\">\n          APROVAR E ENVIAR\n        </a>\n      </td>\n      \n      <td style=\"width: 25px;\"></td>\n      \n      <!-- BOTÃO REJEITAR -->\n      <td style=\"border-radius: 6px; background-color: #dc3545;\" align=\"center\">\n        <a href=\"{{ $execution.resumeUrl }}&acao=rejeitar\" target=\"_blank\" style=\"font-family: sans-serif; font-size: 15px; color: #ffffff; text-decoration: none; border-radius: 6px; padding: 14px 28px; border: 1px solid #dc3545; display: inline-block; font-weight: bold; letter-spacing: 0.5px;\">\n          REJEITAR CONTATO\n        </a>\n      </td>\n    </tr>\n  </table>\n\n  <p style=\"font-size: 11px; color: #999999; text-align: center; margin-top: 30px; border-top: 1px solid #eeeeee; padding-top: 15px;\">\n    Esta é uma automação interna. Ao clicar em qualquer botão, a ação será executada instantaneamente.\n  </p>\n</div>",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 2.1,
-          "position": [
-            -80,
-            848
-          ],
-          "id": "b5dc8e70-bf79-4973-874f-c2d19f44723c",
-          "name": "Send an Email",
-          "webhookId": "1f615281-d459-470f-a8a2-62b9cac202c2",
-          "credentials": {
-            "smtp": {
-              "id": "opD4ihPIsdqEaeeI",
-              "name": "SMTP from adm@midiacode.tech"
-            }
-          },
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "authentication": "appToken",
-            "resource": "deal",
-            "operation": "search",
-            "filterGroupsUi": {
-              "filterGroupsValues": [
-                {
-                  "filtersUi": {
-                    "filterValues": [
-                      {
-                        "propertyName": "hs_object_id",
-                        "value": "={{ $json.dealId }}"
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "additionalFields": {
-              "properties": [
-                "hs_has_last_conversation_follow_ups"
-              ]
-            }
-          },
-          "type": "n8n-nodes-base.hubspot",
-          "typeVersion": 2.2,
-          "position": [
-            912,
-            896
-          ],
-          "id": "8c985fea-3705-4bef-9dc3-4ca8e9d45c10",
-          "name": "Search for deals",
-          "credentials": {
-            "hubspotAppToken": {
-              "id": "daCJatUnhTA4GPYO",
-              "name": "HubSpot App Token account"
-            }
-          },
-          "disabled": true
-        },
-        {
-          "parameters": {
-            "events": [
-              "MEETING_ENDED"
-            ],
-            "options": {}
-          },
-          "type": "n8n-nodes-base.calTrigger",
-          "typeVersion": 2,
-          "position": [
-            -320,
-            608
-          ],
-          "id": "57495c0f-097a-4ff5-a8eb-048b56c470d5",
-          "name": "Cal.com Trigger",
-          "webhookId": "a292f7db-1e6a-4bcc-933d-1fd1ed409695",
-          "disabled": true
-        },
         {
           "parameters": {
             "httpMethod": "POST",
@@ -13978,7 +13703,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 10h e 17h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 10 && hour < 17) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 17h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 17) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
+            "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 12h e 20h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 12 && hour < 20) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 20h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 20) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -13993,9 +13718,9 @@
           "parameters": {
             "calendar": {
               "__rl": true,
-              "value": "thiagopacioni@gmail.com",
+              "value": "robson.lisboa@midiacode.com",
               "mode": "list",
-              "cachedResultName": "thiagopacioni@gmail.com"
+              "cachedResultName": "robson.lisboa@midiacode.com"
             },
             "start": "={{ $json.meeting_start }}",
             "end": "={{ $json.meeting_end }}",
@@ -14004,9 +13729,7 @@
                 "={{ $('Webhook').item.json.body.email }}"
               ],
               "conferenceDataUi": {
-                "conferenceDataValues": {
-                  "conferenceSolution": "hangoutsMeet"
-                }
+                "conferenceDataValues": {}
               },
               "summary": "=Reunião de Alinhamento - {{ $json.subject }}"
             }
@@ -14021,51 +13744,10 @@
           "name": "Create an event",
           "credentials": {
             "googleCalendarOAuth2Api": {
-              "id": "D8IBn3ay3WciQC3t",
-              "name": "Google Calendar account 2 - thiago"
+              "id": "qTbgWBTUXCgj3YfH",
+              "name": "Google Calendar account"
             }
           }
-        },
-        {
-          "parameters": {
-            "fromEmail": "thiagopacioni@gmail.com",
-            "toEmail": "thiagopacioni@gmail.com",
-            "subject": "={{ $('Webhook').item.json.body.subject }}",
-            "html": "={{ $('Webhook').item.json.body.message }}",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.emailSend",
-          "typeVersion": 2.1,
-          "position": [
-            416,
-            1568
-          ],
-          "id": "950dd5f4-61d3-4352-b70f-ba21c146a0f3",
-          "name": "Send an Email3",
-          "webhookId": "a646a393-1615-4a8f-b8b6-929f5a941eae",
-          "credentials": {
-            "smtp": {
-              "id": "opD4ihPIsdqEaeeI",
-              "name": "SMTP from adm@midiacode.tech"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "method": "POST",
-            "authentication": "[REDACTED]",
-            "nodeCredentialType": "hubspotOAuth2Api",
-            "options": {}
-          },
-          "type": "n8n-nodes-base.httpRequest",
-          "typeVersion": 4.4,
-          "position": [
-            816,
-            1552
-          ],
-          "id": "b22b6571-adfb-4127-9918-b49cb88c7b8a",
-          "name": "HTTP Request",
-          "disabled": true
         },
         {
           "parameters": {
@@ -14092,7 +13774,9 @@
                 "Fase": "={{ $('Webhook').item.json.body.stage }}",
                 "Assunto": "={{ $('Webhook').item.json.body.subject }}",
                 "Texto Proposto": "={{ $('Webhook').item.json.body.message }}",
-                "Status": "Aprovado"
+                "Status": "Aprovado",
+                "ID do Deal": "={{ $('Webhook').item.json.body.dealId }}",
+                "Empresa": "={{ $('Webhook').item.json.body.company }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -14248,10 +13932,11 @@
             "operation": "getAll",
             "calendar": {
               "__rl": true,
-              "value": "thiagopacioni@gmail.com",
+              "value": "robson.lisboa@midiacode.com",
               "mode": "list",
-              "cachedResultName": "thiagopacioni@gmail.com"
+              "cachedResultName": "robson.lisboa@midiacode.com"
             },
+            "returnAll": true,
             "options": {}
           },
           "type": "n8n-nodes-base.googleCalendar",
@@ -14264,27 +13949,24 @@
           "name": "Get many events",
           "credentials": {
             "googleCalendarOAuth2Api": {
-              "id": "D8IBn3ay3WciQC3t",
-              "name": "Google Calendar account 2 - thiago"
+              "id": "qTbgWBTUXCgj3YfH",
+              "name": "Google Calendar account"
             }
           }
         },
         {
           "parameters": {
-            "sendTo": "thiago.pacioni@midiacode.tech",
+            "sendTo": "={{ $('Webhook').item.json.body.email }}",
             "subject": "={{ $('Webhook').item.json.body.subject }}",
-            "message": "={{ $('Webhook').item.json.body.message }} \n\nSegue link para reunião {{ $json.hangoutLink }}",
+            "message": "={{ '<p style=\"font-family: sans-serif; font-size: 14px; line-height: 1.6;\">' + ($('Webhook').item.json.body.message || '').split(/\\n\\s*\\n/).join('</p><p style=\"font-family: sans-serif; font-size: 14px; line-height: 1.6;\">').replace(/\\n/g, '<br>') + '</p>' }}",
             "options": {
-              "appendAttribution": false,
-              "attachmentsUi": {
-                "attachmentsBinary": []
-              }
+              "appendAttribution": false
             }
           },
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.2,
           "position": [
-            176,
+            272,
             1312
           ],
           "id": "9251fed7-f0bb-4398-a558-c2119cc09fdb",
@@ -14292,109 +13974,13 @@
           "webhookId": "4f9ae34e-e2af-40cc-a88e-401e7c8b2298",
           "credentials": {
             "gmailOAuth2": {
-              "id": "SZbWN10XU5npdpxu",
-              "name": "Thiago - Gmail account 2"
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
         }
       ],
       "connections": {
-        "When Executed by Another Workflow": {
-          "main": [
-            [
-              {
-                "node": "Send an Email",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If2": {
-          "main": [
-            [
-              {
-                "node": "No Operation, do nothing2",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            [
-              {
-                "node": "Send an Email2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Wait1": {
-          "main": [
-            [
-              {
-                "node": "Search for deals",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Send an Email1": {
-          "main": [
-            [
-              {
-                "node": "Wait1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "If1": {
-          "main": [
-            [
-              {
-                "node": "Send an Email1",
-                "type": "main",
-                "index": 0
-              }
-            ],
-            []
-          ]
-        },
-        "Wait": {
-          "main": [
-            [
-              {
-                "node": "If1",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Send an Email": {
-          "main": [
-            [
-              {
-                "node": "Wait",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Search for deals": {
-          "main": [
-            [
-              {
-                "node": "If2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Webhook": {
           "main": [
             [
@@ -14422,28 +14008,6 @@
             [
               {
                 "node": "Send a message",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Send an Email3": {
-          "main": [
-            [
-              {
-                "node": "HTTP Request",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "HTTP Request": {
-          "main": [
-            [
-              {
-                "node": "Append row in sheet",
                 "type": "main",
                 "index": 0
               }
@@ -14500,9 +14064,9 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "66d9e28a-4309-4612-97ab-1eded1f7e6f0",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "versionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
+      "activeVersionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
+      "triggerCount": 1,
       "shared": [
         {
           "updatedAt": "2026-07-15T08:50:49.611Z",
@@ -14512,7 +14076,387 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-07-30T16:44:25.000Z",
+        "createdAt": "2026-07-30T16:44:17.089Z",
+        "versionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
+        "workflowId": "DYs4g4Avo5oWwlKB",
+        "nodes": [
+          {
+            "parameters": {
+              "httpMethod": "POST",
+              "path": "cc5705f9-ef92-4aad-90dd-68ed4a396296",
+              "responseMode": "lastNode",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 2.1,
+            "position": [
+              -624,
+              1328
+            ],
+            "id": "d0217886-7593-463f-94be-880a385881c9",
+            "name": "Webhook",
+            "webhookId": "cc5705f9-ef92-4aad-90dd-68ed4a396296"
+          },
+          {
+            "parameters": {
+              "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 12h e 20h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 12 && hour < 20) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 20h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 20) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -208,
+              1328
+            ],
+            "id": "1c0782c1-6fa2-4918-aa78-3a7e841c371d",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "calendar": {
+                "__rl": true,
+                "value": "robson.lisboa@midiacode.com",
+                "mode": "list",
+                "cachedResultName": "robson.lisboa@midiacode.com"
+              },
+              "start": "={{ $json.meeting_start }}",
+              "end": "={{ $json.meeting_end }}",
+              "additionalFields": {
+                "attendees": [
+                  "={{ $('Webhook').item.json.body.email }}"
+                ],
+                "conferenceDataUi": {
+                  "conferenceDataValues": {}
+                },
+                "summary": "=Reunião de Alinhamento - {{ $json.subject }}"
+              }
+            },
+            "type": "n8n-nodes-base.googleCalendar",
+            "typeVersion": 1.3,
+            "position": [
+              -16,
+              1312
+            ],
+            "id": "ef7bb2f1-50b5-4054-9054-87fe538e2419",
+            "name": "Create an event",
+            "credentials": {
+              "googleCalendarOAuth2Api": {
+                "id": "qTbgWBTUXCgj3YfH",
+                "name": "Google Calendar account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "Cliente": "={{ $('Webhook').item.json.body.client }}",
+                  "Email": "={{ $('Webhook').item.json.body.email }}",
+                  "Fase": "={{ $('Webhook').item.json.body.stage }}",
+                  "Assunto": "={{ $('Webhook').item.json.body.subject }}",
+                  "Texto Proposto": "={{ $('Webhook').item.json.body.message }}",
+                  "Status": "Aprovado",
+                  "ID do Deal": "={{ $('Webhook').item.json.body.dealId }}",
+                  "Empresa": "={{ $('Webhook').item.json.body.company }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "ID do Deal",
+                    "displayName": "ID do Deal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Cliente",
+                    "displayName": "Cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Empresa",
+                    "displayName": "Empresa",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Fase",
+                    "displayName": "Fase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Assunto",
+                    "displayName": "Assunto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Texto Proposto",
+                    "displayName": "Texto Proposto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Data de Reexibicao",
+                    "displayName": "Data de Reexibicao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  },
+                  {
+                    "id": "Horario Sugerido",
+                    "displayName": "Horario Sugerido",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              656,
+              1280
+            ],
+            "id": "78ce7e0c-b06a-45b1-a485-7fe47c4d8d96",
+            "name": "Append row in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "delete",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "startIndex": "={{ $('Webhook').item.json.body.rowNumber }}"
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1040,
+              1328
+            ],
+            "id": "1f9fc9d8-1070-4a06-94dd-3025717b6614",
+            "name": "Delete rows or columns from sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "getAll",
+              "calendar": {
+                "__rl": true,
+                "value": "robson.lisboa@midiacode.com",
+                "mode": "list",
+                "cachedResultName": "robson.lisboa@midiacode.com"
+              },
+              "returnAll": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleCalendar",
+            "typeVersion": 1.3,
+            "position": [
+              -416,
+              1328
+            ],
+            "id": "bd76c955-0d03-4b8b-a060-b0f194c792a1",
+            "name": "Get many events",
+            "credentials": {
+              "googleCalendarOAuth2Api": {
+                "id": "qTbgWBTUXCgj3YfH",
+                "name": "Google Calendar account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "sendTo": "={{ $('Webhook').item.json.body.email }}",
+              "subject": "={{ $('Webhook').item.json.body.subject }}",
+              "message": "={{ '<p style=\"font-family: sans-serif; font-size: 14px; line-height: 1.6;\">' + ($('Webhook').item.json.body.message || '').split(/\\n\\s*\\n/).join('</p><p style=\"font-family: sans-serif; font-size: 14px; line-height: 1.6;\">').replace(/\\n/g, '<br>') + '</p>' }}",
+              "options": {
+                "appendAttribution": false
+              }
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.2,
+            "position": [
+              272,
+              1312
+            ],
+            "id": "9251fed7-f0bb-4398-a558-c2119cc09fdb",
+            "name": "Send a message",
+            "webhookId": "4f9ae34e-e2af-40cc-a88e-401e7c8b2298",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "PGFxwBVu0LSu9lXR",
+                "name": "Gmail account - robson.lisboa@midiacode.com"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "Webhook": {
+            "main": [
+              [
+                {
+                  "node": "Get many events",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Create an event",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Create an event": {
+            "main": [
+              [
+                {
+                  "node": "Send a message",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Append row in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Delete rows or columns from sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Delete rows or columns from sheet": {
+            "main": [
+              []
+            ]
+          },
+          "Get many events": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Send a message": {
+            "main": [
+              [
+                {
+                  "node": "Append row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "nodeGroups": [],
+        "authors": "Robson Lisboa",
+        "name": "Version e14a4e3f",
+        "description": "",
+        "autosaved": true
+      },
       "tags": []
     },
     {
@@ -16564,11 +16508,11 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-29T14:39:35.277Z",
+      "updatedAt": "2026-07-30T14:45:59.670Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
-      "active": false,
+      "active": true,
       "isArchived": false,
       "nodes": [
         {
@@ -16594,7 +16538,7 @@
           "parameters": {
             "content": "Fluxo - **P1**\n",
             "height": 464,
-            "width": 3460,
+            "width": 4068,
             "color": "#800000"
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -16831,7 +16775,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -224,
+            -272,
             -1184
           ],
           "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
@@ -16875,7 +16819,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você é um SDR Consultivo da Midiacode.\nSeu trabalho é escrever e-mails personalizados para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa.\nSeu objetivo principal é iniciar uma conversa relevante, baseada no primeiro contato, e despertar curiosidade suficiente para requisitar e agendar uma próxima reunião. NÃO é vender imediatamente.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode não é apenas uma empresa de QR Codes. A empresa desenvolve uma infraestrutura de convergência tecnológica capaz de conectar o mundo físico ao digital.\nHoje as empresas vivem um cenário de caos tecnológico: diversos softwares, ERPs, CRMs, aplicativos e processos desconectados entre si. A Midiacode resolve esse problema.\nSua plataforma integra pessoas, processos, sistemas e canais de comunicação através de mecanismos inteligentes de automação.\nO Smart QR é apenas uma das portas de entrada. Através dele é possível conectar qualquer ponto físico ao ecossistema digital da empresa.\nO verdadeiro valor da Midiacode está em reduzir a complexidade tecnológica, eliminar processos fragmentados e criar jornadas digitais inteligentes. Posicione-nos como transformação digital e infraestrutura phygital.\n\n----------------------------------------------------\nPOSICIONAMENTO\n----------------------------------------------------\nA Midiacode possui atuação consultiva. Ela entende os desafios do cliente antes de sugerir soluções.\nEvite parecer um vendedor insistente. Escreva como alguém que entende negócios. Nunca faça uma lista de funcionalidades.\nFoque nestes benefícios: simplificação da operação, integração entre sistemas, automação, maior eficiência operacional e inteligência de dados.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('HTTP Request1').item.json.results || $('HTTP Request1').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 1500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever.\n2. Utilize o contexto anterior naturalmente, mencione desafios discutidos e conecte à necessidade de uma próxima reunião.\n3. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica.\n4. Escreva com tom natural, profissional, consultivo e inteligente.\n5. Evite frases prontas (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\").\n6. NUNCA invente fatos, NUNCA use emojis e NUNCA use linguagem exageradamente comercial.\n7. Se \"Nome\" estiver vazio, inicie com \"Olá,\". Se \"Empresa\" estiver vazia, diga \"sua empresa\".\n8. Assinatura obrigatória no final: \"SDR – Midiacode\" (nunca use [Seu Nome]).\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever e utilize esse contexto de forma natural e inteligente.\n2. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n5. NUNCA use clichês comerciais (\"Espero que esteja bem\", \"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -16939,7 +16883,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            576,
+            512,
             -944
           ],
           "id": "27e067e1-fa54-4257-b204-8164b48402d4",
@@ -17312,7 +17256,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            784,
+            688,
             -688
           ],
           "id": "22f73655-59ce-492b-9e46-aaf70bddced6",
@@ -17356,7 +17300,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você é um Executivo de Contas Consultivo da Midiacode.\nSeu objetivo é escrever e-mails de acompanhamento inicial (follow-up) para clientes que receberam a proposta comercial recentemente (Fases P2, P2.1 e P2.2).\nObjetivo principal: Confirmar o entendimento do escopo, validar se a solução atende às necessidades técnicas/operacionais da empresa e sugerir uma breve reunião de alinhamento. NÃO é pressionar fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode oferece uma infraestrutura de convergência tecnológica que conecta o mundo físico ao digital (phygital). Resolvemos o caos de sistemas desconectados (ERPs, CRMs, apps) integrando pessoas, processos e canais por automação, Smart QR, Super App e IA.\nNosso valor: reduzir complexidade tecnológica, eliminar processos fragmentados, gerar inteligência e aumentar eficiência operacional. Posicione-nos como transformação digital, nunca como empresa de QR Code.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome: {{ $('Get a contact1').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  ($('HTTP Request3').item.json.results || $('HTTP Request3').item.json.associations?.emails || [])\n    .map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email))\n    .join('\\n---\\n')\n    .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte com os desafios operacionais, de integração ou processos discutidos nas conversas anteriores.\n2. Destaque o valor da infraestrutura em resolver a complexidade tecnológica e conectar a operação da empresa.\n3. Escreva como um especialista consultivo B2B de alto nível, focado em ROI, eficiência e parceria estratégica.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança comercial (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Executivo de Contas – Midiacode\" (nunca use [Seu Nome]).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 80 e 180 palavras.\n- Finalize sempre com uma pergunta aberta sugerindo uma conversa rápida de alinhamento.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos).\nUse estritamente esta estrutura para que o sistema leia os dados:\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"O que achou da apresentação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -17555,12 +17499,12 @@
           "parameters": {
             "content": "Fluxo - **P2.3 e P2.4**\n\n",
             "height": 848,
-            "width": 3444,
+            "width": 3876,
             "color": "#226F06"
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -2224,
+            -2208,
             -288
           ],
           "typeVersion": 1,
@@ -17698,7 +17642,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            976,
+            1184,
             -160
           ],
           "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
@@ -17725,8 +17669,8 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -640,
-            -176
+            -592,
+            -192
           ],
           "id": "5f0e9951-75f6-407c-8793-9631dba046fa",
           "name": "Get a deal2",
@@ -17752,7 +17696,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -192,
+            -208,
             -176
           ],
           "id": "74fc6ecc-8262-4db0-8459-7b74443bf65a",
@@ -17801,7 +17745,7 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            448,
+            528,
             96
           ],
           "id": "3afcfcd8-9d0b-47d3-89ff-5cd16a01d193",
@@ -18038,7 +17982,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            48,
+            256,
             -176
           ],
           "id": "5bedd606-8d12-4dc9-9bd1-6fb5ec22415c",
@@ -18060,7 +18004,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            288,
+            496,
             -192
           ],
           "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
@@ -18075,13 +18019,13 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você é um Executivo de Contas Consultivo da Midiacode.\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam proposta comercial e orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar sobre o escopo/investimento, esclarecer dúvidas e propor uma breve reunião de alinhamento/revisão. NÃO é pressionar fechamento nem dar descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE\n----------------------------------------------------\nA Midiacode oferece uma infraestrutura de convergência tecnológica que conecta o mundo físico ao digital (phygital). Resolvemos o caos de sistemas desconectados (ERPs, CRMs, apps) integrando pessoas, processos e canais por automação, Smart QR, Super App e IA.\nNosso valor: reduzir complexidade tecnológica, eliminar processos fragmentados, gerar inteligência e aumentar eficiência operacional. Posicione-nos como transformação digital, nunca como empresa de QR Code.\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\n\nNome: {{ $('Get a contact2').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || [])\n    .map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email))\n    .join('\\n---\\n')\n    .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte com os desafios/escopo previamente discutidos.\n2. Mostre abertura total para revisar o escopo e adequar o investimento à realidade atual da empresa.\n3. Escreva como um especialista consultivo B2B de alto nível, focado em ROI, eficiência e parceria estratégica.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança comercial (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Executivo de Contas – Midiacode\" (nunca use [Seu Nome]).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 80 e 180 palavras.\n- Finalize sempre com uma pergunta aberta sugerindo uma reunião rápida de alinhamento.\n\n--------------------------------------------------------------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos).\nUse estritamente esta estrutura para que o sistema leia os dados:\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3.1,
           "position": [
-            512,
+            720,
             -224
           ],
           "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
@@ -18120,7 +18064,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1104,
+            1312,
             -160
           ],
           "id": "fd6f13e1-bfd8-4d4a-b74c-8279871076f8",
@@ -18200,8 +18144,8 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            -768,
-            -1008
+            1376,
+            -1184
           ],
           "id": "769b944b-6931-4112-8cde-6282c1a5995d",
           "name": "Wait2",
@@ -18214,7 +18158,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            832,
+            1040,
             -192
           ],
           "id": "b7fa1163-5576-472f-a619-9aff55868dac",
@@ -18222,7 +18166,7 @@
         },
         {
           "parameters": {
-            "jsCode": "let respostaIA = $input.item.json.output;\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\nlet dadosTratados = JSON.parse(jsonLimpo);\nreturn [{ json: { assunto: dadosTratados.assunto, corpo: dadosTratados.corpo } }];"
+            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -18235,7 +18179,7 @@
         },
         {
           "parameters": {
-            "jsCode": "let respostaIA = $input.item.json.output;\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\nlet dadosTratados = JSON.parse(jsonLimpo);\nreturn [{ json: { assunto: dadosTratados.assunto, corpo: dadosTratados.corpo } }];"
+            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -18525,8 +18469,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1.1,
           "position": [
-            384,
-            -16
+            672,
+            224
           ],
           "id": "2831ade2-fa1b-4b17-a9e6-a56b21b24982",
           "name": "Google Gemini Chat Model2",
@@ -18536,6 +18480,189 @@
               "name": "Google Gemini(PaLM) Api account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brazil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Portugal",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brasil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "6ce175a6-6e15-499b-b545-527f46bd6040",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "empty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            0,
+            -176
+          ],
+          "id": "09340de3-ac7f-4f0a-9fde-bf361c53d5f7",
+          "name": "If"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brazil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Portugal",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brasil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "f270b170-7e0d-4d19-8275-21d90923f72d",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "empty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            848,
+            -688
+          ],
+          "id": "30d8e845-d148-4bfa-9395-59768c27e6a5",
+          "name": "If1"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brazil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Portugal",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "Brasil",
+                  "operator": {
+                    "type": "string",
+                    "operation": "equals"
+                  }
+                },
+                {
+                  "id": "06182c22-5f3a-437f-af78-2f0e72962c01",
+                  "leftValue": "={{ $json.properties.country.value }}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "string",
+                    "operation": "empty",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "or"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -144,
+            -1168
+          ],
+          "id": "44be593a-d15e-4c59-bea8-2cc188de1d72",
+          "name": "If2"
         }
       ],
       "connections": {
@@ -18576,7 +18703,7 @@
           "main": [
             [
               {
-                "node": "HTTP Request",
+                "node": "If2",
                 "type": "main",
                 "index": 0
               }
@@ -18629,7 +18756,13 @@
         },
         "Groq Chat Model": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "Corte de data negócios P1": {
@@ -18702,7 +18835,7 @@
           "main": [
             [
               {
-                "node": "HTTP Request2",
+                "node": "If1",
                 "type": "main",
                 "index": 0
               }
@@ -18755,7 +18888,13 @@
         },
         "Groq Chat Model1": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "AI Agent1",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "Corte de data negócios P": {
@@ -18827,7 +18966,7 @@
           "main": [
             [
               {
-                "node": "Buscar E-mails do Contato",
+                "node": "If",
                 "type": "main",
                 "index": 0
               }
@@ -19226,24 +19365,12 @@
         },
         "Google Gemini Chat Model": {
           "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Google Gemini Chat Model1": {
           "ai_languageModel": [
-            [
-              {
-                "node": "AI Agent1",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Google Gemini Chat Model2": {
@@ -19256,6 +19383,60 @@
               }
             ]
           ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Buscar E-mails do Contato",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Loop Over Items",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If1": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request2",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Loop Over Items1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If2": {
+          "main": [
+            [
+              {
+                "node": "HTTP Request",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Loop Over Items2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -19263,7 +19444,17 @@
         "binaryMode": "separate",
         "availableInMCP": false
       },
-      "staticData": null,
+      "staticData": {
+        "node:Schedule Trigger1": {
+          "recurrenceRules": []
+        },
+        "node:Schedule Trigger3": {
+          "recurrenceRules": []
+        },
+        "node:Schedule Trigger4": {
+          "recurrenceRules": []
+        }
+      },
       "meta": {
         "templateCredsSetupCompleted": true
       },
@@ -19324,9 +19515,9 @@
           }
         ]
       },
-      "versionId": "6a44055f-aeae-414f-8565-4052b6a8e504",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "versionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
+      "activeVersionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
+      "triggerCount": 3,
       "shared": [
         {
           "updatedAt": "2026-07-15T08:02:26.512Z",
@@ -19336,7 +19527,2942 @@
           "projectId": "MDx9S6QRKUuQVawA"
         }
       ],
-      "activeVersion": null,
+      "activeVersion": {
+        "updatedAt": "2026-07-30T14:55:19.000Z",
+        "createdAt": "2026-07-30T14:45:59.673Z",
+        "versionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
+        "workflowId": "GFyYDoE4f1FwxZZe",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 8
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -2208,
+              -1184
+            ],
+            "id": "b9474c6d-0c69-4cd1-b53a-9ebd3a116715",
+            "name": "Schedule Trigger1"
+          },
+          {
+            "parameters": {
+              "content": "Fluxo - **P1**\n",
+              "height": 464,
+              "width": 4068,
+              "color": "#800000"
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -2320,
+              -1280
+            ],
+            "typeVersion": 1,
+            "id": "e0a73338-37ae-4cea-8bdd-9b315bd0c696",
+            "name": "Sticky Note2"
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "ID do Deal": "={{ $('Corte de data negócios P1').item.json.id }}",
+                  "Cliente": "={{ $('Get a contact').item.json.properties.firstname?.value || '' }} {{ $('Get a contact').item.json.properties.lastname?.value || '' }}",
+                  "Status": "Pendente",
+                  "Empresa": "={{ $('Get a company').item.json.properties.name?.value || $('Get a deal').item.json.properties.dealname }}",
+                  "Email": "={{ $('Get a contact').item.json.properties.email?.value || '' }}",
+                  "Texto Proposto": "={{ $json.corpo }}",
+                  "Fase": "[REDACTED]",
+                  "Assunto": "={{ $json.assunto }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "ID do Deal",
+                    "displayName": "ID do Deal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Cliente",
+                    "displayName": "Cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Empresa",
+                    "displayName": "Empresa",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Fase",
+                    "displayName": "Fase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Assunto",
+                    "displayName": "Assunto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto Proposto",
+                    "displayName": "Texto Proposto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Data de Reexibicao",
+                    "displayName": "Data de Reexibicao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Horario Sugerido",
+                    "displayName": "Horario Sugerido",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1024,
+              -1184
+            ],
+            "id": "cfe91737-e5cf-44aa-8b86-43ac5a41b73e",
+            "name": "Append row in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "[REDACTED]"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {
+                "direction": "DESCENDING",
+                "sortBy": "notes_last_updated"
+              }
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1760,
+              -1184
+            ],
+            "id": "955147b7-9539-40c4-8ebc-366e09cbdfb1",
+            "name": "Search for deals",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "get",
+              "dealId": {
+                "__rl": true,
+                "value": "={{ $json.id }}",
+                "mode": "id"
+              },
+              "filters": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -672,
+              -1184
+            ],
+            "id": "b36bfcda-e63d-4244-8de8-0691a9cd12a3",
+            "name": "Get a deal",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "company",
+              "operation": "get",
+              "companyId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -272,
+              -1184
+            ],
+            "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
+            "name": "Get a company",
+            "alwaysOutputData": false,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "operation": "get",
+              "contactId": {
+                "__rl": true,
+                "value": "={{ $json.associations.associatedVids[0] }}",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -448,
+              -1184
+            ],
+            "id": "c62d7c47-9dae-4e8e-80df-53b224a17ce6",
+            "name": "Get a contact",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever e utilize esse contexto de forma natural e inteligente.\n2. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n5. NUNCA use clichês comerciais (\"Espero que esteja bem\", \"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 3.1,
+            "position": [
+              432,
+              -1184
+            ],
+            "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
+            "name": "AI Agent"
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact').item.json.vid }}?associations=emails",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              16,
+              -1184
+            ],
+            "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
+            "name": "HTTP Request",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              224,
+              -1184
+            ],
+            "id": "87ce293b-7494-4664-b840-48c43a8d8689",
+            "name": "HTTP Request1",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "model": "llama-3.3-70b-versatile",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              512,
+              -944
+            ],
+            "id": "27e067e1-fa54-4257-b204-8164b48402d4",
+            "name": "Groq Chat Model",
+            "credentials": {
+              "groqApi": {
+                "id": "w9FbSKYgIiJIWO2u",
+                "name": "Groq account - Thiago"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                    "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "beforeOrEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1536,
+              -1184
+            ],
+            "id": "2b17a4ad-767f-4280-a167-85b5c6e8fe60",
+            "name": "Corte de data negócios P1"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ $('Consulta IDs registrados').all().map(item => String(item.json['ID do Deal'])) }}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1376,
+              -1184
+            ],
+            "id": "b27f7d51-bc37-490e-9231-a808b23c0c32",
+            "name": "Filter1 - ID já registrado?"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -1984,
+              -1184
+            ],
+            "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
+            "name": "Consulta IDs registrados",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 7
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -2192,
+              -688
+            ],
+            "id": "7d95214b-14eb-48fd-aeb1-d8cd57f84626",
+            "name": "Schedule Trigger3"
+          },
+          {
+            "parameters": {
+              "content": "Fluxo - **P2, P2.1 e P2.2**\n",
+              "height": 464,
+              "width": 4340,
+              "color": "#916403"
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -2272,
+              -784
+            ],
+            "typeVersion": 1,
+            "id": "fecce526-a3cc-4ab4-a139-4138d4451cdd",
+            "name": "Sticky Note3"
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
+                  "Cliente": "={{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}",
+                  "Status": "Pendente",
+                  "Empresa": "={{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}",
+                  "Email": "={{ $('Get a contact1').item.json.properties.email?.value || '' }}",
+                  "Texto Proposto": "={{ $json.corpo }}",
+                  "Assunto": "={{ $json.assunto }}",
+                  "Fase": "[REDACTED]"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "ID do Deal",
+                    "displayName": "ID do Deal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Cliente",
+                    "displayName": "Cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Empresa",
+                    "displayName": "Empresa",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Fase",
+                    "displayName": "Fase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Assunto",
+                    "displayName": "Assunto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto Proposto",
+                    "displayName": "Texto Proposto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Data de Reexibicao",
+                    "displayName": "Data de Reexibicao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Horario Sugerido",
+                    "displayName": "Horario Sugerido",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1776,
+              -688
+            ],
+            "id": "72f28f1c-ed7d-49c0-89ec-005dcb3ba6a6",
+            "name": "Append row in sheet1",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "[REDACTED]"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {
+                "direction": "DESCENDING",
+                "sortBy": "notes_last_updated"
+              }
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1520,
+              -768
+            ],
+            "id": "b03eaf08-d043-459c-a420-9a08c486891e",
+            "name": "Search for deals1",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "get",
+              "dealId": {
+                "__rl": true,
+                "value": "={{ $json.id }}",
+                "mode": "id"
+              },
+              "filters": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              336,
+              -704
+            ],
+            "id": "bfe0398b-404d-4e4f-8f3e-445c947be21e",
+            "name": "Get a deal1",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "company",
+              "operation": "get",
+              "companyId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              688,
+              -688
+            ],
+            "id": "22f73655-59ce-492b-9e46-aaf70bddced6",
+            "name": "Get a company1",
+            "alwaysOutputData": false,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "operation": "get",
+              "contactId": {
+                "__rl": true,
+                "value": "={{ $json.associations.associatedVids[0] }}",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              560,
+              -688
+            ],
+            "id": "227458e7-51c3-4133-8bd8-9d1ee0f51780",
+            "name": "Get a contact1",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"O que achou da apresentação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 3.1,
+            "position": [
+              1344,
+              -704
+            ],
+            "id": "adc6c50f-0bb7-4965-bc26-c7d10ad79c9e",
+            "name": "AI Agent1"
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact1').item.json.vid }}?associations=emails",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              1024,
+              -688
+            ],
+            "id": "0c50dcd5-053c-4c98-b397-7d8b4f528867",
+            "name": "HTTP Request2",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              1232,
+              -688
+            ],
+            "id": "41827908-7a96-4c86-a352-9a310b2aacd4",
+            "name": "HTTP Request3",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "model": "llama-3.3-70b-versatile",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              1376,
+              -464
+            ],
+            "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
+            "name": "Groq Chat Model1",
+            "credentials": {
+              "groqApi": {
+                "id": "w9FbSKYgIiJIWO2u",
+                "name": "Groq account - Thiago"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                    "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "beforeOrEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -640,
+              -720
+            ],
+            "id": "fe8630ad-1505-44dc-8136-6a7503f26603",
+            "name": "Corte de data negócios P"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ $('Consulta IDs registrados1').all().map(item => String(item.json['ID do Deal'])) }}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -384,
+              -720
+            ],
+            "id": "a201d3cc-bfb6-48f9-9fef-0a3168b433cb",
+            "name": "Filter1 - ID já registrado?1"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -1952,
+              -704
+            ],
+            "id": "1791c515-a694-47c6-afdf-d6e6f1921701",
+            "name": "Consulta IDs registrados1",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 6
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+              -2176,
+              -144
+            ],
+            "id": "230ca960-506b-4247-8bdb-91a533f8991f",
+            "name": "Schedule Trigger4"
+          },
+          {
+            "parameters": {
+              "content": "Fluxo - **P2.3 e P2.4**\n\n",
+              "height": 848,
+              "width": 3876,
+              "color": "#226F06"
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -2208,
+              -288
+            ],
+            "typeVersion": 1,
+            "id": "0f6418a9-3995-4c47-bfe2-3f1e6ac2d06c",
+            "name": "Sticky Note4"
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4').item.json.id }}",
+                  "Cliente": "={{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}",
+                  "Status": "Pendente",
+                  "Empresa": "={{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}",
+                  "Email": "={{ $('Get a contact2').item.json.properties.email?.value || $('Get a contact2').item.json.properties.email || '' }}",
+                  "Texto Proposto": "={{ $json.corpo }}",
+                  "Fase": "[REDACTED]",
+                  "Assunto": "={{ $json.assunto }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "ID do Deal",
+                    "displayName": "ID do Deal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Cliente",
+                    "displayName": "Cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Empresa",
+                    "displayName": "Empresa",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Fase",
+                    "displayName": "Fase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Assunto",
+                    "displayName": "Assunto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto Proposto",
+                    "displayName": "Texto Proposto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Data de Reexibicao",
+                    "displayName": "Data de Reexibicao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Horario Sugerido",
+                    "displayName": "Horario Sugerido",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1184,
+              -160
+            ],
+            "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
+            "name": "Append row in sheet2",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "get",
+              "dealId": {
+                "__rl": true,
+                "value": "={{ $json.id }}",
+                "mode": "id"
+              },
+              "filters": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -592,
+              -192
+            ],
+            "id": "5f0e9951-75f6-407c-8793-9631dba046fa",
+            "name": "Get a deal2",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "company",
+              "operation": "get",
+              "companyId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -208,
+              -176
+            ],
+            "id": "74fc6ecc-8262-4db0-8459-7b74443bf65a",
+            "name": "Get a company2",
+            "alwaysOutputData": false,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "operation": "get",
+              "contactId": {
+                "__rl": true,
+                "value": "={{ $json.associations.associatedVids[0] }}",
+                "mode": "id"
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -416,
+              -176
+            ],
+            "id": "e05160cf-fb0c-4f80-99f0-527ee8f09017",
+            "name": "Get a contact2",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            },
+            "onError": "[REDACTED]"
+          },
+          {
+            "parameters": {
+              "model": "llama-3.3-70b-versatile",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+            "typeVersion": 1,
+            "position": [
+              528,
+              96
+            ],
+            "id": "3afcfcd8-9d0b-47d3-89ff-5cd16a01d193",
+            "name": "Groq Chat Model2",
+            "credentials": {
+              "groqApi": {
+                "id": "w9FbSKYgIiJIWO2u",
+                "name": "Groq account - Thiago"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2000,
+              -16
+            ],
+            "id": "9abe8f94-54df-4e54-b8a9-d223110a31da",
+            "name": "Consulta IDs registrados2",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "qualifiedtobuy"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1520,
+              -528
+            ],
+            "id": "e9782b4b-95b9-4077-ab8a-bd0d0152305f",
+            "name": "Search for deals3",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "[REDACTED]"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1504,
+              -672
+            ],
+            "id": "60db8722-df2b-4ca0-8249-1b2c197cdb16",
+            "name": "Search for deals4",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "numberInputs": 3
+            },
+            "type": "n8n-nodes-base.merge",
+            "typeVersion": 3.2,
+            "position": [
+              -880,
+              -720
+            ],
+            "id": "19812847-5644-43c9-9301-a82045bb74e4",
+            "name": "Merge"
+          },
+          {
+            "parameters": {
+              "numberInputs": 6
+            },
+            "type": "n8n-nodes-base.merge",
+            "typeVersion": 3.2,
+            "position": [
+              -1520,
+              -128
+            ],
+            "id": "f1c17d81-e7a0-418a-9751-f424ab54441e",
+            "name": "Merge1"
+          },
+          {
+            "parameters": {
+              "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"assunto\": {\n      \"type\": \"string\",\n      \"description\": \"Assunto do e-mail de follow-up.\"\n    },\n    \"corpo\": {\n      \"type\": \"string\",\n      \"description\": \"Corpo completo do e-mail de follow-up.\"\n    }\n  },\n  \"required\": [\"assunto\", \"corpo\"]\n}"
+            },
+            "type": "[REDACTED]",
+            "typeVersion": 1.3,
+            "position": [
+              896,
+              64
+            ],
+            "id": "2411e57c-2243-4a6b-b3b1-93fb6cce127c",
+            "name": "Structured Output Parser"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                    "leftValue": "={{ $json.properties.hs_lastmodifieddate || $json.properties.closedate }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 7 }).toISODate() }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "beforeOrEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1408,
+              -176
+            ],
+            "id": "a7a365ba-9fa2-4441-976d-d5241c3cabbc",
+            "name": "Corte de data negócios P2.3 e P2.4"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ $('Consulta IDs registrados2').all().map(item => String(item.json['ID do Deal'])) }}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1248,
+              -176
+            ],
+            "id": "130b7752-34ba-4c62-8999-7cf619916e0a",
+            "name": "Filtro - ID já registrado?"
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $('Get a contact2').item.json.vid }}?associations=emails",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              256,
+              -176
+            ],
+            "id": "5bedd606-8d12-4dc9-9bd1-6fb5ec22415c",
+            "name": "Buscar E-mails do Contato",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "url": "=https://api.hubapi.com/crm/v3/objects/emails/{{ $json.associations.emails.results.pop().id }}?properties=hs_email_subject,hs_email_text",
+              "authentication": "[REDACTED]",
+              "nodeCredentialType": "hubspotAppToken",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.4,
+            "position": [
+              496,
+              -192
+            ],
+            "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
+            "name": "Histórico e-mails",
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "promptType": "define",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 3.1,
+            "position": [
+              720,
+              -224
+            ],
+            "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
+            "name": "Executivo de contas"
+          },
+          {
+            "parameters": {
+              "maxItems": 5
+            },
+            "type": "n8n-nodes-base.limit",
+            "typeVersion": 1,
+            "position": [
+              -1040,
+              -176
+            ],
+            "id": "eb11dfb1-3e3a-4e08-8711-deb86cda3d24",
+            "name": "Limit"
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+              -832,
+              -176
+            ],
+            "id": "525a6b9a-fc07-4c45-8dec-753b887821e2",
+            "name": "Loop Over Items"
+          },
+          {
+            "parameters": {
+              "amount": 4
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1312,
+              -160
+            ],
+            "id": "fd6f13e1-bfd8-4d4a-b74c-8279871076f8",
+            "name": "Wait1",
+            "webhookId": "f405566d-e2f0-4c6d-a842-8b4727a349f9"
+          },
+          {
+            "parameters": {
+              "maxItems": 5
+            },
+            "type": "n8n-nodes-base.limit",
+            "typeVersion": 1,
+            "position": [
+              -176,
+              -720
+            ],
+            "id": "e5e78406-a269-4d73-9852-7d3afea50547",
+            "name": "Limit1"
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+              32,
+              -720
+            ],
+            "id": "e56b5acd-bcc8-4f8e-912a-973f51457c15",
+            "name": "Loop Over Items1"
+          },
+          {
+            "parameters": {
+              "amount": 10
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1920,
+              -688
+            ],
+            "id": "f301cd2c-edec-4a6b-8885-3563eb641542",
+            "name": "Wait",
+            "webhookId": "45e5b2db-2e6d-49c3-9e53-bcfb693e8142"
+          },
+          {
+            "parameters": {
+              "maxItems": 5
+            },
+            "type": "n8n-nodes-base.limit",
+            "typeVersion": 1,
+            "position": [
+              -1168,
+              -1184
+            ],
+            "id": "79ccda55-398c-4c14-9550-8eb83bc9775c",
+            "name": "Limit2"
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+              -960,
+              -1184
+            ],
+            "id": "9b6c0752-7c0f-48cd-916d-e91f3b0ba67f",
+            "name": "Loop Over Items2"
+          },
+          {
+            "parameters": {
+              "amount": 10
+            },
+            "type": "n8n-nodes-base.wait",
+            "typeVersion": 1.1,
+            "position": [
+              1376,
+              -1184
+            ],
+            "id": "769b944b-6931-4112-8cde-6282c1a5995d",
+            "name": "Wait2",
+            "webhookId": "6e3d2518-0738-40ab-a17a-bbed5f031c43"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1040,
+              -192
+            ],
+            "id": "b7fa1163-5576-472f-a619-9aff55868dac",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              1648,
+              -704
+            ],
+            "id": "455b8565-196f-41fd-ac6f-fd03d1f3a713",
+            "name": "Code in JavaScript1"
+          },
+          {
+            "parameters": {
+              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              784,
+              -1184
+            ],
+            "id": "6e429901-04eb-45bc-8be5-d441a19491c8",
+            "name": "Code in JavaScript2"
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "1345937019"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {
+                "direction": "DESCENDING",
+                "sortBy": "notes_last_updated"
+              }
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1744,
+              -144
+            ],
+            "id": "90ba0a6f-448b-402c-baf7-f9722fcc067d",
+            "name": "Search for deals - P2.3 - Amarelo",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "limit": 50,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "1345937020"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {
+                "direction": "DESCENDING",
+                "sortBy": "notes_last_updated"
+              }
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1744,
+              -288
+            ],
+            "id": "9642864f-7ee7-4a4e-b806-f7d4409d2c8c",
+            "name": "Search for deals2 - P2.4 - Vermelho",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "contractsent"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1744,
+              16
+            ],
+            "id": "771bd578-4957-42c3-b9e5-cbd5fefa72f2",
+            "name": "Search for deals - P2.3 - Verde",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "1345937017"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1744,
+              128
+            ],
+            "id": "a4e97230-1b79-48ad-86a8-5d7871823801",
+            "name": "Search for deals - P2.4 - Vermelho",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "1345937018"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1744,
+              272
+            ],
+            "id": "3a6101fa-6272-487b-985e-4e184cd1dad1",
+            "name": "Search for deals - P2.4 - Amarelo",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "authentication": "appToken",
+              "resource": "deal",
+              "operation": "search",
+              "returnAll": true,
+              "filterGroupsUi": {
+                "filterGroupsValues": [
+                  {
+                    "filtersUi": {
+                      "filterValues": [
+                        {
+                          "propertyName": "dealstage",
+                          "value": "f4a06b1c-1247-4ad8-bfbb-de9471050c2e"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "additionalFields": {}
+            },
+            "type": "n8n-nodes-base.hubspot",
+            "typeVersion": 2.2,
+            "position": [
+              -1760,
+              416
+            ],
+            "id": "564351f3-961f-4f58-8a21-6a34645f0a57",
+            "name": "Search for deals - P2.4 - Verde",
+            "executeOnce": true,
+            "credentials": {
+              "hubspotAppToken": {
+                "id": "daCJatUnhTA4GPYO",
+                "name": "HubSpot App Token account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1.1,
+            "position": [
+              384,
+              -976
+            ],
+            "id": "013dc046-a06f-4f0c-b119-bf2ef29bbe4a",
+            "name": "Google Gemini Chat Model",
+            "credentials": {
+              "googlePalmApi": {
+                "id": "KDxlVuLHWGFmNGgu",
+                "name": "Google Gemini(PaLM) Api account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1.1,
+            "position": [
+              1264,
+              -496
+            ],
+            "id": "0e9e06f1-dbec-4df2-9352-1a6bc3a10554",
+            "name": "Google Gemini Chat Model1",
+            "credentials": {
+              "googlePalmApi": {
+                "id": "KDxlVuLHWGFmNGgu",
+                "name": "Google Gemini(PaLM) Api account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "typeVersion": 1.1,
+            "position": [
+              672,
+              224
+            ],
+            "id": "2831ade2-fa1b-4b17-a9e6-a56b21b24982",
+            "name": "Google Gemini Chat Model2",
+            "credentials": {
+              "googlePalmApi": {
+                "id": "KDxlVuLHWGFmNGgu",
+                "name": "Google Gemini(PaLM) Api account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brazil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Portugal",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brasil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "6ce175a6-6e15-499b-b545-527f46bd6040",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "or"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              0,
+              -176
+            ],
+            "id": "09340de3-ac7f-4f0a-9fde-bf361c53d5f7",
+            "name": "If"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brazil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Portugal",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brasil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "f270b170-7e0d-4d19-8275-21d90923f72d",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "or"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              848,
+              -688
+            ],
+            "id": "30d8e845-d148-4bfa-9395-59768c27e6a5",
+            "name": "If1"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a0db097b-4a8c-4475-b363-8fc8f3428e9a",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brazil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "380c19b4-661b-4753-b089-6df0e965077f",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Portugal",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "792a788d-a535-49eb-8ac2-e1e1533de7f1",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "Brasil",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  },
+                  {
+                    "id": "06182c22-5f3a-437f-af78-2f0e72962c01",
+                    "leftValue": "={{ $json.properties.country.value }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "or"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -144,
+              -1168
+            ],
+            "id": "44be593a-d15e-4c59-bea8-2cc188de1d72",
+            "name": "If2"
+          }
+        ],
+        "connections": {
+          "Schedule Trigger1": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search for deals": {
+            "main": [
+              [
+                {
+                  "node": "Corte de data negócios P1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a deal": {
+            "main": [
+              [
+                {
+                  "node": "Get a contact",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a company": {
+            "main": [
+              [
+                {
+                  "node": "If2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a contact": {
+            "main": [
+              [
+                {
+                  "node": "Get a company",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "AI Agent": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request1": {
+            "main": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Groq Chat Model": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Corte de data negócios P1": {
+            "main": [
+              [
+                {
+                  "node": "Filter1 - ID já registrado?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter1 - ID já registrado?": {
+            "main": [
+              [
+                {
+                  "node": "Limit2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Consulta IDs registrados": {
+            "main": [
+              [
+                {
+                  "node": "Search for deals",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Schedule Trigger3": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search for deals1": {
+            "main": [
+              [
+                {
+                  "node": "Merge",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a deal1": {
+            "main": [
+              [
+                {
+                  "node": "Get a contact1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a company1": {
+            "main": [
+              [
+                {
+                  "node": "If1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a contact1": {
+            "main": [
+              [
+                {
+                  "node": "Get a company1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "AI Agent1": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request2": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "HTTP Request3": {
+            "main": [
+              [
+                {
+                  "node": "AI Agent1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Groq Chat Model1": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "AI Agent1",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Corte de data negócios P": {
+            "main": [
+              [
+                {
+                  "node": "Filter1 - ID já registrado?1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter1 - ID já registrado?1": {
+            "main": [
+              [
+                {
+                  "node": "Limit1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Consulta IDs registrados1": {
+            "main": [
+              [
+                {
+                  "node": "Search for deals1",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals4",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Schedule Trigger4": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a deal2": {
+            "main": [
+              [
+                {
+                  "node": "Get a contact2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a company2": {
+            "main": [
+              [
+                {
+                  "node": "If",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get a contact2": {
+            "main": [
+              [
+                {
+                  "node": "Get a company2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Groq Chat Model2": {
+            "ai_languageModel": [
+              []
+            ]
+          },
+          "Consulta IDs registrados2": {
+            "main": [
+              [
+                {
+                  "node": "Search for deals2 - P2.4 - Vermelho",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals - P2.3 - Amarelo",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals - P2.3 - Verde",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals - P2.4 - Vermelho",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals - P2.4 - Amarelo",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Search for deals - P2.4 - Verde",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search for deals3": {
+            "main": [
+              [
+                {
+                  "node": "Merge",
+                  "type": "main",
+                  "index": 2
+                }
+              ]
+            ]
+          },
+          "Search for deals4": {
+            "main": [
+              [
+                {
+                  "node": "Merge",
+                  "type": "main",
+                  "index": 1
+                }
+              ]
+            ]
+          },
+          "Merge": {
+            "main": [
+              [
+                {
+                  "node": "Corte de data negócios P",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Merge1": {
+            "main": [
+              [
+                {
+                  "node": "Corte de data negócios P2.3 e P2.4",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Structured Output Parser": {
+            "ai_outputParser": [
+              []
+            ]
+          },
+          "Corte de data negócios P2.3 e P2.4": {
+            "main": [
+              [
+                {
+                  "node": "Filtro - ID já registrado?",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filtro - ID já registrado?": {
+            "main": [
+              [
+                {
+                  "node": "Limit",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Buscar E-mails do Contato": {
+            "main": [
+              [
+                {
+                  "node": "Histórico e-mails",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Histórico e-mails": {
+            "main": [
+              [
+                {
+                  "node": "Executivo de contas",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Executivo de contas": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Limit": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Loop Over Items": {
+            "main": [
+              [],
+              [
+                {
+                  "node": "Get a deal2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Append row in sheet2": {
+            "main": [
+              [
+                {
+                  "node": "Wait1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait1": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Limit1": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Loop Over Items1": {
+            "main": [
+              [],
+              [
+                {
+                  "node": "Get a deal1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Append row in sheet1": {
+            "main": [
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Limit2": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Loop Over Items2": {
+            "main": [
+              [],
+              [
+                {
+                  "node": "Get a deal",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Append row in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Wait2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Wait2": {
+            "main": [
+              [
+                {
+                  "node": "Loop Over Items2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Append row in sheet2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript1": {
+            "main": [
+              [
+                {
+                  "node": "Append row in sheet1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript2": {
+            "main": [
+              [
+                {
+                  "node": "Append row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search for deals - P2.3 - Amarelo": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Search for deals2 - P2.4 - Vermelho": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 1
+                }
+              ]
+            ]
+          },
+          "Search for deals - P2.3 - Verde": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 2
+                }
+              ]
+            ]
+          },
+          "Search for deals - P2.4 - Vermelho": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 3
+                }
+              ]
+            ]
+          },
+          "Search for deals - P2.4 - Amarelo": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 5
+                }
+              ]
+            ]
+          },
+          "Search for deals - P2.4 - Verde": {
+            "main": [
+              [
+                {
+                  "node": "Merge1",
+                  "type": "main",
+                  "index": 4
+                }
+              ]
+            ]
+          },
+          "Google Gemini Chat Model": {
+            "ai_languageModel": [
+              []
+            ]
+          },
+          "Google Gemini Chat Model1": {
+            "ai_languageModel": [
+              []
+            ]
+          },
+          "Google Gemini Chat Model2": {
+            "ai_languageModel": [
+              [
+                {
+                  "node": "Executivo de contas",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If": {
+            "main": [
+              [
+                {
+                  "node": "Buscar E-mails do Contato",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Loop Over Items",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If1": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request2",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Loop Over Items1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "If2": {
+            "main": [
+              [
+                {
+                  "node": "HTTP Request",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Loop Over Items2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "nodeGroups": [],
+        "authors": "Robson Lisboa",
+        "name": "Version c39250f8",
+        "description": "",
+        "autosaved": true
+      },
       "tags": []
     },
     {
@@ -36280,10 +39406,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785362682,
+            "lastTimeChecked": 1785445473,
             "possibleDuplicates": [
-              "19fafe89d74e1cf2",
-              "19faeea5b9df629d"
+              "19fb4d7dc6874617",
+              "19fb44fe81e8ae6d"
             ]
           }
         }

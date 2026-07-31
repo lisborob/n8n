@@ -5665,10 +5665,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785452294,
+            "lastTimeChecked": 1785534987,
             "possibleDuplicates": [
-              "19fb53c53d196d0e",
-              "19fb519ac2762682"
+              "19fba2dbfd9c5dc6",
+              "19fba1c4405b6311"
             ]
           }
         },
@@ -13677,7 +13677,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-30T16:44:17.088Z",
+      "updatedAt": "2026-07-31T14:25:59.627Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -13708,8 +13708,8 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            -208,
-            1328
+            16,
+            1248
           ],
           "id": "1c0782c1-6fa2-4918-aa78-3a7e841c371d",
           "name": "Code in JavaScript"
@@ -13737,8 +13737,8 @@
           "type": "n8n-nodes-base.googleCalendar",
           "typeVersion": 1.3,
           "position": [
-            -16,
-            1312
+            240,
+            1232
           ],
           "id": "ef7bb2f1-50b5-4054-9054-87fe538e2419",
           "name": "Create an event",
@@ -13881,7 +13881,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            656,
+            864,
             1280
           ],
           "id": "78ce7e0c-b06a-45b1-a485-7fe47c4d8d96",
@@ -13915,7 +13915,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1040,
+            1248,
             1328
           ],
           "id": "1f9fc9d8-1070-4a06-94dd-3025717b6614",
@@ -13942,8 +13942,8 @@
           "type": "n8n-nodes-base.googleCalendar",
           "typeVersion": 1.3,
           "position": [
-            -416,
-            1328
+            -64,
+            1040
           ],
           "id": "bd76c955-0d03-4b8b-a060-b0f194c792a1",
           "name": "Get many events",
@@ -13966,8 +13966,8 @@
           "type": "n8n-nodes-base.gmail",
           "typeVersion": 2.2,
           "position": [
-            272,
-            1312
+            16,
+            1536
           ],
           "id": "9251fed7-f0bb-4398-a558-c2119cc09fdb",
           "name": "Send a message",
@@ -13978,6 +13978,39 @@
               "name": "Gmail account - robson.lisboa@midiacode.com"
             }
           }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "1c3c79b1-99aa-4d91-9114-196a745d3551",
+                  "leftValue": "={{ $json.body.agendamento }}",
+                  "rightValue": true,
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "equals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -416,
+            1328
+          ],
+          "id": "6c9b2e6e-e295-409e-b7ae-fc67f0f0725a",
+          "name": "If"
         }
       ],
       "connections": {
@@ -13985,7 +14018,7 @@
           "main": [
             [
               {
-                "node": "Get many events",
+                "node": "If",
                 "type": "main",
                 "index": 0
               }
@@ -14051,6 +14084,24 @@
               }
             ]
           ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "Get many events",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Send a message",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -14064,8 +14115,8 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
-      "activeVersionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
+      "versionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
+      "activeVersionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
       "triggerCount": 1,
       "shared": [
         {
@@ -14077,9 +14128,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-30T16:44:25.000Z",
-        "createdAt": "2026-07-30T16:44:17.089Z",
-        "versionId": "e14a4e3f-4811-4821-83f8-b3a490480dbd",
+        "updatedAt": "2026-07-31T14:26:15.000Z",
+        "createdAt": "2026-07-31T14:25:59.629Z",
+        "versionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
         "workflowId": "DYs4g4Avo5oWwlKB",
         "nodes": [
           {
@@ -14106,8 +14157,8 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              -208,
-              1328
+              16,
+              1248
             ],
             "id": "1c0782c1-6fa2-4918-aa78-3a7e841c371d",
             "name": "Code in JavaScript"
@@ -14135,8 +14186,8 @@
             "type": "n8n-nodes-base.googleCalendar",
             "typeVersion": 1.3,
             "position": [
-              -16,
-              1312
+              240,
+              1232
             ],
             "id": "ef7bb2f1-50b5-4054-9054-87fe538e2419",
             "name": "Create an event",
@@ -14279,7 +14330,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              656,
+              864,
               1280
             ],
             "id": "78ce7e0c-b06a-45b1-a485-7fe47c4d8d96",
@@ -14313,7 +14364,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              1040,
+              1248,
               1328
             ],
             "id": "1f9fc9d8-1070-4a06-94dd-3025717b6614",
@@ -14340,8 +14391,8 @@
             "type": "n8n-nodes-base.googleCalendar",
             "typeVersion": 1.3,
             "position": [
-              -416,
-              1328
+              -64,
+              1040
             ],
             "id": "bd76c955-0d03-4b8b-a060-b0f194c792a1",
             "name": "Get many events",
@@ -14364,8 +14415,8 @@
             "type": "n8n-nodes-base.gmail",
             "typeVersion": 2.2,
             "position": [
-              272,
-              1312
+              16,
+              1536
             ],
             "id": "9251fed7-f0bb-4398-a558-c2119cc09fdb",
             "name": "Send a message",
@@ -14376,6 +14427,39 @@
                 "name": "Gmail account - robson.lisboa@midiacode.com"
               }
             }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1c3c79b1-99aa-4d91-9114-196a745d3551",
+                    "leftValue": "={{ $json.body.agendamento }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -416,
+              1328
+            ],
+            "id": "6c9b2e6e-e295-409e-b7ae-fc67f0f0725a",
+            "name": "If"
           }
         ],
         "connections": {
@@ -14383,7 +14467,7 @@
             "main": [
               [
                 {
-                  "node": "Get many events",
+                  "node": "If",
                   "type": "main",
                   "index": 0
                 }
@@ -14449,11 +14533,29 @@
                 }
               ]
             ]
+          },
+          "If": {
+            "main": [
+              [
+                {
+                  "node": "Get many events",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Send a message",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version e14a4e3f",
+        "name": "Version baec79f4",
         "description": "",
         "autosaved": true
       },
@@ -16508,7 +16610,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-30T14:45:59.670Z",
+      "updatedAt": "2026-07-31T14:45:27.141Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -16538,12 +16640,12 @@
           "parameters": {
             "content": "Fluxo - **P1**\n",
             "height": 464,
-            "width": 4068,
+            "width": 4084,
             "color": "#800000"
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -2320,
+            -2272,
             -1280
           ],
           "typeVersion": 1,
@@ -16577,7 +16679,8 @@
                 "Email": "={{ $('Get a contact').item.json.properties.email?.value || '' }}",
                 "Texto Proposto": "={{ $json.corpo }}",
                 "Fase": "[REDACTED]",
-                "Assunto": "={{ $json.assunto }}"
+                "Assunto": "={{ $json.assunto }}",
+                "Agendamento": "TRUE"
               },
               "matchingColumns": [],
               "schema": [
@@ -16655,6 +16758,16 @@
                   "canBeUsedToMatch": true
                 },
                 {
+                  "id": "Agendamento",
+                  "displayName": "Agendamento",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
                   "id": "Data de Reexibicao",
                   "displayName": "Data de Reexibicao",
                   "required": false,
@@ -16681,7 +16794,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1024,
+            1456,
             -1184
           ],
           "id": "cfe91737-e5cf-44aa-8b86-43ac5a41b73e",
@@ -16720,7 +16833,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -1760,
+            -1648,
             -1184
           ],
           "id": "955147b7-9539-40c4-8ebc-366e09cbdfb1",
@@ -16748,7 +16861,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -672,
+            -272,
             -1184
           ],
           "id": "b36bfcda-e63d-4244-8de8-0691a9cd12a3",
@@ -16775,7 +16888,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -272,
+            64,
             -1184
           ],
           "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
@@ -16803,7 +16916,7 @@
           "type": "n8n-nodes-base.hubspot",
           "typeVersion": 2.2,
           "position": [
-            -448,
+            -112,
             -1184
           ],
           "id": "c62d7c47-9dae-4e8e-80df-53b224a17ce6",
@@ -16819,13 +16932,13 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever e utilize esse contexto de forma natural e inteligente.\n2. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n5. NUNCA use clichês comerciais (\"Espero que esteja bem\", \"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3.1,
           "position": [
-            432,
+            848,
             -1184
           ],
           "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
@@ -16841,7 +16954,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            16,
+            480,
             -1184
           ],
           "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
@@ -16863,7 +16976,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            224,
+            672,
             -1184
           ],
           "id": "87ce293b-7494-4664-b840-48c43a8d8689",
@@ -16883,8 +16996,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            512,
-            -944
+            720,
+            -928
           ],
           "id": "27e067e1-fa54-4257-b204-8164b48402d4",
           "name": "Groq Chat Model",
@@ -16907,8 +17020,8 @@
               "conditions": [
                 {
                   "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                  "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 15 }) }}",
                   "operator": {
                     "type": "dateTime",
                     "operation": "beforeOrEquals"
@@ -16922,7 +17035,7 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -1536,
+            -1424,
             -1184
           ],
           "id": "2b17a4ad-767f-4280-a167-85b5c6e8fe60",
@@ -16940,11 +17053,11 @@
               "conditions": [
                 {
                   "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
-                  "leftValue": "={{ $('Consulta IDs registrados').all().map(item => String(item.json['ID do Deal'])) }}",
+                  "leftValue": "={{ $('Consulta IDs registrados - Pendentes/ Rejeitados').item.json['ID do Deal'] }}",
                   "rightValue": "={{ String($json.id) }}",
                   "operator": {
                     "type": "string",
-                    "operation": "notContains"
+                    "operation": "notEquals"
                   }
                 }
               ],
@@ -16956,44 +17069,12 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -1376,
-            -1184
+            -1248,
+            -1008
           ],
           "id": "b27f7d51-bc37-490e-9231-a808b23c0c32",
-          "name": "Filter1 - ID já registrado?"
-        },
-        {
-          "parameters": {
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            -1984,
-            -1184
-          ],
-          "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
-          "name": "Consulta IDs registrados",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
+          "name": "Filter1 - ID já registrado?",
+          "disabled": true
         },
         {
           "parameters": {
@@ -17029,149 +17110,6 @@
           "typeVersion": 1,
           "id": "fecce526-a3cc-4ab4-a139-4138d4451cdd",
           "name": "Sticky Note3"
-        },
-        {
-          "parameters": {
-            "operation": "append",
-            "documentId": {
-              "__rl": true,
-              "value": "[REDACTED]",
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "sheetName": {
-              "__rl": true,
-              "value": 2101802437,
-              "mode": "list",
-              "cachedResultName": "Fila de Aprovação - SDR Digital",
-              "cachedResultUrl": "[REDACTED]"
-            },
-            "columns": {
-              "mappingMode": "defineBelow",
-              "value": {
-                "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
-                "Cliente": "={{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}",
-                "Status": "Pendente",
-                "Empresa": "={{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}",
-                "Email": "={{ $('Get a contact1').item.json.properties.email?.value || '' }}",
-                "Texto Proposto": "={{ $json.corpo }}",
-                "Assunto": "={{ $json.assunto }}",
-                "Fase": "[REDACTED]"
-              },
-              "matchingColumns": [],
-              "schema": [
-                {
-                  "id": "ID do Deal",
-                  "displayName": "ID do Deal",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Cliente",
-                  "displayName": "Cliente",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Empresa",
-                  "displayName": "Empresa",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Email",
-                  "displayName": "Email",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Fase",
-                  "displayName": "Fase",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Assunto",
-                  "displayName": "Assunto",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true,
-                  "removed": false
-                },
-                {
-                  "id": "Texto Proposto",
-                  "displayName": "Texto Proposto",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Status",
-                  "displayName": "Status",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Data de Reexibicao",
-                  "displayName": "Data de Reexibicao",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                },
-                {
-                  "id": "Horario Sugerido",
-                  "displayName": "Horario Sugerido",
-                  "required": false,
-                  "defaultMatch": false,
-                  "display": true,
-                  "type": "string",
-                  "canBeUsedToMatch": true
-                }
-              ],
-              "attemptToConvertTypes": false,
-              "convertFieldsToString": false
-            },
-            "options": {}
-          },
-          "type": "n8n-nodes-base.googleSheets",
-          "typeVersion": 4.7,
-          "position": [
-            1776,
-            -688
-          ],
-          "id": "72f28f1c-ed7d-49c0-89ec-005dcb3ba6a6",
-          "name": "Append row in sheet1",
-          "credentials": {
-            "googleSheetsOAuth2Api": {
-              "id": "Pq7AiEm7Pa3TvTE4",
-              "name": "Thiago - Google Sheets account 2"
-            }
-          }
         },
         {
           "parameters": {
@@ -17300,7 +17238,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"O que achou da apresentação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n4.Analise o idioma da última mensagem e escreva na mesma língua.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n7. NUNCA use clichês de cobrança (Passando para fazer follow-up\", \"O que achou da apresentação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -17344,7 +17282,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            1232,
+            1200,
             -688
           ],
           "id": "41827908-7a96-4c86-a352-9a310b2aacd4",
@@ -17364,15 +17302,15 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
           "typeVersion": 1,
           "position": [
-            1376,
-            -464
+            1424,
+            -448
           ],
           "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
           "name": "Groq Chat Model1",
           "credentials": {
             "groqApi": {
-              "id": "w9FbSKYgIiJIWO2u",
-              "name": "Groq account - Thiago"
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
             }
           }
         },
@@ -17388,8 +17326,8 @@
               "conditions": [
                 {
                   "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                  "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                  "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                  "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 15 }) }}",
                   "operator": {
                     "type": "dateTime",
                     "operation": "beforeOrEquals"
@@ -17403,8 +17341,8 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -640,
-            -720
+            -912,
+            -704
           ],
           "id": "fe8630ad-1505-44dc-8136-6a7503f26603",
           "name": "Corte de data negócios P"
@@ -17437,11 +17375,12 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -384,
-            -720
+            -832,
+            -480
           ],
           "id": "a201d3cc-bfb6-48f9-9fef-0a3168b433cb",
-          "name": "Filter1 - ID já registrado?1"
+          "name": "Filter1 - ID já registrado?1",
+          "disabled": true
         },
         {
           "parameters": {
@@ -17464,11 +17403,12 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -1952,
+            -1808,
             -704
           ],
           "id": "1791c515-a694-47c6-afdf-d6e6f1921701",
           "name": "Consulta IDs registrados1",
+          "executeOnce": true,
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "Pq7AiEm7Pa3TvTE4",
@@ -17489,8 +17429,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.3,
           "position": [
-            -2176,
-            -144
+            -2208,
+            -128
           ],
           "id": "230ca960-506b-4247-8bdb-91a533f8991f",
           "name": "Schedule Trigger4"
@@ -17499,12 +17439,12 @@
           "parameters": {
             "content": "Fluxo - **P2.3 e P2.4**\n\n",
             "height": 848,
-            "width": 3876,
+            "width": 3940,
             "color": "#226F06"
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -2208,
+            -2256,
             -288
           ],
           "typeVersion": 1,
@@ -17531,14 +17471,15 @@
             "columns": {
               "mappingMode": "defineBelow",
               "value": {
-                "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4').item.json.id }}",
+                "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4!').item.json.id }}",
                 "Cliente": "={{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}",
                 "Status": "Pendente",
                 "Empresa": "={{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}",
                 "Email": "={{ $('Get a contact2').item.json.properties.email?.value || $('Get a contact2').item.json.properties.email || '' }}",
                 "Texto Proposto": "={{ $json.corpo }}",
                 "Fase": "[REDACTED]",
-                "Assunto": "={{ $json.assunto }}"
+                "Assunto": "={{ $json.assunto }}",
+                "Agendamento": "TRUE"
               },
               "matchingColumns": [],
               "schema": [
@@ -17614,6 +17555,16 @@
                   "display": true,
                   "type": "string",
                   "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Agendamento",
+                  "displayName": "Agendamento",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Data de Reexibicao",
@@ -17752,8 +17703,8 @@
           "name": "Groq Chat Model2",
           "credentials": {
             "groqApi": {
-              "id": "w9FbSKYgIiJIWO2u",
-              "name": "Groq account - Thiago"
+              "id": "krEnVyEOp7mxJ92O",
+              "name": "Groq Robson-Midiacode"
             }
           }
         },
@@ -17778,11 +17729,12 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -2000,
-            -16
+            -1920,
+            -128
           ],
           "id": "9abe8f94-54df-4e54-b8a9-d223110a31da",
           "name": "Consulta IDs registrados2",
+          "executeOnce": true,
           "credentials": {
             "googleSheetsOAuth2Api": {
               "id": "Pq7AiEm7Pa3TvTE4",
@@ -17873,8 +17825,8 @@
           "type": "n8n-nodes-base.merge",
           "typeVersion": 3.2,
           "position": [
-            -880,
-            -720
+            -1232,
+            -704
           ],
           "id": "19812847-5644-43c9-9301-a82045bb74e4",
           "name": "Merge"
@@ -17891,19 +17843,6 @@
           ],
           "id": "f1c17d81-e7a0-418a-9751-f424ab54441e",
           "name": "Merge1"
-        },
-        {
-          "parameters": {
-            "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"assunto\": {\n      \"type\": \"string\",\n      \"description\": \"Assunto do e-mail de follow-up.\"\n    },\n    \"corpo\": {\n      \"type\": \"string\",\n      \"description\": \"Corpo completo do e-mail de follow-up.\"\n    }\n  },\n  \"required\": [\"assunto\", \"corpo\"]\n}"
-          },
-          "type": "[REDACTED]",
-          "typeVersion": 1.3,
-          "position": [
-            896,
-            64
-          ],
-          "id": "2411e57c-2243-4a6b-b3b1-93fb6cce127c",
-          "name": "Structured Output Parser"
         },
         {
           "parameters": {
@@ -17932,11 +17871,12 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -1408,
-            -176
+            -1360,
+            320
           ],
           "id": "a7a365ba-9fa2-4441-976d-d5241c3cabbc",
-          "name": "Corte de data negócios P2.3 e P2.4"
+          "name": "Corte de data negócios P2.3 e P2.4",
+          "disabled": true
         },
         {
           "parameters": {
@@ -17966,11 +17906,12 @@
           "type": "n8n-nodes-base.filter",
           "typeVersion": 2.3,
           "position": [
-            -1248,
-            -176
+            -1200,
+            320
           ],
           "id": "130b7752-34ba-4c62-8999-7cf619916e0a",
-          "name": "Filtro - ID já registrado?"
+          "name": "Filtro - ID já registrado?",
+          "disabled": true
         },
         {
           "parameters": {
@@ -18019,7 +17960,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -18118,7 +18059,7 @@
           "type": "n8n-nodes-base.limit",
           "typeVersion": 1,
           "position": [
-            -1168,
+            -704,
             -1184
           ],
           "id": "79ccda55-398c-4c14-9550-8eb83bc9775c",
@@ -18131,7 +18072,7 @@
           "type": "n8n-nodes-base.splitInBatches",
           "typeVersion": 3,
           "position": [
-            -960,
+            -512,
             -1184
           ],
           "id": "9b6c0752-7c0f-48cd-916d-e91f3b0ba67f",
@@ -18144,7 +18085,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1376,
+            1696,
             -1184
           ],
           "id": "769b944b-6931-4112-8cde-6282c1a5995d",
@@ -18153,7 +18094,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -18166,12 +18107,12 @@
         },
         {
           "parameters": {
-            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            1648,
+            1616,
             -704
           ],
           "id": "455b8565-196f-41fd-ac6f-fd03d1f3a713",
@@ -18179,12 +18120,12 @@
         },
         {
           "parameters": {
-            "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+            "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            784,
+            1216,
             -1184
           ],
           "id": "6e429901-04eb-45bc-8be5-d441a19491c8",
@@ -18431,8 +18372,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1.1,
           "position": [
-            384,
-            -976
+            288,
+            -944
           ],
           "id": "013dc046-a06f-4f0c-b119-bf2ef29bbe4a",
           "name": "Google Gemini Chat Model",
@@ -18445,13 +18386,14 @@
         },
         {
           "parameters": {
+            "modelName": "models/gemini-2.0-flash-lite",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1.1,
           "position": [
-            1264,
-            -496
+            1280,
+            -448
           ],
           "id": "0e9e06f1-dbec-4df2-9352-1a6bc3a10554",
           "name": "Google Gemini Chat Model1",
@@ -18469,8 +18411,8 @@
           "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
           "typeVersion": 1.1,
           "position": [
-            672,
-            224
+            928,
+            208
           ],
           "id": "2831ade2-fa1b-4b17-a9e6-a56b21b24982",
           "name": "Google Gemini Chat Model2",
@@ -18658,11 +18600,316 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            -144,
-            -1168
+            240,
+            -1184
           ],
           "id": "44be593a-d15e-4c59-bea8-2cc188de1d72",
           "name": "If2"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2048,
+            -1184
+          ],
+          "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
+          "name": "Consulta IDs registrados - Pendentes/ Rejeitados",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1856,
+            -1184
+          ],
+          "id": "b99ddde6-c505-428d-ae56-c5615cc2512b",
+          "name": "Consulta IDs registrados - Aprovados",
+          "executeOnce": true,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "96e40f1c-bd47-4a66-90e3-bfdc77043c33",
+                  "leftValue": "={{ \n  !$(\"Consulta IDs registrados - Pendentes/ Rejeitados\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                  "rightValue": "",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1024,
+            -1200
+          ],
+          "id": "df5e701d-91fd-402b-a91b-094009485ff2",
+          "name": "Filter"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ $('Consulta IDs registrados - Aprovados').item.json['ID do Deal'] }}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "string",
+                    "operation": "notEquals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1072,
+            -1008
+          ],
+          "id": "5c1bd14d-f443-4e69-ad00-bbefd52bba36",
+          "name": "Filter1 - ID já registrado?2",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ \n  !$(\"Consulta IDs registrados1\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados1\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -560,
+            -720
+          ],
+          "id": "f8f186f9-fe2d-4f44-9e07-762092e15bfa",
+          "name": "Filter1 - ID já registrado?3"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2000,
+            -688
+          ],
+          "id": "774354bb-f25e-412f-a930-a18852e3bc09",
+          "name": "Consulta IDs registrados - Aprovados1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -2064,
+            -144
+          ],
+          "id": "1fa5bd06-ce19-4019-a063-8ef2fadf29f7",
+          "name": "Consulta IDs registrados - Aprovados2",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "loose",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                  "leftValue": "={{ \n  !$(\"Consulta IDs registrados2\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados2\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                  "rightValue": "={{ String($json.id) }}",
+                  "operator": {
+                    "type": "boolean",
+                    "operation": "true",
+                    "singleValue": true
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "looseTypeValidation": true,
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1200,
+            -176
+          ],
+          "id": "5c402ef9-87fd-4f30-b65e-479adc9b43e9",
+          "name": "Filter1 - ID já registrado?4"
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                  "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                  "rightValue": "={{ DateTime.now().minus({ days: 7 }) }}",
+                  "operator": {
+                    "type": "dateTime",
+                    "operation": "beforeOrEquals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.filter",
+          "typeVersion": 2.3,
+          "position": [
+            -1344,
+            -128
+          ],
+          "id": "20383751-599c-4a93-a8af-13f4b0ec732d",
+          "name": "Corte de data negócios P2.3 e P2.4!"
         }
       ],
       "connections": {
@@ -18670,7 +18917,7 @@
           "main": [
             [
               {
-                "node": "Consulta IDs registrados",
+                "node": "Consulta IDs registrados - Pendentes/ Rejeitados",
                 "type": "main",
                 "index": 0
               }
@@ -18769,7 +19016,7 @@
           "main": [
             [
               {
-                "node": "Filter1 - ID já registrado?",
+                "node": "Filter",
                 "type": "main",
                 "index": 0
               }
@@ -18780,18 +19027,7 @@
           "main": [
             [
               {
-                "node": "Limit2",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Consulta IDs registrados": {
-          "main": [
-            [
-              {
-                "node": "Search for deals",
+                "node": "Filter1 - ID já registrado?2",
                 "type": "main",
                 "index": 0
               }
@@ -18802,7 +19038,7 @@
           "main": [
             [
               {
-                "node": "Consulta IDs registrados1",
+                "node": "Consulta IDs registrados - Aprovados1",
                 "type": "main",
                 "index": 0
               }
@@ -18901,7 +19137,7 @@
           "main": [
             [
               {
-                "node": "Filter1 - ID já registrado?1",
+                "node": "Filter1 - ID já registrado?3",
                 "type": "main",
                 "index": 0
               }
@@ -18910,13 +19146,7 @@
         },
         "Filter1 - ID já registrado?1": {
           "main": [
-            [
-              {
-                "node": "Limit1",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Consulta IDs registrados1": {
@@ -18944,7 +19174,7 @@
           "main": [
             [
               {
-                "node": "Consulta IDs registrados2",
+                "node": "Consulta IDs registrados - Aprovados2",
                 "type": "main",
                 "index": 0
               }
@@ -18986,7 +19216,13 @@
         },
         "Groq Chat Model2": {
           "ai_languageModel": [
-            []
+            [
+              {
+                "node": "Executivo de contas",
+                "type": "ai_languageModel",
+                "index": 0
+              }
+            ]
           ]
         },
         "Consulta IDs registrados2": {
@@ -19062,16 +19298,11 @@
           "main": [
             [
               {
-                "node": "Corte de data negócios P2.3 e P2.4",
+                "node": "Corte de data negócios P2.3 e P2.4!",
                 "type": "main",
                 "index": 0
               }
             ]
-          ]
-        },
-        "Structured Output Parser": {
-          "ai_outputParser": [
-            []
           ]
         },
         "Corte de data negócios P2.3 e P2.4": {
@@ -19087,13 +19318,7 @@
         },
         "Filtro - ID já registrado?": {
           "main": [
-            [
-              {
-                "node": "Limit",
-                "type": "main",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Buscar E-mails do Contato": {
@@ -19197,17 +19422,6 @@
             ]
           ]
         },
-        "Append row in sheet1": {
-          "main": [
-            [
-              {
-                "node": "Wait",
-                "type": "main",
-                "index": 0
-              }
-            ]
-          ]
-        },
         "Wait": {
           "main": [
             [
@@ -19279,7 +19493,7 @@
           "main": [
             [
               {
-                "node": "Append row in sheet1",
+                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -19375,13 +19589,7 @@
         },
         "Google Gemini Chat Model2": {
           "ai_languageModel": [
-            [
-              {
-                "node": "Executivo de contas",
-                "type": "ai_languageModel",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "If": {
@@ -19432,6 +19640,99 @@
             [
               {
                 "node": "Loop Over Items2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Consulta IDs registrados - Pendentes/ Rejeitados": {
+          "main": [
+            [
+              {
+                "node": "Consulta IDs registrados - Aprovados",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Consulta IDs registrados - Aprovados": {
+          "main": [
+            [
+              {
+                "node": "Search for deals",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter": {
+          "main": [
+            [
+              {
+                "node": "Limit2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter1 - ID já registrado?2": {
+          "main": [
+            []
+          ]
+        },
+        "Filter1 - ID já registrado?3": {
+          "main": [
+            [
+              {
+                "node": "Limit1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Consulta IDs registrados - Aprovados1": {
+          "main": [
+            [
+              {
+                "node": "Consulta IDs registrados1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Consulta IDs registrados - Aprovados2": {
+          "main": [
+            [
+              {
+                "node": "Consulta IDs registrados2",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Filter1 - ID já registrado?4": {
+          "main": [
+            [
+              {
+                "node": "Limit",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Corte de data negócios P2.3 e P2.4!": {
+          "main": [
+            [
+              {
+                "node": "Filter1 - ID já registrado?4",
                 "type": "main",
                 "index": 0
               }
@@ -19515,8 +19816,8 @@
           }
         ]
       },
-      "versionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
-      "activeVersionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
+      "versionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
+      "activeVersionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
       "triggerCount": 3,
       "shared": [
         {
@@ -19528,9 +19829,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-30T14:55:19.000Z",
-        "createdAt": "2026-07-30T14:45:59.673Z",
-        "versionId": "c39250f8-f0e5-4ecc-9d4e-1ccccc212f9f",
+        "updatedAt": "2026-07-31T14:49:14.000Z",
+        "createdAt": "2026-07-31T14:45:27.146Z",
+        "versionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
         "workflowId": "GFyYDoE4f1FwxZZe",
         "nodes": [
           {
@@ -19556,12 +19857,12 @@
             "parameters": {
               "content": "Fluxo - **P1**\n",
               "height": 464,
-              "width": 4068,
+              "width": 4084,
               "color": "#800000"
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -2320,
+              -2272,
               -1280
             ],
             "typeVersion": 1,
@@ -19595,7 +19896,8 @@
                   "Email": "={{ $('Get a contact').item.json.properties.email?.value || '' }}",
                   "Texto Proposto": "={{ $json.corpo }}",
                   "Fase": "[REDACTED]",
-                  "Assunto": "={{ $json.assunto }}"
+                  "Assunto": "={{ $json.assunto }}",
+                  "Agendamento": "TRUE"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -19673,6 +19975,16 @@
                     "canBeUsedToMatch": true
                   },
                   {
+                    "id": "Agendamento",
+                    "displayName": "Agendamento",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
                     "id": "Data de Reexibicao",
                     "displayName": "Data de Reexibicao",
                     "required": false,
@@ -19699,7 +20011,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              1024,
+              1456,
               -1184
             ],
             "id": "cfe91737-e5cf-44aa-8b86-43ac5a41b73e",
@@ -19738,7 +20050,7 @@
             "type": "n8n-nodes-base.hubspot",
             "typeVersion": 2.2,
             "position": [
-              -1760,
+              -1648,
               -1184
             ],
             "id": "955147b7-9539-40c4-8ebc-366e09cbdfb1",
@@ -19766,7 +20078,7 @@
             "type": "n8n-nodes-base.hubspot",
             "typeVersion": 2.2,
             "position": [
-              -672,
+              -272,
               -1184
             ],
             "id": "b36bfcda-e63d-4244-8de8-0691a9cd12a3",
@@ -19793,7 +20105,7 @@
             "type": "n8n-nodes-base.hubspot",
             "typeVersion": 2.2,
             "position": [
-              -272,
+              64,
               -1184
             ],
             "id": "700fe8c0-da1f-4e31-a57a-e9c8171edb62",
@@ -19821,7 +20133,7 @@
             "type": "n8n-nodes-base.hubspot",
             "typeVersion": 2.2,
             "position": [
-              -448,
+              -112,
               -1184
             ],
             "id": "c62d7c47-9dae-4e8e-80df-53b224a17ce6",
@@ -19837,13 +20149,13 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do primeiro contato antes de escrever e utilize esse contexto de forma natural e inteligente.\n2. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n5. NUNCA use clichês comerciais (\"Espero que esteja bem\", \"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3.1,
             "position": [
-              432,
+              848,
               -1184
             ],
             "id": "8541aff0-55cf-41b8-a128-7a2858b38e79",
@@ -19859,7 +20171,7 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.4,
             "position": [
-              16,
+              480,
               -1184
             ],
             "id": "f701bb73-0200-4484-b2f6-e6ae401f7fde",
@@ -19881,7 +20193,7 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.4,
             "position": [
-              224,
+              672,
               -1184
             ],
             "id": "87ce293b-7494-4664-b840-48c43a8d8689",
@@ -19901,8 +20213,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              512,
-              -944
+              720,
+              -928
             ],
             "id": "27e067e1-fa54-4257-b204-8164b48402d4",
             "name": "Groq Chat Model",
@@ -19925,8 +20237,8 @@
                 "conditions": [
                   {
                     "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                    "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                    "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                    "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 15 }) }}",
                     "operator": {
                       "type": "dateTime",
                       "operation": "beforeOrEquals"
@@ -19940,7 +20252,7 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -1536,
+              -1424,
               -1184
             ],
             "id": "2b17a4ad-767f-4280-a167-85b5c6e8fe60",
@@ -19958,11 +20270,11 @@
                 "conditions": [
                   {
                     "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
-                    "leftValue": "={{ $('Consulta IDs registrados').all().map(item => String(item.json['ID do Deal'])) }}",
+                    "leftValue": "={{ $('Consulta IDs registrados - Pendentes/ Rejeitados').item.json['ID do Deal'] }}",
                     "rightValue": "={{ String($json.id) }}",
                     "operator": {
                       "type": "string",
-                      "operation": "notContains"
+                      "operation": "notEquals"
                     }
                   }
                 ],
@@ -19974,44 +20286,12 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -1376,
-              -1184
+              -1248,
+              -1008
             ],
             "id": "b27f7d51-bc37-490e-9231-a808b23c0c32",
-            "name": "Filter1 - ID já registrado?"
-          },
-          {
-            "parameters": {
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Fila de Aprovação - SDR Digital",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": 2101802437,
-                "mode": "list",
-                "cachedResultName": "Fila de Aprovação - SDR Digital",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              -1984,
-              -1184
-            ],
-            "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
-            "name": "Consulta IDs registrados",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "Pq7AiEm7Pa3TvTE4",
-                "name": "Thiago - Google Sheets account 2"
-              }
-            }
+            "name": "Filter1 - ID já registrado?",
+            "disabled": true
           },
           {
             "parameters": {
@@ -20047,149 +20327,6 @@
             "typeVersion": 1,
             "id": "fecce526-a3cc-4ab4-a139-4138d4451cdd",
             "name": "Sticky Note3"
-          },
-          {
-            "parameters": {
-              "operation": "append",
-              "documentId": {
-                "__rl": true,
-                "value": "[REDACTED]",
-                "mode": "list",
-                "cachedResultName": "Fila de Aprovação - SDR Digital",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "sheetName": {
-                "__rl": true,
-                "value": 2101802437,
-                "mode": "list",
-                "cachedResultName": "Fila de Aprovação - SDR Digital",
-                "cachedResultUrl": "[REDACTED]"
-              },
-              "columns": {
-                "mappingMode": "defineBelow",
-                "value": {
-                  "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
-                  "Cliente": "={{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}",
-                  "Status": "Pendente",
-                  "Empresa": "={{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}",
-                  "Email": "={{ $('Get a contact1').item.json.properties.email?.value || '' }}",
-                  "Texto Proposto": "={{ $json.corpo }}",
-                  "Assunto": "={{ $json.assunto }}",
-                  "Fase": "[REDACTED]"
-                },
-                "matchingColumns": [],
-                "schema": [
-                  {
-                    "id": "ID do Deal",
-                    "displayName": "ID do Deal",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Cliente",
-                    "displayName": "Cliente",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Empresa",
-                    "displayName": "Empresa",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Email",
-                    "displayName": "Email",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Fase",
-                    "displayName": "Fase",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Assunto",
-                    "displayName": "Assunto",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true,
-                    "removed": false
-                  },
-                  {
-                    "id": "Texto Proposto",
-                    "displayName": "Texto Proposto",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Status",
-                    "displayName": "Status",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Data de Reexibicao",
-                    "displayName": "Data de Reexibicao",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  },
-                  {
-                    "id": "Horario Sugerido",
-                    "displayName": "Horario Sugerido",
-                    "required": false,
-                    "defaultMatch": false,
-                    "display": true,
-                    "type": "string",
-                    "canBeUsedToMatch": true
-                  }
-                ],
-                "attemptToConvertTypes": false,
-                "convertFieldsToString": false
-              },
-              "options": {}
-            },
-            "type": "n8n-nodes-base.googleSheets",
-            "typeVersion": 4.7,
-            "position": [
-              1776,
-              -688
-            ],
-            "id": "72f28f1c-ed7d-49c0-89ec-005dcb3ba6a6",
-            "name": "Append row in sheet1",
-            "credentials": {
-              "googleSheetsOAuth2Api": {
-                "id": "Pq7AiEm7Pa3TvTE4",
-                "name": "Thiago - Google Sheets account 2"
-              }
-            }
           },
           {
             "parameters": {
@@ -20318,7 +20455,7 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"O que achou da apresentação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já participaram de uma apresentação da nossa solução, mas ainda NÃO receberam um orçamento formal (Fases P2, P2.1 e P2.2).\nObjetivo principal: Validar se a visão apresentada faz sentido para os desafios operacionais da empresa e sugerir um próximo passo para atualizar e tirar dúvidas do projeto. NÃO fale sobre valores, propostas comerciais ou fechamento de contrato nesta etapa.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n---------------------------------------------------------------------\n\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact1').item.json.properties.firstname?.value || '' }} {{ $('Get a contact1').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company1').item.json.properties.name?.value || $('Get a deal1').item.json.properties.dealname }}\n\n----------------------------------------------------\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request3').item.json.results) \n    ? $('HTTP Request3').item.json.results \n    : ($('HTTP Request3').item.json.properties ? [$('HTTP Request3').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou dores discutidas na apresentação anterior. O histórico deve ser relevante para o contexto do e-mail\n2. Reforce brevemente o valor da nossa infraestrutura para resolver o cenário específico deles, preparando o terreno para estruturar o escopo técnico.\n3.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n4.Analise o idioma da última mensagem e escreva na mesma língua.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou fale de \"aprovação de orçamento\" (ainda estamos na fase de desenho).\n7. NUNCA use clichês de cobrança (Passando para fazer follow-up\", \"O que achou da apresentação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua resposta\".\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido sobre o desenho do escopo, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -20362,7 +20499,7 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.4,
             "position": [
-              1232,
+              1200,
               -688
             ],
             "id": "41827908-7a96-4c86-a352-9a310b2aacd4",
@@ -20382,15 +20519,15 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
             "typeVersion": 1,
             "position": [
-              1376,
-              -464
+              1424,
+              -448
             ],
             "id": "f4f74349-3447-480b-b0a9-108c008dc8b9",
             "name": "Groq Chat Model1",
             "credentials": {
               "groqApi": {
-                "id": "w9FbSKYgIiJIWO2u",
-                "name": "Groq account - Thiago"
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
               }
             }
           },
@@ -20406,8 +20543,8 @@
                 "conditions": [
                   {
                     "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
-                    "leftValue": "={{ $json.properties.hs_last_activity_date || $json.properties.createdate }}",
-                    "rightValue": "={{ DateTime.now().minus({ days: 15 }).toISODate() }}",
+                    "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 15 }) }}",
                     "operator": {
                       "type": "dateTime",
                       "operation": "beforeOrEquals"
@@ -20421,8 +20558,8 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -640,
-              -720
+              -912,
+              -704
             ],
             "id": "fe8630ad-1505-44dc-8136-6a7503f26603",
             "name": "Corte de data negócios P"
@@ -20455,11 +20592,12 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -384,
-              -720
+              -832,
+              -480
             ],
             "id": "a201d3cc-bfb6-48f9-9fef-0a3168b433cb",
-            "name": "Filter1 - ID já registrado?1"
+            "name": "Filter1 - ID já registrado?1",
+            "disabled": true
           },
           {
             "parameters": {
@@ -20482,11 +20620,12 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              -1952,
+              -1808,
               -704
             ],
             "id": "1791c515-a694-47c6-afdf-d6e6f1921701",
             "name": "Consulta IDs registrados1",
+            "executeOnce": true,
             "credentials": {
               "googleSheetsOAuth2Api": {
                 "id": "Pq7AiEm7Pa3TvTE4",
@@ -20507,8 +20646,8 @@
             "type": "n8n-nodes-base.scheduleTrigger",
             "typeVersion": 1.3,
             "position": [
-              -2176,
-              -144
+              -2208,
+              -128
             ],
             "id": "230ca960-506b-4247-8bdb-91a533f8991f",
             "name": "Schedule Trigger4"
@@ -20517,12 +20656,12 @@
             "parameters": {
               "content": "Fluxo - **P2.3 e P2.4**\n\n",
               "height": 848,
-              "width": 3876,
+              "width": 3940,
               "color": "#226F06"
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -2208,
+              -2256,
               -288
             ],
             "typeVersion": 1,
@@ -20549,14 +20688,15 @@
               "columns": {
                 "mappingMode": "defineBelow",
                 "value": {
-                  "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4').item.json.id }}",
+                  "ID do Deal": "={{ $('Corte de data negócios P2.3 e P2.4!').item.json.id }}",
                   "Cliente": "={{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}",
                   "Status": "Pendente",
                   "Empresa": "={{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}",
                   "Email": "={{ $('Get a contact2').item.json.properties.email?.value || $('Get a contact2').item.json.properties.email || '' }}",
                   "Texto Proposto": "={{ $json.corpo }}",
                   "Fase": "[REDACTED]",
-                  "Assunto": "={{ $json.assunto }}"
+                  "Assunto": "={{ $json.assunto }}",
+                  "Agendamento": "TRUE"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -20632,6 +20772,16 @@
                     "display": true,
                     "type": "string",
                     "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Agendamento",
+                    "displayName": "Agendamento",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Data de Reexibicao",
@@ -20770,8 +20920,8 @@
             "name": "Groq Chat Model2",
             "credentials": {
               "groqApi": {
-                "id": "w9FbSKYgIiJIWO2u",
-                "name": "Groq account - Thiago"
+                "id": "krEnVyEOp7mxJ92O",
+                "name": "Groq Robson-Midiacode"
               }
             }
           },
@@ -20796,11 +20946,12 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              -2000,
-              -16
+              -1920,
+              -128
             ],
             "id": "9abe8f94-54df-4e54-b8a9-d223110a31da",
             "name": "Consulta IDs registrados2",
+            "executeOnce": true,
             "credentials": {
               "googleSheetsOAuth2Api": {
                 "id": "Pq7AiEm7Pa3TvTE4",
@@ -20891,8 +21042,8 @@
             "type": "n8n-nodes-base.merge",
             "typeVersion": 3.2,
             "position": [
-              -880,
-              -720
+              -1232,
+              -704
             ],
             "id": "19812847-5644-43c9-9301-a82045bb74e4",
             "name": "Merge"
@@ -20909,19 +21060,6 @@
             ],
             "id": "f1c17d81-e7a0-418a-9751-f424ab54441e",
             "name": "Merge1"
-          },
-          {
-            "parameters": {
-              "jsonSchemaExample": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"assunto\": {\n      \"type\": \"string\",\n      \"description\": \"Assunto do e-mail de follow-up.\"\n    },\n    \"corpo\": {\n      \"type\": \"string\",\n      \"description\": \"Corpo completo do e-mail de follow-up.\"\n    }\n  },\n  \"required\": [\"assunto\", \"corpo\"]\n}"
-            },
-            "type": "[REDACTED]",
-            "typeVersion": 1.3,
-            "position": [
-              896,
-              64
-            ],
-            "id": "2411e57c-2243-4a6b-b3b1-93fb6cce127c",
-            "name": "Structured Output Parser"
           },
           {
             "parameters": {
@@ -20950,11 +21088,12 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -1408,
-              -176
+              -1360,
+              320
             ],
             "id": "a7a365ba-9fa2-4441-976d-d5241c3cabbc",
-            "name": "Corte de data negócios P2.3 e P2.4"
+            "name": "Corte de data negócios P2.3 e P2.4",
+            "disabled": true
           },
           {
             "parameters": {
@@ -20984,11 +21123,12 @@
             "type": "n8n-nodes-base.filter",
             "typeVersion": 2.3,
             "position": [
-              -1248,
-              -176
+              -1200,
+              320
             ],
             "id": "130b7752-34ba-4c62-8999-7cf619916e0a",
-            "name": "Filtro - ID já registrado?"
+            "name": "Filtro - ID já registrado?",
+            "disabled": true
           },
           {
             "parameters": {
@@ -21037,7 +21177,7 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n3. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n4. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n5. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n6. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Assinatura obrigatória no final: \"Robson – Midiacode\" (NUNCA mencione cargos).\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -21136,7 +21276,7 @@
             "type": "n8n-nodes-base.limit",
             "typeVersion": 1,
             "position": [
-              -1168,
+              -704,
               -1184
             ],
             "id": "79ccda55-398c-4c14-9550-8eb83bc9775c",
@@ -21149,7 +21289,7 @@
             "type": "n8n-nodes-base.splitInBatches",
             "typeVersion": 3,
             "position": [
-              -960,
+              -512,
               -1184
             ],
             "id": "9b6c0752-7c0f-48cd-916d-e91f3b0ba67f",
@@ -21162,7 +21302,7 @@
             "type": "n8n-nodes-base.wait",
             "typeVersion": 1.1,
             "position": [
-              1376,
+              1696,
               -1184
             ],
             "id": "769b944b-6931-4112-8cde-6282c1a5995d",
@@ -21171,7 +21311,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+              "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -21184,12 +21324,12 @@
           },
           {
             "parameters": {
-              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+              "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              1648,
+              1616,
               -704
             ],
             "id": "455b8565-196f-41fd-ac6f-fd03d1f3a713",
@@ -21197,12 +21337,12 @@
           },
           {
             "parameters": {
-              "jsCode": "// Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output;\n\n// Limpa qualquer formatação markdown (como ```json) que a IA possa enviar\nlet jsonLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\n// Transforma o texto em um objeto de dados\nlet dadosTratados = JSON.parse(jsonLimpo);\n\n// Envia o assunto e corpo perfeitamente separados\nreturn [{\n  json: {\n    assunto: dadosTratados.assunto,\n    corpo: dadosTratados.corpo\n  }\n}];"
+              "jsCode": "// 1. Pega o texto gerado pela IA\nlet respostaIA = $input.item.json.output || \"\";\n\n// 2. Limpa marcações markdown\nlet textoLimpo = respostaIA.replace(/```json/gi, '').replace(/```/gi, '').trim();\n\nlet assuntoFinal = \"Midiacode - Próximos Passos\";\nlet corpoFinal = \"\";\n\n// 3. Tenta ler via JSON.parse simples (Caso venha 100% perfeito)\ntry {\n  let objeto = JSON.parse(textoLimpo);\n  if (objeto.assunto) assuntoFinal = objeto.assunto;\n  if (objeto.corpo) corpoFinal = objeto.corpo;\n} catch (e) {\n  // 4. PLANO INFALÍVEL: Extração por REGEX (Não quebra com 'Enters' e parágrafos)\n  \n  // Pesca o valor do Assunto\n  let matchAssunto = textoLimpo.match(/\"assunto\"\\s*:\\s*\"([^\"\\r\\n]+)\"/i);\n  if (matchAssunto && matchAssunto[1]) {\n    assuntoFinal = matchAssunto[1].trim();\n  }\n\n  // Pesca o valor do Corpo (captura todas as linhas entre \"corpo\": \" e o final '}')\n  let matchCorpo = textoLimpo.match(/\"corpo\"\\s*:\\s*\"([\\s\\S]*)\"\\s*\\}\\s*$/i);\n  \n  if (matchCorpo && matchCorpo[1]) {\n    corpoFinal = matchCorpo[1].trim();\n  } else {\n    // Corte de segurança caso a aspa final do JSON tenha sido omitida\n    let partes = textoLimpo.split(/\"corpo\"\\s*:\\s*\"/i);\n    if (partes.length > 1) {\n      corpoFinal = partes[1].replace(/\"\\s*\\}\\s*$/g, '').trim();\n    } else {\n      corpoFinal = textoLimpo;\n    }\n  }\n}\n\n// 5. Restaura aspas e quebras de linha limpas\ncorpoFinal = corpoFinal.replace(/\\\\n/g, '\\n').replace(/\\\\\"/g, '\"');\n\n// Envia separado para a planilha\nreturn [{\n  json: {\n    assunto: assuntoFinal,\n    corpo: corpoFinal\n  }\n}];"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              784,
+              1216,
               -1184
             ],
             "id": "6e429901-04eb-45bc-8be5-d441a19491c8",
@@ -21449,8 +21589,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1.1,
             "position": [
-              384,
-              -976
+              288,
+              -944
             ],
             "id": "013dc046-a06f-4f0c-b119-bf2ef29bbe4a",
             "name": "Google Gemini Chat Model",
@@ -21463,13 +21603,14 @@
           },
           {
             "parameters": {
+              "modelName": "models/gemini-2.0-flash-lite",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1.1,
             "position": [
-              1264,
-              -496
+              1280,
+              -448
             ],
             "id": "0e9e06f1-dbec-4df2-9352-1a6bc3a10554",
             "name": "Google Gemini Chat Model1",
@@ -21487,8 +21628,8 @@
             "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
             "typeVersion": 1.1,
             "position": [
-              672,
-              224
+              928,
+              208
             ],
             "id": "2831ade2-fa1b-4b17-a9e6-a56b21b24982",
             "name": "Google Gemini Chat Model2",
@@ -21676,11 +21817,316 @@
             "type": "n8n-nodes-base.if",
             "typeVersion": 2.3,
             "position": [
-              -144,
-              -1168
+              240,
+              -1184
             ],
             "id": "44be593a-d15e-4c59-bea8-2cc188de1d72",
             "name": "If2"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2048,
+              -1184
+            ],
+            "id": "5803127d-6ace-4d26-9a00-781fefeefd6d",
+            "name": "Consulta IDs registrados - Pendentes/ Rejeitados",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -1856,
+              -1184
+            ],
+            "id": "b99ddde6-c505-428d-ae56-c5615cc2512b",
+            "name": "Consulta IDs registrados - Aprovados",
+            "executeOnce": true,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "96e40f1c-bd47-4a66-90e3-bfdc77043c33",
+                    "leftValue": "={{ \n  !$(\"Consulta IDs registrados - Pendentes/ Rejeitados\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1024,
+              -1200
+            ],
+            "id": "df5e701d-91fd-402b-a91b-094009485ff2",
+            "name": "Filter"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ $('Consulta IDs registrados - Aprovados').item.json['ID do Deal'] }}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1072,
+              -1008
+            ],
+            "id": "5c1bd14d-f443-4e69-ad00-bbefd52bba36",
+            "name": "Filter1 - ID já registrado?2",
+            "disabled": true
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ \n  !$(\"Consulta IDs registrados1\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados1\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -560,
+              -720
+            ],
+            "id": "f8f186f9-fe2d-4f44-9e07-762092e15bfa",
+            "name": "Filter1 - ID já registrado?3"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2000,
+              -688
+            ],
+            "id": "774354bb-f25e-412f-a930-a18852e3bc09",
+            "name": "Consulta IDs registrados - Aprovados1",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -2064,
+              -144
+            ],
+            "id": "1fa5bd06-ce19-4019-a063-8ef2fadf29f7",
+            "name": "Consulta IDs registrados - Aprovados2",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "bb324da9-441d-441c-a5c3-dd504d73043f",
+                    "leftValue": "={{ \n  !$(\"Consulta IDs registrados2\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) && \n  !$(\"Consulta IDs registrados - Aprovados2\").all().some(item => String(item.json['ID do Deal']) === String($json.id)) \n}}",
+                    "rightValue": "={{ String($json.id) }}",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "looseTypeValidation": true,
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1200,
+              -176
+            ],
+            "id": "5c402ef9-87fd-4f30-b65e-479adc9b43e9",
+            "name": "Filter1 - ID já registrado?4"
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ce8f2e10-ead3-46aa-adff-75301add6422",
+                    "leftValue": "={{ DateTime.fromISO($json.properties.hs_last_activity_date || $json.properties.hs_lastmodifieddate || $json.properties.createdate) }}",
+                    "rightValue": "={{ DateTime.now().minus({ days: 7 }) }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "beforeOrEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.filter",
+            "typeVersion": 2.3,
+            "position": [
+              -1344,
+              -128
+            ],
+            "id": "20383751-599c-4a93-a8af-13f4b0ec732d",
+            "name": "Corte de data negócios P2.3 e P2.4!"
           }
         ],
         "connections": {
@@ -21688,7 +22134,7 @@
             "main": [
               [
                 {
-                  "node": "Consulta IDs registrados",
+                  "node": "Consulta IDs registrados - Pendentes/ Rejeitados",
                   "type": "main",
                   "index": 0
                 }
@@ -21787,7 +22233,7 @@
             "main": [
               [
                 {
-                  "node": "Filter1 - ID já registrado?",
+                  "node": "Filter",
                   "type": "main",
                   "index": 0
                 }
@@ -21798,18 +22244,7 @@
             "main": [
               [
                 {
-                  "node": "Limit2",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
-          "Consulta IDs registrados": {
-            "main": [
-              [
-                {
-                  "node": "Search for deals",
+                  "node": "Filter1 - ID já registrado?2",
                   "type": "main",
                   "index": 0
                 }
@@ -21820,7 +22255,7 @@
             "main": [
               [
                 {
-                  "node": "Consulta IDs registrados1",
+                  "node": "Consulta IDs registrados - Aprovados1",
                   "type": "main",
                   "index": 0
                 }
@@ -21919,7 +22354,7 @@
             "main": [
               [
                 {
-                  "node": "Filter1 - ID já registrado?1",
+                  "node": "Filter1 - ID já registrado?3",
                   "type": "main",
                   "index": 0
                 }
@@ -21928,13 +22363,7 @@
           },
           "Filter1 - ID já registrado?1": {
             "main": [
-              [
-                {
-                  "node": "Limit1",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Consulta IDs registrados1": {
@@ -21962,7 +22391,7 @@
             "main": [
               [
                 {
-                  "node": "Consulta IDs registrados2",
+                  "node": "Consulta IDs registrados - Aprovados2",
                   "type": "main",
                   "index": 0
                 }
@@ -22004,7 +22433,13 @@
           },
           "Groq Chat Model2": {
             "ai_languageModel": [
-              []
+              [
+                {
+                  "node": "Executivo de contas",
+                  "type": "ai_languageModel",
+                  "index": 0
+                }
+              ]
             ]
           },
           "Consulta IDs registrados2": {
@@ -22080,16 +22515,11 @@
             "main": [
               [
                 {
-                  "node": "Corte de data negócios P2.3 e P2.4",
+                  "node": "Corte de data negócios P2.3 e P2.4!",
                   "type": "main",
                   "index": 0
                 }
               ]
-            ]
-          },
-          "Structured Output Parser": {
-            "ai_outputParser": [
-              []
             ]
           },
           "Corte de data negócios P2.3 e P2.4": {
@@ -22105,13 +22535,7 @@
           },
           "Filtro - ID já registrado?": {
             "main": [
-              [
-                {
-                  "node": "Limit",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Buscar E-mails do Contato": {
@@ -22215,17 +22639,6 @@
               ]
             ]
           },
-          "Append row in sheet1": {
-            "main": [
-              [
-                {
-                  "node": "Wait",
-                  "type": "main",
-                  "index": 0
-                }
-              ]
-            ]
-          },
           "Wait": {
             "main": [
               [
@@ -22297,7 +22710,7 @@
             "main": [
               [
                 {
-                  "node": "Append row in sheet1",
+                  "node": "Wait",
                   "type": "main",
                   "index": 0
                 }
@@ -22393,13 +22806,7 @@
           },
           "Google Gemini Chat Model2": {
             "ai_languageModel": [
-              [
-                {
-                  "node": "Executivo de contas",
-                  "type": "ai_languageModel",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "If": {
@@ -22455,11 +22862,104 @@
                 }
               ]
             ]
+          },
+          "Consulta IDs registrados - Pendentes/ Rejeitados": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados - Aprovados",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Consulta IDs registrados - Aprovados": {
+            "main": [
+              [
+                {
+                  "node": "Search for deals",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter": {
+            "main": [
+              [
+                {
+                  "node": "Limit2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter1 - ID já registrado?2": {
+            "main": [
+              []
+            ]
+          },
+          "Filter1 - ID já registrado?3": {
+            "main": [
+              [
+                {
+                  "node": "Limit1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Consulta IDs registrados - Aprovados1": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados1",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Consulta IDs registrados - Aprovados2": {
+            "main": [
+              [
+                {
+                  "node": "Consulta IDs registrados2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Filter1 - ID já registrado?4": {
+            "main": [
+              [
+                {
+                  "node": "Limit",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Corte de data negócios P2.3 e P2.4!": {
+            "main": [
+              [
+                {
+                  "node": "Filter1 - ID já registrado?4",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version c39250f8",
+        "name": "Version d4adf0fc",
         "description": "",
         "autosaved": true
       },
@@ -34686,14 +35186,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-07-29T13:00:35Z"
+          "lastTimeChecked": "2026-07-31T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-07-29T13:00:58Z"
+          "lastTimeChecked": "2026-07-31T13:00:58Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            211
+            213
           ]
         }
       },
@@ -39406,10 +39906,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785445473,
+            "lastTimeChecked": 1785527646,
             "possibleDuplicates": [
-              "19fb4d7dc6874617",
-              "19fb44fe81e8ae6d"
+              "19fb9bdbd2e789f2",
+              "19fb90cc3cd2097d"
             ]
           }
         }

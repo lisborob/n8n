@@ -770,7 +770,12 @@
       },
       "staticData": {
         "node:Gatilho diário": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         }
       },
       "meta": {
@@ -1903,7 +1908,12 @@
       },
       "staticData": {
         "node:Trigger todos os dias 10am": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         }
       },
       "meta": {
@@ -5665,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785879441,
+            "lastTimeChecked": 1785970105,
             "possibleDuplicates": [
-              "19fceb5b3fa37182",
-              "19fce9d06178b916"
+              "19fd41d1fb6ad42d",
+              "19fd3e214e1238ba"
             ]
           }
         },
@@ -10769,7 +10779,12 @@
           }
         },
         "node:Schedule Trigger": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         },
         "node:Google Sheets Trigger": {
           "documentId": "[REDACTED]",
@@ -19747,13 +19762,28 @@
       },
       "staticData": {
         "node:Schedule Trigger1": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         },
         "node:Schedule Trigger3": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         },
         "node:Schedule Trigger4": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         }
       },
       "meta": {
@@ -22966,7 +22996,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-10T22:24:17.294Z",
+      "updatedAt": "2026-08-05T15:29:49.448Z",
       "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "Google Places Tourist POI Scraper",
@@ -23487,6 +23517,37 @@
           ],
           "id": "5b0fb245-dcc1-42f0-81e3-dc3f6185c798",
           "name": "PageToken"
+        },
+        {
+          "parameters": {
+            "content": "POI Scrapper",
+            "height": 1520,
+            "width": 4064
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1456,
+            -464
+          ],
+          "typeVersion": 1,
+          "id": "c0fd7998-8db9-4796-980f-13dcc59ceb94",
+          "name": "Sticky Note"
+        },
+        {
+          "parameters": {
+            "content": "Content Creator",
+            "height": 1520,
+            "width": 4064,
+            "color": 3
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -1456,
+            1136
+          ],
+          "typeVersion": 1,
+          "id": "a4946f78-361a-485c-a879-7e2c33ea3571",
+          "name": "Sticky Note1"
         }
       ],
       "connections": {
@@ -23723,22 +23784,8 @@
         "templateCredsSetupCompleted": true
       },
       "nodeGroups": [],
-      "pinData": {
-        "País e Cidade": [
-          {
-            "json": {
-              "País": "portugal",
-              "Cidade": "porto",
-              "submittedAt": "2026-07-10T16:05:45.263+01:00",
-              "formMode": "test"
-            },
-            "pairedItem": {
-              "item": 0
-            }
-          }
-        ]
-      },
-      "versionId": "8207f950-b221-4710-ac53-6c3b60fd0396",
+      "pinData": {},
+      "versionId": "2c38686c-256e-4bbc-9a46-9411e95799b8",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -23754,7 +23801,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-04-30T13:07:02.178Z",
+      "updatedAt": "2026-08-05T16:15:27.810Z",
       "createdAt": "2025-08-19T06:12:04.092Z",
       "id": "OTt8iKvm0mjBHLMi",
       "name": "No Show MCOO",
@@ -23834,9 +23881,9 @@
           "parameters": {
             "fromEmail": "contact@ooniverse.ai",
             "toEmail": "={{ $('Search contacts1').item.json.properties.email }}",
-            "subject": "Reunião com o Ooniverse.ai finalizada.",
+            "subject": "Reunião finalizada",
             "emailFormat": "text",
-            "text": "=Olá {{ $('Search contacts1').item.json.properties.firstname }},\nGeralmente aguardamos cerca de 10 minutos na sala de reunião. Como você não compareceu à esse agendamento com o Ooniverse.ai ou com a Midiacode.com, saimos da sala. Peço que reagende a sua reunião através deste link... https://meetings.hubspot.com/contact-ooniverse\nOu nos sinalize, caso não tenha mais interesse no Super App.\nAgradecemos pelo seu retorno.\nEquipe Ooniverse.",
+            "text": "=Olá {{ $('Search contacts1').item.json.properties.firstname }},\nGeralmente aguardamos cerca de 10 minutos na sala de reunião. Como você não compareceu à esse agendamento, saimos da sala. Peço que reagende a sua reunião através deste link... https://meetings.hubspot.com/contact-ooniverse\nAgradecemos pelo seu retorno.\nEquipe Midiacode-Ooniverse.",
             "options": {
               "appendAttribution": false,
               "ccEmail": "robson.lisboa@midiacode.com"
@@ -24233,6 +24280,11 @@
             },
             "options": {
               "appendAttribution": false,
+              "respondWithOptions": {
+                "values": {
+                  "formSubmittedText": "Mensagem enviada!"
+                }
+              },
               "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 500;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #007aff;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 38px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
             }
           },
@@ -24546,8 +24598,8 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "44932029-994a-48e0-886f-ef0833bf74dd",
-      "activeVersionId": "6eb42fdd-93f8-4dac-9140-7992059cbb7e",
+      "versionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
+      "activeVersionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
       "triggerCount": 1,
       "shared": [
         {
@@ -24559,9 +24611,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
-        "versionId": "6eb42fdd-93f8-4dac-9140-7992059cbb7e",
+        "updatedAt": "2026-08-05T16:15:52.000Z",
+        "createdAt": "2026-08-05T16:15:27.812Z",
+        "versionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
         "workflowId": "OTt8iKvm0mjBHLMi",
         "nodes": [
           {
@@ -24588,7 +24640,7 @@
             "credentials": {
               "smtp": {
                 "id": "5r4O3yWVtvULVe1v",
-                "name": "SMTP account"
+                "name": "SMTP from contact@ooniverse.ai"
               }
             }
           },
@@ -24637,9 +24689,9 @@
             "parameters": {
               "fromEmail": "contact@ooniverse.ai",
               "toEmail": "={{ $('Search contacts1').item.json.properties.email }}",
-              "subject": "Reunião com o Ooniverse.ai finalizada.",
+              "subject": "Reunião finalizada",
               "emailFormat": "text",
-              "text": "=Olá {{ $('Search contacts1').item.json.properties.firstname }},\nGeralmente aguardamos cerca de 10 minutos na sala de reunião. Como você não compareceu à esse agendamento com o Ooniverse.ai ou com a Midiacode.com, saimos da sala. Peço que reagende a sua reunião através deste link... https://meetings.hubspot.com/contact-ooniverse\nOu nos sinalize, caso não tenha mais interesse no Super App.\nAgradecemos pelo seu retorno.\nEquipe Ooniverse.",
+              "text": "=Olá {{ $('Search contacts1').item.json.properties.firstname }},\nGeralmente aguardamos cerca de 10 minutos na sala de reunião. Como você não compareceu à esse agendamento, saimos da sala. Peço que reagende a sua reunião através deste link... https://meetings.hubspot.com/contact-ooniverse\nAgradecemos pelo seu retorno.\nEquipe Midiacode-Ooniverse.",
               "options": {
                 "appendAttribution": false,
                 "ccEmail": "robson.lisboa@midiacode.com"
@@ -24657,7 +24709,7 @@
             "credentials": {
               "smtp": {
                 "id": "5r4O3yWVtvULVe1v",
-                "name": "SMTP account"
+                "name": "SMTP from contact@ooniverse.ai"
               }
             }
           },
@@ -25036,6 +25088,11 @@
               },
               "options": {
                 "appendAttribution": false,
+                "respondWithOptions": {
+                  "values": {
+                    "formSubmittedText": "Mensagem enviada!"
+                  }
+                },
                 "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 500;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #007aff;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 38px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
               }
             },
@@ -25174,22 +25231,12 @@
             "main": [
               [
                 {
-                  "node": "Enviar texto",
-                  "type": "main",
-                  "index": 0
-                },
-                {
                   "node": "Send email",
                   "type": "main",
                   "index": 0
                 }
               ],
               [
-                {
-                  "node": "Enviar texto1",
-                  "type": "main",
-                  "index": 0
-                },
                 {
                   "node": "Send email",
                   "type": "main",
@@ -25217,22 +25264,12 @@
             "main": [
               [
                 {
-                  "node": "Enviar texto2",
-                  "type": "main",
-                  "index": 0
-                },
-                {
                   "node": "Send email1",
                   "type": "main",
                   "index": 0
                 }
               ],
               [
-                {
-                  "node": "Enviar texto3",
-                  "type": "main",
-                  "index": 0
-                },
                 {
                   "node": "Send email1",
                   "type": "main",
@@ -25360,10 +25397,10 @@
           }
         },
         "nodeGroups": [],
-        "authors": "system migration",
-        "name": null,
-        "description": null,
-        "autosaved": false
+        "authors": "Robson Lisboa",
+        "name": "Version e214a1f7",
+        "description": "",
+        "autosaved": true
       },
       "tags": []
     },
@@ -25798,6 +25835,9 @@
         "node:Schedule Trigger": {
           "recurrenceRules": [
             0
+          ],
+          "recurrenceRuleSignatures": [
+            "hours:3"
           ]
         }
       },
@@ -35186,14 +35226,17 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-04T13:00:35Z"
+          "lastTimeChecked": "2026-08-05T15:02:33Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-04T13:00:58Z"
+          "lastTimeChecked": "2026-08-05T15:02:33Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
             217
+          ],
+          "recurrenceRuleSignatures": [
+            "days:2"
           ]
         }
       },
@@ -39906,10 +39949,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785866643,
+            "lastTimeChecked": 1785955533,
             "possibleDuplicates": [
-              "19fcdf2692d4f05d",
-              "19fcdc3fd6a8b8db"
+              "19fd33ec7be9c8ae",
+              "19fd2aca42b5e534"
             ]
           }
         }
@@ -47401,7 +47444,12 @@
       },
       "staticData": {
         "node:Schedule Trigger": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         }
       },
       "meta": {
@@ -56690,16 +56738,19 @@
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
-            6
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            "months:2"
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1832
+          "lastMessageUid": 1870
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 165
+          "lastIndexChecked": 167
         }
       },
       "meta": {
@@ -61987,7 +62038,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-01T20:10:09.010Z",
+      "updatedAt": "2026-08-05T15:15:42.652Z",
       "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
@@ -66616,7 +66667,10 @@
         },
         "node:Gatilho mensal todo dia 1, 10am": {
           "recurrenceRules": [
-            6
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            "months:2"
           ]
         },
         "node:Email Trigger (IMAP)": {
@@ -66901,8 +66955,8 @@
           }
         ]
       },
-      "versionId": "0bd82727-61f6-4eb9-b29d-a115cf9a481f",
-      "activeVersionId": "0ac220b1-1f70-4a7c-bf6c-83b182c1ef57",
+      "versionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
+      "activeVersionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
       "triggerCount": 15,
       "shared": [
         {
@@ -66914,9 +66968,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-01T12:23:05.000Z",
-        "createdAt": "2026-07-01T12:16:47.904Z",
-        "versionId": "0ac220b1-1f70-4a7c-bf6c-83b182c1ef57",
+        "updatedAt": "2026-08-05T15:15:48.000Z",
+        "createdAt": "2026-08-05T15:15:42.657Z",
+        "versionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
           {
@@ -70358,6 +70412,144 @@
                 "name": "Kutsaca.com - SMTP account"
               }
             }
+          },
+          {
+            "parameters": {
+              "content": "## Publica a News no Super App",
+              "height": 496,
+              "width": 1600
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -3264,
+              1856
+            ],
+            "typeVersion": 1,
+            "id": "cb1973fb-c895-4fdd-b386-0e1aa2e9d57b",
+            "name": "Sticky Note12"
+          },
+          {
+            "parameters": {
+              "operation": "get",
+              "dataTableId": {
+                "__rl": true,
+                "value": "ASgwpF2PeV4ATAYu",
+                "mode": "list",
+                "cachedResultName": "Kutsaca HTML para envio de newsletter",
+                "cachedResultUrl": "/projects/MDx9S6QRKUuQVawA/datatables/ASgwpF2PeV4ATAYu"
+              },
+              "filters": {
+                "conditions": [
+                  {
+                    "keyValue": "={{ $json['News ID'] }}"
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.dataTable",
+            "typeVersion": 1.1,
+            "position": [
+              -2768,
+              2016
+            ],
+            "id": "d56f9e31-7224-4b46-9c02-aec1cebc3f52",
+            "name": "Get row(s)3"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+              -3184,
+              2016
+            ],
+            "id": "82425371-2396-44ca-a0e0-94c211a32cc0",
+            "name": "When clicking ‘Execute workflow’"
+          },
+          {
+            "parameters": {
+              "assignments": {
+                "assignments": [
+                  {
+                    "id": "7392d3d1-ef9e-4cf2-b8ad-e67caa64887c",
+                    "name": "News ID",
+                    "value": "48",
+                    "type": "string"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+              -2976,
+              2016
+            ],
+            "id": "2f3beeb9-3917-4e18-966d-014a5872e518",
+            "name": "Edit Fields3"
+          },
+          {
+            "parameters": {
+              "jsCode": "const html = $json.html || \"\";\n\n// 1. Remove SOMENTE o bloco do gestor usando o comentário como âncora\nconst cleanedHtml = html.replace(\n  /<!-- Orientações para o gestor[\\s\\S]*?<tr>[\\s\\S]*?<\\/tr>/i,\n  \"\"\n);\n\n// 2. Bloco de responsividade a ser inserido no <head>\nconst responsiveBlock = `\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n<style>\n  body {\n    margin: 0;\n    padding: 0;\n    -webkit-text-size-adjust: 100%;\n  }\n\n  table {\n    max-width: 100% !important;\n    width: 100% !important;\n  }\n\n  img {\n    max-width: 100% !important;\n    height: auto !important;\n  }\n\n  @media only screen and (max-width: 600px) {\n    body {\n      padding: 0 !important;\n    }\n\n    table[width=\"600\"] {\n      width: 100% !important;\n      padding: 10px !important;\n    }\n\n    td {\n      padding: 10px !important;\n    }\n\n    h1, h2, h3 {\n      font-size: 22px !important;\n      line-height: 1.3 !important;\n    }\n\n    p {\n      font-size: 15px !important;\n      line-height: 1.5 !important;\n    }\n  }\n</style>\n`;\n\n// 3. Insere o bloco dentro do <head>\nconst finalHtml = cleanedHtml.replace(\n  /<head>/i,\n  `<head>${responsiveBlock}`\n);\n\nreturn [{\n  json: {\n    ...$json,\n    html: finalHtml\n  }\n}];\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              -2528,
+              2016
+            ],
+            "id": "ff490655-1439-4c9e-ad45-b5ef63b99e33",
+            "name": "Retira do html final a seção do aprovador2"
+          },
+          {
+            "parameters": {
+              "operation": "upload",
+              "bucketName": "auto.1mc.co",
+              "fileName": "newsKutsacaNoApp.html",
+              "binaryData": false,
+              "fileContent": "={{ $json.html }}",
+              "additionalFields": {
+                "parentFolderKey": "Kutsaca"
+              }
+            },
+            "type": "n8n-nodes-base.awsS3",
+            "typeVersion": 2,
+            "position": [
+              -2304,
+              2016
+            ],
+            "id": "000d8215-a1fe-498d-8e13-834d3898a4d9",
+            "name": "Upload html para priorização2",
+            "credentials": {
+              "aws": {
+                "id": "nFJH8JqzQhkNaZsi",
+                "name": "AWS Auto.1mc.co"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "operation": "update",
+              "title": "={{ $('Get row(s)3').item.json.subject }}",
+              "workspaceIdBody": "e6066079-3fa6-455e-a637-dbfb556a14e7",
+              "contentId": "03170b6b-97a3-4602-9ba0-ab8ae5bc13d0",
+              "requestOptions": {}
+            },
+            "type": "n8n-nodes-midiacode.midiacode",
+            "typeVersion": 1,
+            "position": [
+              -2096,
+              2016
+            ],
+            "id": "519d503c-534b-47d2-a353-4f0057f58837",
+            "name": "Update content",
+            "credentials": {
+              "midiacodeApi": {
+                "id": "llEkL0ZhP8FZxXdT",
+                "name": "Kutsaca APIKey no MC Studio"
+              }
+            }
           }
         ],
         "connections": {
@@ -71333,11 +71525,66 @@
                 }
               ]
             ]
+          },
+          "When clicking ‘Execute workflow’": {
+            "main": [
+              [
+                {
+                  "node": "Edit Fields3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Edit Fields3": {
+            "main": [
+              [
+                {
+                  "node": "Get row(s)3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s)3": {
+            "main": [
+              [
+                {
+                  "node": "Retira do html final a seção do aprovador2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Retira do html final a seção do aprovador2": {
+            "main": [
+              [
+                {
+                  "node": "Upload html para priorização2",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Upload html para priorização2": {
+            "main": [
+              [
+                {
+                  "node": "Update content",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 0ac220b1",
+        "name": "Version 0d297db0",
         "description": "",
         "autosaved": true
       },
@@ -73832,7 +74079,12 @@
       },
       "staticData": {
         "node:Schedule Trigger": {
-          "recurrenceRules": []
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
         }
       },
       "meta": {

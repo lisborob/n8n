@@ -5675,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1785970105,
+            "lastTimeChecked": 1786055609,
             "possibleDuplicates": [
-              "19fd41d1fb6ad42d",
-              "19fd3e214e1238ba"
+              "19fd935cf130bdc5",
+              "19fd9322de4aef91"
             ]
           }
         },
@@ -16625,7 +16625,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-31T14:45:27.141Z",
+      "updatedAt": "2026-08-06T08:32:23.102Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -19846,7 +19846,7 @@
           }
         ]
       },
-      "versionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
+      "versionId": "5edee04e-e46d-42a3-9e88-f6c8974d9216",
       "activeVersionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
       "triggerCount": 3,
       "shared": [
@@ -35226,14 +35226,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-05T15:02:33Z"
+          "lastTimeChecked": "2026-08-06T13:00:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-05T15:02:33Z"
+          "lastTimeChecked": "2026-08-06T13:00:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            217
+            219
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -39949,10 +39949,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1785955533,
+            "lastTimeChecked": 1786043432,
             "possibleDuplicates": [
-              "19fd33ec7be9c8ae",
-              "19fd2aca42b5e534"
+              "19fd892907317ed3",
+              "19fd7ef6af53a777"
             ]
           }
         }
@@ -56745,12 +56745,12 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1870
+          "lastMessageUid": 1872
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 167
+          "lastIndexChecked": 169
         }
       },
       "meta": {

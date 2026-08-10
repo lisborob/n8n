@@ -5675,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1786307263,
+            "lastTimeChecked": 1786400394,
             "possibleDuplicates": [
-              "19fe835bfa1b6066",
-              "19fe7eaaaef51807"
+              "19fedc2f30cd0ccb",
+              "19fedc21f1db048b"
             ]
           }
         },
@@ -13692,7 +13692,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-07-31T14:25:59.627Z",
+      "updatedAt": "2026-08-10T15:05:38.371Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -13718,7 +13718,7 @@
         },
         {
           "parameters": {
-            "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 12h e 20h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 12 && hour < 20) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 20h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 20) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
+            "jsCode": "[REDACTED]"
           },
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
@@ -13744,7 +13744,9 @@
                 "={{ $('Webhook').item.json.body.email }}"
               ],
               "conferenceDataUi": {
-                "conferenceDataValues": {}
+                "conferenceDataValues": {
+                  "conferenceSolution": "hangoutsMeet"
+                }
               },
               "summary": "=Reunião de Alinhamento - {{ $json.subject }}"
             }
@@ -13952,6 +13954,7 @@
               "cachedResultName": "robson.lisboa@midiacode.com"
             },
             "returnAll": true,
+            "timeMax": "={{ $now.plus({ week: 2 }) }}",
             "options": {}
           },
           "type": "n8n-nodes-base.googleCalendar",
@@ -14130,8 +14133,8 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
-      "activeVersionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
+      "versionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
+      "activeVersionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
       "triggerCount": 1,
       "shared": [
         {
@@ -14143,9 +14146,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-31T14:26:15.000Z",
-        "createdAt": "2026-07-31T14:25:59.629Z",
-        "versionId": "baec79f4-14a0-4b34-9a37-ed77532a6cd9",
+        "updatedAt": "2026-08-10T15:05:48.000Z",
+        "createdAt": "2026-08-10T15:05:38.372Z",
+        "versionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
         "workflowId": "DYs4g4Avo5oWwlKB",
         "nodes": [
           {
@@ -14167,7 +14170,7 @@
           },
           {
             "parameters": {
-              "jsCode": "// 1. Pega os eventos do nó de agenda que vem IMEDIATAMENTE ANTES deste nó\nconst calendarItems = $input.all();\n\nconst busyEvents = calendarItems.map(item => {\n  const json = item.json;\n  if (!json.start) return null; // Ignora se não houver evento\n  return {\n    start: new Date(json.start.dateTime || json.start.date),\n    end: new Date(json.end.dateTime || json.end.date)\n  };\n}).filter(Boolean);\n\n// 2. Pega os dados do Webhook (Ajuste o nome do nó 'Webhook' abaixo se no seu fluxo estiver diferente, ex: 'Webhook1')\nlet webhookData = {};\ntry {\n  webhookData = $('Webhook').first().json.body || $('Webhook').first().json;\n} catch (e) {\n  // Se o nó do Webhook tiver outro nome na sua tela, use o primeiro item que recebeu\n  webhookData = $input.first().json.body || {};\n}\n\n// 3. Início da busca: daqui a 48 horas às 10:00 AM\nlet candidate = new Date();\ncandidate.setDate(candidate.getDate() + 2);\ncandidate.setHours(10, 0, 0, 0);\n\n// Se cair no fim de semana, move para a próxima Segunda-feira\nif (candidate.getDay() === 6) candidate.setDate(candidate.getDate() + 2); // Sábado -> Segunda\nif (candidate.getDay() === 0) candidate.setDate(candidate.getDate() + 1); // Domingo -> Segunda\n\nlet slotFound = null;\n\n// Testa blocos de 30 min entre 12h e 20h\nwhile (!slotFound) {\n  const day = candidate.getDay();\n  const hour = candidate.getHours();\n\n  if (day >= 1 && day <= 5 && hour >= 12 && hour < 20) {\n    const slotEnd = new Date(candidate.getTime() + 30 * 60000);\n    \n    // Verifica se conflita com algum evento existente\n    const hasConflict = busyEvents.some(event => \n      (candidate < event.end && slotEnd > event.start)\n    );\n\n    if (!hasConflict) {\n      slotFound = {\n        startISO: candidate.toISOString(),\n        endISO: slotEnd.toISOString(),\n        formattedDate: candidate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' }),\n        formattedTime: candidate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })\n      };\n      break;\n    }\n  }\n\n  // Avança 30 minutos\n  candidate.setTime(candidate.getTime() + 30 * 60000);\n  \n  // Se passou das 20h, avança para as 10h do dia seguinte\n  if (candidate.getHours() >= 20) {\n    candidate.setDate(candidate.getDate() + 1);\n    candidate.setHours(10, 0, 0, 0);\n  }\n}\n\nreturn [{\n  json: {\n    ...webhookData,\n    meeting_start: slotFound.startISO,\n    meeting_end: slotFound.endISO,\n    meeting_text: `${slotFound.formattedDate} às ${slotFound.formattedTime}`\n  }\n}];"
+              "jsCode": "[REDACTED]"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -14193,7 +14196,9 @@
                   "={{ $('Webhook').item.json.body.email }}"
                 ],
                 "conferenceDataUi": {
-                  "conferenceDataValues": {}
+                  "conferenceDataValues": {
+                    "conferenceSolution": "hangoutsMeet"
+                  }
                 },
                 "summary": "=Reunião de Alinhamento - {{ $json.subject }}"
               }
@@ -14401,6 +14406,7 @@
                 "cachedResultName": "robson.lisboa@midiacode.com"
               },
               "returnAll": true,
+              "timeMax": "={{ $now.plus({ week: 2 }) }}",
               "options": {}
             },
             "type": "n8n-nodes-base.googleCalendar",
@@ -14570,7 +14576,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version baec79f4",
+        "name": "Version c0afbda4",
         "description": "",
         "autosaved": true
       },
@@ -16625,7 +16631,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-06T08:32:23.102Z",
+      "updatedAt": "2026-08-10T14:57:29.874Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -16947,7 +16953,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\nUSO DA PLANILHA DE REFERÊNCIA (FERRAMENTA OBRIGATÓRIA)\nAntes de redigir o e-mail, você DEVE utilizar a sua ferramenta de leitura de planilha (Google Sheets) para buscar e ler os últimos exemplos de e-mails aprovados.\n\nUse a ferramenta.\n\nAnalise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -17975,7 +17981,7 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\nUSO DA PLANILHA DE REFERÊNCIA (FERRAMENTA OBRIGATÓRIA)\nAntes de redigir o e-mail, você DEVE utilizar a sua ferramenta de leitura de planilha (Google Sheets) para buscar e ler os últimos exemplos de e-mails aprovados.\n\nUse a ferramenta.\n\nAnalise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
@@ -18925,6 +18931,75 @@
           ],
           "id": "20383751-599c-4a93-a8af-13f4b0ec732d",
           "name": "Corte de data negócios P2.3 e P2.4!"
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTool",
+          "typeVersion": 4.7,
+          "position": [
+            1008,
+            -976
+          ],
+          "id": "fb9ca89f-2898-4127-af90-2310d2ee841e",
+          "name": "Get row(s) in sheet in Google Sheets",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "NgVtVrC0ohwSKTXA",
+              "name": "Google Sheets account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": []
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheetsTool",
+          "typeVersion": 4.7,
+          "position": [
+            944,
+            -64
+          ],
+          "id": "50506e12-b0cd-412f-8e72-e75168c92909",
+          "name": "Get row(s) in sheet in Google Sheets1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
         }
       ],
       "connections": {
@@ -19753,6 +19828,28 @@
               }
             ]
           ]
+        },
+        "Get row(s) in sheet in Google Sheets": {
+          "ai_tool": [
+            [
+              {
+                "node": "AI Agent",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet in Google Sheets1": {
+          "ai_tool": [
+            [
+              {
+                "node": "Executivo de contas",
+                "type": "ai_tool",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "settings": {
@@ -19846,7 +19943,7 @@
           }
         ]
       },
-      "versionId": "5edee04e-e46d-42a3-9e88-f6c8974d9216",
+      "versionId": "b9c121c3-1924-40f5-bbd9-b228db110a83",
       "activeVersionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
       "triggerCount": 3,
       "shared": [
@@ -37678,14 +37775,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-08T13:00:38Z"
+          "lastTimeChecked": "2026-08-10T13:00:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-08T13:00:30Z"
+          "lastTimeChecked": "2026-08-10T13:00:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            221
+            223
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42401,10 +42498,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1786291922,
+            "lastTimeChecked": 1786379247,
             "possibleDuplicates": [
-              "19fe74bbf373497b",
-              "19fe6e8daf3e78ba"
+              "19fec8022fa365e3",
+              "19fec7d1ce7174bf"
             ]
           }
         }
@@ -59197,7 +59294,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1874
+          "lastMessageUid": 1877
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

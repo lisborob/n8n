@@ -5675,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1786484242,
+            "lastTimeChecked": 1786573879,
             "possibleDuplicates": [
-              "19ff2c23c189d672",
-              "19ff2b83e2b832ce"
+              "19ff819fa1fd1fd8",
+              "19ff7e3583ce6c56"
             ]
           }
         },
@@ -13692,7 +13692,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-10T15:05:38.371Z",
+      "updatedAt": "2026-08-12T11:28:30.249Z",
       "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
@@ -13790,10 +13790,11 @@
                 "Email": "={{ $('Webhook').item.json.body.email }}",
                 "Fase": "={{ $('Webhook').item.json.body.stage }}",
                 "Assunto": "={{ $('Webhook').item.json.body.subject }}",
-                "Texto Proposto": "={{ $('Webhook').item.json.body.message }}",
                 "Status": "Aprovado",
                 "ID do Deal": "={{ $('Webhook').item.json.body.dealId }}",
-                "Empresa": "={{ $('Webhook').item.json.body.company }}"
+                "Empresa": "={{ $('Webhook').item.json.body.company }}",
+                "Texto Aprovado": "={{ $('Webhook').item.json.body.message }}",
+                "Texto proposto": "={{ $('Webhook').item.json.body.messageProposto }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -13804,7 +13805,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Cliente",
@@ -13813,7 +13815,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Empresa",
@@ -13822,7 +13825,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Email",
@@ -13831,7 +13835,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Fase",
@@ -13840,7 +13845,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Assunto",
@@ -13849,16 +13855,28 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
-                  "id": "Texto Proposto",
-                  "displayName": "Texto Proposto",
+                  "id": "Texto proposto",
+                  "displayName": "Texto proposto",
                   "required": false,
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto Aprovado",
+                  "displayName": "Texto Aprovado",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Status",
@@ -13867,7 +13885,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Data de Reexibicao",
@@ -14132,9 +14151,61 @@
         "templateCredsSetupCompleted": true
       },
       "nodeGroups": [],
-      "pinData": {},
-      "versionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
-      "activeVersionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
+      "pinData": {
+        "Webhook": [
+          {
+            "json": {
+              "headers": {
+                "host": "n8n.ooniverse.ai",
+                "user-agent": "node",
+                "content-length": "562",
+                "accept": "*/*",
+                "accept-encoding": "br, gzip, deflate",
+                "accept-language": "*",
+                "content-type": "application/json",
+                "sec-fetch-mode": "cors",
+                "x-forwarded-for": "34.96.41.69",
+                "x-forwarded-host": "n8n.ooniverse.ai",
+                "x-forwarded-port": "443",
+                "x-forwarded-proto": "https",
+                "x-forwarded-server": "f1fc59b294b9",
+                "x-real-ip": "34.96.41.69"
+              },
+              "params": {},
+              "query": {},
+              "body": {
+                "event": "email_approved",
+                "rowNumber": 72,
+                "dealId": "1",
+                "id": "1",
+                "empresa": "Teste farma",
+                "cliente": "Teste",
+                "client": "Teste",
+                "company": "Teste farma",
+                "email": "thiagopacioni@gmail.com",
+                "stage": "P1",
+                "subject": "Teste",
+                "textoProposto": "Texto Proposto",
+                "textoAprovado": "Texto Proposto, vamos testar se funciona ",
+                "messageProposto": "Texto Proposto",
+                "messageAprovado": "Texto Proposto, vamos testar se funciona ",
+                "message": "Texto Proposto, vamos testar se funciona ",
+                "status": "Aprovado",
+                "agendamento": false,
+                "agendamentoTexto": "FALSE",
+                "approvedAt": "2026-08-12T11:27:19.109Z"
+              },
+              "webhookUrl": "https://n8n.ooniverse.ai/webhook/cc5705f9-ef92-4aad-90dd-68ed4a396296",
+              "executionMode": "production"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ]
+      },
+      "versionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
+      "activeVersionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
       "triggerCount": 1,
       "shared": [
         {
@@ -14146,9 +14217,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-10T15:05:48.000Z",
-        "createdAt": "2026-08-10T15:05:38.372Z",
-        "versionId": "c0afbda4-e06c-4007-b823-d84fd35b72be",
+        "updatedAt": "2026-08-12T12:01:53.000Z",
+        "createdAt": "2026-08-12T11:28:30.250Z",
+        "versionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
         "workflowId": "DYs4g4Avo5oWwlKB",
         "nodes": [
           {
@@ -14242,10 +14313,11 @@
                   "Email": "={{ $('Webhook').item.json.body.email }}",
                   "Fase": "={{ $('Webhook').item.json.body.stage }}",
                   "Assunto": "={{ $('Webhook').item.json.body.subject }}",
-                  "Texto Proposto": "={{ $('Webhook').item.json.body.message }}",
                   "Status": "Aprovado",
                   "ID do Deal": "={{ $('Webhook').item.json.body.dealId }}",
-                  "Empresa": "={{ $('Webhook').item.json.body.company }}"
+                  "Empresa": "={{ $('Webhook').item.json.body.company }}",
+                  "Texto Aprovado": "={{ $('Webhook').item.json.body.message }}",
+                  "Texto proposto": "={{ $('Webhook').item.json.body.messageProposto }}"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -14256,7 +14328,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Cliente",
@@ -14265,7 +14338,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Empresa",
@@ -14274,7 +14348,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Email",
@@ -14283,7 +14358,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Fase",
@@ -14292,7 +14368,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Assunto",
@@ -14301,16 +14378,28 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
-                    "id": "Texto Proposto",
-                    "displayName": "Texto Proposto",
+                    "id": "Texto proposto",
+                    "displayName": "Texto proposto",
                     "required": false,
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto Aprovado",
+                    "displayName": "Texto Aprovado",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Status",
@@ -14319,7 +14408,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Data de Reexibicao",
@@ -14576,7 +14666,7 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version c0afbda4",
+        "name": "Version c0b7b887",
         "description": "",
         "autosaved": true
       },
@@ -16631,7 +16721,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-10T14:57:29.874Z",
+      "updatedAt": "2026-08-12T13:47:04.218Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -17460,7 +17550,7 @@
           "parameters": {
             "content": "Fluxo - **P2.3 e P2.4**\n\n",
             "height": 848,
-            "width": 3940,
+            "width": 4132,
             "color": "#226F06"
           },
           "type": "n8n-nodes-base.stickyNote",
@@ -17500,7 +17590,8 @@
                 "Texto Proposto": "={{ $json.corpo }}",
                 "Fase": "[REDACTED]",
                 "Assunto": "={{ $json.assunto }}",
-                "Agendamento": "TRUE"
+                "Agendamento": "TRUE",
+                "Texto aprovado ": "={{ $json.corpo }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -17511,7 +17602,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Cliente",
@@ -17520,7 +17612,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Empresa",
@@ -17529,7 +17622,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Email",
@@ -17538,7 +17632,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Fase",
@@ -17547,7 +17642,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Assunto",
@@ -17566,7 +17662,18 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto aprovado ",
+                  "displayName": "Texto aprovado ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Status",
@@ -17575,7 +17682,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Agendamento",
@@ -17594,7 +17702,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Horario Sugerido",
@@ -17603,7 +17712,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 }
               ],
               "attemptToConvertTypes": false,
@@ -17614,7 +17724,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            1184,
+            1632,
             -160
           ],
           "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
@@ -17966,7 +18076,7 @@
           "type": "n8n-nodes-base.httpRequest",
           "typeVersion": 4.4,
           "position": [
-            496,
+            400,
             -192
           ],
           "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
@@ -17981,13 +18091,13 @@
         {
           "parameters": {
             "promptType": "define",
-            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\nUSO DA PLANILHA DE REFERÊNCIA (FERRAMENTA OBRIGATÓRIA)\nAntes de redigir o e-mail, você DEVE utilizar a sua ferramenta de leitura de planilha (Google Sheets) para buscar e ler os últimos exemplos de e-mails aprovados.\n\nUse a ferramenta.\n\nAnalise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+            "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\nUse os exemplos abaixo como base de como você deve escrever:\nConsulte o histórico abaixo e copie a estrutura, o tom e a brevidade destes e-mails já aprovados:\n\n{{ $json.exemplos_aprovados }}\n\nAgora, redija o e-mail para o cliente atual seguindo exatamente o estilo dos textos aprovados. Analise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo e formatacao dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.agent",
           "typeVersion": 3.1,
           "position": [
-            720,
+            1168,
             -224
           ],
           "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
@@ -18026,7 +18136,7 @@
           "type": "n8n-nodes-base.wait",
           "typeVersion": 1.1,
           "position": [
-            1312,
+            1760,
             -160
           ],
           "id": "fd6f13e1-bfd8-4d4a-b74c-8279871076f8",
@@ -18120,7 +18230,7 @@
           "type": "n8n-nodes-base.code",
           "typeVersion": 2,
           "position": [
-            1040,
+            1488,
             -192
           ],
           "id": "b7fa1163-5576-472f-a619-9aff55868dac",
@@ -18989,8 +19099,8 @@
           "type": "n8n-nodes-base.googleSheetsTool",
           "typeVersion": 4.7,
           "position": [
-            944,
-            -64
+            768,
+            192
           ],
           "id": "50506e12-b0cd-412f-8e72-e75168c92909",
           "name": "Get row(s) in sheet in Google Sheets1",
@@ -19000,6 +19110,61 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 193355101,
+              "mode": "list",
+              "cachedResultName": "Aprovados - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "filtersUI": {
+              "values": [
+                {
+                  "lookupColumn": "Fase",
+                  "lookupValue": "=P2.3 - Verde"
+                }
+              ]
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            624,
+            -192
+          ],
+          "id": "74c5c010-221c-4bb4-975c-2dc2b8c33ddf",
+          "name": "Get row(s) in sheet",
+          "executeOnce": true,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "const linhas = $input.all();\n\nif (linhas.length === 0) {\n  return [{ json: { exemplos_aprovados: \"Nenhum exemplo com Status 'Aprovado' foi encontrado na planilha para esta fase.\" } }];\n}\n\nlet textoExemplos = \"EXEMPLOS DE E-MAILS APROVADOS PARA ESTA FASE (USE COMO MODELO DE ESTILO):\\n\\n\";\nlet contador = 0;\n\nlinhas.forEach((item) => {\n  const dados = item.json;\n  \n  // Tenta pegar da coluna 'Texto aprovado' ou cai para 'Texto Proposto'\n  const textoUsado = dados['Texto aprovado'] || dados['Texto Aprovado'] || dados['Texto Proposto'];\n  const fase = dados['Fase'] || 'N/A';\n\n  if (textoUsado && textoUsado.trim() !== '') {\n    contador++;\n    textoExemplos += `--- EXEMPLO ${contador} (Fase: ${fase}) ---\\n${textoUsado}\\n\\n`;\n  }\n});\n\nif (contador === 0) {\n  return [{ json: { exemplos_aprovados: \"Linhas aprovadas foram encontradas, mas os textos do e-mail estavam vazios.\" } }];\n}\n\nreturn [{ json: { exemplos_aprovados: textoExemplos } }];"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            944,
+            -208
+          ],
+          "id": "d1788bb3-54a3-41ae-882a-e4fa8168c6a0",
+          "name": "Code in JavaScript3"
         }
       ],
       "connections": {
@@ -19426,7 +19591,7 @@
           "main": [
             [
               {
-                "node": "Executivo de contas",
+                "node": "Get row(s) in sheet",
                 "type": "main",
                 "index": 0
               }
@@ -19842,10 +20007,26 @@
         },
         "Get row(s) in sheet in Google Sheets1": {
           "ai_tool": [
+            []
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript3",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript3": {
+          "main": [
             [
               {
                 "node": "Executivo de contas",
-                "type": "ai_tool",
+                "type": "main",
                 "index": 0
               }
             ]
@@ -19943,8 +20124,8 @@
           }
         ]
       },
-      "versionId": "b9c121c3-1924-40f5-bbd9-b228db110a83",
-      "activeVersionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
+      "versionId": "31793b38-95e6-4deb-b07b-40933116af55",
+      "activeVersionId": "31793b38-95e6-4deb-b07b-40933116af55",
       "triggerCount": 3,
       "shared": [
         {
@@ -19956,9 +20137,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-31T14:49:14.000Z",
-        "createdAt": "2026-07-31T14:45:27.146Z",
-        "versionId": "d4adf0fc-af84-43e0-9ba9-bc59a6d8e0f2",
+        "updatedAt": "2026-08-12T13:49:54.000Z",
+        "createdAt": "2026-08-12T13:47:04.242Z",
+        "versionId": "31793b38-95e6-4deb-b07b-40933116af55",
         "workflowId": "GFyYDoE4f1FwxZZe",
         "nodes": [
           {
@@ -20276,7 +20457,7 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails para leads de topo de funil (Fase P1) que já tiveram um primeiro contato inicial com a empresa, mas ainda não participaram de uma apresentação formal e não têm orçamento na mesa.\nObjetivo principal: Iniciar ou reengajar uma conversa relevante baseada nesse primeiro contato, despertar curiosidade sobre a nossa infraestrutura e direcionar para um alinhamento rápido.\n\nUSO DA PLANILHA DE REFERÊNCIA (FERRAMENTA OBRIGATÓRIA)\nAntes de redigir o e-mail, você DEVE utilizar a sua ferramenta de leitura de planilha (Google Sheets) para buscar e ler os últimos exemplos de e-mails aprovados.\n\nUse a ferramenta.\n\nAnalise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica (Smart QR como porta de entrada, automação e IA) para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact').item.json.properties.firstname || '' }}\nEmpresa: {{ $('Get a company').item.json.properties.name || '' }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ \n  (Array.isArray($('HTTP Request1').item.json.results) \n    ? $('HTTP Request1').item.json.results \n    : ($('HTTP Request1').item.json.properties ? [$('HTTP Request1').item.json] : [])\n  )\n  .map(email => email.properties?.hs_email_text || email.body || '')\n  .filter(texto => texto.trim() !== '')\n  .join('\\n---\\n')\n  .slice(0, 2500) || 'Sem histórico prévio.' \n}}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico do antes de escrever e utilize esse contexto de forma natural e inteligente.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Se o histórico for vazio, produza um e-mail elegante focado nas dores gerais de integração tecnológica e eficiência operacional.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou cite valores numéricos.\n7. NUNCA use clichês comerciais (\"Passando para fazer contato\", \"Teve oportunidade de analisar?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou use termos robóticos.\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- Sempre que o assunto mudar estruturar em parágrafos \n- O e-mail deve ter entre 100 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um bate-papo rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
@@ -20783,7 +20964,7 @@
             "parameters": {
               "content": "Fluxo - **P2.3 e P2.4**\n\n",
               "height": 848,
-              "width": 3940,
+              "width": 4132,
               "color": "#226F06"
             },
             "type": "n8n-nodes-base.stickyNote",
@@ -20823,7 +21004,8 @@
                   "Texto Proposto": "={{ $json.corpo }}",
                   "Fase": "[REDACTED]",
                   "Assunto": "={{ $json.assunto }}",
-                  "Agendamento": "TRUE"
+                  "Agendamento": "TRUE",
+                  "Texto aprovado ": "={{ $json.corpo }}"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -20834,7 +21016,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Cliente",
@@ -20843,7 +21026,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Empresa",
@@ -20852,7 +21036,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Email",
@@ -20861,7 +21046,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Fase",
@@ -20870,7 +21056,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Assunto",
@@ -20889,7 +21076,18 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto aprovado ",
+                    "displayName": "Texto aprovado ",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Status",
@@ -20898,7 +21096,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Agendamento",
@@ -20917,7 +21116,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Horario Sugerido",
@@ -20926,7 +21126,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   }
                 ],
                 "attemptToConvertTypes": false,
@@ -20937,7 +21138,7 @@
             "type": "n8n-nodes-base.googleSheets",
             "typeVersion": 4.7,
             "position": [
-              1184,
+              1632,
               -160
             ],
             "id": "0116943f-b7ab-447e-a097-dc04ef3fc138",
@@ -21289,7 +21490,7 @@
             "type": "n8n-nodes-base.httpRequest",
             "typeVersion": 4.4,
             "position": [
-              496,
+              400,
               -192
             ],
             "id": "913a07cb-af32-4b02-adfc-b1bbf1974fad",
@@ -21304,13 +21505,13 @@
           {
             "parameters": {
               "promptType": "define",
-              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
+              "text": "=Você escreve os e-mails com a mentalidade de Robson, Diretor de Vendas da Midiacode. \nAtenção: NÃO mencione o seu cargo (Diretor, Executivo, etc.) no texto do e-mail em hipótese alguma. Apenas assuma a postura dele.\n\nO estilo do Robson é de liderança sênior: direto ao ponto, elegante, voltado para negócios (ROI, eficiência) e altamente consultivo. Ele nunca parece um vendedor insistente e não faz lista de funcionalidades tecnológicas no e-mail.\n\nSeu objetivo é escrever e-mails de acompanhamento (follow-up) para clientes que já receberam a proposta comercial e o orçamento (Fases P2.3 e P2.4).\nObjetivo principal: Reengajar o cliente sobre o escopo e o investimento propostos e mostrar flexibilidade para esclarecer dúvidas. NÃO é pressionar o fechamento nem oferecer descontos.\n\nUse os exemplos abaixo como base de como você deve escrever:\nConsulte o histórico abaixo e copie a estrutura, o tom e a brevidade destes e-mails já aprovados:\n\n{{ $json.exemplos_aprovados }}\n\nAgora, redija o e-mail para o cliente atual seguindo exatamente o estilo dos textos aprovados. Analise o tom, o vocabulário e a forma como os e-mails aprovados foram construídos.\n\nUtilize esse aprendizado para garantir que o novo e-mail tenha EXATAMENTE o mesmo estilo e formatacao dos exemplos aprovados.\n\n----------------------------------------------------\nSOBRE A MIDIACODE (CONTEXTO PARA VOCÊ, NÃO PARA COPIAR NO E-MAIL)\n----------------------------------------------------\nAjudamos empresas a resolver o caos de sistemas desconectados (ERPs, CRMs). Atuamos com infraestrutura de convergência tecnológica para simplificar operações e gerar eficiência. O foco da mensagem nunca é a tecnologia pela tecnologia, mas sim o impacto no negócio do cliente (ROI, redução de custos, otimização de tempo).\n\n----------------------------------------------------\nDADOS DO CLIENTE\n----------------------------------------------------\nNome: {{ $('Get a contact2').item.json.properties.firstname?.value || '' }} {{ $('Get a contact2').item.json.properties.lastname?.value || '' }}\nEmpresa: {{ $('Get a company2').item.json.properties.name?.value || $('Get a deal2').item.json.properties.dealname }}\n\n----------------------------------------------------\nHISTÓRICO\n----------------------------------------------------\n{{ ($('Histórico e-mails').item.json.results || $('Histórico e-mails').item.json.associations?.emails || []).map(email => email.properties?.hs_email_text || email.body || JSON.stringify(email)).join('\\n---\\n').slice(0, 2500) || 'Sem histórico prévio.' }}\n\n----------------------------------------------------\nINSTRUÇÕES E ESTILO\n----------------------------------------------------\n1. Leia o histórico e conecte a mensagem aos desafios ou escopos previamente discutidos.\n2.Analise a ÚLTIMA interação do histórico para captar o contexto e identificar a pessoa correta com quem estamos falando atualmente.\n3.Analise o idioma da última mensagem e escreva na mesma língua.\n4. Mostre abertura total e executiva para revisarmos o escopo e adequarmos o investimento à realidade atual do projeto deles.\n5. Escreva como um executivo sênior: focado em parceria estratégica, resolução de problemas e eficiência.\n6. NUNCA invente fatos, ofereça descontos ou mencione valores numéricos.\n7. NUNCA use clichês de cobrança (\"Espero que esteja bem\", \"Passando para fazer follow-up\", \"Teve oportunidade de analisar?\", \"Como está a aprovação?\").\n8. NUNCA diga \"vi que...\", \"analisei seu histórico\" ou \"estou aguardando sua aprovação\". ou estou escrevendo para, sem abordagens dessa maneira\n\n----------------------------------------------------\nREGRAS OBRIGATÓRIAS DE FORMATAÇÃO E NOMES\n----------------------------------------------------\n- NUNCA use colchetes ou marcadores ([Nome], [Empresa], [Seu Nome]).\n- Se \"Nome\" estiver vazio, inicie a mensagem com \"Olá,\" ou \"Prezado,\" (jamais \"Olá [Nome]\").\n- Se \"Empresa\" estiver vazia, refira-se a ela como \"sua empresa\" ou \"sua operação\".\n- Você DEVE obrigatoriamente iniciar o e-mail EXATAMENTE desta forma (substituindo apenas o nome, sem colchetes):Olá [Nome da Pessoa com quem estamos conversando na última mensagem],\nEspero que esteja bem.\n- Você DEVE obrigatoriamente encerrar o e-mail EXATAMENTE desta forma, pulando uma linha antes:\nAtenciosamente,\nRobson Lisboa\n- Sempre que o assunto mudar estruturar em parágrafos \n- NÃO utilize marcação Markdown de negrito (asteriscos **) ou crases em nenhuma parte do texto.\n- NÃO utilize emojis nem linguagem exageradamente comercial.\n- O e-mail deve ter entre 150 e 200 palavras (textos de diretoria são mais concisos).\n- FECHAMENTO OBRIGATÓRIO: Não faça perguntas abertas no final. Ao invés disso, finalize o e-mail de forma proativa avisando que enviou/está sugerindo um convite na agenda para um alinhamento rápido, e inclua explicitamente o link \"https://cal.com/robson-lisboa\" para que o cliente possa reagendar caso o horário sugerido não seja ideal.\n\n----------------------------------------------------\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS\n----------------------------------------------------\nVocê deve retornar EXATAMENTE um objeto JSON válido, e nada mais. \nNenhuma palavra antes, nenhuma explicação depois. Sem formatação Markdown (asteriscos ou crases).\nO seu JSON deve conter apenas e estritamente duas chaves:\n- Chave \"assunto\": Onde você escreverá o título do e-mail.\n- Chave \"corpo\": Onde você escreverá o texto completo do e-mail.\n\n{\n  \"assunto\": \"Escreva o assunto do e-mail aqui\",\n  \"corpo\": \"Escreva o texto completo do e-mail aqui\"\n}",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.agent",
             "typeVersion": 3.1,
             "position": [
-              720,
+              1168,
               -224
             ],
             "id": "d1fee636-4196-48c8-b3a9-3cc68b78a563",
@@ -21349,7 +21550,7 @@
             "type": "n8n-nodes-base.wait",
             "typeVersion": 1.1,
             "position": [
-              1312,
+              1760,
               -160
             ],
             "id": "fd6f13e1-bfd8-4d4a-b74c-8279871076f8",
@@ -21443,7 +21644,7 @@
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
             "position": [
-              1040,
+              1488,
               -192
             ],
             "id": "b7fa1163-5576-472f-a619-9aff55868dac",
@@ -22254,6 +22455,130 @@
             ],
             "id": "20383751-599c-4a93-a8af-13f4b0ec732d",
             "name": "Corte de data negócios P2.3 e P2.4!"
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheetsTool",
+            "typeVersion": 4.7,
+            "position": [
+              1008,
+              -976
+            ],
+            "id": "fb9ca89f-2898-4127-af90-2310d2ee841e",
+            "name": "Get row(s) in sheet in Google Sheets",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "NgVtVrC0ohwSKTXA",
+                "name": "Google Sheets account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": []
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheetsTool",
+            "typeVersion": 4.7,
+            "position": [
+              768,
+              192
+            ],
+            "id": "50506e12-b0cd-412f-8e72-e75168c92909",
+            "name": "Get row(s) in sheet in Google Sheets1",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 193355101,
+                "mode": "list",
+                "cachedResultName": "Aprovados - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "filtersUI": {
+                "values": [
+                  {
+                    "lookupColumn": "Fase",
+                    "lookupValue": "=P2.3 - Verde"
+                  }
+                ]
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              624,
+              -192
+            ],
+            "id": "74c5c010-221c-4bb4-975c-2dc2b8c33ddf",
+            "name": "Get row(s) in sheet",
+            "executeOnce": true,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "const linhas = $input.all();\n\nif (linhas.length === 0) {\n  return [{ json: { exemplos_aprovados: \"Nenhum exemplo com Status 'Aprovado' foi encontrado na planilha para esta fase.\" } }];\n}\n\nlet textoExemplos = \"EXEMPLOS DE E-MAILS APROVADOS PARA ESTA FASE (USE COMO MODELO DE ESTILO):\\n\\n\";\nlet contador = 0;\n\nlinhas.forEach((item) => {\n  const dados = item.json;\n  \n  // Tenta pegar da coluna 'Texto aprovado' ou cai para 'Texto Proposto'\n  const textoUsado = dados['Texto aprovado'] || dados['Texto Aprovado'] || dados['Texto Proposto'];\n  const fase = dados['Fase'] || 'N/A';\n\n  if (textoUsado && textoUsado.trim() !== '') {\n    contador++;\n    textoExemplos += `--- EXEMPLO ${contador} (Fase: ${fase}) ---\\n${textoUsado}\\n\\n`;\n  }\n});\n\nif (contador === 0) {\n  return [{ json: { exemplos_aprovados: \"Linhas aprovadas foram encontradas, mas os textos do e-mail estavam vazios.\" } }];\n}\n\nreturn [{ json: { exemplos_aprovados: textoExemplos } }];"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              944,
+              -208
+            ],
+            "id": "d1788bb3-54a3-41ae-882a-e4fa8168c6a0",
+            "name": "Code in JavaScript3"
           }
         ],
         "connections": {
@@ -22680,7 +23005,7 @@
             "main": [
               [
                 {
-                  "node": "Executivo de contas",
+                  "node": "Get row(s) in sheet",
                   "type": "main",
                   "index": 0
                 }
@@ -23082,11 +23407,49 @@
                 }
               ]
             ]
+          },
+          "Get row(s) in sheet in Google Sheets": {
+            "ai_tool": [
+              [
+                {
+                  "node": "AI Agent",
+                  "type": "ai_tool",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet in Google Sheets1": {
+            "ai_tool": [
+              []
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript3",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript3": {
+            "main": [
+              [
+                {
+                  "node": "Executivo de contas",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version d4adf0fc",
+        "name": "Version 31793b38",
         "description": "",
         "autosaved": true
       },
@@ -37775,14 +38138,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-10T13:00:38Z"
+          "lastTimeChecked": "2026-08-12T13:00:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-10T13:00:30Z"
+          "lastTimeChecked": "2026-08-12T13:00:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            223
+            225
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42498,10 +42861,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1786481458,
+            "lastTimeChecked": 1786573860,
             "possibleDuplicates": [
-              "19ff297c2c793e47",
-              "19ff1fefbf1b626e"
+              "19ff827ecf93c3e5",
+              "19ff79a3fd56d2e4"
             ]
           }
         }
@@ -59283,7 +59646,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2248
+          "lastMessageUid": 2252
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -59294,12 +59657,12 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1879
+          "lastMessageUid": 1881
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 171
+          "lastIndexChecked": 172
         }
       },
       "meta": {

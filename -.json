@@ -5675,11 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1786919721,
+            "lastTimeChecked": 1787005179,
             "possibleDuplicates": [
-              "1a00cb71c93fbb5e",
-              "1a00c423a3836689",
-              "1a00c4236f496153"
+              "1a011cf18f8467b6",
+              "1a0117d2ef02a367"
             ]
           }
         },
@@ -16722,7 +16721,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-12T13:47:04.218Z",
+      "updatedAt": "2026-08-17T13:37:26.297Z",
       "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
@@ -16792,7 +16791,8 @@
                 "Texto Proposto": "={{ $json.corpo }}",
                 "Fase": "[REDACTED]",
                 "Assunto": "={{ $json.assunto }}",
-                "Agendamento": "TRUE"
+                "Agendamento": "TRUE",
+                "Texto aprovado ": "={{ $json.corpo }}"
               },
               "matchingColumns": [],
               "schema": [
@@ -16803,7 +16803,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Cliente",
@@ -16812,7 +16813,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Empresa",
@@ -16821,7 +16823,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Email",
@@ -16830,7 +16833,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Fase",
@@ -16839,7 +16843,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Assunto",
@@ -16858,7 +16863,18 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto aprovado ",
+                  "displayName": "Texto aprovado ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Status",
@@ -16867,7 +16883,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Agendamento",
@@ -16886,7 +16903,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 },
                 {
                   "id": "Horario Sugerido",
@@ -16895,7 +16913,8 @@
                   "defaultMatch": false,
                   "display": true,
                   "type": "string",
-                  "canBeUsedToMatch": true
+                  "canBeUsedToMatch": true,
+                  "removed": false
                 }
               ],
               "attemptToConvertTypes": false,
@@ -17102,7 +17121,7 @@
         },
         {
           "parameters": {
-            "model": "llama-3.3-70b-versatile",
+            "model": "openai/gpt-oss-20b",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -17216,7 +17235,7 @@
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
-            -2272,
+            -2240,
             -784
           ],
           "typeVersion": 1,
@@ -17408,7 +17427,7 @@
         },
         {
           "parameters": {
-            "model": "llama-3.3-70b-versatile",
+            "model": "openai/gpt-oss-120b",
             "options": {}
           },
           "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -19064,8 +19083,8 @@
           "type": "n8n-nodes-base.googleSheetsTool",
           "typeVersion": 4.7,
           "position": [
-            1008,
-            -976
+            1088,
+            -944
           ],
           "id": "fb9ca89f-2898-4127-af90-2310d2ee841e",
           "name": "Get row(s) in sheet in Google Sheets",
@@ -19166,6 +19185,180 @@
           ],
           "id": "d1788bb3-54a3-41ae-882a-e4fa8168c6a0",
           "name": "Code in JavaScript3"
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": 2101802437,
+              "mode": "list",
+              "cachedResultName": "Fila de Aprovação - SDR Digital",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
+                "Cliente": "={{ $('Corte de data negócios P').item.json.properties.dealname }}",
+                "Status": "Pendente",
+                "Empresa": "={{ $('Get a company1').item.json.properties.name.value }}",
+                "Email": "={{ $('Get a contact1').item.json.properties.email.value }}",
+                "Texto Proposto": "={{ $json.corpo }}",
+                "Fase": "={{ $('Corte de data negócios P').item.json.properties.dealstage }}",
+                "Assunto": "={{ $json.assunto }}",
+                "Agendamento": "TRUE",
+                "Texto aprovado ": "={{ $json.corpo }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "ID do Deal",
+                  "displayName": "ID do Deal",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Cliente",
+                  "displayName": "Cliente",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Empresa",
+                  "displayName": "Empresa",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Email",
+                  "displayName": "Email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Fase",
+                  "displayName": "Fase",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Assunto",
+                  "displayName": "Assunto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto Proposto",
+                  "displayName": "Texto Proposto",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Texto aprovado ",
+                  "displayName": "Texto aprovado ",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Status",
+                  "displayName": "Status",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Agendamento",
+                  "displayName": "Agendamento",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Data de Reexibicao",
+                  "displayName": "Data de Reexibicao",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                },
+                {
+                  "id": "Horario Sugerido",
+                  "displayName": "Horario Sugerido",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true,
+                  "removed": false
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            1744,
+            -688
+          ],
+          "id": "20a17332-7129-4467-b8ee-df4e18a1e67f",
+          "name": "Append row in sheet1",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
         }
       ],
       "connections": {
@@ -19749,7 +19942,7 @@
           "main": [
             [
               {
-                "node": "Wait",
+                "node": "Append row in sheet1",
                 "type": "main",
                 "index": 0
               }
@@ -19997,13 +20190,7 @@
         },
         "Get row(s) in sheet in Google Sheets": {
           "ai_tool": [
-            [
-              {
-                "node": "AI Agent",
-                "type": "ai_tool",
-                "index": 0
-              }
-            ]
+            []
           ]
         },
         "Get row(s) in sheet in Google Sheets1": {
@@ -20027,6 +20214,17 @@
             [
               {
                 "node": "Executivo de contas",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Append row in sheet1": {
+          "main": [
+            [
+              {
+                "node": "Wait",
                 "type": "main",
                 "index": 0
               }
@@ -20125,8 +20323,8 @@
           }
         ]
       },
-      "versionId": "31793b38-95e6-4deb-b07b-40933116af55",
-      "activeVersionId": "31793b38-95e6-4deb-b07b-40933116af55",
+      "versionId": "5529829d-617d-464d-819e-0933f720419c",
+      "activeVersionId": "5529829d-617d-464d-819e-0933f720419c",
       "triggerCount": 3,
       "shared": [
         {
@@ -20138,9 +20336,9 @@
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-12T13:49:54.000Z",
-        "createdAt": "2026-08-12T13:47:04.242Z",
-        "versionId": "31793b38-95e6-4deb-b07b-40933116af55",
+        "updatedAt": "2026-08-17T13:38:30.000Z",
+        "createdAt": "2026-08-17T13:37:26.299Z",
+        "versionId": "5529829d-617d-464d-819e-0933f720419c",
         "workflowId": "GFyYDoE4f1FwxZZe",
         "nodes": [
           {
@@ -20206,7 +20404,8 @@
                   "Texto Proposto": "={{ $json.corpo }}",
                   "Fase": "[REDACTED]",
                   "Assunto": "={{ $json.assunto }}",
-                  "Agendamento": "TRUE"
+                  "Agendamento": "TRUE",
+                  "Texto aprovado ": "={{ $json.corpo }}"
                 },
                 "matchingColumns": [],
                 "schema": [
@@ -20217,7 +20416,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Cliente",
@@ -20226,7 +20426,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Empresa",
@@ -20235,7 +20436,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Email",
@@ -20244,7 +20446,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Fase",
@@ -20253,7 +20456,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Assunto",
@@ -20272,7 +20476,18 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto aprovado ",
+                    "displayName": "Texto aprovado ",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Status",
@@ -20281,7 +20496,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Agendamento",
@@ -20300,7 +20516,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   },
                   {
                     "id": "Horario Sugerido",
@@ -20309,7 +20526,8 @@
                     "defaultMatch": false,
                     "display": true,
                     "type": "string",
-                    "canBeUsedToMatch": true
+                    "canBeUsedToMatch": true,
+                    "removed": false
                   }
                 ],
                 "attemptToConvertTypes": false,
@@ -20516,7 +20734,7 @@
           },
           {
             "parameters": {
-              "model": "llama-3.3-70b-versatile",
+              "model": "openai/gpt-oss-20b",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -20630,7 +20848,7 @@
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
-              -2272,
+              -2240,
               -784
             ],
             "typeVersion": 1,
@@ -20822,7 +21040,7 @@
           },
           {
             "parameters": {
-              "model": "llama-3.3-70b-versatile",
+              "model": "openai/gpt-oss-120b",
               "options": {}
             },
             "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
@@ -22478,8 +22696,8 @@
             "type": "n8n-nodes-base.googleSheetsTool",
             "typeVersion": 4.7,
             "position": [
-              1008,
-              -976
+              1088,
+              -944
             ],
             "id": "fb9ca89f-2898-4127-af90-2310d2ee841e",
             "name": "Get row(s) in sheet in Google Sheets",
@@ -22580,6 +22798,180 @@
             ],
             "id": "d1788bb3-54a3-41ae-882a-e4fa8168c6a0",
             "name": "Code in JavaScript3"
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": 2101802437,
+                "mode": "list",
+                "cachedResultName": "Fila de Aprovação - SDR Digital",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "ID do Deal": "={{ $('Corte de data negócios P').item.json.id }}",
+                  "Cliente": "={{ $('Corte de data negócios P').item.json.properties.dealname }}",
+                  "Status": "Pendente",
+                  "Empresa": "={{ $('Get a company1').item.json.properties.name.value }}",
+                  "Email": "={{ $('Get a contact1').item.json.properties.email.value }}",
+                  "Texto Proposto": "={{ $json.corpo }}",
+                  "Fase": "={{ $('Corte de data negócios P').item.json.properties.dealstage }}",
+                  "Assunto": "={{ $json.assunto }}",
+                  "Agendamento": "TRUE",
+                  "Texto aprovado ": "={{ $json.corpo }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "ID do Deal",
+                    "displayName": "ID do Deal",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Cliente",
+                    "displayName": "Cliente",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Empresa",
+                    "displayName": "Empresa",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Email",
+                    "displayName": "Email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Fase",
+                    "displayName": "Fase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Assunto",
+                    "displayName": "Assunto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto Proposto",
+                    "displayName": "Texto Proposto",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Texto aprovado ",
+                    "displayName": "Texto aprovado ",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Status",
+                    "displayName": "Status",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Agendamento",
+                    "displayName": "Agendamento",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Data de Reexibicao",
+                    "displayName": "Data de Reexibicao",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  },
+                  {
+                    "id": "Horario Sugerido",
+                    "displayName": "Horario Sugerido",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true,
+                    "removed": false
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              1744,
+              -688
+            ],
+            "id": "20a17332-7129-4467-b8ee-df4e18a1e67f",
+            "name": "Append row in sheet1",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
           }
         ],
         "connections": {
@@ -23163,7 +23555,7 @@
             "main": [
               [
                 {
-                  "node": "Wait",
+                  "node": "Append row in sheet1",
                   "type": "main",
                   "index": 0
                 }
@@ -23411,13 +23803,7 @@
           },
           "Get row(s) in sheet in Google Sheets": {
             "ai_tool": [
-              [
-                {
-                  "node": "AI Agent",
-                  "type": "ai_tool",
-                  "index": 0
-                }
-              ]
+              []
             ]
           },
           "Get row(s) in sheet in Google Sheets1": {
@@ -23446,11 +23832,22 @@
                 }
               ]
             ]
+          },
+          "Append row in sheet1": {
+            "main": [
+              [
+                {
+                  "node": "Wait",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 31793b38",
+        "name": "Version 5529829d",
         "description": "",
         "autosaved": true
       },
@@ -42862,10 +43259,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1786893510,
+            "lastTimeChecked": 1786990352,
             "possibleDuplicates": [
-              "1a00b448f087b9b3",
-              "1a00b2523a025ef9"
+              "1a010ecd85f5c93e",
+              "1a010183e9837aec"
             ]
           }
         }
@@ -59647,7 +60044,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2252
+          "lastMessageUid": 2253
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -59658,7 +60055,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1886
+          "lastMessageUid": 1888
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

@@ -5675,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1787348241,
+            "lastTimeChecked": 1787427931,
             "possibleDuplicates": [
-              "1a02641d174eafdd",
-              "1a026403d4b3993a"
+              "1a02b01c62472b7e",
+              "1a02ae0fcee7084e"
             ]
           }
         },
@@ -38868,14 +38868,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-20T13:00:38Z"
+          "lastTimeChecked": "2026-08-22T13:00:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-20T13:00:30Z"
+          "lastTimeChecked": "2026-08-22T13:00:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            233
+            235
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -43591,11 +43591,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1787351638,
+            "lastTimeChecked": 1787428458,
             "possibleDuplicates": [
-              "1a02675a42806e7c",
-              "1a02669514251c4c",
-              "1a0261c869750844"
+              "1a02b09d25d3e0aa",
+              "1a029c7e8d0476a5"
             ]
           }
         }
@@ -60801,7 +60800,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2253
+          "lastMessageUid": 2255
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -60812,7 +60811,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1891
+          "lastMessageUid": 1892
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

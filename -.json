@@ -5675,10 +5675,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1787518041,
+            "lastTimeChecked": 1787610978,
             "possibleDuplicates": [
-              "1a03060c15e78d8d",
-              "1a03003b5dbbc438"
+              "1a035eadd5b00fab",
+              "1a03584c45332f33",
+              "1a03584bc3f92003"
             ]
           }
         },
@@ -38868,14 +38869,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-22T13:00:38Z"
+          "lastTimeChecked": "2026-08-24T13:00:38Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-22T13:00:30Z"
+          "lastTimeChecked": "2026-08-24T13:00:30Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            235
+            237
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -43591,10 +43592,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1787497666,
+            "lastTimeChecked": 1787594612,
             "possibleDuplicates": [
-              "1a02f32c8a3564a9",
-              "1a02efa6828daf87"
+              "1a034f121818234d",
+              "1a0347041699c9c6"
             ]
           }
         }
@@ -51527,7 +51528,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-19T16:13:00.960Z",
+      "updatedAt": "2026-08-24T21:27:16.795Z",
       "createdAt": "2026-08-19T13:05:16.087Z",
       "id": "k7vdCmiMOn5JQTga",
       "name": "Teste - Beatriz",
@@ -51806,43 +51807,16 @@
         },
         {
           "parameters": {
-            "title": "=",
-            "requestOptions": {}
+            "additionalFields": {}
           },
-          "type": "n8n-nodes-midiacode.midiacodeTool",
+          "type": "n8n-nodes-base.linkedInTool",
           "typeVersion": 1,
           "position": [
             1104,
             352
           ],
-          "id": "04e0df60-63ec-4ab2-8b3d-cc6fda0e1914",
-          "name": "Create content in Midiacode",
-          "credentials": {
-            "midiacodeApi": {
-              "id": "x9pq8hdG0YCtxmd6",
-              "name": "Midiacode account"
-            }
-          }
-        },
-        {
-          "parameters": {
-            "resource": "chat"
-          },
-          "type": "n8n-nodes-base.telegram",
-          "typeVersion": 1.2,
-          "position": [
-            800,
-            144
-          ],
-          "id": "66a5b5db-be5e-407e-bd45-079bbfcb607a",
-          "name": "Get a chat",
-          "webhookId": "91d3f7b2-bccc-48a5-b818-35e2945cad27",
-          "credentials": {
-            "telegramApi": {
-              "id": "lxV6aVR2Uu6tbEMu",
-              "name": "Telegram account - Thiago"
-            }
-          }
+          "id": "71a4d959-99ee-461c-8321-258eeea50d50",
+          "name": "Create a post in LinkedIn"
         }
       ],
       "connections": {
@@ -51872,7 +51846,7 @@
           "main": [
             [
               {
-                "node": "Get a chat",
+                "node": "Your First AI Agent",
                 "type": "main",
                 "index": 0
               }
@@ -51901,23 +51875,12 @@
             ]
           ]
         },
-        "Create content in Midiacode": {
+        "Create a post in LinkedIn": {
           "ai_tool": [
             [
               {
                 "node": "Your First AI Agent",
                 "type": "ai_tool",
-                "index": 0
-              }
-            ]
-          ]
-        },
-        "Get a chat": {
-          "main": [
-            [
-              {
-                "node": "Your First AI Agent",
-                "type": "main",
                 "index": 0
               }
             ]
@@ -51935,7 +51898,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "7a46b8b2-c920-449e-82f0-b95b98450b84",
+      "versionId": "fad2f600-389b-4e67-bca8-96782a1de220",
       "activeVersionId": null,
       "triggerCount": 0,
       "shared": [
@@ -60811,7 +60774,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1892
+          "lastMessageUid": 1893
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

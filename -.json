@@ -5675,10 +5675,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1788211925,
+            "lastTimeChecked": 1788302443,
             "possibleDuplicates": [
-              "1a059bd26b72b666",
-              "1a059aab8e208736"
+              "1a05f21d58b94a9b",
+              "1a05f218c9acf60a"
             ]
           }
         },
@@ -24186,7 +24186,7 @@
       "tags": []
     },
     {
-      "updatedAt": "2026-08-31T18:24:15.285Z",
+      "updatedAt": "2026-09-01T14:46:48.632Z",
       "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "POI - Google Sheets -> HTML -> S3",
@@ -24818,16 +24818,16 @@
             },
             "sheetName": {
               "__rl": true,
-              "value": "={{ $json['Aba da Planilha'] }}",
-              "mode": "id"
+              "mode": "name",
+              "value": "={{ $json['Aba da Planilha'] }}"
             },
             "options": {}
           },
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -832,
-            1504
+            -928,
+            1520
           ],
           "id": "3a2deecc-24b1-4330-8bec-5e5009d11668",
           "name": "Get row(s) in sheet",
@@ -24952,7 +24952,7 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            -608,
+            -704,
             1520
           ],
           "id": "507b5867-933b-4c5f-8367-4ac62761a648",
@@ -24966,8 +24966,8 @@
           "type": "n8n-nodes-base.splitInBatches",
           "typeVersion": 3,
           "position": [
-            -384,
-            1520
+            -416,
+            1504
           ],
           "id": "42c335c2-625b-4c72-bd22-843e1abafd44",
           "name": "Loop Over Items"
@@ -25018,8 +25018,8 @@
           "type": "n8n-nodes-base.formTrigger",
           "typeVersion": 2.6,
           "position": [
-            -1104,
-            1504
+            -1200,
+            1520
           ],
           "id": "f5f67a76-b001-4258-8488-54f5ab73eaea",
           "name": "On form submission",
@@ -25417,7 +25417,7 @@
       },
       "nodeGroups": [],
       "pinData": {},
-      "versionId": "1f08bfb1-316c-4dc6-ae0a-238219f0bd78",
+      "versionId": "7bf4e7b9-4acf-470f-9fe4-f0a6cca50420",
       "activeVersionId": "1f08bfb1-316c-4dc6-ae0a-238219f0bd78",
       "triggerCount": 1,
       "shared": [
@@ -37984,14 +37984,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-08-31T19:56:50Z"
+          "lastTimeChecked": "2026-09-01T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-08-31T19:56:50Z"
+          "lastTimeChecked": "2026-09-01T13:00:19Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            243
+            245
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42707,10 +42707,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1788195964,
+            "lastTimeChecked": 1788294535,
             "possibleDuplicates": [
-              "1a058c90862647d4",
-              "1a0589c12fe0a6d3"
+              "1a05ea94f83309cd",
+              "1a05e1e0f5e50591"
             ]
           }
         }
@@ -59882,14 +59882,14 @@
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
-            null
+            24320
           ],
           "recurrenceRuleSignatures": [
             "months:2"
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1899
+          "lastMessageUid": 1900
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -69811,7 +69811,7 @@
         },
         "node:Gatilho mensal todo dia 1, 10am": {
           "recurrenceRules": [
-            null
+            24320
           ],
           "recurrenceRuleSignatures": [
             "months:2"

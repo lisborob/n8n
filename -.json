@@ -5675,10 +5675,19 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1788906550,
+            "lastTimeChecked": 1788987869,
             "possibleDuplicates": [
-              "1a08323b801cd9d6",
-              "1a0831b89bc00ef2"
+              "1a087fc8887b41fb",
+              "1a087fc6f2626110",
+              "1a087fc52994b559",
+              "1a087fc3d7e6bfda",
+              "1a087fc299023c70",
+              "1a087fc0f5fffff9",
+              "1a087fbf8a0c0b07",
+              "1a087fbeaeafe2ea",
+              "1a087fbce6574cd7",
+              "1a087fba8b844b97",
+              "1a088031da48bebc"
             ]
           }
         },
@@ -37984,14 +37993,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-09-07T13:00:35Z"
+          "lastTimeChecked": "2026-09-09T13:00:35Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-09-07T13:00:19Z"
+          "lastTimeChecked": "2026-09-09T13:00:19Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            251
+            253
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42707,10 +42716,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1788879121,
+            "lastTimeChecked": 1788985053,
             "possibleDuplicates": [
-              "1a08181a17900c11",
-              "1a0816450d88a64a"
+              "1a087d19f3f4f0e1",
+              "1a087cdb241368d6",
+              "1a087de6fad854e3"
             ]
           }
         }
@@ -59889,7 +59899,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1901
+          "lastMessageUid": 1903
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

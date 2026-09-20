@@ -42706,10 +42706,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1789848243,
+            "lastTimeChecked": 1789928277,
             "possibleDuplicates": [
-              "1a0bb44cf581024b",
-              "1a0b9ff02e4a9d62"
+              "1a0c00a08edc7e5d",
+              "1a0bf56a18713f08"
             ]
           }
         }
@@ -59888,7 +59888,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1910
+          "lastMessageUid": 1912
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

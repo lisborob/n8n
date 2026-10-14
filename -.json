@@ -1,12 +1,15 @@
 {
   "data": [
     {
-      "updatedAt": "2026-04-20T09:21:34.963Z",
-      "createdAt": "2026-01-19T16:53:47.359Z",
       "id": "4kFZ05E1mzXgyAjB",
       "name": "Regua de cobrança - Thiago",
       "active": true,
+      "activeVersionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
+      "createdAt": "2026-01-19T16:53:47.359Z",
+      "updatedAt": "2026-04-20T09:21:34.963Z",
       "isArchived": false,
+      "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -764,6 +767,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
@@ -778,26 +782,21 @@
           ]
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
-      "activeVersionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-01-19T16:53:47.369Z",
-          "createdAt": "2026-01-19T16:53:47.369Z",
           "role": "workflow:owner",
           "workflowId": "4kFZ05E1mzXgyAjB",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-01-19T16:53:47.369Z",
+          "updatedAt": "2026-01-19T16:53:47.369Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-04-20T09:21:54.000Z",
-        "createdAt": "2026-04-20T09:21:34.964Z",
         "versionId": "68e339ff-ef49-4398-a2ce-8a5b6ddcc361",
         "workflowId": "4kFZ05E1mzXgyAjB",
         "nodes": [
@@ -1561,17 +1560,21 @@
         "authors": "Robson Lisboa",
         "name": "Régua de cobrança",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-04-20T09:21:34.964Z",
+        "updatedAt": "2026-04-20T09:21:54.000Z"
+      }
     },
     {
-      "updatedAt": "2025-10-16T10:41:17.000Z",
-      "createdAt": "2025-09-02T17:22:20.149Z",
       "id": "5ZnLGXLWdkUeYvTJ",
       "name": "Glauci - Lembrança de pag mensalidade",
       "active": true,
+      "activeVersionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
+      "createdAt": "2025-09-02T17:22:20.149Z",
+      "updatedAt": "2025-10-16T10:41:17.000Z",
       "isArchived": false,
+      "versionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -1903,6 +1906,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -1916,26 +1920,46 @@
           ]
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
-      "activeVersionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
-      "triggerCount": 1,
+      "tags": [
+        {
+          "id": "HBYLCCCcNDV9TOqp",
+          "name": "WooCommerce",
+          "createdAt": "2025-08-19T06:23:24.542Z",
+          "updatedAt": "2025-08-19T06:23:24.542Z"
+        },
+        {
+          "id": "IDTciWafZnoAXs2V",
+          "name": "creator",
+          "createdAt": "2025-08-25T07:46:42.979Z",
+          "updatedAt": "2025-08-25T07:46:42.979Z"
+        },
+        {
+          "id": "MsfNI9883quyxpFf",
+          "name": "templates",
+          "createdAt": "2025-08-25T07:46:42.975Z",
+          "updatedAt": "2025-08-25T07:46:42.975Z"
+        },
+        {
+          "id": "mh8Y1dCtQ86JAKvi",
+          "name": "OpenAI",
+          "createdAt": "2025-08-19T06:23:24.538Z",
+          "updatedAt": "2025-08-19T06:23:24.538Z"
+        }
+      ],
       "shared": [
         {
-          "updatedAt": "2025-09-02T17:22:20.155Z",
-          "createdAt": "2025-09-02T17:22:20.155Z",
           "role": "workflow:owner",
           "workflowId": "5ZnLGXLWdkUeYvTJ",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-09-02T17:22:20.155Z",
+          "updatedAt": "2025-09-02T17:22:20.155Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "57cb0987-807f-4f4c-8f54-2a4e8a090831",
         "workflowId": "5ZnLGXLWdkUeYvTJ",
         "nodes": [
@@ -2273,42 +2297,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": [
-        {
-          "updatedAt": "2025-08-19T06:23:24.542Z",
-          "createdAt": "2025-08-19T06:23:24.542Z",
-          "id": "HBYLCCCcNDV9TOqp",
-          "name": "WooCommerce"
-        },
-        {
-          "updatedAt": "2025-08-25T07:46:42.979Z",
-          "createdAt": "2025-08-25T07:46:42.979Z",
-          "id": "IDTciWafZnoAXs2V",
-          "name": "creator"
-        },
-        {
-          "updatedAt": "2025-08-25T07:46:42.975Z",
-          "createdAt": "2025-08-25T07:46:42.975Z",
-          "id": "MsfNI9883quyxpFf",
-          "name": "templates"
-        },
-        {
-          "updatedAt": "2025-08-19T06:23:24.538Z",
-          "createdAt": "2025-08-19T06:23:24.538Z",
-          "id": "mh8Y1dCtQ86JAKvi",
-          "name": "OpenAI"
-        }
-      ]
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2026-04-27T13:56:14.407Z",
-      "createdAt": "2026-04-27T13:50:47.824Z",
       "id": "7dTg2N7F1J5CRtXd",
       "name": "My workflow 2",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-04-27T13:50:47.824Z",
+      "updatedAt": "2026-04-27T13:56:14.407Z",
       "isArchived": false,
+      "versionId": "a591f273-3b16-4621-ac67-65fafa87cca0",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -2368,38 +2371,38 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "a591f273-3b16-4621-ac67-65fafa87cca0",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-04-27T13:50:47.831Z",
-          "createdAt": "2026-04-27T13:50:47.831Z",
           "role": "workflow:owner",
           "workflowId": "7dTg2N7F1J5CRtXd",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-04-27T13:50:47.831Z",
+          "updatedAt": "2026-04-27T13:50:47.831Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-03-19T14:44:54.661Z",
-      "createdAt": "2026-03-11T07:31:14.422Z",
       "id": "8cJZdnmna8WSsIOk",
       "name": "Solicitação Remoção Conta - Thiago",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-03-11T07:31:14.422Z",
+      "updatedAt": "2026-03-19T14:44:54.661Z",
       "isArchived": false,
+      "versionId": "8aaa8611-508d-49e6-b104-807e2fe8e5d5",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -3817,37 +3820,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "8aaa8611-508d-49e6-b104-807e2fe8e5d5",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-03-11T07:31:14.430Z",
-          "createdAt": "2026-03-11T07:31:14.430Z",
           "role": "workflow:owner",
           "workflowId": "8cJZdnmna8WSsIOk",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-03-11T07:31:14.430Z",
+          "updatedAt": "2026-03-11T07:31:14.430Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-03-13T15:26:09.505Z",
-      "createdAt": "2025-09-09T16:26:47.636Z",
       "id": "AFySOWDVVQcGxps6",
       "name": "Email AUTO robson.lisboa@midiacode.com incoming",
       "active": true,
+      "activeVersionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
+      "createdAt": "2025-09-09T16:26:47.636Z",
+      "updatedAt": "2026-03-13T15:26:09.505Z",
       "isArchived": false,
+      "versionId": "decb263a-e1d1-490e-b000-77ae895ad2a1",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -5660,6 +5663,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -5675,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1791927443,
+            "lastTimeChecked": 1792017214,
             "possibleDuplicates": [
-              "1a13732e32ef8942",
-              "1a137304573c7f09"
+              "1a13c8d56abe1d75",
+              "1a13c8a894047a0c"
             ]
           }
         },
@@ -5689,10 +5693,6 @@
           "lastRevisionLink": "[REDACTED]"
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "AI Agent1": [
           {
@@ -6047,21 +6047,20 @@
           }
         ]
       },
-      "versionId": "decb263a-e1d1-490e-b000-77ae895ad2a1",
-      "activeVersionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-09-09T16:26:47.641Z",
-          "createdAt": "2025-09-09T16:26:47.641Z",
           "role": "workflow:owner",
           "workflowId": "AFySOWDVVQcGxps6",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-09-09T16:26:47.641Z",
+          "updatedAt": "2025-09-09T16:26:47.641Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-03-04T17:47:35.399Z",
-        "createdAt": "2026-03-04T17:47:35.399Z",
         "versionId": "48dd032e-ef74-4d99-877b-52acd5afa218",
         "workflowId": "AFySOWDVVQcGxps6",
         "nodes": [
@@ -7881,17 +7880,21 @@
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2026-03-04T17:47:35.399Z",
+        "updatedAt": "2026-03-04T17:47:35.399Z"
+      }
     },
     {
-      "updatedAt": "2026-01-07T11:26:56.171Z",
-      "createdAt": "2025-11-10T16:14:51.087Z",
       "id": "AMxqvub2sDhDLKka",
       "name": "Email Auto - robson.lisboa@midiacode.com inbox existing",
       "active": true,
+      "activeVersionId": "e419473a-c003-47ec-826c-147fe25ee792",
+      "createdAt": "2025-11-10T16:14:51.087Z",
+      "updatedAt": "2026-01-07T11:26:56.171Z",
       "isArchived": false,
+      "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -10760,6 +10763,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -10793,26 +10797,21 @@
           "lastRevisionLink": "[REDACTED]"
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
-      "activeVersionId": "e419473a-c003-47ec-826c-147fe25ee792",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-10T16:14:51.097Z",
-          "createdAt": "2025-11-10T16:14:51.097Z",
           "role": "workflow:owner",
           "workflowId": "AMxqvub2sDhDLKka",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-10T16:14:51.097Z",
+          "updatedAt": "2025-11-10T16:14:51.097Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-07T11:26:56.177Z",
-        "createdAt": "2026-01-07T11:26:56.177Z",
         "versionId": "e419473a-c003-47ec-826c-147fe25ee792",
         "workflowId": "AMxqvub2sDhDLKka",
         "nodes": [
@@ -13687,17 +13686,21 @@
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2026-01-07T11:26:56.177Z",
+        "updatedAt": "2026-01-07T11:26:56.177Z"
+      }
     },
     {
-      "updatedAt": "2026-08-12T11:28:30.249Z",
-      "createdAt": "2026-07-15T08:50:49.604Z",
       "id": "DYs4g4Avo5oWwlKB",
       "name": "My Sub-Workflow - Auto Vendas - Thiago",
       "active": true,
+      "activeVersionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
+      "createdAt": "2026-07-15T08:50:49.604Z",
+      "updatedAt": "2026-08-12T11:28:30.249Z",
       "isArchived": false,
+      "versionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -14141,16 +14144,13 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "availableInMCP": false,
         "binaryMode": "separate"
       },
       "staticData": null,
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Webhook": [
           {
@@ -14204,21 +14204,20 @@
           }
         ]
       },
-      "versionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
-      "activeVersionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-07-15T08:50:49.611Z",
-          "createdAt": "2026-07-15T08:50:49.611Z",
           "role": "workflow:owner",
           "workflowId": "DYs4g4Avo5oWwlKB",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-07-15T08:50:49.611Z",
+          "updatedAt": "2026-07-15T08:50:49.611Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-12T12:01:53.000Z",
-        "createdAt": "2026-08-12T11:28:30.250Z",
         "versionId": "c0b7b887-cc28-4b72-bc7b-b45bbeae36ab",
         "workflowId": "DYs4g4Avo5oWwlKB",
         "nodes": [
@@ -14668,17 +14667,21 @@
         "authors": "Robson Lisboa",
         "name": "Version c0b7b887",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-12T11:28:30.250Z",
+        "updatedAt": "2026-08-12T12:01:53.000Z"
+      }
     },
     {
-      "updatedAt": "2025-12-16T17:36:59.000Z",
-      "createdAt": "2025-11-17T18:54:22.149Z",
       "id": "E3vxX3V7dWUkw4Hf",
       "name": "OLD - Midiacode Newsletter Auto",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-11-17T18:54:22.149Z",
+      "updatedAt": "2025-12-16T17:36:59.000Z",
       "isArchived": false,
+      "versionId": "34391b60-76e4-4113-90b6-a374a2965602",
+      "triggerCount": 6,
       "nodes": [
         {
           "parameters": {
@@ -16683,6 +16686,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -16700,33 +16704,32 @@
           "lastMessageUid": 2201
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "34391b60-76e4-4113-90b6-a374a2965602",
-      "activeVersionId": null,
-      "triggerCount": 6,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-17T18:54:22.151Z",
-          "createdAt": "2025-11-17T18:54:22.151Z",
           "role": "workflow:owner",
           "workflowId": "E3vxX3V7dWUkw4Hf",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-17T18:54:22.151Z",
+          "updatedAt": "2025-11-17T18:54:22.151Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-08-19T07:10:36.408Z",
-      "createdAt": "2026-07-15T08:02:26.507Z",
       "id": "GFyYDoE4f1FwxZZe",
       "name": "Auto Vendas - Thiago",
       "active": true,
+      "activeVersionId": "1d00e0b8-e219-4614-91c3-3aad8f3b69bf",
+      "createdAt": "2026-07-15T08:02:26.507Z",
+      "updatedAt": "2026-08-19T07:10:36.408Z",
       "isArchived": false,
+      "versionId": "1d00e0b8-e219-4614-91c3-3aad8f3b69bf",
+      "triggerCount": 3,
       "nodes": [
         {
           "parameters": {
@@ -20232,6 +20235,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate",
@@ -20263,10 +20267,6 @@
           ]
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Schedule Trigger1": [
           {
@@ -20323,21 +20323,20 @@
           }
         ]
       },
-      "versionId": "1d00e0b8-e219-4614-91c3-3aad8f3b69bf",
-      "activeVersionId": "1d00e0b8-e219-4614-91c3-3aad8f3b69bf",
-      "triggerCount": 3,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-07-15T08:02:26.512Z",
-          "createdAt": "2026-07-15T08:02:26.512Z",
           "role": "workflow:owner",
           "workflowId": "GFyYDoE4f1FwxZZe",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-07-15T08:02:26.512Z",
+          "updatedAt": "2026-07-15T08:02:26.512Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-19T07:10:52.000Z",
-        "createdAt": "2026-08-19T07:10:36.413Z",
         "versionId": "1d00e0b8-e219-4614-91c3-3aad8f3b69bf",
         "workflowId": "GFyYDoE4f1FwxZZe",
         "nodes": [
@@ -23849,17 +23848,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 1d00e0b8",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-19T07:10:36.413Z",
+        "updatedAt": "2026-08-19T07:10:52.000Z"
+      }
     },
     {
-      "updatedAt": "2026-08-21T20:48:55.856Z",
-      "createdAt": "2026-08-21T20:39:09.500Z",
       "id": "NG0eRFmIhtxnfL7M",
       "name": "Valentina-Hermes-Auto-Vendas",
       "active": true,
+      "activeVersionId": "917d5d03-bb07-4b0f-a156-7abf6ca0d9c3",
+      "createdAt": "2026-08-21T20:39:09.500Z",
+      "updatedAt": "2026-08-21T20:48:55.856Z",
       "isArchived": false,
+      "versionId": "917d5d03-bb07-4b0f-a156-7abf6ca0d9c3",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -23986,6 +23989,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "saveDataSuccessExecution": "all",
         "saveDataErrorExecution": "all",
@@ -23994,10 +23998,6 @@
         "binaryMode": "separate"
       },
       "staticData": null,
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Webhook (entrada do Hermes/Sales)": [
           {
@@ -24034,21 +24034,20 @@
           }
         ]
       },
-      "versionId": "917d5d03-bb07-4b0f-a156-7abf6ca0d9c3",
-      "activeVersionId": "917d5d03-bb07-4b0f-a156-7abf6ca0d9c3",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-08-21T20:39:09.503Z",
-          "createdAt": "2026-08-21T20:39:09.503Z",
           "role": "workflow:owner",
           "workflowId": "NG0eRFmIhtxnfL7M",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-08-21T20:39:09.503Z",
+          "updatedAt": "2026-08-21T20:39:09.503Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-21T20:49:06.000Z",
-        "createdAt": "2026-08-21T20:48:55.857Z",
         "versionId": "917d5d03-bb07-4b0f-a156-7abf6ca0d9c3",
         "workflowId": "NG0eRFmIhtxnfL7M",
         "nodes": [
@@ -24181,17 +24180,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 917d5d03",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-21T20:48:55.857Z",
+        "updatedAt": "2026-08-21T20:49:06.000Z"
+      }
     },
     {
-      "updatedAt": "2026-09-01T14:46:48.632Z",
-      "createdAt": "2026-06-30T15:35:21.920Z",
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "POI - Google Sheets -> HTML -> S3",
       "active": true,
+      "activeVersionId": "1f08bfb1-316c-4dc6-ae0a-238219f0bd78",
+      "createdAt": "2026-06-30T15:35:21.920Z",
+      "updatedAt": "2026-09-01T14:46:48.632Z",
       "isArchived": false,
+      "versionId": "7bf4e7b9-4acf-470f-9fe4-f0a6cca50420",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -25406,32 +25409,28 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate",
         "availableInMCP": false
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "7bf4e7b9-4acf-470f-9fe4-f0a6cca50420",
-      "activeVersionId": "1f08bfb1-316c-4dc6-ae0a-238219f0bd78",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-06-30T15:35:21.926Z",
-          "createdAt": "2026-06-30T15:35:21.926Z",
           "role": "workflow:owner",
           "workflowId": "NzeDQ7Ydb7gBYzSW",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-06-30T15:35:21.926Z",
+          "updatedAt": "2026-06-30T15:35:21.926Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-31T18:24:25.000Z",
-        "createdAt": "2026-08-31T18:24:15.287Z",
         "versionId": "1f08bfb1-316c-4dc6-ae0a-238219f0bd78",
         "workflowId": "NzeDQ7Ydb7gBYzSW",
         "nodes": [
@@ -26652,17 +26651,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 1f08bfb1",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-31T18:24:15.287Z",
+        "updatedAt": "2026-08-31T18:24:25.000Z"
+      }
     },
     {
-      "updatedAt": "2026-08-05T16:15:27.810Z",
-      "createdAt": "2025-08-19T06:12:04.092Z",
       "id": "OTt8iKvm0mjBHLMi",
       "name": "No Show MCOO",
       "active": true,
+      "activeVersionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
+      "createdAt": "2025-08-19T06:12:04.092Z",
+      "updatedAt": "2026-08-05T16:15:27.810Z",
       "isArchived": false,
+      "versionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -27444,31 +27447,27 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
-      "activeVersionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-08-19T06:12:04.097Z",
-          "createdAt": "2025-08-19T06:12:04.097Z",
           "role": "workflow:owner",
           "workflowId": "OTt8iKvm0mjBHLMi",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-19T06:12:04.097Z",
+          "updatedAt": "2025-08-19T06:12:04.097Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-05T16:15:52.000Z",
-        "createdAt": "2026-08-05T16:15:27.812Z",
         "versionId": "e214a1f7-8880-43e4-a77a-3bf91776fa8d",
         "workflowId": "OTt8iKvm0mjBHLMi",
         "nodes": [
@@ -28256,17 +28255,21 @@
         "authors": "Robson Lisboa",
         "name": "Version e214a1f7",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-05T16:15:27.812Z",
+        "updatedAt": "2026-08-05T16:15:52.000Z"
+      }
     },
     {
-      "updatedAt": "2025-09-02T14:04:38.000Z",
-      "createdAt": "2025-08-25T07:46:22.781Z",
       "id": "QXaRoGchJYZOsIEq",
       "name": "De Alertas para posts de blog, Insta, Face e LinkedIn",
       "active": true,
+      "activeVersionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
+      "createdAt": "2025-08-25T07:46:22.781Z",
+      "updatedAt": "2025-09-02T14:04:38.000Z",
       "isArchived": false,
+      "versionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -28684,6 +28687,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -28697,26 +28701,21 @@
           ]
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
-      "activeVersionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-08-25T07:46:22.783Z",
-          "createdAt": "2025-08-25T07:46:22.783Z",
           "role": "workflow:owner",
           "workflowId": "QXaRoGchJYZOsIEq",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-25T07:46:22.783Z",
+          "updatedAt": "2025-08-25T07:46:22.783Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "478c0cc0-b381-4fdd-8be4-3e9451bde89a",
         "workflowId": "QXaRoGchJYZOsIEq",
         "nodes": [
@@ -29140,17 +29139,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2025-11-06T18:39:46.000Z",
-      "createdAt": "2025-10-28T13:02:57.886Z",
       "id": "Qfma1Z4YMAZXmVi3",
       "name": "Copy Thiago teste2",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-10-28T13:02:57.886Z",
+      "updatedAt": "2025-11-06T18:39:46.000Z",
       "isArchived": false,
+      "versionId": "457a2e0f-c9ea-4f6f-8fc6-4e315094a633",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -30973,6 +30976,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -30987,33 +30991,32 @@
           "recurrenceRules": []
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "457a2e0f-c9ea-4f6f-8fc6-4e315094a633",
-      "activeVersionId": null,
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-28T13:02:57.890Z",
-          "createdAt": "2025-10-28T13:02:57.890Z",
           "role": "workflow:owner",
           "workflowId": "Qfma1Z4YMAZXmVi3",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-28T13:02:57.890Z",
+          "updatedAt": "2025-10-28T13:02:57.890Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-08-23T20:23:04.000Z",
-      "createdAt": "2025-08-20T13:36:22.297Z",
       "id": "QlC3uadwNRKTqytg",
       "name": "Logistique Workflow",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-08-20T13:36:22.297Z",
+      "updatedAt": "2025-08-23T20:23:04.000Z",
       "isArchived": true,
+      "versionId": "e213f53c-7ddd-47ad-ab64-a101643a6fbd",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -35631,42 +35634,42 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
-      "meta": null,
-      "nodeGroups": [],
       "pinData": {},
-      "versionId": "e213f53c-7ddd-47ad-ab64-a101643a6fbd",
-      "activeVersionId": null,
-      "triggerCount": 0,
-      "shared": [
-        {
-          "updatedAt": "2025-08-20T13:36:22.305Z",
-          "createdAt": "2025-08-20T13:36:22.305Z",
-          "role": "workflow:owner",
-          "workflowId": "QlC3uadwNRKTqytg",
-          "projectId": "MDx9S6QRKUuQVawA"
-        }
-      ],
-      "activeVersion": null,
+      "meta": null,
       "tags": [
         {
-          "updatedAt": "2025-08-20T13:36:29.332Z",
-          "createdAt": "2025-08-20T13:36:29.332Z",
           "id": "TIoxOH4zlj0zn05V",
-          "name": "Logistique"
+          "name": "Logistique",
+          "createdAt": "2025-08-20T13:36:29.332Z",
+          "updatedAt": "2025-08-20T13:36:29.332Z"
         }
-      ]
+      ],
+      "shared": [
+        {
+          "role": "workflow:owner",
+          "workflowId": "QlC3uadwNRKTqytg",
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-20T13:36:22.305Z",
+          "updatedAt": "2025-08-20T13:36:22.305Z"
+        }
+      ],
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-08-31T21:15:45.878Z",
-      "createdAt": "2025-08-19T06:23:46.386Z",
       "id": "RFVzQkY9ZIWIjFaq",
       "name": "Valentina chat e WA Agent AI",
       "active": true,
+      "activeVersionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
+      "createdAt": "2025-08-19T06:23:46.386Z",
+      "updatedAt": "2026-08-31T21:15:45.878Z",
       "isArchived": false,
+      "versionId": "4bd34aaa-d5d9-42ec-b529-a63367cca57d",
+      "triggerCount": 5,
       "nodes": [
         {
           "parameters": {
@@ -37972,6 +37975,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
@@ -37984,10 +37988,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-13T13:00:35Z"
+          "lastTimeChecked": "2026-10-14T09:42:05Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-13T13:00:19Z"
+          "lastTimeChecked": "2026-10-14T09:42:05Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -37998,10 +38002,6 @@
           ]
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Webhook": [
           {
@@ -38090,21 +38090,33 @@
           }
         ]
       },
-      "versionId": "4bd34aaa-d5d9-42ec-b529-a63367cca57d",
-      "activeVersionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
-      "triggerCount": 5,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [
+        {
+          "id": "HBYLCCCcNDV9TOqp",
+          "name": "WooCommerce",
+          "createdAt": "2025-08-19T06:23:24.542Z",
+          "updatedAt": "2025-08-19T06:23:24.542Z"
+        },
+        {
+          "id": "mh8Y1dCtQ86JAKvi",
+          "name": "OpenAI",
+          "createdAt": "2025-08-19T06:23:24.538Z",
+          "updatedAt": "2025-08-19T06:23:24.538Z"
+        }
+      ],
       "shared": [
         {
-          "updatedAt": "2025-08-19T06:23:46.390Z",
-          "createdAt": "2025-08-19T06:23:46.390Z",
           "role": "workflow:owner",
           "workflowId": "RFVzQkY9ZIWIjFaq",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-19T06:23:46.390Z",
+          "updatedAt": "2025-08-19T06:23:46.390Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-21T20:46:09.000Z",
-        "createdAt": "2026-03-13T15:30:47.371Z",
         "versionId": "85f8fe98-338f-46b3-8a1e-958f7beb1144",
         "workflowId": "RFVzQkY9ZIWIjFaq",
         "nodes": [
@@ -40515,63 +40527,54 @@
         "authors": "Robson Lisboa",
         "name": "Version 85f8fe98",
         "description": "",
-        "autosaved": true
-      },
-      "tags": [
-        {
-          "updatedAt": "2025-08-19T06:23:24.542Z",
-          "createdAt": "2025-08-19T06:23:24.542Z",
-          "id": "HBYLCCCcNDV9TOqp",
-          "name": "WooCommerce"
-        },
-        {
-          "updatedAt": "2025-08-19T06:23:24.538Z",
-          "createdAt": "2025-08-19T06:23:24.538Z",
-          "id": "mh8Y1dCtQ86JAKvi",
-          "name": "OpenAI"
-        }
-      ]
+        "autosaved": true,
+        "createdAt": "2026-03-13T15:30:47.371Z",
+        "updatedAt": "2026-07-21T20:46:09.000Z"
+      }
     },
     {
-      "updatedAt": "2026-02-11T15:31:45.581Z",
-      "createdAt": "2026-02-11T15:11:50.279Z",
       "id": "SQ4YTolc8cXqIxgS",
       "name": "teste Midiacode Nodes",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-02-11T15:11:50.279Z",
+      "updatedAt": "2026-02-11T15:31:45.581Z",
       "isArchived": false,
+      "versionId": "0308ea46-13dd-4d68-bc24-bf23472fe0d0",
+      "triggerCount": 0,
       "nodes": [],
       "connections": {},
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "0308ea46-13dd-4d68-bc24-bf23472fe0d0",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-02-11T15:11:50.285Z",
-          "createdAt": "2026-02-11T15:11:50.285Z",
           "role": "workflow:owner",
           "workflowId": "SQ4YTolc8cXqIxgS",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-02-11T15:11:50.285Z",
+          "updatedAt": "2026-02-11T15:11:50.285Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-08-23T19:02:19.000Z",
-      "createdAt": "2025-08-23T18:59:20.823Z",
       "id": "UBNd9OpM2Ld4FBDt",
       "name": "Demo: RAG in n8n",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-08-23T18:59:20.823Z",
+      "updatedAt": "2025-08-23T19:02:19.000Z",
       "isArchived": true,
+      "versionId": "bcf5880e-5aa6-4aa2-83a6-d1bc07730fc9",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -40859,37 +40862,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateId": "rag-starter-template"
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "bcf5880e-5aa6-4aa2-83a6-d1bc07730fc9",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-08-23T18:59:20.837Z",
-          "createdAt": "2025-08-23T18:59:20.837Z",
           "role": "workflow:owner",
           "workflowId": "UBNd9OpM2Ld4FBDt",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-23T18:59:20.837Z",
+          "updatedAt": "2025-08-23T18:59:20.837Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-06-17T12:58:15.901Z",
-      "createdAt": "2026-02-13T14:59:52.941Z",
       "id": "VFWMWMKh40EAYDE5",
       "name": "Lovable - Thiago",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-02-13T14:59:52.941Z",
+      "updatedAt": "2026-06-17T12:58:15.901Z",
       "isArchived": false,
+      "versionId": "735f0c79-de37-4753-b8ce-af3aad63c6e9",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -41338,38 +41341,38 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "735f0c79-de37-4753-b8ce-af3aad63c6e9",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-02-13T14:59:54.623Z",
-          "createdAt": "2026-02-13T14:59:54.623Z",
           "role": "workflow:owner",
           "workflowId": "VFWMWMKh40EAYDE5",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-02-13T14:59:54.623Z",
+          "updatedAt": "2026-02-13T14:59:54.623Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-10-29T16:42:15.000Z",
-      "createdAt": "2025-10-29T16:01:03.205Z",
       "id": "YAjdPcAv083KbwXa",
       "name": "Email Contact@midiacode.tech Auto",
       "active": true,
+      "activeVersionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
+      "createdAt": "2025-10-29T16:01:03.205Z",
+      "updatedAt": "2025-10-29T16:42:15.000Z",
       "isArchived": false,
+      "versionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -41748,6 +41751,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -41765,10 +41769,6 @@
           "lastMessageUid": 2250
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Email Trigger (IMAP)": [
           {
@@ -41806,21 +41806,20 @@
           }
         ]
       },
-      "versionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
-      "activeVersionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-29T16:01:03.207Z",
-          "createdAt": "2025-10-29T16:01:03.207Z",
           "role": "workflow:owner",
           "workflowId": "YAjdPcAv083KbwXa",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-29T16:01:03.207Z",
+          "updatedAt": "2025-10-29T16:01:03.207Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "d03084a7-82c9-4804-bb08-c18827fd5a23",
         "workflowId": "YAjdPcAv083KbwXa",
         "nodes": [
@@ -42205,17 +42204,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2025-12-15T21:58:09.000Z",
-      "createdAt": "2025-12-15T19:44:19.084Z",
       "id": "bjLQyxsXwueVF8bn",
       "name": "Email AUTO lisborob@gmail.com incoming",
       "active": true,
+      "activeVersionId": "71817447-481b-4bbe-86e4-fea574813764",
+      "createdAt": "2025-12-15T19:44:19.084Z",
+      "updatedAt": "2025-12-15T21:58:09.000Z",
       "isArchived": false,
+      "versionId": "71817447-481b-4bbe-86e4-fea574813764",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -42678,6 +42681,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -42707,18 +42711,15 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1791927005,
+            "lastTimeChecked": 1792016169,
             "possibleDuplicates": [
-              "1a137354677c251b",
-              "1a13703911455e81"
+              "1a13c7de79435302",
+              "1a13bf81fd50db3e",
+              "1a13c8dc385d22f9"
             ]
           }
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Gmail Trigger - lisborob": [
           {
@@ -42789,21 +42790,20 @@
           }
         ]
       },
-      "versionId": "71817447-481b-4bbe-86e4-fea574813764",
-      "activeVersionId": "71817447-481b-4bbe-86e4-fea574813764",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-12-15T19:44:19.091Z",
-          "createdAt": "2025-12-15T19:44:19.091Z",
           "role": "workflow:owner",
           "workflowId": "bjLQyxsXwueVF8bn",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-12-15T19:44:19.091Z",
+          "updatedAt": "2025-12-15T19:44:19.091Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-15T21:58:09.138Z",
-        "createdAt": "2025-12-15T21:58:09.138Z",
         "versionId": "71817447-481b-4bbe-86e4-fea574813764",
         "workflowId": "bjLQyxsXwueVF8bn",
         "nodes": [
@@ -43272,17 +43272,21 @@
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-12-15T21:58:09.138Z",
+        "updatedAt": "2025-12-15T21:58:09.138Z"
+      }
     },
     {
-      "updatedAt": "2026-07-14T14:12:39.259Z",
-      "createdAt": "2026-01-26T15:39:05.996Z",
       "id": "dDazWeP6mqdbOYUo",
       "name": "Controle Stripe - Thiago",
       "active": true,
+      "activeVersionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
+      "createdAt": "2026-01-26T15:39:05.996Z",
+      "updatedAt": "2026-07-14T14:12:39.259Z",
       "isArchived": false,
+      "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -43975,6 +43979,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
@@ -43984,10 +43989,6 @@
         "node:Stripe Gatilho Pagamento": {},
         "node:Stripe Gatilho Pagamento1": {}
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Stripe Gatilho Pagamento": [
           {
@@ -44564,21 +44565,20 @@
           }
         ]
       },
-      "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
-      "activeVersionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
-      "triggerCount": 1,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-01-26T15:39:06.003Z",
-          "createdAt": "2026-01-26T15:39:06.003Z",
           "role": "workflow:owner",
           "workflowId": "dDazWeP6mqdbOYUo",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-01-26T15:39:06.003Z",
+          "updatedAt": "2026-01-26T15:39:06.003Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-07-14T14:12:44.000Z",
-        "createdAt": "2026-07-14T14:12:39.261Z",
         "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
         "workflowId": "dDazWeP6mqdbOYUo",
         "nodes": [
@@ -45277,17 +45277,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 1ad79ee5",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-07-14T14:12:39.261Z",
+        "updatedAt": "2026-07-14T14:12:44.000Z"
+      }
     },
     {
-      "updatedAt": "2026-03-18T11:05:38.623Z",
-      "createdAt": "2025-11-27T09:02:39.296Z",
       "id": "dJ8o6YEhOEP3OrJJ",
       "name": "Thiago - Vencimento contratos",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-11-27T09:02:39.296Z",
+      "updatedAt": "2026-03-18T11:05:38.623Z",
       "isArchived": false,
+      "versionId": "37a47301-89f0-4620-9d9d-cebecb774610",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -45577,37 +45581,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "37a47301-89f0-4620-9d9d-cebecb774610",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-27T09:02:39.302Z",
-          "createdAt": "2025-11-27T09:02:39.302Z",
           "role": "workflow:owner",
           "workflowId": "dJ8o6YEhOEP3OrJJ",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-27T09:02:39.302Z",
+          "updatedAt": "2025-11-27T09:02:39.302Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-10-31T19:32:11.000Z",
-      "createdAt": "2025-10-29T18:55:03.911Z",
       "id": "eERxTyKIAtCFhBHX",
       "name": "Email contact@ooniverse.ai Auto",
       "active": true,
+      "activeVersionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
+      "createdAt": "2025-10-29T18:55:03.911Z",
+      "updatedAt": "2025-10-31T19:32:11.000Z",
       "isArchived": false,
+      "versionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -45986,6 +45990,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -46003,26 +46008,21 @@
           "lastMessageUid": 2142
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
-      "activeVersionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-29T18:55:03.914Z",
-          "createdAt": "2025-10-29T18:55:03.914Z",
           "role": "workflow:owner",
           "workflowId": "eERxTyKIAtCFhBHX",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-29T18:55:03.914Z",
+          "updatedAt": "2025-10-29T18:55:03.914Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "9ed19c01-b446-436b-b2ee-1cf51173b179",
         "workflowId": "eERxTyKIAtCFhBHX",
         "nodes": [
@@ -46407,17 +46407,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2025-12-03T15:19:33.000Z",
-      "createdAt": "2025-08-25T07:36:01.458Z",
       "id": "ee7TG88466b3g1v7",
       "name": "MCP Servers - robson.lisboa@midiacode.com",
       "active": true,
+      "activeVersionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
+      "createdAt": "2025-08-25T07:36:01.458Z",
+      "updatedAt": "2025-12-03T15:19:33.000Z",
       "isArchived": false,
+      "versionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
+      "triggerCount": 4,
       "nodes": [
         {
           "parameters": {
@@ -48121,30 +48125,39 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
-      "activeVersionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
-      "triggerCount": 4,
+      "tags": [
+        {
+          "id": "HBYLCCCcNDV9TOqp",
+          "name": "WooCommerce",
+          "createdAt": "2025-08-19T06:23:24.542Z",
+          "updatedAt": "2025-08-19T06:23:24.542Z"
+        },
+        {
+          "id": "mh8Y1dCtQ86JAKvi",
+          "name": "OpenAI",
+          "createdAt": "2025-08-19T06:23:24.538Z",
+          "updatedAt": "2025-08-19T06:23:24.538Z"
+        }
+      ],
       "shared": [
         {
-          "updatedAt": "2025-08-25T07:36:01.466Z",
-          "createdAt": "2025-08-25T07:36:01.466Z",
           "role": "workflow:owner",
           "workflowId": "ee7TG88466b3g1v7",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-25T07:36:01.466Z",
+          "updatedAt": "2025-08-25T07:36:01.466Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-12-03T15:19:33.691Z",
-        "createdAt": "2025-12-03T15:19:33.691Z",
         "versionId": "2f0a8eb9-71bc-4aeb-9ade-20815e66dbd4",
         "workflowId": "ee7TG88466b3g1v7",
         "nodes": [
@@ -49854,30 +49867,21 @@
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": [
-        {
-          "updatedAt": "2025-08-19T06:23:24.542Z",
-          "createdAt": "2025-08-19T06:23:24.542Z",
-          "id": "HBYLCCCcNDV9TOqp",
-          "name": "WooCommerce"
-        },
-        {
-          "updatedAt": "2025-08-19T06:23:24.538Z",
-          "createdAt": "2025-08-19T06:23:24.538Z",
-          "id": "mh8Y1dCtQ86JAKvi",
-          "name": "OpenAI"
-        }
-      ]
+        "autosaved": false,
+        "createdAt": "2025-12-03T15:19:33.691Z",
+        "updatedAt": "2025-12-03T15:19:33.691Z"
+      }
     },
     {
-      "updatedAt": "2025-10-29T20:47:34.000Z",
-      "createdAt": "2025-10-28T18:56:12.128Z",
       "id": "jEqM8vqR6Bt2H2ZB",
       "name": "Backup Diário para o GITHUB",
       "active": true,
+      "activeVersionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
+      "createdAt": "2025-10-28T18:56:12.128Z",
+      "updatedAt": "2025-10-29T20:47:34.000Z",
       "isArchived": false,
+      "versionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -50197,6 +50201,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -50210,26 +50215,21 @@
           ]
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
-      "activeVersionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-28T18:56:12.134Z",
-          "createdAt": "2025-10-28T18:56:12.134Z",
           "role": "workflow:owner",
           "workflowId": "jEqM8vqR6Bt2H2ZB",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-28T18:56:12.134Z",
+          "updatedAt": "2025-10-28T18:56:12.134Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "65f2aa08-8a16-4455-8efb-9df63bbafd5c",
         "workflowId": "jEqM8vqR6Bt2H2ZB",
         "nodes": [
@@ -50555,17 +50555,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2026-07-16T18:43:36.282Z",
-      "createdAt": "2026-07-16T18:39:11.331Z",
       "id": "jaIcxNMSTCEoYqo6",
       "name": "Test Push Notification",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-07-16T18:39:11.331Z",
+      "updatedAt": "2026-07-16T18:43:36.282Z",
       "isArchived": false,
+      "versionId": "027cfff2-3c50-4814-9b99-dfc7339be297",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {},
@@ -50616,39 +50620,39 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate",
         "availableInMCP": false
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "027cfff2-3c50-4814-9b99-dfc7339be297",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-07-16T18:39:11.335Z",
-          "createdAt": "2026-07-16T18:39:11.335Z",
           "role": "workflow:owner",
           "workflowId": "jaIcxNMSTCEoYqo6",
-          "projectId": "yjz5phAfBORJLv6o"
+          "projectId": "yjz5phAfBORJLv6o",
+          "createdAt": "2026-07-16T18:39:11.335Z",
+          "updatedAt": "2026-07-16T18:39:11.335Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-08-24T21:27:16.795Z",
-      "createdAt": "2026-08-19T13:05:16.087Z",
       "id": "k7vdCmiMOn5JQTga",
       "name": "Teste - Beatriz",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-08-19T13:05:16.087Z",
+      "updatedAt": "2026-08-24T21:27:16.795Z",
       "isArchived": false,
+      "versionId": "fad2f600-389b-4e67-bca8-96782a1de220",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -51002,39 +51006,39 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate",
         "availableInMCP": false
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "fad2f600-389b-4e67-bca8-96782a1de220",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-08-19T13:05:16.098Z",
-          "createdAt": "2026-08-19T13:05:16.098Z",
           "role": "workflow:owner",
           "workflowId": "k7vdCmiMOn5JQTga",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-08-19T13:05:16.098Z",
+          "updatedAt": "2026-08-19T13:05:16.098Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-06-08T09:34:38.663Z",
-      "createdAt": "2026-06-08T08:16:49.405Z",
       "id": "lBfUOUIFI7bohh0W",
       "name": "Analytics exercicio",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-06-08T08:16:49.405Z",
+      "updatedAt": "2026-06-08T09:34:38.663Z",
       "isArchived": false,
+      "versionId": "eb32f28f-40e3-4b63-a1d5-61ebb356d5fb",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {},
@@ -51310,38 +51314,38 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "eb32f28f-40e3-4b63-a1d5-61ebb356d5fb",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-06-08T08:16:49.411Z",
-          "createdAt": "2026-06-08T08:16:49.411Z",
           "role": "workflow:owner",
           "workflowId": "lBfUOUIFI7bohh0W",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-06-08T08:16:49.411Z",
+          "updatedAt": "2026-06-08T08:16:49.411Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-10-30T16:38:56.000Z",
-      "createdAt": "2025-08-31T21:06:37.232Z",
       "id": "lJZChaIwrGR3Ar1J",
       "name": "Buscador de Leads",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-08-31T21:06:37.232Z",
+      "updatedAt": "2025-10-30T16:38:56.000Z",
       "isArchived": false,
+      "versionId": "f3f6dfa6-ee0c-4c0c-bcf3-7710aacfbfbf",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -53529,37 +53533,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "f3f6dfa6-ee0c-4c0c-bcf3-7710aacfbfbf",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-08-31T21:06:37.236Z",
-          "createdAt": "2025-08-31T21:06:37.236Z",
           "role": "workflow:owner",
           "workflowId": "lJZChaIwrGR3Ar1J",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-08-31T21:06:37.236Z",
+          "updatedAt": "2025-08-31T21:06:37.236Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-11-13T18:32:34.000Z",
-      "createdAt": "2025-10-30T16:38:03.490Z",
       "id": "nlkRufWPliMF15l7",
       "name": "Disparo de Email convite para Forum Segurança Alimentar",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-10-30T16:38:03.490Z",
+      "updatedAt": "2025-11-13T18:32:34.000Z",
       "isArchived": false,
+      "versionId": "8cee0cb7-f64d-4359-bd4b-a8081e03bde3",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -54653,37 +54657,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "8cee0cb7-f64d-4359-bd4b-a8081e03bde3",
-      "activeVersionId": null,
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-30T16:38:03.495Z",
-          "createdAt": "2025-10-30T16:38:03.495Z",
           "role": "workflow:owner",
           "workflowId": "nlkRufWPliMF15l7",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-30T16:38:03.495Z",
+          "updatedAt": "2025-10-30T16:38:03.495Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-11-26T16:24:42.000Z",
-      "createdAt": "2025-11-17T17:00:46.093Z",
       "id": "nlsS6SI0LwMS43nm",
       "name": "Fundos Europeus - Thiago",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-11-17T17:00:46.093Z",
+      "updatedAt": "2025-11-26T16:24:42.000Z",
       "isArchived": false,
+      "versionId": "f88b1b7c-e3e9-469d-8bcd-fa9eb34936ec",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -55439,37 +55443,37 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "f88b1b7c-e3e9-469d-8bcd-fa9eb34936ec",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-17T17:00:46.103Z",
-          "createdAt": "2025-11-17T17:00:46.103Z",
           "role": "workflow:owner",
           "workflowId": "nlsS6SI0LwMS43nm",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-17T17:00:46.103Z",
+          "updatedAt": "2025-11-17T17:00:46.103Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-04-02T18:01:09.193Z",
-      "createdAt": "2026-04-02T17:54:26.354Z",
       "id": "pJh5nDTBlL8qms3p",
       "name": "My workflow",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-04-02T17:54:26.354Z",
+      "updatedAt": "2026-04-02T18:01:09.193Z",
       "isArchived": false,
+      "versionId": "6eb28151-6f75-4574-bc7d-2a29743d6de8",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {},
@@ -55523,38 +55527,38 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "6eb28151-6f75-4574-bc7d-2a29743d6de8",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-04-02T17:54:26.359Z",
-          "createdAt": "2026-04-02T17:54:26.359Z",
           "role": "workflow:owner",
           "workflowId": "pJh5nDTBlL8qms3p",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-04-02T17:54:26.359Z",
+          "updatedAt": "2026-04-02T17:54:26.359Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-01-06T21:26:41.491Z",
-      "createdAt": "2025-12-16T17:37:36.895Z",
       "id": "r91HMRIGBlvPsWWx",
       "name": "Midiacode Newsletter Auto NEW",
       "active": true,
+      "activeVersionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
+      "createdAt": "2025-12-16T17:37:36.895Z",
+      "updatedAt": "2026-01-06T21:26:41.491Z",
       "isArchived": false,
+      "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
+      "triggerCount": 15,
       "nodes": [
         {
           "parameters": {
@@ -59862,6 +59866,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "callerPolicy": "[REDACTED]",
@@ -59894,29 +59899,24 @@
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 181
+          "lastIndexChecked": 182
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
-      "activeVersionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
-      "triggerCount": 15,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-12-16T17:37:36.899Z",
-          "createdAt": "2025-12-16T17:37:36.899Z",
           "role": "workflow:owner",
           "workflowId": "r91HMRIGBlvPsWWx",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-12-16T17:37:36.899Z",
+          "updatedAt": "2025-12-16T17:37:36.899Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-01-06T21:26:41.496Z",
-        "createdAt": "2026-01-06T21:26:41.496Z",
         "versionId": "96f72428-4140-40b5-a0a3-3ac885502fe4",
         "workflowId": "r91HMRIGBlvPsWWx",
         "nodes": [
@@ -64230,17 +64230,21 @@
         "authors": "Robson Lisboa",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2026-01-06T21:26:41.496Z",
+        "updatedAt": "2026-01-06T21:26:41.496Z"
+      }
     },
     {
-      "updatedAt": "2025-09-10T16:48:47.000Z",
-      "createdAt": "2025-09-10T15:40:13.194Z",
       "id": "rp1jlS4YnDuCNHW5",
       "name": "Hubspot MCP",
       "active": true,
+      "activeVersionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
+      "createdAt": "2025-09-10T15:40:13.194Z",
+      "updatedAt": "2025-09-10T16:48:47.000Z",
       "isArchived": false,
+      "versionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -64694,30 +64698,26 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
-      "activeVersionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-09-10T15:40:13.197Z",
-          "createdAt": "2025-09-10T15:40:13.197Z",
           "role": "workflow:owner",
           "workflowId": "rp1jlS4YnDuCNHW5",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-09-10T15:40:13.197Z",
+          "updatedAt": "2025-09-10T15:40:13.197Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "221c5e5a-f962-48c5-b3ec-313c155d67c2",
         "workflowId": "rp1jlS4YnDuCNHW5",
         "nodes": [
@@ -65177,17 +65177,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2026-08-05T15:15:42.652Z",
-      "createdAt": "2025-12-02T16:56:56.573Z",
       "id": "rz578RU5K7RYjiw9",
       "name": "Kutsaca Newsletter Auto",
       "active": true,
+      "activeVersionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
+      "createdAt": "2025-12-02T16:56:56.573Z",
+      "updatedAt": "2026-08-05T15:15:42.652Z",
       "isArchived": false,
+      "versionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
+      "triggerCount": 15,
       "nodes": [
         {
           "parameters": {
@@ -69798,6 +69802,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
@@ -69824,10 +69829,6 @@
           "lastMessageUid": 2242
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "If": [
           {
@@ -70099,21 +70100,20 @@
           }
         ]
       },
-      "versionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
-      "activeVersionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
-      "triggerCount": 15,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-12-02T16:56:56.577Z",
-          "createdAt": "2025-12-02T16:56:56.577Z",
           "role": "workflow:owner",
           "workflowId": "rz578RU5K7RYjiw9",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-12-02T16:56:56.577Z",
+          "updatedAt": "2025-12-02T16:56:56.577Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-08-05T15:15:48.000Z",
-        "createdAt": "2026-08-05T15:15:42.657Z",
         "versionId": "0d297db0-44aa-43cb-b683-f4d63e004376",
         "workflowId": "rz578RU5K7RYjiw9",
         "nodes": [
@@ -74730,17 +74730,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 0d297db0",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-08-05T15:15:42.657Z",
+        "updatedAt": "2026-08-05T15:15:48.000Z"
+      }
     },
     {
-      "updatedAt": "2025-10-29T12:14:22.000Z",
-      "createdAt": "2025-09-10T16:02:13.270Z",
       "id": "spuY7tBkUOR1wUCN",
       "name": "City Report",
       "active": true,
+      "activeVersionId": "c4034551-c458-464e-847e-b01d5aee8536",
+      "createdAt": "2025-09-10T16:02:13.270Z",
+      "updatedAt": "2025-10-29T12:14:22.000Z",
       "isArchived": false,
+      "versionId": "c4034551-c458-464e-847e-b01d5aee8536",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -75123,30 +75127,26 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "c4034551-c458-464e-847e-b01d5aee8536",
-      "activeVersionId": "c4034551-c458-464e-847e-b01d5aee8536",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-09-10T16:02:13.273Z",
-          "createdAt": "2025-09-10T16:02:13.273Z",
           "role": "workflow:owner",
           "workflowId": "spuY7tBkUOR1wUCN",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-09-10T16:02:13.273Z",
+          "updatedAt": "2025-09-10T16:02:13.273Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2025-11-27T11:58:14.620Z",
-        "createdAt": "2025-11-27T11:58:14.620Z",
         "versionId": "c4034551-c458-464e-847e-b01d5aee8536",
         "workflowId": "spuY7tBkUOR1wUCN",
         "nodes": [
@@ -75535,17 +75535,21 @@
         "authors": "system migration",
         "name": null,
         "description": null,
-        "autosaved": false
-      },
-      "tags": []
+        "autosaved": false,
+        "createdAt": "2025-11-27T11:58:14.620Z",
+        "updatedAt": "2025-11-27T11:58:14.620Z"
+      }
     },
     {
-      "updatedAt": "2025-11-11T19:27:17.000Z",
-      "createdAt": "2025-11-11T18:18:01.722Z",
       "id": "wPKx4SDtwC5gLko6",
       "name": "De Alertas para Leads",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-11-11T18:18:01.722Z",
+      "updatedAt": "2025-11-11T19:27:17.000Z",
       "isArchived": false,
+      "versionId": "5ca8e677-5d28-4837-a235-030328fe40c0",
+      "triggerCount": 0,
       "nodes": [
         {
           "parameters": {
@@ -76085,14 +76089,11 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
       "staticData": null,
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "On form submission": [
           {
@@ -76440,28 +76441,31 @@
           }
         ]
       },
-      "versionId": "5ca8e677-5d28-4837-a235-030328fe40c0",
-      "activeVersionId": null,
-      "triggerCount": 0,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-11T18:18:01.727Z",
-          "createdAt": "2025-11-11T18:18:01.727Z",
           "role": "workflow:owner",
           "workflowId": "wPKx4SDtwC5gLko6",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-11T18:18:01.727Z",
+          "updatedAt": "2025-11-11T18:18:01.727Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2026-06-17T12:57:24.420Z",
-      "createdAt": "2026-04-14T14:27:16.772Z",
       "id": "wSadBIzs8TwiQuOQ",
       "name": "Envio NF - Thiago",
       "active": true,
+      "activeVersionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
+      "createdAt": "2026-04-14T14:27:16.772Z",
+      "updatedAt": "2026-06-17T12:57:24.420Z",
       "isArchived": false,
+      "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {},
@@ -77217,6 +77221,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1",
         "binaryMode": "separate"
@@ -77231,26 +77236,21 @@
           ]
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
-      "activeVersionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2026-04-14T14:27:16.777Z",
-          "createdAt": "2026-04-14T14:27:16.777Z",
           "role": "workflow:owner",
           "workflowId": "wSadBIzs8TwiQuOQ",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-04-14T14:27:16.777Z",
+          "updatedAt": "2026-04-14T14:27:16.777Z"
         }
       ],
       "activeVersion": {
-        "updatedAt": "2026-06-17T12:57:27.000Z",
-        "createdAt": "2026-06-17T12:57:24.422Z",
         "versionId": "0fde4138-cccb-4ba7-ae28-0ffc4a257eaa",
         "workflowId": "wSadBIzs8TwiQuOQ",
         "nodes": [
@@ -78012,17 +78012,21 @@
         "authors": "Robson Lisboa",
         "name": "Version 0fde4138",
         "description": "",
-        "autosaved": true
-      },
-      "tags": []
+        "autosaved": true,
+        "createdAt": "2026-06-17T12:57:24.422Z",
+        "updatedAt": "2026-06-17T12:57:27.000Z"
+      }
     },
     {
-      "updatedAt": "2026-06-15T13:08:20.000Z",
-      "createdAt": "2025-11-28T17:26:36.080Z",
       "id": "whIGpwtnSC9hwpln",
       "name": "Matilde chat e WA Agent AI",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-11-28T17:26:36.080Z",
+      "updatedAt": "2026-06-15T13:08:20.000Z",
       "isArchived": true,
+      "versionId": "b16713e3-bc38-4c8b-97d0-29ce72c2f493",
+      "triggerCount": 4,
       "nodes": [
         {
           "parameters": {
@@ -80637,6 +80641,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -80659,10 +80664,6 @@
           ]
         }
       },
-      "meta": {
-        "templateCredsSetupCompleted": true
-      },
-      "nodeGroups": [],
       "pinData": {
         "Webhook": [
           {
@@ -80751,28 +80752,31 @@
           }
         ]
       },
-      "versionId": "b16713e3-bc38-4c8b-97d0-29ce72c2f493",
-      "activeVersionId": null,
-      "triggerCount": 4,
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-11-28T17:26:36.088Z",
-          "createdAt": "2025-11-28T17:26:36.088Z",
           "role": "workflow:owner",
           "workflowId": "whIGpwtnSC9hwpln",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-11-28T17:26:36.088Z",
+          "updatedAt": "2025-11-28T17:26:36.088Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     },
     {
-      "updatedAt": "2025-10-28T12:58:00.000Z",
-      "createdAt": "2025-10-16T10:15:34.397Z",
       "id": "zMUMp9dfkIIkRBmj",
       "name": "Thiago teste",
       "active": false,
+      "activeVersionId": null,
+      "createdAt": "2025-10-16T10:15:34.397Z",
+      "updatedAt": "2025-10-28T12:58:00.000Z",
       "isArchived": false,
+      "versionId": "73fc1f6b-80a9-400d-8570-a62c70d97316",
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -81564,6 +81568,7 @@
           ]
         }
       },
+      "nodeGroups": [],
       "settings": {
         "executionOrder": "v1"
       },
@@ -81575,25 +81580,21 @@
           "recurrenceRules": []
         }
       },
+      "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
       },
-      "nodeGroups": [],
-      "pinData": {},
-      "versionId": "73fc1f6b-80a9-400d-8570-a62c70d97316",
-      "activeVersionId": null,
-      "triggerCount": 1,
+      "tags": [],
       "shared": [
         {
-          "updatedAt": "2025-10-16T10:15:34.409Z",
-          "createdAt": "2025-10-16T10:15:34.409Z",
           "role": "workflow:owner",
           "workflowId": "zMUMp9dfkIIkRBmj",
-          "projectId": "MDx9S6QRKUuQVawA"
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2025-10-16T10:15:34.409Z",
+          "updatedAt": "2025-10-16T10:15:34.409Z"
         }
       ],
-      "activeVersion": null,
-      "tags": []
+      "activeVersion": null
     }
   ],
   "nextCursor": null

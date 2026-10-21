@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1792533892,
+            "lastTimeChecked": 1792622085,
             "possibleDuplicates": [
-              "1a15b588e75c158d",
-              "1a15b448a929860c"
+              "1a1609a4ac3c7e80",
+              "1a1607fd65004a7a"
             ]
           }
         },
@@ -37988,14 +37988,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-19T13:00:46Z"
+          "lastTimeChecked": "2026-10-21T13:00:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-19T13:00:46Z"
+          "lastTimeChecked": "2026-10-21T13:00:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            293
+            295
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -41766,7 +41766,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2261
+          "lastMessageUid": 2262
         }
       },
       "pinData": {
@@ -42711,10 +42711,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1792526645,
+            "lastTimeChecked": 1792620439,
             "possibleDuplicates": [
-              "1a15ae9fca0d4ed7",
-              "1a15a7c1bb1d49d8"
+              "1a160997fe0b1d99",
+              "1a16006aa7e952bd"
             ]
           }
         }
@@ -43282,9 +43282,9 @@
       "active": true,
       "activeVersionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
       "createdAt": "2026-01-26T15:39:05.996Z",
-      "updatedAt": "2026-07-14T14:12:39.259Z",
+      "updatedAt": "2026-10-21T13:53:00.977Z",
       "isArchived": false,
-      "versionId": "1ad79ee5-a730-4a37-a04c-bd2f6677e4d8",
+      "versionId": "4887c5b4-8037-411c-85d1-81bc8472c754",
       "triggerCount": 1,
       "nodes": [
         {
@@ -43848,6 +43848,20 @@
           "id": "26f3e7ec-ec82-4ef2-ac95-24ef43239982",
           "name": "Webhook",
           "webhookId": "55236fcc-86d7-4c1d-a0ea-68750d20a6e5"
+        },
+        {
+          "parameters": {
+            "operation": "executeQuery",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.postgres",
+          "typeVersion": 2.7,
+          "position": [
+            -144,
+            -400
+          ],
+          "id": "1c43f6d8-d40d-4657-960e-196087404980",
+          "name": "Execute a SQL query"
         }
       ],
       "connections": {
@@ -59882,7 +59896,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2261
+          "lastMessageUid": 2262
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [

@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1792702841,
+            "lastTimeChecked": 1792795237,
             "possibleDuplicates": [
-              "1a1656a871b88e65",
-              "1a1655f7262cf369"
+              "1a16aecf530bca02",
+              "1a16aec356beb91a"
             ]
           }
         },
@@ -23854,6 +23854,835 @@
       }
     },
     {
+      "id": "GH0CMN00BALtOTv9",
+      "name": "Disparo de confirmação de reunião diário - RL",
+      "active": true,
+      "activeVersionId": "ba7e88dc-3b7d-4d0e-87f7-1de1f6a1f3c3",
+      "createdAt": "2026-10-23T16:03:05.448Z",
+      "updatedAt": "2026-10-23T16:22:55.240Z",
+      "isArchived": false,
+      "versionId": "ba7e88dc-3b7d-4d0e-87f7-1de1f6a1f3c3",
+      "triggerCount": 1,
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "triggerAtHour": 7
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.4,
+          "position": [
+            -336,
+            16
+          ],
+          "id": "cf798ef3-1f7e-4c8d-b637-4ac34fd9e95f",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "operation": "getAll",
+            "calendar": {
+              "__rl": true,
+              "value": "robson.lisboa@midiacode.com",
+              "mode": "list",
+              "cachedResultName": "robson.lisboa@midiacode.com"
+            },
+            "returnAll": true,
+            "timeMax": "={{ $now.plus({ day: 1 }) }}",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleCalendar",
+          "typeVersion": 1.3,
+          "position": [
+            -112,
+            16
+          ],
+          "id": "a5529dbf-abfe-442a-911a-4381db4e0554",
+          "name": "Get many events",
+          "credentials": {
+            "googleCalendarOAuth2Api": {
+              "id": "qTbgWBTUXCgj3YfH",
+              "name": "Google Calendar account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "jsCode": "const eventos = $input.all();\n\nlet emailsPendentes = [];\n\neventos.forEach(item => {\n  const ev = item.json;\n\n  if (!ev.attendees) return;\n\n  ev.attendees.forEach(a => {\n    if (a.responseStatus === \"needsAction\") {\n      emailsPendentes.push(a.email);\n    }\n  });\n});\n\n// Remove duplicados\nemailsPendentes = [...new Set(emailsPendentes)];\n\n// Retorna um único item com a lista final\nreturn [\n  {\n    json: {\n      emailsArray: emailsPendentes,\n      emailsCSV: emailsPendentes.join(\",\"),\n      emails: emailsPendentes.join(\",\"),\n      total: emailsPendentes.length\n    }\n  }\n];\n"
+          },
+          "type": "n8n-nodes-base.code",
+          "typeVersion": 2,
+          "position": [
+            112,
+            16
+          ],
+          "id": "c0367870-6016-4a78-b7bb-d59b2436a493",
+          "name": "Code in JavaScript"
+        },
+        {
+          "parameters": {
+            "sendTo": "robson.lisboa@midiacode.com",
+            "subject": "Confirmação da reunião de hoje. ",
+            "message": "<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333; line-height: 1.5; padding: 20px;\">      <p>Olá,</p>   <p>Espero que esteja bem.</p>    <p>     Identifiquei que enviei recentemente um <strong>meeting request</strong> (convite/proposta de reunião) para hoje e, até o momento,      o seu calendário ainda consta como <strong>sem resposta</strong>.   </p>    <p>     Poderia, por favor, confirmar sua participação diretamente pelo convite no calendário?     Isso nos ajuda a organizar melhor o alinhamento e garantir que todos estejam sincronizados.   </p>    <p>Caso não possa confirmar a reunião hoje, peço que, via calendário mesmo, sugira um outro dia/horário.</p>    <p>Agradeço desde já pela atenção.</p>    <p style=\"margin-top: 25px;\">     Atenciosamente,<br>     <strong>Robson Lisboa</strong>   </p>    <hr style=\"border: none; border-top: 1px solid #ddd; margin: 30px 0;\">    <p style=\"font-size: 12px; color: #777;\">     Esta é uma mensagem automática enviada para participantes que ainda não confirmaram presença      em reuniões agendadas para hoje.   </p>  </div>",
+            "options": {
+              "bccList": "={{ $json.emails }}"
+            }
+          },
+          "type": "n8n-nodes-base.gmail",
+          "typeVersion": 2.2,
+          "position": [
+            336,
+            16
+          ],
+          "id": "296fb2a2-52a1-43e0-b467-199f935c8574",
+          "name": "Send a message",
+          "webhookId": "5c71285d-c9b9-4417-967a-8d243b3aa922",
+          "credentials": {
+            "gmailOAuth2": {
+              "id": "PGFxwBVu0LSu9lXR",
+              "name": "Gmail account - robson.lisboa@midiacode.com"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Get many events",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get many events": {
+          "main": [
+            [
+              {
+                "node": "Code in JavaScript",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Code in JavaScript": {
+          "main": [
+            [
+              {
+                "node": "Send a message",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodeGroups": [],
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": {
+        "node:Schedule Trigger": {
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
+        }
+      },
+      "pinData": {
+        "Get many events": [
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Vela Manhã",
+              "start": {
+                "dateTime": "2026-10-24T09:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "end": {
+                "dateTime": "2026-10-24T12:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2025-11-03T13:54:14.000Z",
+              "updated": "2026-05-11T18:00:08.024Z",
+              "colorId": "5",
+              "etag": "\"3557044816048510\"",
+              "eventLabelId": "81abc870-6fe7-4423-a1d2-8880ce3cb0e6",
+              "eventType": "default",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "originalStartTime": {
+                "dateTime": "2026-10-24T09:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "recurringEventId": "[REDACTED]",
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 0,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Almoço",
+              "start": {
+                "dateTime": "2026-10-24T13:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "end": {
+                "dateTime": "2026-10-24T14:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2025-12-02T09:58:51.000Z",
+              "updated": "2026-05-11T18:00:08.024Z",
+              "colorId": "6",
+              "etag": "\"3543191939612782\"",
+              "eventLabelId": "75fae87b-2cac-451f-a63f-2d87bc81c61b",
+              "eventType": "default",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "originalStartTime": {
+                "dateTime": "2026-10-24T13:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "recurringEventId": "[REDACTED]",
+              "reminders": {
+                "useDefault": false
+              },
+              "sequence": 0,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Vela Tarde",
+              "start": {
+                "dateTime": "2026-10-24T14:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "end": {
+                "dateTime": "2026-10-24T17:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2025-11-03T13:54:48.000Z",
+              "updated": "2026-05-11T18:00:08.024Z",
+              "colorId": "5",
+              "etag": "\"3557044816048510\"",
+              "eventLabelId": "81abc870-6fe7-4423-a1d2-8880ce3cb0e6",
+              "eventType": "default",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "originalStartTime": {
+                "dateTime": "2026-10-24T14:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "recurringEventId": "[REDACTED]",
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 0,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Aniversário de ascomfrc@gmail.com",
+              "start": {
+                "date": "2026-10-24"
+              },
+              "end": {
+                "date": "2026-10-25"
+              },
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2026-07-17T02:16:03.000Z",
+              "updated": "2026-07-17T02:16:04.125Z",
+              "birthdayProperties": {
+                "contact": "[REDACTED]",
+                "type": "birthday"
+              },
+              "etag": "\"3568509128251518\"",
+              "eventType": "birthday",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "originalStartTime": {
+                "date": "2026-10-24"
+              },
+              "recurringEventId": "[REDACTED]",
+              "reminders": {
+                "useDefault": false,
+                "overrides": [
+                  {
+                    "method": "popup",
+                    "minutes": 9540
+                  }
+                ]
+              },
+              "sequence": 0,
+              "status": "confirmed",
+              "transparency": "transparent",
+              "visibility": "private"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Reunião de Alinhamento - Bula Digital EMS",
+              "start": {
+                "dateTime": "2026-10-23T19:30:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "end": {
+                "dateTime": "2026-10-23T20:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "attendees": [
+                {
+                  "email": "graziela.gelain@ems.com.br",
+                  "responseStatus": "needsAction"
+                }
+              ],
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2026-10-20T16:32:52.000Z",
+              "updated": "2026-10-20T16:32:54.058Z",
+              "conferenceData": {
+                "createRequest": {
+                  "requestId": "e099d5e3-631e-4c67-87c7-e920c5b73293",
+                  "conferenceSolutionKey": {
+                    "type": "hangoutsMeet"
+                  },
+                  "status": {
+                    "statusCode": "success"
+                  }
+                },
+                "entryPoints": [
+                  {
+                    "entryPointType": "video",
+                    "uri": "https://meet.google.com/qui-zhos-nju",
+                    "label": "meet.google.com/qui-zhos-nju"
+                  },
+                  {
+                    "entryPointType": "more",
+                    "uri": "https://tel.meet/qui-zhos-nju?pin=9238287389284",
+                    "pin": "9238287389284"
+                  },
+                  {
+                    "regionCode": "PT",
+                    "entryPointType": "phone",
+                    "uri": "tel:+351-21-122-1665",
+                    "label": "+351 21 122 1665",
+                    "pin": "476538464"
+                  }
+                ],
+                "conferenceSolution": {
+                  "key": {
+                    "type": "hangoutsMeet"
+                  },
+                  "name": "Google Meet",
+                  "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+                },
+                "conferenceId": "qui-zhos-nju"
+              },
+              "etag": "\"3585027948116606\"",
+              "eventType": "default",
+              "hangoutLink": "https://meet.google.com/qui-zhos-nju",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 0,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Novo site midiacode.com",
+              "start": {
+                "dateTime": "2026-10-24T15:00:00+01:00",
+                "timeZone": "America/Boa_Vista"
+              },
+              "end": {
+                "dateTime": "2026-10-24T16:00:00+01:00",
+                "timeZone": "America/Boa_Vista"
+              },
+              "attendees": [
+                {
+                  "email": "lgavinho@midiacode.com",
+                  "displayName": "Luiz Gavinho",
+                  "organizer": true,
+                  "responseStatus": "accepted"
+                },
+                {
+                  "email": "robson.lisboa@midiacode.com",
+                  "displayName": "Robson Lisboa",
+                  "self": true,
+                  "responseStatus": "accepted"
+                }
+              ],
+              "creator": {
+                "email": "lgavinho@midiacode.com",
+                "displayName": "Luiz Gavinho"
+              },
+              "organizer": {
+                "email": "lgavinho@midiacode.com",
+                "displayName": "Luiz Gavinho"
+              },
+              "created": "2026-10-20T17:04:07.000Z",
+              "updated": "2026-10-21T15:28:43.682Z",
+              "conferenceData": {
+                "entryPoints": [
+                  {
+                    "entryPointType": "video",
+                    "uri": "https://meet.google.com/gxh-yaij-dfy",
+                    "label": "meet.google.com/gxh-yaij-dfy"
+                  },
+                  {
+                    "entryPointType": "more",
+                    "uri": "https://tel.meet/gxh-yaij-dfy?pin=6218172870044",
+                    "pin": "6218172870044"
+                  },
+                  {
+                    "regionCode": "PT",
+                    "entryPointType": "phone",
+                    "uri": "tel:+351-21-121-8880",
+                    "label": "+351 21 121 8880",
+                    "pin": "113050980"
+                  }
+                ],
+                "conferenceSolution": {
+                  "key": {
+                    "type": "hangoutsMeet"
+                  },
+                  "name": "Google Meet",
+                  "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+                },
+                "conferenceId": "gxh-yaij-dfy"
+              },
+              "etag": "\"3585193047365150\"",
+              "eventType": "default",
+              "hangoutLink": "https://meet.google.com/gxh-yaij-dfy",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 0,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "ModernaApp -",
+              "start": {
+                "dateTime": "2026-10-23T19:00:00+01:00",
+                "timeZone": "America/Sao_Paulo"
+              },
+              "end": {
+                "dateTime": "2026-10-23T19:30:00+01:00",
+                "timeZone": "America/Sao_Paulo"
+              },
+              "attendees": [
+                {
+                  "email": "robson.lisboa@midiacode.com",
+                  "displayName": "Robson Lisboa",
+                  "self": true,
+                  "responseStatus": "accepted"
+                },
+                {
+                  "email": "glauci@midiacode.com",
+                  "displayName": "glauci",
+                  "responseStatus": "needsAction"
+                },
+                {
+                  "email": "kdutra@moderna.com.br",
+                  "displayName": "Katia Regina Andrade Terezo Dutra",
+                  "responseStatus": "needsAction"
+                },
+                {
+                  "email": "esergina@clb.moderna.com.br",
+                  "displayName": "Emanuelle Sergina da Luz",
+                  "organizer": true,
+                  "responseStatus": "accepted"
+                },
+                {
+                  "email": "gfigueira@moderna.com.br",
+                  "displayName": "Guilherme Figueira Bento",
+                  "responseStatus": "needsAction"
+                },
+                {
+                  "email": "vlimas@moderna.com.br",
+                  "displayName": "Vinicius Lima Souza",
+                  "responseStatus": "needsAction"
+                }
+              ],
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "esergina@clb.moderna.com.br",
+                "displayName": "Emanuelle Sergina da Luz"
+              },
+              "description": "[REDACTED]",
+              "location": "Reuniões do Microsoft Teams",
+              "created": "2026-10-22T14:17:38.000Z",
+              "updated": "2026-10-22T16:29:39.888Z",
+              "conferenceData": {
+                "entryPoints": [
+                  {
+                    "entryPointType": "video",
+                    "uri": "https://teams.microsoft.com/meet/3442149200158493?p=1dZzZiVw82I2xzERLx",
+                    "label": "teams.microsoft.com/meet/3442149200158493?p=1dZzZiVw82I2xzERLx"
+                  }
+                ],
+                "conferenceSolution": {
+                  "key": {
+                    "type": "addOn"
+                  },
+                  "name": "Microsoft Teams Meeting"
+                }
+              },
+              "etag": "\"3585373159777086\"",
+              "eventType": "default",
+              "guestsCanInviteOthers": false,
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "privateCopy": true,
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 2,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          },
+          {
+            "json": {
+              "id": "[REDACTED]",
+              "summary": "Reunião de Alinhamento - Oportunidade de Inovação para sua Empresa",
+              "start": {
+                "dateTime": "2026-10-23T17:00:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "end": {
+                "dateTime": "2026-10-23T17:30:00+01:00",
+                "timeZone": "Europe/Lisbon"
+              },
+              "attendees": [
+                {
+                  "email": "nunovieira@fullest.pt",
+                  "responseStatus": "needsAction"
+                }
+              ],
+              "creator": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "organizer": {
+                "email": "robson.lisboa@midiacode.com",
+                "displayName": "Robson Lisboa",
+                "self": true
+              },
+              "created": "2026-10-20T16:31:32.000Z",
+              "updated": "2026-10-23T15:58:01.263Z",
+              "conferenceData": {
+                "createRequest": {
+                  "requestId": "290738d8-f588-4d79-9902-eaeff5a710ee",
+                  "conferenceSolutionKey": {
+                    "type": "hangoutsMeet"
+                  },
+                  "status": {
+                    "statusCode": "success"
+                  }
+                },
+                "entryPoints": [
+                  {
+                    "entryPointType": "video",
+                    "uri": "https://meet.google.com/cuj-tcbn-dxh",
+                    "label": "meet.google.com/cuj-tcbn-dxh"
+                  },
+                  {
+                    "entryPointType": "more",
+                    "uri": "https://tel.meet/cuj-tcbn-dxh?pin=1577881460203",
+                    "pin": "1577881460203"
+                  },
+                  {
+                    "regionCode": "PT",
+                    "entryPointType": "phone",
+                    "uri": "tel:+351-21-121-1971",
+                    "label": "+351 21 121 1971",
+                    "pin": "735822196"
+                  }
+                ],
+                "conferenceSolution": {
+                  "key": {
+                    "type": "hangoutsMeet"
+                  },
+                  "name": "Google Meet",
+                  "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+                },
+                "conferenceId": "cuj-tcbn-dxh"
+              },
+              "etag": "\"3585542162526174\"",
+              "eventType": "default",
+              "hangoutLink": "https://meet.google.com/cuj-tcbn-dxh",
+              "htmlLink": "[REDACTED]",
+              "iCalUID": "[REDACTED]",
+              "kind": "calendar#event",
+              "reminders": {
+                "useDefault": true
+              },
+              "sequence": 1,
+              "status": "confirmed"
+            },
+            "pairedItem": {
+              "item": 0
+            }
+          }
+        ]
+      },
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
+      "shared": [
+        {
+          "role": "workflow:owner",
+          "workflowId": "GH0CMN00BALtOTv9",
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-10-23T16:03:05.453Z",
+          "updatedAt": "2026-10-23T16:03:05.453Z"
+        }
+      ],
+      "activeVersion": {
+        "versionId": "ba7e88dc-3b7d-4d0e-87f7-1de1f6a1f3c3",
+        "workflowId": "GH0CMN00BALtOTv9",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 7
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.4,
+            "position": [
+              -336,
+              16
+            ],
+            "id": "cf798ef3-1f7e-4c8d-b637-4ac34fd9e95f",
+            "name": "Schedule Trigger"
+          },
+          {
+            "parameters": {
+              "operation": "getAll",
+              "calendar": {
+                "__rl": true,
+                "value": "robson.lisboa@midiacode.com",
+                "mode": "list",
+                "cachedResultName": "robson.lisboa@midiacode.com"
+              },
+              "returnAll": true,
+              "timeMax": "={{ $now.plus({ day: 1 }) }}",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleCalendar",
+            "typeVersion": 1.3,
+            "position": [
+              -112,
+              16
+            ],
+            "id": "a5529dbf-abfe-442a-911a-4381db4e0554",
+            "name": "Get many events",
+            "credentials": {
+              "googleCalendarOAuth2Api": {
+                "id": "qTbgWBTUXCgj3YfH",
+                "name": "Google Calendar account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "jsCode": "const eventos = $input.all();\n\nlet emailsPendentes = [];\n\neventos.forEach(item => {\n  const ev = item.json;\n\n  if (!ev.attendees) return;\n\n  ev.attendees.forEach(a => {\n    if (a.responseStatus === \"needsAction\") {\n      emailsPendentes.push(a.email);\n    }\n  });\n});\n\n// Remove duplicados\nemailsPendentes = [...new Set(emailsPendentes)];\n\n// Retorna um único item com a lista final\nreturn [\n  {\n    json: {\n      emailsArray: emailsPendentes,\n      emailsCSV: emailsPendentes.join(\",\"),\n      emails: emailsPendentes.join(\",\"),\n      total: emailsPendentes.length\n    }\n  }\n];\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+              112,
+              16
+            ],
+            "id": "c0367870-6016-4a78-b7bb-d59b2436a493",
+            "name": "Code in JavaScript"
+          },
+          {
+            "parameters": {
+              "sendTo": "robson.lisboa@midiacode.com",
+              "subject": "Confirmação da reunião de hoje. ",
+              "message": "<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #333; line-height: 1.5; padding: 20px;\">      <p>Olá,</p>   <p>Espero que esteja bem.</p>    <p>     Identifiquei que enviei recentemente um <strong>meeting request</strong> (convite/proposta de reunião) para hoje e, até o momento,      o seu calendário ainda consta como <strong>sem resposta</strong>.   </p>    <p>     Poderia, por favor, confirmar sua participação diretamente pelo convite no calendário?     Isso nos ajuda a organizar melhor o alinhamento e garantir que todos estejam sincronizados.   </p>    <p>Caso não possa confirmar a reunião hoje, peço que, via calendário mesmo, sugira um outro dia/horário.</p>    <p>Agradeço desde já pela atenção.</p>    <p style=\"margin-top: 25px;\">     Atenciosamente,<br>     <strong>Robson Lisboa</strong>   </p>    <hr style=\"border: none; border-top: 1px solid #ddd; margin: 30px 0;\">    <p style=\"font-size: 12px; color: #777;\">     Esta é uma mensagem automática enviada para participantes que ainda não confirmaram presença      em reuniões agendadas para hoje.   </p>  </div>",
+              "options": {
+                "bccList": "={{ $json.emails }}"
+              }
+            },
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2.2,
+            "position": [
+              336,
+              16
+            ],
+            "id": "296fb2a2-52a1-43e0-b467-199f935c8574",
+            "name": "Send a message",
+            "webhookId": "5c71285d-c9b9-4417-967a-8d243b3aa922",
+            "credentials": {
+              "gmailOAuth2": {
+                "id": "PGFxwBVu0LSu9lXR",
+                "name": "Gmail account - robson.lisboa@midiacode.com"
+              }
+            }
+          }
+        ],
+        "connections": {
+          "Schedule Trigger": {
+            "main": [
+              [
+                {
+                  "node": "Get many events",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get many events": {
+            "main": [
+              [
+                {
+                  "node": "Code in JavaScript",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Code in JavaScript": {
+            "main": [
+              [
+                {
+                  "node": "Send a message",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "nodeGroups": [],
+        "authors": "Robson Lisboa",
+        "name": "Version ba7e88dc",
+        "description": "",
+        "autosaved": true,
+        "createdAt": "2026-10-23T16:22:55.241Z",
+        "updatedAt": "2026-10-23T16:23:08.000Z"
+      }
+    },
+    {
       "id": "NG0eRFmIhtxnfL7M",
       "name": "Valentina-Hermes-Auto-Vendas",
       "active": true,
@@ -37988,14 +38817,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-21T13:00:46Z"
+          "lastTimeChecked": "2026-10-23T13:00:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-21T13:00:46Z"
+          "lastTimeChecked": "2026-10-23T13:00:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            295
+            297
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42711,10 +43540,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1792699445,
+            "lastTimeChecked": 1792793172,
             "possibleDuplicates": [
-              "1a16536b4f37c800",
-              "1a164f7abd0b9389"
+              "1a16aefe79f96d46",
+              "1a16a636b1102116"
             ]
           }
         }

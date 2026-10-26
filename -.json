@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1792881279,
+            "lastTimeChecked": 1792966346,
             "possibleDuplicates": [
-              "1a1700d4e8573877",
-              "1a170063baf119f6"
+              "1a1751f4a45fd9cb",
+              "1a174a44e396c676"
             ]
           }
         },
@@ -38817,14 +38817,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-23T13:00:46Z"
+          "lastTimeChecked": "2026-10-25T14:00:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-23T13:00:46Z"
+          "lastTimeChecked": "2026-10-25T14:00:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            297
+            299
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -42595,7 +42595,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2262
+          "lastMessageUid": 2263
         }
       },
       "pinData": {
@@ -43540,10 +43540,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1792872244,
+            "lastTimeChecked": 1792962475,
             "possibleDuplicates": [
-              "1a16f8366a2f5762",
-              "1a16f6d8763ff963"
+              "1a174e436f4341b8",
+              "1a17405fead40b2a"
             ]
           }
         }
@@ -60725,7 +60725,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2262
+          "lastMessageUid": 2263
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -60736,7 +60736,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1930
+          "lastMessageUid": 1931
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

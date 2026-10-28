@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1793051873,
+            "lastTimeChecked": 1793141563,
             "possibleDuplicates": [
-              "1a17a385ac819ed4",
-              "1a17a1cd1572a06e"
+              "1a17f917a80d2190",
+              "1a17f62d6fd43655"
             ]
           }
         },
@@ -38283,14 +38283,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-25T14:00:46Z"
+          "lastTimeChecked": "2026-10-27T14:00:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-25T14:00:46Z"
+          "lastTimeChecked": "2026-10-27T14:00:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            299
+            301
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -43006,10 +43006,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1793054897,
+            "lastTimeChecked": 1793138206,
             "possibleDuplicates": [
-              "1a17a667d329a22d",
-              "1a17a14715de5c4f"
+              "1a17f5da4e542ddf",
+              "1a17f4d0d0b4ff88"
             ]
           }
         }
@@ -60202,7 +60202,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1932
+          "lastMessageUid": 1933
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -64542,6 +64542,93 @@
         "createdAt": "2026-01-06T21:26:41.496Z",
         "updatedAt": "2026-01-06T21:26:41.496Z"
       }
+    },
+    {
+      "id": "rCSzkNNc7hBlt4bF",
+      "name": "Dados Painel Score Cliente - Thiago",
+      "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-10-27T08:08:35.461Z",
+      "updatedAt": "2026-10-27T08:14:43.763Z",
+      "isArchived": false,
+      "versionId": "f96d3c3f-51f6-488f-b7ca-76b42e60b76c",
+      "triggerCount": 0,
+      "nodes": [
+        {
+          "parameters": {
+            "rule": {
+              "interval": [
+                {
+                  "triggerAtHour": 6
+                }
+              ]
+            }
+          },
+          "type": "n8n-nodes-base.scheduleTrigger",
+          "typeVersion": 1.4,
+          "position": [
+            -864,
+            -240
+          ],
+          "id": "9fb0d185-39b1-4ae6-924c-a0341bf1895f",
+          "name": "Schedule Trigger"
+        },
+        {
+          "parameters": {
+            "operation": "executeQuery",
+            "query": "SELECT au.id          AS applabel_user_id,\n       a.slug         AS applabel_slug,\n       a.name         AS applabel_name,\n       au.username,\n       au.is_active,\n       u.id           AS midiacode_user_id,\n       u.email,\n       u.fullname,\n       au.firebase_uid,\n       au.created_at\nFROM apps_applabeluser au\nJOIN apps_applabel a      ON a.id = au.applabel_id\nJOIN core_midiacodeuser u ON u.id = au.midiacode_user_id\nWHERE a.slug = 'midiacode'\nORDER BY au.created_at DESC",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.postgres",
+          "typeVersion": 2.7,
+          "position": [
+            -672,
+            -256
+          ],
+          "id": "6164591d-7508-470d-a836-0e92342dd9a6",
+          "name": "Execute a SQL query",
+          "credentials": {
+            "postgres": {
+              "id": "17UqFkvSaWuw6juU",
+              "name": "Postgres account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "Schedule Trigger": {
+          "main": [
+            [
+              {
+                "node": "Execute a SQL query",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodeGroups": [],
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "pinData": {},
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
+      "shared": [
+        {
+          "role": "workflow:owner",
+          "workflowId": "rCSzkNNc7hBlt4bF",
+          "projectId": "MDx9S6QRKUuQVawA",
+          "createdAt": "2026-10-27T08:08:35.467Z",
+          "updatedAt": "2026-10-27T08:08:35.467Z"
+        }
+      ],
+      "activeVersion": null
     },
     {
       "id": "rp1jlS4YnDuCNHW5",

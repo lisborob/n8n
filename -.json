@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1793141563,
+            "lastTimeChecked": 1793228566,
             "possibleDuplicates": [
-              "1a17f917a80d2190",
-              "1a17f62d6fd43655"
+              "1a184c07690b60d0",
+              "1a184baa9cf3faae"
             ]
           }
         },
@@ -43006,10 +43006,13 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1793138206,
+            "lastTimeChecked": 1793230686,
             "possibleDuplicates": [
-              "1a17f5da4e542ddf",
-              "1a17f4d0d0b4ff88"
+              "1a184e0ca71d700e",
+              "1a184e02ec76fd9e",
+              "1a184e01ff167844",
+              "1a184e01c97f3c6b",
+              "1a184d206af0de8e"
             ]
           }
         }
@@ -60202,7 +60205,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1933
+          "lastMessageUid": 1934
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
@@ -64549,9 +64552,9 @@
       "active": false,
       "activeVersionId": null,
       "createdAt": "2026-10-27T08:08:35.461Z",
-      "updatedAt": "2026-10-27T08:14:43.763Z",
+      "updatedAt": "2026-10-28T14:04:00.195Z",
       "isArchived": false,
-      "versionId": "f96d3c3f-51f6-488f-b7ca-76b42e60b76c",
+      "versionId": "1223f12c-e2a7-44fe-92a3-b6f994805919",
       "triggerCount": 0,
       "nodes": [
         {
@@ -64567,8 +64570,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.4,
           "position": [
-            -864,
-            -240
+            -1152,
+            -352
           ],
           "id": "9fb0d185-39b1-4ae6-924c-a0341bf1895f",
           "name": "Schedule Trigger"
@@ -64582,8 +64585,8 @@
           "type": "n8n-nodes-base.postgres",
           "typeVersion": 2.7,
           "position": [
-            -672,
-            -256
+            -1008,
+            -352
           ],
           "id": "6164591d-7508-470d-a836-0e92342dd9a6",
           "name": "Execute a SQL query",

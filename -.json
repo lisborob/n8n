@@ -5679,10 +5679,11 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1793400213,
+            "lastTimeChecked": 1793489718,
             "possibleDuplicates": [
-              "1a18efb9096d4477",
-              "1a18ef8a5d3c104a"
+              "1a1945152a73bf9b",
+              "1a194514de55520a",
+              "1a194493c892a278"
             ],
             "failedFetches": [
               [
@@ -38289,14 +38290,14 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-29T14:00:46Z"
+          "lastTimeChecked": "2026-10-31T14:00:46Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-29T14:00:46Z"
+          "lastTimeChecked": "2026-10-31T14:00:46Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            303
+            305
           ],
           "recurrenceRuleSignatures": [
             "days:2"
@@ -43012,11 +43013,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1793398214,
+            "lastTimeChecked": 1793482584,
             "possibleDuplicates": [
-              "1a18edd7213014b9",
-              "1a18ea873de43d56",
-              "1a18eeee070c0282"
+              "1a193e47322403b2",
+              "1a193d43fcda0618"
             ]
           }
         }

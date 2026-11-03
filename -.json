@@ -5679,10 +5679,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1793573807,
+            "lastTimeChecked": 1793659958,
             "possibleDuplicates": [
-              "1a199546816688f0",
-              "1a198aa8c3778ead"
+              "1a19e770348c3cfc",
+              "1a19dfe498ae7c36"
             ],
             "failedFetches": [
               [
@@ -28995,7 +28995,7 @@
       "staticData": {
         "node:Schedule Trigger": {
           "recurrenceRules": [
-            0
+            15
           ],
           "recurrenceRuleSignatures": [
             "hours:3"
@@ -38289,10 +38289,10 @@
           "lastTimeChecked": "2025-08-23T17:29:33Z"
         },
         "node:Google Drive Trigger Mudanças": {
-          "lastTimeChecked": "2026-10-31T14:00:46Z"
+          "lastTimeChecked": "2026-11-02T15:51:21Z"
         },
         "node:Google Drive Trigger Novos Arquivos": {
-          "lastTimeChecked": "2026-10-31T14:00:46Z"
+          "lastTimeChecked": "2026-11-02T15:51:21Z"
         },
         "node:Schedule Trigger": {
           "recurrenceRules": [
@@ -42067,7 +42067,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2263
+          "lastMessageUid": 2264
         }
       },
       "pinData": {
@@ -43012,10 +43012,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1793567573,
+            "lastTimeChecked": 1793654953,
             "possibleDuplicates": [
-              "1a198f54c8d173d7",
-              "1a198c19247744da"
+              "1a19e2a98f2e4ede",
+              "1a19e23dc49ee935"
             ]
           }
         }
@@ -60197,7 +60197,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2263
+          "lastMessageUid": 2264
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -64555,9 +64555,9 @@
       "active": false,
       "activeVersionId": null,
       "createdAt": "2026-10-27T08:08:35.461Z",
-      "updatedAt": "2026-10-28T14:04:00.195Z",
+      "updatedAt": "2026-11-02T15:47:25.201Z",
       "isArchived": false,
-      "versionId": "1223f12c-e2a7-44fe-92a3-b6f994805919",
+      "versionId": "6874ad9c-b8a1-40a5-a5f5-9f903dd8b899",
       "triggerCount": 0,
       "nodes": [
         {
@@ -64573,8 +64573,8 @@
           "type": "n8n-nodes-base.scheduleTrigger",
           "typeVersion": 1.4,
           "position": [
-            -1152,
-            -352
+            -1424,
+            -368
           ],
           "id": "9fb0d185-39b1-4ae6-924c-a0341bf1895f",
           "name": "Schedule Trigger"
@@ -64588,15 +64588,238 @@
           "type": "n8n-nodes-base.postgres",
           "typeVersion": 2.7,
           "position": [
-            -1008,
-            -352
+            -960,
+            -384
           ],
           "id": "6164591d-7508-470d-a836-0e92342dd9a6",
           "name": "Execute a SQL query",
+          "executeOnce": true,
           "credentials": {
             "postgres": {
               "id": "17UqFkvSaWuw6juU",
               "name": "Postgres account"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Score Cliente",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "Sheet1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -1216,
+            -432
+          ],
+          "id": "5b45fd5f-4aeb-4576-a1b1-5ca8cce8f410",
+          "name": "Get row(s) in sheet",
+          "executeOnce": true,
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
+            }
+          }
+        },
+        {
+          "parameters": {
+            "conditions": {
+              "options": {
+                "caseSensitive": true,
+                "leftValue": "",
+                "typeValidation": "strict",
+                "version": 3
+              },
+              "conditions": [
+                {
+                  "id": "1402a6a7-009b-454c-ba70-2f2cc8542fad",
+                  "leftValue": "={{ $('Execute a SQL query').item.json.created_at }}",
+                  "rightValue": "={{ $('Get row(s) in sheet').item.json.created }}",
+                  "operator": {
+                    "type": "dateTime",
+                    "operation": "equals"
+                  }
+                }
+              ],
+              "combinator": "and"
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.if",
+          "typeVersion": 2.3,
+          "position": [
+            -736,
+            -352
+          ],
+          "id": "82a67e6e-0c49-40e0-9c6b-ec6fb5f9d18b",
+          "name": "If"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.noOp",
+          "typeVersion": 1,
+          "position": [
+            -512,
+            -448
+          ],
+          "id": "586c0b75-fcec-4330-a60f-79143286cdca",
+          "name": "No Operation, do nothing"
+        },
+        {
+          "parameters": {
+            "operation": "append",
+            "documentId": {
+              "__rl": true,
+              "value": "[REDACTED]",
+              "mode": "list",
+              "cachedResultName": "Score Cliente",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "sheetName": {
+              "__rl": true,
+              "value": "gid=0",
+              "mode": "list",
+              "cachedResultName": "Sheet1",
+              "cachedResultUrl": "[REDACTED]"
+            },
+            "columns": {
+              "mappingMode": "defineBelow",
+              "value": {
+                "User_id": "={{ $('Execute a SQL query').item.json.applabel_user_id }}",
+                "Slug": "={{ $json.applabel_slug }}",
+                "Name": "={{ $json.applabel_name }}",
+                "Username": "={{ $json.username }}",
+                "Is_active": "={{ $json.is_active }}",
+                "midiacode_user_id": "={{ $json.midiacode_user_id }}",
+                "email": "={{ $json.email }}",
+                "fullname": "={{ $json.fullname }}",
+                "firebase": "={{ $json.firebase_uid }}",
+                "created": "={{ $json.created_at }}"
+              },
+              "matchingColumns": [],
+              "schema": [
+                {
+                  "id": "User_id",
+                  "displayName": "User_id",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Slug",
+                  "displayName": "Slug",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Name",
+                  "displayName": "Name",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Username",
+                  "displayName": "Username",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "Is_active",
+                  "displayName": "Is_active",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "midiacode_user_id",
+                  "displayName": "midiacode_user_id",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "email",
+                  "displayName": "email",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "fullname",
+                  "displayName": "fullname",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "firebase",
+                  "displayName": "firebase",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                },
+                {
+                  "id": "created",
+                  "displayName": "created",
+                  "required": false,
+                  "defaultMatch": false,
+                  "display": true,
+                  "type": "string",
+                  "canBeUsedToMatch": true
+                }
+              ],
+              "attemptToConvertTypes": false,
+              "convertFieldsToString": false
+            },
+            "options": {}
+          },
+          "type": "n8n-nodes-base.googleSheets",
+          "typeVersion": 4.7,
+          "position": [
+            -512,
+            -256
+          ],
+          "id": "d30bcade-3a13-41be-b141-1fcaeb2389f7",
+          "name": "Append row in sheet",
+          "credentials": {
+            "googleSheetsOAuth2Api": {
+              "id": "Pq7AiEm7Pa3TvTE4",
+              "name": "Thiago - Google Sheets account 2"
             }
           }
         }
@@ -64606,7 +64829,47 @@
           "main": [
             [
               {
+                "node": "Get row(s) in sheet",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Get row(s) in sheet": {
+          "main": [
+            [
+              {
                 "node": "Execute a SQL query",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "Execute a SQL query": {
+          "main": [
+            [
+              {
+                "node": "If",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        },
+        "If": {
+          "main": [
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "Append row in sheet",
                 "type": "main",
                 "index": 0
               }

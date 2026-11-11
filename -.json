@@ -5787,11 +5787,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1794261727,
+            "lastTimeChecked": 1794347020,
             "possibleDuplicates": [
-              "1a1c2553d0874c8d",
-              "1a1c2550586882c2",
-              "1a1c24dfae97e4f0"
+              "1a1c76ab346c1e72",
+              "1a1c769720c69eff"
             ],
             "failedFetches": [
               [
@@ -5804,6 +5803,10 @@
               ],
               [
                 "1a1b184d14f0cbab",
+                1
+              ],
+              [
+                "1a1c62e7ea749660",
                 1
               ]
             ]
@@ -42234,7 +42237,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2264
+          "lastMessageUid": 2267
         }
       },
       "pinData": {
@@ -43179,11 +43182,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1794263599,
+            "lastTimeChecked": 1794352233,
             "possibleDuplicates": [
-              "1a1c27495dbc871e",
-              "1a1c204ae4d749a8",
-              "1a1c203ee62601a5"
+              "1a1c7bd7de495247",
+              "1a1c70f8920a836e"
             ]
           }
         }
@@ -60365,7 +60367,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2264
+          "lastMessageUid": 2267
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -60381,7 +60383,7 @@
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",
           "sheetId": 251696704,
-          "lastIndexChecked": 185
+          "lastIndexChecked": 184
         }
       },
       "pinData": {},
@@ -64723,9 +64725,9 @@
       "active": false,
       "activeVersionId": null,
       "createdAt": "2026-10-27T08:08:35.461Z",
-      "updatedAt": "2026-11-02T15:47:25.201Z",
+      "updatedAt": "2026-11-10T12:19:23.809Z",
       "isArchived": false,
-      "versionId": "6874ad9c-b8a1-40a5-a5f5-9f903dd8b899",
+      "versionId": "f7b202ca-ceff-49ae-9687-b520631dded8",
       "triggerCount": 0,
       "nodes": [
         {
@@ -64756,8 +64758,8 @@
           "type": "n8n-nodes-base.postgres",
           "typeVersion": 2.7,
           "position": [
-            -960,
-            -384
+            -1232,
+            -240
           ],
           "id": "6164591d-7508-470d-a836-0e92342dd9a6",
           "name": "Execute a SQL query",
@@ -64830,8 +64832,8 @@
           "type": "n8n-nodes-base.if",
           "typeVersion": 2.3,
           "position": [
-            -736,
-            -352
+            -752,
+            -624
           ],
           "id": "82a67e6e-0c49-40e0-9c6b-ec6fb5f9d18b",
           "name": "If"
@@ -64841,8 +64843,8 @@
           "type": "n8n-nodes-base.noOp",
           "typeVersion": 1,
           "position": [
-            -512,
-            -448
+            -432,
+            -512
           ],
           "id": "586c0b75-fcec-4330-a60f-79143286cdca",
           "name": "No Operation, do nothing"
@@ -64979,7 +64981,7 @@
           "type": "n8n-nodes-base.googleSheets",
           "typeVersion": 4.7,
           "position": [
-            -512,
+            -576,
             -256
           ],
           "id": "d30bcade-3a13-41be-b141-1fcaeb2389f7",
@@ -64990,12 +64992,39 @@
               "name": "Thiago - Google Sheets account 2"
             }
           }
+        },
+        {
+          "parameters": {
+            "mergeByFields": {
+              "values": [
+                {
+                  "field1": "User_id",
+                  "field2": "applabel_user_id"
+                }
+              ]
+            },
+            "resolve": "preferInput2",
+            "options": {}
+          },
+          "type": "n8n-nodes-base.compareDatasets",
+          "typeVersion": 2.3,
+          "position": [
+            -944,
+            -384
+          ],
+          "id": "31e48ea6-12a2-4c6c-af81-d9238dee1679",
+          "name": "Compare Datasets"
         }
       ],
       "connections": {
         "Schedule Trigger": {
           "main": [
             [
+              {
+                "node": "Execute a SQL query",
+                "type": "main",
+                "index": 0
+              },
               {
                 "node": "Get row(s) in sheet",
                 "type": "main",
@@ -65008,7 +65037,7 @@
           "main": [
             [
               {
-                "node": "Execute a SQL query",
+                "node": "Compare Datasets",
                 "type": "main",
                 "index": 0
               }
@@ -65019,15 +65048,35 @@
           "main": [
             [
               {
-                "node": "If",
+                "node": "Compare Datasets",
                 "type": "main",
-                "index": 0
+                "index": 1
               }
             ]
           ]
         },
         "If": {
           "main": [
+            [],
+            []
+          ]
+        },
+        "Compare Datasets": {
+          "main": [
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ],
+            [
+              {
+                "node": "No Operation, do nothing",
+                "type": "main",
+                "index": 0
+              }
+            ],
             [
               {
                 "node": "No Operation, do nothing",

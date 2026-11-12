@@ -5787,10 +5787,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1794347020,
+            "lastTimeChecked": 1794428984,
             "possibleDuplicates": [
-              "1a1c76ab346c1e72",
-              "1a1c769720c69eff"
+              "1a1cc4d5e65e7313",
+              "1a1cc454c1915d48"
             ],
             "failedFetches": [
               [
@@ -5807,6 +5807,10 @@
               ],
               [
                 "1a1c62e7ea749660",
+                1
+              ],
+              [
+                "1a1cc2b1069fce12",
                 1
               ]
             ]
@@ -24610,11 +24614,11 @@
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "POI - Google Sheets -> HTML -> S3",
       "active": true,
-      "activeVersionId": "29168da6-aef2-4477-a2ef-56fcfdc0d2f2",
+      "activeVersionId": "a4447965-7107-4a0d-9916-a148c691b83f",
       "createdAt": "2026-06-30T15:35:21.920Z",
-      "updatedAt": "2026-11-03T22:47:03.545Z",
+      "updatedAt": "2026-11-11T09:48:19.724Z",
       "isArchived": false,
-      "versionId": "29168da6-aef2-4477-a2ef-56fcfdc0d2f2",
+      "versionId": "8dabcf65-e27f-48c2-952d-113355090313",
       "triggerCount": 1,
       "nodes": [
         {
@@ -25171,14 +25175,14 @@
         {
           "parameters": {
             "content": "Content Creator",
-            "height": 1520,
+            "height": 720,
             "width": 4064,
             "color": 3
           },
           "type": "n8n-nodes-base.stickyNote",
           "position": [
             -1488,
-            1152
+            1296
           ],
           "typeVersion": 1,
           "id": "a4946f78-361a-485c-a879-7e2c33ea3571",
@@ -25292,8 +25296,8 @@
           "name": "Create content1",
           "credentials": {
             "midiacodeApi": {
-              "id": "aBuYalSEqks9O3Sg",
-              "name": "Midiacode Terras do Salvado"
+              "id": "9aJOB0wDuJJz5ElP",
+              "name": "Midiacode Brasilia Super App"
             }
           }
         },
@@ -25343,8 +25347,8 @@
           "name": "Update content link",
           "credentials": {
             "midiacodeApi": {
-              "id": "aBuYalSEqks9O3Sg",
-              "name": "Midiacode Terras do Salvado"
+              "id": "9aJOB0wDuJJz5ElP",
+              "name": "Midiacode Brasilia Super App"
             }
           }
         },
@@ -25413,8 +25417,8 @@
           "name": "Publish content",
           "credentials": {
             "midiacodeApi": {
-              "id": "aBuYalSEqks9O3Sg",
-              "name": "Midiacode Terras do Salvado"
+              "id": "9aJOB0wDuJJz5ElP",
+              "name": "Midiacode Brasilia Super App"
             }
           }
         },
@@ -25485,6 +25489,22 @@
           "id": "1880e8db-e463-4743-98e7-32316f1dfea0",
           "name": "Wait 20 sec",
           "webhookId": "3729cb2e-f1ab-4301-93a7-e6c8f231da54"
+        },
+        {
+          "parameters": {
+            "content": "Para gerar os POIs de uma cidade ou local:\n\n1) Configure as credenciais nos nodes do Midiacode com a API Key da conta do usuário publicador\n2) Tenha certeza que todos os nodes do Midiacode estão com a credencial certa desta conta.\n3) Tenha prontas as informações de número do workspace (onde os conteúdos serão gerados) e número da planilha (de onde os POIs serão buscados), bem como a Aba da plannilha.\n4) Inicie o form submission e criando os conteúdos do local",
+            "height": 720,
+            "width": 656,
+            "color": 3
+          },
+          "type": "n8n-nodes-base.stickyNote",
+          "position": [
+            -2192,
+            1296
+          ],
+          "typeVersion": 1,
+          "id": "bbb4f68e-c4c3-41b5-b391-0294e0d63b68",
+          "name": "Sticky Note2"
         }
       ],
       "connections": {
@@ -25877,7 +25897,7 @@
         }
       ],
       "activeVersion": {
-        "versionId": "29168da6-aef2-4477-a2ef-56fcfdc0d2f2",
+        "versionId": "a4447965-7107-4a0d-9916-a148c691b83f",
         "workflowId": "NzeDQ7Ydb7gBYzSW",
         "nodes": [
           {
@@ -26748,6 +26768,22 @@
             "id": "1880e8db-e463-4743-98e7-32316f1dfea0",
             "name": "Wait 20 sec",
             "webhookId": "3729cb2e-f1ab-4301-93a7-e6c8f231da54"
+          },
+          {
+            "parameters": {
+              "content": "Para gerar os POIs de uma cidade ou local:\n\n1) Configure as credenciais nos nodes do Midiacode com a API Key da conta do usuário publicador\n2) Tenha certeza que todos os nodes do Midiacode estão com a credencial certa desta conta.\n3) Tenha prontas as informações de número do workspace (onde os conteúdos serão gerados) e número da planilha (de onde os POIs serão buscados), bem como a Aba da plannilha.\n4) Inicie o form submission e cri ",
+              "height": 1520,
+              "width": 656,
+              "color": 3
+            },
+            "type": "n8n-nodes-base.stickyNote",
+            "position": [
+              -2192,
+              1152
+            ],
+            "typeVersion": 1,
+            "id": "bbb4f68e-c4c3-41b5-b391-0294e0d63b68",
+            "name": "Sticky Note2"
           }
         ],
         "connections": {
@@ -27120,11 +27156,11 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 29168da6",
+        "name": "Version a4447965",
         "description": "",
-        "autosaved": false,
-        "createdAt": "2026-11-03T22:47:03.547Z",
-        "updatedAt": "2026-11-03T22:47:05.000Z"
+        "autosaved": true,
+        "createdAt": "2026-11-11T09:44:04.555Z",
+        "updatedAt": "2026-11-11T09:44:12.000Z"
       }
     },
     {
@@ -43182,10 +43218,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1794352233,
+            "lastTimeChecked": 1794431555,
             "possibleDuplicates": [
-              "1a1c7bd7de495247",
-              "1a1c70f8920a836e"
+              "1a1cc749beabe46b",
+              "1a1cc71a9b34d301"
             ]
           }
         }

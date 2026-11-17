@@ -5787,10 +5787,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1794786292,
+            "lastTimeChecked": 1794867078,
             "possibleDuplicates": [
-              "1a1e1997436f6a0e",
-              "1a1e1359724aee2e"
+              "1a1e66ac27c251c3",
+              "1a1e667b3c0afe6c"
             ],
             "failedFetches": [
               [
@@ -24666,11 +24666,11 @@
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "POI - Google Sheets -> HTML -> S3",
       "active": true,
-      "activeVersionId": "a4447965-7107-4a0d-9916-a148c691b83f",
+      "activeVersionId": "4b397010-9af2-4563-9b53-386a54191175",
       "createdAt": "2026-06-30T15:35:21.920Z",
-      "updatedAt": "2026-11-11T09:48:19.724Z",
+      "updatedAt": "2026-11-16T20:37:30.829Z",
       "isArchived": false,
-      "versionId": "8dabcf65-e27f-48c2-952d-113355090313",
+      "versionId": "6b836561-63aa-4174-a153-8a8f61f56464",
       "triggerCount": 1,
       "nodes": [
         {
@@ -25557,6 +25557,43 @@
           "typeVersion": 1,
           "id": "bbb4f68e-c4c3-41b5-b391-0294e0d63b68",
           "name": "Sticky Note2"
+        },
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            1184,
+            1808
+          ],
+          "id": "999b8aae-db8b-42e2-98c3-182c24df0ab8",
+          "name": "When clicking ‘Execute workflow’",
+          "disabled": true
+        },
+        {
+          "parameters": {
+            "resource": "pushNotification",
+            "notificationTitle": "Push Notification Canal",
+            "notificationBody": "=Push Notification com short code do AUTO",
+            "shortCode": "https://1mc.co/9jkRmh",
+            "users": "robson.lisboa@midiacode.com,glauci@midiacode.com",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            1424,
+            1808
+          ],
+          "id": "0d5f7328-2530-4945-9d74-326825362ff9",
+          "name": "Send push notification",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "OwhPzhM2Cxa3Ix0F",
+              "name": "Midiacode MKT"
+            }
+          },
+          "disabled": true
         }
       ],
       "connections": {
@@ -25925,6 +25962,17 @@
               }
             ]
           ]
+        },
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Send push notification",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "nodeGroups": [],
@@ -25949,7 +25997,7 @@
         }
       ],
       "activeVersion": {
-        "versionId": "a4447965-7107-4a0d-9916-a148c691b83f",
+        "versionId": "4b397010-9af2-4563-9b53-386a54191175",
         "workflowId": "NzeDQ7Ydb7gBYzSW",
         "nodes": [
           {
@@ -26506,14 +26554,14 @@
           {
             "parameters": {
               "content": "Content Creator",
-              "height": 1520,
+              "height": 720,
               "width": 4064,
               "color": 3
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               -1488,
-              1152
+              1296
             ],
             "typeVersion": 1,
             "id": "a4946f78-361a-485c-a879-7e2c33ea3571",
@@ -26627,8 +26675,8 @@
             "name": "Create content1",
             "credentials": {
               "midiacodeApi": {
-                "id": "aBuYalSEqks9O3Sg",
-                "name": "Midiacode Terras do Salvado"
+                "id": "9aJOB0wDuJJz5ElP",
+                "name": "Midiacode Brasilia Super App"
               }
             }
           },
@@ -26678,8 +26726,8 @@
             "name": "Update content link",
             "credentials": {
               "midiacodeApi": {
-                "id": "aBuYalSEqks9O3Sg",
-                "name": "Midiacode Terras do Salvado"
+                "id": "9aJOB0wDuJJz5ElP",
+                "name": "Midiacode Brasilia Super App"
               }
             }
           },
@@ -26748,8 +26796,8 @@
             "name": "Publish content",
             "credentials": {
               "midiacodeApi": {
-                "id": "aBuYalSEqks9O3Sg",
-                "name": "Midiacode Terras do Salvado"
+                "id": "9aJOB0wDuJJz5ElP",
+                "name": "Midiacode Brasilia Super App"
               }
             }
           },
@@ -26823,19 +26871,54 @@
           },
           {
             "parameters": {
-              "content": "Para gerar os POIs de uma cidade ou local:\n\n1) Configure as credenciais nos nodes do Midiacode com a API Key da conta do usuário publicador\n2) Tenha certeza que todos os nodes do Midiacode estão com a credencial certa desta conta.\n3) Tenha prontas as informações de número do workspace (onde os conteúdos serão gerados) e número da planilha (de onde os POIs serão buscados), bem como a Aba da plannilha.\n4) Inicie o form submission e cri ",
-              "height": 1520,
+              "content": "Para gerar os POIs de uma cidade ou local:\n\n1) Configure as credenciais nos nodes do Midiacode com a API Key da conta do usuário publicador\n2) Tenha certeza que todos os nodes do Midiacode estão com a credencial certa desta conta.\n3) Tenha prontas as informações de número do workspace (onde os conteúdos serão gerados) e número da planilha (de onde os POIs serão buscados), bem como a Aba da plannilha.\n4) Inicie o form submission e criando os conteúdos do local",
+              "height": 720,
               "width": 656,
               "color": 3
             },
             "type": "n8n-nodes-base.stickyNote",
             "position": [
               -2192,
-              1152
+              1296
             ],
             "typeVersion": 1,
             "id": "bbb4f68e-c4c3-41b5-b391-0294e0d63b68",
             "name": "Sticky Note2"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+              32,
+              1136
+            ],
+            "id": "999b8aae-db8b-42e2-98c3-182c24df0ab8",
+            "name": "When clicking ‘Execute workflow’"
+          },
+          {
+            "parameters": {
+              "resource": "pushNotification",
+              "notificationTitle": "Test 3",
+              "notificationBody": "Este teste é o número 2 para vc.",
+              "shortCode": "bhCHOI",
+              "users": "robson.lisboa@midiacode.com,glauci@midiacode.com",
+              "requestOptions": {}
+            },
+            "type": "n8n-nodes-midiacode.midiacode",
+            "typeVersion": 1,
+            "position": [
+              256,
+              1136
+            ],
+            "id": "0d5f7328-2530-4945-9d74-326825362ff9",
+            "name": "Send push notification",
+            "credentials": {
+              "midiacodeApi": {
+                "id": "OwhPzhM2Cxa3Ix0F",
+                "name": "Midiacode MKT"
+              }
+            }
           }
         ],
         "connections": {
@@ -27204,15 +27287,26 @@
                 }
               ]
             ]
+          },
+          "When clicking ‘Execute workflow’": {
+            "main": [
+              [
+                {
+                  "node": "Send push notification",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
           }
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version a4447965",
+        "name": "Version 4b397010",
         "description": "",
         "autosaved": true,
-        "createdAt": "2026-11-11T09:44:04.555Z",
-        "updatedAt": "2026-11-11T09:44:12.000Z"
+        "createdAt": "2026-11-16T19:44:54.724Z",
+        "updatedAt": "2026-11-16T19:47:57.000Z"
       }
     },
     {
@@ -42325,7 +42419,7 @@
           }
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2268
+          "lastMessageUid": 2269
         }
       },
       "pinData": {
@@ -43270,10 +43364,10 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1794767479,
+            "lastTimeChecked": 1794859953,
             "possibleDuplicates": [
-              "1a1e07a64c1a17eb",
-              "1a1e06953da08c50"
+              "1a1e5fd72058c22b",
+              "1a1e5c394371dd79"
             ]
           }
         }
@@ -60455,7 +60549,7 @@
           "recurrenceRules": []
         },
         "node:Email Trigger (IMAP)": {
-          "lastMessageUid": 2264
+          "lastMessageUid": 2269
         },
         "node:Gatilho mensal todo dia 1, 10am1": {
           "recurrenceRules": [
@@ -60466,7 +60560,7 @@
           ]
         },
         "node:Email Trigger (IMAP)1": {
-          "lastMessageUid": 1944
+          "lastMessageUid": 1940
         },
         "node:Qdo alguem solicita remoção": {
           "documentId": "[REDACTED]",

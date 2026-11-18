@@ -5787,10 +5787,10 @@
         },
         "node:Gmail Trigger - robson.lisboa@midiacode.com": {
           "Gmail Trigger - robson.lisboa@midiacode.com": {
-            "lastTimeChecked": 1794867078,
+            "lastTimeChecked": 1794959429,
             "possibleDuplicates": [
-              "1a1e66ac27c251c3",
-              "1a1e667b3c0afe6c"
+              "1a1ebeb535f9b620",
+              "1a1ebde3717bab7e"
             ],
             "failedFetches": [
               [
@@ -24666,11 +24666,11 @@
       "id": "NzeDQ7Ydb7gBYzSW",
       "name": "POI - Google Sheets -> HTML -> S3",
       "active": true,
-      "activeVersionId": "4b397010-9af2-4563-9b53-386a54191175",
+      "activeVersionId": "6b836561-63aa-4174-a153-8a8f61f56464",
       "createdAt": "2026-06-30T15:35:21.920Z",
-      "updatedAt": "2026-11-16T20:37:30.829Z",
+      "updatedAt": "2026-11-17T10:12:39.566Z",
       "isArchived": false,
-      "versionId": "6b836561-63aa-4174-a153-8a8f61f56464",
+      "versionId": "362e60fb-be9d-4e32-9b8e-4b59273cbd93",
       "triggerCount": 1,
       "nodes": [
         {
@@ -25567,8 +25567,7 @@
             1808
           ],
           "id": "999b8aae-db8b-42e2-98c3-182c24df0ab8",
-          "name": "When clicking ‘Execute workflow’",
-          "disabled": true
+          "name": "When clicking ‘Execute workflow’"
         },
         {
           "parameters": {
@@ -25592,8 +25591,27 @@
               "id": "OwhPzhM2Cxa3Ix0F",
               "name": "Midiacode MKT"
             }
+          }
+        },
+        {
+          "parameters": {
+            "operation": "updateLink",
+            "requestOptions": {}
           },
-          "disabled": true
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            1648,
+            1808
+          ],
+          "id": "78729370-bcc8-41a0-966b-fd094efc4268",
+          "name": "Update content link1",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "9aJOB0wDuJJz5ElP",
+              "name": "Midiacode Brasilia Super App"
+            }
+          }
         }
       ],
       "connections": {
@@ -25973,6 +25991,17 @@
               }
             ]
           ]
+        },
+        "Send push notification": {
+          "main": [
+            [
+              {
+                "node": "Update content link1",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
         }
       },
       "nodeGroups": [],
@@ -25997,7 +26026,7 @@
         }
       ],
       "activeVersion": {
-        "versionId": "4b397010-9af2-4563-9b53-386a54191175",
+        "versionId": "6b836561-63aa-4174-a153-8a8f61f56464",
         "workflowId": "NzeDQ7Ydb7gBYzSW",
         "nodes": [
           {
@@ -26890,26 +26919,27 @@
             "type": "n8n-nodes-base.manualTrigger",
             "typeVersion": 1,
             "position": [
-              32,
-              1136
+              1184,
+              1808
             ],
             "id": "999b8aae-db8b-42e2-98c3-182c24df0ab8",
-            "name": "When clicking ‘Execute workflow’"
+            "name": "When clicking ‘Execute workflow’",
+            "disabled": true
           },
           {
             "parameters": {
               "resource": "pushNotification",
-              "notificationTitle": "Test 3",
-              "notificationBody": "Este teste é o número 2 para vc.",
-              "shortCode": "bhCHOI",
+              "notificationTitle": "Push Notification Canal",
+              "notificationBody": "=Push Notification com short code do AUTO",
+              "shortCode": "https://1mc.co/9jkRmh",
               "users": "robson.lisboa@midiacode.com,glauci@midiacode.com",
               "requestOptions": {}
             },
             "type": "n8n-nodes-midiacode.midiacode",
             "typeVersion": 1,
             "position": [
-              256,
-              1136
+              1424,
+              1808
             ],
             "id": "0d5f7328-2530-4945-9d74-326825362ff9",
             "name": "Send push notification",
@@ -26918,7 +26948,8 @@
                 "id": "OwhPzhM2Cxa3Ix0F",
                 "name": "Midiacode MKT"
               }
-            }
+            },
+            "disabled": true
           }
         ],
         "connections": {
@@ -27302,11 +27333,11 @@
         },
         "nodeGroups": [],
         "authors": "Robson Lisboa",
-        "name": "Version 4b397010",
+        "name": "Version 6b836561",
         "description": "",
         "autosaved": true,
-        "createdAt": "2026-11-16T19:44:54.724Z",
-        "updatedAt": "2026-11-16T19:47:57.000Z"
+        "createdAt": "2026-11-16T20:37:30.834Z",
+        "updatedAt": "2026-11-17T10:10:15.000Z"
       }
     },
     {
@@ -42017,6 +42048,84 @@
       "activeVersion": null
     },
     {
+      "id": "VdMaYzYTk8xJP4EH",
+      "name": "My workflow 4",
+      "active": false,
+      "activeVersionId": null,
+      "createdAt": "2026-11-17T19:56:43.696Z",
+      "updatedAt": "2026-11-17T19:56:43.696Z",
+      "isArchived": false,
+      "versionId": "eed9d81c-119f-43ad-a91a-f66f68913493",
+      "triggerCount": 0,
+      "nodes": [
+        {
+          "parameters": {},
+          "type": "n8n-nodes-base.manualTrigger",
+          "typeVersion": 1,
+          "position": [
+            0,
+            0
+          ],
+          "id": "4b76a5f4-2f24-472c-9211-4edb08f6c43d",
+          "name": "When clicking ‘Execute workflow’"
+        },
+        {
+          "parameters": {
+            "resource": "asset",
+            "requestOptions": {}
+          },
+          "type": "n8n-nodes-midiacode.midiacode",
+          "typeVersion": 1,
+          "position": [
+            224,
+            0
+          ],
+          "id": "19947c86-763d-4521-95e3-f48c130b05cf",
+          "name": "Upload an image asset",
+          "credentials": {
+            "midiacodeApi": {
+              "id": "x9pq8hdG0YCtxmd6",
+              "name": "Midiacode account"
+            }
+          }
+        }
+      ],
+      "connections": {
+        "When clicking ‘Execute workflow’": {
+          "main": [
+            [
+              {
+                "node": "Upload an image asset",
+                "type": "main",
+                "index": 0
+              }
+            ]
+          ]
+        }
+      },
+      "nodeGroups": [],
+      "settings": {
+        "executionOrder": "v1",
+        "binaryMode": "separate"
+      },
+      "staticData": null,
+      "pinData": {},
+      "meta": {
+        "templateCredsSetupCompleted": true
+      },
+      "tags": [],
+      "shared": [
+        {
+          "role": "workflow:owner",
+          "workflowId": "VdMaYzYTk8xJP4EH",
+          "projectId": "yjz5phAfBORJLv6o",
+          "createdAt": "2026-11-17T19:56:43.700Z",
+          "updatedAt": "2026-11-17T19:56:43.700Z"
+        }
+      ],
+      "activeVersion": null
+    },
+    {
       "id": "YAjdPcAv083KbwXa",
       "name": "Email Contact@midiacode.tech Auto",
       "active": true,
@@ -43364,10 +43473,11 @@
         },
         "node:Gmail Trigger - lisborob": {
           "Gmail Trigger - lisborob": {
-            "lastTimeChecked": 1794859953,
+            "lastTimeChecked": 1794949951,
             "possibleDuplicates": [
-              "1a1e5fd72058c22b",
-              "1a1e5c394371dd79"
+              "1a1eb5ab46f9b626",
+              "1a1eb1c128475557",
+              "1a1eb798693feaaf"
             ]
           }
         }
@@ -64904,13 +65014,13 @@
     {
       "id": "rCSzkNNc7hBlt4bF",
       "name": "Dados Painel Score Cliente - Thiago",
-      "active": false,
-      "activeVersionId": null,
+      "active": true,
+      "activeVersionId": "f7b202ca-ceff-49ae-9687-b520631dded8",
       "createdAt": "2026-10-27T08:08:35.461Z",
       "updatedAt": "2026-11-10T12:19:23.809Z",
       "isArchived": false,
       "versionId": "f7b202ca-ceff-49ae-9687-b520631dded8",
-      "triggerCount": 0,
+      "triggerCount": 1,
       "nodes": [
         {
           "parameters": {
@@ -65281,7 +65391,16 @@
         "executionOrder": "v1",
         "binaryMode": "separate"
       },
-      "staticData": null,
+      "staticData": {
+        "node:Schedule Trigger": {
+          "recurrenceRules": [
+            null
+          ],
+          "recurrenceRuleSignatures": [
+            null
+          ]
+        }
+      },
       "pinData": {},
       "meta": {
         "templateCredsSetupCompleted": true
@@ -65296,7 +65415,382 @@
           "updatedAt": "2026-10-27T08:08:35.467Z"
         }
       ],
-      "activeVersion": null
+      "activeVersion": {
+        "versionId": "f7b202ca-ceff-49ae-9687-b520631dded8",
+        "workflowId": "rCSzkNNc7hBlt4bF",
+        "nodes": [
+          {
+            "parameters": {
+              "rule": {
+                "interval": [
+                  {
+                    "triggerAtHour": 6
+                  }
+                ]
+              }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.4,
+            "position": [
+              -1424,
+              -368
+            ],
+            "id": "9fb0d185-39b1-4ae6-924c-a0341bf1895f",
+            "name": "Schedule Trigger"
+          },
+          {
+            "parameters": {
+              "operation": "executeQuery",
+              "query": "SELECT au.id          AS applabel_user_id,\n       a.slug         AS applabel_slug,\n       a.name         AS applabel_name,\n       au.username,\n       au.is_active,\n       u.id           AS midiacode_user_id,\n       u.email,\n       u.fullname,\n       au.firebase_uid,\n       au.created_at\nFROM apps_applabeluser au\nJOIN apps_applabel a      ON a.id = au.applabel_id\nJOIN core_midiacodeuser u ON u.id = au.midiacode_user_id\nWHERE a.slug = 'midiacode'\nORDER BY au.created_at DESC",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.postgres",
+            "typeVersion": 2.7,
+            "position": [
+              -1232,
+              -240
+            ],
+            "id": "6164591d-7508-470d-a836-0e92342dd9a6",
+            "name": "Execute a SQL query",
+            "executeOnce": true,
+            "credentials": {
+              "postgres": {
+                "id": "17UqFkvSaWuw6juU",
+                "name": "Postgres account"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Score Cliente",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": "gid=0",
+                "mode": "list",
+                "cachedResultName": "Sheet1",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -1216,
+              -432
+            ],
+            "id": "5b45fd5f-4aeb-4576-a1b1-5ca8cce8f410",
+            "name": "Get row(s) in sheet",
+            "executeOnce": true,
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1402a6a7-009b-454c-ba70-2f2cc8542fad",
+                    "leftValue": "={{ $('Execute a SQL query').item.json.created_at }}",
+                    "rightValue": "={{ $('Get row(s) in sheet').item.json.created }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 2.3,
+            "position": [
+              -752,
+              -624
+            ],
+            "id": "82a67e6e-0c49-40e0-9c6b-ec6fb5f9d18b",
+            "name": "If"
+          },
+          {
+            "parameters": {},
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+              -432,
+              -512
+            ],
+            "id": "586c0b75-fcec-4330-a60f-79143286cdca",
+            "name": "No Operation, do nothing"
+          },
+          {
+            "parameters": {
+              "operation": "append",
+              "documentId": {
+                "__rl": true,
+                "value": "[REDACTED]",
+                "mode": "list",
+                "cachedResultName": "Score Cliente",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "sheetName": {
+                "__rl": true,
+                "value": "gid=0",
+                "mode": "list",
+                "cachedResultName": "Sheet1",
+                "cachedResultUrl": "[REDACTED]"
+              },
+              "columns": {
+                "mappingMode": "defineBelow",
+                "value": {
+                  "User_id": "={{ $('Execute a SQL query').item.json.applabel_user_id }}",
+                  "Slug": "={{ $json.applabel_slug }}",
+                  "Name": "={{ $json.applabel_name }}",
+                  "Username": "={{ $json.username }}",
+                  "Is_active": "={{ $json.is_active }}",
+                  "midiacode_user_id": "={{ $json.midiacode_user_id }}",
+                  "email": "={{ $json.email }}",
+                  "fullname": "={{ $json.fullname }}",
+                  "firebase": "={{ $json.firebase_uid }}",
+                  "created": "={{ $json.created_at }}"
+                },
+                "matchingColumns": [],
+                "schema": [
+                  {
+                    "id": "User_id",
+                    "displayName": "User_id",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Slug",
+                    "displayName": "Slug",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Name",
+                    "displayName": "Name",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Username",
+                    "displayName": "Username",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "Is_active",
+                    "displayName": "Is_active",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "midiacode_user_id",
+                    "displayName": "midiacode_user_id",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "email",
+                    "displayName": "email",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "fullname",
+                    "displayName": "fullname",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "firebase",
+                    "displayName": "firebase",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  },
+                  {
+                    "id": "created",
+                    "displayName": "created",
+                    "required": false,
+                    "defaultMatch": false,
+                    "display": true,
+                    "type": "string",
+                    "canBeUsedToMatch": true
+                  }
+                ],
+                "attemptToConvertTypes": false,
+                "convertFieldsToString": false
+              },
+              "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+              -576,
+              -256
+            ],
+            "id": "d30bcade-3a13-41be-b141-1fcaeb2389f7",
+            "name": "Append row in sheet",
+            "credentials": {
+              "googleSheetsOAuth2Api": {
+                "id": "Pq7AiEm7Pa3TvTE4",
+                "name": "Thiago - Google Sheets account 2"
+              }
+            }
+          },
+          {
+            "parameters": {
+              "mergeByFields": {
+                "values": [
+                  {
+                    "field1": "User_id",
+                    "field2": "applabel_user_id"
+                  }
+                ]
+              },
+              "resolve": "preferInput2",
+              "options": {}
+            },
+            "type": "n8n-nodes-base.compareDatasets",
+            "typeVersion": 2.3,
+            "position": [
+              -944,
+              -384
+            ],
+            "id": "31e48ea6-12a2-4c6c-af81-d9238dee1679",
+            "name": "Compare Datasets"
+          }
+        ],
+        "connections": {
+          "Schedule Trigger": {
+            "main": [
+              [
+                {
+                  "node": "Execute a SQL query",
+                  "type": "main",
+                  "index": 0
+                },
+                {
+                  "node": "Get row(s) in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Get row(s) in sheet": {
+            "main": [
+              [
+                {
+                  "node": "Compare Datasets",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          },
+          "Execute a SQL query": {
+            "main": [
+              [
+                {
+                  "node": "Compare Datasets",
+                  "type": "main",
+                  "index": 1
+                }
+              ]
+            ]
+          },
+          "If": {
+            "main": [
+              [],
+              []
+            ]
+          },
+          "Compare Datasets": {
+            "main": [
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "No Operation, do nothing",
+                  "type": "main",
+                  "index": 0
+                }
+              ],
+              [
+                {
+                  "node": "Append row in sheet",
+                  "type": "main",
+                  "index": 0
+                }
+              ]
+            ]
+          }
+        },
+        "nodeGroups": [],
+        "authors": "Robson Lisboa",
+        "name": "Version f7b202ca",
+        "description": "",
+        "autosaved": true,
+        "createdAt": "2026-11-10T12:19:23.811Z",
+        "updatedAt": "2026-11-17T09:58:21.000Z"
+      }
     },
     {
       "id": "rp1jlS4YnDuCNHW5",
